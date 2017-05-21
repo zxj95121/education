@@ -13,7 +13,7 @@ class SendMessageController extends Controller
      */
     public function index()
     {
-        echo 'SB YangYanqing';
+        echo 'SB YangYanqinga';
     }
 
     /**
