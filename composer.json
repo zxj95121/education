@@ -49,7 +49,7 @@
         "optimize-autoloader": true
     },
     "repositories": [
-        {"type": "composer", "url": "http://pkg.phpcomposer.com/repo/packagist/"},
+        {"type": "composer", "url": "http://pkg.uselaravel.com/repo/packagist/"},
         {"packagist": false}
     ]
 }
