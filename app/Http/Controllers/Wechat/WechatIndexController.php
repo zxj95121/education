@@ -48,7 +48,7 @@ class WechatIndexController extends Controller
         }
     }
 
-    public function responseMsg()
+    private function responseMsg()
     {
         // $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
         $postStr = file_get_contents('php://input');
