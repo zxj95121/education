@@ -13,7 +13,10 @@ class SendMessageController extends Controller
      */
     public function index()
     {
-        echo 'SB YangYanqinga';
+        // echo 'SB YangYanqinga';
+        $url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx54db7ab47eccc1fa&redirect_uri='.urlencode('api.zhangxianjian.com/aaa').'&response_type=code&scope=snsapi_bas
+e&state=123#wechat_redirect';
+echo $url;
     }
 
     /**
