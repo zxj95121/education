@@ -13,12 +13,12 @@ class WechatIndexController extends Controller
 
     public function index()
     {
-        // if (!isset($_GET['echostr'])) {
+        if (!isset($_GET['echostr'])) {
             $this->responseMsg();
-        //     exit;
-        // }else{
-        //     $this->valid();
-        // }
+            exit;
+        }else{
+            $this->valid();
+        }
     }
     
     private function valid()

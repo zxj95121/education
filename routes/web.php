@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/aaa','SendMessageController@index');
-Route::get('/wechatIndex','Wechat\WechatIndexController@index');
+Route::any('/wechatIndex','Wechat\WechatIndexController@index');
