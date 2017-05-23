@@ -29,48 +29,37 @@ class WechatIndexController extends Controller
     private function valid()
     {
         $echoStr = $_GET["echostr"];
-
-        //valid signature , option
         if($this->checkSignature()){
             echo $echoStr;
             exit;
         }
     }
-        
+
     private function checkSignature()
     {
-        // you must define TOKEN by yourself
-        if (!defined("TOKEN")) {
-            throw new Exception('TOKEN is not defined!');
-        }
-        
         $signature = $_GET["signature"];
         $timestamp = $_GET["timestamp"];
         $nonce = $_GET["nonce"];
-                
         $token = TOKEN;
         $tmpArr = array($token, $timestamp, $nonce);
-        // use SORT_STRING rule
-        sort($tmpArr, SORT_STRING);
-        $tmpStr = implode( $tmpArr );
-        $tmpStr = sha1( $tmpStr );
-        
-        if( $tmpStr == $signature ){
+        sort($tmpArr);
+        $tmpStr = implode($tmpArr);
+        $tmpStr = sha1($tmpStr);
+
+        if($tmpStr == $signature){
             return true;
         }else{
             return false;
         }
     }
-    
+
     public function responseMsg()
     {
-        $postStr=file_get_contents("php://input");
-        //$encrypt_type='aes';
-        // $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+        $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
         if (!empty($postStr)){
             $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
             $RX_TYPE = trim($postObj->MsgType);
-            
+
             //用户发送的消息类型判断
             switch (strtolower($RX_TYPE))
             {
@@ -81,7 +70,7 @@ class WechatIndexController extends Controller
                     $result = $this->receiveText($postObj);
                     break;
                 case "image":
-                    $result = $this->receiveImage($postObj);
+                    $result = $this->receiveImage1($postObj);
                     break;
                 case "voice":
                     $result = $this->receiveText($postObj);
@@ -93,14 +82,8 @@ class WechatIndexController extends Controller
                     $result = "unknow msg type: ".$RX_TYPE;
                     break;
             }
-            //加密
-            /*if ($encrypt_type == 'aes'){
-                $encryptMsg = ''; //加密后的密文
-                $errCode = $pc->encryptMsg($result, $timeStamp, $nonce, $encryptMsg);
-                $result = $encryptMsg;
-            }*/
-            
             echo $result;
+            
         }else {
             echo "";
             exit;
@@ -111,66 +94,27 @@ class WechatIndexController extends Controller
         switch(strtolower($object->Event))
         {
             case "subscribe":
-            $content="欢迎关注！";
-            $result = $this->transmitText($object, $content);
+            $content[] = array("Title"=>"【1】分组  笑话  信步校园  天气查询  星座
+【2】答题  宿管投票  微访谈  游戏 
+【3】备注  天气查询  历史上的今天
+
+ 快快邀请身边同学关注，一起走进微师大吧！
+ 回复对应数字查看使用方法
+ 发送 0 返回本菜单", 
+                               "Description"=>"",
+                               "PicUrl"=>"",
+                               "Url" =>""
+                              );
+            $result = $this->transmitNews($object, $content);
             break;
             case "unsubscribe":
-            break;
-            case "SCAN":
-            $content = "扫描";
-            $result = $this->transmitText($object, $content);
-            break;
-            case 'location':
-            $data['FromUserName'] = $object->FromUserName;
-            $data['ToUserName'] = $object->ToUserName;
-            $data['CreateTime'] = $object->CreateTime;
-            $data['Latitude'] = $object->Latitude;
-            $data['Longitude'] = $object->Longitude;
-            $data['Precision'] = $object->Precision;
-            $this->db->insert('wechat_location',$data);
-            $file=$_SERVER['DOCUMENT_ROOT'].'weixin/public/1.txt';
-            file_put_contents($file, $content);
-            return 'success';
             break;
             case "click":
                 switch($object->EventKey)
                 {  
-                    case "新游戏":
-                        include('./game/main.php');
-                        $shop=new Shop('开始游戏');
-                        $result = $this->transmitText($object,$shop->deal($object->FromUserName));
-                    break;
-                    case "下一周":
-                        include('./game/main.php');
-                        $shop=new Shop('下一周');
-                        $result = $this->transmitText($object,$shop->deal($object->FromUserName));
-                    break;
-                    case "代金券":
-                        include('./game/main.php');
-                        $shop=new Shop('');
-                        $result = $this->transmitText($object,$shop->cx_djq($object->FromUserName));
-                    break;
-                    case "最高分":
-                        include('./game/main.php');
-                        $shop=new Shop('');
-                        $result = $this->transmitText($object,$shop->cx_money($object->FromUserName));
-                    break;
-                    case "times":
-                        include('./game/main.php');
-                        $shop=new Shop('');
-                        $result = $this->transmitText($object,$shop->cx_times($object->FromUserName));
-                    break;
-                    case "":
-                        $contentStr[] = array(
-                            "Title" => "",
-                            "Description" => "",
-                            "PicUrl" =>"",
-                            "Url" =>""                  
-                        );
-                            $result=$this->transmitNews($object,$contentStr);
+                    case '1':
+                        $a = 1;
                         break;
-                    default:
-                    break;
                 }
                 break;
             default:break;
@@ -181,13 +125,33 @@ class WechatIndexController extends Controller
     private function receiveText($object)
     {
         $keyword=$object->Content;
-        $openid=$object->FromUserName;
-        if($keyword=='SB')
-            $content=date('Y-m-d H:i:s',time());
+        if(strstr($keyword,"在么？") ||strstr($keyword,"有人么？")||strstr($keyword,"在？")||strstr($keyword,"有人么"))
+        {
+            $result = $this->transmitKefu($object);
+            return $result;
+        }
+        else if(strpos($keyword,"父亲")!==false)
+        {
+            $content="·   |那是我小时侯
+·   |常坐在父亲肩头
+送|父亲是儿那登天的梯
+给|父亲是那拉车的牛
+亲|忘不了粗茶淡饭将我养大
+爱|忘不了一声长叹半壶老酒
+的|等我长大后
+老|山里孩子往外走
+爸|想儿时一封家书千里循叮嘱
+·   |盼儿归一袋闷烟满天数星斗
+·   |都说养儿能防老
+节|可儿山高水远他乡留
+日|都说养儿为防老
+快|可你再苦再累不张口
+乐|儿只有轻歌一曲和泪唱
+·   |愿天下父母平安渡春秋";
+            $result = $this->transmitText($object, $content); 
+        }
         else
-            $content=$keyword;
-        $content = $object->FromUserName;
-        $result = $this->transmitText($object,$content);
+            $result = $this->transmitText($object, $content);
         return $result;
     }
     
@@ -203,7 +167,7 @@ class WechatIndexController extends Controller
     {
         //回复语音消息 
         $content = array("MediaId"=>$object->MediaId);
-        $result = $this->transmitVoice($object, $content);
+        $result = $this->transmitVoice($object, $content);;
         return $result;
     }
 
@@ -218,14 +182,14 @@ class WechatIndexController extends Controller
     /*
      * 回复文本消息
      */
-    private function transmitKefu($object)
+private function transmitKefu($object)
     {
-        $textTpl = "<xml>
-        <ToUserName><![CDATA[%s]]></ToUserName>
-        <FromUserName><![CDATA[%s]]></FromUserName>
-        <CreateTime>%s</CreateTime>
-        <MsgType><![CDATA[transfer_customer_service]]></MsgType>
-        </xml>";
+    $textTpl = "<xml>
+    <ToUserName><![CDATA[%s]]></ToUserName>
+    <FromUserName><![CDATA[%s]]></FromUserName>
+    <CreateTime>%s</CreateTime>
+    <MsgType><![CDATA[transfer_customer_service]]></MsgType>
+</xml>";
         $result = sprintf($textTpl, $object->FromUserName, $object->ToUserName, time());
         return $result;
     }
@@ -382,20 +346,6 @@ $item_str
         $word = array('微笑','伤心','美女','发呆','墨镜','哭','羞','哑','睡','哭','囧','怒','调皮','笑','惊讶','难过','酷','汗','抓狂','吐','笑','快乐','奇','傲','饿','累','吓','汗','高兴','闲','努力','骂','疑问','秘密','乱','疯','哀','鬼','打击','bye','汗','抠','鼓掌','糟糕','恶搞','什么','什么','累','看','难过','难过','坏','亲','吓','可怜','刀','水果','酒','篮球','乒乓','咖啡','美食','动物','鲜花','枯','唇','爱','分手','生日','电','炸弹','刀','足球','虫','臭','月亮','太阳','礼物','伙伴','赞','差','握手','优','恭','勾','顶','坏','爱','不','好的','爱','吻','跳','怕','尖叫','圈','拜','回头','跳','天使','激动','舞','吻','瑜伽','太极');
         $content = str_replace($face, $word, $message);
         return $content;
-    }
-    private function https_request($url, $data = null){
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
-        if (!empty($data)){
-            curl_setopt($curl, CURLOPT_POST, 1);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-        }
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        $output = curl_exec($curl);
-        curl_close($curl);
-        return $output;
     }
 
 }
