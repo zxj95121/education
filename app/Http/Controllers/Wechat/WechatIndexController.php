@@ -121,29 +121,9 @@ class WechatIndexController extends Controller
     private function receiveText($object)
     {
         $keyword=$object->Content;
-        if(strstr($keyword,"在么？") ||strstr($keyword,"有人么？")||strstr($keyword,"在？")||strstr($keyword,"有人么"))
+        if(strpos($keyword,"父亲")!==false)
         {
-            $result = $this->transmitKefu($object);
-            return $result;
-        }
-        else if(strpos($keyword,"父亲")!==false)
-        {
-            $content="·   |那是我小时侯
-·   |常坐在父亲肩头
-送|父亲是儿那登天的梯
-给|父亲是那拉车的牛
-亲|忘不了粗茶淡饭将我养大
-爱|忘不了一声长叹半壶老酒
-的|等我长大后
-老|山里孩子往外走
-爸|想儿时一封家书千里循叮嘱
-·   |盼儿归一袋闷烟满天数星斗
-·   |都说养儿能防老
-节|可儿山高水远他乡留
-日|都说养儿为防老
-快|可你再苦再累不张口
-乐|儿只有轻歌一曲和泪唱
-·   |愿天下父母平安渡春秋";
+            $content="愿天下父母平安渡春秋";
             $result = $this->transmitText($object, $content); 
         }
         else
@@ -197,8 +177,9 @@ private function transmitKefu($object)
 <CreateTime>%s</CreateTime>
 <MsgType><![CDATA[text]]></MsgType>
 <Content><![CDATA[%s]]></Content>
+<MsgId>%s</MsgId>
 </xml>";
-        $result = sprintf($textTpl, $object->FromUserName, $object->ToUserName, time(), $content);
+        $result = sprintf($textTpl, $object->FromUserName, $object->ToUserName, time(), $content, $object->MsgId);
         return $result;
     }
     
