@@ -39,7 +39,7 @@ class WechatIndexController extends Controller
         $signature = $_GET["signature"];
         $timestamp = $_GET["timestamp"];
         $nonce = $_GET["nonce"];
-        $token = TOKEN;
+        $token = 'wechat';
         $tmpArr = array($token, $timestamp, $nonce);
         sort($tmpArr);
         $tmpStr = implode($tmpArr);
