@@ -52,7 +52,8 @@ class WechatIndexController extends Controller
 
     public function responseMsg()
     {
-        $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+        // $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+        $postStr = file_get_contents('php://input');
         if (!empty($postStr)){
             $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
             $RX_TYPE = trim($postObj->MsgType);
