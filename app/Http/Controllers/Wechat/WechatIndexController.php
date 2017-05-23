@@ -13,8 +13,6 @@ class WechatIndexController extends Controller
 
     public function index()
     {
-        
-        define("EncodingAESKey", "Pex9yqGKjNAT1qUMtnuLb3i75v4WYHOPwfYPfeWfDVt");
         if (!isset($_GET['echostr'])) {
             $this->responseMsg();
             exit;
@@ -149,7 +147,7 @@ class WechatIndexController extends Controller
             $result = $this->transmitText($object, $content); 
         }
         else
-            $result = $this->transmitText($object, $content);
+            $result = $this->transmitText($object, 'SB');
         return $result;
     }
     
