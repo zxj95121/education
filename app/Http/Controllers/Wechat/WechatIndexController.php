@@ -10,9 +10,7 @@ use App\Http\Controllers\Wechat\MsgCrypt;
 class WechatIndexController extends Controller
 {
 	/*接受公众平台消息主PHP文件*/
-	public function __construct(){
-        parent::__construct();
-    }
+
     public function index()
     {
         
