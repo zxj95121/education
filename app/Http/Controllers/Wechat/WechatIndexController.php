@@ -177,9 +177,8 @@ private function transmitKefu($object)
 <CreateTime>%s</CreateTime>
 <MsgType><![CDATA[text]]></MsgType>
 <Content><![CDATA[%s]]></Content>
-<MsgId>%s</MsgId>
 </xml>";
-        $result = sprintf($textTpl, $object->FromUserName, $object->ToUserName, time(), $content, $object->MsgId);
+        $result = sprintf($textTpl, $object->FromUserName, $object->ToUserName, time(), $content);
         return $result;
     }
     
