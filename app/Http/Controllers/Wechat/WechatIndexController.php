@@ -120,10 +120,10 @@ class WechatIndexController extends Controller
     
     private function receiveText($object)
     {
-        $keyword=$object->Content;
-        if(strpos($keyword,"父亲")!==false)
+        $keyword = $object->Content;
+        if('SB')
         {
-            $content="愿天下父母平安渡春秋";
+            $content = "愿天下父母平安渡春秋";
             $result = $this->transmitText($object, $content); 
         }
         else
