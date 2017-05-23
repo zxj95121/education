@@ -16,7 +16,7 @@ class WechatIndexController extends Controller
     public function index()
     {
         define("TOKEN", "wechat");
-        define("AppID", SUBID);
+        define("AppID", 'wx54db7ab47eccc1fa');
         define("EncodingAESKey", "Pex9yqGKjNAT1qUMtnuLb3i75v4WYHOPwfYPfeWfDVt");
         if (!isset($_GET['echostr'])) {
             $this->responseMsg();
