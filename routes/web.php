@@ -18,7 +18,7 @@ Route::get('/aaa','SendMessageController@index');
 
 /*前台错误指向地址*/
 Route::get('/front/error_403',function(){
-	echo '访问被禁止';
+	echo '访问被禁止了';
 });
 
 /*微信接入主程序*/
