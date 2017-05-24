@@ -11,9 +11,10 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
 });
 Route::get('/aaa','SendMessageController@index');
 Route::any('/wechatIndex','Wechat\WechatIndexController@index');
 Route::get('/admin/dashboard','Admin\HomeController@index');
+Route::get('/admin/login','Admin\HomeController@login');
