@@ -56,6 +56,8 @@ Route::group(['prefix' => 'front','namespace' => 'Front'], function ($router) {
     $router->get('/oauth','OauthController@index');
     /*验证码GD*/
     $router->get('/getNumberImage','ImageBuilderController@getNumberImage');
+
+    $router->get('/home','HomeController@index');
 });
 
 
