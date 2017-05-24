@@ -3,10 +3,11 @@
 namespace App\Http\Middleware;
 
 use Closure;
+
 use Session;
 use Request;
 
-class CheckAdmin
+class CheckFront
 {
     /**
      * Handle an incoming request.
@@ -17,12 +18,12 @@ class CheckAdmin
      */
     public function handle($request, Closure $next)
     {
-        if(Session::get('admin_id'))
+        if(Session::get('front_id'))
             return $next($request);
-        else if (Request::is('admin/login')) {
+        else if (Request::is('front/error_403')) {
             return $next($request);
         } else {
-            return redirect('admin/login');
+            return redirect('front/error_403');
         }
     }
 }

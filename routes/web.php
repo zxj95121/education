@@ -15,11 +15,25 @@
 Route::get('/', function () {
 });
 Route::get('/aaa','SendMessageController@index');
-Route::any('/wechatIndex','Wechat\WechatIndexController@index');
-// Route::->middleware(CheckAdmin::handle());
-// Route::get('/admin/login','Admin\HomeController@login');
 
-Route::group(['middleware' => ['admin']], function ($router) {
-    $router->get('/admin/dashboard','Admin\HomeController@index');
-    $router->get('/admin/login','Admin\HomeController@login');;
+/*前台错误指向地址*/
+Route::get('/front/error_403','SendMessageController@index');
+
+/*微信接入主程序*/
+Route::any('/wechatIndex','Wechat\WechatIndexController@index');
+
+
+/*管理后台组*/
+Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin']], function ($router) {
+    $router->get('/dashboard','HomeController@index');
+    $router->get('/login','HomeController@login');;
+});
+
+/*微信用户展示（不需要身份的路由放这里）*/
+Route::group(['prefix' => 'front','namespace' => 'Front'], function ($router) {
+    $router->get('/oauth','OauthController@index');
+});
+/*微信用户展示（需要身份的路由放这里）*/
+Route::group(['prefix' => 'front','namespace' => 'Front','middleware'=>['front']], function ($router) {
+    $router->get('/oauth2','OauthController@index2');
 });
