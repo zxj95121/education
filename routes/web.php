@@ -11,9 +11,15 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
 });
 Route::get('/aaa','SendMessageController@index');
 Route::any('/wechatIndex','Wechat\WechatIndexController@index');
-Route::get('/admin/dashboard','Admin\HomeController@index');
+// Route::->middleware(CheckAdmin::handle());
+// Route::get('/admin/login','Admin\HomeController@login');
+
+Route::group(['middleware' => ['admin']], function ($router) {
+    $router->get('/admin/dashboard','Admin\HomeController@index');
+    $router->get('/admin/login','Admin\HomeController@login');;
+});
