@@ -31,7 +31,10 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
 
 /*微信用户展示（不需要身份的路由放这里）*/
 Route::group(['prefix' => 'front','namespace' => 'Front'], function ($router) {
+	/*网页授权*/
     $router->get('/oauth','OauthController@index');
+    /*验证码GD*/
+    $router->get('/getNumberImage','ImageBuilderController@getNumberImage');
 });
 /*微信用户展示（需要身份的路由放这里）*/
 Route::group(['prefix' => 'front','namespace' => 'Front','middleware'=>['front']], function ($router) {
