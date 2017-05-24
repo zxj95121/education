@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Libraries\Wechat;
 
 class SendMessageController extends Controller
 {
@@ -13,6 +14,7 @@ class SendMessageController extends Controller
      */
     public function index()
     {
+        Wechat::curl();
         echo session('number_image');
         echo '<img src="'.'fadsf'.'" />';
     }
