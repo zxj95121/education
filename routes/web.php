@@ -58,6 +58,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front'], function ($router) {
     $router->get('/getNumberImage','ImageBuilderController@getNumberImage');
 
     $router->get('/home','HomeController@index');
+    /*用户身份绑定*/
     $router->get('/register','LoginController@register');
 });
 
