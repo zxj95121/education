@@ -1,3 +1,4 @@
+<!-- 相当于替换这个 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +6,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <title>WeUI</title>
     <!-- 引入 WeUI -->
-    <link rel="stylesheet" href="../style/weui.css"/>
-    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.css"/>
-    <script src="zepto.min.js" type="text/javascript"></script>
-    <script src="vipspa-master/src/vipspa.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/css/weui.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <script src="/js/zepto.min.js" type="text/javascript"></script>
+    <script src="/js/vipspa.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
             $('.weui-label').css({
@@ -23,19 +24,19 @@
                     view: '#ui-view',
                     router: {
                         'me': {
-                            templateUrl: 'views/me.html',
+                            templateUrl: 'views/me.blade.php',
                             controller: 'js/app/me.js'
                         },
                         'message': {
-                            templateUrl: 'views/message.html',
+                            templateUrl: 'views/message.blade.php',
                             controller: 'js/app/message.js'
                         },
                         'search': {
-                            templateUrl: 'views/search.html',
+                            templateUrl: 'views/search.blade.php',
                             controller: 'js/app/search.js'
                         },
                         'weixin': {
-                            templateUrl: 'views/weixin.html',
+                            templateUrl: 'views/weixin.blade.php',
                             controller: 'js/app/weixin.js'
                         },
                         'defaults': 'me' //默认路由
@@ -48,9 +49,9 @@
     </script>
 </head>
 <body>
-    <!-- 暂且隐藏 先编写路由
-        <div id="login"></div>
-    -->
+<p style="font-size:60px;font-weight: bold;">SB</p>
 
 </body>
 </html>
+
+<!-- 然后index继承的，相当于就是index现在就是这个样子的没了 -->
