@@ -51,7 +51,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front'], function ($router) {
 /*-------------*/
 
 /*微信用户展示（需要微信但不需要系统身份的路由放这里）*/
-Route::group(['prefix' => 'front','namespace' => 'Front'],'middleware' =>['wechat'], function ($router) {
+Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => 'wechat'], function ($router) {
     /*用户身份绑定*/
     $router->get('/register','LoginController@register');
     $router->get('/register/checkImageNumber','LoginController@checkImageNumber');
