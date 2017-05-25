@@ -60,6 +60,8 @@ Route::group(['prefix' => 'front','namespace' => 'Front'], function ($router) {
     $router->get('/home','HomeController@index');
     /*用户身份绑定*/
     $router->get('/register','LoginController@register');
+    $router->get('/register/getPhoneCode','LoginController@phoneCode');
+    $router->get('/register/checkPhoneCode','LoginController@checkPhoneCode');
 });
 
 
