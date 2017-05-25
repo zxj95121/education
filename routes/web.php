@@ -24,15 +24,9 @@ Route::get('/front/error_403',function(){
 /*微信接入主程序*/
 Route::any('/wechatIndex','Wechat\WechatIndexController@index');
 
-/*
-   ______
-  / ____/___  ____ ___  ____  ____  ________  _____
- / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
-/ /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
-\____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
-                    /_/
 
-*/
+/*----------------------------------------------------------------*/
+
 
 /*管理后台组*/
 Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin']], function ($router) {
@@ -40,32 +34,33 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->get('/login','HomeController@login');;
 });
 
-/*
-   ______
-  / ____/___  ____ ___  ____  ____  ________  _____
- / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
-/ /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
-\____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
-                    /_/
 
-*/
+/*----------------------------------------------------------------*/
 
-/*微信用户展示（不需要身份的路由放这里）*/
+
+/*用户端不需要微信身份的路由放这*/
 Route::group(['prefix' => 'front','namespace' => 'Front'], function ($router) {
-	/*网页授权*/
+    /*网页授权*/
     $router->get('/oauth','OauthController@index');
     /*验证码GD*/
     $router->get('/getNumberImage','ImageBuilderController@getNumberImage');
 
-    $router->get('/home','HomeController@index');
-    /*用户身份绑定*/
-    $router->get('/register','LoginController@register');
-    $router->get('/register/getPhoneCode','LoginController@phoneCode');
-    $router->get('/register/checkPhoneCode','LoginController@checkPhoneCode');
+     $router->get('/home','HomeController@index');
 });
 
+/*-------------*/
 
-/*微信用户展示（需要身份的路由放这里）*/
+/*微信用户展示（需要微信但不需要系统身份的路由放这里）*/
+Route::group(['prefix' => 'front','namespace' => 'Front'],'middleware' =>['wechat'], function ($router) {
+    /*用户身份绑定*/
+    $router->get('/register','LoginController@register');
+    $router->get('/register/checkImageNumber','LoginController@checkImageNumber');
+    $router->get('/register/confirm','LoginController@confirm');
+});
+
+/*-------------*/
+
+/*微信用户展示（需要系统身份的路由放这里）*/
 Route::group(['prefix' => 'front','namespace' => 'Front','middleware'=>['front']], function ($router) {
     $router->get('/oauth2','OauthController@index2');
 });

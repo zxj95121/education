@@ -58,5 +58,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'admin' => \App\Http\Middleware\CheckAdmin::class,
         'front' => \App\Http\Middleware\CheckFront::class,
+        'wechat' => \App\Http\Middleware\CheckWechat::class,
     ];
 }
