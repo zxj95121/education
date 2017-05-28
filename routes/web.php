@@ -13,6 +13,7 @@
 
 
 Route::get('/', function () {
+    return redirect('/admin/dashboard');
 });
 Route::get('/aaa','SendMessageController@index');
 
@@ -29,7 +30,7 @@ Route::any('/wechatIndex','Wechat\WechatIndexController@index');
 
 
 /*管理后台组*/
-Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin']], function ($router) {
+Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin','domainAdmin']], function ($router) {
     $router->get('/dashboard','HomeController@index');
     $router->get('/login','HomeController@login');;
 });
@@ -39,7 +40,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
 
 
 /*用户端不需要微信身份的路由放这*/
-Route::group(['prefix' => 'front','namespace' => 'Front'], function ($router) {
+Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domainFront']], function ($router) {
     /*网页授权*/
     $router->get('/oauth','OauthController@index');
     /*验证码GD*/
@@ -51,7 +52,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front'], function ($router) {
 /*-------------*/
 
 /*微信用户展示（需要微信但不需要系统身份的路由放这里）*/
-Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => 'wechat'], function ($router) {
+Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wechat','domainFront']], function ($router) {
     /*用户身份绑定*/
     $router->get('/register','LoginController@register');
     $router->get('/register/checkImageNumber','LoginController@checkImageNumber');
@@ -61,6 +62,6 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => 'wechat
 /*-------------*/
 
 /*微信用户展示（需要系统身份的路由放这里）*/
-Route::group(['prefix' => 'front','namespace' => 'Front','middleware'=>['front']], function ($router) {
+Route::group(['prefix' => 'front','namespace' => 'Front','middleware'=>['front','domainFront']], function ($router) {
     $router->get('/oauth2','OauthController@index2');
 });

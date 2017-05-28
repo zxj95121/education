@@ -59,5 +59,7 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\CheckAdmin::class,
         'front' => \App\Http\Middleware\CheckFront::class,
         'wechat' => \App\Http\Middleware\CheckWechat::class,
+        'domainFront' => \App\Http\Middleware\CheckDomainNameFront::class,
+        'domainAdmin' => \App\Http\Middleware\CheckDomainNameAdmin::class,
     ];
 }
