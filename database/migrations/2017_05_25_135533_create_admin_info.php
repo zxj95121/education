@@ -30,7 +30,7 @@ class CreateAdminInfo extends Migration
 
         Schema::create('admin_scan_login', function (Blueprint $table) {
             $table->increments('id')->comment('自增ID');
-            $table->integer('admin_id')->comment('管理员ID');
+            $table->integer('admin_id')->default('0')->comment('管理员ID');
             $table->string('scan_url')->comment('图片路径');
             $table->string('status')->default('1')->comment('图片状态，1表示正在用未扫码，2表示正在用，已扫码3表示正在用已成功输入密码，操作完成。');
             $table->timestamps();
