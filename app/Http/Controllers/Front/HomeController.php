@@ -16,6 +16,6 @@ class HomeController extends Controller
     /*进行网址跳转*/
     public function oauth()
     {
-    	Oauth::getUrl(1);
+    	return redirect(Oauth::getUrl(1));
     }
 }
