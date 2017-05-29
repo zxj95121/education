@@ -1,4 +1,18 @@
-<div class="weui-tabbar">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>WeUI</title>
+    <!-- 引入 WeUI -->
+    <link rel="stylesheet" href="/css/weui.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <script src="/js/zepto.min.js" type="text/javascript"></script>
+    <script src="/js/vipspa.js" type="text/javascript"></script>
+    
+</head>
+<body>
+    <div class="weui-tabbar">
     <a href="#weixin" class="weui-tabbar__item weui-bar__item_on">
                     <span style="display: inline-block;position: relative;">
                         <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
@@ -19,18 +33,8 @@
     </a>
     <a href="#me" class="weui-tabbar__item">
         <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-        <p class="weui-tabbar__label">我</p>
+        <p class="weui-tabbar__label">我1</p>
     </a>
 </div>
-
-<div id="ui-view"></div>
-
-<script type="text/html" id="error">
-    <!--可以自定义错误信息,可选，定义一些404页面等-->
-    <div>
-        {{errStatus}}
-    </div>
-    <div>
-        {{errContent}}
-    </div>
-</script>
+</body>
+</html>

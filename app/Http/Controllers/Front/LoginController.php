@@ -12,7 +12,7 @@ class LoginController extends Controller
 {
 	/*账号绑定*/
     public function register(){
-    	return view('admin.login');
+    	return view('front.views.index');
     }
 
     /*进行发送手机验证码*/
