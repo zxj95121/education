@@ -22,7 +22,7 @@ class CheckWechat
         else if (Request::is('front/error_403')) {
             return $next($request);
         } else {
-            return redirect('front/error_403?a='.$request->session('openid'));
+            return redirect('front/error_403');
         }
     }
 }

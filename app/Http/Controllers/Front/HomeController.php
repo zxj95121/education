@@ -12,10 +12,4 @@ class HomeController extends Controller
     {
     	return view('front.views.index');
     }
-
-    /*进行网址跳转*/
-    public function oauth()
-    {
-    	return redirect(OauthController::getUrl(1));
-    }
 }

@@ -17,7 +17,7 @@ class CheckAdmin
      */
     public function handle($request, Closure $next)
     {
-        if(Session::get('admin_id'))
+        if($request->session('admin_id'))
             return $next($request);
         else if (Request::is('admin/login')) {
             return $next($request);
