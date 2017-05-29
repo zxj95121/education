@@ -15,7 +15,7 @@ class CreateUserStudentsAndTeacherInfo extends Migration
     {
         Schema::create('parent_info', function (Blueprint $table) {
             $table->increments('id')->comment('自增ID');
-            $table->string('openid')->unique()->comment('用户openid,唯一索引');
+            $table->string('openid', 255)->unique()->comment('用户openid,唯一索引');
             $table->integer('profile_id')->nullable()->comment('个人提供审核的资料ID');
             $table->string('phone', 12)->comment('11位手机号');
             $table->string('name', 48)->comment('家长昵称，默认存微信昵称,48字符以内');
@@ -29,7 +29,7 @@ class CreateUserStudentsAndTeacherInfo extends Migration
         /*教师信息表*/
         Schema::create('teacher_info', function (Blueprint $table) {
             $table->increments('id')->comment('自增ID');
-            $table->string('openid')->unique()->comment('用户openid,唯一索引');
+            $table->string('openid', 255)->unique()->comment('用户openid,唯一索引');
             $table->integer('profile_id')->nullable()->comment('个人提供审核的资料ID');
             $table->string('phone', 12)->comment('11位手机号');
             $table->string('name', 48)->comment('教师昵称，默认存微信昵称,48字符以内');

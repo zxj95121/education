@@ -15,7 +15,7 @@ class CreateAdminInfo extends Migration
     {
         Schema::create('admin_info', function (Blueprint $table) {
             $table->increments('id')->comment('自增ID');
-            $table->string('openid')->unique()->comment('用户openid,唯一索引');
+            $table->string('openid', 255)->unique()->comment('用户openid,唯一索引');
             $table->string('nickname')->comment('管理员昵称,默认微信昵称');
             $table->string('name')->comment('管理员真实姓名');
             $table->string('phone', 12)->comment('11位手机号');
