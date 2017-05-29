@@ -13,7 +13,7 @@ class Oauth extends Controller
     	* @author 张贤健
     	* 生成要跳转的网站授权地址
     	*/
-    	$url = 'http://'.getenv('SITE_ADMIN').'/oauth/getCode');
+    	$url = 'http://'.getenv('SITE_ADMIN').'/oauth/getCode';
     	if ($scope == 1) {
     		$scope = 'snsapi_userinfo';
     	} else {
