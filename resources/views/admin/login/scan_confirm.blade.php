@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>扫码确认登录</title>
+	<title>扫码安全登录</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
 	<link rel="stylesheet" type="text/css" href="/css/weui.css">
 	<style type="text/css">
+		body{
+			max-width: 500px;
+			margin: 0 auto;
+		}
 		#icon_box{
 			padding: 28px;
 			width: 95%;
