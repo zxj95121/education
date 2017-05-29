@@ -6,12 +6,16 @@
 	<link rel="stylesheet" type="text/css" href="/css/weui.css">
 	<style type="text/css">
 		body{
+			width: 100%;
 			max-width: 500px;
+			margin: 0 auto;
+		}
+		#big{
+			width: 95%;
 			margin: 0 auto;
 		}
 		#icon_box{
 			padding: 28px;
-			width: 95%;
 			text-align: center;
 		}
 		#box_ctn{
@@ -19,31 +23,32 @@
 			padding: 12px;
 		}
 		#div_btn{
-			width: 95%;
 			margin: 5px auto;
 		}
 	</style>
 </head>
 <body>
-    <div class="icon-box" id="icon_box">
-        <i class="weui-icon-waiting weui-icon_msg" id="icon_i"></i>
-        <div class="icon-box__ctn" id="box_ctn">
-            <p class="icon-box__desc">你确认要登录管理后台</p>
-            <p class="icon-box__desc">{{$site_name}}吗？</p>
-        </div>
-    </div>
+	<div id="big">
+	    <div class="icon-box" id="icon_box">
+	        <i class="weui-icon-waiting weui-icon_msg" id="icon_i"></i>
+	        <div class="icon-box__ctn" id="box_ctn">
+	            <p class="icon-box__desc">你确认要登录管理后台</p>
+	            <p class="icon-box__desc">{{$site_name}}吗？</p>
+	        </div>
+	    </div>
 
-    <div class="page__bd page__bd_spacing" id="div_btn">
+	    <div class="page__bd page__bd_spacing" id="div_btn">
 
-        <a href="javascript:;" class="weui-btn weui-btn_primary">确认</a>
+	        <a href="javascript:;" class="weui-btn weui-btn_primary">确认</a>
 
-        <a href="javascript:;" class="weui-btn weui-btn_default">取消</a>
+	        <a href="javascript:;" class="weui-btn weui-btn_default">取消</a>
 
-    </div>
+	    </div>
 
-    <div class="weui-footer">
-	    <p class="weui-footer__text weui-footer_fixed-bottom">{{$phone_footer}}</p>
-       </div>
+	    <div class="weui-footer">
+		    <p class="weui-footer__text weui-footer_fixed-bottom">{{$phone_footer}}</p>
+	    </div>
+	</div>
 	<script type="text/javascript" src="/admin/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
