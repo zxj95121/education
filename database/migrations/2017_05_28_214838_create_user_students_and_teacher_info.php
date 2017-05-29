@@ -21,7 +21,7 @@ class CreateUserStudentsAndTeacherInfo extends Migration
             $table->string('name', 48)->comment('家长昵称，默认存微信昵称,48字符以内');
             $table->string('password')->comment('登录密码（字母数字6-18位）');
             $table->string('headimg')->comment('头像地址,默认微信图像，没有采用系统默认头像');
-            $table->tinyInteger('status')->comment('0表示未认证，1表示已认证，-1表示已删除');
+            $table->tinyInteger('status')->default('0')->comment('0表示未认证，1表示已认证，-1表示已删除');
             $table->integer('count')->default('1')->comment('登录次数');
             $table->timestamps();
         });
@@ -35,7 +35,7 @@ class CreateUserStudentsAndTeacherInfo extends Migration
             $table->string('name', 48)->comment('教师昵称，默认存微信昵称,48字符以内');
             $table->string('password')->comment('登录密码（字母数字6-18位）');
             $table->string('headimg')->comment('头像地址,默认微信图像，没有采用系统默认头像');
-            $table->tinyInteger('status')->comment('0表示未认证，1表示已认证，-1表示已删除');
+            $table->tinyInteger('status')->default('0')->comment('0表示未认证，1表示已认证，-1表示已删除');
             $table->integer('count')->default('1')->comment('登录次数');
             $table->timestamps();
         });

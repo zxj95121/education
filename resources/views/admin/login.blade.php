@@ -26,6 +26,7 @@
         <link href="css/style.css" rel="stylesheet">
         <link href="css/helper.css" rel="stylesheet">
         
+        <link rel="stylesheet" type="text/css" href="/css/weui.css">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
         <!--[if lt IE 9]>
@@ -64,7 +65,7 @@
                    <h3 class="text-center m-t-10"> Sign In to <strong>Velonic</strong> </h3>
                 </div> 
 
-                <div class="panel-body">
+                <div class="panel-body" style="padding-bottom: 0px;max-height: 370px;">
                     <form id="Loginform" class="form-horizontal m-t-10 p-20 p-b-0" action="index.html">
                                             
                         <div class="form-group" id="imgdiv">
@@ -73,16 +74,19 @@
 
                         <div class="form-group" style="text-align: center;">
                             <div class="col-xs-12">
-                                <label class="cr-styled">
+                                <label class="cr-styled" id="please">
                                     请使用管理员微信扫码登陆。
                                 </label>
                             </div>
-                            <div class="js_status" id="js_status" style="display: none;">
-                                <div class="status">
-                                    <i class="icon_qrcode_scan succ"></i>
+                            <div class="col-md-10 col-md-offset-1" id="js_status" style="display: none;">
+                                <div class="row">                                   
                                     <div class="status_txt">
-                                        <h5>扫描成功</h5>
-                                        <p>请在微信上进行后续操作</p>
+                                        <h5><i class="weui-icon-success"></i>扫描成功</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="password" name="password" id="password" class="form-control" placeholder="请输入密码" />
                                     </div>
                                 </div>
                             </div>
@@ -142,6 +146,7 @@
                                 clearInterval(inter);
                                 $('#login_div').css('display', 'block');
                                 $('#js_status').css('display', 'block');
+                                $('#please').css('display', 'none');
                             }
                         }
                     })
