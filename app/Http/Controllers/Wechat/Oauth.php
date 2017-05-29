@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\OauthUrlRedirect;
 
-class Oauth extends Controller
+class OauthController extends Controller
 {
     public static function getUrl($url_id,$scope=1){
     	/**

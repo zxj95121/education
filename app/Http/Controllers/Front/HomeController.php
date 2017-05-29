@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Wechat\Oauth;
+use App\Http\Controllers\Wechat\OauthController;
 
 class HomeController extends Controller
 {
@@ -16,6 +16,6 @@ class HomeController extends Controller
     /*进行网址跳转*/
     public function oauth()
     {
-    	return redirect(Oauth::getUrl(1));
+    	return redirect(OauthController::getUrl(1));
     }
 }
