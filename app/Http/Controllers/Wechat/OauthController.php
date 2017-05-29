@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\OauthUrlRedirect;
 
+use Wechat;
+use Session;
+
 class OauthController extends Controller
 {
     public static function getUrl($url_id,$scope=1){
@@ -30,6 +33,32 @@ class OauthController extends Controller
     }
 
     public function getCode(Request $request){
-    	dd($request->all());
+    	$code = $request->input('code');
+    	$state = $request->input('state');
+    	$id = explode('-', $state)[1];
+
+    	$redirect_url = url('/').OauthUrlRedirect::find($id)->url;
+
+    	$url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.
+    		getenv('APPID').'&secret='.
+    		getenv('APPSECRET').'&code='.
+    		$code.'&grant_type=authorization_code';
+
+    	$data = Wechat::curl($url);
+
+    	if (isset($data['access_token'])){
+    		/*通过code获取到信息了*/
+    		$access_token = $data['access_token'];
+    		$openid = $data['openid'];
+    		session::put('openid');
+    		return redirect($redirect_url);
+    	} else if(isset(isset($data['openid'])) {
+    		//静默授权进来的
+    		$openid = $data['openid'];
+    		Session::put('openid', $openid);
+    		return redirect($redirect_url);
+    	} else {
+    		return redirect('/front/error_403');
+    	}
     }
 }
