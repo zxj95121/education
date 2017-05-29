@@ -21,6 +21,13 @@ Route::get('/front/error_403',function(){
 	echo '访问被禁止了';
 });
 
+Route::get('/html/{name}',function($name){
+    return redirect('/html?res='.$name);
+});
+Route::get('/html', 'HtmlController@index');
+
+
+//<!------------Wechat文件夹----------------------->
 /*微信接入主程序*/
 Route::any('/wechatIndex', 'Wechat\WechatIndexController@index');
 
