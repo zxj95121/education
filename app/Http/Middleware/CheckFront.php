@@ -18,7 +18,7 @@ class CheckFront
      */
     public function handle($request, Closure $next)
     {
-        if($request->session('front_id'))
+        if($request->session()->get('front_id'))
             return $next($request);
         else if (Request::is('front/error_403')) {
             return $next($request);
