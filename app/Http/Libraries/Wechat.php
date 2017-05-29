@@ -1,7 +1,9 @@
 <?php
 namespace App\Http\Libraries;
 
-class Wechat
+use Illuminate\Support\ServiceProvider;
+
+class Wechat extends ServiceProvider
 {
 	/**
 	* @author 张贤健
