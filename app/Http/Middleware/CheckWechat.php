@@ -17,12 +17,12 @@ class CheckWechat
      */
     public function handle($request, Closure $next)
     {
-        if($request->session()->get('openid'))
+        if($request->session('openid'))
             return $next($request);
         else if (Request::is('front/error_403')) {
             return $next($request);
         } else {
-            return redirect('front/error_403?a='.$request->session()->get('openid', ''));
+            return redirect('front/error_403?a='.$request->session('openid'));
         }
     }
 }
