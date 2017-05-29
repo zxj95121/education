@@ -17,7 +17,7 @@ class CheckWechat
      */
     public function handle($request, Closure $next)
     {
-        if(Session::has('openid'))
+        if(session('openid'))
             return $next($request);
         else if (Request::is('front/error_403')) {
             return $next($request);
