@@ -15,7 +15,6 @@
 Route::get('/', function () {
     return redirect('/admin/dashboard');
 });
-Route::get('/aaa','SendMessageController@index');
 
 /*前台错误指向地址*/
 Route::get('/front/error_403',function(){
@@ -28,11 +27,17 @@ Route::any('/wechatIndex','Wechat\WechatIndexController@index');
 
 /*----------------------------------------------------------------*/
 
+/*管理后台组*/
+Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['domainAdmin']], function ($router) {
+    /*登录部分*/
+    $router->post('/login_scanok','HomeController@scanok');
+});
 
 /*管理后台组*/
 Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin','domainAdmin']], function ($router) {
     $router->get('/dashboard','HomeController@index');
-    $router->get('/login','HomeController@login');;
+    /*登录部分*/
+    $router->get('/login','HomeController@login');
 });
 
 
