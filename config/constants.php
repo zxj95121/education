@@ -11,5 +11,5 @@ return [
     */
 
     'site_name' => '加辰教育定制',
-
+    'phone_footer' => 'Copyright © 2013-2017 zhangxianjian.com',
 ];
