@@ -17,7 +17,7 @@ class CreateOauthUrlRedirect extends Migration
             $table->increments('id')->comment('自增ID,进行网页授权时候加前缀url');
             $table->string('url')->comment('要跳转的url路径');
             $table->string('scope')->default('snsapi_userinfo')->comment('授权方式，默认为需要用户主动确认');
-            $table->tinyInteger('status')->default('1')->comment('1表示可用');
+            $table->tinyInteger('status')->default('1')->comment('1表示用户端域名，2表示后端域名');
             $table->timestamps();
         });
     }

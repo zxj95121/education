@@ -37,7 +37,13 @@ class OauthController extends Controller
     	$state = $request->input('state');
     	$id = explode('-', $state)[1];
 
-    	$redirect_url = url('/').OauthUrlRedirect::find($id)->url;
+    	$flight = OauthUrlRedirect::find($id);
+
+    	if ($flight->status == 1) {
+    		$redirect_url = 'http://'.getenv('SITE_FRONT').$flight->url;
+    	} else {
+    		$redirect_url = 'http://'.getenv('SITE_ADMIN').$flight->url;
+    	}
 
     	$url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.
     		getenv('APPID').'&secret='.
