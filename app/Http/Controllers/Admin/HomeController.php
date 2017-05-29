@@ -20,7 +20,6 @@ class HomeController extends Controller
     public function login()
     {
     	/*访问，是否要生成二维码*/
-    	// QrCode::format('png')->size(200)->generate(url('/'), public_path('admin/images/login_qrcode/'.time().'.png'));
     	$processEnd = AdminScanLogin::where('status', '3')
     		->select('id', 'scan_url')
     		->get();
@@ -34,7 +33,7 @@ class HomeController extends Controller
     			/*也没有过期的*/
     			$rand = date('YmdHis').'_'.rand(1000,9999).'.png';
     			$path = 'admin/images/login_qrcode/'.$rand;
-    			QrCode::format('png')->size(200)->generate(url('/'), public_path($path));
+    			QrCode::format('png')->size(200)->generate(url('/admin/scanConfirm'), public_path($path));
     			/*插入数据库*/
     			$flight = new AdminScanLogin();
     			$flight->scan_url = $rand;
@@ -67,5 +66,11 @@ class HomeController extends Controller
     public function scanok(Request $request) {
     	// dd($request->all());
     	return response()->json(['errcode'=>0]);
+    }
+
+    /*用户扫码进行登录确认的页面*/
+    public function scanConfirm(Request $request)
+    {
+        return view('admin.login.scan_confirm');
     }
 }

@@ -42,6 +42,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['domai
     /*登录部分*/
     $router->post('/login_scanok','HomeController@scanok');    
     $router->get('/home','HomeController@index');
+    $router->get('/scanConfirm', 'HomeController@scanConfirm');
 });
 
 /*管理后台组*/
