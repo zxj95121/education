@@ -50,8 +50,10 @@ class OauthController extends Controller
     		getenv('APPSECRET').'&code='.
     		$code.'&grant_type=authorization_code';
 
+    	echo $ur;
     	$data = Wechat::curl($url);
-
+    	var_dump($data);
+    	exit;
     	if (isset($data['access_token'])){
     		/*通过code获取到信息了*/
     		$access_token = $data['access_token'];
