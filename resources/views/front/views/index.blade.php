@@ -33,7 +33,7 @@
     </a>
     <a href="#me" class="weui-tabbar__item">
         <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-        <p class="weui-tabbar__label">我</p>
+        <p class="weui-tabbar__label">我1</p>
     </a>
 </div>
 </body>

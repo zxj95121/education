@@ -15,7 +15,6 @@
 Route::get('/', function () {
     return redirect('/admin/dashboard');
 });
-Route::get('/aaa','SendMessageController@index');
 
 /*前台错误指向地址*/
 Route::get('/front/error_403',function(){
@@ -23,16 +22,27 @@ Route::get('/front/error_403',function(){
 });
 
 /*微信接入主程序*/
-Route::any('/wechatIndex','Wechat\WechatIndexController@index');
+Route::any('/wechatIndex', 'Wechat\WechatIndexController@index');
+
+/*微信网页授权*/
+Route::get('/oauth/getCode', 'Wechat\OauthController@getCode');
 
 
 /*----------------------------------------------------------------*/
 
+/*管理后台组*/
+Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['domainAdmin']], function ($router) {
+    /*登录部分*/
+    $router->post('/login_scanok','HomeController@scanok');    
+    $router->get('/home','HomeController@index');
+    $router->get('/home/oauth','HomeController@oauth');
+});
 
 /*管理后台组*/
 Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin','domainAdmin']], function ($router) {
     $router->get('/dashboard','HomeController@index');
-    $router->get('/login','HomeController@login');;
+    /*登录部分*/
+    $router->get('/login','HomeController@login');
 });
 
 
@@ -41,12 +51,11 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
 
 /*用户端不需要微信身份的路由放这*/
 Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domainFront']], function ($router) {
-    /*网页授权*/
-    $router->get('/oauth','OauthController@index');
     /*验证码GD*/
     $router->get('/getNumberImage','ImageBuilderController@getNumberImage');
 
-     $router->get('/home','HomeController@index');
+    $router->get('/home','HomeController@index');
+
 });
 
 /*-------------*/
@@ -63,5 +72,4 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 
 /*微信用户展示（需要系统身份的路由放这里）*/
 Route::group(['prefix' => 'front','namespace' => 'Front','middleware'=>['front','domainFront']], function ($router) {
-    $router->get('/oauth2','OauthController@index2');
 });

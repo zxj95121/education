@@ -15,7 +15,7 @@ class CreateAdminInfo extends Migration
     {
         Schema::create('admin_info', function (Blueprint $table) {
             $table->increments('id')->comment('自增ID');
-            $table->string('openid')->unique()->comment('用户openid,唯一索引');
+            $table->string('openid', 255)->unique()->comment('用户openid,唯一索引');
             $table->string('nickname')->comment('管理员昵称,默认微信昵称');
             $table->string('name')->comment('管理员真实姓名');
             $table->string('phone', 12)->comment('11位手机号');
@@ -30,7 +30,7 @@ class CreateAdminInfo extends Migration
 
         Schema::create('admin_scan_login', function (Blueprint $table) {
             $table->increments('id')->comment('自增ID');
-            $table->integer('admin_id')->comment('管理员ID');
+            $table->integer('admin_id')->default('0')->comment('管理员ID');
             $table->string('scan_url')->comment('图片路径');
             $table->string('status')->default('1')->comment('图片状态，1表示正在用未扫码，2表示正在用，已扫码3表示正在用已成功输入密码，操作完成。');
             $table->timestamps();

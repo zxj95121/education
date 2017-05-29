@@ -26,12 +26,33 @@
         <link href="css/style.css" rel="stylesheet">
         <link href="css/helper.css" rel="stylesheet">
         
+        <link rel="stylesheet" type="text/css" href="/css/weui.css">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
         <!--[if lt IE 9]>
           <script src="js/html5shiv.js"></script>
           <script src="js/respond.min.js"></script>
         <![endif]-->
+        <style type="text/css">
+            body{
+                position: relative;
+                top: -50px;
+            }
+            #Loginform{
+                padding-top: 0px;
+                margin-top: 0px;
+            }
+            #imgdiv{
+                text-align: center;
+            }
+            .form-group{
+                position: relative;
+                top:-65px;
+            }
+            .form-group:nth-of-type(1){
+                top:-30px;
+            }
+        </style>
 
     </head>
 
@@ -44,42 +65,44 @@
                    <h3 class="text-center m-t-10"> Sign In to <strong>Velonic</strong> </h3>
                 </div> 
 
-                <div class="panel-body">
-                    <form class="form-horizontal m-t-10 p-20 p-b-0" action="index.html">
+                <div class="panel-body" style="padding-bottom: 0px;max-height: 370px;">
+                    <form id="Loginform" class="form-horizontal m-t-10 p-20 p-b-0" action="index.html">
                                             
-                        <div class="form-group ">
-                            <div class="col-xs-12">
-                                <input class="form-control" type="text" placeholder="Username">
-                            </div>
-                        </div>
-                        <div class="form-group ">
-                            
-                            <div class="col-xs-12">
-                                <input class="form-control" type="password" placeholder="Password">
-                            </div>
+                        <div class="form-group" id="imgdiv">
+                            <img id="qrcodeimg" iid="{{$qrcodeInfo['id']}}" src="{{$qrcodeInfo['qrcode']}}">
                         </div>
 
-                        <div class="form-group ">
+                        <div class="form-group" style="text-align: center;">
                             <div class="col-xs-12">
-                                <label class="cr-styled">
-                                    <input type="checkbox" checked>
-                                    <i class="fa"></i> 
-                                    Remember me
+                                <label class="cr-styled" id="please">
+                                    请使用管理员微信扫码登陆。
                                 </label>
+                            </div>
+                            <div class="col-md-10 col-md-offset-1" id="js_status" style="display: none;">
+                                <div class="row">                                   
+                                    <div class="status_txt">
+                                        <h5><i class="weui-icon-success"></i>扫描成功</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="password" name="password" id="password" class="form-control" placeholder="请输入密码" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="form-group text-right">
+                        <div class="form-group text-right" id="login_div" style="display: none;">
                             <div class="col-xs-12">
                                 <button class="btn btn-success w-md" type="submit">Log In</button>
                             </div>
                         </div>
                         <div class="form-group m-t-30">
                             <div class="col-sm-7">
-                                <a href="pages-recoverpw.html"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
+                                <a href="pages-recoverpw.html"><i class="fa fa-lock m-r-5"></i> 忘记密码?</a>
                             </div>
                             <div class="col-sm-5 text-right">
-                                <a href="pages-register.html">Create an account</a>
+                                <a href="pages-register.html">申请管理员</a>
                             </div>
                         </div>
                     </form>
@@ -94,14 +117,41 @@
         <!-- js placed at the end of the document so the pages load faster -->
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/pace.min.js"></script>
-        <script src="js/wow.min.js"></script>
-        <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+        <!-- <script src="js/pace.min.js"></script> -->
+        <!-- <script src="js/wow.min.js"></script> -->
+        <!-- <script src="js/jquery.nicescroll.js" type="text/javascript"></script> -->
             
 
         <!--common script for all pages-->
-        <script src="js/jquery.app.js"></script>
+        <!-- <script src="js/jquery.app.js"></script> -->
 
-    
+        <script type="text/javascript">
+            $.ajaxSetup({
+                 headers: {
+                    'X-CSRF-TOKEN': '{{csrf_token()}}'
+                }
+            })
+
+            $(function(){
+                var inter = setInterval(function(){
+                    $.ajax({
+                        url: '/admin/login_scanok',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            id: $('#qrcodeimg').attr('iid')
+                        },
+                        success: function(data){
+                            if (data.errcode == 0) {
+                                clearInterval(inter);
+                                $('#login_div').css('display', 'block');
+                                $('#js_status').css('display', 'block');
+                                $('#please').css('display', 'none');
+                            }
+                        }
+                    })
+                }, 2000);
+            })
+        </script>
     </body>
 </html>
