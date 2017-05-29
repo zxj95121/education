@@ -102,10 +102,10 @@ class JSSDK {
   }
 
   private function get_php_file($filename) {
-    return trim(substr(file_get_contents($_SERVER['DOCUMENT'].'/php/jssdk/'.$filename), 15));
+    return trim(substr(file_get_contents($_SERVER['DOCUMENT_ROOT'].'/php/jssdk/'.$filename), 15));
   }
   private function set_php_file($filename, $content) {
-    $fp = fopen($_SERVER['DOCUMENT'].'/php/jssdk/'.$filename, "w");
+    $fp = fopen($_SERVER['DOCUMENT_ROOT'].'/php/jssdk/'.$filename, "w");
     fwrite($fp, "<?php exit();?>" . $content);
     fclose($fp);
   }
