@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['domai
 });
 
 /*管理后台组*/
-Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['start_session','admin','domainAdmin']], function ($router) {
+Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin','domainAdmin']], function ($router) {
     $router->get('/dashboard','HomeController@index');
     /*登录部分*/
     $router->get('/login','HomeController@login');
@@ -61,7 +61,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 /*-------------*/
 
 /*微信用户展示（需要微信但不需要系统身份的路由放这里）*/
-Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['start_session','wechat','domainFront']], function ($router) {
+Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wechat','domainFront']], function ($router) {
     /*用户身份绑定*/
     $router->get('/register','LoginController@register');
     $router->get('/register/checkImageNumber','LoginController@checkImageNumber');
@@ -71,5 +71,5 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['start
 /*-------------*/
 
 /*微信用户展示（需要系统身份的路由放这里）*/
-Route::group(['prefix' => 'front','namespace' => 'Front','middleware'=>['start_session','front','domainFront']], function ($router) {
+Route::group(['prefix' => 'front','namespace' => 'Front','middleware'=>['front','domainFront']], function ($router) {
 });
