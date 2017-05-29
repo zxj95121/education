@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\PhpqrcodeController;
 
+use App\Http\Controllers\Wechat\OauthController;
+
 use App\Models\AdminInfo;
 use App\Models\AdminScanLogin;
+use Session;
 use QrCode;
 
 class HomeController extends Controller
@@ -33,7 +36,7 @@ class HomeController extends Controller
     			/*也没有过期的*/
     			$rand = date('YmdHis').'_'.rand(1000,9999).'.png';
     			$path = 'admin/images/login_qrcode/'.$rand;
-    			QrCode::format('png')->size(200)->generate(url('/admin/scanConfirm'), public_path($path));
+    			
     			/*插入数据库*/
     			$flight = new AdminScanLogin();
     			$flight->scan_url = $rand;
@@ -41,6 +44,9 @@ class HomeController extends Controller
 
     			$qrcodeInfo['id'] = $flight->id;
     			$qrcodeInfo['qrcode'] = url('/admin/images/login_qrcode/'.$flight->scan_url);
+
+                QrCode::format('png')->size(200)->generate(url('/admin/scanConfirmOauth?id='.$qrcodeInfo['id']), public_path($path));
+
     		} else {
 				$qrcodeInfo['id'] = $timeOver[0]->id;
     			$qrcodeInfo['qrcode'] = url('/admin/images/login_qrcode/'.$timeOver[0]->scan_url);
@@ -68,9 +74,18 @@ class HomeController extends Controller
     	return response()->json(['errcode'=>0]);
     }
 
-    /*用户扫码进行登录确认的页面*/
+    /*用户扫码进行登录确认的页面(网页授权)*/
+    public function scanConfirmOauth(Request $request)
+    {
+        Session::put('scan_id', $request->input('id'));
+        return redirect(OauthController::getUrl(2, 2));
+    }
+
     public function scanConfirm(Request $request)
     {
+        $id = Session::get('scan_id');
+        Session::forget('scan_id');
+        $openid = Session::get('openid');
         return view('admin.login.scan_confirm');
     }
 }
