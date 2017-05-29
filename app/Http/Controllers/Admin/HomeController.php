@@ -45,7 +45,7 @@ class HomeController extends Controller
     			$qrcodeInfo['id'] = $flight->id;
     			$qrcodeInfo['qrcode'] = url('/admin/images/login_qrcode/'.$flight->scan_url);
 
-                QrCode::format('png')->size(200)->generate(url('/admin/scanConfirmOauth?id='.$qrcodeInfo['id']), public_path($path));
+                QrCode::format('png')->size(200)->generate(url('/admin/scanConfirm/oauth?id='.$qrcodeInfo['id']), public_path($path));
 
     		} else {
 				$qrcodeInfo['id'] = $timeOver[0]->id;
