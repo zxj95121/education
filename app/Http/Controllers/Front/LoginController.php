@@ -15,12 +15,15 @@ class LoginController extends Controller
 	/*账号绑定*/
     public function register(){
     	return view('front.views.index');
+<<<<<<< HEAD
     }
 
     /*进行网址跳转*/
     public function oauth()
     {
         return redirect(OauthController::getUrl(1));
+=======
+>>>>>>> yyq
     }
 
     /*进行发送手机验证码*/
