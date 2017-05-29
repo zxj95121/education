@@ -66,13 +66,13 @@ $signPackage = $jssdk->GetSignPackage();
 		    signature: '<?php echo $signPackage["signature"];?>',
 		    jsApiList: [
 		      	// 所有要调用的 API 都要加到这个列表中
-		      	'hideMenuItems',
+		      	'hideAllNonBaseMenuItem',
 		      	'closeWindow'
 		    ]
 		});
 		wx.ready(function () {
 			// 在这里调用 API
-			wx.hideMenuItems();
+			wx.hideAllNonBaseMenuItem();
 
 			$('#cancel').click(function(){
 				wx.closeWindow();
