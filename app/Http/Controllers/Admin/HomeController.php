@@ -11,6 +11,7 @@ use App\Http\Controllers\Wechat\OauthController;
 use App\Models\AdminInfo;
 use App\Models\AdminScanLogin;
 use Session;
+use Config;
 use QrCode;
 
 class HomeController extends Controller
@@ -83,9 +84,14 @@ class HomeController extends Controller
 
     public function scanConfirm(Request $request)
     {
-        $id = Session::get('scan_id');
-        Session::forget('scan_id');
-        $openid = Session::get('openid');
-        return view('admin.login.scan_confirm');
+        // $id = Session::get('scan_id');
+        // Session::forget('scan_id');
+        // $openid = Session::get('openid');
+        $site_name = Config::get('constants.site_name');
+        $phone_footer = Config::get('constants.phone_footer');
+        return view('admin.login.scan_confirm',[
+            'site_name'=>$site_name,
+            'phone_footer'=>$phone_footer
+        ]);
     }
 }
