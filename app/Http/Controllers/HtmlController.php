@@ -18,4 +18,8 @@ class HtmlController extends Controller
     private function register(){
     	return 'front.views.index';
     }
+
+	// private function home(){
+    // 	return 'front.views.footer-tabs.footer-tabs';
+    // }
 }
