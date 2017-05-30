@@ -17,7 +17,7 @@
         $(function () { 
 
             $('#obtainCode').click(function () { 
-                $("#codeImg").attr("src","/front/getNumberImage");
+                // $("#codeImg").attr("src","/front/getNumberImage");
              });
             
 
@@ -84,7 +84,7 @@
             <div class="modal-dialog modal-sm" role="document">
                 <div class="modal-content" style="margin-top: 30%;">
                     <div class="form-group" style="text-align: center;">
-                        <img id="codeImg" alt="..." class="img-responsive img-rounded" style="width: 80%;
+                        <img id="codeImg" src="/front/getNumberImage" alt="..." class="img-responsive img-rounded" style="width: 80%;
     height: 80%;
     margin-left: 10%;">
                         <input type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入验证码" style="text-align: center;margin-left: 25%;
