@@ -24,6 +24,7 @@ class HomeController extends Controller
 
     public function login()
     {
+        // Session::put('admin_id', '1');
     	/*访问，是否要生成二维码*/
     	$processEnd = AdminScanLogin::where('status', '3')
     		->select('id', 'scan_url')
@@ -167,6 +168,6 @@ class HomeController extends Controller
     /*申请管理员*/
     public function adminApply(Request $request)
     {
-        echo '申请管理员';
+        return view('admin.login.apply_admin');
     }
 }

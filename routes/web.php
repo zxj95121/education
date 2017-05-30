@@ -56,6 +56,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->get('/dashboard','HomeController@index');
     /*登录部分*/
     $router->get('/login','HomeController@login');
+    /*获取后台公共部分详情*/
+    $router->post('/getAdminBasic', 'DashBoardController@getAdminBasic');
 });
 
 
