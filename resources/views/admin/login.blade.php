@@ -193,7 +193,7 @@
                                     $('#password_error').html('密码错误');
                                 } else if (data.errcode == 0) {
                                     var url = window.location.search.split('=')[1];
-                                    if (url != '') {
+                                    if (!url) {
                                         window.location.href = '/admin/dashboard';
                                     } else {
                                         // console.log(url);
