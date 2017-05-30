@@ -196,8 +196,8 @@
                                     if (url != '') {
                                         window.location.href = '/admin/dashboard';
                                     } else {
-                                        console.log(url);
-                                        // window.location.href = url;
+                                        // console.log(url);
+                                        window.location.href = url;
                                     }
                                 }
                             }

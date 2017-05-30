@@ -148,6 +148,7 @@ class HomeController extends Controller
         $real_password = AdminInfo::find($admin_id)->password;
 
         if ($real_password == Hash::check($password, $real_password)){
+            Session::put('admin_id', $admin_id);
             return response()->json(['errcode'=>0]);
         } else {
             return response()->json(['errcode'=>1]);
