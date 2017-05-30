@@ -80,7 +80,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
     /*用户身份绑定*/
     $router->get('/register','LoginController@register');
     $router->get('/register/phoneCode','LoginController@phoneCode');
-    $router->get('/register/confirm','LoginController@registerSubmit');
+    $router->get('/register/registerSubmit','LoginController@registerSubmit');
 });
 
 /*-------------*/
