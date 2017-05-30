@@ -95,7 +95,7 @@
                         
                         <div class="form-group text-right" id="login_div" style="display: none;">
                             <div class="col-xs-12">
-                                <button class="btn btn-success w-md" type="submit" id="login_btn" isok="0">登　录</button>
+                                <button class="btn btn-success w-md" type="button" id="login_btn" isok="0">登　录</button>
                             </div>
                         </div>
                         <div class="form-group m-t-30">
