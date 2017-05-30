@@ -16,7 +16,11 @@
     <script>
         $(function () { 
 
+           
+
+
             $('#obtainCode').click(function () { 
+                
                 $("#codeImg").attr("src","/front/getNumberImage");
              });
             
@@ -34,6 +38,17 @@
             //         }
             //     },1000);
             //  })
+
+            $('#exampleModal').on('hide.bs.modal', function (event) {
+                var button = $(event.relatedTarget) // Button that triggered the modal
+                var recipient = button.data('whatever') // Extract info from data-* attributes
+                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                var modal = $(this)
+                modal.find('.modal-title').text('New message to ' + recipient)
+                modal.find('.modal-body input').val(recipient)
+            });
+
          })
     </script>
 </head>
@@ -67,33 +82,23 @@
                 </div>
         <div class="login" style="text-align:center;margin-top: 6%;">
         <button type="button" class="weui-btn weui-btn_primary"   style="width:60%;border-radius: 24px;">进入</button>
-        </div>  
+        </div>     
 
-        <!--<div class="weui-dialog" style="display:none" id="modal_tip" >
-            <div class="weui-dialog__hd"><strong class="weui-dialog__title">弹窗标题</strong></div>
-            <div class="weui-dialog__bd">弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内</div>
-            <div class="weui-dialog__ft">
-                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">辅助操作</a>
-                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">主操作</a>
-            </div>
-        </div>-->
-        
-        
-
-        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <!--模态框部分-->
+        <!--<div id="exampleModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">-->
+        <div class="modal fade bs-example-modal-sm" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
             <div class="modal-dialog modal-sm" role="document">
                 <div class="modal-content" style="margin-top: 30%;">
                     <div class="form-group" style="text-align: center;">
-                        <img id="codeImg" src="" alt="..." class="img-responsive img-rounded" style="width: 80%;
-    height: 80%;
-    margin-left: 10%;">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入验证码" style="text-align: center;margin-left: 25%;
-    width: 50%;">
-                        <button type="button" class="btn btn-info" id="codeConfirm" style="margin-top: 4%;">确认</button>
+                        <img id="codeImg" src="" alt="..." class="img-responsive img-rounded" style="width: 80%;height: 80%;margin-left: 10%;margin-bottom: 5%;">
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入验证码" style="text-align: center;margin-left: 25%;width: 50%;">
+                        <!--<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" id="codeConfirm" style="margin-top: 4%;">确认</button>-->
+                        <button type="button" class="btn btn-info">Send message</button>
                     </div>
                 </div>
             </div>
         </div>
+        <!--模态框部分-->
 
     </div>
 

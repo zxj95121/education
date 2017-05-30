@@ -19,7 +19,7 @@ class HtmlController extends Controller
     	return 'front.views.index';
     }
 
-	// private function home(){
-    // 	return 'front.views.footer-tabs.footer-tabs';
-    // }
+	private function homepage(){
+    	return 'front.views.home.homepage';
+    }
 }
