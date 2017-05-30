@@ -144,7 +144,7 @@ class HomeController extends Controller
         $id = $request->input('id');
 
         $admin_id = AdminScanLogin::find($id)->admin_id;
-        $real_password = AdminInfo::findd($admin_id)->password;
+        $real_password = AdminInfo::find($admin_id)->password;
 
         if ($real_password == encrypt($password)){
             return response()->json(['errcode'=>0]);
