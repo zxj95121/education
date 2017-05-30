@@ -147,7 +147,7 @@ class HomeController extends Controller
         $admin_id = AdminScanLogin::find($id)->admin_id;
         $real_password = AdminInfo::find($admin_id)->password;
 
-        if ($real_password == Hash::make($password)){
+        if ($real_password == Hash::check($password, $real_password)){
             return response()->json(['errcode'=>0]);
         } else {
             return response()->json(['errcode'=>1]);
