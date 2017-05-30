@@ -121,8 +121,9 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-md-8 col-md-offset-2">
-                                <img src="/admin/images/applyAdmin.png" />
+                            <div class="col-md-8 col-md-offset-2" style="text-align: center;">
+                                <img src="/admin/images/applyAdmin.png" /><br>
+                                <p style="text-align: center;">请使用个人微信扫描二维码</p>
                             </div>
                         </div>
                     </div>
