@@ -22,4 +22,7 @@ class HtmlController extends Controller
 	private function homepage(){
     	return 'front.views.home.homepage';
     }
+    private function apply(){
+        return 'admin.login.apply_admin';
+    }
 }
