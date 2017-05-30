@@ -6,17 +6,28 @@
     <title>WeUI</title>
     <!-- 引入 WeUI -->
     <link rel="stylesheet" href="/css/weui.css"/>
-    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <!--<link rel="stylesheet" href="/css/bootstrap.css"/>-->
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.css" rel="stylesheet">
     <script src="/js/zepto.min.js" type="text/javascript"></script>
     <script src="/js/vipspa.js" type="text/javascript"></script>
     <link rel="stylesheet" href="/css/user_define/index.css"/>
-    <!--<script>
+    <script>
         $(function () { 
-            var deviceWidth = document.documentElement.clientWidth;
-            if(deviceWidth > 640) deviceWidth = 640;
-            document.documentElement.style.fontSize = deviceWidth / 6.4 + 'px';
+            $('.weui-label').click(function () { 
+                $('.weui-label').addClass('weui-btn_plain-disabled');
+                var totalTime = 60;
+                var timer = setInterval(function() {
+                    $('.weui-label').html(totalTime+'s');
+                    totalTime--;
+                    if(totalTime<0){
+                        clearInterval(timer);
+                        $('.weui-label').removeClass('weui-btn_plain-disabled');
+                        $('.weui-label').html('获取验证码');
+                    }
+                },1000);
+             })
          })
-    </script>-->
+    </script>
 </head>
 <body>
     <div class="container" style="margin-top: 14%;">
@@ -49,7 +60,7 @@
                 </div>
             </div>
     <div class="login" style="text-align:center;margin-top: 6%;">
-        <a href="javascript:;" class="weui-btn weui-btn_primary" style="width:60%">进入</a>
+        <a href="javascript:;" class="weui-btn weui-btn_primary" style="width:60%;border-radius: 24px;">进入</a>
         </div>        
     </div>
 </body>
