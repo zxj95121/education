@@ -66,7 +66,7 @@
                 </div> 
 
                 <div class="panel-body" style="padding-bottom: 0px;max-height: 370px;">
-                    <form id="Loginform" class="form-horizontal m-t-10 p-20 p-b-0" action="index.html">
+                    <form id="Loginform" class="form-horizontal m-t-10 p-20 p-b-0" action="" onsubmit="return false;">
                                             
                         <div class="form-group" id="imgdiv">
                             <img id="qrcodeimg" iid="{{$qrcodeInfo['id']}}" src="{{$qrcodeInfo['qrcode']}}">
@@ -88,13 +88,14 @@
                                     <div class="col-md-12">
                                         <input type="password" name="password" id="password" class="form-control" placeholder="请输入密码" />
                                     </div>
+                                    <p class="col-md-12" id="password_error" style="color:red;text-align: center;"></p>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="form-group text-right" id="login_div" style="display: none;">
                             <div class="col-xs-12">
-                                <button class="btn btn-success w-md" type="submit">Log In</button>
+                                <button class="btn btn-success w-md" type="submit" id="login_btn" isok="0">登　录</button>
                             </div>
                         </div>
                         <div class="form-group m-t-30">
@@ -151,6 +152,57 @@
                         }
                     })
                 }, 2000);
+
+                $('#password').blur(function(){
+                    var password = $(this).val();
+                    var reg = /^[0-9a-zA-Z_]{6,18}$/;
+                    if (!reg.test(password)) {
+                        $('#login_btn').attr('is_ok', '0');
+                        $('#password_error').html('密码格式不正确');
+                    } else {
+                        $('#login_btn').attr('is_ok', '1');
+                        $('#password_error').html('');
+                    }
+                })
+
+                $('#password').keyup(function(){
+                    var password = $(this).val();
+                    var reg = /^[0-9a-zA-Z_]{6,18}$/;
+                    if (!reg.test(password)) {
+                        $('#login_btn').attr('is_ok', '0');
+                    } else {
+                        $('#login_btn').attr('is_ok', '1');
+                        $('#password_error').html('');
+                    }
+                })
+
+                $('#login_btn').click(function(){
+                    var isok = $(this).attr('isok');
+                    if (isok) {
+                        /*ajax请求密码是否正确*/
+                        $.ajax({
+                            url: '/admin/passwordConfirm',
+                            type: 'post',
+                            dataType: 'json',
+                            data: {
+                                password: $('#password').val(),
+                                id: $('#qrcodeimg').attr('iid')
+                            },
+                            success: function(data){
+                                if (data.errcode == 1) {
+                                    $('#password_error').html('密码错误');
+                                } else if (data.errcode == 0) {
+                                    var url = window.location.search.split('=')[1];
+                                    if (url) {
+                                        window.location.href = '/admin/dashboard';
+                                    } else {
+                                        window.location.href = url;
+                                    }
+                                }
+                            }
+                        })
+                    }
+                })
             })
         </script>
     </body>
