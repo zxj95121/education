@@ -23,6 +23,10 @@ $signPackage = $jssdk->GetSignPackage();
 			padding: 28px;
 			text-align: center;
 		}
+		#box_ctn{
+			font-size: 18px;
+			padding: 12px;
+		}
 	</style>
 </head>
 <body>
@@ -44,7 +48,7 @@ $signPackage = $jssdk->GetSignPackage();
 	<script type="text/javascript">
 		$(function(){
 			var boxW = parseFloat($('#big').width());
-			$('#icon_i').css('fontSize', 0.25*boxW+'px');
+			$('#icon_i').css('fontSize', 0.3*boxW+'px');
 		})
 	</script>
 </body>
