@@ -13,12 +13,28 @@ use App\Models\ParentInfo;
 
 use Session;
 use Hash;
+use Wechat;
 
 class LoginController extends Controller
 {
 	/*账号绑定*/
     public function register(){
-    	return view('front.views.index');
+        $openid = Session::get('openid');
+        $access_token = Session::get('oauth_access_token');
+
+        /*获取用户个人详细信息*/
+        $url = 'https://api.weixin.qq.com/sns/userinfo?access_token='.
+            $access_token.'&openid='.
+            $openid.'&lang=zh_CN';
+        $userinfo = Wechat::curl($url);
+        if (array_key_exists('openid', $userinfo)) {
+            /*成功获取用户信息*/
+            $nickname = $userinfo['nickname'];
+            $headimgurl = $userinfo['headimgurl'];
+        } else {
+            return redirect('/front/error_403');
+        }
+    	return view('front.views.index',['openid'=>$openid,'nickname'=>$nickname,'headimgurl'=>$headimgurl]);
     }
 
     /*进行网址跳转*/
