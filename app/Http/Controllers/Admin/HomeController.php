@@ -92,7 +92,6 @@ class HomeController extends Controller
         $id = Session::get('scan_id');
         Session::forget('scan_id');
         $openid = Session::get('openid');
-        dd($openid);
 
         $site_name = Config::get('constants.site_name');
         $phone_footer = Config::get('constants.phone_footer');
