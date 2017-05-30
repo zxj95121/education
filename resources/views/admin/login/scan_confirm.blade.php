@@ -44,7 +44,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 	    <div class="page__bd page__bd_spacing" id="div_btn">
 
-	        <a href="javascript:;" class="weui-btn weui-btn_primary">确认</a>
+	        <a href="javascript:;" class="weui-btn weui-btn_primary" id="confirm">确认</a>
 
 	        <a href="javascript:;" class="weui-btn weui-btn_default" id="cancel">取消</a>
 
@@ -76,13 +76,35 @@ $signPackage = $jssdk->GetSignPackage();
 
 			$('#cancel').click(function(){
 				wx.closeWindow();
-			})
+			});
 		});
 	</script>
 	<script type="text/javascript">
 		$(function(){
 			var boxW = parseFloat($('#icon_box').width());
 			$('#icon_i').css('fontSize', 0.25*boxW+'px');
+
+			$('#confirm').click(function(){
+				$.ajax({
+					url: '/admin/scanOK',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        admin_id: '{{$admin_id}}',
+                        scan_id: '{{$scan_id}}'
+                    },
+                    success: function(data){
+                        if (data.errcode == 0) {
+                        	console.log('OK');
+                        }
+                    }
+				})
+				$('#icon_i').removeClass('weui-icon-waiting').addClass('weui-icon-success');
+
+				$('#box_ctn').html('<p class="icon-box__desc">已确认登录管理后台</p>');
+
+				$('#div_btn').css('display', 'none');
+			})
 		})
 	</script>
 </body>

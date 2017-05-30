@@ -72,7 +72,12 @@ class HomeController extends Controller
     /*请求扫码二维码是否成功*/
     public function scanok(Request $request) {
     	// dd($request->all());
-    	return response()->json(['errcode'=>0]);
+        $id = $request->input('id');
+        $flight = AdminScanLogin::find($id);
+        if ($flight->status == 2 && $flight->admin_id != 0)
+    	   return response()->json(['errcode'=>0]);
+        else 
+            return response()->json(['errcode'=>1]);
     }
 
     /*用户扫码进行登录确认的页面(网页授权)*/
@@ -84,14 +89,49 @@ class HomeController extends Controller
 
     public function scanConfirm(Request $request)
     {
-        // $id = Session::get('scan_id');
-        // Session::forget('scan_id');
-        // $openid = Session::get('openid');
+        $id = Session::get('scan_id');
+        Session::forget('scan_id');
+        $openid = Session::get('openid');
+
         $site_name = Config::get('constants.site_name');
         $phone_footer = Config::get('constants.phone_footer');
+
+        $adminInfo = AdminInfo::where('openid', $openid)
+            ->where('status', 1)
+            ->select('id', 'scan_id')
+            ->get();
+        if ($adminInfo->count() <= 0) {
+            return view('admin.login.scan_error',[
+                'error_data' => '不是管理员',
+                'phone_footer' => $phone_footer
+            ]);
+        } else {
+            $admin_id = $adminInfo[0]['id'];
+        }
+
         return view('admin.login.scan_confirm',[
-            'site_name'=>$site_name,
-            'phone_footer'=>$phone_footer
+            'site_name' => $site_name,
+            'phone_footer' => $phone_footer,
+            'scan_id' => $id,
+            'admin_id' => $admin_id
         ]);
+    }
+
+    /*确认登录ajax*/
+    public function scan_OK(Request $request)
+    {
+        $admin_id = $request->input('admin_id');
+        $scan_id = $request->input('scan_id');
+
+        $flight = AdminInfo::find($admin_id);
+        $flight->scan_id = $scan_id;
+        $flight->save();
+
+        $flight = AdminScanLogin::find($scan_id);
+        $flight->admin_id = $admin_id;
+        $flight->status = '2';
+        $flight->save();
+
+        return response()->json(['errcode'=>0]);
     }
 }
