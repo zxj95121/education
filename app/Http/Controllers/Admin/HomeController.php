@@ -55,6 +55,7 @@ class HomeController extends Controller
     			$flight = AdminScanLogin::find($qrcodeInfo['id']);
     			$flight->created_at = date('Y-m-d H:i:s');
     			$flight->status = 1;
+                $flight->admin_id = '0';
     			$flight->save();
     		}
     	} else {
@@ -64,6 +65,7 @@ class HomeController extends Controller
     		$flight = AdminScanLogin::find($qrcodeInfo['id']);
 			$flight->created_at = date('Y-m-d H:i:s');
 			$flight->status = 1;
+            $flight->admin_id = '0';
 			$flight->save();
     	}
     	return  view('admin.login', ['qrcodeInfo'=>$qrcodeInfo]);
@@ -133,5 +135,21 @@ class HomeController extends Controller
         $flight->save();
 
         return response()->json(['errcode'=>0]);
+    }
+
+    /*检验密码是否正确*/
+    public function passwordConfirm(Request $request)
+    {
+        $password = $request->input('password');
+        $id = $request->input('id');
+
+        $admin_id = AdminScanLogin::find($id)->admin_id;
+        $real_password = AdminInfo::findd($admin_id)->password;
+
+        if ($real_password == encrypt($password)){
+            return response()->json(['errcode'=>0]);
+        } else {
+            return response()->json(['errcode'=>1]);
+        }
     }
 }

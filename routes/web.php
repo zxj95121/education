@@ -45,6 +45,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['domai
     $router->get('/scanConfirm/oauth', 'HomeController@scanConfirmOauth');
     $router->get('/scanConfirm', 'HomeController@scanConfirm');
     $router->post('/scanOK', 'HomeController@scan_OK');
+    $router->post('/passwordConfirm', 'HomeController@passwordConfirm');
 });
 
 /*管理后台组*/
