@@ -6,7 +6,7 @@ $signPackage = $jssdk->GetSignPackage();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>扫码安全登录</title>
+	<title>扫码错误提示</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
 	<link rel="stylesheet" type="text/css" href="/css/weui.css">
 	<style type="text/css">

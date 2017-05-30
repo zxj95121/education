@@ -123,7 +123,7 @@ class WechatIndexController extends Controller
         $keyword = $object->Content;
         if('SB')
         {
-            $content = "愿天下父母平安渡春秋";
+            $content = $object->FromUserName;
             $result = $this->transmitText($object, $content); 
         }
         else
