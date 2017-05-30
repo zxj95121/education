@@ -159,13 +159,13 @@ class HomeController extends Controller
     }
 
     /*申请管理员oauth*/
-    public function applyAdmin(Requeset $request)
+    public function applyAdmin(Request $request)
     {
         return redirect(OauthController::getUrl(3));
     }
 
     /*申请管理员*/
-    public function adminApply(Requeset $request)
+    public function adminApply(Request $request)
     {
         echo '申请管理员';
     }
