@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/css/user_define/index.css"/>
     
 </head>
+<!--<body style="background:url('/images/oss_cnet_loginbg.gif')">-->
 <body>
     <div class="container" style="margin-top: 4%;">
         <!--登录首页头像-->
@@ -41,7 +42,7 @@
 
         <div class="weui-cell weui-cell_vcode">
             <!--<div class="weui-cell__hd"><label id="obtainCode" class="weui-label" data-toggle="modal" data-target=".bs-example-modal-sm">获取验证码</label></div>-->
-            <div class="weui-cell__hd"><label id="obtainCode" class="weui-label">获取验证码</label></div>
+            <div class="weui-cell__hd"><label  class="weui-label obtainCode">获取验证码</label></div>
             <div class="weui-cell__bd">
                 <input class="weui-input" type="number" placeholder="请输入验证码" id="typeInCode">
             </div>
@@ -109,7 +110,7 @@
                                                 padding: 8%;
                                                 width: 80%;
                                                 margin-left: 10%;">
-                    <i class="weui-icon-success weui-icon_msg" style="font-size: 60px;"></i>
+                    <i class="weui-icon-warn weui-icon_msg"></i>
                     <div class="form-group" style="text-align: center;">
                         <h4 id="toolTipInfo" style="font-size: 14px;">请输入正确的手机号码</h4>
                     </div>
