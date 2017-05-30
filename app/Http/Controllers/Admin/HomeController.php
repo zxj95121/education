@@ -69,7 +69,10 @@ class HomeController extends Controller
             $flight->admin_id = '0';
 			$flight->save();
     	}
-    	return  view('admin.login', ['qrcodeInfo'=>$qrcodeInfo]);
+
+        $site_name = Config::get('constants.site_name');
+
+    	return  view('admin.login', ['qrcodeInfo'=>$qrcodeInfo,'site_name'=>$site_name]);
     }
 
     /*请求扫码二维码是否成功*/
@@ -153,5 +156,17 @@ class HomeController extends Controller
         } else {
             return response()->json(['errcode'=>1]);
         }
+    }
+
+    /*申请管理员oauth*/
+    public function applyAdmin(Requeset $request)
+    {
+        return redirect(OauthController::getUrl(3));
+    }
+
+    /*申请管理员*/
+    public function adminApply(Requeset $request)
+    {
+        echo '申请管理员';
     }
 }

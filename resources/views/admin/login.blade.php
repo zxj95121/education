@@ -62,7 +62,7 @@
         <div class="wrapper-page">
             <div class="panel panel-color panel-inverse">
                 <div class="panel-heading"> 
-                   <h3 class="text-center m-t-10"> Sign In to <strong>Velonic</strong> </h3>
+                   <h3 class="text-center m-t-10"><strong>{{$site_name}}</strong> 后台登录</h3>
                 </div> 
 
                 <div class="panel-body">
@@ -100,10 +100,10 @@
                         </div>
                         <div class="form-group m-t-30">
                             <div class="col-sm-7">
-                                <a href="pages-recoverpw.html"><i class="fa fa-lock m-r-5"></i> 忘记密码?</a>
+                                <a href="javascript:void(0);"><i class="fa fa-lock m-r-5"></i> 忘记密码?</a>
                             </div>
                             <div class="col-sm-5 text-right">
-                                <a href="pages-register.html">申请管理员</a>
+                                <a href="javascript:void(0);" data-toggle="modal" data-target="#applyModal">申请管理员</a>
                             </div>
                         </div>
                     </form>
@@ -111,6 +111,27 @@
 
             </div>
         </div>
+
+        <div class="modal fade" tabindex="-1" role="dialog" id="applyModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">申请管理员</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <img src="/admin/images/applyAdmin.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 
     
 
