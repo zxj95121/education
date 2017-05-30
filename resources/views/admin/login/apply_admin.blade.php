@@ -26,7 +26,7 @@ $signPackage = $jssdk->GetSignPackage();
 <body>
 	<div id="big">
 		<header class="bar bar-nav">
-	  		<h1 class='title'>加辰教育定制申请管理员</h1>
+	  		<h1 class='title'>加辰教育定制 管理员申请</h1>
 		</header>
 		<div class="content">
 		  	<div class="list-block" style="margin-top: 10px;">
@@ -34,7 +34,7 @@ $signPackage = $jssdk->GetSignPackage();
 			      	<!-- Text inputs -->
 			      	<li>
 			        	<div class="item-content">
-				          	<div class="item-media"><i class="icon icon-form-name"></i></div>
+				          	<div class="item-media"><i class="icon"></i></div>
 				          	<div class="item-inner">
 			            		<div class="item-title label">姓名</div>
 			            		<div class="item-input">
@@ -60,20 +60,20 @@ $signPackage = $jssdk->GetSignPackage();
 			      	</li>
 			      	<li>
 			        	<div class="item-content">
-			          		<div class="item-media"><i class="icon icon-form-email"></i></div>
+			          		<div class="item-media"><i class="icon"></i></div>
 			          		<div class="item-inner" style="border-top: 1px solid #E7E7E7;">
 			            		<div class="item-title label">验证码</div>
 			            		<div class="item-input">
-			              			<input type="password" id="password1" placeholder="请输入4位数字验证码">
+			              			<input type="password" id="phoneCode" placeholder="请输入4位数字验证码">
 			            		</div>
 			          		</div>
 			        	</div>
 			      	</li>
 			      	<li>
 			        	<div class="item-content">
-			          		<div class="item-media"><i class="icon icon-form-email"></i></div>
+			          		<div class="item-media"><i class="icon"></i></div>
 			          		<div class="item-inner">
-			            		<div class="item-title label">密码</div>
+			            		<div class="item-title label">管理密码</div>
 			            		<div class="item-input">
 			              			<input type="password" id="password1" placeholder="6-18位数字字母">
 			            		</div>
@@ -82,7 +82,7 @@ $signPackage = $jssdk->GetSignPackage();
 			      	</li>
 			      	<li>
 			        	<div class="item-content">
-			          		<div class="item-media"><i class="icon icon-form-email"></i></div>
+			          		<div class="item-media"><i class="icon"></i></div>
 			          		<div class="item-inner">
 			            		<div class="item-title label">确认密码</div>
 			            		<div class="item-input">
@@ -91,7 +91,17 @@ $signPackage = $jssdk->GetSignPackage();
 			          		</div>
 			        	</div>
 			      	</li>
+					<li id="li_error" style="display: none;">
+						<div class="item-content">
+							<div class="item-media">
+								<i class="icon"></i>
+							</div>
+							<div class="item-inner" style="color:red;" id="input_error">
+			          		</div>
+						</div>
+					</li>
 			    </ul>
+
 			</div>
 		  	<div class="content-block">
 		    	<div class="row">
@@ -125,8 +135,30 @@ $signPackage = $jssdk->GetSignPackage();
 	</script>
 	<script type="text/javascript">
 		$(function(){
-			var boxW = parseFloat($('#icon_box').width());
-			$('#icon_i').css('fontSize', 0.25*boxW+'px');
+			var input = new Array(/^[\u4e00-\u9fa5]{2,8}$/g,/^1[34578]\d{9}$/,/^[0-9]{4}$/,/^[0-9a-zA-Z_]{6,18}$/,/^[0-9a-zA-Z_]{6,18}$/);
+			// var input = new Array(/^[0-9a-zA-Z_]{6,18}$/,/^[0-9a-zA-Z_]{6,18}$/,/^[0-9]{4}$/,/^1[34578]\d{9}$/,/^[\u4e00-\u9fa5]{2,8}$/g);
+			var word = new Array('姓名格式','手机号格式','验证码格式','密码格式','确认密码格式')
+			$('input').each(function(){
+				var index = $(this).index('input');
+				$(this).blur(function(){
+					var flag = 1;
+					$('input').each(function(){
+						if(flag == 0)
+							return;
+						var index = $(this).index('input');
+						var content = $(this).val();
+						if (!input[index].test(content)) {
+							$('#input_error').html(word[index]+'不正确');
+							$('#li_error').css('display','block');
+							flag = 0;
+						}
+					});
+				});
+				$(this).focus(function(){
+					$('#input_error').html('');
+					$('#li_error').css('display','none');
+				});
+			})
 		})
 	</script>
 </body>
