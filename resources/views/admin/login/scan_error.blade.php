@@ -28,7 +28,7 @@ $signPackage = $jssdk->GetSignPackage();
 <body>
 	<div id="big">
 	    <div class="icon-box" id="icon_box">
-	        <i class="weui-icon-waiting weui-icon_msg" id="icon_i"></i>
+	        <i class="weui-icon-warn weui-icon_msg" id="icon_i"></i>
 	        <div class="icon-box__ctn" id="box_ctn">
 	            <p class="icon-box__desc">{{$error_data}}</p>
 	        </div>
@@ -43,7 +43,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 	<script type="text/javascript">
 		$(function(){
-			var boxW = parseFloat($('#icon_box').width());
+			var boxW = parseFloat($('#big').width());
 			$('#icon_i').css('fontSize', 0.25*boxW+'px');
 		})
 	</script>

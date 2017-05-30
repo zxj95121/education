@@ -56,13 +56,13 @@ class OauthController extends Controller
     		/*通过code获取到信息了*/
     		$access_token = $data['access_token'];
     		$openid = $data['openid'];
-    		session('openid', $openid);
-    		session('oauth_access_token', $access_token);
+    		Session::put('openid', $openid);
+    		Session::put('oauth_access_token', $access_token);
     		return redirect($redirect_url);
     	} else if(array_key_exists('openid', $data)) {
     		//静默授权进来的
     		$openid = $data['openid'];
-    		session('openid', $openid);
+    		Session::put('openid', $openid);
     		return redirect($redirect_url);
     	} else {
     		return redirect('/front/error_403');
