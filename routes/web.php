@@ -68,6 +68,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
     $router->get('/getNumberImage','ImageBuilderController@getNumberImage');
 
     $router->get('/home','HomeController@index');
+    // $router->get('/homepage','HomeController@homepage');
     $router->get('/register/oauth','LoginController@oauth');
 
 });
