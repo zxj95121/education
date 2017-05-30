@@ -78,8 +78,8 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wechat','domainFront']], function ($router) {
     /*用户身份绑定*/
     $router->get('/register','LoginController@register');
-    $router->get('/register/checkImageNumber','LoginController@checkImageNumber');
-    $router->get('/register/confirm','LoginController@confirm');
+    $router->get('/register/phoneCode','LoginController@phoneCode');
+    $router->get('/register/confirm','LoginController@registerSubmit');
 });
 
 /*-------------*/
