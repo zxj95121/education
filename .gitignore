@@ -10,3 +10,5 @@ Homestead.yaml
 npm-debug.log
 .env
 /public/admin/images/login_qrcode
+/public/php/jssdk/jsapi_ticket.php
+/public/php/jssdk/access_token.php
