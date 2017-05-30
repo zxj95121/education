@@ -12,6 +12,7 @@ use App\Models\AdminInfo;
 use App\Models\AdminScanLogin;
 use Session;
 use Config;
+use Hash;
 use QrCode;
 
 class HomeController extends Controller
@@ -146,7 +147,7 @@ class HomeController extends Controller
         $admin_id = AdminScanLogin::find($id)->admin_id;
         $real_password = AdminInfo::find($admin_id)->password;
 
-        if ($real_password == encrypt($password)){
+        if ($real_password == Hash::make($password)){
             return response()->json(['errcode'=>0]);
         } else {
             return response()->json(['errcode'=>1]);

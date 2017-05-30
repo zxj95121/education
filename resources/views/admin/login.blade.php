@@ -65,7 +65,7 @@
                    <h3 class="text-center m-t-10"> Sign In to <strong>Velonic</strong> </h3>
                 </div> 
 
-                <div class="panel-body" style="padding-bottom: 0px;max-height: 370px;">
+                <div class="panel-body">
                     <form id="Loginform" class="form-horizontal m-t-10 p-20 p-b-0" action="" onsubmit="return false;">
                                             
                         <div class="form-group" id="imgdiv">
@@ -88,7 +88,7 @@
                                     <div class="col-md-12">
                                         <input type="password" name="password" id="password" class="form-control" placeholder="请输入密码" />
                                     </div>
-                                    <p class="col-md-12" id="password_error" style="color:red;text-align: center;"></p>
+                                    <p class="col-md-12" id="password_error" style="color:red;text-align: left;"></p>
                                 </div>
                             </div>
                         </div>
