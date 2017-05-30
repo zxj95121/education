@@ -84,6 +84,12 @@ $signPackage = $jssdk->GetSignPackage();
 			var boxW = parseFloat($('#icon_box').width());
 			$('#icon_i').css('fontSize', 0.25*boxW+'px');
 
+			$.ajaxSetup({
+                 headers: {
+                    'X-CSRF-TOKEN': '{{csrf_token()}}'
+                }
+            })
+
 			$('#confirm').click(function(){
 				$.ajax({
 					url: '/admin/scanOK',
@@ -95,15 +101,14 @@ $signPackage = $jssdk->GetSignPackage();
                     },
                     success: function(data){
                         if (data.errcode == 0) {
-                        	console.log('OK');
+                        	$('#icon_i').removeClass('weui-icon-waiting').addClass('weui-icon-success');
+
+							$('#box_ctn').html('<p class="icon-box__desc">已确认登录管理后台</p>');
+
+							$('#div_btn').css('display', 'none');
                         }
                     }
 				})
-				$('#icon_i').removeClass('weui-icon-waiting').addClass('weui-icon-success');
-
-				$('#box_ctn').html('<p class="icon-box__desc">已确认登录管理后台</p>');
-
-				$('#div_btn').css('display', 'none');
 			})
 		})
 	</script>
