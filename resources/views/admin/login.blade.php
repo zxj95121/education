@@ -45,13 +45,13 @@
             #imgdiv{
                 text-align: center;
             }
-            .form-group{
+/*            .form-group{
                 position: relative;
                 top:-65px;
             }
             .form-group:nth-of-type(1){
                 top:-30px;
-            }
+            }*/
         </style>
 
     </head>
