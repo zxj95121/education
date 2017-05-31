@@ -74,25 +74,27 @@ $(function() {
         var confirmPasswordValue = '';
         //1.手机号码验证
         phoneNumber.blur(function() {
-            modalShowTip(/^1[3|4|5|7|8][0-9]{9}$/, '您输入的手机号码不正确', phoneNumber);
+            if (getTextValue(phoneNumber).length > 0) { //输入了文本
+                modalShowTip(/^1[3|4|5|7|8][0-9]{9}$/, '您输入的手机号码不正确', phoneNumber);
+            }
         });
         //2.密码验证
         //2.1 firstPassword值格式校验
-        firstPassword.blur(function() {
+        firstPassword.change(function() {
             modalShowTip(/^[0-9a-zA-Z_]{6,18}$/, '您输入的密码格式不正确', firstPassword);
             firstPasswordValue = getTextValue(firstPassword);
             console.log('firstPasswordValue', firstPasswordValue);
         });
 
         //2.2 confirmPassword 和  firstPassword对比校验
-        confirmPassword.blur(function() {
-            confirmPasswordValue = getTextValue(confirmPassword);
-            console.log('confirmPasswordValue', confirmPasswordValue);
-            if (true) {
-                message = '您两次输入的密码不一致';
-            }
-            modalShowTip(/^[0-9a-zA-Z_]{6,18}$/, message, firstPassword);
-        });
+        // confirmPassword.change(function() {
+        //     confirmPasswordValue = getTextValue(confirmPassword);
+        //     console.log('confirmPasswordValue', confirmPasswordValue);
+        //     if (true) {
+        //         message = '您两次输入的密码不一致';
+        //     }
+        //     modalShowTip(/^[0-9a-zA-Z_]{6,18}$/, message, firstPassword);
+        // });
 
     }
 
