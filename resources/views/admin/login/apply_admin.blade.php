@@ -191,10 +191,11 @@ $signPackage = $jssdk->GetSignPackage();
 							phone: phone
 						},
 						success: function(data){
-							layer.close(loadIndex);
+							window.layer.close(loadIndex);
 							if(data.errcode == 0) {
 								window.layer.msg('发送成功');
 								$('#getPhoneCode').addClass('codeType').prop('disabled', 'disabled');
+								window.phoneCode = data.phoneCode;
 								setTime();
 							} else if (data.errcode == 2) {
 								window.layer.msg('该手机已注册');
