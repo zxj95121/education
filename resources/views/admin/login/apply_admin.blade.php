@@ -244,7 +244,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 		function setTime(){
 			var time = 60;
-			var window.interval = setInterval(function(){
+			window.interval = setInterval(function(){
 				time--;
 				if (time > 9) {
 					$('#getPhoneCode').html('　 '+time+'秒 　');
