@@ -170,4 +170,28 @@ class HomeController extends Controller
     {
         return view('admin.login.apply_admin');
     }
+
+    /*申请管理员发送验证码*/
+    public function phoneCode(Request $request)
+    {
+        $phone = $request->input('phone');
+
+        $result_phone = preg_match('/^1\d{10}$/', $phone);
+        if (!$result_phone) {
+            return response()->json(['errcode'=>1,'reason'=>'手机号格式不正确']);
+        }
+
+        /*查该手机是否已经绑定过*/
+        $count_admin = adminInfo::where('phone', $phone)
+            ->count();
+
+        if ($count_admin != 0) {
+            return response()->json(['errcode'=>2,'reason'=>'手机号已经注册']);
+        }
+
+        $phoneCode = 8888;
+        Session::put('phone', $phone);
+        Session::put('phoneCode', $phoneCode);
+        return response()->json(['errcode'=>0,'phoneCode'=>$phoneCode]);
+    }
 }

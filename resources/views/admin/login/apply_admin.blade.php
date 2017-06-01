@@ -8,8 +8,10 @@ $signPackage = $jssdk->GetSignPackage();
 <head>
 	<title>申请管理员</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<link rel="stylesheet" type="text/css" href="/js/layui/css/layui.mobile.css">
 	<link rel="stylesheet" type="text/css" href="/css/weui.css">
 	<link rel="stylesheet" type="text/css" href="/css/sm.min.css">
+	
 	<style type="text/css">
 		body{
 			width: 100%;
@@ -20,6 +22,9 @@ $signPackage = $jssdk->GetSignPackage();
 		#big{
 			width: 95%;
 			margin: 0 auto;
+		}
+		.codeType{
+			color:#E7E7E7;
 		}
 	</style>
 </head>
@@ -64,7 +69,7 @@ $signPackage = $jssdk->GetSignPackage();
 			          		<div class="item-inner" style="border-top: 1px solid #E7E7E7;">
 			            		<div class="item-title label">验证码</div>
 			            		<div class="item-input">
-			              			<input type="password" id="phoneCode" placeholder="请输入4位数字验证码">
+			              			<input type="text" id="phoneCode" placeholder="请输入4位数字验证码">
 			            		</div>
 			          		</div>
 			        	</div>
@@ -105,7 +110,7 @@ $signPackage = $jssdk->GetSignPackage();
 			</div>
 		  	<div class="content-block">
 		    	<div class="row">
-		      		<div class="col-50" style="width: 100%;text-align: center;"><a href="#" class="button button-big button-fill button-success">提交申请</a></div>
+		      		<div id="btn_apply" class="col-50" style="width: 100%;text-align: center;"><a href="#" class="button button-big button-fill button-success">提交申请</a></div>
 		    	</div>
 	  		</div>
 		</div>
@@ -114,6 +119,7 @@ $signPackage = $jssdk->GetSignPackage();
 	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 	<script type="text/javascript" src="/js/zepto.min.js"></script>
 	<script type="text/javascript" src="/js/sm.min.js"></script>
+	<script type="text/javascript" src="/js/layui/layui.js"></script>
 	<script type="text/javascript" src="/admin/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript">
 		wx.config({
@@ -135,31 +141,119 @@ $signPackage = $jssdk->GetSignPackage();
 	</script>
 	<script type="text/javascript">
 		$(function(){
-			var input = new Array(/^[\u4e00-\u9fa5]{2,8}$/g,/^1[34578]\d{9}$/,/^[0-9]{4}$/,/^[0-9a-zA-Z_]{6,18}$/,/^[0-9a-zA-Z_]{6,18}$/);
-			// var input = new Array(/^[0-9a-zA-Z_]{6,18}$/,/^[0-9a-zA-Z_]{6,18}$/,/^[0-9]{4}$/,/^1[34578]\d{9}$/,/^[\u4e00-\u9fa5]{2,8}$/g);
-			var word = new Array('姓名格式','手机号格式','验证码格式','密码格式','确认密码格式')
+			$.ajaxSetup({
+                 headers: {
+                    'X-CSRF-TOKEN': '{{csrf_token()}}'
+                }
+            });
+
+            layui.use('layer', function(){
+			  	window.layer = layui.layer;
+			});   
+
+            window.phoneCode = 0;
+
 			$('input').each(function(){
-				var index = $(this).index('input');
+
 				$(this).blur(function(){
-					var flag = 1;
-					$('input').each(function(){
-						if(flag == 0)
-							return;
-						var index = $(this).index('input');
-						var content = $(this).val();
-						if (!input[index].test(content)) {
-							$('#input_error').html(word[index]+'不正确');
-							$('#li_error').css('display','block');
-							flag = 0;
-						}
-					});
+					check();
 				});
+
 				$(this).focus(function(){
 					$('#input_error').html('');
 					$('#li_error').css('display','none');
 				});
 			})
+
+			/*无误进行发送ajax*/
+			$('#btn_apply').click(function(){
+				if (check()) {
+					/*进行验证码校验*/
+					var phoneCode = $('#phoneCode').val();
+					if (phoneCode != window.phoneCode) {
+						$('#input_error').html('验证码不正确');
+						$('#li_error').css('display','block');
+						return; 
+					}
+				}
+			})
+
+			/*请求发送手机验证码*/
+			$('#getPhoneCode').click(function(){
+				var phone = $('#phone').val();
+				if (/^1\d{10}$/.test(phone)) {
+					var loadIndex = window.layer.load(1);
+					$.ajax({
+						url: '/admin/apply/phoneCode',
+						type: 'post',
+						dataType: 'json',
+						data: {
+							phone: phone
+						},
+						success: function(data){
+							layer.close(loadIndex);
+							if(data.errcode == 0) {
+								window.layer.msg('发送成功');
+								$('#getPhoneCode').addClass('codeType').prop('disabled', 'disabled');
+								setTime();
+							} else if (data.errcode == 2) {
+								window.layer.msg('该手机已注册');
+							}
+						}
+
+					})
+				} else {
+					$('#input_error').html('手机号码不正确');
+					$('#li_error').css('display','block');
+				}
+			})
 		})
+
+		function check(){
+			var input = new Array(/^[\u4e00-\u9fa5]{2,8}$/,/^1\d{10}$/,/^[0-9]{4}$/,/^[0-9a-zA-Z_]{6,18}$/,/^[0-9a-zA-Z_]{6,18}$/);
+			var word = new Array('姓名格式','手机号码','验证码格式','密码格式','确认密码格式');
+			var flag = 1;
+			$('input').each(function(){
+				if(flag == 0)
+					return;
+				var index = $(this).index('input');
+
+				var content = $(this).val();
+
+				if (!input[index].test(content)) {
+					$('#input_error').html(word[index]+'不正确');
+					$('#li_error').css('display','block');
+					flag = 0;
+				}
+			});
+
+			if(flag == 0)
+				return false;
+			else {
+				var password1 = $('#password1').val();
+				var password2 = $('#password2').val();
+				if (password1 != password2) {
+					$('#input_error').html('两次密码不一致');
+					$('#li_error').css('display','block');
+					return false;
+				}
+				return true;
+			}
+		}
+
+		function setTime(){
+			var time = 60;
+			setInterval(function(){
+				time--;
+				if (time > 9) {
+					$('#getPhoneCode').html('　 '+time+'秒 　');
+				} else if (time >= 0) {
+					$('#getPhoneCode').html('　  '+time+'秒 　');
+				} else {
+					$('#getPhoneCode').removeClass('codeType').removeProp('disabled', 'disabled').html('获取验证码');
+				}
+			}, 1000);
+		}
 	</script>
 </body>
 </html>

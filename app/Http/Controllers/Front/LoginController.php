@@ -55,7 +55,7 @@ class LoginController extends Controller
     	*/
         $phone = $request->input('phone');
 
-        $result_phone = preg_match('/^1[34578]\d{9}$/', $phone);
+        $result_phone = preg_match('/^1\d{10}$/', $phone);
         if (!$result_phone) {
             return response()->json(['errcode'=>1,'reason'=>'手机号格式不正确']);
         }
@@ -104,7 +104,7 @@ class LoginController extends Controller
         $nickname = $request->input('nickname');
         $headimgurl = $request->input('headimgurl');
 
-        $result_phone = preg_match('/^1[34578]\d{9}$/', $phone);
+        $result_phone = preg_match('/^1\d{10}$/', $phone);
         $result_password1 = preg_match('/^[a-zA-Z0-9_]{6,18}$/', $password1);
         $result_password2 = preg_match('/^[a-zA-Z0-9_]{6,18}$/', $password1);
         $result_role = preg_match('/^[1-2]{1}$/', $role);
