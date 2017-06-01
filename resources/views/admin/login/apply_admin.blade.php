@@ -244,7 +244,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 		function setTime(){
 			var time = 60;
-			var interval = setInterval(function(){
+			var window.interval = setInterval(function(){
 				time--;
 				if (time > 9) {
 					$('#getPhoneCode').html('　 '+time+'秒 　');
@@ -252,7 +252,7 @@ $signPackage = $jssdk->GetSignPackage();
 					$('#getPhoneCode').html('　  '+time+'秒 　');
 				} else {
 					$('#getPhoneCode').removeClass('codeType').removeProp('disabled', 'disabled').html('获取验证码');
-					clearInterval(interval);
+					clearInterval(window.interval);
 				}
 			}, 1000);
 		}
