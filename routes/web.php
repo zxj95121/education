@@ -49,7 +49,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['domai
         /*申请后台管理员*/
     $router->get('/applyAdmin', 'HomeController@applyAdmin');
     $router->get('/adminApply', 'HomeController@adminApply');
-    $router->get('/apply/phoneCode', 'HomeController@phoneCode');
+    $router->post('/apply/phoneCode', 'HomeController@phoneCode');
 });
 
 /*管理后台组*/
