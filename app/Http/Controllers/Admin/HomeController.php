@@ -221,7 +221,7 @@ class HomeController extends Controller
         $phoneCode = $request->input('phoneCode');
         $password = $request->input('password');
         $openid = $request->input('openid');
-        $nickname = $request->innput('nickname');
+        $nickname = $request->input('nickname');
         $headimgurl = $request->input('headimgurl');
 
         if ($phone != Session::get('phone') || $phoneCode != Session::get('phoneCode')) {
