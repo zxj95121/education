@@ -20,7 +20,7 @@ class LoginController extends Controller
     public function register(){
         $openid = Session::get('openid');
         $access_token = Session::get('oauth_access_token');
-
+dd(1);
         /*获取用户个人详细信息*/
         $url = 'https://api.weixin.qq.com/sns/userinfo?access_token='.
             $access_token.'&openid='.
