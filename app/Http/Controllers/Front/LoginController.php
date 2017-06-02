@@ -19,7 +19,7 @@ class LoginController extends Controller
 {
 	/*账号绑定*/
     public function register(){
-        $redi = Session::get('openid');
+        $redi = session('openid');
         dd($redi);
         $res= Identity::check();
         dd($res);
