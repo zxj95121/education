@@ -28,7 +28,6 @@
                                     管理员列表
                                 </h3>
                                 <div class="portlet-widgets">
-                                    <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
                                     <span class="divider"></span>
                                     <a data-toggle="collapse" data-parent="#accordion1" href="#portlet2"><i class="ion-minus-round"></i></a>
                                     <span class="divider"></span>
