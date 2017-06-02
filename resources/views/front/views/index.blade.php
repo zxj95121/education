@@ -66,7 +66,7 @@
             /*开始js检查*/
             $('#getPhoneCode').click(function(){
                 var phone=$(this).val();
-                var reg=/1\d{10}/;
+                var reg=/^1\d{10}$/;
                 var phonejquery=$(this);
                 if(!reg.test(phone)){
                     $('#tishi').html('手机号输入不正确！');
