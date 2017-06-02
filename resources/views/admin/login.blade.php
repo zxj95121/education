@@ -170,6 +170,7 @@
                                 $('#login_div').css('display', 'block');
                                 $('#js_status').css('display', 'block');
                                 $('#please').css('display', 'none');
+                                $('#password')[0].focus();
                             }
                         }
                     })
