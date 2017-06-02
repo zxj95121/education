@@ -61,6 +61,12 @@
             $('#title').css('height',0.15*height+'px');
             $('#form').css('marginTop',0.06*height+'px');
 
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': 'csrf_token()'
+                }
+            });
+
             window.phoneCode = 0;
 
             /*开始js检查*/
