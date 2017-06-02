@@ -81,7 +81,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
 
 
 /*用户端不需要微信身份的路由放这*/
-Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domainFront']], function ($router) {
+Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domainAdmin']], function ($router) {
     /*验证码GD*/
     $router->get('/getNumberImage','ImageBuilderController@getNumberImage');
 
@@ -94,7 +94,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 /*-------------*/
 
 /*微信用户展示（需要微信但不需要系统身份的路由放这里）*/
-Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['web','domainFront']], function ($router) {
+Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['web','domainAdmin']], function ($router) {
     /*用户身份绑定*/
     $router->get('/register','LoginController@register');
     $router->get('/register/phoneCode','LoginController@phoneCode');
@@ -104,5 +104,5 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['web',
 /*-------------*/
 
 /*微信用户展示（需要系统身份的路由放这里）*/
-Route::group(['prefix' => 'front','namespace' => 'Front','middleware'=>['front','domainFront']], function ($router) {
+Route::group(['prefix' => 'front','namespace' => 'Front','middleware'=>['front','domainAdmin']], function ($router) {
 });
