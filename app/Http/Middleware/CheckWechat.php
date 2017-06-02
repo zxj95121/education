@@ -22,6 +22,8 @@ class CheckWechat
         else if (Request::is('front/error_403')) {
             return $next($request);
         } else {
+            echo 3;
+            exit;
             return redirect('front/error_403');
         }
     }

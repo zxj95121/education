@@ -45,7 +45,6 @@ class OauthController extends Controller
     		$redirect_url = 'http://'.getenv('SITE_ADMIN').$flight->url;
     	}
 
-        dd($redirect_url);
     	$url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.
     		getenv('APPID').'&secret='.
     		getenv('APPSECRET').'&code='.
