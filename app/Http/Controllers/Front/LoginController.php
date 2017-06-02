@@ -10,7 +10,8 @@ use App\Http\Controllers\Wechat\OauthController;
 use App\Models\TeacherInfo;
 use App\Models\ParentInfo;
 
-use Session;
+// use Session;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Wechat;
 use Hash;
 use Identity;
