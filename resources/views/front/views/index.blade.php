@@ -97,6 +97,9 @@
                                 $('#toast').css({'opacity': 1,'display': 'block'});
                                 $('#phoneCode')[0].focus();
                                 window.phoneCode = data.phoneCode;
+                                setTimeout(function(){
+                                    $('#toast').css({'opacity': 0,'display': 'none'});
+                                }, 1200);
                             }
                             else if (data.errcode == 2){
                                 //表示该学号已绑定
