@@ -44,7 +44,7 @@ class LoginController extends Controller
     }
 
     /*进行发送手机验证码*/
-    private function phoneCode(Request $request)
+    public function phoneCode(Request $request)
     {
     	/**
     	* @see post请求
@@ -79,7 +79,7 @@ class LoginController extends Controller
     }
 
     /*进行新增用户信息*/
-    private function registerSubmit(Request $request)
+    public function registerSubmit(Request $request)
     {
         /**
         * @see post请求
