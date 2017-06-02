@@ -19,6 +19,7 @@ class LoginController extends Controller
 	/*账号绑定*/
     public function register(){
         var_dump(Wechat::check());
+        exit;
         // if (!Wechat::check())
         //     return redirect('/front/error_403');
         $openid = Session::get('openid');
