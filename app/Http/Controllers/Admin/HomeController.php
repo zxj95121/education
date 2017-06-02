@@ -240,6 +240,6 @@ class HomeController extends Controller
         $flight->headimgurl = $headimgurl;
         $flight->save();
         
-        return response->json(['errcode'=>0]);
+        return response()->json(['errcode'=>0]);
     }
 }
