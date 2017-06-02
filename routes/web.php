@@ -12,15 +12,7 @@
 */
 
 Route::get('/', function () {
-    if($_SERVER['SERVER_NAME'] == getenv('SITE_ADMIN')){
-
-        return redirect('/admin/dashboard');
-    }
-
-    if($_SERVER['SERVER_NAME'] == getenv('SITE_FRONT')){
-
-        return redirect('/front/register');
-    }
+    return redirect('/admin/dashboard');
 });
 
 /*前台错误指向地址*/

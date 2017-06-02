@@ -99,26 +99,23 @@ class LoginController extends Controller
         */
 
         $phone = $request->input('phone');
-        $password1 = $request->input('password1');
-        $password2 = $request->input('password2');
+        $phoneCode = $request->input('phoneCode');
         $role = $request->input('role');
         $openid = $request->input('openid');
         $nickname = $request->input('nickname');
         $headimgurl = $request->input('headimgurl');
 
         $result_phone = preg_match('/^1\d{10}$/', $phone);
-        $result_password1 = preg_match('/^[a-zA-Z0-9_]{6,18}$/', $password1);
-        $result_password2 = preg_match('/^[a-zA-Z0-9_]{6,18}$/', $password1);
         $result_role = preg_match('/^[1-2]{1}$/', $role);
 
-        if (!$result_role || !$result_password2 || !$result_password1 || !$result_phone) {
+        if (!$result_role || !$result_phone) {
             return response()->json(['errcode'=>1,'reason'=>'参数不合法']);
         }
-        if ($password1 != $password2) {
-            return response()->json(['errcode'=>2,'reason'=>'密码不一致']);
+        if ($phoneCode != Session::get('phoneCode')) {
+            return response()->json(['errcode'=>2,'reason'=>'验证码错误']);
         }
         if ($phone != Session::get('phone')) {
-            return response()->json(['errcode'=>3,'reason'=>'手机号或验证码验证失败。']);
+            return response()->json(['errcode'=>3,'reason'=>'手机号错误。']);
         }
 
         if ($role == 1) {

@@ -25,7 +25,7 @@
             <div id="Phone" class="input" style="position: relative;">
                 <lable>手机号：</lable>
                 <input type="text" id="phone" name="phone" placeholder="请输入手机号" isok=0 required/>
-                <button class="weui-btn weui-btn_mini weui-btn_default" type="button" style="position: absolute;top: 0px;right: 0px;height: 100%;">获取验证码</button>
+                <button class="weui-btn weui-btn_mini weui-btn_default" type="button" style="position: absolute;top: 0px;right: 0px;height: 100%;" id="getPhoneCode">获取验证码</button>
             </div>
             <div id="phonecode" class="input">
                 <lable>验证码：</lable>
@@ -37,6 +37,14 @@
         </div>
         <div id="information">
             <p>Copyright 皖 2013-2017 zhangxianjian.com</p>
+        </div>
+    </div>
+
+    <div id="toast" style="opacity: 0; display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+            <p class="weui-toast__content">发送成功</p>
         </div>
     </div>
     <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
@@ -53,8 +61,10 @@
             $('#title').css('height',0.15*height+'px');
             $('#form').css('marginTop',0.06*height+'px');
 
+            window.phoneCode = 0;
+
             /*开始js检查*/
-            $('#phone').blur(function(){
+            $('#getPhoneCode').click(function(){
                 var phone=$(this).val();
                 var reg=/1\d{10}/;
                 var phonejquery=$(this);
@@ -66,7 +76,7 @@
                 else{
                     // 请求后台看是否已经有该数据
                     $.ajax({
-                        url:'',
+                        url:'/front/register/phoneCode',
                         type:'post',
                         data:{
                             phone:phone
@@ -74,12 +84,15 @@
                         dataType:'json',
                         success:function(data){
                             console.log(data);
-                            if(data.error==0){
+                            if(data.errcode == 0){
                                 //表示账号未绑定
                                 $('#tishi').css('opacity',0);
                                 phonejquery.attr('isok',1);
+                                $('#toast').css({'opacity': 1,'display': 'block'});
+                                $('#phoneCode')[0].focus();
+                                window.phoneCode = data.phoneCode;
                             }
-                            else{
+                            else if (data.errcode == 2){
                                 //表示该学号已绑定
                                 $('#tishi').html('该手机号已经被占用。');
                                 $('#tishi').css('opacity',1);
@@ -89,6 +102,7 @@
                     });
                 }
             })
+
             $('#phoneCode').blur(function(){
                 var phoneCode=$(this).val();
                 if(phoneCode==''){
@@ -96,9 +110,13 @@
                     $('#tishi').css('opacity',1);
                     $(this).attr('isok',0);
                 }
-                else{
+                if (phoneCode = window.phoneCode){
                     $(this).attr('isok',1);
                     $('#tishi').css('opacity',0);
+                } else {
+                    $('#tishi').html('验证码不正确！');
+                    $('#tishi').css('opacity',1);
+                    $(this).attr('isok',0);
                 }
             })
 
@@ -118,21 +136,30 @@
                     $('#phoneCode').attr('isok',0);
                     return;
                 }
+                if (phoneCode != window.phoneCode) {
+                    $('#tishi').html('验证码不正确');
+                    $('#tishi').css('opacity',1);
+                    $('#phoneCode').attr('isok',0);
+                    return;
+                }
+
                 if($('#phone').attr('isok')==1&&$('#phoneCode').attr('isok')==1){
                     $('#tishi').html('正在绑定...');
                     $('#tishi').css('opacity',1);
                     $.ajax({
-                        url:'',
+                        url:'/front/register/registerSubmit',
                         type:'post',
                         data:{
                             phone: phone,
                             phoneCode: phoneCode,
-                            openid: ''
+                            openid: '{{$openid}}',
+                            nickname: '{{$nickname}}',
+                            headimg: '{{$headimgurl}}'
                         },
                         dataType:'json',
                         success: function(data){
-                            if(data.error==0){
-                                //表示账号密码无误
+                            if(data.errcode ==0){
+                                //表示手机号验证码无误
                                 $('#tishi').html('绑定成功！页面即将跳转...');
                                 $('#tishi').css('opacity',1);
                                 setTimeout(function(){$('#phone').val('');$('#phoneCode').val('');window.location.href="";},500);
