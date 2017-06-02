@@ -19,7 +19,6 @@ class LoginController extends Controller
 {
 	/*账号绑定*/
     public function register(){
-        echo Session::get('oauth_access_token');
         $res= Identity::check();
         dd($res);
         if (!Identity::check())
