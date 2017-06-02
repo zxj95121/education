@@ -45,14 +45,14 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 | the client's browser allowing them to enjoy the creative
 | and wonderful application we have prepared for them.
 |
-*/
+*/$response = $kernel->handle(
+    $request = Illuminate\Http\Request::capture()
+);
+$response->send();
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
-$response = $kernel->handle(
-    $request = Illuminate\Http\Request::capture()
-);
 
-$response->send();
+
 
 $kernel->terminate($request, $response);
