@@ -10,8 +10,7 @@ use App\Http\Controllers\Wechat\OauthController;
 use App\Models\TeacherInfo;
 use App\Models\ParentInfo;
 
-// use Session;
-use Symfony\Component\HttpFoundation\Session\Session;
+use Session;
 use Wechat;
 use Hash;
 use Identity;
@@ -21,7 +20,7 @@ class LoginController extends Controller
 	/*账号绑定*/
     public function register(){
         $redi = Session::get('openid');
-        dd($redi);
+        dd($redi);s
         $res= Identity::check();
         dd($res);
         if (!Identity::check())
