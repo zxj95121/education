@@ -44,7 +44,7 @@ class LoginController extends Controller
     }
 
     /*进行发送手机验证码*/
-    private function phoneCode($phone)
+    private function phoneCode(Request $request)
     {
     	/**
     	* @see post请求
