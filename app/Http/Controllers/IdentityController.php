@@ -7,7 +7,7 @@ use Session;
 
 class IdentityController extends Controller
 {
-    public static function check(Request $request)
+    public static function check()
     {
     	return Session::get('openid')?'1':'0';
     }
