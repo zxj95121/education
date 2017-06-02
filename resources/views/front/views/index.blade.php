@@ -63,7 +63,7 @@
 
             $.ajaxSetup({
                 headers: {
-                    'X-CSRF-TOKEN': 'csrf_token()'
+                    'X-CSRF-TOKEN': '{{csrf_token()}}'
                 }
             });
 
