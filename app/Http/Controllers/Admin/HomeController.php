@@ -175,6 +175,15 @@ class HomeController extends Controller
         $openid = Session::get('openid');
         $access_token = Session::get('oauth_access_token');
 
+        /*查看该微信是否已经是管理员*/
+        $result = AdminInfo::where('openid', $openid)
+            ->count();
+        if ($result != 0) {
+            $error_data = '该微信已经申请过管理员';
+            $phone_footer = Config::get('constants.phone_footer');
+            return view('admin.login.scan_error',['error_data'=>$error_data,'phone_footer'=>$phone_footer]);
+        }
+
         /*获取用户个人详细信息*/
         $url = 'https://api.weixin.qq.com/sns/userinfo?access_token='.
             $access_token.'&openid='.
