@@ -237,7 +237,7 @@ class HomeController extends Controller
         $flight->name = $name;
         $flight->phone = $phone;
         $flight->password = Hash::make($password);
-        $flight->headimgurl = $headimgurl;
+        $flight->headimg = $headimgurl;
         $flight->save();
         
         return response()->json(['errcode'=>0]);
