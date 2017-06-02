@@ -94,7 +94,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 /*-------------*/
 
 /*微信用户展示（需要微信但不需要系统身份的路由放这里）*/
-Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domainFront']], function ($router) {
+Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['web','domainFront']], function ($router) {
     /*用户身份绑定*/
     $router->get('/register','LoginController@register');
     $router->get('/register/phoneCode','LoginController@phoneCode');
