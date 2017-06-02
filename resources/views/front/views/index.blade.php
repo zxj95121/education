@@ -65,13 +65,13 @@
 
             /*开始js检查*/
             $('#getPhoneCode').click(function(){
-                var phone=$(this).val();
+                var phone=$('#phone').val();
                 var reg=/^1\d{10}$/;
-                var phonejquery=$(this);
+                var phonejquery=$('#phone');
                 if(!reg.test(phone)){
                     $('#tishi').html('手机号输入不正确！');
                     $('#tishi').css('opacity',1);
-                    $(this).attr('isok',0);
+                    $('#phone').attr('isok',0);
                 }
                 else{
                     // 请求后台看是否已经有该数据
