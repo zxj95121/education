@@ -64,7 +64,6 @@ class OauthController extends Controller
     		$openid = $data['openid'];
     		Session::put('openid', $openid);
     		return redirect($redirect_url);
-            dd(2);
     	} else {
     		return redirect('/front/error_403');
     	}
