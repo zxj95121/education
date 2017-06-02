@@ -172,9 +172,15 @@ $signPackage = $jssdk->GetSignPackage();
 						},
 						success: function(data){
 							if (data.errcode == 1) {
-								window.layer.msg('注册失败');
+								window.layer.msg('注册失败，请重试');
 							} else {
 								$('#toast').css({'display': 'block', 'opacity': '1'});
+								setTimeout(function(){
+									$('#toast').hide('800');
+									setTimeout(function(){
+										wx.closeWindow();
+									}, 800);
+								}, 2000);
 							}
 						}
 					})
