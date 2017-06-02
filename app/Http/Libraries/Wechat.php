@@ -57,6 +57,7 @@ class Wechat extends ServiceProvider
     */
     public static function check()
     {
+        return Session::get('openid');
         if(Session::get('openid'))
             return true;
         else
