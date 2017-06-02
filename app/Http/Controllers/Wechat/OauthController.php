@@ -8,6 +8,7 @@ use App\Models\OauthUrlRedirect;
 
 use Wechat;
 use Session;
+use Redirect;
 
 class OauthController extends Controller
 {
@@ -58,8 +59,8 @@ class OauthController extends Controller
     		$openid = $data['openid'];
     		Session::put('openid', $openid);
     		Session::put('oauth_access_token', $access_token);
-            Session::save();
-    		return redirect($redirect_url);
+            // Session::save();
+    		return  Redirect::to($redirect_url)->width('openid', $openid);
     	} else if(array_key_exists('openid', $data)) {
     		//静默授权进来的
     		$openid = $data['openid'];
