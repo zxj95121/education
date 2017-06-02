@@ -58,7 +58,7 @@ class OauthController extends Controller
     		$openid = $data['openid'];
     		Session::put('openid', $openid);
     		Session::put('oauth_access_token', $access_token);
-            Session::save();
+            // Session::save();
     		return redirect($redirect_url);
     	} else if(array_key_exists('openid', $data)) {
     		//静默授权进来的
