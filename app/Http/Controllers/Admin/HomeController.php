@@ -12,6 +12,7 @@ use App\Models\AdminInfo;
 use App\Models\AdminScanLogin;
 use Session;
 use Config;
+use Wechat;
 use Hash;
 use QrCode;
 
@@ -168,7 +169,24 @@ class HomeController extends Controller
     /*申请管理员*/
     public function adminApply(Request $request)
     {
-        return view('admin.login.apply_admin');
+        $openid = Session::get('openid');
+        $access_token = Session::get('oauth_access_token');
+
+        /*获取用户个人详细信息*/
+        $url = 'https://api.weixin.qq.com/sns/userinfo?access_token='.
+            $access_token.'&openid='.
+            $openid.'&lang=zh_CN';
+        $userinfo = Wechat::curl($url);
+        if (array_key_exists('openid', $userinfo)) {
+            /*成功获取用户信息*/
+            $nickname = $userinfo['nickname'];
+            $headimgurl = $userinfo['headimgurl'];
+            Session::forget('openid');
+            Session::forget('access_token');
+        } else {
+            return redirect('/front/error_403');
+        }
+        return view('admin.login.apply_admin',['openid'=>$openid,'nickname'=>$nickname,'headimgurl'=>$headimgurl]);
     }
 
     /*申请管理员发送验证码*/
@@ -193,5 +211,35 @@ class HomeController extends Controller
         Session::put('phone', $phone);
         Session::put('phoneCode', $phoneCode);
         return response()->json(['errcode'=>0,'phoneCode'=>$phoneCode]);
+    }
+
+    /*提交代码*/
+    public function submit(Request $request)
+    {
+        $name = $request->input('name');
+        $phone = $request->input('phone');
+        $phoneCode = $request->input('phoneCode');
+        $password = $request->input('password');
+        $openid = $request->input('openid');
+        $nickname = $request->innput('nickname');
+        $headimgurl = $request->input('headimgurl');
+
+        if ($phone != Session::get('phone') || $phoneCode != Session::get('phoneCode')) {
+            return response()->json(['errcode'=>1]);
+        }
+        /*数据正确继续下一步*/
+        Session::forget('phone');
+        Session::forget('phoneCode');
+
+        $flight = new AdminInfo();
+        $flight->openid = $openid;
+        $flight->nickname = $nickname;
+        $flight->name = $name;
+        $flight->phone = $phone;
+        $flight->password = Hash::make($password);
+        $flight->headimgurl = $headimgurl;
+        $flight->save();
+        
+        return response->json(['errcode'=>0]);
     }
 }

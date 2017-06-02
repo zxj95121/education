@@ -31,6 +31,8 @@ class LoginController extends Controller
             /*成功获取用户信息*/
             $nickname = $userinfo['nickname'];
             $headimgurl = $userinfo['headimgurl'];
+            Session::forget('openid');
+            Session::forget('access_token');
         } else {
             return redirect('/front/error_403');
         }

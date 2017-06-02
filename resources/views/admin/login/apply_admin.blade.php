@@ -113,6 +113,14 @@ $signPackage = $jssdk->GetSignPackage();
 		      		<div id="btn_apply" class="col-50" style="width: 100%;text-align: center;"><a href="#" class="button button-big button-fill button-success">提交申请</a></div>
 		    	</div>
 	  		</div>
+
+	  		<div id="toast" style="opacity: 0; display: none;">
+		        <div class="weui-mask_transparent"></div>
+		        <div class="weui-toast">
+		            <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+		            <p class="weui-toast__content">注册成功</p>
+		        </div>
+		    </div>
 		</div>
 	</div>
 
@@ -137,6 +145,41 @@ $signPackage = $jssdk->GetSignPackage();
 		wx.ready(function () {
 			// 在这里调用 API
 			wx.hideAllNonBaseMenuItem();
+			/*无误进行发送ajax*/
+			$('#btn_apply').click(function(){
+				if (check()) {
+					/*进行验证码校验*/
+					var phoneCode = $('#phoneCode').val();
+					if (phoneCode != window.phoneCode) {
+						$('#input_error').html('验证码不正确');
+						$('#li_error').css('display','block');
+						return; 
+					}
+
+					/*将所有数据传后台进行存储咯*/
+					$.ajax({
+						url: '/admin/apply/submit',
+						type: 'post',
+						dataType: 'json',
+						data: {
+							name: $('#name').val(),
+							phone: $('#phone').val(),
+							phoneCode: $('#phoneCode').val(),
+							password: $('#password1').val(),
+							openid: '{{$openid}}',
+							nickname: '{{$nickname}}',
+							headimgurl: '{{$headimgurl}}'
+						},
+						success: function(data){
+							if (data.errcode == 1) {
+								window.layer.msg('注册失败');
+							} else {
+								$('#toast').css({'display': 'block', 'opacity': '1'});
+							}
+						}
+					})
+				}
+			})
 		});
 	</script>
 	<script type="text/javascript">
@@ -163,19 +206,6 @@ $signPackage = $jssdk->GetSignPackage();
 					$('#input_error').html('');
 					$('#li_error').css('display','none');
 				});
-			})
-
-			/*无误进行发送ajax*/
-			$('#btn_apply').click(function(){
-				if (check()) {
-					/*进行验证码校验*/
-					var phoneCode = $('#phoneCode').val();
-					if (phoneCode != window.phoneCode) {
-						$('#input_error').html('验证码不正确');
-						$('#li_error').css('display','block');
-						return; 
-					}
-				}
 			})
 
 			/*请求发送手机验证码*/
