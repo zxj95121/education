@@ -16,7 +16,6 @@ class CheckDomainNameFront
      */
     public function handle($request, Closure $next)
     {
-        dd(3);
         if(strpos(Request::url(), getenv('SITE_FRONT')))//检测到访问的是前端
             return $next($request);
         else
