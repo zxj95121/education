@@ -12,12 +12,15 @@ use App\Models\TeacherInfo;
 use App\Models\ParentInfo;
 
 use Session;
+use Wechat;
 use Hash;
 
 class LoginController extends Controller
 {
 	/*账号绑定*/
     public function register(){
+        if (!Wechat::check())
+            return redirect('/front/error_403');
         $openid = Session::get('openid');
         $access_token = Session::get('oauth_access_token');
 

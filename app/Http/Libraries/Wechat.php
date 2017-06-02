@@ -2,6 +2,7 @@
 namespace App\Http\Libraries;
 
 use Illuminate\Support\ServiceProvider;
+use Session;
 
 class Wechat extends ServiceProvider
 {
@@ -49,6 +50,18 @@ class Wechat extends ServiceProvider
         return json_decode($output,true);
     }
 
+    // ------------------------------------------------------------------------
+    /*
+            默认为service，传入别的值表示为sub订阅号
+
+    */
+    public static function check()
+    {
+        if(Session::get('openid'))
+            return true;
+        else
+            return false;
+    }
 }
 
 ?>
