@@ -36,7 +36,7 @@
             <button id="login_btn" type="submit">确认绑定</button>
         </div>
         <div id="information">
-            <p>其他方式请勿输密码</p>
+            <p>Copyright 皖 2013-2017 zhangxianjian.com</p>
         </div>
     </div>
     <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
