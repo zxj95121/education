@@ -51,7 +51,7 @@ class OauthController extends Controller
     		$code.'&grant_type=authorization_code';
 
     	$data = Wechat::curl($url);
-
+        dd($data);
     	if (array_key_exists('access_token', $data)) {
     		/*通过code获取到信息了*/
     		$access_token = $data['access_token'];
