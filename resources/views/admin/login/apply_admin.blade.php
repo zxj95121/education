@@ -118,7 +118,7 @@ $signPackage = $jssdk->GetSignPackage();
 		        <div class="weui-mask_transparent"></div>
 		        <div class="weui-toast">
 		            <i class="weui-icon-success-no-circle weui-icon_toast"></i>
-		            <p class="weui-toast__content">注册成功</p>
+		            <p class="weui-toast__content">申请成功</p>
 		        </div>
 		    </div>
 		</div>

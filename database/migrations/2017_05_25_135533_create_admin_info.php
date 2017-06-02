@@ -24,7 +24,7 @@ class CreateAdminInfo extends Migration
             $table->tinyInteger('scan_id')->default('0')->comment('登录对应二维码图片ID，0未登录，其他表示对应ID');
             $table->tinyInteger('status')->default('0')->comment('1表示可用，0表示尚未通过审核，-1表示已删除');
             $table->tinyInteger('identity')->default('0')->comment('是否为超级管理员，0为否,1位真');
-            $table->integer('count')->default('1')->comment('登录次数');
+            $table->integer('count')->default('0')->comment('登录次数');
             $table->timestamps();
         });
 

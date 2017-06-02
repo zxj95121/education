@@ -150,7 +150,10 @@ class HomeController extends Controller
         $id = $request->input('id');
 
         $admin_id = AdminScanLogin::find($id)->admin_id;
-        $real_password = AdminInfo::find($admin_id)->password;
+        $adminInfo = AdminInfo::find($admin_id);
+        $adminInfo->count = $adminInfo->count+1;
+        $adminInfo->save();
+        $real_password = $adminInfo->password;
 
         if ($real_password == Hash::check($password, $real_password)){
             Session::put('admin_id', $admin_id);

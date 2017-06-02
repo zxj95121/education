@@ -13,7 +13,6 @@ use App\Models\ParentInfo;
 
 use Session;
 use Hash;
-use Wechat;
 
 class LoginController extends Controller
 {
@@ -118,7 +117,7 @@ class LoginController extends Controller
             return response()->json(['errcode'=>2,'reason'=>'密码不一致']);
         }
         if ($phone != Session::get('phone')) {
-            return response()->json(['errcode'=>3,'reason'=>'手机号或验证码验证失败。'])
+            return response()->json(['errcode'=>3,'reason'=>'手机号或验证码验证失败。']);
         }
 
         if ($role == 1) {

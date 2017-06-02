@@ -11,9 +11,16 @@
 |
 */
 
-
 Route::get('/', function () {
-    return redirect('/admin/dashboard');
+    if($_SERVER['SERVER_NAME'] == getenv('SITE_ADMIN')){
+
+        return redirect('/admin/dashboard');
+    }
+
+    if($_SERVER['SERVER_NAME'] == getenv('SITE_FRONT')){
+
+        return redirect('/front/register');
+    }
 });
 
 /*前台错误指向地址*/
@@ -60,6 +67,13 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->get('/login','HomeController@login');
     /*获取后台公共部分详情*/
     $router->post('/getAdminBasic', 'DashBoardController@getAdminBasic');
+
+    /*管理员部分*/
+    $router->get('/managerList', 'ManagerController@managerList');
+    $router->get('/managerReview', 'ManagerController@managerReview');
+    $router->post('/reviewOperate', 'ManagerController@reviewOperate');
+    $router->post('/managerRemove', 'ManagerController@managerRemove');
+    $router->post('/managerOpen', 'ManagerController@managerOpen');
 });
 
 

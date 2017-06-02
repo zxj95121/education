@@ -61,17 +61,26 @@
             <!-- Navbar Start -->
             <nav class="navigation">
                 <ul class="list-unstyled">
-                    <li class="active"><a href="/admin/dashboard"><i class="zmdi zmdi-view-dashboard"></i> <span class="nav-label">主页</span></a></li>
+                    <li class="{!!(Request::is('admin/dashboard')? 'active' : '') !!}">
+                        <a href="/admin/dashboard">
+                            <i class="zmdi zmdi-view-dashboard"></i> 
+                            <span class="nav-label">主页</span>
+                        </a>
+                    </li>
                     
-                    <li class="has-submenu">
+                    <li class="has-submenu {!!(Request::is('admin/managerList','admin/managerReview')? 'active' : '') !!}">
                         <a href="#">
                             <i class="zmdi zmdi-format-underlined"></i> 
                             <span class="nav-label">管理员管理</span>
                             <span class="menu-arrow"></span>
                         </a>
                         <ul class="list-unstyled">
-                            <li><a href="ui-typography.html">管理员列表</a></li>
-                            <li><a href="ui-buttons.html">待审核管理员</a></li>
+                            <li class="{!!(Request::is('admin/managerList')? 'active' : '') !!}">
+                                <a href="/admin/managerList">管理员列表</a>
+                            </li>
+                            <li class="{!!(Request::is('admin/managerReview')? 'active' : '') !!}">
+                                <a href="/admin/managerReview">待审核管理员</a>
+                            </li>
                         </ul>
                     </li>
 
@@ -133,8 +142,8 @@
                         <!-- user login dropdown start-->
                         <li class="dropdown text-center">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <img alt="" src="img/avatar-2.jpg" class="img-circle profile-img thumb-sm">
-                                <span class="username">John Deo </span> <span class="caret"></span>
+                                <img alt="" id="layout_headimg" src="img/avatar-2.jpg" class="img-circle profile-img thumb-sm">
+                                <span class="username" id="layout_username">John Deo </span> <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu pro-menu fadeInUp animated" tabindex="5003" style="overflow: hidden; outline: none;">
                                 <li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
@@ -161,8 +170,8 @@
             <!-- ================== -->
 
             <!-- Footer Start -->
-            <footer class="footer">
-                2016 漏 Velonic.
+            <footer class="footer" id="computer_footer">
+                
             </footer>
             <!-- Footer Ends -->
 
@@ -229,6 +238,10 @@
                         if (data.errcode == 0) {
                             document.title = data.site_name;
                             $('.logo-expanded span').html(data.site_name);
+
+                            $('#layout_headimg').attr('src', data.adminInfo.headimg);
+                            $('#layout_username').html(data.adminInfo.nickname);
+                            $('#computer_footer').html(data.computer_footer);
                         }
                     }
                 })
