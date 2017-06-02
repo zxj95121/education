@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Front;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Libraries\Wechat;
 
 use App\Http\Controllers\Wechat\OauthController;
 
