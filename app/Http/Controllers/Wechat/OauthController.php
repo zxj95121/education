@@ -56,6 +56,8 @@ class OauthController extends Controller
     		/*通过code获取到信息了*/
     		$access_token = $data['access_token'];
     		$openid = $data['openid'];
+            var_dump($redirect_url);
+            dd(1);
     		Session::put('openid', $openid);
     		Session::put('oauth_access_token', $access_token);
     		return redirect($redirect_url);
@@ -64,6 +66,7 @@ class OauthController extends Controller
     		$openid = $data['openid'];
     		Session::put('openid', $openid);
     		return redirect($redirect_url);
+            dd(2);
     	} else {
     		return redirect('/front/error_403');
     	}
