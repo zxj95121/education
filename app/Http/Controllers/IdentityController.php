@@ -9,7 +9,7 @@ class IdentityController extends Controller
 {
     public static function check()
     {
-    	$openid = session('openid');
+    	$openid = Session::get('openid');
     	echo $openid;
     	exit;
     	return Session::get('openid')?'1':'0';
