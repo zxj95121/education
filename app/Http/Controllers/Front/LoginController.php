@@ -101,7 +101,7 @@ class LoginController extends Controller
         $role = $request->input('role');
         $openid = $request->input('openid');
         $nickname = $request->input('nickname');
-        $headimgurl = $request->input('headimgurl');
+        $headimgurl = $request->input('headimg');
 
         $result_phone = preg_match('/^1\d{10}$/', $phone);
         $result_role = preg_match('/^[1-2]{1}$/', $role);
