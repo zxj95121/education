@@ -125,7 +125,7 @@
                                     else {
                                         $('#getPhoneCode').html('获取验证码');
                                         clearInterval(inter);
-                                        $('#getPhoneCode').propRemove('disabled');
+                                        $('#getPhoneCode').removeProp('disabled');
                                     }
                                 },1000);
                             }
