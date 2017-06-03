@@ -116,6 +116,16 @@
                                 setTimeout(function(){
                                     $('#toast').css({'opacity': 0,'display': 'none'});
                                 }, 1200);
+
+                                var phoneTime = 59;
+                                var inter = setInterval(function(){
+                                    if(phoneTime > 0)
+                                        $('#getPhoneCode').html(phoneTime--+'秒');
+                                    else {
+                                        $('#getPhoneCode').html('获取验证码');
+                                        clearInterval(inter);
+                                    }
+                                },1000);
                             }
                             else if (data.errcode == 2){
                                 //表示该学号已绑定

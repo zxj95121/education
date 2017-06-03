@@ -124,7 +124,6 @@ class LoginController extends Controller
         $flight->openid = $openid;
         $flight->phone = $phone;
         $flight->name = $nickname;
-        $flight->password = Hash::make($password1);
         $flight->headimgurl = $headimgurl;
         $flight->save();
 
