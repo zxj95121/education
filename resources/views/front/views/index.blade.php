@@ -5,6 +5,7 @@
     <title>账号注册</title>
     <link rel="stylesheet" type="text/css" href="/css/weui.css">
     <link rel="stylesheet" href="/front/css_module/bind.css"/>
+    <link rel="stylesheet" type="text/css" href="/js/h-ui/static/h-ui/css/H-ui.min.css">
     <style type="text/css">
         #head{
             background-image:url('<?php echo 'http://wx.qlogo.cn/mmopen/w6MofXPc5Nj9oWjZKbm3svI0grH1AMuYg6OaoQoc5TNjuic9iazY1YZKD9yQ4p8WP0Ovo6QVG6kxyrHvWJPJ39V9vM0zS033OS/0'; ?>');
@@ -31,6 +32,17 @@
                 <lable>验证码：</lable>
                 <input type="text" id="phoneCode" name="phoneCode" placeholder="请输入验证码" isok=0 required/>
             </div>
+            <div class="skin-minimal">
+                <div class="mt-20 skin-minimal">
+                    <div class="radio-box">
+                        <input type="radio" id="radio-1" name="demo-radio1">
+                        <label for="radio-1">单选按钮</label>
+                    </div>
+                    <div class="radio-box">
+                        <input type="radio" id="radio-2" name="demo-radio1" checked>
+                        <label for="radio-2">单选按钮 checked状态</label>
+                    </div>
+                </div>
             <p id="tishi">让你看不到，哈哈哈</p>
 
             <button id="login_btn" type="submit">确认绑定</button>
@@ -48,6 +60,7 @@
         </div>
     </div>
     <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/h-ui/static/h-ui/js/H-ui.min.js"></script>
     <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
         
     <script type="text/javascript">
