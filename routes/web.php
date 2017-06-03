@@ -79,7 +79,9 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 
     $router->get('/home','HomeController@index');
     // $router->get('/homepage','HomeController@homepage');
+    // oauth进行跳的路由
     $router->get('/register/oauth','LoginController@oauth');
+    $router->get('/home/oauth', 'HomeController@homeOauth');
 
 });
 
@@ -94,7 +96,6 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 
     /*主页*/
     $router->get('/home', 'HomeController@home');
-    $router->get('/home/oauth', 'HomeController@homeOauth');
 });
 
 /*-------------*/
