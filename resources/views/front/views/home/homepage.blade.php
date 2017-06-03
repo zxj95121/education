@@ -11,6 +11,22 @@
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/my.css">
 </head>
 <body>
+
+    <div class="container-fluid" id="teacher" style="display: none;">
+        teacher
+    </div>
+
+    <div class="container-fluid" id="parent" style="display: none;">
+        parent
+    </div>
+
+    <div class="container-fluid" id="classroom" style="display: none;">
+        classrome
+    </div>
+
+    <div class="container-fluid" id="eclass" style="display: none;">
+        eclass
+    </div>
     <div class="container-fluid" id="my">
         <!-- header start -->
         <div class="row" id="my_header">
@@ -152,25 +168,29 @@
         <!-- option end -->
     </div>
     <div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
-        <a href="javascript:;" class="weui-tabbar__item">
+        <a href="javascript:void(0);" class="weui-tabbar__item" for="teacher">
             <span style="display: inline-block;position: relative;">
                 <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
                 <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
             </span>
             <p class="weui-tabbar__label">搜名师</p>
         </a>
-        <a href="javascript:;" class="weui-tabbar__item">
+        <a href="javascript:void(0);" class="weui-tabbar__item" for="parent">
             <img src="/images/home/menu_parent.png" alt="" class="weui-tabbar__icon">
             <p class="weui-tabbar__label">搜家长</p>
         </a>
-        <a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
+        <a href="javascript:void(0);" class="weui-tabbar__item" for="classroom">
+            <img src="/images/home/menu_classroom.png" alt="" class="weui-tabbar__icon">
+            <p class="weui-tabbar__label">搜教室</p>
+        </a>
+        <a href="javascript:void(0);" class="weui-tabbar__item" for="eclass">
             <span style="display: inline-block;position: relative;">
                 <img src="/images/home/menu_class.png" alt="" class="weui-tabbar__icon">
                 <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
             </span>
             <p class="weui-tabbar__label">e-class</p>
         </a>
-        <a href="javascript:;" class="weui-tabbar__item">
+        <a href="javascript:void(0);" class="weui-tabbar__item" for="my">
             <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
             <p class="weui-tabbar__label">我的</p>
         </a>
@@ -178,6 +198,7 @@
 
     <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
 
+    <script type="text/javascript" src="/front/js_module/homepage/homepage.js"></script>
     <script type="text/javascript" src="/front/js_module/homepage/my.js"></script>
 </body>
 </html>
