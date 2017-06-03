@@ -5,6 +5,11 @@
 #my{
 /*	background-color: #F2F5EA;*/
 }
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background-color: rgba(240,240,240,0)
+}
 #my_header{
 	background-color: #5DD5C8;
 	padding:7% 0px 7% 20px;

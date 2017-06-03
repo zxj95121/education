@@ -118,7 +118,7 @@
         <!--function end -->
         <div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
         <!-- option start -->
-        <div class="weui-cells">
+        <div class="weui-cells" id="my_option">
 
             <a class="weui-cell weui-cell_access" href="javascript:;">
                 <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
@@ -151,7 +151,7 @@
         </div>
         <!-- option end -->
     </div>
-    <div class="weui-tabbar" style="position: fixed;z-index: 9999;">
+    <div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
         <a href="javascript:;" class="weui-tabbar__item">
             <span style="display: inline-block;position: relative;">
                 <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
