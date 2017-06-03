@@ -11,8 +11,4 @@ $(function(){
 	/*bottom*/
 	$('#my_option').css('marginBottom', $('#all_bottom').css('height'));
 
-	/*去掉滑动手机默认行为*/
-	$('body').on('touchmove', function (event) {
-	    event.preventDefault();
-	});
 })
