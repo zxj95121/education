@@ -59,7 +59,7 @@
         <div class="weui-mask_transparent"></div>
         <div class="weui-toast">
             <i class="weui-icon-success-no-circle weui-icon_toast"></i>
-            <p class="weui-toast__content">发送成功</p>
+            <p class="weui-toast__content">验证码发送成功</p>
         </div>
     </div>
     <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>

@@ -124,7 +124,7 @@ class LoginController extends Controller
         $flight->openid = $openid;
         $flight->phone = $phone;
         $flight->name = $nickname;
-        $flight->headimgurl = $headimgurl;
+        $flight->headimg = $headimgurl;
         $flight->save();
 
         Session::forget('phoneCode');
