@@ -42,7 +42,7 @@
                         <label for="role1">我是家长</label>
                     </div>
                     <div class="radio-box">
-                        <input type="radio" id="roal2" name="role" checked>
+                        <input type="radio" id="roal2" name="role">
                         <label for="role2">我是名师</label>
                     </div>
                 </div>
@@ -146,6 +146,8 @@
             })
 
             $('#login_btn').click(function(){
+                var role = $(':radio :checked').val();
+                console.log(role);
                 var phone=$('#phone').val();
                 var phoneCode=$('#phoneCode').val();
                 //先检查是否为空，并做出提示
