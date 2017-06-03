@@ -10,6 +10,9 @@
         #head{
             background-image:url('<?php echo 'http://wx.qlogo.cn/mmopen/w6MofXPc5Nj9oWjZKbm3svI0grH1AMuYg6OaoQoc5TNjuic9iazY1YZKD9yQ4p8WP0Ovo6QVG6kxyrHvWJPJ39V9vM0zS033OS/0'; ?>');
         }
+        .radio-box{
+            color: #FFF;
+        }
     </style>
 </head>
 
@@ -35,12 +38,12 @@
             <div class="skin-minimal">
                 <div class="mt-20 skin-minimal">
                     <div class="radio-box">
-                        <input type="radio" id="radio-1" name="demo-radio1">
-                        <label for="radio-1">单选按钮</label>
+                        <input type="radio" id="role1" name="role">
+                        <label for="role1">我是家长</label>
                     </div>
                     <div class="radio-box">
-                        <input type="radio" id="radio-2" name="demo-radio1" checked>
-                        <label for="radio-2">单选按钮 checked状态</label>
+                        <input type="radio" id="roal2" name="role" checked>
+                        <label for="role2">我是名师</label>
                     </div>
                 </div>
             <p id="tishi">让你看不到，哈哈哈</p>
