@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>账号注册</title>
+    <title>绑定手机号</title>
     <link rel="stylesheet" type="text/css" href="/css/weui.css">
     <link rel="stylesheet" href="/front/css_module/bind.css"/>
     <link rel="stylesheet" type="text/css" href="/js/h-ui/static/h-ui/css/H-ui.min.css">
@@ -147,7 +147,11 @@
 
             $('#login_btn').click(function(){
                 var role = $('input[type="radio"]:checked').val();
-                console.log(role);
+                if (!role) {
+                    $('#tishi').html('请选择身份！');
+                    $('#tishi').css('opacity',1);
+                    return false;
+                }
                 var phone=$('#phone').val();
                 var phoneCode=$('#phoneCode').val();
                 //先检查是否为空，并做出提示
@@ -181,7 +185,8 @@
                             phoneCode: phoneCode,
                             openid: '{{$openid}}',
                             nickname: '{{$nickname}}',
-                            headimg: '{{$headimgurl}}'
+                            headimg: '{{$headimgurl}}',
+                            role: role
                         },
                         dataType:'json',
                         success: function(data){
@@ -189,7 +194,7 @@
                                 //表示手机号验证码无误
                                 $('#tishi').html('绑定成功！页面即将跳转...');
                                 $('#tishi').css('opacity',1);
-                                setTimeout(function(){$('#phone').val('');$('#phoneCode').val('');window.location.href="";},500);
+                                setTimeout(function(){$('#phone').val('');$('#phoneCode').val('');window.location.href="/front/home";},500);
                             }
                             else{
                                 //绑定失败

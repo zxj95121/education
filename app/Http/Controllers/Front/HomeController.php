@@ -7,9 +7,9 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function home()
     {
-    	return view('front.views.index');
+    	return view('front.views.home.homepage');
     }
 
    

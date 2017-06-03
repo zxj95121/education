@@ -91,6 +91,9 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
     $router->get('/register','LoginController@register');
     $router->post('/register/phoneCode','LoginController@phoneCode');
     $router->post('/register/registerSubmit','LoginController@registerSubmit');
+
+    /*主页*/
+    $router->get('/home', 'HomeController@home');
 });
 
 /*-------------*/
