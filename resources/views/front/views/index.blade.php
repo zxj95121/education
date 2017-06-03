@@ -38,11 +38,11 @@
             <div class="skin-minimal">
                 <div class="mt-20 skin-minimal">
                     <div class="radio-box">
-                        <input type="radio" id="role1" name="role">
+                        <input type="radio" id="role1" name="role" value="1">
                         <label for="role1">我是家长</label>
                     </div>
                     <div class="radio-box">
-                        <input type="radio" id="roal2" name="role">
+                        <input type="radio" id="roal2" name="role" value="2">
                         <label for="role2">我是名师</label>
                     </div>
                 </div>
