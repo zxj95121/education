@@ -116,7 +116,8 @@
                                 setTimeout(function(){
                                     $('#toast').css({'opacity': 0,'display': 'none'});
                                 }, 1200);
-
+                                $('#getPhoneCode').html('60秒');
+                                $('#getPhoneCode').prop('disabled', 'disabled');
                                 var phoneTime = 59;
                                 var inter = setInterval(function(){
                                     if(phoneTime > 0)
@@ -124,6 +125,7 @@
                                     else {
                                         $('#getPhoneCode').html('获取验证码');
                                         clearInterval(inter);
+                                        $('#getPhoneCode').propRemove('disabled');
                                     }
                                 },1000);
                             }
