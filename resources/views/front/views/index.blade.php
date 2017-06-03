@@ -146,7 +146,7 @@
             })
 
             $('#login_btn').click(function(){
-                var role = $(':radio :checked').val();
+                var role = $('input[type="radio"]:checked').val();
                 console.log(role);
                 var phone=$('#phone').val();
                 var phoneCode=$('#phoneCode').val();
