@@ -94,6 +94,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 
     /*主页*/
     $router->get('/home', 'HomeController@home');
+    $router->get('/home/oauth', 'HomeController@homeOauth');
 });
 
 /*-------------*/
