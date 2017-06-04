@@ -63,12 +63,15 @@
         <!--function start -->
         <div id="my_functions">
             <div class="row" class="my_function">
-                <div class="col-xs-3 my_function_type">
+                <div class="col-xs-3 my_function_type" id="user_info">
                     <div class="my_function_top">
-                        <img src="/images/home/function_child.png" />
+                        <img src="/images/home/function_info.png" />
                     </div>
                     <div class="my_function_bottom">
-                        我的孩子
+                        个人信息
+                    </div>
+                    <div class="my_function_float">
+                        <img src="/images/home/function_cicle.png" />
                     </div>
                 </div>
                 <div class="col-xs-3 my_function_type">

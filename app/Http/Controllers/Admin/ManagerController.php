@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\AdminInfo;
+use App\Models\UserType;
 use Session;
 
 class ManagerController extends Controller
@@ -39,6 +40,10 @@ class ManagerController extends Controller
     	
     	if ($index == 1) {
     		$flight->delete();
+
+            $flight_ut = UserType::where('type', '1')
+                ->where('uid', $id)
+                ->delete();
     	} else {
     		$flight->status = 1;
     		$flight->save();

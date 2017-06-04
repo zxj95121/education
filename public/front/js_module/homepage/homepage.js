@@ -32,4 +32,8 @@ $(function(){
 		loadImg[i] = new Image(); 
 		loadImg[i].src = imgUrl[i];
 	}
+
+	$('#user_info').click(function(){
+		  window.location.href = "/front/user_info_parent";
+	})
 })
