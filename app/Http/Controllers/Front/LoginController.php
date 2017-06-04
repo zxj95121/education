@@ -9,6 +9,7 @@ use App\Http\Controllers\Wechat\OauthController;
 
 use App\Models\TeacherInfo;
 use App\Models\ParentInfo;
+use App\Models\UserType;
 
 use Session;
 use Wechat;
@@ -117,8 +118,18 @@ class LoginController extends Controller
         }
 
         if ($role == 1) {
+            $flight = new UserType();
+            $flight->openid = $openid;
+            $flight->type = '2';
+            $flight->save();
+
             $flight = new ParentInfo();
         } else {
+            $flight = new UserType();
+            $flight->openid = $openid;
+            $flight->type = '3';
+            $flight->save();
+
             $flight = new TeacherInfo();
         }
         $flight->openid = $openid;
@@ -127,6 +138,7 @@ class LoginController extends Controller
         $flight->headimg = $headimgurl;
         $flight->save();
 
+        Session::put('front_id', $$flight->id);
         Session::forget('phoneCode');
         Session::forget('phone');
 

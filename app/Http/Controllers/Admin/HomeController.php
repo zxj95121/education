@@ -10,6 +10,7 @@ use App\Http\Controllers\Wechat\OauthController;
 
 use App\Models\AdminInfo;
 use App\Models\AdminScanLogin;
+use App\Models\UserType;
 use Session;
 use Config;
 use Wechat;
@@ -250,6 +251,10 @@ class HomeController extends Controller
         $flight->phone = $phone;
         $flight->password = Hash::make($password);
         $flight->headimg = $headimgurl;
+        $flight->save();
+
+        $flight = new UserType();
+        $flight->openid = $openid;
         $flight->save();
         
         return response()->json(['errcode'=>0]);

@@ -96,6 +96,9 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 
     /*主页*/
     $router->get('/home', 'HomeController@home');
+
+    /*补充信息页*/
+    // $router->get('/')
 });
 
 /*-------------*/
