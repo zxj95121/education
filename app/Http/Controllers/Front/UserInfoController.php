@@ -9,6 +9,6 @@ class UserInfoController extends Controller
 {
     public function parent()
     {
-    	echo 'hehe';
+    	return view('front.views.user_info.user_info_parent_add');
     }
 }
