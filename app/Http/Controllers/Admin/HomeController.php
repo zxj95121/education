@@ -253,8 +253,11 @@ class HomeController extends Controller
         $flight->headimg = $headimgurl;
         $flight->save();
 
+        $uid = $flight->id;
+
         $flight = new UserType();
         $flight->openid = $openid;
+        $flight->uid = $uid;
         $flight->save();
         
         return response()->json(['errcode'=>0]);
