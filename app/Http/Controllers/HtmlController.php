@@ -30,4 +30,9 @@ class HtmlController extends Controller
     {
         return 'front.views.home.homepage';
     }
+
+    private function parent_info()
+    {
+        return 'front.views.user_info.user_info_parent_add';
+    }
 }

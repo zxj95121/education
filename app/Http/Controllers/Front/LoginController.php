@@ -118,25 +118,32 @@ class LoginController extends Controller
         }
 
         if ($role == 1) {
-            $flight = new UserType();
-            $flight->openid = $openid;
-            $flight->type = '2';
-            $flight->save();
-
             $flight = new ParentInfo();
         } else {
-            $flight = new UserType();
-            $flight->openid = $openid;
-            $flight->type = '3';
-            $flight->save();
-
             $flight = new TeacherInfo();
         }
+        
         $flight->openid = $openid;
         $flight->phone = $phone;
         $flight->name = $nickname;
         $flight->headimg = $headimgurl;
         $flight->save();
+
+        $fid = $flight->id;
+
+        if ($role == 1) {
+            $flight = new UserType();
+            $flight->openid = $openid;
+            $flight->type = '2';
+            $flight->uid = $fid;
+            $flight->save();
+        } else {
+            $flight = new UserType();
+            $flight->openid = $openid;
+            $flight->uid = $fid;
+            $flight->type = '3';
+            $flight->save();
+        }
 
         Session::put('front_id', $$flight->id);
         Session::forget('phoneCode');
