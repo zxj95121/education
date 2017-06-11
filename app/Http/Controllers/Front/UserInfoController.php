@@ -11,4 +11,9 @@ class UserInfoController extends Controller
     {
     	return view('front.views.user_info.user_info_parent_add');
     }
+
+    public function teacher()
+    {
+    	return view('front.views.user_info.user_info_teacher_add');
+    }
 }
