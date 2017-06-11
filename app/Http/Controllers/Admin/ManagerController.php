@@ -74,4 +74,16 @@ class ManagerController extends Controller
     	$flight->save();
     	return response()->json(['errcode'=>0]);
     }
+
+    /*学生家长审核*/
+    public function parentReview(Request $request)
+    {
+        return view('admin.people.parentReview');
+    }
+
+    /*老师审核*/
+    public function teacherReview(Request $request)
+    {
+        return view('admin.people.teacherReview');
+    }
 }

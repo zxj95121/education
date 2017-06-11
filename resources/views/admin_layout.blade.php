@@ -68,18 +68,24 @@
                         </a>
                     </li>
                     
-                    <li class="has-submenu {!!(Request::is('admin/managerList','admin/managerReview')? 'active' : '') !!}">
+                    <li class="has-submenu {!!(Request::is('admin/managerList','admin/managerReview','admin/teacherReview','admin/parentReview')? 'active' : '') !!}">
                         <a href="#">
                             <i class="zmdi zmdi-format-underlined"></i> 
-                            <span class="nav-label">管理员管理</span>
+                            <span class="nav-label">用户基本管理</span>
                             <span class="menu-arrow"></span>
                         </a>
                         <ul class="list-unstyled">
-                            <li class="{!!(Request::is('admin/managerList')? 'active' : '') !!}">
-                                <a href="/admin/managerList">管理员列表</a>
+                            <li class="{!!(Request::is('admin/parentReview')? 'active' : '') !!}">
+                                <a href="/admin/parentReview">家长资料审核</a>
+                            </li>
+                            <li class="{!!(Request::is('admin/teacherReview')? 'active' : '') !!}">
+                                <a href="/admin/teacherReview">老师资料审核</a>
                             </li>
                             <li class="{!!(Request::is('admin/managerReview')? 'active' : '') !!}">
-                                <a href="/admin/managerReview">待审核管理员</a>
+                                <a href="/admin/managerReview">管理员申请</a>
+                            </li>
+                            <li class="{!!(Request::is('admin/managerList')? 'active' : '') !!}">
+                                <a href="/admin/managerList">管理员列表</a>
                             </li>
                         </ul>
                     </li>
