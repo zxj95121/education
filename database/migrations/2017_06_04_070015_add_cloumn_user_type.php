@@ -25,6 +25,8 @@ class AddCloumnUserType extends Migration
      */
     public function down()
     {
-        $table->dropColumn('uid');
+        Schema::create('user_type', function (Blueprint $table) {
+            $table->dropColumn('uid');
+        });
     }
 }

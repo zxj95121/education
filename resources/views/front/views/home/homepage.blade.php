@@ -191,7 +191,7 @@
                 <img src="/images/home/menu_class.png" alt="" class="weui-tabbar__icon">
                 <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
             </span>
-            <p class="weui-tabbar__label">e-class</p>
+            <p class="weui-tabbar__label">双师class</p>
         </a>
         <a href="javascript:void(0);" class="weui-tabbar__item" for="my">
             <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
