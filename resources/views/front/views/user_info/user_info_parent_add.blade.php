@@ -126,7 +126,7 @@
 				$('.page__bd').eq(0).show();
 				$('.page__bd').css('top', height1);
 			})
-
+ 
 		})
 
 	</script>
