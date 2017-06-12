@@ -3,8 +3,9 @@
 <head>
 	<title>个人信息</title>
 	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="/css/weui.css" />
+	<link rel="stylesheet" type="text/css" href="/js/weui/weui.min.css" />
 	<link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.min.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="/js/weui/example.css"> -->
 	<style type="text/css">
 		.page_set{
 			width: 100%;
@@ -47,7 +48,7 @@
 	                    <span style="vertical-align:middle; font-size: 17px;"></span>
 	                </div>
 	            </div>
-	            <div class="weui-cell weui-cell_access row_info" target="birth">
+	            <div class="weui-cell weui-cell_access" id="showDatePicker">
 	                <div class="weui-cell__bd">出生日期</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;"></span>
@@ -162,11 +163,16 @@
 		            </div>
 		        </div>
 		    </div>
+
+		    <!-- 出生年月 -->
         </div>
         <!-- <div style="width: 100%;height:50px;"></div> -->
 	</div>
 	<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="/js/example.js"></script>
+	<script type="text/javascript" src="/js/weui/zepto.min.js"></script>
+	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
+	<script type="text/javascript" src="/js/weui/example.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			var height = document.documentElement.clientHeight;
@@ -208,7 +214,40 @@
 				$('#sex').css('display', 'none');
 
 			})
+
+			/*出生年月*/
+			$('#birth').on('click', function () {
+		        weui.datePicker({
+		            start: 1990,
+		            end: new Date().getFullYear(),
+		            onChange: function (result) {
+		                console.log(result);
+		            },
+		            onConfirm: function (result) {
+		                console.log(result);
+		            }
+		        });
+		    });
+
 		})
+	</script>
+	<script type="text/javascript">
+		$(function(){
+			$('#showDatePicker').on('click', function () {
+				weui.datePicker({
+		            start: 1960,
+		            end: new Date().getFullYear(),
+		            onChange: function (result) {
+		                console.log(result);
+		            },
+		            onConfirm: function (result) {
+		                console.log(result);
+		            }
+		        });
+		        $('.weui-picker__group').eq(2).remove();
+	        });
+	        
+		});
 	</script>
 </body>
 </html>

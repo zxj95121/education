@@ -173,17 +173,17 @@ $(function () {
         };
     }
     function preload(){
-        $(window).on("load", function(){
-            var imgList = [
-                "./images/layers/content.png",
-                "./images/layers/navigation.png",
-                "./images/layers/popout.png",
-                "./images/layers/transparent.gif"
-            ];
-            for (var i = 0, len = imgList.length; i < len; ++i) {
-                new Image().src = imgList[i];
-            }
-        });
+        // $(window).on("load", function(){
+        //     var imgList = [
+        //         "/public/weui/images/layers/content.png",
+        //         "/public/weui/images/layers/navigation.png",
+        //         "/public/weui/images/layers/popout.png",
+        //         "/public/weui/images/layers/transparent.gif"
+        //     ];
+        //     for (var i = 0, len = imgList.length; i < len; ++i) {
+        //         new Image().src = imgList[i];
+        //     }
+        // });
     }
     function androidInputBugFix(){
         // .container 设置了 overflow 属性, 导致 Android 手机下输入框获取焦点时, 输入法挡住输入框的 bug
@@ -229,11 +229,11 @@ $(function () {
                 ]
             });
             wx.ready(function () {
-                /*
+                
                  wx.invoke('setNavigationBarColor', {
                  color: '#F8F8F8'
                  });
-                 */
+                 
                 wx.invoke('setBounceBackground', {
                     'backgroundColor': '#F8F8F8',
                     'footerBounceColor' : '#F8F8F8'
@@ -261,6 +261,7 @@ $(function () {
                 template: '#' + tpl.id
             };
         }
+        pages.home = new Object();
         pages.home.url = '#';
 
         for (var page in pages) {
@@ -282,10 +283,10 @@ $(function () {
     }
 
     function init(){
-        preload();
+        // preload();
         fastClick();
         androidInputBugFix();
-        setJSAPI();
+        // setJSAPI();
         setPageManager();
 
         window.pageManager = pageManager;
