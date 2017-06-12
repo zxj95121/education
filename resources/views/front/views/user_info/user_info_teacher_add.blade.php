@@ -33,13 +33,13 @@
 	                    <span style="vertical-align:middle; font-size: 17px; display:inline-block;"><img style="width:70px;border-radius:50%;" src="http://wx.qlogo.cn/mmopen/w6MofXPc5Nj9oWjZKbm3svI0grH1AMuYg6OaoQoc5TNjuic9iazY1YZKD9yQ4p8WP0Ovo6QVG6kxyrHvWJPJ39V9vM0zS033OS/0"></span>
 	                </div>
 	            </div>
-	           	<div class="weui-cell weui-cell_access row_info" target="nickname">
+	           	<div class="weui-cell weui-cell_access row_info input_info" target="nickname">
 	                <div class="weui-cell__bd">昵称</div>
 	                <div class="weui-cell__ft" style="font-size: 0" >
 	                    <span style="vertical-align:middle; font-size: 17px;">张贤健</span>
 	                </div>
 	            </div>
-	           	<div class="weui-cell weui-cell_access row_info" target="name">
+	           	<div class="weui-cell weui-cell_access row_info input_info" target="name">
 	                <div class="weui-cell__bd">姓名</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;">选填</span>
@@ -60,10 +60,10 @@
 	            <div class="weui-cell weui-cell_access row_info" target="school">
 	                <div class="weui-cell__bd">所在学校</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;">安徽师范大学</span>
+	                    <span style="vertical-align:middle; font-size: 17px;"></span>
 	                </div>
 	            </div>
-	            <div class="weui-cell weui-cell_access row_info" target="project">
+	            <div class="weui-cell weui-cell_access row_info input_info" target="project">
 	                <div class="weui-cell__bd">所学专业</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;"></span>
@@ -114,15 +114,15 @@
 		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
 			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
 			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">昵称</div></div>
-			            <div><div class="placeholder glyphicon glyphicon-ok done_ok"></div></div>
+			            <div><div class="placeholder glyphicon glyphicon-ok done_ok1"></div></div>
 			        </div>
 			    </div>
-			    <div style="width: 97%;margin: 0 auto;">
+			    <div style="width: 97%;margin: 0 auto;" class="div_detail">
 			    	<div class="weui-cells__title"><span>3</span>/5</div>
 			    	<div class="weui-cells">
 			            <div class="weui-cell">
 			                <div class="weui-cell__bd">
-			                    <input class="weui-input" name="nickname" type="text" placeholder="请输入昵称">
+			                    <input class="weui-input input_set" name="nickname" type="text" placeholder="请输入昵称">
 			                </div>
 			            </div>
        				</div>
@@ -135,15 +135,15 @@
 		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
 			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
 			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">姓名</div></div>
-			            <div><div class="placeholder glyphicon glyphicon-ok done_ok"></div></div>
+			            <div><div class="placeholder glyphicon glyphicon-ok done_ok1"></div></div>
 			        </div>
 			    </div>
-			    <div style="width: 97%;margin: 0 auto;">
+			    <div style="width: 97%;margin: 0 auto;" class="div_detail">
 			    	<div class="weui-cells__title"><span>3</span>/4</div>
 			    	<div class="weui-cells">
 			            <div class="weui-cell">
 			                <div class="weui-cell__bd">
-			                    <input class="weui-input" name="name" type="text" placeholder="请输入姓名">
+			                    <input class="weui-input input_set" name="name" type="text" placeholder="请输入姓名">
 			                </div>
 			            </div>
        				</div>
@@ -183,6 +183,7 @@
 			    	<button type="button" class="btn btn-info">芜湖职业技术学院</button>	
 			    	<button type="button" class="btn btn-info">安徽中医药高等专科学校</button>	
 			    	<button type="button" class="btn btn-info">安徽机电职业技术学院</button>	
+			    	<button type="button" class="btn btn-info">其他高校</button>	
 			    </div>
 			</div>
 
@@ -192,15 +193,15 @@
 		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
 			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
 			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">专业</div></div>
-			            <div><div class="placeholder glyphicon glyphicon-ok done_ok"></div></div>
+			            <div><div class="placeholder glyphicon glyphicon-ok done_ok1"></div></div>
 			        </div>
 			    </div>
-			    <div style="width: 97%;margin: 0 auto;">
+			    <div style="width: 97%;margin: 0 auto;" class="div_detail">
 			    	<div class="weui-cells__title"><span>3</span>/10</div>
 			    	<div class="weui-cells">
 			            <div class="weui-cell">
 			                <div class="weui-cell__bd">
-			                    <input class="weui-input" name="project" type="text" placeholder="所学专业">
+			                    <input class="weui-input input_set" name="project" type="text" placeholder="所学专业">
 			                </div>
 			            </div>
        				</div>
@@ -216,6 +217,7 @@
 	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
 	<script type="text/javascript" src="/js/weui/example.js"></script>
+	<script type="text/javascript" src="/js/layui/layer_only/mobile/layer.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			var height = document.documentElement.clientHeight;
@@ -231,6 +233,15 @@
 					$('#page_main').css('display', 'none');
 				}, 300);
 
+				if ($(this).hasClass('input_info')) {
+					var value = $(this).find('span').html();
+					if (value == '' || value == '选填') {
+						value = '';
+					}
+					$('#'+target+' input[name="'+target+'"]').val(value);
+					$('#'+target+' .div_detail span').html(value.length);
+
+				}
 			})
 
 			/*取消修改*/
@@ -267,7 +278,60 @@
 		    	$(this).removeClass('btn-info').addClass('btn-success');
 		    })
 
-		    /*所学专业*/
+		    $('#school .done_ok').click(function(){
+		    	var value = $('#school_btns button[class="btn btn-success"]').html();
+		    	if (!value) {
+		    		return false;
+		    	} else {
+		    		$('div[target="school"]').find('span').html(value);
+		    		$('#page_main').css('display', 'block');
+					$(this).parents('.page_set').animate({'top': height+'px'}, 300);
+					setTimeout(function(){
+						$('#page_row').css('display', 'none');
+					}, 300);
+		    	}
+		    })
+
+		    /*文本框点击确认*/
+		    $('.done_ok1').click(function(){
+		    	var index = $(this).index('.done_ok1');
+		    	var value = $(this).parents('.page_set').find('input').val();
+
+		    	var arr = new Array(/^.{1,5}$/,/^[\u4e00-\u9fa5]{1,4}$/,/[\u4e00-\u9fa5]{1,10}/);
+		    	if (!arr[index].test(value) && !(index == 1 && value == '')) {
+		    		layer.open({
+					    content: '长度或格式不正确'
+					    ,skin: 'msg'
+					    ,time: 2 //2秒后自动关闭
+					 });
+		    	} else {
+			    	var tid = $(this).parents('.page_set').attr('id');
+			    	$('.row_info[target="'+tid+'"]').find('span').html(value);
+
+			    	if (index == 1 && value == '') {
+						$('.row_info[target="'+tid+'"]').find('span').html('选填');
+			    	}
+
+			    	$('#page_main').css('display', 'block');
+					$(this).parents('.page_set').animate({'top': height+'px'}, 300);
+					setTimeout(function(){
+						$('#page_row').css('display', 'none');
+					}, 300);
+				}
+		    })
+
+
+		    /*keyup事件，限制用户长度*/
+		    $('.input_set').keyup(function(){
+		    	var index = $(this).index('.input_set');
+		    	var value = $(this).val();
+		    	var arr = new Array(5,4,10);
+		    	if (value.length <= arr[index]) {
+		    		$(this).parents('.div_detail').find('span').html(value.length);
+		    	} else {
+		    		$(this).parents('.div_detail').find('span').html('<font color="#F0F">'+value.length+'</font>');
+		    	}
+		    })
 
 		})
 	</script>
