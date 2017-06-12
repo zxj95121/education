@@ -32,7 +32,7 @@
 	           	<div class="weui-cell weui-cell_access danji" target="nickname">
 	                <div class="weui-cell__bd">昵称</div>
 	                <div class="weui-cell__ft" style="font-size: 0" >
-	                    <span style="vertical-align:middle; font-size: 17px;"></span>
+	                    <span style="vertical-align:middle; font-size: 17px;"><div id="nicheng"></div></span>
 	                </div>
 	            </div>
 	           	<div class="weui-cell weui-cell_access danji" target="name">
@@ -95,13 +95,16 @@
 		            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">昵称</div></div>
 		            <div><div class="placeholder glyphicon glyphicon-ok"></div></div>
 		        </div>
-		        <div >
-					<div class="weui-cell">
-		                <div class="weui-cell__bd">
-		                    <input class="weui-input" type="text" placeholder="请输入文本">
-		                </div>
-	            	</div>
-            	</div>
+			    <div style="width: 97%;margin: 0 auto;">
+			    	<div class="weui-cells__title"><span id="chang">3</span>/5</div>
+			    	<div class="weui-cells">
+			            <div class="weui-cell">
+			                <div class="weui-cell__bd">
+			                    <input class="weui-input" type="text" name="nicheng" placeholder="请输入昵称">
+			                </div>
+			            </div>
+       				</div>
+			    </div>
 	       </div>
 		</div>
 		 <div class="weui-footer">
@@ -109,9 +112,10 @@
 	    </div>	
 	</div>
 	<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="/js/layui/layui.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			var height1 = document.documentElement.clientHeight;
+			var height1 = document.documentElement.clientHeight;			
 			$('.container').find('.page__bd').css({height:height1});
 			$('.page_bd').css('top', height1);
 			$('.danji').each(function(){
@@ -121,12 +125,35 @@
 					$('#'+ids).animate({top:"0px"},300);
 				})
 			})
+			/*关闭 */
 			$('.yincang .glyphicon-remove').click(function(){
-				$('.yincang').hide();
 				$('.page__bd').eq(0).show();
-				$('.page__bd').css('top', height1);
+				$(this).parents('.page__bd').animate({top:height1+'px'},300);
 			})
- 
+			/* 昵称提交  */
+ 			$('#nickname .glyphicon-ok').click(function(){
+				var nicheng = $('input[name=nicheng]').val();
+				if(nicheng.length > 5){
+					layui.use('layer', function(){
+						  var layer = layui.layer;
+						  layer.msg('超过字数限制');
+					});
+					return false;
+				}
+				$('#nicheng').text(nicheng);
+				$('.page__bd').eq(0).show();
+				$(this).parents('.page__bd').animate({top:height1+'px'},300);
+	 	 	 })
+	 	 	 /*  */
+			$('input[name=nicheng]').on('input',function(){
+				var changdu = $(this).val().length;
+				$('#chang').text(changdu);
+				if(changdu > 5){
+					$('#chang').parent().css({color:'red'});
+				}else{
+					$('#chang').parent().css({color:'#999999'});
+				}
+			})
 		})
 
 	</script>
