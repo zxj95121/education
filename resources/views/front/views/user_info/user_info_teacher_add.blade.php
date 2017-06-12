@@ -13,6 +13,9 @@
 			z-index: 20;
 			background-color: #E8E8E3;
 		}
+		#school_btns button{
+			margin:5px;
+		}
 	</style>
 </head>
 <body>
@@ -66,7 +69,7 @@
 	                    <span style="vertical-align:middle; font-size: 17px;"></span>
 	                </div>
 	            </div>
-	            <div class="weui-cell weui-cell_access row_info" target="money">
+	            <div class="weui-cell weui-cell_access" id="moneyPicker">
 	                <div class="weui-cell__bd">期望薪资</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;"></span>
@@ -119,7 +122,7 @@
 			    	<div class="weui-cells">
 			            <div class="weui-cell">
 			                <div class="weui-cell__bd">
-			                    <input class="weui-input" type="text" placeholder="请输入昵称">
+			                    <input class="weui-input" name="nickname" type="text" placeholder="请输入昵称">
 			                </div>
 			            </div>
        				</div>
@@ -140,7 +143,7 @@
 			    	<div class="weui-cells">
 			            <div class="weui-cell">
 			                <div class="weui-cell__bd">
-			                    <input class="weui-input" type="text" placeholder="请输入姓名">
+			                    <input class="weui-input" name="name" type="text" placeholder="请输入姓名">
 			                </div>
 			            </div>
        				</div>
@@ -164,7 +167,47 @@
 		        </div>
 		    </div>
 
-		    <!-- 出生年月 -->
+		    <!-- 学校 -->
+		    <div class="page__bd page_set" id="school">
+				<div class="weui-cells" style="margin-top:0px" >
+		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
+			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
+			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">学校</div></div>
+			            <div><div class="placeholder glyphicon glyphicon-ok done_ok"></div></div>
+			        </div>
+			    </div>
+			    <div style="width: 97%;margin: 0 auto;padding:20px 4px;" id="school_btns">
+			    	<button type="button" class="btn btn-info">安徽师范大学</button>
+			    	<button type="button" class="btn btn-info">安徽工程大学</button>
+			    	<button type="button" class="btn btn-info">皖南医学院</button>	
+			    	<button type="button" class="btn btn-info">芜湖职业技术学院</button>	
+			    	<button type="button" class="btn btn-info">安徽中医药高等专科学校</button>	
+			    	<button type="button" class="btn btn-info">安徽机电职业技术学院</button>	
+			    </div>
+			</div>
+
+			<!-- 所学专业 -->
+			<div class="page__bd page_set" id="project">
+				<div class="weui-cells" style="margin-top:0px" >
+		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
+			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
+			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">专业</div></div>
+			            <div><div class="placeholder glyphicon glyphicon-ok done_ok"></div></div>
+			        </div>
+			    </div>
+			    <div style="width: 97%;margin: 0 auto;">
+			    	<div class="weui-cells__title"><span>3</span>/10</div>
+			    	<div class="weui-cells">
+			            <div class="weui-cell">
+			                <div class="weui-cell__bd">
+			                    <input class="weui-input" name="project" type="text" placeholder="所学专业">
+			                </div>
+			            </div>
+       				</div>
+			    </div>
+			</div>
+
+
         </div>
         <!-- <div style="width: 100%;height:50px;"></div> -->
 	</div>
@@ -187,6 +230,7 @@
 				setTimeout(function(){
 					$('#page_main').css('display', 'none');
 				}, 300);
+
 			})
 
 			/*取消修改*/
@@ -216,32 +260,127 @@
 			})
 
 			/*出生年月*/
-			$('#birth').on('click', function () {
-		        weui.datePicker({
-		            start: 1990,
-		            end: new Date().getFullYear(),
-		            onChange: function (result) {
-		                console.log(result);
-		            },
-		            onConfirm: function (result) {
-		                console.log(result);
-		            }
-		        });
-		    });
+		    /*所在学校*/
+		    $('#school_btns button').click(function(){
+		    	$('#school_btns button[class="btn btn-success"]').removeClass('btn-success').addClass('btn-info');
+		    	// var index = $(this).index('#school_btns button');
+		    	$(this).removeClass('btn-info').addClass('btn-success');
+		    })
+
+		    /*所学专业*/
 
 		})
 	</script>
 	<script type="text/javascript">
 		$(function(){
-			$('#showDatePicker').on('click', function () {
+			/*价格*/
+			$(document).on('click', '#moneyPicker', function(){
+				weui.picker([{
+		            label: '50元',
+		            value: 50
+		        }, {
+		            label: '60元',
+		            value: 60,
+		            checked: true
+		        },{
+		            label: '70元',
+		            value: 70
+		        },{
+		            label: '80元',
+		            value: 80
+		        },{
+		            label: '90元',
+		            value: 90
+		        },{
+		            label: '100元',
+		            value: 100
+		        },{
+		            label: '110元',
+		            value: 110
+		        },{
+		            label: '120元',
+		            value: 120
+		        },{
+		            label: '130元',
+		            value: 130
+		        },{
+		            label: '140元',
+		            value: 140
+		        },{
+		            label: '150元',
+		            value: 150
+		        },{
+		            label: '160元',
+		            value: 160
+		        },{
+		            label: '170元',
+		            value: 170
+		        },{
+		            label: '180元',
+		            value: 180
+		        },{
+		            label: '190元',
+		            value: 190
+		        },{
+		            label: '200元',
+		            value: 200
+		        },{
+		            label: '210元',
+		            value: 210
+		        },{
+		            label: '220元',
+		            value: 220
+		        },{
+		            label: '230元',
+		            value: 230
+		        },{
+		            label: '240元',
+		            value: 240
+		        },{
+		            label: '250元',
+		            value: 250
+		        },{
+		            label: '260元',
+		            value: 260
+		        },{
+		            label: '270元',
+		            value: 270
+		        },{
+		            label: '280元',
+		            value: 280
+		        },{
+		            label: '290元',
+		            value: 290
+		        },{
+		            label: '300元',
+		            value: 300
+		        }],	 [{
+		            label: '60分钟',
+		            value: 60
+		        }, {
+		            label: '90分钟',
+		            value: 90
+		        }], {
+		            onChange: function (result) {
+		                // console.log(result);
+		            },
+		            onConfirm: function (result) {
+		                $('#moneyPicker span').html(result[0] + '元 / ' + result[1] +'分钟');
+		            }
+		        });
+			})
+
+			/*出生年月*/
+			$(document).on('click', '#showDatePicker', function () {
 				weui.datePicker({
 		            start: 1960,
 		            end: new Date().getFullYear(),
 		            onChange: function (result) {
-		                console.log(result);
+		                // console.log(result);
 		            },
 		            onConfirm: function (result) {
-		                console.log(result);
+		            	$('#showDatePicker span').html(result[0] + '年' + (result[1]+1) + '月');
+		                // console.log(result);
 		            }
 		        });
 		        $('.weui-picker__group').eq(2).remove();
