@@ -89,15 +89,15 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="has-submenu {!!(Request::is('admin/shequlist')? 'active' : '') !!}">
+                    <li class="has-submenu {!!(Request::is('admin/communityManage')? 'active' : '') !!}">
                         <a href="#">
                             <i class="fa fa-cog"></i> 
                             <span class="nav-label">系统设置</span>
                             <span class="menu-arrow"></span>
                         </a>
                         <ul class="list-unstyled">
-                            <li class="{!!(Request::is('admin/shequlist')? 'active' : '') !!}">
-                                <a href="/admin/parentReview">社区管理	</a>
+                            <li class="{!!(Request::is('admin/communityManage')? 'active' : '') !!}">
+                                <a href="/admin/communityManage">社区管理	</a>
                             </li>
                         </ul>
                     </li>
