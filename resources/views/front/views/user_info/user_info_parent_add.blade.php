@@ -7,9 +7,9 @@
 	<link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.min.css">
 	<style>
 		.yincang{
-			display: none;
+			display:none;
 			z-index: 2;
-			position: absolute;
+			position:absolute;
 			width: 100%;
 		}
 	</style>
@@ -56,7 +56,7 @@
 	            <div class="weui-cell weui-cell_access " id="shengri">
 	                <div class="weui-cell__bd">出生日期</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;"></span>
+	                    <span style="vertical-align:middle; font-size: 17px;"><div id="shengri1"></div></span>
 	                </div>
 	            </div>
 	            <div class="weui-cell weui-cell_access danji" target="zhuzhai">
@@ -302,105 +302,6 @@
 							</div>
 						</div> 
 					</div>
-					<div class="weui-picker__group" style="display: block;"> 
-						<div class="weui-picker__mask"></div> 
-						<div class="weui-picker__indicator"></div> 
-						<div class="weui-picker__content" style="transform: translate3d(0px, -408px, 0px);">
-							<div class="weui-picker__item">
-							1日
-							</div>
-							<div class="weui-picker__item">
-							2日
-							</div>
-							<div class="weui-picker__item">
-							3日
-							</div>
-							<div class="weui-picker__item">
-							4日
-							</div>
-							<div class="weui-picker__item">
-							5日
-							</div>
-							<div class="weui-picker__item">
-							6日
-							</div>
-							<div class="weui-picker__item">
-							7日
-							</div>
-							<div class="weui-picker__item">
-							8日
-							</div>
-							<div class="weui-picker__item">
-							9日
-							</div>
-							<div class="weui-picker__item">
-							10日
-							</div>
-							<div class="weui-picker__item">
-							11日
-							</div>
-							<div class="weui-picker__item">
-							12日
-							</div>
-							<div class="weui-picker__item">
-							13日
-							</div>
-							<div class="weui-picker__item">
-							14日
-							</div>
-							<div class="weui-picker__item">
-							15日
-							</div>
-							<div class="weui-picker__item">
-							16日
-							</div>
-							<div class="weui-picker__item">
-							17日
-							</div>
-							<div class="weui-picker__item">
-							18日
-							</div>
-							<div class="weui-picker__item">
-							19日
-							</div>
-							<div class="weui-picker__item">
-							20日
-							</div>
-							<div class="weui-picker__item">
-							21日
-							</div>
-							<div class="weui-picker__item">
-							22日
-							</div>
-							<div class="weui-picker__item">
-							23日
-							</div>
-							<div class="weui-picker__item">
-							24日
-							</div>
-							<div class="weui-picker__item">
-							25日
-							</div>
-							<div class="weui-picker__item">
-							26日
-							</div>
-							<div class="weui-picker__item">
-							27日
-							</div>
-							<div class="weui-picker__item">
-							28日
-							</div>
-							<div class="weui-picker__item">
-							29日
-							</div>
-							<div class="weui-picker__item">
-							30日
-							</div>
-							<div class="weui-picker__item">
-							31日
-							</div>
-						</div> 
-					</div>
 				</div> 
 			</div>
 		</div> 
@@ -569,18 +470,18 @@
 				$('#xingbie1').text(sex);
 				$('#sex').css('display', 'none');
 			})
-			$('#shengri').on('click', function () {
-		        weui.datePicker({
-		            start: 1990,
+		    $(document).on('click','#shengri',function(){
+	    	 	weui.datePicker({
+		            start: 1960,
 		            end: new Date().getFullYear(),
 		            onChange: function (result) {
-		                console.log(result);
+		                //console.log(result);
 		            },
 		            onConfirm: function (result) {
-		                console.log(result);
+		            	$('#shengri1').html(result[0] + '年' + (result[1]) + '月');
 		            }
 		        });
-		    });
+			})
 		})
 
 	</script>
