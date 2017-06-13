@@ -75,7 +75,7 @@
 	                    <span style="vertical-align:middle; font-size: 17px;"></span>
 	                </div>
 	            </div>
-	            <div class="weui-cell weui-cell_access row_info" target="teach_area">
+	            <div class="weui-cell weui-cell_access row_info" target="community">
 	                <div class="weui-cell__bd">期望教学社区</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;">中央城等</span>
@@ -84,13 +84,13 @@
 	            <div class="weui-cell weui-cell_access row_info" target="cardPhoto">
 	                <div class="weui-cell__bd">校园卡照片</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;"></span>
+	                    <span style="vertical-align:middle; font-size: 17px; display:inline-block;"><img style="width:70px;border-radius:50%;" src="http://wx.qlogo.cn/mmopen/w6MofXPc5Nj9oWjZKbm3svI0grH1AMuYg6OaoQoc5TNjuic9iazY1YZKD9yQ4p8WP0Ovo6QVG6kxyrHvWJPJ39V9vM0zS033OS/0"></span>
 	                </div>
 	            </div>
 	            <div class="weui-cell weui-cell_access row_info" target="teach">
 	                <div class="weui-cell__bd">teachPhoto</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;"></span>
+	                    <span style="vertical-align:middle; font-size: 17px; display:inline-block;"><img style="width:70px;border-radius:50%;" src="http://wx.qlogo.cn/mmopen/w6MofXPc5Nj9oWjZKbm3svI0grH1AMuYg6OaoQoc5TNjuic9iazY1YZKD9yQ4p8WP0Ovo6QVG6kxyrHvWJPJ39V9vM0zS033OS/0"></span>
 	                </div>
 	            </div>
        		</div>
@@ -205,6 +205,27 @@
 			                </div>
 			            </div>
        				</div>
+			    </div>
+			</div>
+
+			<!-- 期望教学社区 -->
+		    <div class="page__bd page_set" id="community">
+				<div class="weui-cells" style="margin-top:0px" >
+		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
+			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
+			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">学校</div></div>
+			            <div><div class="placeholder glyphicon glyphicon-ok done_ok"></div></div>
+			        </div>
+			    </div>
+			    <div class="row" style="width: 97%;margin: 0 auto;padding:20px 4px;" id="community">
+			    	<div class="col-xs-4">
+			    		<div class="list-group">
+					  		
+						</div>
+			    	</div>	
+			    	<div class="col-xs-8">
+			    		23
+			    	</div>	
 			    </div>
 			</div>
 
