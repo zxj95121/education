@@ -65,10 +65,10 @@
 	                    <span style="vertical-align:middle; font-size: 17px;"></span>
 	                </div>
 	            </div>
-	            <div class="weui-cell weui-cell_access danji" target="xiangxi">
-	                <div class="weui-cell__bd">详细地址</div>
+	            <div class="weui-cell weui-cell_access danji" target="danyuan">
+	                <div class="weui-cell__bd">栋/单元</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;"></span>
+	                    <span style="vertical-align:middle; font-size: 17px;"><div id="danyuan1">选填</div></span>
 	                </div>
 	            </div>
        		</div>
@@ -161,150 +161,25 @@
 	            </div>
 	        </div>
 	    </div>
-	    <!-- 生日 -->
-	    <div style="display:none">
-		    <div class="weui-mask weui-animate-fade-in"></div>
-			<div class="weui-picker weui-animate-slide-up"> 
-				<div class="weui-picker__hd"> 
-					<a href="javascript:;" data-action="cancel" class="weui-picker__action">取消</a> 
-					<a href="javascript:;" data-action="select" class="weui-picker__action" id="weui-picker-confirm">确定</a> 
-				</div> 
-				<div class="weui-picker__bd">
-					<div class="weui-picker__group"> 
-						<div class="weui-picker__mask"></div> 
-						<div class="weui-picker__indicator"></div> 
-						<div class="weui-picker__content" style="transform: translate3d(0px, -374px, 0px);">
-							<div class="weui-picker__item">
-							1990年
-							</div>
-							<div class="weui-picker__item">
-							1991年
-							</div>
-							<div class="weui-picker__item">
-							1992年
-							</div>
-							<div class="weui-picker__item">
-							1993年
-							</div>
-							<div class="weui-picker__item">
-							1994年
-							</div>
-							<div class="weui-picker__item">
-							1995年
-							</div>
-							<div class="weui-picker__item">
-							1996年
-							</div>
-							<div class="weui-picker__item">
-							1997年
-							</div>
-							<div class="weui-picker__item">
-							1998年
-							</div>
-							<div class="weui-picker__item">
-							1999年
-							</div>
-							<div class="weui-picker__item">
-							2000年
-							</div>
-							<div class="weui-picker__item">
-							2001年
-							</div>
-							<div class="weui-picker__item">
-							2002年
-							</div>
-							<div class="weui-picker__item">
-							2003年
-							</div>
-							<div class="weui-picker__item">
-							2004年
-							</div>
-							<div class="weui-picker__item">
-							2005年
-							</div>
-							<div class="weui-picker__item">
-							2006年
-							</div>
-							<div class="weui-picker__item">
-							2007年
-							</div>
-							<div class="weui-picker__item">
-							2008年
-							</div>
-							<div class="weui-picker__item">
-							2009年
-							</div>
-							<div class="weui-picker__item">
-							2010年
-							</div>
-							<div class="weui-picker__item">
-							2011年
-							</div>
-							<div class="weui-picker__item">
-							2012年
-							</div>
-							<div class="weui-picker__item">
-							2013年
-							</div>
-							<div class="weui-picker__item">
-							2014年
-							</div>
-							<div class="weui-picker__item">
-							2015年
-							</div>
-							<div class="weui-picker__item">
-							2016年
-							</div>
-							<div class="weui-picker__item">
-							2017年
-							</div>
-						</div> 
-					</div>
-					<div class="weui-picker__group" style="display: block;"> 
-						<div class="weui-picker__mask"></div> 
-						<div class="weui-picker__indicator"></div> 
-						<div class="weui-picker__content" style="transform: translate3d(0px, -102px, 0px);">
-							<div class="weui-picker__item">
-							1月
-							</div>
-							<div class="weui-picker__item">
-							2月
-							</div>
-							<div class="weui-picker__item">
-							3月
-							</div>
-							<div class="weui-picker__item">
-							4月
-							</div>
-							<div class="weui-picker__item">
-							5月
-							</div>
-							<div class="weui-picker__item">
-							6月
-							</div>
-							<div class="weui-picker__item">
-							7月
-							</div>
-							<div class="weui-picker__item">
-							8月
-							</div>
-							<div class="weui-picker__item">
-							9月
-							</div>
-							<div class="weui-picker__item">
-							10月
-							</div>
-							<div class="weui-picker__item">
-							11月
-							</div>
-							<div class="weui-picker__item">
-							12月
-							</div>
-						</div> 
-					</div>
-				</div> 
-			</div>
-		</div> 
+	    <div class="page__bd yincang" id="danyuan">
+			<div class="weui-cells" style="margin-top:0px;height:100%;" >
+	            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#FFF;">
+		            <div><div class="placeholder glyphicon glyphicon-remove"></div></div>
+		            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">栋/单元</div></div>
+		            <div><div class="placeholder glyphicon glyphicon-ok"></div></div>
+		        </div>
+			    <div style="width: 97%;margin: 0 auto;">
+			    	
+			    	<div class="weui-cells">
+			            <div class="weui-cell">
+			                <div class="weui-cell__bd">
+			                    <input class="weui-input" type="text" name="danyuan" placeholder="请输入栋/单元">
+			                </div>
+			            </div>
+       				</div>
+			    </div>
+	       </div>
+		</div>
 		 <div class="weui-footer">
 		    <p class="weui-footer__text weui-footer_fixed-bottom">12312312</p>
 	    </div>	
@@ -470,18 +345,34 @@
 				$('#xingbie1').text(sex);
 				$('#sex').css('display', 'none');
 			})
+			/* 生日 */
 		    $(document).on('click','#shengri',function(){
 	    	 	weui.datePicker({
 		            start: 1960,
 		            end: new Date().getFullYear(),
 		            onChange: function (result) {
-		                //console.log(result);
+		                /* console.log(result); */
 		            },
 		            onConfirm: function (result) {
 		            	$('#shengri1').html(result[0] + '年' + (result[1]) + '月');
 		            }
 		        });
+	    	 	$('.weui-picker__group').eq(2).remove();
 			})
+			/* 单元提交  */
+ 			$('#danyuan .glyphicon-ok').click(function(){
+				var text = $('input[name=danyuan]').val();
+				var obj = $(this);
+				if(text.length == 0){
+					text = '选填';
+				}
+				$('#danyuan1').text(text);
+				$('.page__bd').eq(0).show();
+				obj.parents('.page__bd').animate({top:height1+'px'},300);
+				setTimeout(function(){
+					obj.parents('.page__bd').css({display:'none'});
+				},300)
+		 	 })
 		})
 
 	</script>
