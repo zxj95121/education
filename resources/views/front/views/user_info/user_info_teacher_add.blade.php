@@ -16,6 +16,28 @@
 		#school_btns button{
 			margin:5px;
 		}
+
+		.row_community{
+			text-align: center;
+			height: 60px;
+			line-height: 60px;
+			/*color: #22AAE8;*/
+			font-size: 18px;
+			overflow: hidden;
+			padding: 0px;
+		}
+		.col{
+			height: 100%;
+			overflow-y: scroll;
+			overflow-x: hidden;
+			padding: 0px;
+		}
+		.col:nth-of-type(1){
+			background-color: #FFF;
+		}
+		.col:nth-of-type(2){
+			background-color: #F0F0EA;
+		}
 	</style>
 </head>
 <body>
@@ -82,15 +104,27 @@
 	                </div>
 	            </div>
 	            <div class="weui-cell weui-cell_access row_info" target="cardPhoto">
-	                <div class="weui-cell__bd">校园卡照片</div>
+	                <div class="weui-cell__bd">校园卡/学生证</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px; display:inline-block;"><img style="width:70px;border-radius:50%;" src="http://wx.qlogo.cn/mmopen/w6MofXPc5Nj9oWjZKbm3svI0grH1AMuYg6OaoQoc5TNjuic9iazY1YZKD9yQ4p8WP0Ovo6QVG6kxyrHvWJPJ39V9vM0zS033OS/0"></span>
 	                </div>
 	            </div>
 	            <div class="weui-cell weui-cell_access row_info" target="teach">
-	                <div class="weui-cell__bd">teachPhoto</div>
+	                <div class="weui-cell__bd">教师资格证</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px; display:inline-block;"><img style="width:70px;border-radius:50%;" src="http://wx.qlogo.cn/mmopen/w6MofXPc5Nj9oWjZKbm3svI0grH1AMuYg6OaoQoc5TNjuic9iazY1YZKD9yQ4p8WP0Ovo6QVG6kxyrHvWJPJ39V9vM0zS033OS/0"></span>
+	                </div>
+	            </div>
+	            <div class="weui-cell weui-cell_access">
+	                <div class="weui-cell__bd">我的优势</div>
+	                <div class="weui-cell__ft" style="color:#22AAE8;">
+	                    <span style="vertical-align:middle; font-size: 17px;" class="glyphicon glyphicon-ok"></span>
+	                </div>
+	            </div>
+	            <div class="weui-cell weui-cell_access">
+	                <div class="weui-cell__bd">个人图片展示</div>
+	                <div class="weui-cell__ft" style="color:#22AAE8;">
+	                    <span style="vertical-align:middle; font-size: 17px;" class="glyphicon glyphicon-ok"></span>
 	                </div>
 	            </div>
        		</div>
@@ -213,19 +247,41 @@
 				<div class="weui-cells" style="margin-top:0px" >
 		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
 			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
-			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">学校</div></div>
+			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">期望教学社区</div></div>
 			            <div><div class="placeholder glyphicon glyphicon-ok done_ok"></div></div>
 			        </div>
 			    </div>
-			    <div class="row" style="width: 97%;margin: 0 auto;padding:20px 4px;" id="community">
-			    	<div class="col-xs-4">
-			    		<div class="list-group">
-					  		
-						</div>
+			    <div class="row" style="width: 100%;height: 100%;margin: 0 auto;" id="community">
+			    	<div class="col-xs-3 col">
+			    		<div class="row row_community">
+			    			芜湖市fdfdafdf大饭店
+			    		</div>
+			    		<div class="row row_community">
+			    			安庆市
+			    		</div>
 			    	</div>	
-			    	<div class="col-xs-8">
-			    		23
-			    	</div>	
+			    	<div class="col-xs-4 col">
+			    		<div class="row row_community">
+			    			鸠江区
+			    		</div>
+			    		<div class="row row_community">
+			    			镜湖区
+			    		</div>
+			    		<div class="row row_community">
+			    			弋江区
+			    		</div>
+			    	</div>
+			    	<div class="col-xs-5 col">
+			    		<div class="row row_community">
+			    			中央城
+			    		</div>
+			    		<div class="row row_community">
+			    			柏庄春暖花开
+			    		</div>
+			    		<div class="row row_community">
+			    			鲁港新镇
+			    		</div>
+			    	</div>
 			    </div>
 			</div>
 
@@ -249,10 +305,10 @@
 			$('.row_info').click(function(){
 				var target = $(this).attr('target');
 				$('#page_row').css('display', 'block');
-				$('#'+target).animate({'top': '0px'},300);
+				$('#'+target).animate({'top': '0px'},250);
 				setTimeout(function(){
 					$('#page_main').css('display', 'none');
-				}, 300);
+				}, 250);
 
 				if ($(this).hasClass('input_info')) {
 					var value = $(this).find('span').html();
@@ -268,10 +324,10 @@
 			/*取消修改*/
 			$('.done_romove').click(function(){
 				$('#page_main').css('display', 'block');
-				$(this).parents('.page_set').animate({'top': height+'px'}, 300);
+				$(this).parents('.page_set').animate({'top': height+'px'}, 250);
 				setTimeout(function(){
 					$('#page_row').css('display', 'none');
-				}, 300);
+				}, 250);
 			})
 
 			/*性别*/
@@ -306,10 +362,10 @@
 		    	} else {
 		    		$('div[target="school"]').find('span').html(value);
 		    		$('#page_main').css('display', 'block');
-					$(this).parents('.page_set').animate({'top': height+'px'}, 300);
+					$(this).parents('.page_set').animate({'top': height+'px'}, 250);
 					setTimeout(function(){
 						$('#page_row').css('display', 'none');
-					}, 300);
+					}, 250);
 		    	}
 		    })
 
@@ -334,10 +390,10 @@
 			    	}
 
 			    	$('#page_main').css('display', 'block');
-					$(this).parents('.page_set').animate({'top': height+'px'}, 300);
+					$(this).parents('.page_set').animate({'top': height+'px'}, 250);
 					setTimeout(function(){
 						$('#page_row').css('display', 'none');
-					}, 300);
+					}, 250);
 				}
 		    })
 
