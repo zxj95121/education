@@ -71,7 +71,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->get('/teacherReview', 'ManagerController@teacherReview');//教师审核
     
     /* 系统参数设置  */
-    $router->get('/shequList', 'XitongController@shequList'); //社区列表
+    $router->get('/communityManage', 'OsSettingController@communityManage'); //社区列表
   
 });
 
