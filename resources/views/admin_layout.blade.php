@@ -89,7 +89,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="has-submenu {!!(Request::is('admin/communityManage')? 'active' : '') !!}">
+                    <li class="has-submenu {!!(Request::is('admin/communityManage','admin/subjectManage')? 'active' : '') !!}">
                         <a href="#">
                             <i class="fa fa-cog"></i> 
                             <span class="nav-label">系统设置</span>
@@ -98,6 +98,9 @@
                         <ul class="list-unstyled">
                             <li class="{!!(Request::is('admin/communityManage')? 'active' : '') !!}">
                                 <a href="/admin/communityManage">社区管理	</a>
+                            </li>
+                            <li class="{!!(Request::is('admin/subjectManage')? 'active' : '') !!}">
+                                <a href="/admin/subjectManage">学科管理   </a>
                             </li>
                         </ul>
                     </li>

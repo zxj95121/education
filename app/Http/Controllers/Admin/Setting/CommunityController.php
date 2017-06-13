@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Setting;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class OsSettingController extends Controller
+class CommunityController extends Controller
 {
     public function communityManage()
     {
