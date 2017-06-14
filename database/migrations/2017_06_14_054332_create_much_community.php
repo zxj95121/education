@@ -17,7 +17,7 @@ class CreateMuchCommunity extends Migration
         Schema::create('community_city', function (Blueprint $table) {
             $table->increments('id')->comment('主键');
             $table->string('name')->comment('城市名称');
-            $table->tinyInteger('status')->comment('1表示可用，0表示不可用');
+            $table->tinyInteger('status')->default('1')->comment('1表示可用，0表示不可用');
             $table->timestamps();
         });
         /*区域*/
@@ -25,7 +25,7 @@ class CreateMuchCommunity extends Migration
             $table->increments('id')->comment('主键');
             $table->integer('cid')->comment('城市id');
             $table->string('name')->comment('区域名称');
-            $table->tinyInteger('status')->comment('1表示可用，0表示不可用');
+            $table->tinyInteger('status')->default('1')->comment('1表示可用，0表示不可用');
             $table->timestamps();
         });
         /*社区*/
@@ -33,7 +33,7 @@ class CreateMuchCommunity extends Migration
             $table->increments('id')->comment('主键');
             $table->integer('aid')->comment('区域id');
             $table->string('name')->comment('社区名称');
-            $table->tinyInteger('status')->comment('1表示可用，0表示不可用');
+            $table->tinyInteger('status')->default('1')->comment('1表示可用，0表示不可用');
             $table->timestamps();
         });
     }

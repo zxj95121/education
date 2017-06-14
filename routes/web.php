@@ -72,6 +72,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     
     /* 系统参数设置  */
     $router->get('/communityManage', 'Setting\CommunityController@communityManage'); //社区管理
+    $router->post('/community/city/add', 'Setting\CommunityController@cityAdd');
+    $router->post('/community/getAll', 'Setting\CommunityController@getAll');
+
     $router->get('/subjectManage', 'Setting\SubjectController@subjectManage'); //学科管理
   
 });
