@@ -26,7 +26,7 @@ class CreateTeacherDetail extends Migration
             $table->string('project')->nullable()->comment('所学专业');
             $table->string('studentimgurl')->nullable()->comment('校园卡图片地址');
             $table->string('teacherimgurl')->nullable()->comment('教师资格证图片地址');
-            $table->string('advantage')->nullable()->comment('优势说明文字，80字以内。可不填')
+            $table->string('advantage')->nullable()->comment('优势说明文字，80字以内。可不填');
             $table->string('advantageimgurl')->nullable()->comment('其他（优势）照片附加');
 
             $table->string('subject')->comment('擅长学科,多个');
