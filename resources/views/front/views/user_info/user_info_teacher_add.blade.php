@@ -147,8 +147,8 @@ $signPackage = $jssdk->GetSignPackage();
 
 			        <!-- 头像展示 -->
 			        <div class="row">
-			        	<div class="col-xm-12" style="max-width: 500px;margin: 0 auto;">
-			        		<div class="container" style="width: 100%;">
+			        	<div class="col-xs-12" style="max-width: 500px;margin: 0 auto;">
+			        		<div class="container" style="width: 100%;margin: 0px;">
 							  	<div class="imageBox">
 							    	<div class="thumbBox"></div>
 							    	<div class="spinner" style="display: none">Loading...</div>
