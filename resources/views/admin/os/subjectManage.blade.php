@@ -91,15 +91,11 @@
                                                 <div class="row">
                                                     <div id="tabs_div1">
                                                         <ul id="tabs_ul_type" class="nav tabs-vertical col-lg-6" style="border-right: 2px solid #39A4D6;padding-right: 14px;width: 100%;"> 
-                                                            <li class="active">
-                                                                <a href="#v-tab1" data-toggle="tab" aria-expanded="true" idvalue="1">基本学科</a>
-                                                            </li> 
-                                                            <li class="">
-                                                                <a href="#v-tab2" data-toggle="tab" aria-expanded="false" idvalue="2">艺术学科</a>
-                                                            </li> 
-                                                            <li class="">
-                                                                <a href="#v-tab3" data-toggle="tab" aria-expanded="false" idvalue="3">技术学科</a>
-                                                            </li>
+                                                            @foreach ($data['subjectone'] as $value)
+	                                                            <li class="">
+	                                                                <a href="#v-tab{{$value->id}}" data-toggle="tab" aria-expanded="true" idvalue="{{$value->id}}">{{$value->name}}</a>
+	                                                            </li> 
+                                                            @endforeach
                                                         </ul>
                                                        	<div style="margin-top: 20px;padding-left: 10px;">
                                                     		<button id="edit1" type="button" class="btn btn-primary w-xs m-b-5" data-toggle="modal" data-target=".bs-example-modal-sm">修改</button>
@@ -109,75 +105,89 @@
                                                     <div id="tabs_div2" class="tab-content" style="padding:0px 30px;position: relative;">
                                                         <div  style="position: absolute;top:-47px;"><button id="addxueke" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-sm">添加学科 <span class="glyphicon glyphicon-plus"></span></button>
                                                         </div>
-                                                        <div class="tab-pane active" id="v-tab1">
-                                                            <table class="table table-striped">
-                                                                <thead>
-                                                                    <tr>
-                                                                    <th>#</th>
-                                                                    <th>学科名称</th>
-                                                                    <th>学科分类</th>
-                                                                    <th>操作</th>
-                                                                </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <th class="num">1</th>
-                                                                        <td ><span class="label label-default">语文</span></td>
-                                                                        <td>基本学科</td>
-                                                                        <td>
-                                                                            <span class="label label-primary edit2" xkid="1" data-toggle="modal" data-target=".bs-example-modal-sm">修改</span>
-                                                                            <span class="label label-primary delete2" xkid="1">删除</span>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                        <div class="tab-pane" id="v-tab2">
-                                                            <table class="table table-striped">
-                                                                <thead>
-                                                                    <tr>
-                                                                    <th>#</th>
-                                                                    <th>学科名称</th>
-                                                                    <th>学科分类</th>
-                                                                    <th>操作</th>
-                                                                </tr>
-                                                                </thead>
-                                                                <tbody> 
-                                                                    <tr>
-                                                                        <th>1</th>
-                                                                        <td><span class="label label-default">小提琴</span></td>
-                                                                        <td>艺术学科</td>
-                                                                        <td>
-                                                                            <span class="label label-primary edit2" xkid="2" data-toggle="modal" data-target=".bs-example-modal-sm">修改</span>
-                                                                            <span class="label label-primary delete2" xkid="2">删除</span>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                        <div class="tab-pane" id="v-tab3">
-                                                            <table class="table table-striped">
-                                                                <thead>
-                                                                    <tr>
-                                                                    <th>#</th>
-                                                                    <th>学科名称</th>
-                                                                    <th>学科分类</th>
-                                                                    <th>操作</th>
-                                                                </tr>
-                                                                </thead>
-                                                                <tbody> 
-                                                                    <tr>
-                                                                        <th>1</th>
-                                                                        <td><span class="label label-default">C++</span></td>
-                                                                        <td>技术学科</td>
-                                                                        <td>
-                                                                            <span class="label label-primary edit2" data-toggle="modal" data-target=".bs-example-modal-sm">修改</span>
-                                                                            <span class="label label-primary delete2">删除</span>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
+                                                        @php $prev = 0; @endphp
+                                                        @foreach ($data['subjecttwo'] as $value)
+                                                        	@if($value->pid!=$prev && $prev != 0)
+	                                                                </tbody>
+	                                                            </table>
+	                                                        </div>
+	                                                        @endif
+                                                        	@if($value->pid!=$prev)
+	                                                        <div class="tab-pane active" id="v-tab{{$value->pid}}">
+	                                                            <table class="table table-striped">
+	                                                                <thead>
+	                                                                    <tr>
+	                                                                    <th>#</th>
+	                                                                    <th>学科名称</th>
+	                                                                    <th>学科分类</th>
+	                                                                    <th>操作</th>
+	                                                                </tr>
+	                                                                </thead>
+	                                                                <tbody>
+	                                                        @endif
+	                                                                    <tr>
+	                                                                        <th class="num">1</th>
+	                                                                        <td ><span class="label label-default">语文</span></td>
+	                                                                        <td>基本学科</td>
+	                                                                        <td>
+	                                                                            <span class="label label-primary edit2" xkid="1" data-toggle="modal" data-target=".bs-example-modal-sm">修改</span>
+	                                                                            <span class="label label-primary delete2" xkid="1">删除</span>
+	                                                                        </td>
+	                                                                    </tr>
+	                                                        
+	                                                        @php $prev = $value->pid; @endphp
+                                                        @endforeach
+                                                        @if($prev != 0)
+                                                        			</tbody>
+	                                                            </table>
+	                                                        </div>
+                                                        @endif
+<!--                                                         <div class="tab-pane" id="v-tab2"> -->
+<!--                                                             <table class="table table-striped"> -->
+<!--                                                                 <thead> -->
+<!--                                                                     <tr> -->
+<!--                                                                     <th>#</th> -->
+<!--                                                                     <th>学科名称</th> -->
+<!--                                                                     <th>学科分类</th> -->
+<!--                                                                     <th>操作</th> -->
+<!--                                                                 </tr> -->
+<!--                                                                 </thead> -->
+<!--                                                                 <tbody>  -->
+<!--                                                                     <tr> -->
+<!--                                                                         <th>1</th> -->
+<!--                                                                         <td><span class="label label-default">小提琴</span></td> -->
+<!--                                                                         <td>艺术学科</td> -->
+<!--                                                                         <td> -->
+<!--                                                                             <span class="label label-primary edit2" xkid="2" data-toggle="modal" data-target=".bs-example-modal-sm">修改</span> -->
+<!--                                                                             <span class="label label-primary delete2" xkid="2">删除</span> -->
+<!--                                                                         </td> -->
+<!--                                                                     </tr> -->
+<!--                                                                 </tbody> -->
+<!--                                                             </table> -->
+<!--                                                         </div> -->
+<!--                                                         <div class="tab-pane" id="v-tab3"> -->
+<!--                                                             <table class="table table-striped"> -->
+<!--                                                                 <thead> -->
+<!--                                                                     <tr> -->
+<!--                                                                     <th>#</th> -->
+<!--                                                                     <th>学科名称</th> -->
+<!--                                                                     <th>学科分类</th> -->
+<!--                                                                     <th>操作</th> -->
+<!--                                                                 </tr> -->
+<!--                                                                 </thead> -->
+<!--                                                                 <tbody>  -->
+<!--                                                                     <tr> -->
+<!--                                                                         <th>1</th> -->
+<!--                                                                         <td><span class="label label-default">C++</span></td> -->
+<!--                                                                         <td>技术学科</td> -->
+<!--                                                                         <td> -->
+<!--                                                                             <span class="label label-primary edit2" data-toggle="modal" data-target=".bs-example-modal-sm">修改</span> -->
+<!--                                                                             <span class="label label-primary delete2">删除</span> -->
+<!--                                                                         </td> -->
+<!--                                                                     </tr> -->
+<!--                                                                 </tbody> -->
+<!--                                                             </table> -->
+<!--                                                         </div> -->
                                                     </div>                                               	
                                                 </div>
                                             </div> 
@@ -224,6 +234,7 @@
 <script>
 	var weizhi = '';
 	$(function(){
+		$('#tabs_ul_type li:eq(0)').addClass('active');
 		$('#addfenlei').click(function(){
 			$('#bttitle').text('新增学科分类');
 			$('#field-1').val('');
@@ -239,33 +250,45 @@
 			var html2 = '';
 			$('#bttitle').text('新增学科分类');
 			/* 新增学科分类 ajax */
-		 	html +=	'<li class="">';
-		 	html += '<a href="#v-tab'+num+'" data-toggle="tab" aria-expanded="false" idvalue="'+5+'">'+text+'</a>';
-            html += '</li>'	;
-            html2 += '<div class="tab-pane" id="v-tab'+num+'">';
-            html2 += '<table class="table table-striped">';
-            html2 += '<thead>';
-            html2 += '<tr>';
-            html2 += '<th>#</th>';
-            html2 += '<th>学科名称</th>';
-            html2 += '<th>学科分类</th>';
-            html2 += '<th>操作</th>';
-            html2 += '</tr>';
-            html2 += '</thead>';
-            html2 += '<tbody>';
-            html2 += '</tbody>';
-            html2 += '</table>';
-            html2 += '</div>';
-            $('#tabs_div1 li:last').after(html);
-            $('.tab-pane:last').after(html2);
+			$.ajax({
+				url:'{{URL("admin/subjectone/add")}}',
+				data:{
+					text:text
+				},
+				type:'post',
+				datatype:'json',
+				success:function(date){
+				 	html +=	'<li class="">';
+				 	html += '<a href="#v-tab'+num+'" data-toggle="tab" aria-expanded="false" idvalue="'+date.id+'">'+text+'</a>';
+		            html += '</li>'	;
+		            html2 += '<div class="tab-pane" id="v-tab'+num+'">';
+		            html2 += '<table class="table table-striped">';
+		            html2 += '<thead>';
+		            html2 += '<tr>';
+		            html2 += '<th>#</th>';
+		            html2 += '<th>学科名称</th>';
+		            html2 += '<th>学科分类</th>';
+		            html2 += '<th>操作</th>';
+		            html2 += '</tr>';
+		            html2 += '</thead>';
+		            html2 += '<tbody>';
+		            html2 += '</tbody>';
+		            html2 += '</table>';
+		            html2 += '</div>';
+		            $('#tabs_div1 li:last').after(html);
+		            $('.tab-pane:last').after(html2);
+					$('#modal1').modal('hide');
+				},
+				error:function(date){
+					alert('请重新添加');
+				}
+			})
 			$('#modal1').modal('hide');
-
 		})
 		/*修改分类  */
 		$('#edit1').click(function(){
 			$('#bttitle').text('修改学科分类');
 			var text = $('#tabs_div1 .active a').text();
-			
 			var button = '<button type="button" class="btn btn-info" id="baocun2"><font><font>保存更改</font></font></button> ';
 			$('.modal-footer button:last').replaceWith(button);
 			$('#field-1').val(text);
@@ -274,20 +297,48 @@
 		$(document).on('click','#baocun2',function(){
 			var text = $('#field-1').val();
 			var fenleiid = $('#tabs_div1 .active a').attr('idvalue');
-			console.log(fenleiid);
-			$('#tabs_div1 .active a').text(text);
 			/* 修改学科分类 ajax */
+			$.ajax({
+				url:'{{URL("admin/subjectone/edit")}}',
+				data:{
+					text:text,
+					fenleiid:fenleiid
+				},
+				type:'post',
+				datatype:'json',
+				success:function(date){
+					$('#tabs_div1 .active a').text(text);
+				},
+				error:function(date){
+					alert('请重新修改');
+				}
+			})
 			$('#modal1').modal('hide');
 		})
 		/*删除分类  */
 		$('#delete1').click(function(){
 			/* 删除学科分类ajax */
-			$('#tabs_div1 .active').remove();
-			$('#tabs_div1 li:eq(0)').addClass('active');
-			var you = $('#tabs_div1 .active a').attr('href');
-			you = you.substr(1,you.length);
-			$('#tabs_div2 .active').removeClass('active');
-			$('#'+you).addClass('active');
+			var fenleiid = $('#tabs_div1 .active a').attr('idvalue');
+			$.ajax({
+				url:'{{URL("admin/subjectone/delete")}}',
+				data:{
+					fenleiid:fenleiid
+				},
+				type:'post',
+				datatype:'json',
+				success:function(date){
+					$('#tabs_div1 .active').remove();
+					$('#tabs_div1 li:eq(0)').addClass('active');
+					var you = $('#tabs_div1 .active a').attr('href');
+					you = you.substr(1,you.length);
+					$('#tabs_div2 .active').removeClass('active');
+					$('#'+you).addClass('active');
+				},
+				error:function(date){
+					alert('请重新删除');
+				}
+			})
+
 		})
 		/* 学科添加  */
 		$('#addxueke').click(function(){
@@ -307,22 +358,34 @@
 				num = 1;
 			}
 			/*学科添加ajax  */
-			
-			var html = '';
-			html += '<tr>';
-			html += '<th class="num">'+num+'</th>';
-			html += '<td><span class="label label-default">'+text+'</span></td>';
-			html += '<td>'+fenlei+'</td>';
-			html += '<td>';
-			html += '<span class="label label-primary edit2" xkid="'+2+'" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-right: 4px;">修改</span>';
-			html += '<span class="label label-primary delete2" xkid="'+2+'">删除</span>';
-			html += '</td>';
-			if(num != 1){
-				$('#tabs_div2 .active tbody tr:last').after(html);
-			}else{
-				console.log(123);
-				$('#tabs_div2 .active tbody').html(html);
-			}
+			$.ajax({
+				url:'{{URL("admin/subjecttwo/add")}}',
+				data:{
+					fenleiid:fenleiid,
+					text:text
+				},
+				type:'post',
+				datatype:'json',
+				success:function(date){
+					var html = '';
+					html += '<tr>';
+					html += '<th class="num">'+num+'</th>';
+					html += '<td><span class="label label-default">'+text+'</span></td>';
+					html += '<td>'+fenlei+'</td>';
+					html += '<td>';
+					html += '<span class="label label-primary edit2" xkid="'+date.id+'" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-right: 4px;">修改</span>';
+					html += '<span class="label label-primary delete2" xkid="'+date.id+'">删除</span>';
+					html += '</td>';
+					if(num != 1){
+						$('#tabs_div2 .active tbody tr:last').after(html);
+					}else{
+						$('#tabs_div2 .active tbody').html(html);
+					}
+				},
+				error:function(date){
+					alert('请重新添加');
+				}
+			})
 			$('#modal1').modal('hide');
 		})
 		/* 学科修改  */
@@ -338,14 +401,46 @@
 		/* 学科修改确定  */
 		$(document).on('click','#baocun4',function(){
 			var text = $('#field-1').val();
+			var xkid = weizhi.attr('xkid');
 			/* 发送学科修改 ajax */
-			weizhi.parents('tr').find('.label-default').text(text);
+			$.ajax({
+				url:"{{URL('admin/subjecttwo/edit')}}",
+				data:{
+					text:text,
+					xkid:xkid
+				},
+				type:'post',
+				datatype:'json',
+				success:function(date){
+					weizhi.parents('tr').find('.label-default').text(text);
+				},
+				error:function(date){
+					alert('请重新修改学科');
+				}
+			})
 			$('#modal1').modal('hide');
 		})
 		/* 学科删除  */
 		$(document).on('click','.delete2',function(){
+			var xkid = $(this).attr('xkid');
+			var dangqian = $(this);
+			alert(xkid);
 			/* 学科删除 ajax  */
-			$(this).parents('tr').remove();
+			$.ajax({
+				url:"{{URL('admin/subjecttwo/delete')}}",
+				data:{
+					xkid:xkid
+				},
+				type:'post',
+				datatype:'json',
+				success:function(date){
+					dangqian.parents('tr').remove();
+				},
+				error:function(date){
+					alert('请重新删除');
+				}
+			})
+			
 		})
 	})
 </script>
