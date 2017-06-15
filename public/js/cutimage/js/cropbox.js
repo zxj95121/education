@@ -90,12 +90,11 @@
             },
             imgTouchStart = function(e)
             {
-                alert('daf');
-                e.stopImmediatePropagation();
+                e.preventDefault();
 
                 obj.state.dragable = true;
-                obj.state.mouseX = e.clientX;
-                obj.state.mouseY = e.clientY;
+                obj.state.mouseX = e.originalEvent.changedTouches[0].clientX;
+                obj.state.mouseY = e.originalEvent.changedTouches[0].clientY;
             },
             imgMouseMove = function(e)
             {
@@ -119,12 +118,12 @@
             },
             imgTouchMove = function(e)
             {
-                e.stopImmediatePropagation();
+                e.preventDefault();
 
                 if (obj.state.dragable)
                 {
-                    var x = e.clientX - obj.state.mouseX;
-                    var y = e.clientY - obj.state.mouseY;
+                    var x = e.originalEvent.changedTouches[0].clientX - obj.state.mouseX;
+                    var y = e.originalEvent.changedTouches[0].clientY - obj.state.mouseY;
 
                     var bg = el.css('background-position').split(' ');
 
@@ -133,8 +132,8 @@
 
                     el.css('background-position', bgX +'px ' + bgY + 'px');
 
-                    obj.state.mouseX = e.clientX;
-                    obj.state.mouseY = e.clientY;
+                    obj.state.mouseX = e.originalEvent.changedTouches[0].clientX;
+                    obj.state.mouseY = e.originalEvent.changedTouches[0].clientY;
                 }
             },
             imgMouseUp = function(e)
@@ -144,7 +143,7 @@
             },
             imgTouchEnd = function(e)
             {
-                e.stopImmediatePropagation();
+                e.preventDefault();
                 obj.state.dragable = false;
             },
             zoomImage = function(e)
