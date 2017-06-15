@@ -147,8 +147,8 @@ $signPackage = $jssdk->GetSignPackage();
 
 			        <!-- 头像展示 -->
 			        <div class="row">
-			        	<div style="width:100%;max-width: 500px;margin: 0 auto;">
-			        		<div class="container">
+			        	<div class="col-xm-12" style="max-width: 500px;margin: 0 auto;">
+			        		<div class="container" style="width: 100%;">
 							  	<div class="imageBox">
 							    	<div class="thumbBox"></div>
 							    	<div class="spinner" style="display: none">Loading...</div>
@@ -165,7 +165,7 @@ $signPackage = $jssdk->GetSignPackage();
 							    	<input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+"  >
 							    	<input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-" >
 							  </div>
-							  <div class="cropped"></div>
+							  <div class="cropped" style="display: none;"></div>
 							</div>
 
 			        	</div>
@@ -599,7 +599,7 @@ $signPackage = $jssdk->GetSignPackage();
 					cropper = $('.imageBox').cropbox(options);
 				}
 				reader.readAsDataURL(this.files[0]);
-				this.files = [];
+				// this.files = [];
 			})
 			$(document).on('click', '#btnCrop', function(){
 				var img = cropper.getDataURL();
