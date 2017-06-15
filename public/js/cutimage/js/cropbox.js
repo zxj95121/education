@@ -118,7 +118,7 @@
             // },
             imgTouchMove = function(e)
             {
-                // e.preventDefault();
+                e.preventDefault();
 
                 if (obj.state.dragable)
                 {
