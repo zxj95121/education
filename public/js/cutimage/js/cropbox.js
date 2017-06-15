@@ -35,10 +35,11 @@
                         sh = parseInt(this.image.height),
                         sw = parseInt(this.image.width);
 
+                        console.log(sw,sh);
                     canvas.width = width;
                     canvas.height = height;
                     var context = canvas.getContext("2d");
-                    context.drawImage(this.image, 0, 0, sw, sh, dx, dy, dw, dh);
+                    context.drawImage(this.image ,0, 0, sw, sh, dx, dy, dw, dh);
                     var imageData = canvas.toDataURL('image/png');
                     return imageData;
                 },
@@ -75,7 +76,8 @@
                 el.css({
                     'background-image': 'url(' + obj.image.src + ')',
                     'background-size': w +'px ' + h + 'px',
-                    'background-position': pw + 'px ' + ph + 'px',
+                    // 'background-size': '100% 100%',
+                    // 'background-position': pw + 'px ' + ph + 'px',
                     'background-repeat': 'no-repeat'});
             },
             imgMouseDown = function(e)
