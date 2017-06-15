@@ -8,6 +8,7 @@ $signPackage = $jssdk->GetSignPackage();
 <head>
 	<title>个人信息</title>
 	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+	<link rel="stylesheet" href="/js/cutimage/css/style.css" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="/js/weui/weui.min.css" />
 	<link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.min.css" />
 	<!-- <link rel="stylesheet" type="text/css" href="/js/weui/example.css"> -->
@@ -142,6 +143,36 @@ $signPackage = $jssdk->GetSignPackage();
 			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
 			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">头像</div></div>
 			            <div><div class="placeholder glyphicon glyphicon-ok done_ok"></div></div>
+			        </div>
+
+			        <!-- 头像展示 -->
+			        <div class="row">
+			        	<div style="width:100%;max-width: 500px;margin: 0 auto;">
+			        		<div class="container">
+							  	<div class="imageBox">
+							    	<div class="thumbBox"></div>
+							    	<div class="spinner" style="display: none">Loading...</div>
+							  	</div>
+							  	<div class="action"> 
+							    	<!-- <input type="file" id="file" style=" width: 200px">-->
+							    	<div class="new-contentarea tc"> 
+							    		<a href="javascript:void(0)" class="upload-img">
+							      			<label for="upload-file">上传图像</label>
+							      		</a>
+							      	<input type="file" class="" name="upload-file" id="upload-file" />
+							    	</div>
+							    	<input type="button" id="btnCrop"  class="Btnsty_peyton" value="裁切">
+							    	<input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+"  >
+							    	<input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-" >
+							  </div>
+							  <div class="cropped"></div>
+							</div>
+
+			        	</div>
+			        </div>
+
+			        <div class="row">
+			        	<a href="javascript:;" class="weui-btn weui-btn_primary">更换头像</a>
 			        </div>
 			    </div>
 			    <div style="width: 80%;margin: 0 auto;background-image:url('http://wx.qlogo.cn/mmopen/w6MofXPc5Nj9oWjZKbm3svI0grH1AMuYg6OaoQoc5TNjuic9iazY1YZKD9yQ4p8WP0Ovo6QVG6kxyrHvWJPJ39V9vM0zS033OS/0');background-size: 100%;">
@@ -295,6 +326,7 @@ $signPackage = $jssdk->GetSignPackage();
         <!-- <div style="width: 100%;height:50px;"></div> -->
 	</div>
 	<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="/js/cutimage/js/cropbox.js"></script>
 	<script type="text/javascript" src="/js/weui/zepto.min.js"></script>
 	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
@@ -548,6 +580,40 @@ $signPackage = $jssdk->GetSignPackage();
 		    ]
 		});
 		wx.ready(function () {
+		});
+	</script>
+
+	<script type="text/javascript">
+		$(window).load(function() {
+			var options =
+			{
+				thumbBox: '.thumbBox',
+				spinner: '.spinner',
+				imgSrc: '/js/cutimage/images/avatar.jpg'
+			}
+			var cropper = $('.imageBox').cropbox(options);
+			$(document).on('change', '#upload-file', function(){
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					options.imgSrc = e.target.result;
+					cropper = $('.imageBox').cropbox(options);
+				}
+				reader.readAsDataURL(this.files[0]);
+				this.files = [];
+			})
+			$(document).on('click', '#btnCrop', function(){
+				var img = cropper.getDataURL();
+				$('.cropped').html('');
+				$('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:64px;margin-top:4px;border-radius:64px;box-shadow:0px 0px 12px #7E7E7E;" ><p>64px*64px</p>');
+				$('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:128px;margin-top:4px;border-radius:128px;box-shadow:0px 0px 12px #7E7E7E;"><p>128px*128px</p>');
+				$('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:180px;margin-top:4px;border-radius:180px;box-shadow:0px 0px 12px #7E7E7E;"><p>180px*180px</p>');
+			})
+			$(document).on('click', '#btnZoomIn', function(){
+				cropper.zoomIn();
+			})
+			$(document).on('click', '#btnZoomOut', function(){
+				cropper.zoomOut();
+			})
 		});
 	</script>
 </body>

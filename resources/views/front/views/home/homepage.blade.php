@@ -139,7 +139,7 @@
         <!-- option start -->
         <div class="weui-cells" id="my_option">
 
-            <a class="weui-cell weui-cell_access" href="javascript:;">
+            <a class="weui-cell weui-cell_access" href="/front/user_info_teacher">
                 <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
                 <div class="weui-cell__bd">
                     <p>消息通知</p>
