@@ -77,7 +77,7 @@
                     'background-image': 'url(' + obj.image.src + ')',
                     'background-size': w +'px ' + h + 'px',
                     // 'background-size': '100% 100%',
-                    // 'background-position': pw + 'px ' + ph + 'px',
+                    'background-position': pw + 'px ' + ph + 'px',
                     'background-repeat': 'no-repeat'});
             },
             imgMouseDown = function(e)
@@ -90,6 +90,7 @@
             },
             imgTouchStart = function(e)
             {
+                alert('daf');
                 e.stopImmediatePropagation();
 
                 obj.state.dragable = true;
