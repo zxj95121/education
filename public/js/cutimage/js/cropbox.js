@@ -90,7 +90,7 @@
             // },
             imgTouchStart = function(e)
             {
-                e.preventDefault();
+                // e.preventDefault();
 
                 obj.state.dragable = true;
                 obj.state.mouseX = e.originalEvent.changedTouches[0].clientX;
@@ -118,7 +118,7 @@
             // },
             imgTouchMove = function(e)
             {
-                e.preventDefault();
+                // e.preventDefault();
 
                 if (obj.state.dragable)
                 {
@@ -143,7 +143,7 @@
             // },
             imgTouchEnd = function(e)
             {
-                e.preventDefault();
+                // e.preventDefault();
                 obj.state.dragable = false;
             },
             zoomImage = function(e)
