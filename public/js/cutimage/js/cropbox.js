@@ -88,7 +88,35 @@
                 obj.state.mouseX = e.clientX;
                 obj.state.mouseY = e.clientY;
             },
+            imgTouchStart = function(e)
+            {
+                e.stopImmediatePropagation();
+
+                obj.state.dragable = true;
+                obj.state.mouseX = e.clientX;
+                obj.state.mouseY = e.clientY;
+            },
             imgMouseMove = function(e)
+            {
+                e.stopImmediatePropagation();
+
+                if (obj.state.dragable)
+                {
+                    var x = e.clientX - obj.state.mouseX;
+                    var y = e.clientY - obj.state.mouseY;
+
+                    var bg = el.css('background-position').split(' ');
+
+                    var bgX = x + parseInt(bg[0]);
+                    var bgY = y + parseInt(bg[1]);
+
+                    el.css('background-position', bgX +'px ' + bgY + 'px');
+
+                    obj.state.mouseX = e.clientX;
+                    obj.state.mouseY = e.clientY;
+                }
+            },
+            imgTouchMove = function(e)
             {
                 e.stopImmediatePropagation();
 
@@ -113,6 +141,11 @@
                 e.stopImmediatePropagation();
                 obj.state.dragable = false;
             },
+            imgTouchEnd = function(e)
+            {
+                e.stopImmediatePropagation();
+                obj.state.dragable = false;
+            },
             zoomImage = function(e)
             {
                 e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0 ? obj.ratio*=1.1 : obj.ratio*=0.9;
@@ -127,6 +160,10 @@
             el.bind('mousedown', imgMouseDown);
             el.bind('mousemove', imgMouseMove);
             $(window).bind('mouseup', imgMouseUp);
+
+            el.bind('touchstart', imgTouchStart);
+            el.bind('touchmove', imgTouchMove);
+            $(window).bind('touchend', imgTouchEnd);
             el.bind('mousewheel DOMMouseScroll', zoomImage);
         };
         obj.image.src = options.imgSrc;
