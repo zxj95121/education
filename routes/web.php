@@ -76,7 +76,13 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/community/getAll', 'Setting\CommunityController@getAll');
 
     $router->get('/subjectManage', 'Setting\SubjectController@subjectManage'); //学科管理
-  
+  	$router->post('/subjectone/add','Setting\SubjectController@subjectoneAdd');//学科分类添加
+  	$router->post('/subjectone/edit','Setting\SubjectController@subjectoneEdit');//学科分类修改
+  	$router->post('/subjectone/delete','Setting\SubjectController@subjectoneDelete');//学科分类删除
+  	$router->post('/subjecttwo/add','Setting\SubjectController@subjecttwoAdd');//学科添加
+  	$router->post('/subjecttwo/edit','Setting\SubjectController@subjecttwoEdit');//学科修改
+  	$router->post('/subjecttwo/delete','Setting\SubjectController@subjecttwoDelete');//学科删除
+  	
 });
 
 
