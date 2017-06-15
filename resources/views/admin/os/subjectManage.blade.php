@@ -106,14 +106,16 @@
                                                         <div  style="position: absolute;top:-47px;"><button id="addxueke" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-sm">添加学科 <span class="glyphicon glyphicon-plus"></span></button>
                                                         </div>
                                                         @php $prev = 0; @endphp
-                                                        @foreach ($data['subjecttwo'] as $value)
+                                                        @foreach ($data['subjecttwo']  as $key => $value)
+                                                        
+                                                        	@php unset($arr[$value->pid]); @endphp
                                                         	@if($value->pid!=$prev && $prev != 0)
 	                                                                </tbody>
 	                                                            </table>
 	                                                        </div>
 	                                                        @endif
                                                         	@if($value->pid!=$prev)
-	                                                        <div class="tab-pane active" id="v-tab{{$value->pid}}">
+	                                                        <div class="tab-pane " id="v-tab{{$value->pid}}">
 	                                                            <table class="table table-striped">
 	                                                                <thead>
 	                                                                    <tr>
@@ -126,12 +128,12 @@
 	                                                                <tbody>
 	                                                        @endif
 	                                                                    <tr>
-	                                                                        <th class="num">1</th>
-	                                                                        <td ><span class="label label-default">语文</span></td>
-	                                                                        <td>基本学科</td>
+	                                                                        <th class="num">{{$key}}</th>
+	                                                                        <td ><span class="label label-default">{{$value->name}}</span></td>
+	                                                                        <td>{{$value->pname}}</td>
 	                                                                        <td>
-	                                                                            <span class="label label-primary edit2" xkid="1" data-toggle="modal" data-target=".bs-example-modal-sm">修改</span>
-	                                                                            <span class="label label-primary delete2" xkid="1">删除</span>
+	                                                                            <span class="label label-primary edit2" xkid="{{$value->id}}" data-toggle="modal" data-target=".bs-example-modal-sm">修改</span>
+	                                                                            <span class="label label-primary delete2" xkid="{{$value->id}}">删除</span>
 	                                                                        </td>
 	                                                                    </tr>
 	                                                        
@@ -142,52 +144,22 @@
 	                                                            </table>
 	                                                        </div>
                                                         @endif
-<!--                                                         <div class="tab-pane" id="v-tab2"> -->
-<!--                                                             <table class="table table-striped"> -->
-<!--                                                                 <thead> -->
-<!--                                                                     <tr> -->
-<!--                                                                     <th>#</th> -->
-<!--                                                                     <th>学科名称</th> -->
-<!--                                                                     <th>学科分类</th> -->
-<!--                                                                     <th>操作</th> -->
-<!--                                                                 </tr> -->
-<!--                                                                 </thead> -->
-<!--                                                                 <tbody>  -->
-<!--                                                                     <tr> -->
-<!--                                                                         <th>1</th> -->
-<!--                                                                         <td><span class="label label-default">小提琴</span></td> -->
-<!--                                                                         <td>艺术学科</td> -->
-<!--                                                                         <td> -->
-<!--                                                                             <span class="label label-primary edit2" xkid="2" data-toggle="modal" data-target=".bs-example-modal-sm">修改</span> -->
-<!--                                                                             <span class="label label-primary delete2" xkid="2">删除</span> -->
-<!--                                                                         </td> -->
-<!--                                                                     </tr> -->
-<!--                                                                 </tbody> -->
-<!--                                                             </table> -->
-<!--                                                         </div> -->
-<!--                                                         <div class="tab-pane" id="v-tab3"> -->
-<!--                                                             <table class="table table-striped"> -->
-<!--                                                                 <thead> -->
-<!--                                                                     <tr> -->
-<!--                                                                     <th>#</th> -->
-<!--                                                                     <th>学科名称</th> -->
-<!--                                                                     <th>学科分类</th> -->
-<!--                                                                     <th>操作</th> -->
-<!--                                                                 </tr> -->
-<!--                                                                 </thead> -->
-<!--                                                                 <tbody>  -->
-<!--                                                                     <tr> -->
-<!--                                                                         <th>1</th> -->
-<!--                                                                         <td><span class="label label-default">C++</span></td> -->
-<!--                                                                         <td>技术学科</td> -->
-<!--                                                                         <td> -->
-<!--                                                                             <span class="label label-primary edit2" data-toggle="modal" data-target=".bs-example-modal-sm">修改</span> -->
-<!--                                                                             <span class="label label-primary delete2">删除</span> -->
-<!--                                                                         </td> -->
-<!--                                                                     </tr> -->
-<!--                                                                 </tbody> -->
-<!--                                                             </table> -->
-<!--                                                         </div> -->
+                                                  @foreach($arr as $key=>$value)
+                                                        <div class="tab-pane" id="v-tab{{$key}}">
+                                                            <table class="table table-striped">
+	                                                                <thead>
+	                                                                    <tr>
+		                                                                    <th>#</th>
+		                                                                    <th>学科名称</th>
+		                                                                    <th>学科分类</th>
+		                                                                    <th>操作</th>
+	                                                               		</tr>
+	                                                                </thead>
+	                                                                <tbody>
+	                                                                </tbody>
+	                                                        </table>
+                                                        </div>
+                                                  @endforeach
                                                     </div>                                               	
                                                 </div>
                                             </div> 
@@ -231,10 +203,18 @@
 
 <!-- 加js代码，或引入 -->
 @section('jquery')
+<script type="text/javascript" src="/js/layui/layui.js"></script>
 <script>
 	var weizhi = '';
 	$(function(){
 		$('#tabs_ul_type li:eq(0)').addClass('active');
+		var you = $('#tabs_div1 .active a').attr('href');
+		you = you.substr(1,you.length);
+		$('#'+you).addClass('active');
+        layui.use('layer', function(){
+            window.layer = layui.layer;
+        });
+        
 		$('#addfenlei').click(function(){
 			$('#bttitle').text('新增学科分类');
 			$('#field-1').val('');
@@ -317,28 +297,36 @@
 		})
 		/*删除分类  */
 		$('#delete1').click(function(){
-			/* 删除学科分类ajax */
-			var fenleiid = $('#tabs_div1 .active a').attr('idvalue');
-			$.ajax({
-				url:'{{URL("admin/subjectone/delete")}}',
-				data:{
-					fenleiid:fenleiid
-				},
-				type:'post',
-				datatype:'json',
-				success:function(date){
-					$('#tabs_div1 .active').remove();
-					$('#tabs_div1 li:eq(0)').addClass('active');
-					var you = $('#tabs_div1 .active a').attr('href');
-					you = you.substr(1,you.length);
-					$('#tabs_div2 .active').removeClass('active');
-					$('#'+you).addClass('active');
-				},
-				error:function(date){
-					alert('请重新删除');
-				}
-			})
-
+			var value = $('#tabs_div1 .active a').html();
+	           window.layer.confirm('确认删除'+value+'分类吗？', {
+	                btn: ['取消', '确认'] //可以无限个按钮
+	                ,btn2: function(index, layero){
+	                    var layerIndex = window.layer.load(2, {time: 5*1000});
+	                    var fenleiid = $('#tabs_div1 .active a').attr('idvalue');
+	        			$.ajax({
+	        				url:'{{URL("admin/subjectone/delete")}}',
+	        				data:{
+	        					fenleiid:fenleiid
+	        				},
+	        				type:'post',
+	        				datatype:'json',
+	        				success:function(date){
+	        					$('#tabs_div1 .active').remove();
+	        					$('#tabs_div1 li:eq(0)').addClass('active');
+	        					var you = $('#tabs_div1 .active a').attr('href');
+	        					you = you.substr(1,you.length);
+	        					$('#tabs_div2 .active').removeClass('active');
+	        					$('#'+you).addClass('active');
+	        					window.layer.close(layerIndex);
+	        				},
+	        				error:function(date){
+	                                window.layer.msg('删除失败');
+	                        }
+	                    })
+	                }
+	            }, function(index, layero){
+	                window.layer.close(index);
+	            });
 		})
 		/* 学科添加  */
 		$('#addxueke').click(function(){
@@ -376,6 +364,7 @@
 					html += '<span class="label label-primary edit2" xkid="'+date.id+'" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-right: 4px;">修改</span>';
 					html += '<span class="label label-primary delete2" xkid="'+date.id+'">删除</span>';
 					html += '</td>';
+					html += '</tr>';
 					if(num != 1){
 						$('#tabs_div2 .active tbody tr:last').after(html);
 					}else{
@@ -422,24 +411,33 @@
 		})
 		/* 学科删除  */
 		$(document).on('click','.delete2',function(){
-			var xkid = $(this).attr('xkid');
 			var dangqian = $(this);
-			alert(xkid);
-			/* 学科删除 ajax  */
-			$.ajax({
-				url:"{{URL('admin/subjecttwo/delete')}}",
-				data:{
-					xkid:xkid
-				},
-				type:'post',
-				datatype:'json',
-				success:function(date){
-					dangqian.parents('tr').remove();
-				},
-				error:function(date){
-					alert('请重新删除');
-				}
-			})
+			var value = dangqian.parents('tr').find('.label-default').text();
+			window.layer.confirm('确认删除'+value+'学科吗？', {
+                btn: ['取消', '确认'] //可以无限个按钮
+                ,btn2: function(index, layero){
+        			var xkid = dangqian.attr('xkid');
+        			var layerIndex = window.layer.load(2, {time: 5*1000});
+        			/* 学科删除 ajax  */
+        			$.ajax({
+        				url:"{{URL('admin/subjecttwo/delete')}}",
+        				data:{
+        					xkid:xkid
+        				},
+        				type:'post',
+        				datatype:'json',
+        				success:function(date){
+        					dangqian.parents('tr').remove();
+        					window.layer.close(layerIndex);
+        				},
+        				error:function(date){
+                                window.layer.msg('删除失败');
+                        }
+                    })
+                }
+            }, function(index, layero){
+                window.layer.close(index);
+            });
 			
 		})
 	})
