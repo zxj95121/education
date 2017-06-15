@@ -114,6 +114,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 
     /*补充信息页*/
     $router->get('/user_info_parent','UserInfoController@parent');
+    $router->get('/user_info_teacher','UserInfoController@teacher');
 });
 
 /*-------------*/
