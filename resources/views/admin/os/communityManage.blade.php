@@ -501,6 +501,8 @@
                         $('#editName').modal('hide');
 
                         $('#'+type+' li[did="'+did+'"] span:eq(0)').html(value);
+
+                        dataAll = data;
                     }
                 }
             });

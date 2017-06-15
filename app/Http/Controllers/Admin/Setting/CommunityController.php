@@ -104,7 +104,27 @@ class CommunityController extends Controller
     	$flight->name = $name;
     	$flight->save();
 
-    	return response()->json(['errcode'=>0]);
+    	/*区县数组*/
+    	$areaInfo = CommunityArea::where('status', '1')
+    		->select('id', 'name', 'cid')
+    		->get()
+    		->toArray();
+    	$areaArr = array();
+    	foreach ($areaInfo as $value) {
+    		$areaArr[$value['cid']][] = array('did'=>$value['id'], 'name'=>$value['name']);
+    	}
+
+    	/*社区数组*/
+    	$communityInfo = CommunityCommunity::where('status', '1')
+    		->select('id', 'name', 'aid')
+    		->get()
+    		->toArray();
+    	$communityArr = array();
+    	foreach ($communityInfo as $value) {
+    		$communityArr[$value['aid']][] = array('did'=>$value['id'], 'name'=>$value['name']);
+    	}
+
+    	return response()->json(['errcode'=>0,'area'=>$areaArr, 'community'=>$communityArr]);
     }
 
     /*删除内容*/
