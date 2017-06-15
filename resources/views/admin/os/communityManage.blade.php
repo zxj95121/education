@@ -73,10 +73,10 @@
                                         <div class="col-md-4 part1">
                                             <button class="btn btn-success" data-toggle="modal" data-target="#modal1">添加市 <span class="glyphicon glyphicon-plus"></span></button>
                                         </div>
-                                        <div class="col-md-4 part2">
+                                        <div class="col-md-4 part2" style="display: none;">
                                              <button class="btn btn-success" data-toggle="modal" data-target="#modal2">添加区/县 <span class="glyphicon glyphicon-plus"></span></button>
                                         </div>
-                                        <div class="col-md-4 part3">
+                                        <div class="col-md-4 part3" style="display: none;">
                                             <button class="btn btn-success" data-toggle="modal" data-target="#modal3">添加社区 <span class="glyphicon glyphicon-plus"></span></button>
                                         </div>
                                     </div>
@@ -102,9 +102,9 @@
                                                 </li> -->
                                             </ol>
                                         </div>
-                                        <div class="col-md-4 col col_border part2" id="type_area">
+                                        <div class="col-md-4 col col_border part2" id="type_area" style="display: none;">
                                             <ol>
-                                                <li class="" did="">
+                                                <!-- <li class="" did="">
                                                     <span>Lorem ipsum dolor sit amets</span>
                                                     <div class="type_operate">
                                                         <span class="glyphicon glyphicon-pencil"></span>　
@@ -118,26 +118,18 @@
                                                         <span class="glyphicon glyphicon-pencil"></span>　
                                                         <span class="glyphicon glyphicon-trash"></span>
                                                     </div>
-                                                </li>
+                                                </li> -->
                                             </ol>
                                         </div>
-                                        <div class="col-md-4 col part3" id="type_community">
+                                        <div class="col-md-4 col part3" id="type_community" style="display: none;">
                                             <ol>
-                                                <li class="" did="">
+                                                <!-- <li class="" did="">
                                                     <span>Lorem ipsum dolor sit amets</span>
                                                     <div class="type_operate">
                                                         <span class="glyphicon glyphicon-pencil"></span>　
                                                         <span class="glyphicon glyphicon-trash"></span>
                                                     </div>
-                                                </li>
-                                                
-                                                <li did="">
-                                                    <span>Lorem ipsum dolor sit amets</span>
-                                                    <div class="type_operate">
-                                                        <span class="glyphicon glyphicon-pencil"></span>　
-                                                        <span class="glyphicon glyphicon-trash"></span>
-                                                    </div>
-                                                </li>
+                                                </li> -->
                                             </ol>
                                         </div>
                                     </div>
@@ -169,7 +161,7 @@
                 </div>
             </div>
 
-            <div id="modal2" class="modal fade bs-example-modal-md modal_add_community" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+            <div id="modal2" cid="" class="modal fade bs-example-modal-md modal_add_community" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                 <div class="modal-dialog modal-md" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -190,7 +182,7 @@
                 </div>
             </div>
 
-            <div id="modal3" class="modal fade bs-example-modal-md modal_add_community" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+            <div id="modal3" aid="" class="modal fade bs-example-modal-md modal_add_community" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                 <div class="modal-dialog modal-md" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -199,13 +191,13 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="cityName">请输入社区名</label>
-                                <input type="text" name="cityName" id="cityName" class="form-control">
+                                <label for="communityName">请输入社区名</label>
+                                <input type="text" name="communityName" id="communityName" class="form-control">
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                            <button type="button" class="btn btn-primary" id="add_city">确认添加</button>
+                            <button type="button" class="btn btn-primary" id="add_community">确认添加</button>
                         </div>
                     </div>
                 </div>
@@ -243,7 +235,32 @@
 	$(function(){
         layui.use('layer', function(){
             window.layer = layui.layer;
-        }); 
+        });
+
+        dataAll = 0;
+
+        $.ajax({
+            url: '/admin/community/getAll',
+            dataType: 'json',
+            type: 'post',
+            data: {
+            },
+            success: function(data) {
+                dataAll = data;
+                // console.log(dataAll);
+            }
+        })
+
+        /*地区模态框出现自动*/
+        $('#modal2').on('shown.bs.modal', function (e) {
+            var cid = $('#type_city li[class*="li_active"]').attr('did');
+            $('#modal2').attr('cid', cid);
+        })
+        /*社区模态框出现自动*/
+        $('#modal3').on('shown.bs.modal', function (e) {
+            var aid = $('#type_area li[class*="li_active"]').attr('did');
+            $('#modal3').attr('aid', aid);
+        })
 
         /*确认添加一级城市*/
         $('#add_city').click(function(){
@@ -260,12 +277,84 @@
                         if (data.errcode == 0) {
                             window.layer.msg('添加成功');
                             $('#cityName').html('');
-                            $('#type_city ol').append('<li cid="'+data.id+'"> <span>'+val+'</span> <div class="type_operate"> <span class="glyphicon glyphicon-pencil"></span>　 <span class="glyphicon glyphicon-trash"></span> </div> </li>');
+                            $('#type_city ol').append('<li did="'+data.id+'"> <span>'+val+'</span> <div class="type_operate"> <span class="glyphicon glyphicon-pencil"></span>　 <span class="glyphicon glyphicon-trash"></span> </div> </li>');
                         }
                     }
                 })
             }
             $('#modal1').modal('hide');
+            $('#cityName').val('');
+        })
+
+        /*确认添加二级区域*/
+        $('#add_area').click(function(){
+            var val = $('#areaName').val();
+            var cid = $('#modal2').attr('cid');
+            if (val != '') {
+                $.ajax({
+                    url: '/admin/community/area/add',
+                    dataType: 'json',
+                    type: 'post',
+                    data: {
+                        val: val,
+                        cid: cid
+                    },
+                    success: function(data) {
+                        if (data.errcode == 0) {
+                            window.layer.msg('添加成功');
+                            $('#areaName').html('');
+                            $('#type_area ol').append('<li did="'+data.id+'"> <span>'+val+'</span> <div class="type_operate"> <span class="glyphicon glyphicon-pencil"></span>　 <span class="glyphicon glyphicon-trash"></span> </div> </li>');
+                            if (!dataAll.area[cid]) {
+                                /*如果已经这个一级分类没有二级分类了*/
+                                dataAll.area[cid] = new Array();
+                            }
+                            var obj = new Object();
+                            obj.did = data.id;
+                            obj.name = val;
+                            dataAll.area[cid][dataAll.area[cid].length] = obj;
+                            // console.log(dataAll);
+                        }
+                    }
+                })
+            }
+            $('#modal2').modal('hide');
+            $('#areaName').val('');
+        })
+
+        /*确认添加三级社区*/
+        $('#add_community').click(function(){
+            var val = $('#communityName').val();
+            var aid = $('#modal3').attr('aid');
+            if (val != '') {
+                $.ajax({
+                    url: '/admin/community/community/add',
+                    dataType: 'json',
+                    type: 'post',
+                    data: {
+                        val: val,
+                        aid: $('#modal3').attr('aid')
+                    },
+                    success: function(data) {
+                        if (data.errcode == 0) {
+                            window.layer.msg('添加成功');
+                            $('#communityName').html('');
+                            $('#type_community ol').append('<li did="'+data.id+'"> <span>'+val+'</span> <div class="type_operate"> <span class="glyphicon glyphicon-pencil"></span>　 <span class="glyphicon glyphicon-trash"></span> </div> </li>');
+
+                            if (!dataAll.community[aid]) {
+                                /*如果已经这个一级分类没有二级分类了*/
+                                dataAll.community[aid] = new Array();
+                            }
+                            var obj = new Object();
+                            obj.did = data.id;
+                            obj.name = val;
+                            dataAll.community[aid][dataAll.community[aid].length] = obj;
+                            // console.log(dataAll);
+                        }
+                    }
+                })
+            }
+            $('#modal3').modal('hide');
+            $('#communityName').val('');
         })
 
         /*打开模态框文本自动获得焦点*/
@@ -276,6 +365,7 @@
         /*点击li效果*/
         $(document).on('click', '#portlet2 li', function(){
             var srcId = $(this).parents('.col').attr('id');
+            var did = $(this).attr('did');
             $('#'+srcId+' li').each(function(){
                 $(this).removeClass('li_active');
             })
@@ -285,8 +375,30 @@
             if (srcId == 'type_city') {
                 $('.part2').css('display', 'block');
                 $('.part3').css('display', 'none');
+
+                $('#type_area ol').html('');
+                /*点了一级的操作*/
+                var info = dataAll.area[did];
+                if (info) {
+                    /*如果有次级分类*/
+                    for (var i in info) {
+                        // console.log(info[i]);
+                        $('#type_area ol').append('<li did="'+info[i]['did']+'" cid="'+did+'"> <span>'+info[i]['name']+'</span> <div class="type_operate"> <span class="glyphicon glyphicon-pencil"></span>　 <span class="glyphicon glyphicon-trash"></span> </div> </li>');
+                    }
+                }
             } else if(srcId == 'type_area') {
                 $('.part3').css('display', 'block');
+
+                $('#type_community ol').html('');
+                /*点了二级的操作*/
+                var info = dataAll.community[did];
+                if (info) {
+                    /*如果有次级分类*/
+                    for (var i in info) {
+                        // console.log(info[i]);
+                        $('#type_community ol').append('<li did="'+info[i]['did']+'" cid="'+did+'"> <span>'+info[i]['name']+'</span> <div class="type_operate"> <span class="glyphicon glyphicon-pencil"></span>　 <span class="glyphicon glyphicon-trash"></span> </div> </li>');
+                    }
+                }
             } else {
 
             }
@@ -300,29 +412,98 @@
             $('#editName').modal('show');
 
             $('#pre_name').html(value);
-            $('#editInput')[0].focus();
+            
             $('#editName').attr('editId', did);
 
+            $('#editName').attr('modal', srcId);
+
             if (srcId == 'type_city') {
-                $('#editName').attr('modal', 'community_city');
                 $('#pre_type').html('城市');
             } else if(srcId == 'type_area') {
-                $('#editName').attr('modal', 'community_area');
                 $('#pre_type').html('地区');
             } else {
-                $('#editName').attr('modal', 'community_community');
                 $('#pre_type').html('社区');
             }
         })
 
+        /*删除按钮*/
+         $(document).on('click', '#portlet2 .glyphicon-trash', function(){
+            var srcId = $(this).parents('.col').attr('id');
+            var value = $(this).parent().prev().html();
+            var did = $(this).parents('li').attr('did');
+
+            var cdom = $(this).parents('li');
+
+           window.layer.confirm('确认删除'+value+'吗？', {
+                btn: ['取消', '确认'] //可以无限个按钮
+                ,btn2: function(index, layero){
+                    var layerIndex = window.layer.load(2, {time: 5*1000});
+                    $.ajax({
+                        url: '/admin/community/communityDelete',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            type: srcId,
+                            id: did
+                        },
+                        success: function(data) {
+                            if (data.errcode == 0) {
+                                window.layer.close(layerIndex);
+                                window.layer.msg('删除成功');
+                                // console.log(dataAll);
+                                /*页面做局部删除*/
+                                dataAll = data;
+                                cdom.remove();
+                                if (srcId == 'type_area') {
+                                    $('.part3').css('display', 'none');
+                                } else if (srcId == 'type_city') {
+                                    $('.part3').css('display', 'none');
+                                    $('.part2').css('display', 'none');
+                                }
+                            } else {
+                                window.layer.msg('删除失败');
+                            }
+                        }
+                    })
+                }
+            }, function(index, layero){
+                window.layer.close(index);
+            });
+        })
+
         $('#editOK').click(function(){
             var value = $('#editInput').val();/*修改后的名称*/
+            // console.log(value);
+            if (value == '')
+                return false;
             /*要知道当前修改的是那个模块，是哪条记录*/
             var did = $('#editName').attr('editId');
             var type = $('#editName').attr('modal');
 
-            
+            $(this).prop('disabled', 'disabled');
+            $(this).html('修改中...');
+            $.ajax({
+                url: '/admin/community/editName',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    value: value,
+                    type: type,
+                    id: did
+                },
+                success: function(data) {
+                    if (data.errcode == '0') {
+                        window.layer.msg('修改成功');
+                        $('#editOK').removeProp('disabled');
+                        $('#editOK').html('确认修改');
+                        $('#editInput').val('');
 
+                        $('#editName').modal('hide');
+
+                        $('#'+type+' li[did="'+did+'"] span:eq(0)').html(value);
+                    }
+                }
+            });
         })
 	})
 </script>
