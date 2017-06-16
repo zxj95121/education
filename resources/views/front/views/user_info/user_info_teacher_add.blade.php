@@ -322,6 +322,14 @@ $signPackage = $jssdk->GetSignPackage();
         </div>
     </div>
 
+    <div id="toast" style="opacity: 0; display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+            <p class="weui-toast__content">已完成</p>
+        </div>
+    </div>
+
 	<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="/js/cutimage/js/cropbox.js"></script>
 	<script type="text/javascript" src="/js/weui/zepto.min.js"></script>
@@ -635,6 +643,11 @@ $signPackage = $jssdk->GetSignPackage();
 					success: function(data) {
 						console.log(data);
 						$('#loadingToast').css({'display':'none', 'opacity':'0'});
+						$('#toast').css({'display':'block', 'opacity':'1'});
+						setTimeout(function(){
+							$('#toast').css({'display':'none', 'opacity':'0'});
+							$('#headimg .done_romove')[0].click();
+						},1000);
 					}
 				});
 				// $('#cut').css('display', 'none');
