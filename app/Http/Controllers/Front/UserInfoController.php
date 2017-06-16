@@ -33,6 +33,7 @@ class UserInfoController extends Controller
 
 		AdminInfo::where('openid', $openid)
 			->update(['headimg'=>'/images/userinfo/'.$name]);
-    	return response()->json(['errcode'=>0,'img'=>$img]);
+    	// return response()->json(['errcode'=>0]);
+    	echo json_encode(array('errcode'=>0));
     }
 }
