@@ -461,7 +461,7 @@ $signPackage = $jssdk->GetSignPackage();
 			    		type: 'post',
 			    		dataType: 'json',
 			    		data: {
-			    			value: value
+			    			value: value,
 			    			openid: '{{$openid}}'
 			    		},
 			    		success: function(data) {
