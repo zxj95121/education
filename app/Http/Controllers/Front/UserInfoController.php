@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\AdminInfo;
+use App\Models\UserType;
 use Session;
 
 class UserInfoController extends Controller
@@ -31,9 +32,30 @@ class UserInfoController extends Controller
 			$size = file_put_contents($_SERVER['DOCUMENT_ROOT'].'/images/userinfo/'.$name, $img);//保存图片，返回的是字节数
 		}
 
-		AdminInfo::where('openid', $openid)
-			->update(['headimg'=>'/images/userinfo/'.$name]);
-    	// return response()->json(['errcode'=>0]);
+		$user = UserType::where('openid', $openid)
+			->select('type', 'uid')
+			->get()[0];
+		$uid = $user->uid;
+
+		switch ($user->type) {
+			case '1':
+				$flight = AdminInfo::find($uid);
+				break;
+			case '2':
+				$flight = ParentInfo::find($uid);
+				break;
+			case '3':
+				$flight = TeacherInfo::find($uid);
+		}
+
+		$headimg = $flight->headimg;
+		$flight->headimg = '/images/userinfo/'.$name;
+
+		if (strpos($headimg, '/images/userinfo/') == 0) {
+			unlink($_SERVER['DOCUMENT_ROOT'].$headimg);
+		}
+
+		$flight->save();
     	echo json_encode(array('errcode'=>0));
     }
 }
