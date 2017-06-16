@@ -638,7 +638,8 @@ $signPackage = $jssdk->GetSignPackage();
 					type: 'post',
 					dataType: 'json',
 					data: {
-						img: img
+						img: img,
+						openid: '{{$openid}}'
 					},
 					success: function(data) {
 						if (data.errcode == 0) {

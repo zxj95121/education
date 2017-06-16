@@ -18,12 +18,13 @@ class UserInfoController extends Controller
 
     public function teacher()
     {
-    	return view('front.views.user_info.user_info_teacher_add');
+    	$openid = Session::get('openid');
+    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid]);
     }
 
     public function t_headimg(Request $request)
     {
-    	$openid = Session::get('openid');
+    	$openid = $request->input('openid');
     	$base64 = $request->input('img');
     	$base64_image = str_replace(' ', '+', $base64);
     	if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $base64_image, $result)) {
