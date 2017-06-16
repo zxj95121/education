@@ -53,7 +53,7 @@ class UserInfoController extends Controller
     	$value = $request->input('value');
     	$openid = $request->input('openid');
 
-    	$flight = $this->returnUserFlight();
+    	$flight = $this->returnUserFlight($openid);
     	$flight->nickname = $value;
     	$flight->save();
 
@@ -77,7 +77,7 @@ class UserInfoController extends Controller
     	$value = $request->input('value');
     	$openid = $request->input('openid');
 
-    	$flight = $this->returnUserFlight();
+    	$flight = $this->returnUserFlight($openid);
     	$flight->project = $value;
     	$flight->save();
 
