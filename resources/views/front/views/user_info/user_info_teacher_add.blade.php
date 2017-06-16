@@ -109,18 +109,6 @@ $signPackage = $jssdk->GetSignPackage();
 	                    <span style="vertical-align:middle; font-size: 17px;">中央城等</span>
 	                </div>
 	            </div>
-	            <div class="weui-cell weui-cell_access row_info" target="cardPhoto">
-	                <div class="weui-cell__bd">校园卡/学生证</div>
-	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px; display:inline-block;"><img style="width:70px;border-radius:50%;" src="http://wx.qlogo.cn/mmopen/w6MofXPc5Nj9oWjZKbm3svI0grH1AMuYg6OaoQoc5TNjuic9iazY1YZKD9yQ4p8WP0Ovo6QVG6kxyrHvWJPJ39V9vM0zS033OS/0"></span>
-	                </div>
-	            </div>
-	            <div class="weui-cell weui-cell_access row_info" target="teach">
-	                <div class="weui-cell__bd">教师资格证</div>
-	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px; display:inline-block;"><img style="width:70px;border-radius:50%;" src="http://wx.qlogo.cn/mmopen/w6MofXPc5Nj9oWjZKbm3svI0grH1AMuYg6OaoQoc5TNjuic9iazY1YZKD9yQ4p8WP0Ovo6QVG6kxyrHvWJPJ39V9vM0zS033OS/0"></span>
-	                </div>
-	            </div>
 	            <div class="weui-cell weui-cell_access">
 	                <div class="weui-cell__bd">我的优势</div>
 	                <div class="weui-cell__ft" style="color:#22AAE8;">
@@ -142,13 +130,17 @@ $signPackage = $jssdk->GetSignPackage();
 		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
 			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
 			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">头像</div></div>
-			            <div><div class="placeholder glyphicon glyphicon-ok done_ok"></div></div>
+			            <div><div class="placeholder glyphicon glyphicon-ok done_ok" id="btnCrop"> 使用</div></div>
 			        </div>
 
+			        <!-- <div id="cutShow" class="row" style="display: none;width: 100%;margin: 0px;">
+			        	<img src="" style="width: 100%;">
+			        </div> -->
+
 			        <!-- 头像展示 -->
-			        <div class="row">
+			        <div class="row" id="cut">
 			        	<div class="col-xs-12" style="max-width: 500px;margin: 0 auto;">
-			        		<div class="container" style="width: 100%;margin: 0px;padding: 0px;">
+			        		<div class="container" id="cutImage" style="width: 100%;margin: 0px;padding: 0px;">
 							  	<div class="imageBox">
 							    	<div class="thumbBox"></div>
 							    	<div class="spinner" style="display: none">Loading...</div>
@@ -157,11 +149,11 @@ $signPackage = $jssdk->GetSignPackage();
 							    	<!-- <input type="file" id="file" style=" width: 200px">-->
 							    	<div class="new-contentarea tc"> 
 							    		<a href="javascript:void(0)" class="upload-img">
-							      			<label for="upload-file">上传图像</label>
+							      			<label for="upload-file">更换照片</label>
 							      		</a>
 							      	<input type="file" class="" name="upload-file" id="upload-file" />
 							    	</div>
-							    	<input type="button" id="btnCrop"  class="Btnsty_peyton" value="裁切">
+							    	<!-- <input type="button" id="btnCrop"  class="Btnsty_peyton" value="裁切"> -->
 							    	<input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+"  >
 							    	<input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-" >
 							  </div>
@@ -169,10 +161,6 @@ $signPackage = $jssdk->GetSignPackage();
 							</div>
 
 			        	</div>
-			        </div>
-
-			        <div class="row">
-			        	<a href="javascript:;" class="weui-btn weui-btn_primary">更换头像</a>
 			        </div>
 			    </div>
 			    <div style="width: 80%;margin: 0 auto;background-image:url('http://wx.qlogo.cn/mmopen/w6MofXPc5Nj9oWjZKbm3svI0grH1AMuYg6OaoQoc5TNjuic9iazY1YZKD9yQ4p8WP0Ovo6QVG6kxyrHvWJPJ39V9vM0zS033OS/0');background-size: 100%;">
@@ -325,6 +313,15 @@ $signPackage = $jssdk->GetSignPackage();
         </div>
         <!-- <div style="width: 100%;height:50px;"></div> -->
 	</div>
+
+	<div id="loadingToast" style="opacity: 0; display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-loading weui-icon_toast"></i>
+            <p class="weui-toast__content">正在保存</p>
+        </div>
+    </div>
+
 	<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="/js/cutimage/js/cropbox.js"></script>
 	<script type="text/javascript" src="/js/weui/zepto.min.js"></script>
@@ -354,7 +351,19 @@ $signPackage = $jssdk->GetSignPackage();
 					}
 					$('#'+target+' input[name="'+target+'"]').val(value);
 					$('#'+target+' .div_detail span').html(value.length);
+				}
+				if (target == "headimg") {
+					var options =
+					{
+						thumbBox: '.thumbBox',
+						spinner: '.spinner',
+						imgSrc: '/js/cutimage/images/avatar.jpg'
+					};
+					cropper = $('.imageBox').cropbox(options);
 
+					$('.thumbBox').css('height', $('.thumbBox')[0].offsetWidth);
+					$('#cut').css('display', 'block');
+					$('#cutShow').css('display', 'none');
 				}
 			})
 
@@ -584,14 +593,22 @@ $signPackage = $jssdk->GetSignPackage();
 	</script>
 
 	<script type="text/javascript">
+		$(function(){
+			$.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': '{{csrf_token()}}'
+                }
+            });
+		})
 		$(window).load(function() {
+			
 			var options =
 			{
 				thumbBox: '.thumbBox',
 				spinner: '.spinner',
 				imgSrc: '/js/cutimage/images/avatar.jpg'
-			}
-			var cropper = $('.imageBox').cropbox(options);
+			};
+
 			$(document).on('change', '#upload-file', function(){
 				var reader = new FileReader();
 				reader.onload = function(e) {
@@ -603,10 +620,29 @@ $signPackage = $jssdk->GetSignPackage();
 			})
 			$(document).on('click', '#btnCrop', function(){
 				var img = cropper.getDataURL();
-				$('.cropped').html('');
-				$('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:64px;margin-top:4px;border-radius:64px;box-shadow:0px 0px 12px #7E7E7E;" ><p>64px*64px</p>');
-				$('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:128px;margin-top:4px;border-radius:128px;box-shadow:0px 0px 12px #7E7E7E;"><p>128px*128px</p>');
-				$('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:180px;margin-top:4px;border-radius:180px;box-shadow:0px 0px 12px #7E7E7E;"><p>180px*180px</p>');
+
+				$('#loadingToast').css({'display':'block', 'opacity':'1'});
+				$('#loadingToast p').html('图片保存中');
+
+				$.ajax({
+					url: '/front/save_headimg',
+					type: 'post',
+					dataType: 'json',
+					data: {
+						img: img
+					},
+					success: function(data) {
+						console.log(data);
+						$('#loadingToast').css({'display':'none', 'opacity':'0'});
+					}
+				});
+				// $('#cut').css('display', 'none');
+				// $('#cutShow').css('display', 'block');
+				// $('#cutShow img').attr('src', img);
+				// $('.cropped').html('');
+				// $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:64px;margin-top:4px;border-radius:64px;box-shadow:0px 0px 12px #7E7E7E;" ><p>64px*64px</p>');
+				// $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:128px;margin-top:4px;border-radius:128px;box-shadow:0px 0px 12px #7E7E7E;"><p>128px*128px</p>');
+				// $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:180px;margin-top:4px;border-radius:180px;box-shadow:0px 0px 12px #7E7E7E;"><p>180px*180px</p>');
 			})
 			$(document).on('click', '#btnZoomIn', function(){
 				cropper.zoomIn();
