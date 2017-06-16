@@ -24,8 +24,8 @@ class UserInfoController extends Controller
     {
     	$openid = Session::get('openid');
     	$base64 = $request->input('img');
-
-    	$img = base64_decode($base64);
+    	$base64_image = str_replace(' ', '+', $base64);
+    	$img = base64_decode($base64_image);
     	$name = date('YmdHis').rand(1000,9999).'.png';
 		$size = file_put_contents($_SERVER['DOCUMENT_ROOT'].'/images/userinfo/'.$name, $img);//保存图片，返回的是字节数
 

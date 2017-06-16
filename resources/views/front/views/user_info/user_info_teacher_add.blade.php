@@ -620,7 +620,8 @@ $signPackage = $jssdk->GetSignPackage();
 			})
 			$(document).on('click', '#btnCrop', function(){
 				var img = cropper.getDataURL();
-
+				console.log(typeof(img));
+				console.log(img);
 				$('#loadingToast').css({'display':'block', 'opacity':'1'});
 				$('#loadingToast p').html('图片保存中');
 
