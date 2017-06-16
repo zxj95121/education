@@ -361,11 +361,11 @@ $signPackage = $jssdk->GetSignPackage();
 					$('#'+target+' .div_detail span').html(value.length);
 				}
 				if (target == "headimg") {
-					var options =
+					options =
 					{
 						thumbBox: '.thumbBox',
 						spinner: '.spinner',
-						imgSrc: '/js/cutimage/images/avatar.jpg'
+						imgSrc: $('#headimgPhone').attr('src')
 					};
 					cropper = $('.imageBox').cropbox(options);
 
@@ -609,13 +609,6 @@ $signPackage = $jssdk->GetSignPackage();
             });
 		})
 		$(window).load(function() {
-			
-			var options =
-			{
-				thumbBox: '.thumbBox',
-				spinner: '.spinner',
-				imgSrc: $('#headimgPhone').attr('src')
-			};
 
 			$(document).on('change', '#upload-file', function(){
 				var reader = new FileReader();
