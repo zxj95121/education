@@ -123,7 +123,10 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
     $router->get('/user_info_teacher','UserInfoController@teacher');
 
         /*teacher信息保存*/
-    $router->post('/save_headimg', 'UserInfoController@t_headimg');
+    $router->post('/tsave_headimg', 'UserInfoController@t_headimg');
+    $router->post('/tsave_nickname', 'UserInfoController@t_nickname');
+    $router->post('/tsave_name', 'UserInfoController@t_name');
+    $router->post('/tsave_project', 'UserInfoController@t_project');
 });
 
 /*-------------*/

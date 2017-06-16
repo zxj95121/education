@@ -22,6 +22,7 @@ class UserInfoController extends Controller
     	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid]);
     }
 
+    /*修改teacher的头像*/
     public function t_headimg(Request $request)
     {
     	$openid = $request->input('openid');
@@ -33,7 +34,59 @@ class UserInfoController extends Controller
 			$size = file_put_contents($_SERVER['DOCUMENT_ROOT'].'/images/userinfo/'.$name, $img);//保存图片，返回的是字节数
 		}
 
-		$user = UserType::where('openid', $openid)
+		$flight = $this->returnUserFlight();
+
+		$headimg = $flight->headimg;
+		$flight->headimg = '/images/userinfo/'.$name;
+
+		if (strpos($headimg, '/images/userinfo/') == 0) {
+			unlink($_SERVER['DOCUMENT_ROOT'].$headimg);
+		}
+
+		$flight->save();
+    	echo json_encode(array('errcode'=>0,'imgurl'=>'/images/userinfo/'.$name));
+    }
+
+    /*改教师昵称*/
+    public function t_nickname(Request $request)
+    {
+    	$value = $request->input('value');
+    	$openid = $request->input('openid');
+
+    	$flight = $this->returnUserFlight();
+    	$flight->nickname = $value;
+    	$flight->save();
+
+    	return response()->json(['errcode'=>0]);
+    }
+
+    public function t_name(Request $request)
+    {
+    	$value = $request->input('value');
+    	$openid = $request->input('openid');
+
+    	$flight = $this->returnUserFlight($openid);
+    	$flight->name = $value;
+    	$flight->save();
+
+    	return response()->json(['errcode'=>0]);
+    }
+
+    public function t_project(Request $request)
+    {
+    	$value = $request->input('value');
+    	$openid = $request->input('openid');
+
+    	$flight = $this->returnUserFlight();
+    	$flight->project = $value;
+    	$flight->save();
+
+    	return response()->json(['errcode'=>0]);
+    }
+
+    private function returnUserFlight($openid)
+    {
+    	$user = UserType::where('openid', $openid)
 			->select('type', 'uid')
 			->get()[0];
 		$uid = $user->uid;
@@ -48,15 +101,6 @@ class UserInfoController extends Controller
 			case '3':
 				$flight = TeacherInfo::find($uid);
 		}
-
-		$headimg = $flight->headimg;
-		$flight->headimg = '/images/userinfo/'.$name;
-
-		if (strpos($headimg, '/images/userinfo/') == 0) {
-			unlink($_SERVER['DOCUMENT_ROOT'].$headimg);
-		}
-
-		$flight->save();
-    	echo json_encode(array('errcode'=>0,'imgurl'=>'/images/userinfo/'.$name));
+		return $flight;
     }
 }

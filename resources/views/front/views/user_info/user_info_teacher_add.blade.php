@@ -443,11 +443,44 @@ $signPackage = $jssdk->GetSignPackage();
 						$('.row_info[target="'+tid+'"]').find('span').html('选填');
 			    	}
 
-			    	$('#page_main').css('display', 'block');
-					$(this).parents('.page_set').animate({'top': height+'px'}, 250);
-					setTimeout(function(){
-						$('#page_row').css('display', 'none');
-					}, 250);
+			    	if (index == 0) {
+			    		var url = '/front/tsave_nickname';
+			    	} else if (index == 1) {
+			    		var url = '/front/tsave_name';
+			    	} else if (index == 2) {
+			    		var url = '/front/tsave_project';
+			    	}
+			    	/*发送ajax请求更换数据*/
+
+			    	$('#loadingToast').css({'display':'block', 'opacity':'1'});
+					$('#loadingToast p').html('数据保存中');
+
+			    	var thisdom = $(this);
+			    	$.ajax({
+			    		url: url,
+			    		type: 'post',
+			    		dataType: 'json',
+			    		data: {
+			    			value: value
+			    			openid: '{{$openid}}'
+			    		},
+			    		success: function(data) {
+			    			if (data.errcode == 0) {
+			    				$('#loadingToast').css({'display':'none', 'opacity':'0'});
+								$('#toast').css({'display':'block', 'opacity':'1'});
+								setTimeout(function(){
+									$('#toast').css({'display':'none', 'opacity':'0'});
+									$('#page_main').css('display', 'block');
+									thisdom.parents('.page_set').animate({'top': height+'px'}, 250);
+									setTimeout(function(){
+										$('#page_row').css('display', 'none');
+									}, 250);
+								},1000);
+			    			}
+			    		}
+			    	})
+
+			    	
 				}
 		    })
 
@@ -627,7 +660,7 @@ $signPackage = $jssdk->GetSignPackage();
 				$('#loadingToast p').html('图片保存中');
 
 				$.ajax({
-					url: '/front/save_headimg',
+					url: '/front/tsave_headimg',
 					type: 'post',
 					dataType: 'json',
 					data: {
