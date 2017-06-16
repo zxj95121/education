@@ -56,6 +56,6 @@ class UserInfoController extends Controller
 		}
 
 		$flight->save();
-    	echo json_encode(array('errcode'=>0));
+    	echo json_encode(array('errcode'=>0,'imgurl'=>'/images/userinfo/'.$name));
     }
 }

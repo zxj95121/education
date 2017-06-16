@@ -58,7 +58,7 @@ $signPackage = $jssdk->GetSignPackage();
 	            <div class="weui-cell weui-cell_access row_info" target="headimg">
 	                <div class="weui-cell__bd">头像</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px; display:inline-block;"><img style="width:70px;border-radius:50%;" src="http://wx.qlogo.cn/mmopen/w6MofXPc5Nj9oWjZKbm3svI0grH1AMuYg6OaoQoc5TNjuic9iazY1YZKD9yQ4p8WP0Ovo6QVG6kxyrHvWJPJ39V9vM0zS033OS/0"></span>
+	                    <span style="vertical-align:middle; font-size: 17px; display:inline-block;"><img id="headimgPhone" style="width:70px;border-radius:50%;" src="http://wx.qlogo.cn/mmopen/w6MofXPc5Nj9oWjZKbm3svI0grH1AMuYg6OaoQoc5TNjuic9iazY1YZKD9yQ4p8WP0Ovo6QVG6kxyrHvWJPJ39V9vM0zS033OS/0"></span>
 	                </div>
 	            </div>
 	           	<div class="weui-cell weui-cell_access row_info input_info" target="nickname">
@@ -641,13 +641,16 @@ $signPackage = $jssdk->GetSignPackage();
 						img: img
 					},
 					success: function(data) {
-						console.log(data);
-						$('#loadingToast').css({'display':'none', 'opacity':'0'});
-						$('#toast').css({'display':'block', 'opacity':'1'});
-						setTimeout(function(){
-							$('#toast').css({'display':'none', 'opacity':'0'});
-							$('#headimg .done_romove')[0].click();
-						},1000);
+						if (data.errcode == 0) {
+							$('#loadingToast').css({'display':'none', 'opacity':'0'});
+							$('#toast').css({'display':'block', 'opacity':'1'});
+							setTimeout(function(){
+								$('#toast').css({'display':'none', 'opacity':'0'});
+								$('#headimg .done_romove')[0].click();
+							},1000);
+
+							$('#headimgPhone').attr('src', data.imgurl);
+						}
 					}
 				});
 				// $('#cut').css('display', 'none');
