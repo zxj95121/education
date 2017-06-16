@@ -614,7 +614,7 @@ $signPackage = $jssdk->GetSignPackage();
 			{
 				thumbBox: '.thumbBox',
 				spinner: '.spinner',
-				imgSrc: '/js/cutimage/images/avatar.jpg'
+				imgSrc: $('#headimgPhone').attr('src')
 			};
 
 			$(document).on('change', '#upload-file', function(){
