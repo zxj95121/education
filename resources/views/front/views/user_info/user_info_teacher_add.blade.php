@@ -652,6 +652,10 @@ $signPackage = $jssdk->GetSignPackage();
 
 							$('#headimgPhone').attr('src', data.imgurl);
 						}
+					},
+					error: function(data) {
+						alert(data);
+						alert('dafd');
 					}
 				});
 				// $('#cut').css('display', 'none');
