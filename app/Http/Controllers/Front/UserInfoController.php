@@ -69,6 +69,10 @@ class UserInfoController extends Controller
     	$flight->name = $value;
     	$flight->save();
 
+    	$flight = $this->returnUserFlight($openid,1);
+    	$flight->name = $value;
+    	$flight->save();
+
     	return response()->json(['errcode'=>0]);
     }
 
@@ -77,29 +81,43 @@ class UserInfoController extends Controller
     	$value = $request->input('value');
     	$openid = $request->input('openid');
 
-    	$flight = $this->returnUserFlight($openid);
+    	$flight = $this->returnUserFlight($openid,1);
     	$flight->project = $value;
     	$flight->save();
 
     	return response()->json(['errcode'=>0]);
     }
 
-    private function returnUserFlight($openid)
+    private function returnUserFlight($openid,$type=0)
     {
+    	/*type默认为0表示该info表*/
     	$user = UserType::where('openid', $openid)
 			->select('type', 'uid')
 			->get()[0];
 		$uid = $user->uid;
 
-		switch ($user->type) {
-			case '1':
-				$flight = AdminInfo::find($uid);
-				break;
-			case '2':
-				$flight = ParentInfo::find($uid);
-				break;
-			case '3':
-				$flight = TeacherInfo::find($uid);
+		if ($type == 0) {
+			switch ($user->type) {
+				case '1':
+					$flight = AdminInfo::find($uid);
+					break;
+				case '2':
+					$flight = ParentInfo::find($uid);
+					break;
+				case '3':
+					$flight = TeacherInfo::find($uid);
+			}
+		} else {
+			switch ($user->type) {
+				case '1':
+					$flight = AdminDetail::find($uid);
+					break;
+				case '2':
+					$flight = ParentDetail::find($uid);
+					break;
+				case '3':
+					$flight = TeacherDetail::find($uid);
+			}
 		}
 		return $flight;
     }

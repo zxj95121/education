@@ -467,6 +467,7 @@ $signPackage = $jssdk->GetSignPackage();
 			    		success: function(data) {
 			    			if (data.errcode == 0) {
 			    				$('#loadingToast').css({'display':'none', 'opacity':'0'});
+			    				$('#toast p').html('修改成功');
 								$('#toast').css({'display':'block', 'opacity':'1'});
 								setTimeout(function(){
 									$('#toast').css({'display':'none', 'opacity':'0'});
