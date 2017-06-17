@@ -63,7 +63,7 @@ class UserInfoController extends Controller
     	$openid = $request->input('openid');
 
     	$flight = $this->returnUserFlight($openid);
-    	$flight->nickname = $value;
+    	$flight->name = $value;
     	$flight->save();
 
     	return response()->json(['errcode'=>0]);
@@ -73,10 +73,6 @@ class UserInfoController extends Controller
     {
     	$value = $request->input('value');
     	$openid = $request->input('openid');
-
-    	$flight = $this->returnUserFlight($openid);
-    	$flight->name = $value;
-    	$flight->save();
 
     	$flight = $this->returnUserFlight($openid,1);
     	$flight->name = $value;
