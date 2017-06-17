@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\AdminInfo;
+use App\Models\ParentInfo;
+use App\Models\TeacherInfo;
+use App\Models\AdminDetail;
+use App\Models\ParentInfo;
+use App\Models\TeacherInfo;
 use App\Models\UserType;
 use Session;
 
