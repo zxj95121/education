@@ -58,31 +58,40 @@ $signPackage = $jssdk->GetSignPackage();
 	            <div class="weui-cell weui-cell_access row_info" target="headimg">
 	                <div class="weui-cell__bd">头像</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px; display:inline-block;"><img id="headimgPhone" style="width:70px;border-radius:50%;" src="http://wx.qlogo.cn/mmopen/w6MofXPc5Nj9oWjZKbm3svI0grH1AMuYg6OaoQoc5TNjuic9iazY1YZKD9yQ4p8WP0Ovo6QVG6kxyrHvWJPJ39V9vM0zS033OS/0"></span>
+	                    <span style="vertical-align:middle; font-size: 17px; display:inline-block;"><img id="headimgPhone" style="width:70px;border-radius:50%;" src="{{$userInfo->headimg}}"></span>
 	                </div>
 	            </div>
 	           	<div class="weui-cell weui-cell_access row_info input_info" target="nickname">
 	                <div class="weui-cell__bd">昵称</div>
 	                <div class="weui-cell__ft" style="font-size: 0" >
-	                    <span style="vertical-align:middle; font-size: 17px;">张贤健</span>
+	                    <span style="vertical-align:middle; font-size: 17px;">{{$userInfo->name}}</span>
 	                </div>
 	            </div>
 	           	<div class="weui-cell weui-cell_access row_info input_info" target="name">
 	                <div class="weui-cell__bd">姓名</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;">选填</span>
+	                    <span style="vertical-align:middle; font-size: 17px;">{{$userDetail->name}}</span>
 	                </div>
 	            </div>
 	            <div class="weui-cell weui-cell_access" id="cell_sex">
 	                <div class="weui-cell__bd">性别</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;"></span>
+	                    <span style="vertical-align:middle; font-size: 17px;">
+	                    	@if($userDetail->sex == 0) 女
+	                    	@else if ($userDetail->sex == 1) 男
+	                    	@else
+	                    	@endif
+	                    </span>
 	                </div>
 	            </div>
 	            <div class="weui-cell weui-cell_access" id="showDatePicker">
 	                <div class="weui-cell__bd">出生日期</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;"></span>
+	                    <span style="vertical-align:middle; font-size: 17px;">
+	                    	@php
+	                    	echo $userDetail->birth;
+	                    	@php
+	                    </span>
 	                </div>
 	            </div>
 	            <div class="weui-cell weui-cell_access row_info" target="school">
@@ -94,7 +103,7 @@ $signPackage = $jssdk->GetSignPackage();
 	            <div class="weui-cell weui-cell_access row_info input_info" target="project">
 	                <div class="weui-cell__bd">所学专业</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;"></span>
+	                    <span style="vertical-align:middle; font-size: 17px;">{{$userDetail->project}</span>
 	                </div>
 	            </div>
 	            <div class="weui-cell weui-cell_access" id="moneyPicker">

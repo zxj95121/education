@@ -23,7 +23,11 @@ class UserInfoController extends Controller
     public function teacher()
     {
     	$openid = Session::get('openid');
-    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid]);
+        $userInfo = TeacherInfo::where('openid', $openid)
+            ->get()[0];
+        $userDetail = TeacherDetail::where('openid', $openid)
+            ->get()[0];
+    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail]);
     }
 
     /*修改teacher的头像*/
