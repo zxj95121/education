@@ -78,7 +78,7 @@ $signPackage = $jssdk->GetSignPackage();
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;">
 	                    	@if($userDetail->sex == 0) 女
-	                    	@else if ($userDetail->sex == 1) 男
+	                    	@elseif ($userDetail->sex == 1) 男
 	                    	@endif
 	                    </span>
 	                </div>
