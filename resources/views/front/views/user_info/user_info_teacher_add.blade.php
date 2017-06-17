@@ -184,7 +184,7 @@ $signPackage = $jssdk->GetSignPackage();
 			        </div>
 			    </div>
 			    <div style="width: 97%;margin: 0 auto;" class="div_detail">
-			    	<div class="weui-cells__title"><span>3</span>/5</div>
+			    	<div class="weui-cells__title"><span>3</span>/8</div>
 			    	<div class="weui-cells">
 			            <div class="weui-cell">
 			                <div class="weui-cell__bd">
@@ -224,8 +224,8 @@ $signPackage = $jssdk->GetSignPackage();
 		                <p class="weui-actionsheet__title-text">选择性别</p>
 		            </div>
 		            <div class="weui-actionsheet__menu">
-		                <div class="weui-actionsheet__cell sex_actionsheet">男</div>
-		                <div class="weui-actionsheet__cell sex_actionsheet">女</div>
+		                <div class="weui-actionsheet__cell sex_actionsheet" val="1">男</div>
+		                <div class="weui-actionsheet__cell sex_actionsheet" val="0">女</div>
 		            </div>
 		            <div class="weui-actionsheet__action">
 		                <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
@@ -403,9 +403,33 @@ $signPackage = $jssdk->GetSignPackage();
 			})
 			$('.sex_actionsheet').click(function(){
 				var sex = $(this).html();
-				$('#cell_sex').find('span').html(sex);
-				$('#page_row').css('display', 'none');
-				$('#sex').css('display', 'none');
+				var val = $(this).attr('val');
+				$('#loadingToast').css({'display':'block', 'opacity':'1'});
+				$('#loadingToast p').html('数据保存中');
+				$.ajax({
+					url: '/front/tsave_sex',
+					type: 'post',
+					dataType: 'json',
+					data: {
+						sex: val
+					},
+					success: function(data) {
+						if (data.errcode == 0) {
+							$('#cell_sex').find('span').html(sex);
+							$('#page_row').css('display', 'none');
+							$('#sex').css('display', 'none');
+
+							$('#loadingToast').css({'display':'none', 'opacity':'0'});
+		    				$('#toast p').html('修改成功');
+							$('#toast').css({'display':'block', 'opacity':'1'});
+							setTimeout(function(){
+								$('#toast').css({'display':'none', 'opacity':'0'});
+							},1000);
+						}
+					}
+
+				})
+				
 
 			})
 
@@ -436,7 +460,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    	var index = $(this).index('.done_ok1');
 		    	var value = $(this).parents('.page_set').find('input').val();
 
-		    	var arr = new Array(/^.{1,5}$/,/^[\u4e00-\u9fa5]{1,4}$/,/[\u4e00-\u9fa5]{1,10}/);
+		    	var arr = new Array(/^.{1,8}$/,/^[\u4e00-\u9fa5]{1,4}$/,/[\u4e00-\u9fa5]{1,10}/);
 		    	if (!arr[index].test(value) && !(index == 1 && value == '')) {
 		    		layer.open({
 					    content: '长度或格式不正确'

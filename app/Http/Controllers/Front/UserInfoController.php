@@ -81,6 +81,16 @@ class UserInfoController extends Controller
     	return response()->json(['errcode'=>0]);
     }
 
+    public function t_sex(Request $request) {
+        $openid = Session::get('openid');
+        $sex = $request->input('sex');
+        $flight = $this->returnUserFlight($openid,1);
+        $flight->sex = $sex;
+        $flight->save();
+
+        return response()->json(['errcode'=>0]);
+    }
+
     public function t_project(Request $request)
     {
     	$value = $request->input('value');
