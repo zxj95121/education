@@ -14,7 +14,7 @@ class ModifyTeacherInfoAndParentInfo extends Migration
     public function up()
     {
         Schema::table('teacher_detail', function (Blueprint $table) {
-            $table->tinyInteger('sex')->nullable()->default('-1')->comment('0表示女，1表示男，-1表示未设置')->change();
+            $table->string('sex', 1)->nullable()->change();
             $table->string('birth', 7)->nullable()->change();
             $table->string('school')->nullable()->change();
             $table->string('subject')->nullable()->change();
@@ -25,7 +25,7 @@ class ModifyTeacherInfoAndParentInfo extends Migration
 
         Schema::table('parent_detail', function (Blueprint $table) {
             $table->string('surname', 20)->nullable()->change();
-            $table->tinyInteger('sex')->nullable()->default('-1')->comment('0表示妈妈，1表示爸爸，-1表示未设置')->change();
+            $table->string('sex', 1)->nullable()->change();
             $table->string('birth', 7)->nullable()->change();
             $table->string('address')->nullable()->change();
             $table->string('place')->nullable()->change();
