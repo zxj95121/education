@@ -34,7 +34,7 @@ class UserInfoController extends Controller
 			$size = file_put_contents($_SERVER['DOCUMENT_ROOT'].'/images/userinfo/'.$name, $img);//保存图片，返回的是字节数
 		}
 
-		$flight = $this->returnUserFlight();
+		$flight = $this->returnUserFlight($openid);
 
 		$headimg = $flight->headimg;
 		$flight->headimg = '/images/userinfo/'.$name;
