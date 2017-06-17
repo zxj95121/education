@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use App\Models\AdminInfo;
 use App\Models\ParentInfo;
 use App\Models\TeacherInfo;
-use App\Models\AdminDetail;
 use App\Models\ParentDetail;
 use App\Models\TeacherDetail;
 use App\Models\UserType;
@@ -111,17 +110,16 @@ class UserInfoController extends Controller
 					break;
 				case '3':
 					$flight = TeacherInfo::find($uid);
+                    break;
 			}
 		} else {
 			switch ($user->type) {
-				case '1':
-					$flight = AdminDetail::find($uid);
-					break;
 				case '2':
 					$flight = ParentDetail::find($uid);
 					break;
 				case '3':
 					$flight = TeacherDetail::find($uid);
+                    break;
 			}
 		}
 		return $flight;
