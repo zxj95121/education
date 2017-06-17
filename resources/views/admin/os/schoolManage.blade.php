@@ -28,13 +28,18 @@
     .delete2:hover{
     	cursor:pointer;
     }
+/*     #tabs_div1 span{
+    	position:absolute;
+    	top:10px;
+    	right:0px;
+    } */
 </style>
 @endsection
 
 @section('content')
 <div class="wraper container-fluid">
                 <div class="page-title"> 
-                    <h3 class="title">辅导学科管理</h3> 
+                    <h3 class="title">辅导学校管理</h3> 
                 </div>
 
                 <div class="row">
@@ -44,7 +49,7 @@
                         <div class="portlet"><!-- /primary heading -->
                             <div class="portlet-heading">
                                 <h3 class="portlet-title text-dark text-uppercase">
-                                    辅导学科列表
+                                    辅导学校列表
                                 </h3>
                                 <div class="portlet-widgets">
                                     <span class="divider"></span>
@@ -54,20 +59,52 @@
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
-                            <!-- 学科分类新增 modal  -->
+                            <!-- 学校分类新增 modal  -->
                             <div id="modal1" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="display: none;">
                                     <div class="modal-dialog modal-sm">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><font><font class="">×</font></font></button>
-                                                <h4 class="modal-title" id="mySmallModalLabel"><font><font id="bttitle">新建学科分类</font></font></h4>
+                                                <h4 class="modal-title" id="mySmallModalLabel"><font><font id="bttitle">新建学校分类</font></font></h4>
                                             </div>
                                             <div class="modal-body"><font><font>
                                               	<div class="row"> 
                                                     <div class="col-md-12"> 
                                                         <div class="form-group"> 
-                                                            <label for="field-1" class="control-label" style="margin-top: 7px;"><font><font id="bttitle2">学科分类名称&nbsp;&nbsp;:</font></font></label> 
+                                                            <label for="field-1" class="control-label" style="margin-top: 7px;"><font><font id="bttitle2">学校分类名称&nbsp;&nbsp;:</font></font></label> 
                                                             <input type="text" style="width:55%;float:right" class="form-control" id="field-1" placeholder=""> 
+                                                        </div> 
+                                                        <div id="moren">
+	                                                        <div class="form-goup2">
+	                                                        	<input type="radio" name="is_xuesheng" checked="checked" value="1">学生
+	                                                        	<input type="radio" name="is_xuesheng" value="0">专职
+	                                                        </div>
+	                                                     </div>
+                                                    </div> 
+                                                </div>
+                                            </font></font></div>
+                                            <div class="modal-footer"> 
+	                                        	<button type="button" class="btn btn-white" data-dismiss="modal"><font><font>关</font></font></button> 
+	                                            <button type="button" class="btn btn-info" id="baocun1"><font><font>保存更改</font></font></button> 
+                                           	</div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                            </div>                           
+                             <!-- end modal  -->
+                             <!-- 学校分类新增 modal  -->
+                            <div id="modal2" class="modal fade bs-example-modal-sm2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><font><font class="">×</font></font></button>
+                                                <h4 class="modal-title" id="mySmallModalLabel"><font><font id="bttitle3">新建学校分类</font></font></h4>
+                                            </div>
+                                            <div class="modal-body"><font><font>
+                                              	<div class="row"> 
+                                                    <div class="col-md-12"> 
+                                                        <div class="form-group"> 
+                                                            <label for="field-1" class="control-label" style="margin-top: 7px;"><font><font id="bttitle4">学校分类名称&nbsp;&nbsp;:</font></font></label> 
+                                                            <input type="text" style="width:55%;float:right" class="form-control" id="field-2" placeholder=""> 
                                                         </div> 
                                                     </div> 
                                                 </div>
@@ -79,11 +116,11 @@
                                         </div><!-- /.modal-content -->
                                     </div><!-- /.modal-dialog -->
                             </div>                           
-                             <!-- end modal  -->                          
+                             <!-- end modal  -->                            
                             <div id="portlet2" class="panel-collapse collapse in">
                                 <div class="portlet-body">
                                     <div class="row" style="margin-bottom: 13px;padding-left: 10px;">
-                                        <button id="addfenlei" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-sm">新增学科分类 <span class="glyphicon glyphicon-plus"></span></button>
+                                        <button id="addfenlei" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-sm">新增学校分类 <span class="glyphicon glyphicon-plus"></span></button>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12"> 
@@ -91,10 +128,14 @@
                                                 <div class="row">
                                                     <div id="tabs_div1">
                                                         <ul id="tabs_ul_type" class="nav tabs-vertical col-lg-6" style="border-right: 2px solid #39A4D6;padding-right: 14px;width: 100%;"> 
-                                                            @foreach ($data['subjectone'] as $value)
-	                                                            <li class="">
-	                                                                <a href="#v-tab{{$value->id}}" data-toggle="tab" aria-expanded="true" idvalue="{{$value->id}}">{{$value->name}}</a>
-	                                                            </li> 
+                                                            @foreach ($data['schoolone'] as $value)
+                                                            	@if ($value->is_student == 1)
+	                                                           		<li class="" data-toggle="tooltip" data-placement="right" title="学生">
+	                                                           	@else
+	                                                           		<li class="" data-toggle="tooltip" data-placement="right" title="专职">
+	                                                            @endif
+	                                                                	<a href="#v-tab{{$value->id}}" data-toggle="tab" aria-expanded="true" idvalue="{{$value->id}}">{{$value->name}} </a>                                                          			                                                            </li> 
+                                                           			</li>
                                                             @endforeach
                                                         </ul>
                                                        	<div style="margin-top: 20px;padding-left: 10px;">
@@ -103,10 +144,10 @@
                                                     	</div> 
                                                     </div>
                                                     <div id="tabs_div2" class="tab-content" style="padding:0px 30px;position: relative;">
-                                                        <div  style="position: absolute;top:-47px;"><button id="addxueke" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-sm">添加学科 <span class="glyphicon glyphicon-plus"></span></button>
+                                                        <div  style="position: absolute;top:-47px;"><button id="addxueke" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-sm2">添加学校 <span class="glyphicon glyphicon-plus"></span></button>
                                                         </div>
                                                         @php $prev = 0; @endphp
-                                                        @foreach ($data['subjecttwo']  as $key => $value)
+                                                        @foreach ($data['schooltwo']  as $key => $value)
                                                         
                                                         	@php unset($arr[$value->pid]); @endphp
                                                         	@if($value->pid!=$prev && $prev != 0)
@@ -119,20 +160,18 @@
 	                                                            <table class="table table-striped">
 	                                                                <thead>
 	                                                                    <tr>
-	                                                                    <th>#</th>
-	                                                                    <th>学科名称</th>
-	                                                                    <th>学科分类</th>
+	                                                                    <th>学校名称</th>
+	                                                                    <th>学校分类</th>
 	                                                                    <th>操作</th>
 	                                                                </tr>
 	                                                                </thead>
 	                                                                <tbody>
 	                                                        @endif
 	                                                                    <tr>
-	                                                                        <th class="num">{{$key}}</th>
 	                                                                        <td ><span class="label label-default">{{$value->name}}</span></td>
 	                                                                        <td class="xk">{{$value->pname}}</td>
 	                                                                        <td>
-	                                                                            <span class="label label-primary edit2" xkid="{{$value->id}}" data-toggle="modal" data-target=".bs-example-modal-sm">修改</span>
+	                                                                            <span class="label label-primary edit2" xkid="{{$value->id}}" data-toggle="modal" data-target=".bs-example-modal-sm2">修改</span>
 	                                                                            <span class="label label-primary delete2" xkid="{{$value->id}}">删除</span>
 	                                                                        </td>
 	                                                                    </tr>
@@ -149,9 +188,8 @@
                                                             <table class="table table-striped">
 	                                                                <thead>
 	                                                                    <tr>
-		                                                                    <th>#</th>
-		                                                                    <th>学科名称</th>
-		                                                                    <th>学科分类</th>
+		                                                                    <th>学校名称</th>
+		                                                                    <th>学校分类</th>
 		                                                                    <th>操作</th>
 	                                                               		</tr>
 	                                                                </thead>
@@ -207,82 +245,157 @@
 <script>
 	var weizhi = '';
 	$(function(){
-		$('#tabs_ul_type li:eq(0)').addClass('active');
-		var you = $('#tabs_div1 .active a').attr('href');
-		you = you.substr(1,you.length);
-		$('#'+you).addClass('active');
         layui.use('layer', function(){
             window.layer = layui.layer;
         });
-        
+		if($('#tabs_ul_type li:eq(0)').length == '0'){
+			$('#addxueke').hide();
+		}else{
+			$('#tabs_ul_type li:eq(0)').addClass('active');
+			var you = $('#tabs_div1 .active a').attr('href');
+			you = you.substr(1,you.length);
+			$('#'+you).addClass('active');
+		}
 		$('#addfenlei').click(function(){
-			$('#bttitle').text('新增学科分类');
+			$('#bttitle').text('新增学校分类');
 			$('#field-1').val('');
+			var html = '';
+			html += '<div class="form-goup2">';
+			html += '<input type="radio" name="is_xuesheng" checked="checked" value="1">学生';
+			html += '<input type="radio" name="is_xuesheng" value="0">专职';
+        	html += '</div>';
+        	$('#moren').html(html);
 			var button = '<button type="button" class="btn btn-info" id="baocun1"><font><font>保存更改</font></font></button> ';
 			$('.modal-footer button:last').replaceWith(button);
+			
 		})
 		/*新增分类保存  */
 		$(document).on('click','#baocun1',function(){
 			var text = $('#field-1').val();
-			var href = $('#tabs_div1 li:last').find('a').attr('href');
-			var num = parseInt(href.substr(6,href.length))+1;
-			var html = '';
-			var html2 = '';
-			$('#bttitle').text('新增学科分类');
-			/* 新增学科分类 ajax */
-			$.ajax({
-				url:'{{URL("admin/subjectone/add")}}',
-				data:{
-					text:text
-				},
-				type:'post',
-				datatype:'json',
-				success:function(date){
-				 	html +=	'<li class="">';
-				 	html += '<a href="#v-tab'+num+'" data-toggle="tab" aria-expanded="false" idvalue="'+date.id+'">'+text+'</a>';
-		            html += '</li>'	;
-		            html2 += '<div class="tab-pane" id="v-tab'+num+'">';
-		            html2 += '<table class="table table-striped">';
-		            html2 += '<thead>';
-		            html2 += '<tr>';
-		            html2 += '<th>#</th>';
-		            html2 += '<th>学科名称</th>';
-		            html2 += '<th>学科分类</th>';
-		            html2 += '<th>操作</th>';
-		            html2 += '</tr>';
-		            html2 += '</thead>';
-		            html2 += '<tbody>';
-		            html2 += '</tbody>';
-		            html2 += '</table>';
-		            html2 += '</div>';
-		            $('#tabs_div1 li:last').after(html);
-		            $('.tab-pane:last').after(html2);
-					$('#modal1').modal('hide');
-				},
-				error:function(date){
-					alert('请重新添加');
-				}
-			})
+			var student = $('input[name=is_xuesheng]:checked').val();
+			if($('#tabs_ul_type li:eq(0)').length == '0'){
+				$.ajax({
+					url:'{{URL("admin/schoolone/add")}}',
+					data:{
+						text:text,
+						student:student
+					},
+					type:'post',
+					datatype:'json',
+					success:function(date){
+						html = '';
+						if(student == 1){
+							html +=	'<li class="active" data-toggle="tooltip" data-placement="right" title="学生">';
+						}else{
+							html +=	'<li class="active" data-toggle="tooltip" data-placement="right" title="专职">';
+						}
+					 	html += '<a href="#v-tab'+1+'" data-toggle="tab" aria-expanded="false" idvalue="'+date.id+'">'+text+'</a>';
+			            html += '</li>'	;
+			            html2 = '';
+			            html2 += '<div class="tab-pane active" id="v-tab'+1+'">';
+			            html2 += '<table class="table table-striped">';
+			            html2 += '<thead>';
+			            html2 += '<tr>';
+			            html2 += '<th>学校名称</th>';
+			            html2 += '<th>学校分类</th>';
+			            html2 += '<th>操作</th>';
+			            html2 += '</tr>';
+			            html2 += '</thead>';
+			            html2 += '<tbody>';
+			            html2 += '</tbody>';
+			            html2 += '</table>';
+			            html2 += '</div>';
+			            $('#tabs_ul_type').html(html);
+			            $('#tabs_div2').append(html2);
+						$('#modal1').modal('hide');
+					},
+					error:function(date){
+						alert('请重新添加');
+					}
+				})
+			}else{
+				var href = $('#tabs_div1 li:last').find('a').attr('href');
+				var num = parseInt(href.substr(6,href.length))+1;
+				var html = '';
+				var html2 = '';
+				/* 新增学校分类 ajax */
+				$.ajax({
+					url:'{{URL("admin/schoolone/add")}}',
+					data:{
+						text:text,
+						student:student
+					},
+					type:'post',
+					datatype:'json',
+					success:function(date){
+						if(student == 1){
+							html +=	'<li class="" data-toggle="tooltip" data-placement="right" title="学生">';
+						}else{
+							html +=	'<li class="" data-toggle="tooltip" data-placement="right" title="专职">';
+						}
+					 	html += '<a href="#v-tab'+num+'" data-toggle="tab" aria-expanded="false" idvalue="'+date.id+'">'+text+'</a>';
+			            html += '</li>'	;
+			            html2 += '<div class="tab-pane" id="v-tab'+num+'">';
+			            html2 += '<table class="table table-striped">';
+			            html2 += '<thead>';
+			            html2 += '<tr>';
+			            html2 += '<th>学校名称</th>';
+			            html2 += '<th>学校分类</th>';
+			            html2 += '<th>操作</th>';
+			            html2 += '</tr>';
+			            html2 += '</thead>';
+			            html2 += '<tbody>';
+			            html2 += '</tbody>';
+			            html2 += '</table>';
+			            html2 += '</div>';
+			            $('#tabs_div1 li:last').after(html);
+			            $('.tab-pane:last').after(html2);
+						$('#modal1').modal('hide');
+					},
+					error:function(date){
+						alert('请重新添加');
+					}
+				})
+			}
+			$('#addxueke').show();
 			$('#modal1').modal('hide');
 		})
 		/*修改分类  */
 		$('#edit1').click(function(){
-			$('#bttitle').text('修改学科分类');
+			$('#bttitle').text('修改学校分类');
+			var moren = $('#tabs_div1 .active').attr('data-original-title');
+			if(moren != '学生'){
+				var html = '';
+				html += '<div class="form-goup2">';
+				html += '<input type="radio" name="is_xuesheng" value="1">学生';
+				html += '<input type="radio" name="is_xuesheng" checked="checked" value="0">专职';
+            	html += '</div>';
+            	$('#moren').html(html);
+			}else{
+				var html = '';
+				html += '<div class="form-goup2">';
+				html += '<input type="radio" name="is_xuesheng" checked="checked"  value="1">学生';
+				html += '<input type="radio" name="is_xuesheng" value="0">专职';
+            	html += '</div>';
+            	$('#moren').html(html);
+			}
 			var text = $('#tabs_div1 .active a').text();
 			var button = '<button type="button" class="btn btn-info" id="baocun2"><font><font>保存更改</font></font></button> ';
-			$('.modal-footer button:last').replaceWith(button);
+			$('#modal1 .modal-footer button:last').replaceWith(button);
 			$('#field-1').val(text);
 		})
 		/*修改分类保存  */
 		$(document).on('click','#baocun2',function(){
 			var text = $('#field-1').val();
 			var fenleiid = $('#tabs_div1 .active a').attr('idvalue');
-			/* 修改学科分类 ajax */
+			var student = $('input[name=is_xuesheng]:checked').val();
+			/* 修改学校分类 ajax */
 			$.ajax({
-				url:'{{URL("admin/subjectone/edit")}}',
+				url:'{{URL("admin/schoolone/edit")}}',
 				data:{
 					text:text,
-					fenleiid:fenleiid
+					fenleiid:fenleiid,
+					student:student
 				},
 				type:'post',
 				datatype:'json',
@@ -305,7 +418,7 @@
 	                    var layerIndex = window.layer.load(2, {time: 5*1000});
 	                    var fenleiid = $('#tabs_div1 .active a').attr('idvalue');
 	        			$.ajax({
-	        				url:'{{URL("admin/subjectone/delete")}}',
+	        				url:'{{URL("admin/schoolone/delete")}}',
 	        				data:{
 	        					fenleiid:fenleiid
 	        				},
@@ -313,12 +426,18 @@
 	        				datatype:'json',
 	        				success:function(date){
 	        					$('#tabs_div1 .active').remove();
-	        					$('#tabs_div1 li:eq(0)').addClass('active');
-	        					var you = $('#tabs_div1 .active a').attr('href');
-	        					you = you.substr(1,you.length);
-	        					$('#tabs_div2 .active').removeClass('active');
-	        					$('#'+you).addClass('active');
+	        					if($('#tabs_div1 li:eq(0)').length == '0'){
+	        						$('#addxueke').hide();
+	        						$('#tabs_div2 .tab-pane').remove();
+	        					}else{
+		        					$('#tabs_div1 li:eq(0)').addClass('active');
+		        					var you = $('#tabs_div1 .active a').attr('href');
+		        					you = you.substr(1,you.length);
+		        					$('#tabs_div2 .active').removeClass('active');
+		        					$('#'+you).addClass('active');
+		        				}
 	        					window.layer.close(layerIndex);
+
 	        				},
 	        				error:function(date){
 	                                window.layer.msg('删除失败');
@@ -329,26 +448,23 @@
 	                window.layer.close(index);
 	            });
 		})
-		/* 学科添加  */
+		/* 学校添加  */
 		$('#addxueke').click(function(){
-			$('#bttitle').text('添加学科');
-			$('#bttitle2').html('学科名称&nbsp;&nbsp;:');
-			$('#field-1').val('');
+			$('#bttitle3').text('添加学校');
+			$('#bttitle4').html('学校名称&nbsp;&nbsp;:');
+			$('#field-2').val('');
 			var button = '<button type="button" class="btn btn-info" id="baocun3"><font><font>保存更改</font></font></button> ';
 			$('.modal-footer button:last').replaceWith(button);
 		})
-		/* 学科添加确定  */
+		/* 学校添加确定  */
 		$(document).on('click','#baocun3',function(){
 			var fenleiid = $('#tabs_div1 .active a').attr('idvalue');
-			var text = $('#field-1').val();
+			var text = $('#field-2').val();
 			var fenlei = $('#tabs_div1 .active a').text();
-			var num = parseInt($('#tabs_div2 .active .num:last').text())+1;
-			if(isNaN(num)){
-				num = 1;
-			}
-			/*学科添加ajax  */
+
+			/*学校添加ajax  */
 			$.ajax({
-				url:'{{URL("admin/subjecttwo/add")}}',
+				url:'{{URL("admin/schooltwo/add")}}',
 				data:{
 					fenleiid:fenleiid,
 					text:text
@@ -358,7 +474,6 @@
 				success:function(date){
 					var html = '';
 					html += '<tr>';
-					html += '<th class="num">'+num+'</th>';
 					html += '<td><span class="label label-default">'+text+'</span></td>';
 					html += '<td class="xk">'+fenlei+'</td>';
 					html += '<td>';
@@ -366,7 +481,7 @@
 					html += '<span class="label label-primary delete2" xkid="'+date.id+'">删除</span>';
 					html += '</td>';
 					html += '</tr>';
-					if(num != 1){
+					if($('#tabs_div2 .active tbody tr:last').length == '1'){
 						$('#tabs_div2 .active tbody tr:last').after(html);
 					}else{
 						$('#tabs_div2 .active tbody').html(html);
@@ -376,25 +491,25 @@
 					alert('请重新添加');
 				}
 			})
-			$('#modal1').modal('hide');
+			$('#modal2').modal('hide');
 		})
-		/* 学科修改  */
+		/* 学校修改  */
 		$(document).on('click','.edit2',function(){
-			$('#bttitle').text('修改学科');
-			$('#bttitle2').html('学科名称&nbsp;&nbsp;:');
+			$('#bttitle3').text('修改学校');
+			$('#bttitle4').html('学校名称&nbsp;&nbsp;:');
 			var text = $(this).parents('tr').find('.label-default').text();
-			$('#field-1').val(text);
+			$('#field-2').val(text);
 			weizhi = $(this);
 			var button = '<button type="button" class="btn btn-info" id="baocun4"><font><font>保存更改</font></font></button> ';
 			$('.modal-footer button:last').replaceWith(button);
 		})
-		/* 学科修改确定  */
+		/* 学校修改确定  */
 		$(document).on('click','#baocun4',function(){
-			var text = $('#field-1').val();
+			var text = $('#field-2').val();
 			var xkid = weizhi.attr('xkid');
-			/* 发送学科修改 ajax */
+			/* 发送学校修改 ajax */
 			$.ajax({
-				url:"{{URL('admin/subjecttwo/edit')}}",
+				url:"{{URL('admin/schooltwo/edit')}}",
 				data:{
 					text:text,
 					xkid:xkid
@@ -405,23 +520,23 @@
 					weizhi.parents('tr').find('.label-default').text(text);
 				},
 				error:function(date){
-					alert('请重新修改学科');
+					alert('请重新修改学校');
 				}
 			})
-			$('#modal1').modal('hide');
+			$('#modal2').modal('hide');
 		})
-		/* 学科删除  */
+		/* 学校删除  */
 		$(document).on('click','.delete2',function(){
 			var dangqian = $(this);
 			var value = dangqian.parents('tr').find('.label-default').text();
-			window.layer.confirm('确认删除'+value+'学科吗？', {
+			window.layer.confirm('确认删除'+value+'学校吗？', {
                 btn: ['取消', '确认'] //可以无限个按钮
                 ,btn2: function(index, layero){
         			var xkid = dangqian.attr('xkid');
         			var layerIndex = window.layer.load(2, {time: 5*1000});
-        			/* 学科删除 ajax  */
+        			/* 学校删除 ajax  */
         			$.ajax({
-        				url:"{{URL('admin/subjecttwo/delete')}}",
+        				url:"{{URL('admin/schooltwo/delete')}}",
         				data:{
         					xkid:xkid
         				},

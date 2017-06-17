@@ -26,7 +26,7 @@ class HomeController extends Controller
 
     public function login()
     {
-        // Session::put('admin_id', '1');
+         Session::put('admin_id', '1');
     	/*访问，是否要生成二维码*/
     	$processEnd = AdminScanLogin::where('status', '3')
     		->select('id', 'scan_url')
