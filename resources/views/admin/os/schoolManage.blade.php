@@ -130,9 +130,9 @@
                                                         <ul id="tabs_ul_type" class="nav tabs-vertical col-lg-6" style="border-right: 2px solid #39A4D6;padding-right: 14px;width: 100%;"> 
                                                             @foreach ($data['schoolone'] as $value)
                                                             	@if ($value->is_student == 1)
-	                                                           		<li class="" data-toggle="tooltip" data-placement="right" title="学生">
+	                                                           		<li class="" data-toggle="tooltip" data-placement="top" title="大学生教师">
 	                                                           	@else
-	                                                           		<li class="" data-toggle="tooltip" data-placement="right" title="专职">
+	                                                           		<li class="" data-toggle="tooltip" data-placement="top" title="通用">
 	                                                            @endif
 	                                                                	<a href="#v-tab{{$value->id}}" data-toggle="tab" aria-expanded="true" idvalue="{{$value->id}}">{{$value->name}} </a>                                                          			                                                            </li> 
                                                            			</li>
@@ -250,29 +250,33 @@
         });
 		if($('#tabs_ul_type li:eq(0)').length == '0'){
 			$('#addxueke').hide();
+			$('#tabs_div1').hide();
 		}else{
 			$('#tabs_ul_type li:eq(0)').addClass('active');
 			var you = $('#tabs_div1 .active a').attr('href');
 			you = you.substr(1,you.length);
 			$('#'+you).addClass('active');
 		}
-		$('#addfenlei').click(function(){
+		$(document).on('click','#addfenlei',function(){
 			$('#bttitle').text('新增学校分类');
 			$('#field-1').val('');
 			var html = '';
 			html += '<div class="form-goup2">';
-			html += '<input type="radio" name="is_xuesheng" checked="checked" value="1">学生';
-			html += '<input type="radio" name="is_xuesheng" value="0">专职';
+			html += '<input type="checkbox" name="is_xuesheng" value="1">学生';
         	html += '</div>';
         	$('#moren').html(html);
 			var button = '<button type="button" class="btn btn-info" id="baocun1"><font><font>保存更改</font></font></button> ';
-			$('.modal-footer button:last').replaceWith(button);
-			
+			$('#modal1 .modal-footer button:last').replaceWith(button);
 		})
 		/*新增分类保存  */
 		$(document).on('click','#baocun1',function(){
 			var text = $('#field-1').val();
 			var student = $('input[name=is_xuesheng]:checked').val();
+			if(student){
+				student = 1;
+			}else{
+				student = 0;
+			}
 			if($('#tabs_ul_type li:eq(0)').length == '0'){
 				$.ajax({
 					url:'{{URL("admin/schoolone/add")}}',
@@ -285,9 +289,9 @@
 					success:function(date){
 						html = '';
 						if(student == 1){
-							html +=	'<li class="active" data-toggle="tooltip" data-placement="right" title="学生">';
+							html +=	'<li class="active" data-toggle="tooltip" data-placement="right" title="大学生教师">';
 						}else{
-							html +=	'<li class="active" data-toggle="tooltip" data-placement="right" title="专职">';
+							html +=	'<li class="active" data-toggle="tooltip" data-placement="right" title="通用">';
 						}
 					 	html += '<a href="#v-tab'+1+'" data-toggle="tab" aria-expanded="false" idvalue="'+date.id+'">'+text+'</a>';
 			            html += '</li>'	;
@@ -329,9 +333,9 @@
 					datatype:'json',
 					success:function(date){
 						if(student == 1){
-							html +=	'<li class="" data-toggle="tooltip" data-placement="right" title="学生">';
+							html +=	'<li class="" data-toggle="tooltip" data-placement="right" title="大学生教师">';
 						}else{
-							html +=	'<li class="" data-toggle="tooltip" data-placement="right" title="专职">';
+							html +=	'<li class="" data-toggle="tooltip" data-placement="right" title="通用">';
 						}
 					 	html += '<a href="#v-tab'+num+'" data-toggle="tab" aria-expanded="false" idvalue="'+date.id+'">'+text+'</a>';
 			            html += '</li>'	;
@@ -359,24 +363,23 @@
 			}
 			$('#addxueke').show();
 			$('#modal1').modal('hide');
+			$('#tabs_div1').show();
 		})
 		/*修改分类  */
-		$('#edit1').click(function(){
+		$(document).on('click','#edit1',function(){
 			$('#bttitle').text('修改学校分类');
 			var moren = $('#tabs_div1 .active').attr('data-original-title');
-			if(moren != '学生'){
+			if(moren != '通用'){
 				var html = '';
 				html += '<div class="form-goup2">';
-				html += '<input type="radio" name="is_xuesheng" value="1">学生';
-				html += '<input type="radio" name="is_xuesheng" checked="checked" value="0">专职';
-            	html += '</div>';
+				html += '<input type="checkbox" name="is_xuesheng" checked="checked" value="1">大学生教师';
+	        	html += '</div>';
             	$('#moren').html(html);
 			}else{
 				var html = '';
 				html += '<div class="form-goup2">';
-				html += '<input type="radio" name="is_xuesheng" checked="checked"  value="1">学生';
-				html += '<input type="radio" name="is_xuesheng" value="0">专职';
-            	html += '</div>';
+				html += '<input type="checkbox" name="is_xuesheng"  value="1">大学生教师';
+	        	html += '</div>';
             	$('#moren').html(html);
 			}
 			var text = $('#tabs_div1 .active a').text();
@@ -429,6 +432,7 @@
 	        					if($('#tabs_div1 li:eq(0)').length == '0'){
 	        						$('#addxueke').hide();
 	        						$('#tabs_div2 .tab-pane').remove();
+	        						$('#tabs_div1').hide();
 	        					}else{
 		        					$('#tabs_div1 li:eq(0)').addClass('active');
 		        					var you = $('#tabs_div1 .active a').attr('href');
@@ -477,7 +481,7 @@
 					html += '<td><span class="label label-default">'+text+'</span></td>';
 					html += '<td class="xk">'+fenlei+'</td>';
 					html += '<td>';
-					html += '<span class="label label-primary edit2" xkid="'+date.id+'" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-right: 4px;">修改</span>';
+					html += '<span class="label label-primary edit2" xkid="'+date.id+'" data-toggle="modal" data-target=".bs-example-modal-sm2" style="margin-right: 4px;">修改</span>';
 					html += '<span class="label label-primary delete2" xkid="'+date.id+'">删除</span>';
 					html += '</td>';
 					html += '</tr>';
