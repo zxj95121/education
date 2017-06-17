@@ -39,7 +39,7 @@ class UserInfoController extends Controller
 		$headimg = $flight->headimg;
 		$flight->headimg = '/images/userinfo/'.$name;
 
-		if (strpos($headimg, '/images/userinfo/') == 0) {
+		if (strpos($headimg, '/images/userinfo/') === 0) {
 			unlink($_SERVER['DOCUMENT_ROOT'].$headimg);
 		}
 
