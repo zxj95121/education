@@ -44,6 +44,7 @@ class SubjectController extends Controller
     	$subjectone = SubjectOne::find($id);
     	$subjectone->status = -1;
     	$subjectone->save();
+    	$schooltwo = SubjectTwo::where('pid',$id)->update(['status'=>-1]);
     	return response()->json(['code'=>200]);
     }
     public function subjecttwoAdd(Request $request)

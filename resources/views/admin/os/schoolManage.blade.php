@@ -272,6 +272,7 @@
 		$(document).on('click','#baocun1',function(){
 			var text = $('#field-1').val();
 			var student = $('input[name=is_xuesheng]:checked').val();
+			console.log(student);
 			if(student){
 				student = 1;
 			}else{
@@ -289,9 +290,9 @@
 					success:function(date){
 						html = '';
 						if(student == 1){
-							html +=	'<li class="active" data-toggle="tooltip" data-placement="right" title="大学生教师">';
+							html +=	'<li class="active" data-toggle="tooltip" data-placement="top" title="大学生教师">';
 						}else{
-							html +=	'<li class="active" data-toggle="tooltip" data-placement="right" title="通用">';
+							html +=	'<li class="active" data-toggle="tooltip" data-placement="top" title="通用">';
 						}
 					 	html += '<a href="#v-tab'+1+'" data-toggle="tab" aria-expanded="false" idvalue="'+date.id+'">'+text+'</a>';
 			            html += '</li>'	;
@@ -311,6 +312,7 @@
 			            html2 += '</div>';
 			            $('#tabs_ul_type').html(html);
 			            $('#tabs_div2').append(html2);
+			            $('#tabs_ul_type li:last').tooltip();
 						$('#modal1').modal('hide');
 					},
 					error:function(date){
@@ -333,9 +335,9 @@
 					datatype:'json',
 					success:function(date){
 						if(student == 1){
-							html +=	'<li class="" data-toggle="tooltip" data-placement="right" title="大学生教师">';
+							html +=	'<li class="" data-toggle="tooltip" data-placement="top" title="大学生教师">';
 						}else{
-							html +=	'<li class="" data-toggle="tooltip" data-placement="right" title="通用">';
+							html +=	'<li class="" data-toggle="tooltip" data-placement="top" title="通用">';
 						}
 					 	html += '<a href="#v-tab'+num+'" data-toggle="tab" aria-expanded="false" idvalue="'+date.id+'">'+text+'</a>';
 			            html += '</li>'	;
@@ -354,6 +356,7 @@
 			            html2 += '</div>';
 			            $('#tabs_div1 li:last').after(html);
 			            $('.tab-pane:last').after(html2);
+			            $('#tabs_ul_type li:last').tooltip();
 						$('#modal1').modal('hide');
 					},
 					error:function(date){
@@ -368,7 +371,7 @@
 		/*修改分类  */
 		$(document).on('click','#edit1',function(){
 			$('#bttitle').text('修改学校分类');
-			var moren = $('#tabs_div1 .active').attr('data-original-title');
+			var moren = $('#tabs_div1 .active').attr('title')||$('#tabs_div1 .active').attr('data-original-title');
 			if(moren != '通用'){
 				var html = '';
 				html += '<div class="form-goup2">';
@@ -392,6 +395,11 @@
 			var text = $('#field-1').val();
 			var fenleiid = $('#tabs_div1 .active a').attr('idvalue');
 			var student = $('input[name=is_xuesheng]:checked').val();
+			if(student){
+				student = 1; 
+			}else{
+				student = 0;
+			}
 			/* 修改学校分类 ajax */
 			$.ajax({
 				url:'{{URL("admin/schoolone/edit")}}',
@@ -405,12 +413,19 @@
 				success:function(date){
 					$('#tabs_div1 .active a').text(text);
 					$('#tabs_div2 .active .xk').text(text);
+					if(student){
+						$('#tabs_div1 .active ').attr('data-original-title','大学生教师');
+					}else{
+						$('#tabs_div1 .active ').attr('data-original-title','通用');
+					}
+					
 				},
 				error:function(date){
 					alert('请重新修改');
 				}
 			})
 			$('#modal1').modal('hide');
+			//$('#tabs_ul_type li').tooltip();
 		})
 		/*删除分类  */
 		$('#delete1').click(function(){
