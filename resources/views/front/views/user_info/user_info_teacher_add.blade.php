@@ -89,7 +89,7 @@ $signPackage = $jssdk->GetSignPackage();
 	                    <span style="vertical-align:middle; font-size: 17px;">
 	                    	@php
 	                    	echo $userDetail->birth;
-	                    	@php
+	                    	@endphp
 	                    </span>
 	                </div>
 	            </div>
