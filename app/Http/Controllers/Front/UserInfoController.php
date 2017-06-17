@@ -9,8 +9,8 @@ use App\Models\AdminInfo;
 use App\Models\ParentInfo;
 use App\Models\TeacherInfo;
 use App\Models\AdminDetail;
-use App\Models\ParentInfo;
-use App\Models\TeacherInfo;
+use App\Models\ParentDetail;
+use App\Models\TeacherDetail;
 use App\Models\UserType;
 use Session;
 
