@@ -79,7 +79,6 @@ $signPackage = $jssdk->GetSignPackage();
 	                    <span style="vertical-align:middle; font-size: 17px;">
 	                    	@if($userDetail->sex == 0) 女
 	                    	@else if ($userDetail->sex == 1) 男
-	                    	@else 
 	                    	@endif
 	                    </span>
 	                </div>
