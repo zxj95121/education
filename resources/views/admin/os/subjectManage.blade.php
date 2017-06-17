@@ -119,7 +119,6 @@
 	                                                            <table class="table table-striped">
 	                                                                <thead>
 	                                                                    <tr>
-	                                                                    <th>#</th>
 	                                                                    <th>学科名称</th>
 	                                                                    <th>学科分类</th>
 	                                                                    <th>操作</th>
@@ -128,7 +127,6 @@
 	                                                                <tbody>
 	                                                        @endif
 	                                                                    <tr>
-	                                                                        <th class="num">{{$key}}</th>
 	                                                                        <td ><span class="label label-default">{{$value->name}}</span></td>
 	                                                                        <td class="xk">{{$value->pname}}</td>
 	                                                                        <td>
@@ -207,14 +205,18 @@
 <script>
 	var weizhi = '';
 	$(function(){
-		$('#tabs_ul_type li:eq(0)').addClass('active');
-		var you = $('#tabs_div1 .active a').attr('href');
-		you = you.substr(1,you.length);
-		$('#'+you).addClass('active');
         layui.use('layer', function(){
             window.layer = layui.layer;
         });
-        
+        if($('#tabs_ul_type li:eq(0)').length == '0'){
+			$('#addxueke').hide();
+			$('#tabs_div1').hide();
+        }else{
+    		$('#tabs_ul_type li:eq(0)').addClass('active');
+    		var you = $('#tabs_div1 .active a').attr('href');
+    		you = you.substr(1,you.length);
+    		$('#'+you).addClass('active');
+        }
 		$('#addfenlei').click(function(){
 			$('#bttitle').text('新增学科分类');
 			$('#field-1').val('');
@@ -224,45 +226,81 @@
 		/*新增分类保存  */
 		$(document).on('click','#baocun1',function(){
 			var text = $('#field-1').val();
-			var href = $('#tabs_div1 li:last').find('a').attr('href');
-			var num = parseInt(href.substr(6,href.length))+1;
 			var html = '';
 			var html2 = '';
-			$('#bttitle').text('新增学科分类');
-			/* 新增学科分类 ajax */
-			$.ajax({
-				url:'{{URL("admin/subjectone/add")}}',
-				data:{
-					text:text
-				},
-				type:'post',
-				datatype:'json',
-				success:function(date){
-				 	html +=	'<li class="">';
-				 	html += '<a href="#v-tab'+num+'" data-toggle="tab" aria-expanded="false" idvalue="'+date.id+'">'+text+'</a>';
-		            html += '</li>'	;
-		            html2 += '<div class="tab-pane" id="v-tab'+num+'">';
-		            html2 += '<table class="table table-striped">';
-		            html2 += '<thead>';
-		            html2 += '<tr>';
-		            html2 += '<th>#</th>';
-		            html2 += '<th>学科名称</th>';
-		            html2 += '<th>学科分类</th>';
-		            html2 += '<th>操作</th>';
-		            html2 += '</tr>';
-		            html2 += '</thead>';
-		            html2 += '<tbody>';
-		            html2 += '</tbody>';
-		            html2 += '</table>';
-		            html2 += '</div>';
-		            $('#tabs_div1 li:last').after(html);
-		            $('.tab-pane:last').after(html2);
-					$('#modal1').modal('hide');
-				},
-				error:function(date){
-					alert('请重新添加');
-				}
-			})
+			if($('#tabs_ul_type li:eq(0)').length == '0'){
+				/* 新增学科分类 ajax */
+				$.ajax({
+					url:'{{URL("admin/subjectone/add")}}',
+					data:{
+						text:text
+					},
+					type:'post',
+					datatype:'json',
+					success:function(date){
+					 	html +=	'<li class="active">';
+					 	html += '<a href="#v-tab'+1+'" data-toggle="tab" aria-expanded="false" idvalue="'+date.id+'">'+text+'</a>';
+			            html += '</li>'	;
+			            html2 += '<div class="tab-pane" id="v-tab'+1+'">';
+			            html2 += '<table class="table table-striped">';
+			            html2 += '<thead>';
+			            html2 += '<tr>';
+			            html2 += '<th>学科名称</th>';
+			            html2 += '<th>学科分类</th>';
+			            html2 += '<th>操作</th>';
+			            html2 += '</tr>';
+			            html2 += '</thead>';
+			            html2 += '<tbody>';
+			            html2 += '</tbody>';
+			            html2 += '</table>';
+			            html2 += '</div>';
+			            $('#tabs_ul_type').html(html);
+			            $('#tabs_div2').append(html2);
+						$('#modal1').modal('hide');
+					},
+					error:function(date){
+						alert('请重新添加');
+					}
+				})
+			}else{
+				var href = $('#tabs_div1 li:last').find('a').attr('href');
+				var num = parseInt(href.substr(6,href.length))+1;
+				/* 新增学科分类 ajax */
+				$.ajax({
+					url:'{{URL("admin/subjectone/add")}}',
+					data:{
+						text:text
+					},
+					type:'post',
+					datatype:'json',
+					success:function(date){
+					 	html +=	'<li class="">';
+					 	html += '<a href="#v-tab'+num+'" data-toggle="tab" aria-expanded="false" idvalue="'+date.id+'">'+text+'</a>';
+			            html += '</li>'	;
+			            html2 += '<div class="tab-pane" id="v-tab'+num+'">';
+			            html2 += '<table class="table table-striped">';
+			            html2 += '<thead>';
+			            html2 += '<tr>';
+			            html2 += '<th>学科名称</th>';
+			            html2 += '<th>学科分类</th>';
+			            html2 += '<th>操作</th>';
+			            html2 += '</tr>';
+			            html2 += '</thead>';
+			            html2 += '<tbody>';
+			            html2 += '</tbody>';
+			            html2 += '</table>';
+			            html2 += '</div>';
+			            $('#tabs_div1 li:last').after(html);
+			            $('.tab-pane:last').after(html2);
+						$('#modal1').modal('hide');
+					},
+					error:function(date){
+						alert('请重新添加');
+					}
+				})
+			}
+			$('#addxueke').show();
+			$('#tabs_div1').show();
 			$('#modal1').modal('hide');
 		})
 		/*修改分类  */
@@ -313,11 +351,17 @@
 	        				datatype:'json',
 	        				success:function(date){
 	        					$('#tabs_div1 .active').remove();
-	        					$('#tabs_div1 li:eq(0)').addClass('active');
-	        					var you = $('#tabs_div1 .active a').attr('href');
-	        					you = you.substr(1,you.length);
-	        					$('#tabs_div2 .active').removeClass('active');
-	        					$('#'+you).addClass('active');
+	        					if($('#tabs_div1 li:eq(0)').length == '0'){
+	        						$('#addxueke').hide();
+	        						$('#tabs_div2 .tab-pane').remove();
+	        						$('#tabs_div1').hide();
+		        				}else{
+		        					$('#tabs_div1 li:eq(0)').addClass('active');
+		        					var you = $('#tabs_div1 .active a').attr('href');
+		        					you = you.substr(1,you.length);
+		        					$('#tabs_div2 .active').removeClass('active');
+		        					$('#'+you).addClass('active');
+		        				}
 	        					window.layer.close(layerIndex);
 	        				},
 	        				error:function(date){
@@ -342,10 +386,6 @@
 			var fenleiid = $('#tabs_div1 .active a').attr('idvalue');
 			var text = $('#field-1').val();
 			var fenlei = $('#tabs_div1 .active a').text();
-			var num = parseInt($('#tabs_div2 .active .num:last').text())+1;
-			if(isNaN(num)){
-				num = 1;
-			}
 			/*学科添加ajax  */
 			$.ajax({
 				url:'{{URL("admin/subjecttwo/add")}}',
@@ -358,7 +398,6 @@
 				success:function(date){
 					var html = '';
 					html += '<tr>';
-					html += '<th class="num">'+num+'</th>';
 					html += '<td><span class="label label-default">'+text+'</span></td>';
 					html += '<td class="xk">'+fenlei+'</td>';
 					html += '<td>';
@@ -366,7 +405,7 @@
 					html += '<span class="label label-primary delete2" xkid="'+date.id+'">删除</span>';
 					html += '</td>';
 					html += '</tr>';
-					if(num != 1){
+					if($('#tabs_div2 .active tbody tr:last').length == '1'){
 						$('#tabs_div2 .active tbody tr:last').after(html);
 					}else{
 						$('#tabs_div2 .active tbody').html(html);
