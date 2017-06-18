@@ -646,6 +646,7 @@ $signPackage = $jssdk->GetSignPackage();
 					pickerStr[j].label = i+'年';
 					pickerStr[j++].value = i;
 				}
+				console.log(pickerStr);
 				weui.picker(pickerStr, {
 		            onChange: function (result) {
 		                console.log(result);
