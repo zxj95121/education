@@ -638,7 +638,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 			/*出生年月*/
 			$(document).on('click', '#showDatePicker', function () {
-				var year = new Date.getFullYear();
+				var year = new Date().getFullYear();
 				var start = parseInt(year)-60;
 				var pickerStr = new Object();
 				for (var i = start,j=0;i <= year;i++) {
