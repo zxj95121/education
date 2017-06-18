@@ -30,8 +30,14 @@ $(function () {
 			$('#'+id+' .contentPicker').append('<div class="colPicker"></div>');
 		}
 		var widthBL = Math.floor(100/length)+'%';
-		$('#'+id+' .contentPicker').css('width', widthBL);/*设置每个的宽度*/
+		$('#'+id+' .colPicker').css('width', widthBL);/*设置每个的宽度*/
 
+		/*对chontent进行填充*/
+		for (var i = 0;i < length;i++) {
+			for (var j = 0;j < content[i].length;j++) {
+				$('#'+id+' .colPicker:eq(i)').append('<div class="basicPicker" val="'+content[i][j].value+'">' + content[i][j].name + '</div>');
+			}
+		}
 
     }
 
