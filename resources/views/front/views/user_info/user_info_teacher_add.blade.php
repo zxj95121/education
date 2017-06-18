@@ -671,10 +671,6 @@ $signPackage = $jssdk->GetSignPackage();
 		        // $('.weui-picker__group').eq(2).remove();
 	        });
 
-	        function DatePickerObject(){
-	        	this.
-	        }
-	        
 		});
 	</script>
 	<script type="text/javascript">
