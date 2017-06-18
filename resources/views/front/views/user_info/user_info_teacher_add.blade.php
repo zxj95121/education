@@ -16,7 +16,7 @@ $signPackage = $jssdk->GetSignPackage();
 		.page_set{
 			width: 100%;
 			position: absolute;
-			z-index: 20;
+			z-index: 2;
 			background-color: #E8E8E3;
 		}
 		#school_btns button{
@@ -638,28 +638,26 @@ $signPackage = $jssdk->GetSignPackage();
 			})
 
 			/*出生年月*/
-			$(document).on('click', '#showDatePicker', function () {
-				var end = new Date().getFullYear();
-				var start = parseInt(end)-60;
-				var yearArr = new Array();
-				for(var i = start;i < end; i++) {
-					yearArr[yearArr.length] = i;
-				}
-				var monthArr = [1,2,3,4,5,6,7,8,9,10,11,12];
-				$.scrEvent2({
-			        data: yearArr,
-			        data2: monthArr,
-			        evEle: '.qu-birth',
-			        title: '出生日期',
-			        defValue: start+30,
-			        defValue2: 1,
-			        linkType: '.',
-			        afterAction: function (data1, data2) {
+			var end = new Date().getFullYear();
+			var start = parseInt(end)-60;
+			var yearArr = new Array();
+			for(var i = start;i < end; i++) {
+				yearArr[yearArr.length] = i;
+			}
+			var monthArr = [1,2,3,4,5,6,7,8,9,10,11,12];
+			$.scrEvent2({
+		        data: yearArr,
+		        data2: monthArr,
+		        evEle: '#showDatePicker',
+		        title: '出生日期',
+		        defValue: start+30,
+		        defValue2: 1,
+		        linkType: '.',
+		        afterAction: function (data1, data2) {
 
-			          $('.qu-birth').html(data1 + '.' + data2);
-			        }
-			    });
-	        });
+		          $('.qu-birth').html(data1 + '.' + data2);
+		        }
+		    });
 
 		});
 	</script>
