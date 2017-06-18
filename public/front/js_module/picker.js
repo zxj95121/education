@@ -1,10 +1,13 @@
 $(function () {
     var selfPicker = {
     	start: function(data){
-    		console.log(data.tid);
+    		var id = data.id;/*进行绑定的这个名称*/
+    		$('#'+id).click(function(){
+    			console.log('hehehe');
+    		})
     	}
     }
 
-    selfPicker.start({tid:23});
+    selfPicker.start({id:'showDatePicker'});
 
 })
