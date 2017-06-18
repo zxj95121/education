@@ -88,7 +88,12 @@ $signPackage = $jssdk->GetSignPackage();
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;">
 	                    	@php
-	                    	echo $userDetail->birth;
+	                    		if (!$userDetail->birth) {
+	                    			echo '';
+	                    		} else {
+	                    			$birthArr = explode('-', $userDetail);
+	                    			echo $birthArr[0].'年'.$birthArr[1].'月';
+	                    		}
 	                    	@endphp
 	                    </span>
 	                </div>
@@ -637,9 +642,11 @@ $signPackage = $jssdk->GetSignPackage();
 		            start: 1960,
 		            end: new Date().getFullYear(),
 		            onChange: function (result) {
-		                // console.log(result);
+		                console.log(result);
 		            },
 		            onConfirm: function (result) {
+		            	console.log('确认');
+		            	console.log(result);
 		            	$('#showDatePicker span').html(result[0] + '年' + (result[1]+1) + '月');
 		                // console.log(result);
 		            }
