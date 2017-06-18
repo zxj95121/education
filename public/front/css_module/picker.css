@@ -4,7 +4,7 @@
 	top:0;
 	left:0;
 	background: rgba(244,247,237, 0.4);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66F4F7ED, endColorstr=#66F4F7ED);
+	/*filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66F4F7ED, endColorstr=#66F4F7ED);*/
 	opacity: 0.35;
 }
 
