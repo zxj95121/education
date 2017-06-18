@@ -19,7 +19,7 @@ $(function () {
     		var height = document.documentElement.clientHeight;
     		$('#pickerBigDiv').css({'width':width,'height':height});
     	}
-		$('#pickerBigDiv').append($('#id'));
+		$('#pickerBigDiv').append($('#'+id));
     }
 
     selfPicker.start({
