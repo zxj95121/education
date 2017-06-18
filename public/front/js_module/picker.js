@@ -29,7 +29,7 @@ $(function () {
 			$('#'+id+' contentPicker').append('<div class="colPicker"></div>');
 		}
 		var widthBL = Math.floor(100/length)+'%';
-		$('#'+id+' contentPicker').css('width', $widthBL);/*设置每个的宽度*/
+		$('#'+id+' contentPicker').css('width', widthBL);/*设置每个的宽度*/
 
 
     }
