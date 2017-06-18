@@ -86,7 +86,7 @@ $signPackage = $jssdk->GetSignPackage();
 	            <div class="weui-cell weui-cell_access" id="showDatePicker">
 	                <div class="weui-cell__bd">出生日期</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;">
+	                    <span style="vertical-align:middle; font-size: 17px;" class="qu-birth">
 	                    	@php
 	                    		if (!$userDetail->birth) {
 	                    			echo '';
@@ -638,46 +638,26 @@ $signPackage = $jssdk->GetSignPackage();
 
 			/*出生年月*/
 			$(document).on('click', '#showDatePicker', function () {
-				var year = new Date().getFullYear();
-				var start = parseInt(year)-60;
-				var pickerStr = new Array();
-				for (var i = start,j=0;i <= year;i++) {
-					pickerStr[j] = new Object();
-					pickerStr[j].label = i+'年';
-					pickerStr[j++].value = i;
+				var end = new Date().getFullYear();
+				var start = parseInt(end)-60;
+				var yearArr = new Array();
+				for(var i = start;i < end; i++) {
+					yearArr[yearArr.length] = i;
 				}
-				console.log(pickerStr);
-				console.log([{
-		            label: '60分钟',
-		            value: 60
-		        }, {
-		            label: '90分钟',
-		            value: 90
-		        }]);
-				weui.picker(pickerStr, {
-		            onChange: function (result) {
-		                console.log(result);
-		            },
-		            onConfirm: function (result) {
-		            	console.log(result);
-		                // $('#moneyPicker span').html(result[0] + '元 / ' + result[1] +'分钟');
-		                $('#showDatePicker span').html(result[0] + '年');
-		            }
-		        });
-				// weui.datePicker({
-		  //           start: 1960,
-		  //           end: new Date().getFullYear(),
-		  //           onChange: function (result) {
-		  //               console.log(result);
-		  //           },
-		  //           onConfirm: function (result) {
-		  //           	console.log('确认');
-		  //           	console.log(result);
-		  //           	$('#showDatePicker span').html(result[0] + '年' + (result[1]+1) + '月');
-		  //               // console.log(result);
-		  //           }
-		  //       });
-		        // $('.weui-picker__group').eq(2).remove();
+				var monthArr = [1,2,3,4,5,6,7,8,9,10,11,12];
+				$.scrEvent2({
+			        data: yearArr,
+			        data2: monthArr,
+			        evEle: '.qu-birth',
+			        title: '出生日期',
+			        defValue: start+30,
+			        defValue2: 1,
+			        linkType: '.',
+			        afterAction: function (data1, data2) {
+
+			          $('.qu-birth').html(data1 + '.' + data2);
+			        }
+			    });
 	        });
 
 		});
