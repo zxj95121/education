@@ -344,38 +344,13 @@ $signPackage = $jssdk->GetSignPackage();
     </div>
 
 	<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="/js/picker/jquery.selector-px.js"></script>
-	<script type="text/javascript">
-		$(function(){
-			/*出生年月*/
-			var end = new Date().getFullYear();
-			var start = parseInt(end)-60;
-			var yearArr = new Array();
-			for(var i = start;i < end; i++) {
-				yearArr[yearArr.length] = i;
-			}
-			var monthArr = [1,2,3,4,5,6,7,8,9,10,11,12];
-			$.scrEvent2({
-		        data: yearArr,
-		        data2: monthArr,
-		        evEle: '#showDatePicker',
-		        title: '出生日期',
-		        defValue: start+30,
-		        defValue2: 1,
-		        linkType: '.',
-		        afterAction: function (data1, data2) {
-		        	console.log(data1 + '.' +data2);
-		          $('.qu-birth').html(data1 + '.' + data2);
-		        }
-		    });
-		})
-	</script>
 	<script type="text/javascript" src="/js/cutimage/js/cropbox.js"></script>
 	<script type="text/javascript" src="/js/weui/zepto.min.js"></script>
 	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
 	<script type="text/javascript" src="/js/weui/example.js"></script>
 	<script type="text/javascript" src="/js/layui/layer_only/mobile/layer.js"></script>
+	<script type="text/javascript" src="/front/js_module/picker.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			var height = document.documentElement.clientHeight;
