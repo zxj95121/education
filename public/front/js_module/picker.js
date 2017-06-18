@@ -10,7 +10,11 @@ $(function () {
     		picker_init(id, data.content);//初始化插件
 
     	}
-    }
+    };
+
+    $(document).on('touchstart', '.colPicker', function(){
+    	console.log('heheda');
+    })
 
     function picker_init(id,content){
     	$('body').css('position','relative');
@@ -46,6 +50,24 @@ $(function () {
     	action: 'showDatePicker',
     	content: [
     		[{
+    			'name': '1960年',
+    			'value': 1960
+    		},{
+    			'name': '1961年',
+    			'value': 1961
+    		},{
+    			'name': '1962年',
+    			'value': 1962
+    		},{
+    			'name': '1960年',
+    			'value': 1960
+    		},{
+    			'name': '1961年',
+    			'value': 1961
+    		},{
+    			'name': '1962年',
+    			'value': 1962
+    		},{
     			'name': '1960年',
     			'value': 1960
     		},{
