@@ -343,6 +343,10 @@ $signPackage = $jssdk->GetSignPackage();
         </div>
     </div>
 
+    <div class="zxjPicker" style="width: 100%;height: 300px;background-color: #F2BABA;">
+    	
+    </div>
+
 	<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="/js/cutimage/js/cropbox.js"></script>
 	<script type="text/javascript" src="/js/weui/zepto.min.js"></script>
