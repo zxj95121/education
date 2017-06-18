@@ -22,6 +22,7 @@ $(function () {
     	}
 		$('#pickerBigDiv').append($('#'+id));
 
+		console.log(content);
 		var length = content.length;
 
 		/*插入若干个列*/
