@@ -647,6 +647,13 @@ $signPackage = $jssdk->GetSignPackage();
 					pickerStr[j++].value = i;
 				}
 				console.log(pickerStr);
+				console.log([{
+		            label: '60分钟',
+		            value: 60
+		        }, {
+		            label: '90分钟',
+		            value: 90
+		        }]);
 				weui.picker(pickerStr, {
 		            onChange: function (result) {
 		                console.log(result);
