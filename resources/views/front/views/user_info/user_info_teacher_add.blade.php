@@ -642,6 +642,7 @@ $signPackage = $jssdk->GetSignPackage();
 				var start = parseInt(year)-60;
 				var pickerStr = new Object();
 				for (var i = start,j=0;i <= year;i++) {
+					pickerStr[j] = new Object();
 					pickerStr[j].label = i+'年';
 					pickerStr[j++].value = i;
 				}
@@ -669,6 +670,10 @@ $signPackage = $jssdk->GetSignPackage();
 		  //       });
 		        // $('.weui-picker__group').eq(2).remove();
 	        });
+
+	        function DatePickerObject(){
+	        	this.
+	        }
 	        
 		});
 	</script>
