@@ -11,6 +11,7 @@ $signPackage = $jssdk->GetSignPackage();
 	<link rel="stylesheet" href="/js/cutimage/css/style.css" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="/js/weui/weui.min.css" />
 	<link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/front/css_module/picker.css">
 	<!-- <link rel="stylesheet" type="text/css" href="/js/weui/example.css"> -->
 	<style type="text/css">
 		.page_set{
@@ -343,7 +344,11 @@ $signPackage = $jssdk->GetSignPackage();
         </div>
     </div>
 
-    <div class="zxjPicker" style="width: 100%;height: 300px;background-color: #F2BABA;">
+    <div id="birthPicker" class="zxjPicker">
+    	<div class="operatePicker">
+    		<div class="canclePicker">取消</div>
+    		<div class="okPicker">确认</div>
+    	</div>
     	
     </div>
 

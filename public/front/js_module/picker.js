@@ -2,23 +2,29 @@ $(function () {
     var selfPicker = {
     	start: function(data){
     		var action = data.action;/*进行绑定的这个名称*/
+    		var id = data.id;
     		$('#'+action).click(function(){
     			console.log('hehehe');
     		})
 
-    		picker_init();
+    		picker_init(id);//初始化插件
     	}
     }
 
-    function picker_init(){
+    function picker_init(id){
     	$('body').css('position','relative');
-    	$('body').append('<div id="pickerBigDiv" style="position:fixed;display:none;top:0;left:0;"></div>');
-    	var width = document.documentElement.clientWidth;
-    	var height = document.documentElement.clientHeight;
-    	$('#pickerBigDiv').css({'width':width,'height':height});
-		$('#pickerBigDiv').append($('div[class="zxjPicker"]'));
+    	if ($('#pickerBigDiv').length == 0) {
+    		$('body').append('<div id="pickerBigDiv" style=""></div>');
+    		var width = document.documentElement.clientWidth;
+    		var height = document.documentElement.clientHeight;
+    		$('#pickerBigDiv').css({'width':width,'height':height});
+    	}
+		$('#pickerBigDiv').append($('#id'));
     }
 
-    selfPicker.start({action:'showDatePicker'});
+    selfPicker.start({
+    	id: 'birthPicker', 
+    	action:'showDatePicker'
+    });
 
 })

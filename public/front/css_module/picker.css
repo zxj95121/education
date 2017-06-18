@@ -1,0 +1,31 @@
+#pickerBigDiv{
+	position:fixed;
+	display:none;
+	top:0;
+	left:0;
+	background-color: #F4F7ED;
+	opacity: 0.35;
+}
+
+.zxjPicker{
+	width: 100%;
+	height: 300px;
+	background-color: #F7F7F6;
+	bottom: 0;
+}
+.operatePicker{
+	width: 100%;
+	height: 35px;
+}
+.canclePicker{
+	color: #00A0EC;
+	padding: 5px 15px;
+	font-size: 25px;
+	float: left;
+}
+.okPicker{
+	color: #00A0EC;
+	padding: 5px 15px;
+	font-size: 25px;
+	float: right;
+}
