@@ -27,10 +27,10 @@ $(function () {
 
 		/*插入若干个列*/
 		for (var i = 0;i < length;i++) {
-			$('#'+id+' contentPicker').append('<div class="colPicker"></div>');
+			$('#'+id+' .contentPicker').append('<div class="colPicker"></div>');
 		}
 		var widthBL = Math.floor(100/length)+'%';
-		$('#'+id+' contentPicker').css('width', widthBL);/*设置每个的宽度*/
+		$('#'+id+' .contentPicker').css('width', widthBL);/*设置每个的宽度*/
 
 
     }
