@@ -638,20 +638,36 @@ $signPackage = $jssdk->GetSignPackage();
 
 			/*出生年月*/
 			$(document).on('click', '#showDatePicker', function () {
-				weui.datePicker({
-		            start: 1960,
-		            end: new Date().getFullYear(),
+				var year = new Date.getFullYear();
+				var start = parseInt(year)-60;
+				var pickerStr = new Object();
+				for (var i = start,j=0;i <= year;i++) {
+					pickerStr[j].label = i+'年';
+					pickerStr[j++].value = i;
+				}
+				weui.picker(pickerStr, {
 		            onChange: function (result) {
 		                console.log(result);
 		            },
 		            onConfirm: function (result) {
-		            	console.log('确认');
 		            	console.log(result);
-		            	$('#showDatePicker span').html(result[0] + '年' + (result[1]+1) + '月');
-		                // console.log(result);
+		                // $('#moneyPicker span').html(result[0] + '元 / ' + result[1] +'分钟');
 		            }
 		        });
-		        $('.weui-picker__group').eq(2).remove();
+				// weui.datePicker({
+		  //           start: 1960,
+		  //           end: new Date().getFullYear(),
+		  //           onChange: function (result) {
+		  //               console.log(result);
+		  //           },
+		  //           onConfirm: function (result) {
+		  //           	console.log('确认');
+		  //           	console.log(result);
+		  //           	$('#showDatePicker span').html(result[0] + '年' + (result[1]+1) + '月');
+		  //               // console.log(result);
+		  //           }
+		  //       });
+		        // $('.weui-picker__group').eq(2).remove();
 	        });
 	        
 		});
