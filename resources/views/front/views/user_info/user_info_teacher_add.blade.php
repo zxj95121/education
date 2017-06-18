@@ -350,6 +350,7 @@ $signPackage = $jssdk->GetSignPackage();
     <script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
 	<script type="text/javascript" src="/js/weui/example.js"></script>
 	<script type="text/javascript" src="/js/layui/layer_only/mobile/layer.js"></script>
+	<script type="text/javascript" src="/js/picker/jquery.selector-px.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			var height = document.documentElement.clientHeight;
