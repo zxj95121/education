@@ -37,7 +37,7 @@ $(function () {
     selfPicker.start({
     	id: 'birthPicker', 
     	action: 'showDatePicker',
-    	content: {
+    	content: [
     		[{
     			'name': '1960年',
     			'value': 1960
@@ -52,7 +52,7 @@ $(function () {
     			'name': '1月',
     			'value': 1
     		}]
-    	}
+    	]
     });
 
 })
