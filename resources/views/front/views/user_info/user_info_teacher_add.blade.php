@@ -349,6 +349,9 @@ $signPackage = $jssdk->GetSignPackage();
     		<div class="canclePicker">取消</div>
     		<div class="okPicker">确认</div>
     	</div>
+    	<div class="contentPicker">
+    		
+    	</div>
     	
     </div>
 
