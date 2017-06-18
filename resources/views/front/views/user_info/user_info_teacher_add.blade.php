@@ -640,7 +640,7 @@ $signPackage = $jssdk->GetSignPackage();
 			$(document).on('click', '#showDatePicker', function () {
 				var year = new Date().getFullYear();
 				var start = parseInt(year)-60;
-				var pickerStr = new Object();
+				var pickerStr = new Array();
 				for (var i = start,j=0;i <= year;i++) {
 					pickerStr[j] = new Object();
 					pickerStr[j].label = i+'年';
