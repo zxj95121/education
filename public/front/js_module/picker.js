@@ -12,7 +12,7 @@ $(function () {
 
     function picker_init(){
     	$('body').css('position','relative');
-    	$('body').append('<div id="pickerBigDiv" style="position:absolute;display:none;top:0;left:0;"></div>');
+    	$('body').append('<div id="pickerBigDiv" style="position:fixed;display:none;top:0;left:0;"></div>');
     	var width = document.documentElement.clientWidth();
     	var height = document.documentElement.clientheight();
     	$('#pickerBigDiv').css({'width':width,'height':height});
