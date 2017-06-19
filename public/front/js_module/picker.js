@@ -51,7 +51,7 @@ $(function () {
     		$(this).animate({'marginTop': '105px'}, 500);
     	}
     	var allLength = (selfPicker.content[$(this).index('#'+selfPicker.id+' .colPicker')].length-4)*35;
-    	if (allLength > 0 && marginTop+allLength < 0) {
+    	if (allLength > 0 && (marginTop+allLength < 0|| marginTop > allLength)) {
     		$(this).animate({'marginTop': '-'+allLength+'px'}, 500);
     	}
 
