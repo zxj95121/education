@@ -11,7 +11,7 @@ $(function () {
     		selfPicker['arr'][data.action] = selfPicker.length;
     		$('#'+data.action).click(function(){
     			$('#pickerBigDiv').css('display', 'block');
-    			selfPicker.current = selfPicker[arr][$(this).attr('id')];
+    			selfPicker.current = selfPicker['arr'][$(this).attr('id')];
     			$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
     		})
 
