@@ -102,6 +102,7 @@ $(function () {
     		var num = (105-marginTop)/selfPicker['size'+(selfPicker.length)].colHeight;
 
     		var value = selfPicker['size'+(selfPicker.length)].content[i][num];
+    		console.log(value);
     		selfPicker['size'+(selfPicker.length)].result[i] = value.value;
     	}
 
