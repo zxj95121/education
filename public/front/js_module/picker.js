@@ -1,6 +1,7 @@
 $(function () {
     var selfPicker = {
     	start: function(data){
+    		console.log(selfPicker.length);
     		selfPicker['size'+(selfPicker.length+1)] = selfPicker.size;
     		selfPicker.length = selfPicker.length+1;
     		selfPicker.current = selfPicker.length;
@@ -8,6 +9,7 @@ $(function () {
     		selfPicker['size'+(selfPicker.length)].id = data.id;
     		selfPicker['size'+(selfPicker.length)].content = data.content;
     		selfPicker['size'+(selfPicker.length)].select = data.select;
+    		console.log(selfPicker.length);
     		selfPicker.arr[data.action] = selfPicker.length;
     		$('#'+data.action).click(function(){
     			console.log(selfPicker);
@@ -273,8 +275,7 @@ $(function () {
     	}
     });
 
-       setTimeout(function(){
-       	selfPicker.start({
+    selfPicker.start({
     	id: 'myMoneyPicker', 
     	action: 'moneyPicker',
     	content: [
@@ -369,6 +370,5 @@ $(function () {
     		$('#moneyPicker span').html(result[0] + '元 / ' + result[1] +'分钟');
     	}
     });
-       }, 20);
 
 })
