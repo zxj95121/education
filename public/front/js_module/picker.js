@@ -7,15 +7,19 @@ $(function () {
     		selfPicker['size'+(selfPicker.length)].id = data.id;
     		selfPicker['size'+(selfPicker.length)].content = data.content;
     		selfPicker['size'+(selfPicker.length)].select = data.select;
-    		$('#'+selfPicker['size'+(selfPicker.length)].action).click(function(){
+    		selfPicker[arr][data.action] = selfPicker.length;
+    		$('#'+data.action).click(function(){
     			$('#pickerBigDiv').css('display', 'block');
-    			$('#'+selfPicker['size'+(selfPicker.length)].id).css('display','block');
+    			selfPicker.current = selfPicker[arr][$(this).attr('id')];
+    			$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
     		})
 
-    		picker_init(selfPicker['size'+(selfPicker.length)].id, data.content);//初始化插件
+    		picker_init(selfPicker['size'+(selfPicker.current)].id, data.content);//初始化插件
 
     	},
     	length: 0,
+    	arr: [],
+    	current: 0,
     	size:{
     		content: {},
 	    	id: 0,
@@ -53,7 +57,7 @@ $(function () {
             state.mouseY = e.originalEvent.changedTouches[0].pageY;
 
             /*要知道哪一个层在中间*/
-            var len = selfPicker['size'+(selfPicker.length)].content[$(this).index('#'+selfPicker['size'+(selfPicker.length)].id+' .colPicker')].length;
+            var len = selfPicker['size'+(selfPicker.current)].content[$(this).index('#'+selfPicker['size'+(selfPicker.current)].id+' .colPicker')].length;
         	var  marginTop = parseFloat($(this).css('marginTop'));
         	
         	
@@ -65,13 +69,13 @@ $(function () {
     	state.dragable = false;
     	var marginTop =  parseFloat($(this).css('marginTop'));
     	/*不正确对其中间横线的处理代码*/
-    	var mod = parseInt(marginTop)%selfPicker['size'+(selfPicker.length)].colHeight;
-    	var shang = Math.ceil(selfPicker['size'+(selfPicker.length)].colHeight/2);
-    	var xia = -1*Math.floor(selfPicker['size'+(selfPicker.length)].colHeight/2);
+    	var mod = parseInt(marginTop)%selfPicker['size'+(selfPicker.current)].colHeight;
+    	var shang = Math.ceil(selfPicker['size'+(selfPicker.current)].colHeight/2);
+    	var xia = -1*Math.floor(selfPicker['size'+(selfPicker.current)].colHeight/2);
     	if (mod >=shang)
-    		mod = marginTop-mod+selfPicker['size'+(selfPicker.length)].colHeight;
+    		mod = marginTop-mod+selfPicker['size'+(selfPicker.current)].colHeight;
     	else if(mod < xia) {
-    		mod = marginTop-mod-selfPicker['size'+(selfPicker.length)].colHeight;
+    		mod = marginTop-mod-selfPicker['size'+(selfPicker.current)].colHeight;
     	} else if (mod >= xia) {
     		mod = marginTop-mod;
     	} else {
@@ -83,21 +87,21 @@ $(function () {
     	var flag = 0;//0表示没有出现滚动效果
     	var flagTop = 0;
     	/*长度很长的时候*/
-    	if(marginTop > selfPicker['size'+(selfPicker.length)].colHeight*3) {
+    	if(marginTop > selfPicker['size'+(selfPicker.current)].colHeight*3) {
     		$(this).animate({'marginTop': '105px'}, 200);
     		flagTop = 105;
     		flag = 1;
     	}
-    	var allLength = (selfPicker['size'+(selfPicker.length)].content[$(this).index('#'+selfPicker['size'+(selfPicker.length)].id+' .colPicker')].length-4)*selfPicker['size'+(selfPicker.length)].colHeight;
+    	var allLength = (selfPicker['size'+(selfPicker.current)].content[$(this).index('#'+selfPicker['size'+(selfPicker.current)].id+' .colPicker')].length-4)*selfPicker['size'+(selfPicker.current)].colHeight;
     	if (allLength > 0 && (marginTop+allLength < 0)) {
     		$(this).animate({'marginTop': '-'+allLength+'px'}, 200);
     		flagTop = -1*allLength;
     		flag = 1;
     	}
     	/*太少的情况，往上滑动*/
-    	var clength = selfPicker['size'+(selfPicker.length)].content[$(this).index('#'+selfPicker['size'+(selfPicker.length)].id+' .colPicker')].length;//表示内容的个数
-    	if (clength > 0 && clength < 5 && marginTop < (selfPicker['size'+(selfPicker.length)].colHeight*3-selfPicker['size'+(selfPicker.length)].colHeight*clength)) {
-    		marginTop = selfPicker['size'+(selfPicker.length)].colHeight*3-parseInt((clength)/2)*selfPicker['size'+(selfPicker.length)].colHeight;
+    	var clength = selfPicker['size'+(selfPicker.current)].content[$(this).index('#'+selfPicker['size'+(selfPicker.current)].id+' .colPicker')].length;//表示内容的个数
+    	if (clength > 0 && clength < 5 && marginTop < (selfPicker['size'+(selfPicker.current)].colHeight*3-selfPicker['size'+(selfPicker.current)].colHeight*clength)) {
+    		marginTop = selfPicker['size'+(selfPicker.current)].colHeight*3-parseInt((clength)/2)*selfPicker['size'+(selfPicker.current)].colHeight;
 			$(this).animate({'marginTop': marginTop+'px'}, 200);
 			flagTop = marginTop;
 			flag = 1;
@@ -109,7 +113,7 @@ $(function () {
     		$(this).animate({'marginTop': mod+'px'}, 200);
     	}
 
-    	var num = (selfPicker['size'+(selfPicker.length)].colHeight*3-flagTop)/selfPicker['size'+(selfPicker.length)].colHeight;
+    	var num = (selfPicker['size'+(selfPicker.current)].colHeight*3-flagTop)/selfPicker['size'+(selfPicker.current)].colHeight;
     	
     	$(this).find('.basicPicker').each(function(){
     		// if ($(this).hasClass('active0'))
@@ -132,26 +136,26 @@ $(function () {
     })
 
     $(document).on('click', '.okPicker', function(){
-    	var colPickerJquery = $('#'+selfPicker['size'+(selfPicker.length)].id+' .colPicker');
+    	var colPickerJquery = $('#'+selfPicker['size'+(selfPicker.current)].id+' .colPicker');
     	for (var i = 0;i < colPickerJquery.length;i++) {
     		var marginTop = parseInt($(colPickerJquery[i]).css('marginTop'));
-    		var num = (selfPicker['size'+(selfPicker.length)].colHeight*3-marginTop)/selfPicker['size'+(selfPicker.length)].colHeight;
+    		var num = (selfPicker['size'+(selfPicker.current)].colHeight*3-marginTop)/selfPicker['size'+(selfPicker.current)].colHeight;
 
-    		var value = selfPicker['size'+(selfPicker.length)].content[i][num];
+    		var value = selfPicker['size'+(selfPicker.current)].content[i][num];
 
-    		selfPicker['size'+(selfPicker.length)].result[i] = value.value;
+    		selfPicker['size'+(selfPicker.current)].result[i] = value.value;
     	}
 
-    	selfPicker['size'+(selfPicker.length)].select(selfPicker['size'+(selfPicker.length)].result);//执行函数
+    	selfPicker['size'+(selfPicker.current)].select(selfPicker['size'+(selfPicker.current)].result);//执行函数
 
     	$('#pickerBigDiv').css('display', 'none');
-    	$('#'+selfPicker['size'+(selfPicker.length)].id).css('display','none');
+    	$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','none');
     })
 
     /*取消*/
     $(document).on('click', '.canclePicker', function(){
     	$('#pickerBigDiv').css('display', 'none');
-    	$('#'+selfPicker['size'+(selfPicker.length)].id).css('display','none');
+    	$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','none');
     })
 
     function picker_init(id,content){
@@ -175,15 +179,15 @@ $(function () {
 
 		/*对chontent进行填充*/
 		for (var i = 0;i < length;i++) {
-			var count = selfPicker['size'+(selfPicker.length)].content[i].length;
-			var marginTop = selfPicker['size'+(selfPicker.length)].colHeight*3;
-			marginTop -= parseInt((count)/2)*selfPicker['size'+(selfPicker.length)].colHeight;
+			var count = selfPicker['size'+(selfPicker.current)].content[i].length;
+			var marginTop = selfPicker['size'+(selfPicker.current)].colHeight*3;
+			marginTop -= parseInt((count)/2)*selfPicker['size'+(selfPicker.current)].colHeight;
 			$('#'+id+' .colPicker:eq('+i+')').css({'left': Math.floor(100/length)*i+'%','marginTop': marginTop+'px'});
 			for (var j = 0;j < content[i].length;j++) {
 				$('#'+id+' .colPicker:eq('+i+')').append('<div class="basicPicker" val="'+content[i][j].value+'">' + content[i][j].name + '</div>');
 			}
 
-			var num = (selfPicker['size'+(selfPicker.length)].colHeight*3-marginTop)/selfPicker['size'+(selfPicker.length)].colHeight;
+			var num = (selfPicker['size'+(selfPicker.current)].colHeight*3-marginTop)/selfPicker['size'+(selfPicker.current)].colHeight;
     	
     		$('#'+id+' .colPicker:eq('+i+')').find('.basicPicker').eq(num).addClass('active0');
 		}
