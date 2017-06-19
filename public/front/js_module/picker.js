@@ -55,8 +55,12 @@ $(function () {
             var len = selfPicker['size'+(selfPicker.length)].content[$(this).index('#'+selfPicker['size'+(selfPicker.length)].id+' .colPicker')].length;
         	var  marginTop = parseFloat($(this).css('marginTop'));
         	var num = (selfPicker['size'+(selfPicker.length)].colHeight*3-marginTop)/selfPicker['size'+(selfPicker.length)].colHeight;
-        	$('#'+selfPicker['size'+(selfPicker.length)].id+' .colPicker').find('.basicPicker').hasClass('active0').removeClass('active0');//去除class
-        	$('#'+selfPicker['size'+(selfPicker.length)].id+' .colPicker').find('.basicPicker').hasClass('active1').removeClass('active1');//去除class
+        	
+        	$('#'+selfPicker['size'+(selfPicker.length)].id+' .colPicker').find('.basicPicker').each(function(){
+        		$(this).removeClass('active0');//去除class
+        		$(this).removeClass('active1');//去除class
+        	})
+
         	$('#'+selfPicker['size'+(selfPicker.length)].id+' .colPicker').find('.basicPicker').eq(num).addClass('active0');
         	for (var i = num-3;i < num+3;i++) {
         		if(i == num)
