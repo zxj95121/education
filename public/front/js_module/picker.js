@@ -1,7 +1,7 @@
 $(function () {
     selfPicker = {
     	start: function(data){
-    		selfPicker['size'+(selfPicker.length)] = selfPicker.size;
+    		// selfPicker['size'+(selfPicker.length)] = selfPicker.size;
     		selfPicker.length = selfPicker.length;
     		selfPicker.current = selfPicker.length;
     		selfPicker['size'+(selfPicker.current)].action = data.action;/*进行绑定的这个名称*/
@@ -18,7 +18,15 @@ $(function () {
     	length: 1,
     	arr: [],
     	current: 0,
-    	size:{
+    	size1:{
+    		content: {},
+	    	id: 0,
+	    	action: 0,
+	    	colHeight: 35,
+	    	result: {},
+	    	select: ''
+	    },
+	    size2:{
     		content: {},
 	    	id: 0,
 	    	action: 0,
