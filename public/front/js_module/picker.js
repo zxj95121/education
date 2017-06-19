@@ -14,6 +14,7 @@ $(function () {
     	content: {},
     	id: 0,
     	action: 0,
+    	colHeight: 35
     };
 
     var state = {};
@@ -47,21 +48,37 @@ $(function () {
     $(document).on('touchend', '.colPicker', function(e){
     	state.dragable = false;
     	var marginTop =  parseFloat($(this).css('marginTop'));
+    	/*不正确对其中间横线的处理代码*/
+    	var mod = parseInt(marginTop)%selfPicker.colHeight;
+    	var inter = parseInt(parseInt(marginTop)/selfPicker.colHeight);
+    	if (mod >18)
+    		inter++;
+
+
+
+    	var flag = 0;//0表示没有出现滚动效果
     	/*长度很长的时候*/
-    	if(marginTop > 105) {
+    	if(marginTop > selfPicker.colHeight*3) {
     		$(this).animate({'marginTop': '105px'}, 500);
+    		flag = 1;
     	}
-    	var allLength = (selfPicker.content[$(this).index('#'+selfPicker.id+' .colPicker')].length-4)*35;
+    	var allLength = (selfPicker.content[$(this).index('#'+selfPicker.id+' .colPicker')].length-4)*selfPicker.colHeight;
     	if (allLength > 0 && (marginTop+allLength < 0)) {
     		$(this).animate({'marginTop': '-'+allLength+'px'}, 500);
+    		flag = 1;
     	}
     	/*太少的情况，往上滑动*/
     	var clength = selfPicker.content[$(this).index('#'+selfPicker.id+' .colPicker')].length;//表示内容的个数
-    	if (clength > 0 && clength < 5 && marginTop < (105-35*clength)) {
-    		marginTop = 105-parseInt((clength)/2)*35;
+    	if (clength > 0 && clength < 5 && marginTop < (selfPicker.colHeight*3-selfPicker.colHeight*clength)) {
+    		marginTop = selfPicker.colHeight*3-parseInt((clength)/2)*selfPicker.colHeight;
 			$(this).animate({'marginTop': marginTop+'px'}, 500);
+			flag = 1;
     	}
 
+    	/*如果没有进行上面的滚动效果*/
+    	if (flag == 0) {
+    		$(this).animate({'marginTop': inter*selfPicker.colHeight+'px'}, 500);
+    	}
     })
 
     function picker_init(id,content){
@@ -87,8 +104,8 @@ $(function () {
 		/*对chontent进行填充*/
 		for (var i = 0;i < length;i++) {
 			var count = selfPicker.content[i].length;
-			var marginTop = 105;
-			marginTop -= parseInt((count)/2)*35;
+			var marginTop = selfPicker.colHeight*3;
+			marginTop -= parseInt((count)/2)*selfPicker.colHeight;
 			$('#'+id+' .colPicker:eq('+i+')').css({'left': Math.floor(100/length)*i+'%','marginTop': marginTop+'px'});
 			for (var j = 0;j < content[i].length;j++) {
 				$('#'+id+' .colPicker:eq('+i+')').append('<div class="basicPicker" val="'+content[i][j].value+'">' + content[i][j].name + '</div>');
