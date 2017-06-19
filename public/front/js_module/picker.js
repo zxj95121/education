@@ -14,13 +14,13 @@ $(function () {
 
     var state = {};
 
-    $(document).on('touchstart', '.colPicker', function(){
+    $(document).on('touchstart', '.colPicker', function(e){
     	state.dragable = true;
         state.mouseX = e.originalEvent.changedTouches[0].pageX;
         state.mouseY = e.originalEvent.changedTouches[0].pageY;
     })
 
-    $(document).on('touchmove', '.colPicker', function(){
+    $(document).on('touchmove', '.colPicker', function(e){
     	e.preventDefault();
 
         if (state.dragable)
@@ -40,7 +40,7 @@ $(function () {
         }
     })
 
-    $(document).on('touchend', '.colPicker', function(){
+    $(document).on('touchend', '.colPicker', function(e){
     	state.dragable = false;
     })
 
