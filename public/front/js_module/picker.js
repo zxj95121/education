@@ -3,13 +3,15 @@ $(function () {
     	start: function(data){
     		var action = data.action;/*进行绑定的这个名称*/
     		var id = data.id;
+    		selfPicker.content = data.content;
     		$('#'+action).click(function(){
     			console.log('hehehe');
     		})
 
     		picker_init(id, data.content);//初始化插件
 
-    	}
+    	},
+    	content: {},
     };
 
     var state = {};
@@ -42,6 +44,15 @@ $(function () {
 
     $(document).on('touchend', '.colPicker', function(e){
     	state.dragable = false;
+    	var marginTop =  parseFloat($(this).css('marginTop'));
+    	if(marginTop > 105) {
+    		$(this).css('marginTop', '105px');
+    	}
+    	var allLength = selfPicker.content.length*35;
+    	if (marginTop+allLength < 0) {
+    		$(this).css('marginTop', '-'+allLength+'px');
+    	}
+
     })
 
     function picker_init(id,content){
