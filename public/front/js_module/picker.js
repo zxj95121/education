@@ -8,7 +8,7 @@ $(function () {
     		selfPicker['size'+(selfPicker.length)].id = data.id;
     		selfPicker['size'+(selfPicker.length)].content = data.content;
     		selfPicker['size'+(selfPicker.length)].select = data.select;
-    		console.log(selfPicker.size[selfPicker.current]);
+    		console.log(selfPicker['size'+selfPicker.current]);
     		selfPicker.arr[data.action] = selfPicker.length;
     		$('#'+data.action).click(function(){
     			$('#pickerBigDiv').css('display', 'block');
