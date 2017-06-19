@@ -355,6 +355,17 @@ $signPackage = $jssdk->GetSignPackage();
     	</div>
     </div>
 
+    <div id="myMoneyPicker" class="zxjPicker">
+    	<div class="operatePicker">
+    		<div class="canclePicker">取消</div>
+    		<div class="okPicker">确认</div>
+    	</div>
+    	<div class="contentPicker">
+    		<div class="linePicker"></div>
+    		<div class="linePicker"></div>
+    	</div>
+    </div>
+
 	<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="/js/cutimage/js/cropbox.js"></script>
 	<script type="text/javascript" src="/js/weui/zepto.min.js"></script>
