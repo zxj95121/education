@@ -56,7 +56,7 @@ $(function () {
     	}
     	/*太少的情况，往上滑动*/
     	if (allLength > 0 && allLength < 5 && marginTop < 0) {
-    		marginTop -= parseInt((allLength)/2)*35;
+    		marginTop = 105-parseInt((allLength)/2)*35;
 			$(this).css({'marginTop': marginTop+'px'});
     	}
 
