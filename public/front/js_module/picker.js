@@ -47,6 +47,7 @@ $(function () {
     $(document).on('touchend', '.colPicker', function(e){
     	state.dragable = false;
     	var marginTop =  parseFloat($(this).css('marginTop'));
+    	/*长度很长的时候*/
     	if(marginTop > 105) {
     		$(this).animate({'marginTop': '105px'}, 500);
     	}
@@ -55,10 +56,10 @@ $(function () {
     		$(this).animate({'marginTop': '-'+allLength+'px'}, 500);
     	}
     	/*太少的情况，往上滑动*/
-    	var clength = selfPicker.content[$(this).index('#'+selfPicker.id+' .colPicker')].length;
+    	var clength = selfPicker.content[$(this).index('#'+selfPicker.id+' .colPicker')].length;//表示内容的个数
     	if (clength > 0 && clength < 5 && marginTop < (105-35*clength)) {
     		marginTop = 105-parseInt((clength)/2)*35;
-			$(this).css({'marginTop': marginTop+'px'});
+			$(this).animate({'marginTop': marginTop+'px'}, 500);
     	}
 
     })
@@ -103,15 +104,15 @@ $(function () {
     		[{
     			'name': '1960年',
     			'value': 1960
-    		// },{
-    		// 	'name': '1961年',
-    		// 	'value': 1961
-    		// },{
-    		// 	'name': '1962年',
-    		// 	'value': 1962
-    		// },{
-    		// 	'name': '1960年',
-    		// 	'value': 1960
+    		},{
+    			'name': '1961年',
+    			'value': 1961
+    		},{
+    			'name': '1962年',
+    			'value': 1962
+    		},{
+    			'name': '1960年',
+    			'value': 1960
     		// },{
     		// 	'name': '1961年',
     		// 	'value': 1961
