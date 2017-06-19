@@ -46,11 +46,11 @@ $(function () {
     	state.dragable = false;
     	var marginTop =  parseFloat($(this).css('marginTop'));
     	if(marginTop > 105) {
-    		$(this).css('marginTop', '105px');
+    		$(this).animate({'marginTop': '105px'}, 500);
     	}
-    	var allLength = selfPicker.content.length*35;
+    	var allLength = (selfPicker.content.length+3)*35;
     	if (marginTop+allLength < 0) {
-    		$(this).css('marginTop', '-'+allLength+'px');
+    		$(this).animate({'marginTop': '-'+allLength+'px'}, 500);
     	}
 
     })
