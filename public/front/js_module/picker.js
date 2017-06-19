@@ -111,16 +111,16 @@ $(function () {
     	var num = (selfPicker['size'+(selfPicker.length)].colHeight*3-flagTop)/selfPicker['size'+(selfPicker.length)].colHeight;
     	
     	$(this).find('.basicPicker').each(function(){
-    		if ($(this).hasClass('active0'))
+    		// if ($(this).hasClass('active0'))
     			$(this).removeClass('active0');//去除class
-    		if ($(this).hasClass('active1'))
+    		// if ($(this).hasClass('active1'))
     			$(this).removeClass('active1');//去除class
     	})
-    	console.log(num);
-    	$(this).find('.basicPicker').eq(num).addClass('active0');
+    	
     	for (var i = num-3;i <= num+3;i++) {
-    		if(i == num)
-    			continue;
+    		if(i == num) {
+    			$(this).find('.basicPicker').eq(num).addClass('active0');
+    		}
     		console.log(i+'--');
     		$(this).find('.basicPicker').eq(i).addClass('active1');
     	}
