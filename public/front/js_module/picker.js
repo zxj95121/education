@@ -20,6 +20,7 @@ $(function () {
     		})
 
     		picker_init(selfPicker['size'+(selfPicker.current)].id, data.content);//初始化插件
+    		console.log(selfPicker);
 
     	},
     	length: 0,
