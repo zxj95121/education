@@ -54,6 +54,11 @@ $(function () {
     	if (allLength > 0 && (marginTop+allLength < 0)) {
     		$(this).animate({'marginTop': '-'+allLength+'px'}, 500);
     	}
+    	/*太少的情况，往上滑动*/
+    	if (allLength > 0 && allLength < 5 && marginTop < 0) {
+    		marginTop -= parseInt((allLength)/2)*35;
+			$(this).css({'marginTop': marginTop+'px'});
+    	}
 
     })
 
