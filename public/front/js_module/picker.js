@@ -12,8 +12,36 @@ $(function () {
     	}
     };
 
+    var state = {};
+
     $(document).on('touchstart', '.colPicker', function(){
-    	console.log('heheda');
+    	state.dragable = true;
+        state.mouseX = e.originalEvent.changedTouches[0].pageX;
+        state.mouseY = e.originalEvent.changedTouches[0].pageY;
+    })
+
+    $(document).on('touchmove', '.colPicker', function(){
+    	e.preventDefault();
+
+        if (state.dragable)
+        {
+            var x = e.originalEvent.changedTouches[0].pageX - obj.state.mouseX;
+            var y = e.originalEvent.changedTouches[0].pageY - obj.state.mouseY;
+
+            var bg = parseFloat($(this).css('marginTop'));
+
+            // var bgX = x + parseInt(bg[0]);
+            var bgY = y + bg;
+
+            $(this).css('marginTop', bgY + 'px');
+
+            state.mouseX = e.originalEvent.changedTouches[0].pageX;
+            state.mouseY = e.originalEvent.changedTouches[0].pageY;
+        }
+    })
+
+    $(document).on('touchend', '.colPicker', function(){
+    	state.dragable = false;
     })
 
     function picker_init(id,content){

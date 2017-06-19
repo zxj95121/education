@@ -93,8 +93,8 @@
                 // e.preventDefault();
 
                 obj.state.dragable = true;
-                obj.state.mouseX = e.originalEvent.changedTouches[0].clientX;
-                obj.state.mouseY = e.originalEvent.changedTouches[0].clientY;
+                obj.state.mouseX = e.originalEvent.changedTouches[0].pageX;
+                obj.state.mouseY = e.originalEvent.changedTouches[0].pageY;
             },
             // imgMouseMove = function(e)
             // {
@@ -122,8 +122,8 @@
 
                 if (obj.state.dragable)
                 {
-                    var x = e.originalEvent.changedTouches[0].clientX - obj.state.mouseX;
-                    var y = e.originalEvent.changedTouches[0].clientY - obj.state.mouseY;
+                    var x = e.originalEvent.changedTouches[0].pageX - obj.state.mouseX;
+                    var y = e.originalEvent.changedTouches[0].pageY - obj.state.mouseY;
 
                     var bg = el.css('background-position').split(' ');
 
@@ -132,8 +132,8 @@
 
                     el.css('background-position', bgX +'px ' + bgY + 'px');
 
-                    obj.state.mouseX = e.originalEvent.changedTouches[0].clientX;
-                    obj.state.mouseY = e.originalEvent.changedTouches[0].clientY;
+                    obj.state.mouseX = e.originalEvent.changedTouches[0].pageX;
+                    obj.state.mouseY = e.originalEvent.changedTouches[0].pageY;
                 }
             },
             // imgMouseUp = function(e)
