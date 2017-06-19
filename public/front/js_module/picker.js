@@ -272,6 +272,8 @@ $(function () {
     	}
     });
 
+setTimeout(function(){
+
     selfPicker.start({
     	id: 'myMoneyPicker', 
     	action: 'moneyPicker',
@@ -367,5 +369,5 @@ $(function () {
     		$('#moneyPicker span').html(result[0] + '元 / ' + result[1] +'分钟');
     	}
     });
-
+}, 200);
 })
