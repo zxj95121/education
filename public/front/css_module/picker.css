@@ -42,10 +42,12 @@
 .contentPicker{
 	width: 100%;
 	height: 245px;
+	position: relative;
 }
 .colPicker{
 	float: left;
 	text-align: center;
 	line-height: 35px;
 	height: 35px;
+	position: absolute;
 }

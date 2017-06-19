@@ -48,7 +48,7 @@ $(function () {
     	if(marginTop > 105) {
     		$(this).animate({'marginTop': '105px'}, 500);
     	}
-    	var allLength = (selfPicker.content.length+3)*35;
+    	var allLength = (selfPicker.content.length-3)*35;
     	if (marginTop+allLength < 0) {
     		$(this).animate({'marginTop': '-'+allLength+'px'}, 500);
     	}
@@ -77,6 +77,7 @@ $(function () {
 
 		/*对chontent进行填充*/
 		for (var i = 0;i < length;i++) {
+			$('#'+id+' .colPicker:eq('+i+')').css('left',widthBL*i+'px');
 			for (var j = 0;j < content[i].length;j++) {
 				$('#'+id+' .colPicker:eq('+i+')').append('<div class="basicPicker" val="'+content[i][j].value+'">' + content[i][j].name + '</div>');
 			}
