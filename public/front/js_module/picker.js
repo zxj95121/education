@@ -92,6 +92,7 @@ $(function () {
 
     $(document).on('click', '#'+selfPicker.id+' .okPicker', function(){
     	var colPickerJquery = $('#'+selfPicker.id+' .colPicker');
+    	console.log(colPickerJquery.length)
     	for (var i = 0;i < colPickerJquery.length;i++) {
     		var marginTop = parseInt($(colPickerJquery[i]).css('marginTop'));
     		var num = (marginTop-(selfPicker.colHeight*3))/selfPicker.colHeight;
