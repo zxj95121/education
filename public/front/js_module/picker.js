@@ -6,6 +6,7 @@ $(function () {
     		selfPicker['size'+(selfPicker.length)].action = data.action;/*进行绑定的这个名称*/
     		selfPicker['size'+(selfPicker.length)].id = data.id;
     		selfPicker['size'+(selfPicker.length)].content = data.content;
+    		selfPicker['size'+(selfPicker.length)].select = data.select;
     		$('#'+selfPicker['size'+(selfPicker.length)].action).click(function(){
     			console.log('hehehe');
     		})
@@ -20,6 +21,7 @@ $(function () {
 	    	action: 0,
 	    	colHeight: 35,
 	    	result: {},
+	    	select: ''
 	    }
     };
 
@@ -106,6 +108,8 @@ $(function () {
     		selfPicker['size'+(selfPicker.length)].result[i] = value.value;
     	}
 
+    	var doResult = selfPicker['size'+(selfPicker.length)].select;
+    	doResult(selfPicker['size'+(selfPicker.length)].result);
     	console.log(selfPicker['size'+(selfPicker.length)].result);
     })
 
@@ -208,7 +212,10 @@ $(function () {
     			'name': '2月',
     			'value': 2
     		}]
-    	]
+    	],
+    	select: function(result){
+    		console.log(result);
+    	}
     });
 
 })
