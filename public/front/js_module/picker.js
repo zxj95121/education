@@ -53,7 +53,7 @@ $(function () {
     	if (mod >=18)
     		mod = marginTop-mod+35;
     	else if(mod <-17) {
-    		mod = marginTop-mod+35;
+    		mod = marginTop-mod-35;
     	} else if (mod >= -17) {
     		mod = marginTop-mod;
     	} else {
