@@ -1,21 +1,25 @@
 $(function () {
     var selfPicker = {
     	start: function(data){
-    		selfPicker.action = data.action;/*进行绑定的这个名称*/
-    		selfPicker.id = data.id;
-    		selfPicker.content = data.content;
-    		$('#'+selfPicker.action).click(function(){
+    		selfPicker.'size'+(selfPicker.length+1) = selfPicker.size;
+    		selfPicker.'size'+(selfPicker.length).action = data.action;/*进行绑定的这个名称*/
+    		selfPicker.'size'+(selfPicker.length).id = data.id;
+    		selfPicker.'size'+(selfPicker.length).content = data.content;
+    		$('#'+selfPicker.'size'+(selfPicker.length).action).click(function(){
     			console.log('hehehe');
     		})
 
-    		picker_init(selfPicker.id, data.content);//初始化插件
+    		picker_init(selfPicker.'size'+(selfPicker.length).id, data.content);//初始化插件
 
     	},
-    	content: {},
-    	id: 0,
-    	action: 0,
-    	colHeight: 35,
-    	result: 0
+    	length: 0,
+    	size:{
+    		content: {},
+	    	id: 0,
+	    	action: 0,
+	    	colHeight: 35,
+	    	result: 0,
+	    }
     };
 
     var state = {};
@@ -50,13 +54,13 @@ $(function () {
     	state.dragable = false;
     	var marginTop =  parseFloat($(this).css('marginTop'));
     	/*不正确对其中间横线的处理代码*/
-    	var mod = parseInt(marginTop)%selfPicker.colHeight;
-    	var shang = Math.ceil(selfPicker.colHeight/2);
-    	var xia = -1*Math.floor(selfPicker.colHeight/2);
+    	var mod = parseInt(marginTop)%selfPicker.'size'+(selfPicker.length).colHeight;
+    	var shang = Math.ceil(selfPicker.'size'+(selfPicker.length).colHeight/2);
+    	var xia = -1*Math.floor(selfPicker.'size'+(selfPicker.length).colHeight/2);
     	if (mod >=shang)
-    		mod = marginTop-mod+selfPicker.colHeight;
+    		mod = marginTop-mod+selfPicker.'size'+(selfPicker.length).colHeight;
     	else if(mod < xia) {
-    		mod = marginTop-mod-selfPicker.colHeight;
+    		mod = marginTop-mod-selfPicker.'size'+(selfPicker.length).colHeight;
     	} else if (mod >= xia) {
     		mod = marginTop-mod;
     	} else {
@@ -67,19 +71,19 @@ $(function () {
 
     	var flag = 0;//0表示没有出现滚动效果
     	/*长度很长的时候*/
-    	if(marginTop > selfPicker.colHeight*3) {
+    	if(marginTop > selfPicker.'size'+(selfPicker.length).colHeight*3) {
     		$(this).animate({'marginTop': '105px'}, 200);
     		flag = 1;
     	}
-    	var allLength = (selfPicker.content[$(this).index('#'+selfPicker.id+' .colPicker')].length-4)*selfPicker.colHeight;
+    	var allLength = (selfPicker.'size'+(selfPicker.length).content[$(this).index('#'+selfPicker.'size'+(selfPicker.length).id+' .colPicker')].length-4)*selfPicker.'size'+(selfPicker.length).colHeight;
     	if (allLength > 0 && (marginTop+allLength < 0)) {
     		$(this).animate({'marginTop': '-'+allLength+'px'}, 200);
     		flag = 1;
     	}
     	/*太少的情况，往上滑动*/
-    	var clength = selfPicker.content[$(this).index('#'+selfPicker.id+' .colPicker')].length;//表示内容的个数
-    	if (clength > 0 && clength < 5 && marginTop < (selfPicker.colHeight*3-selfPicker.colHeight*clength)) {
-    		marginTop = selfPicker.colHeight*3-parseInt((clength)/2)*selfPicker.colHeight;
+    	var clength = selfPicker.'size'+(selfPicker.length).content[$(this).index('#'+selfPicker.'size'+(selfPicker.length).id+' .colPicker')].length;//表示内容的个数
+    	if (clength > 0 && clength < 5 && marginTop < (selfPicker.'size'+(selfPicker.length).colHeight*3-selfPicker.'size'+(selfPicker.length).colHeight*clength)) {
+    		marginTop = selfPicker.'size'+(selfPicker.length).colHeight*3-parseInt((clength)/2)*selfPicker.'size'+(selfPicker.length).colHeight;
 			$(this).animate({'marginTop': marginTop+'px'}, 200);
 			flag = 1;
     	}
@@ -91,12 +95,12 @@ $(function () {
     })
 
     $(document).on('click', '.okPicker', function(){
-    	var colPickerJquery = $('#'+selfPicker.id+' .colPicker');
+    	var colPickerJquery = $('#'+selfPicker.'size'+(selfPicker.length).id+' .colPicker');
     	for (var i = 0;i < colPickerJquery.length;i++) {
     		var marginTop = parseInt($(colPickerJquery[i]).css('marginTop'));
-    		var num = (105-marginTop)/selfPicker.colHeight;
+    		var num = (105-marginTop)/selfPicker.'size'+(selfPicker.length).colHeight;
     		console.log(num);
-    		var value = selfPicker.content[i][num];
+    		var value = selfPicker.'size'+(selfPicker.length).content[i][num];
     		console.log(value);
     	}
     })
@@ -123,9 +127,9 @@ $(function () {
 
 		/*对chontent进行填充*/
 		for (var i = 0;i < length;i++) {
-			var count = selfPicker.content[i].length;
-			var marginTop = selfPicker.colHeight*3;
-			marginTop -= parseInt((count)/2)*selfPicker.colHeight;
+			var count = selfPicker.'size'+(selfPicker.length).content[i].length;
+			var marginTop = selfPicker.'size'+(selfPicker.length).colHeight*3;
+			marginTop -= parseInt((count)/2)*selfPicker.'size'+(selfPicker.length).colHeight;
 			$('#'+id+' .colPicker:eq('+i+')').css({'left': Math.floor(100/length)*i+'%','marginTop': marginTop+'px'});
 			for (var j = 0;j < content[i].length;j++) {
 				$('#'+id+' .colPicker:eq('+i+')').append('<div class="basicPicker" val="'+content[i][j].value+'">' + content[i][j].name + '</div>');
