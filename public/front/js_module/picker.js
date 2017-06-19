@@ -50,9 +50,10 @@ $(function () {
     	var marginTop =  parseFloat($(this).css('marginTop'));
     	/*不正确对其中间横线的处理代码*/
     	var mod = parseInt(marginTop)%selfPicker.colHeight;
-    	var inter = parseInt(parseInt(marginTop)/selfPicker.colHeight);
-    	if (mod >18)
-    		inter++;
+    	if (mod >=18)
+    		mod = marginTop-mod+35;
+    	else
+    		mod = marginTop;
 
 
 
@@ -77,7 +78,7 @@ $(function () {
 
     	/*如果没有进行上面的滚动效果*/
     	if (flag == 0) {
-    		$(this).animate({'marginTop': inter*selfPicker.colHeight+'px'}, 500);
+    		$(this).animate({'marginTop': mod+'px'}, 200);
     	}
     })
 
