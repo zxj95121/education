@@ -3,6 +3,7 @@ $(function () {
     	start: function(data){
     		selfPicker['size'+(selfPicker.length+1)] = selfPicker.size;
     		selfPicker.length = selfPicker.length+1;
+    		selfPicker.current = selfPicker.length;
     		selfPicker['size'+(selfPicker.length)].action = data.action;/*进行绑定的这个名称*/
     		selfPicker['size'+(selfPicker.length)].id = data.id;
     		selfPicker['size'+(selfPicker.length)].content = data.content;
