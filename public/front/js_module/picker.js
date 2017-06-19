@@ -203,6 +203,8 @@ $(function () {
     		$('#'+id+' .colPicker:eq('+i+')').find('.basicPicker').eq(num).addClass('active0');
 		}
 
+		console.log(selfPicker);
+
     }
 
     selfPicker.start({
