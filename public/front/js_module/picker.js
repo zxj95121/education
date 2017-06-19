@@ -156,13 +156,13 @@ $(function () {
     	$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','none');
     })
 
-    $('#showDatePicker'.click(function(){
+    $('#showDatePicker').click(function(){
 		console.log(selfPicker);
 		$('#pickerBigDiv').css('display', 'block');
 		selfPicker.current = selfPicker.arr[$(this).attr('id')];
 		$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
     })
-    $('#moneyPicker'.click(function(){
+    $('#moneyPicker').click(function(){
 		console.log(selfPicker);
 		$('#pickerBigDiv').css('display', 'block');
 		selfPicker.current = selfPicker.arr[$(this).attr('id')];
