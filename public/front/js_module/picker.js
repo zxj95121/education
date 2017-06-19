@@ -275,6 +275,7 @@ $(function () {
     selfPicker.start({
     	id: 'myMoneyPicker', 
     	action: 'moneyPicker',
+    	len: 2,
     	content: [
 			[{
 	            name: '50元',
