@@ -19,7 +19,7 @@ $(function () {
 	    	id: 0,
 	    	action: 0,
 	    	colHeight: 35,
-	    	result: 0,
+	    	result: {},
 	    }
     };
 
