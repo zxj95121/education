@@ -564,9 +564,10 @@ $signPackage = $jssdk->GetSignPackage();
 	<script type="text/javascript">
 		$(function(){
 			/*价格*/
-			picker1({
+			selfPicker.start({
 		    	id: 'myMoneyPicker', 
 		    	action: 'moneyPicker',
+		    	len: 2,
 		    	content: [
 					[{
 			            name: '50元',
@@ -745,45 +746,7 @@ $signPackage = $jssdk->GetSignPackage();
 			})
 		});
 
-		function picker1(data){
-			selfPicker['size1'] = selfPicker.size;
-    		selfPicker.length =1;
-    		selfPicker.current =1;
-    		selfPicker['size'+(selfPicker.current)].action = data.action;/*进行绑定的这个名称*/
-    		selfPicker['size'+(selfPicker.current)].id = data.id;
-    		selfPicker['size'+(selfPicker.current)].content = data.content;
-    		selfPicker['size'+(selfPicker.current)].select = data.select;
-
-    		selfPicker.arr[data.action] = selfPicker.current;
-    		$('#'+data.action).click(function(){
-    			console.log(selfPicker);
-    			$('#pickerBigDiv').css('display', 'block');
-    			selfPicker.current = selfPicker.arr[$(this).attr('id')];
-    			$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
-    		})
-
-    		picker_init(selfPicker['size'+(selfPicker.current)].id, data.content);//初始化插件
-		}
-
-		function picker2(data){
-			selfPicker['size2'] = selfPicker.size;
-    		selfPicker.length =2;
-    		selfPicker.current =2;
-    		selfPicker['size'+(selfPicker.current)].action = data.action;/*进行绑定的这个名称*/
-    		selfPicker['size'+(selfPicker.current)].id = data.id;
-    		selfPicker['size'+(selfPicker.current)].content = data.content;
-    		selfPicker['size'+(selfPicker.current)].select = data.select;
-
-    		selfPicker.arr[data.action] = selfPicker.current;
-    		$('#'+data.action).click(function(){
-    			console.log(selfPicker);
-    			$('#pickerBigDiv').css('display', 'block');
-    			selfPicker.current = selfPicker.arr[$(this).attr('id')];
-    			$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
-    		})
-
-    		picker_init(selfPicker['size'+(selfPicker.current)].id, data.content);//初始化插件
-		}
+		
 	</script>
 </body>
 </html>
