@@ -8,10 +8,11 @@ $(function () {
     		selfPicker['size'+(selfPicker.length)].id = data.id;
     		selfPicker['size'+(selfPicker.length)].content = data.content;
     		selfPicker['size'+(selfPicker.length)].select = data.select;
-    		selfPicker['arr'][data.action] = selfPicker.length;
+    		selfPicker.arr[data.action] = selfPicker.length;
     		$('#'+data.action).click(function(){
+    			console.log(selfPicker.)
     			$('#pickerBigDiv').css('display', 'block');
-    			selfPicker.current = selfPicker['arr'][$(this).attr('id')];
+    			selfPicker.current = selfPicker.arr[$(this).attr('id')];
     			$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
     		})
 
