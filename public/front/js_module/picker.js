@@ -259,6 +259,7 @@ $(function () {
     	],
     	select: function(result){
     		console.log(result);
+    		$('#showDatePicker span').html(result[0] + '年 ' + result[1] +'月');
     	}
     });
 
@@ -354,7 +355,7 @@ $(function () {
 	        }]
     	],
     	select: function(result){
-    		console.log(result);
+    		$('#moneyPicker span').html(result[0] + '元 / ' + result[1] +'分钟');
     	}
     });
 
