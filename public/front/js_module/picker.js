@@ -1,5 +1,5 @@
 $(function () {
-    var selfPicker = {
+    selfPicker = {
     	start: function(data){
     		selfPicker['size'+(selfPicker.length)] = selfPicker.size;
     		selfPicker.length = selfPicker.length;
