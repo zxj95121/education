@@ -77,7 +77,7 @@ $(function () {
 
 		/*对chontent进行填充*/
 		for (var i = 0;i < length;i++) {
-			$('#'+id+' .colPicker:eq('+i+')').css('left',widthBL*i+'px');
+			$('#'+id+' .colPicker:eq('+i+')').css('left',Math.floor(100/length)*i+'%');
 			for (var j = 0;j < content[i].length;j++) {
 				$('#'+id+' .colPicker:eq('+i+')').append('<div class="basicPicker" val="'+content[i][j].value+'">' + content[i][j].name + '</div>');
 			}
