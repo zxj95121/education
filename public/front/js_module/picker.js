@@ -100,9 +100,11 @@ $(function () {
     	for (var i = 0;i < colPickerJquery.length;i++) {
     		var marginTop = parseInt($(colPickerJquery[i]).css('marginTop'));
     		var num = (105-marginTop)/selfPicker['size'+(selfPicker.length)].colHeight;
-    		console.log(num);
+
     		var value = selfPicker['size'+(selfPicker.length)].content[i][num];
-    		console.log(value);
+    		selfPicker['size'+(selfPicker.length)].result[i] = value.value;
+
+    		console.log(selfPicker['size'+(selfPicker.length)].result);
     	}
     })
 
