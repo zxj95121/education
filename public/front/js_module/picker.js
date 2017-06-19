@@ -52,8 +52,13 @@ $(function () {
     	var mod = parseInt(marginTop)%selfPicker.colHeight;
     	if (mod >=18)
     		mod = marginTop-mod+35;
-    	else
+    	else if(mod <-17) {
+    		mod = marginTop+mod-35;
+    	} else if (mod >= -17) {
+    		mod = marginTop+mod;
+    	} else {
     		mod = marginTop-mod;
+    	}
 
 
 
