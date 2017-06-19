@@ -108,9 +108,7 @@ $(function () {
     		selfPicker['size'+(selfPicker.length)].result[i] = value.value;
     	}
 
-    	var doResult = selfPicker['size'+(selfPicker.length)].select;
-    	doResult(selfPicker['size'+(selfPicker.length)].result);
-    	console.log(selfPicker['size'+(selfPicker.length)].result);
+    	selfPicker['size'+(selfPicker.length)].select(selfPicker['size'+(selfPicker.length)].result);//执行函数
     })
 
     function picker_init(id,content){
