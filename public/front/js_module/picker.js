@@ -1,8 +1,8 @@
 $(function () {
     var selfPicker = {
     	start: function(data){
-    		var action = data.action;/*进行绑定的这个名称*/
-    		var id = data.id;
+    		selfPicker.action = data.action;/*进行绑定的这个名称*/
+    		selfPicker.id = data.id;
     		selfPicker.content = data.content;
     		$('#'+action).click(function(){
     			console.log('hehehe');
@@ -12,6 +12,8 @@ $(function () {
 
     	},
     	content: {},
+    	id: 0,
+    	action: 0,
     };
 
     var state = {};
@@ -48,8 +50,8 @@ $(function () {
     	if(marginTop > 105) {
     		$(this).animate({'marginTop': '105px'}, 500);
     	}
-    	var allLength = (selfPicker.content.length-3)*35;
-    	if (marginTop+allLength < 0) {
+    	var allLength = (selfPicker.content[$(this).index('#'+selfPicker.id+' .colPicker')].length-3)*35;
+    	if (allLength > 0 && allLengmarginTop+allLength < 0) {
     		$(this).animate({'marginTop': '-'+allLength+'px'}, 500);
     	}
 
@@ -63,23 +65,23 @@ $(function () {
     		var height = document.documentElement.clientHeight;
     		$('#pickerBigDiv').css({'width':width,'height':height});
     	}
-		$('#pickerBigDiv').append($('#'+id));
+		$('#pickerBigDiv').append($('#'+selfPicker.id));
 
 		console.log(content);
 		var length = content.length;
 
 		/*插入若干个列*/
 		for (var i = 0;i < length;i++) {
-			$('#'+id+' .contentPicker').append('<div class="colPicker"></div>');
+			$('#'+selfPicker.id+' .contentPicker').append('<div class="colPicker"></div>');
 		}
 		var widthBL = Math.floor(100/length)+'%';
-		$('#'+id+' .colPicker').css('width', widthBL);/*设置每个的宽度*/
+		$('#'+selfPicker.id+' .colPicker').css('width', widthBL);/*设置每个的宽度*/
 
 		/*对chontent进行填充*/
 		for (var i = 0;i < length;i++) {
-			$('#'+id+' .colPicker:eq('+i+')').css('left',Math.floor(100/length)*i+'%');
+			$('#'+selfPicker.id+' .colPicker:eq('+i+')').css('left',Math.floor(100/length)*i+'%');
 			for (var j = 0;j < content[i].length;j++) {
-				$('#'+id+' .colPicker:eq('+i+')').append('<div class="basicPicker" val="'+content[i][j].value+'">' + content[i][j].name + '</div>');
+				$('#'+selfPicker.id+' .colPicker:eq('+i+')').append('<div class="basicPicker" val="'+content[i][j].value+'">' + content[i][j].name + '</div>');
 			}
 		}
 
