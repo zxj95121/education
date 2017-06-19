@@ -4,7 +4,7 @@ $(function () {
     		selfPicker.action = data.action;/*进行绑定的这个名称*/
     		selfPicker.id = data.id;
     		selfPicker.content = data.content;
-    		$('#'+action).click(function(){
+    		$('#'+selfPicker.action).click(function(){
     			console.log('hehehe');
     		})
 
