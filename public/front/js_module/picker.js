@@ -1,14 +1,14 @@
 $(function () {
     var selfPicker = {
     	start: function(data){
-    		selfPicker['size'+(selfPicker.length+1)] = selfPicker.size;
-    		selfPicker.length = selfPicker.length+1;
+    		selfPicker['size'+(selfPicker.length)] = selfPicker.size;
+    		selfPicker.length = selfPicker.length;
     		selfPicker.current = selfPicker.length;
-    		selfPicker['size'+(selfPicker.length)].action = data.action;/*进行绑定的这个名称*/
-    		selfPicker['size'+(selfPicker.length)].id = data.id;
-    		selfPicker['size'+(selfPicker.length)].content = data.content;
-    		selfPicker['size'+(selfPicker.length)].select = data.select;
-    		console.log(selfPicker['size'+selfPicker.current]);
+    		selfPicker['size'+(selfPicker.current)].action = data.action;/*进行绑定的这个名称*/
+    		selfPicker['size'+(selfPicker.current)].id = data.id;
+    		selfPicker['size'+(selfPicker.current)].content = data.content;
+    		selfPicker['size'+(selfPicker.current)].select = data.select;
+
     		selfPicker.arr[data.action] = selfPicker.current;
     		$('#'+data.action).click(function(){
     			console.log(selfPicker);
@@ -18,10 +18,11 @@ $(function () {
     		})
 
     		picker_init(selfPicker['size'+(selfPicker.current)].id, data.content);//初始化插件
+    		selfPicker.length = selfPicker.length+1;
+    		console.log(selfPicker);
     		// console.log(selfPicker);
-
     	},
-    	length: 0,
+    	length: 1,
     	arr: [],
     	current: 0,
     	size:{
