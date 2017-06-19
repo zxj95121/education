@@ -12,6 +12,7 @@
 	height: 290px;
 	position: absolute;
 	background-color: #FFFFFF;
+	display: none;
 	bottom: 0;
 }
 .operatePicker{

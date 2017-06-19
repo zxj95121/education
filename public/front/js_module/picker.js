@@ -8,7 +8,8 @@ $(function () {
     		selfPicker['size'+(selfPicker.length)].content = data.content;
     		selfPicker['size'+(selfPicker.length)].select = data.select;
     		$('#'+selfPicker['size'+(selfPicker.length)].action).click(function(){
-    			console.log('hehehe');
+    			$('#pickerBigDiv').css('display', 'block');
+    			$('#'+selfPicker['size'+(selfPicker.length)].id).css('display','block');
     		})
 
     		picker_init(selfPicker['size'+(selfPicker.length)].id, data.content);//初始化插件
@@ -126,7 +127,6 @@ $(function () {
     			$(this).find('.basicPicker').eq(num).addClass('active0');
     			continue;
     		}
-    		console.log(i+'--');
     		$(this).find('.basicPicker').eq(i).addClass('active1');
     	}
     })
@@ -138,11 +138,20 @@ $(function () {
     		var num = (selfPicker['size'+(selfPicker.length)].colHeight*3-marginTop)/selfPicker['size'+(selfPicker.length)].colHeight;
 
     		var value = selfPicker['size'+(selfPicker.length)].content[i][num];
-    		console.log(value);
+
     		selfPicker['size'+(selfPicker.length)].result[i] = value.value;
     	}
 
     	selfPicker['size'+(selfPicker.length)].select(selfPicker['size'+(selfPicker.length)].result);//执行函数
+
+    	$('#pickerBigDiv').css('display', 'none');
+    	$('#'+selfPicker['size'+(selfPicker.length)].id).css('display','none');
+    })
+
+    /*取消*/
+    $(document).on('click', '.canclePicker', function(){
+    	$('#pickerBigDiv').css('display', 'none');
+    	$('#'+selfPicker['size'+(selfPicker.length)].id).css('display','none');
     })
 
     function picker_init(id,content){
@@ -155,7 +164,6 @@ $(function () {
     	}
 		$('#pickerBigDiv').append($('#'+id));
 
-		console.log(content);
 		var length = content.length;
 
 		/*插入若干个列*/
