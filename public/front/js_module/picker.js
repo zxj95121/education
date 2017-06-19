@@ -103,9 +103,9 @@ $(function () {
 
     		var value = selfPicker['size'+(selfPicker.length)].content[i][num];
     		selfPicker['size'+(selfPicker.length)].result[i] = value.value;
-
-    		console.log(selfPicker['size'+(selfPicker.length)].result);
     	}
+
+    	console.log(selfPicker['size'+(selfPicker.length)].result);
     })
 
     function picker_init(id,content){
