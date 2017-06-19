@@ -10,6 +10,7 @@ $(function () {
     		selfPicker['size'+(selfPicker.length)].select = data.select;
     		selfPicker.arr[data.action] = selfPicker.length;
     		$('#'+data.action).click(function(){
+    			console.log(selfPicker);
     			console.log(selfPicker.arr);
     			$('#pickerBigDiv').css('display', 'block');
     			selfPicker.current = selfPicker.arr[$(this).attr('id')];
