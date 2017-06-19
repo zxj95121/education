@@ -55,8 +55,9 @@ $(function () {
     		$(this).animate({'marginTop': '-'+allLength+'px'}, 500);
     	}
     	/*太少的情况，往上滑动*/
-    	if (allLength > 0 && allLength < 5 && marginTop < (105-35*allLength)) {
-    		marginTop = 105-parseInt((allLength)/2)*35;
+    	var clength = selfPicker.content[$(this).index('#'+selfPicker.id+' .colPicker')].length;
+    	if (clength > 0 && clength < 5 && marginTop < (105-35*clength)) {
+    		marginTop = 105-parseInt((clength)/2)*35;
 			$(this).css({'marginTop': marginTop+'px'});
     	}
 
@@ -102,54 +103,54 @@ $(function () {
     		[{
     			'name': '1960年',
     			'value': 1960
-    		},{
-    			'name': '1961年',
-    			'value': 1961
-    		},{
-    			'name': '1962年',
-    			'value': 1962
-    		},{
-    			'name': '1960年',
-    			'value': 1960
-    		},{
-    			'name': '1961年',
-    			'value': 1961
-    		},{
-    			'name': '1962年',
-    			'value': 1962
-    		},{
-    			'name': '1960年',
-    			'value': 1960
-    		},{
-    			'name': '1961年',
-    			'value': 1961
-    		},{
-    			'name': '1962年',
-    			'value': 1962
-    		},{
-    			'name': '1960年',
-    			'value': 1960
-    		},{
-    			'name': '1961年',
-    			'value': 1961
-    		},{
-    			'name': '1962年',
-    			'value': 1962
-    		},{
-    			'name': '1960年',
-    			'value': 1960
-    		},{
-    			'name': '1961年',
-    			'value': 1961
-    		},{
-    			'name': '1962年',
-    			'value': 1962
-    		},{
-    			'name': '1960年',
-    			'value': 1960
-    		},{
-    			'name': '1961年',
-    			'value': 1961
+    		// },{
+    		// 	'name': '1961年',
+    		// 	'value': 1961
+    		// },{
+    		// 	'name': '1962年',
+    		// 	'value': 1962
+    		// },{
+    		// 	'name': '1960年',
+    		// 	'value': 1960
+    		// },{
+    		// 	'name': '1961年',
+    		// 	'value': 1961
+    		// },{
+    		// 	'name': '1962年',
+    		// 	'value': 1962
+    		// },{
+    		// 	'name': '1960年',
+    		// 	'value': 1960
+    		// },{
+    		// 	'name': '1961年',
+    		// 	'value': 1961
+    		// },{
+    		// 	'name': '1962年',
+    		// 	'value': 1962
+    		// },{
+    		// 	'name': '1960年',
+    		// 	'value': 1960
+    		// },{
+    		// 	'name': '1961年',
+    		// 	'value': 1961
+    		// },{
+    		// 	'name': '1962年',
+    		// 	'value': 1962
+    		// },{
+    		// 	'name': '1960年',
+    		// 	'value': 1960
+    		// },{
+    		// 	'name': '1961年',
+    		// 	'value': 1961
+    		// },{
+    		// 	'name': '1962年',
+    		// 	'value': 1962
+    		// },{
+    		// 	'name': '1960年',
+    		// 	'value': 1960
+    		// },{
+    		// 	'name': '1961年',
+    		// 	'value': 1961
     		},{
     			'name': '1962年',
     			'value': 1962
