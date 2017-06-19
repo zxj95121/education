@@ -25,8 +25,8 @@ $(function () {
 
         if (state.dragable)
         {
-            var x = e.originalEvent.changedTouches[0].pageX - obj.state.mouseX;
-            var y = e.originalEvent.changedTouches[0].pageY - obj.state.mouseY;
+            var x = e.originalEvent.changedTouches[0].pageX - state.mouseX;
+            var y = e.originalEvent.changedTouches[0].pageY - state.mouseY;
 
             var bg = parseFloat($(this).css('marginTop'));
 
