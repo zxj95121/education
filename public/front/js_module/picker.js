@@ -50,11 +50,13 @@ $(function () {
     	var marginTop =  parseFloat($(this).css('marginTop'));
     	/*不正确对其中间横线的处理代码*/
     	var mod = parseInt(marginTop)%selfPicker.colHeight;
-    	if (mod >=18)
-    		mod = marginTop-mod+35;
-    	else if(mod <-17) {
-    		mod = marginTop-mod-35;
-    	} else if (mod >= -17) {
+    	var shang = Math.ceil(selfPicker.colHeight/2);
+    	var xia = -1*Math.floor(selfPicker.colHeight/2);
+    	if (mod >=shang)
+    		mod = marginTop-mod+selfPicker.colHeight;
+    	else if(mod < xia) {
+    		mod = marginTop-mod-selfPicker.colHeight;
+    	} else if (mod >= xia) {
     		mod = marginTop-mod;
     	} else {
     		mod = marginTop-mod;
@@ -65,19 +67,19 @@ $(function () {
     	var flag = 0;//0表示没有出现滚动效果
     	/*长度很长的时候*/
     	if(marginTop > selfPicker.colHeight*3) {
-    		$(this).animate({'marginTop': '105px'}, 500);
+    		$(this).animate({'marginTop': '105px'}, 200);
     		flag = 1;
     	}
     	var allLength = (selfPicker.content[$(this).index('#'+selfPicker.id+' .colPicker')].length-4)*selfPicker.colHeight;
     	if (allLength > 0 && (marginTop+allLength < 0)) {
-    		$(this).animate({'marginTop': '-'+allLength+'px'}, 500);
+    		$(this).animate({'marginTop': '-'+allLength+'px'}, 200);
     		flag = 1;
     	}
     	/*太少的情况，往上滑动*/
     	var clength = selfPicker.content[$(this).index('#'+selfPicker.id+' .colPicker')].length;//表示内容的个数
     	if (clength > 0 && clength < 5 && marginTop < (selfPicker.colHeight*3-selfPicker.colHeight*clength)) {
     		marginTop = selfPicker.colHeight*3-parseInt((clength)/2)*selfPicker.colHeight;
-			$(this).animate({'marginTop': marginTop+'px'}, 500);
+			$(this).animate({'marginTop': marginTop+'px'}, 200);
 			flag = 1;
     	}
 
@@ -182,6 +184,9 @@ $(function () {
     		[{
     			'name': '1月',
     			'value': 1
+    		},{
+    			'name': '2月',
+    			'value': 2
     		}]
     	]
     });
