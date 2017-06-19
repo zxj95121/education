@@ -3,7 +3,7 @@
 	display: block;
 	top: 0;
 	left: 0;
-	background: rgba(244,247,237, 0.4);
+	background: rgba(102,102,102, 0.8);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66F4F7ED, endColorstr=#66F4F7ED);
 }
 
@@ -11,7 +11,7 @@
 	width: 100%;
 	height: 290px;
 	position: absolute;
-	background-color: #F7F7F6;
+	background-color: #FFFFFF;
 	bottom: 0;
 }
 .operatePicker{
@@ -44,7 +44,7 @@
 	height: 245px;
 	position: relative;
 	overflow: hidden;
-	color: #A7A7A7;
+	color: #A8A8A8;
 	font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 
 }
@@ -52,7 +52,7 @@
 	color: #000;
 }
 .contentPicker .active1{
-	color: #A7A7A7;
+	color: #A8A8A8;
 }
 .colPicker{
 	text-align: center;
@@ -65,7 +65,7 @@
 	position: absolute;
 	width: 100%;
 	height: 1.5px;
-	background-color: #646464;
+	background-color: #F3F3F3;
 }
 .linePicker:nth-of-type(1){
 	top: 104px;
