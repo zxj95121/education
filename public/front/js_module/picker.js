@@ -53,9 +53,9 @@ $(function () {
     	if (mod >=18)
     		mod = marginTop-mod+35;
     	else if(mod <-17) {
-    		mod = marginTop+mod-35;
+    		mod = marginTop-mod+35;
     	} else if (mod >= -17) {
-    		mod = marginTop+mod;
+    		mod = marginTop-mod;
     	} else {
     		mod = marginTop-mod;
     	}
@@ -136,45 +136,45 @@ $(function () {
     		},{
     			'name': '1960年',
     			'value': 1960
-    		// },{
-    		// 	'name': '1961年',
-    		// 	'value': 1961
-    		// },{
-    		// 	'name': '1962年',
-    		// 	'value': 1962
-    		// },{
-    		// 	'name': '1960年',
-    		// 	'value': 1960
-    		// },{
-    		// 	'name': '1961年',
-    		// 	'value': 1961
-    		// },{
-    		// 	'name': '1962年',
-    		// 	'value': 1962
-    		// },{
-    		// 	'name': '1960年',
-    		// 	'value': 1960
-    		// },{
-    		// 	'name': '1961年',
-    		// 	'value': 1961
-    		// },{
-    		// 	'name': '1962年',
-    		// 	'value': 1962
-    		// },{
-    		// 	'name': '1960年',
-    		// 	'value': 1960
-    		// },{
-    		// 	'name': '1961年',
-    		// 	'value': 1961
-    		// },{
-    		// 	'name': '1962年',
-    		// 	'value': 1962
-    		// },{
-    		// 	'name': '1960年',
-    		// 	'value': 1960
-    		// },{
-    		// 	'name': '1961年',
-    		// 	'value': 1961
+    		},{
+    			'name': '1961年',
+    			'value': 1961
+    		},{
+    			'name': '1962年',
+    			'value': 1962
+    		},{
+    			'name': '1960年',
+    			'value': 1960
+    		},{
+    			'name': '1961年',
+    			'value': 1961
+    		},{
+    			'name': '1962年',
+    			'value': 1962
+    		},{
+    			'name': '1960年',
+    			'value': 1960
+    		},{
+    			'name': '1961年',
+    			'value': 1961
+    		},{
+    			'name': '1962年',
+    			'value': 1962
+    		},{
+    			'name': '1960年',
+    			'value': 1960
+    		},{
+    			'name': '1961年',
+    			'value': 1961
+    		},{
+    			'name': '1962年',
+    			'value': 1962
+    		},{
+    			'name': '1960年',
+    			'value': 1960
+    		},{
+    			'name': '1961年',
+    			'value': 1961
     		},{
     			'name': '1962年',
     			'value': 1962
