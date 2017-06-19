@@ -116,8 +116,12 @@ $(function () {
     		// if ($(this).hasClass('active1'))
     			$(this).removeClass('active1');//去除class
     	})
-    	
-    	for (var i = num-3;i <= num+3;i++) {
+    	var min = 0,max = num+3;
+    	if (clength < num-3)
+    		min = num-3;
+    	if (clength < num+3)
+    		max = clength;
+    	for (var i = min;i <= max;i++) {
     		if(i == num) {
     			$(this).find('.basicPicker').eq(num).addClass('active0');
     			continue;
