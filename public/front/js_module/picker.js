@@ -90,7 +90,7 @@ $(function () {
     	}
     })
 
-    $(document).on('click', '#'+selfPicker.id+' .okPicker').click(function(){
+    $(document).on('click', '#'+selfPicker.id+' .okPicker', function(){
     	var colPickerJquery = $('#'+selfPicker.id+' .colPicker');
     	for (var i = 0;i < colPickerJquery.length;i++) {
     		var marginTop = parseInt($(colPickerJquery[i]).css('marginTop'));
