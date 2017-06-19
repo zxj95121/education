@@ -1,21 +1,15 @@
 $(function () {
     var selfPicker = {
     	start: function(data){
-    		selfPicker['size'+data.len] = selfPicker.size;
-    		selfPicker.length = data.len;
-    		selfPicker.current = data.len;
+    		selfPicker['size'+(selfPicker.length)] = selfPicker.size;
+    		selfPicker.length = selfPicker.length;
+    		selfPicker.current = selfPicker.length;
     		selfPicker['size'+(selfPicker.current)].action = data.action;/*进行绑定的这个名称*/
     		selfPicker['size'+(selfPicker.current)].id = data.id;
     		selfPicker['size'+(selfPicker.current)].content = data.content;
     		selfPicker['size'+(selfPicker.current)].select = data.select;
 
     		selfPicker.arr[data.action] = selfPicker.current;
-    		$('#'+data.action).click(function(){
-    			console.log(selfPicker);
-    			$('#pickerBigDiv').css('display', 'block');
-    			selfPicker.current = selfPicker.arr[$(this).attr('id')];
-    			$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
-    		})
 
     		picker_init(selfPicker['size'+(selfPicker.current)].id, data.content);//初始化插件
     		selfPicker.length = selfPicker.length+1;
@@ -162,6 +156,19 @@ $(function () {
     	$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','none');
     })
 
+    $('#showDatePicker'.click(function(){
+		console.log(selfPicker);
+		$('#pickerBigDiv').css('display', 'block');
+		selfPicker.current = selfPicker.arr[$(this).attr('id')];
+		$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
+    })
+    $('#moneyPicker'.click(function(){
+		console.log(selfPicker);
+		$('#pickerBigDiv').css('display', 'block');
+		selfPicker.current = selfPicker.arr[$(this).attr('id')];
+		$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
+    })
+
     function picker_init(id,content){
     	$('body').css('position','relative');
     	if ($('#pickerBigDiv').length == 0) {
@@ -201,7 +208,6 @@ $(function () {
     selfPicker.start({
     	id: 'birthPicker', 
     	action: 'showDatePicker',
-    	len: 1,
     	content: [
     		[{
     			'name': '1960年',
@@ -275,7 +281,6 @@ $(function () {
     selfPicker.start({
     	id: 'myMoneyPicker', 
     	action: 'moneyPicker',
-    	len: 2,
     	content: [
 			[{
 	            name: '50元',
