@@ -54,21 +54,9 @@ $(function () {
             /*要知道哪一个层在中间*/
             var len = selfPicker['size'+(selfPicker.length)].content[$(this).index('#'+selfPicker['size'+(selfPicker.length)].id+' .colPicker')].length;
         	var  marginTop = parseFloat($(this).css('marginTop'));
-        	var num = (selfPicker['size'+(selfPicker.length)].colHeight*3-marginTop)/selfPicker['size'+(selfPicker.length)].colHeight;
         	
-        	$(this).find('.basicPicker').each(function(){
-        		if ($(this).hasClass('active0'))
-        			$(this).removeClass('active0');//去除class
-        		if ($(this).hasClass('active1'))
-        			$(this).removeClass('active1');//去除class
-        	})
-
-        	$(this).find('.basicPicker').eq(num).addClass('active0');
-        	for (var i = num-3;i < num+3;i++) {
-        		if(i == num)
-        			continue;
-        		$(this).find('.basicPicker').eq(i).addClass('active1');
-        	}
+        	
+        	
         }
     })
 
@@ -92,14 +80,17 @@ $(function () {
 
 
     	var flag = 0;//0表示没有出现滚动效果
+    	var flagTop = 0;
     	/*长度很长的时候*/
     	if(marginTop > selfPicker['size'+(selfPicker.length)].colHeight*3) {
     		$(this).animate({'marginTop': '105px'}, 200);
+    		flagTop = 105;
     		flag = 1;
     	}
     	var allLength = (selfPicker['size'+(selfPicker.length)].content[$(this).index('#'+selfPicker['size'+(selfPicker.length)].id+' .colPicker')].length-4)*selfPicker['size'+(selfPicker.length)].colHeight;
     	if (allLength > 0 && (marginTop+allLength < 0)) {
     		$(this).animate({'marginTop': '-'+allLength+'px'}, 200);
+    		flagTop = -1*allLength;
     		flag = 1;
     	}
     	/*太少的情况，往上滑动*/
@@ -107,12 +98,30 @@ $(function () {
     	if (clength > 0 && clength < 5 && marginTop < (selfPicker['size'+(selfPicker.length)].colHeight*3-selfPicker['size'+(selfPicker.length)].colHeight*clength)) {
     		marginTop = selfPicker['size'+(selfPicker.length)].colHeight*3-parseInt((clength)/2)*selfPicker['size'+(selfPicker.length)].colHeight;
 			$(this).animate({'marginTop': marginTop+'px'}, 200);
+			flagTop = marginTop;
 			flag = 1;
     	}
 
     	/*如果没有进行上面的滚动效果*/
     	if (flag == 0) {
+    		flagTop = mod;
     		$(this).animate({'marginTop': mod+'px'}, 200);
+    	}
+
+    	var num = (selfPicker['size'+(selfPicker.length)].colHeight*3-flagTop)/selfPicker['size'+(selfPicker.length)].colHeight;
+    	
+    	$(this).find('.basicPicker').each(function(){
+    		if ($(this).hasClass('active0'))
+    			$(this).removeClass('active0');//去除class
+    		if ($(this).hasClass('active1'))
+    			$(this).removeClass('active1');//去除class
+    	})
+
+    	$(this).find('.basicPicker').eq(num).addClass('active0');
+    	for (var i = num-3;i < num+3;i++) {
+    		if(i == num)
+    			continue;
+    		$(this).find('.basicPicker').eq(i).addClass('active1');
     	}
     })
 
