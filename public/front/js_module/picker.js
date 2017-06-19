@@ -8,7 +8,7 @@ $(function () {
     			console.log('hehehe');
     		})
 
-    		picker_init(id, data.content);//初始化插件
+    		picker_init(selfPicker.id, data.content);//初始化插件
 
     	},
     	content: {},
@@ -65,23 +65,23 @@ $(function () {
     		var height = document.documentElement.clientHeight;
     		$('#pickerBigDiv').css({'width':width,'height':height});
     	}
-		$('#pickerBigDiv').append($('#'+selfPicker.id));
+		$('#pickerBigDiv').append($('#'+id));
 
 		console.log(content);
 		var length = content.length;
 
 		/*插入若干个列*/
 		for (var i = 0;i < length;i++) {
-			$('#'+selfPicker.id+' .contentPicker').append('<div class="colPicker"></div>');
+			$('#'+id+' .contentPicker').append('<div class="colPicker"></div>');
 		}
 		var widthBL = Math.floor(100/length)+'%';
-		$('#'+selfPicker.id+' .colPicker').css('width', widthBL);/*设置每个的宽度*/
+		$('#'+id+' .colPicker').css('width', widthBL);/*设置每个的宽度*/
 
 		/*对chontent进行填充*/
 		for (var i = 0;i < length;i++) {
-			$('#'+selfPicker.id+' .colPicker:eq('+i+')').css('left',Math.floor(100/length)*i+'%');
+			$('#'+id+' .colPicker:eq('+i+')').css('left',Math.floor(100/length)*i+'%');
 			for (var j = 0;j < content[i].length;j++) {
-				$('#'+selfPicker.id+' .colPicker:eq('+i+')').append('<div class="basicPicker" val="'+content[i][j].value+'">' + content[i][j].name + '</div>');
+				$('#'+id+' .colPicker:eq('+i+')').append('<div class="basicPicker" val="'+content[i][j].value+'">' + content[i][j].name + '</div>');
 			}
 		}
 
