@@ -94,7 +94,7 @@ $(function () {
     	var colPickerJquery = $('#'+selfPicker.id+' .colPicker');
     	for (var i = 0;i < colPickerJquery.length;i++) {
     		var marginTop = parseInt($(colPickerJquery[i]).css('marginTop'));
-    		var num = (marginTop-(selfPicker.colHeight*3))/selfPicker.colHeight;
+    		var num = (105-marginTop)/selfPicker.colHeight;
     		console.log(num);
     		var value = selfPicker.content[i][num];
     		console.log(value);
