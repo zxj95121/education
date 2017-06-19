@@ -14,7 +14,8 @@ $(function () {
     	content: {},
     	id: 0,
     	action: 0,
-    	colHeight: 35
+    	colHeight: 35,
+    	result: 0;
     };
 
     var state = {};
@@ -86,6 +87,16 @@ $(function () {
     	/*如果没有进行上面的滚动效果*/
     	if (flag == 0) {
     		$(this).animate({'marginTop': mod+'px'}, 200);
+    	}
+    })
+
+    $(document).on('click', '#'+selfPicker.id+' .okPicker').click(function(){
+    	var colPickerJquery = $('#'+selfPicker.id+' .colPicker');
+    	for (var i = 0;i < colPickerJquery.length;i++) {
+    		var marginTop = parseInt($(colPickerJquery[i]).css('marginTop'));
+    		var num = (marginTop-(selfPicker.colHeight*3))/selfPicker.colHeight;
+    		var value = selfPicker.content[i][num];
+    		console.log(value);
     	}
     })
 
