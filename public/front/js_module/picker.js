@@ -57,8 +57,10 @@ $(function () {
         	var num = (selfPicker['size'+(selfPicker.length)].colHeight*3-marginTop)/selfPicker['size'+(selfPicker.length)].colHeight;
         	
         	$('#'+selfPicker['size'+(selfPicker.length)].id+' .colPicker').find('.basicPicker').each(function(){
-        		$(this).removeClass('active0');//去除class
-        		$(this).removeClass('active1');//去除class
+        		if ($(this).hasClass('active0'))
+        			$(this).removeClass('active0');//去除class
+        		if ($(this).hasClass('active1'))
+        			$(this).removeClass('active1');//去除class
         	})
 
         	$('#'+selfPicker['size'+(selfPicker.length)].id+' .colPicker').find('.basicPicker').eq(num).addClass('active0');
