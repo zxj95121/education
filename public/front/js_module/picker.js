@@ -13,6 +13,8 @@ $(function () {
     			console.log(selfPicker.arr);
     			$('#pickerBigDiv').css('display', 'block');
     			selfPicker.current = selfPicker.arr[$(this).attr('id')];
+    			console.log($(this).attr('id'));
+    			console.log(selfPicker.current)
     			$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
     		})
 
