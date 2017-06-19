@@ -55,7 +55,7 @@ $(function () {
     		$(this).animate({'marginTop': '-'+allLength+'px'}, 500);
     	}
     	/*太少的情况，往上滑动*/
-    	if (allLength > 0 && allLength < 5 && marginTop < 0) {
+    	if (allLength > 0 && allLength < 5 && marginTop < (105-35*allLength)) {
     		marginTop = 105-parseInt((allLength)/2)*35;
 			$(this).css({'marginTop': marginTop+'px'});
     	}
