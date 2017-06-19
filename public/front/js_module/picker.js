@@ -81,7 +81,7 @@ $(function () {
 		for (var i = 0;i < length;i++) {
 			var count = selfPicker.content[i].length;
 			var marginTop = 105;
-			marginTop -= parseInt((count+1)/2)*35;
+			marginTop -= parseInt((count)/2)*35;
 			$('#'+id+' .colPicker:eq('+i+')').css({'left': Math.floor(100/length)*i+'%','marginTop': marginTop+'px'});
 			for (var j = 0;j < content[i].length;j++) {
 				$('#'+id+' .colPicker:eq('+i+')').append('<div class="basicPicker" val="'+content[i][j].value+'">' + content[i][j].name + '</div>');

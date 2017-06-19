@@ -350,8 +350,9 @@ $signPackage = $jssdk->GetSignPackage();
     		<div class="okPicker">确认</div>
     	</div>
     	<div class="contentPicker">
+    		<div class="linePicker"></div>
+    		<div class="linePicker"></div>
     	</div>
-    	
     </div>
 
 	<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
