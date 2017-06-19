@@ -116,9 +116,9 @@ $(function () {
     		if ($(this).hasClass('active1'))
     			$(this).removeClass('active1');//去除class
     	})
-
+    	console.log(num);
     	$(this).find('.basicPicker').eq(num).addClass('active0');
-    	for (var i = num-3;i < num+3;i++) {
+    	for (var i = num-3;i <= num+3;i++) {
     		if(i == num)
     			continue;
     		$(this).find('.basicPicker').eq(i).addClass('active1');
