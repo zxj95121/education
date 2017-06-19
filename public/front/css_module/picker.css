@@ -45,10 +45,17 @@
 	position: relative;
 	overflow: hidden;
 }
+.contentPicker .active0{
+	color: #A7A7A7;
+}
+.contentPicker .active1{
+	color: #A7A7A7;
+}
 .colPicker{
 	text-align: center;
 	line-height: 35px;
 	height: 35px;
+	font-weight: bold;
 	position: absolute;
 }
 .linePicker{
