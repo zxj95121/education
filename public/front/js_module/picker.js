@@ -90,7 +90,7 @@ $(function () {
     	}
     })
 
-    $(document).on('click', '#'+selfPicker.id+' .okPicker', function(){
+    $(document).on('click', '.okPicker', function(){
     	var colPickerJquery = $('#'+selfPicker.id+' .colPicker');
     	console.log(colPickerJquery.length)
     	for (var i = 0;i < colPickerJquery.length;i++) {
