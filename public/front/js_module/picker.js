@@ -120,6 +120,7 @@ $(function () {
     	for (var i = num-3;i <= num+3;i++) {
     		if(i == num) {
     			$(this).find('.basicPicker').eq(num).addClass('active0');
+    			continue;
     		}
     		console.log(i+'--');
     		$(this).find('.basicPicker').eq(i).addClass('active1');
