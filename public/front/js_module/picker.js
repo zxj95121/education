@@ -9,8 +9,9 @@ $(function () {
     		selfPicker['size'+(selfPicker.length)].content = data.content;
     		selfPicker['size'+(selfPicker.length)].select = data.select;
     		console.log(selfPicker['size'+selfPicker.current]);
-    		selfPicker.arr[data.action] = selfPicker.length;
+    		selfPicker.arr[data.action] = selfPicker.current;
     		$('#'+data.action).click(function(){
+    			console.log(selfPicker);
     			$('#pickerBigDiv').css('display', 'block');
     			selfPicker.current = selfPicker.arr[$(this).attr('id')];
     			$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
