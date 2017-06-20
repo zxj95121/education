@@ -7,7 +7,7 @@ $(function () {
     		selfPicker['size'+(selfPicker.current)].action = data.action;/*进行绑定的这个名称*/
     		selfPicker['size'+(selfPicker.current)].id = data.id;
     		$.extend( true, selfPicker['size'+(selfPicker.current)].content, data.content );
-    		selfPicker['size'+(selfPicker.current)].select = data.select;
+    		$.extend( true, selfPicker['size'+(selfPicker.current)].select, data.select );
 
     		selfPicker.arr[data.action] = selfPicker.current;
 
