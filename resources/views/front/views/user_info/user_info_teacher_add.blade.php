@@ -725,14 +725,13 @@ $signPackage = $jssdk->GetSignPackage();
 			    				$('#loadingToast').css({'display':'none', 'opacity':'0'});
 			    				$('#toast p').html('修改成功');
 								$('#toast').css({'display':'block', 'opacity':'1'});
-								$('#showDatePicker span').html(result[0] + '年 ' + month +'月');
+								$('#moneyPicker span').html(result[0] + '元 / ' + result[1] +'分钟');
 								setTimeout(function(){
 									$('#toast').css({'display':'none', 'opacity':'0'});
 								},250);
 			    			}
 		    			}
 		    		})
-		    		$('#moneyPicker span').html(result[0] + '元 / ' + result[1] +'分钟');
 		    	}
 		    });
 		});

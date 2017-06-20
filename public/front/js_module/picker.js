@@ -1,6 +1,4 @@
 $(function () {
-	dddddddd = new Array();
-	bbbbbbbb = new Array();
     selfPicker = {
     	start: function(data){
     		selfPicker['size'+(selfPicker.length)] = {};
@@ -9,11 +7,7 @@ $(function () {
     		selfPicker['size'+(selfPicker.current)].action = data.action;/*进行绑定的这个名称*/
     		selfPicker['size'+(selfPicker.current)].id = data.id;
     		$.extend( true, selfPicker['size'+(selfPicker.current)].content, data.content );
-    		bbbbbbbb[selfPicker.current] = {};
-    		selfPicker['size'+(selfPicker.current)].result = bbbbbbbb[selfPicker.current];
-
-    		dddddddd[selfPicker.current] = data.select;
-    		selfPicker['size'+(selfPicker.current)].select = dddddddd[selfPicker.current];
+    		selfPicker['size'+(selfPicker.current)].select = data.select;
 
     		selfPicker.arr[data.action] = selfPicker.current;
 
@@ -30,9 +24,7 @@ $(function () {
 	    	action: 0,
 	    	colHeight: 35,
 	    	result: {},
-	    	select: function(){
-	    		
-	    	}
+	    	select: ''
 	    }
     };
 
