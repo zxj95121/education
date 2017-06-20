@@ -111,6 +111,14 @@ $signPackage = $jssdk->GetSignPackage();
 	                    <span style="vertical-align:middle; font-size: 17px;">{{$userDetail->project}}</span>
 	                </div>
 	            </div>
+	            <div class="weui-cell weui-cell_access" id="cell_status">
+	                <div class="weui-cell__bd">求职状态</div>
+	                <div class="weui-cell__ft" style="font-size: 0">
+	                    <span style="vertical-align:middle; font-size: 17px;">
+
+	                    </span>
+	                </div>
+	            </div>
 	            <div class="weui-cell weui-cell_access" id="moneyPicker">
 	                <div class="weui-cell__bd">期望薪资</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
@@ -239,6 +247,24 @@ $signPackage = $jssdk->GetSignPackage();
 		        </div>
 		    </div>
 
+		    <!-- 性别 -->
+			<div id="status" style="display: none;">
+		        <div class="weui-mask" id="iosMask" style="opacity: 1;"></div>
+		        <div class="weui-actionsheet weui-actionsheet_toggle" id="iosActionsheet">
+		            <div class="weui-actionsheet__title">
+		                <p class="weui-actionsheet__title-text">选择求职状态</p>
+		            </div>
+		            <div class="weui-actionsheet__menu">
+		                <div class="weui-actionsheet__cell sex_actionsheet" val="1">兼职</div>
+		                <div class="weui-actionsheet__cell sex_actionsheet" val="2">全职</div>
+		                <div class="weui-actionsheet__cell sex_actionsheet" val="0">暂不考虑</div>
+		            </div>
+		            <div class="weui-actionsheet__action">
+		                <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
+		            </div>
+		        </div>
+		    </div>
+
 		    <!-- 学校 -->
 		    <div class="page__bd page_set" id="school">
 				<div class="weui-cells" style="margin-top:0px" >
@@ -248,11 +274,11 @@ $signPackage = $jssdk->GetSignPackage();
 			            <div><div class="placeholder glyphicon glyphicon-ok done_ok"></div></div>
 			        </div>
 			    </div>
-			    <div style="width: 97%;margin: 0 auto;padding:20px 4px;" id="school_btns">
+			    <div style="width: 97%;margin: 0 auto;padding:0px 4px;" id="school_btns">
 			    	<div class="row">
-			    		<div class="col-xs-12">
+			    		<div class="col-xs-12" style="margin-top: 5px;">
                             <div class="heading"> 
-                                <h3>本科院校</h3> 
+                                <h3 style="margin-bottom: 0px;">本科院校</h3> 
                             </div>
                             <div class="pbody"> 
                                 <button type="button" class="btn btn-info">安徽师范大学</button>
@@ -436,6 +462,12 @@ $signPackage = $jssdk->GetSignPackage();
 				$('#page_row').css('display', 'block');
 				$('#sex').css('display', 'block');
 			})
+			/*求职状态*/
+			$('#cell_status').click(function(){
+				$('#page_row').css('display', 'block');
+				$('#status').css('display', 'block');
+			})
+
 			$('#iosActionsheetCancel').click(function(){
 				$('#page_row').css('display', 'none');
 				$('#sex').css('display', 'none');
