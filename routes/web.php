@@ -134,6 +134,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
     $router->post('/tsave_nickname', 'UserInfoController@t_nickname');
     $router->post('/tsave_name', 'UserInfoController@t_name');
     $router->post('/tsave_sex', 'UserInfoController@t_sex');
+    $router->post('/tsave_birth', 'UserInfoController@t_birth');
     $router->post('/tsave_project', 'UserInfoController@t_project');
 });
 
