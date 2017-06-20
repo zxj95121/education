@@ -564,7 +564,174 @@ $signPackage = $jssdk->GetSignPackage();
 	<script type="text/javascript">
 		$(function(){
 			/*价格*/
-			
+			    selfPicker.start({
+		    	id: 'birthPicker', 
+		    	action: 'showDatePicker',
+		    	content: [
+		    		[{
+		    			'name': '1960年',
+		    			'value': 1960
+		    		},{
+		    			'name': '1961年',
+		    			'value': 1961
+		    		},{
+		    			'name': '1962年',
+		    			'value': 1962
+		    		},{
+		    			'name': '1960年',
+		    			'value': 1960
+		    		},{
+		    			'name': '1961年',
+		    			'value': 1961
+		    		},{
+		    			'name': '1962年',
+		    			'value': 1962
+		    		},{
+		    			'name': '1960年',
+		    			'value': 1960
+		    		},{
+		    			'name': '1961年',
+		    			'value': 1961
+		    		},{
+		    			'name': '1962年',
+		    			'value': 1962
+		    		},{
+		    			'name': '1960年',
+		    			'value': 1960
+		    		},{
+		    			'name': '1961年',
+		    			'value': 1961
+		    		},{
+		    			'name': '1962年',
+		    			'value': 1962
+		    		},{
+		    			'name': '1960年',
+		    			'value': 1960
+		    		},{
+		    			'name': '1961年',
+		    			'value': 1961
+		    		},{
+		    			'name': '1962年',
+		    			'value': 1962
+		    		},{
+		    			'name': '1960年',
+		    			'value': 1960
+		    		},{
+		    			'name': '1961年',
+		    			'value': 1961
+		    		},{
+		    			'name': '1962年',
+		    			'value': 1962
+		    		}],
+		    		[{
+		    			'name': '1月',
+		    			'value': 1
+		    		},{
+		    			'name': '2月',
+		    			'value': 2
+		    		}]
+		    	],
+		    	select: function(result){
+		    		// console.log(result);
+		    		$('#showDatePicker span').html(result[0] + '年 ' + result[1] +'月');
+		    	}
+		    });
+
+		    selfPicker.start({
+		    	id: 'myMoneyPicker', 
+		    	action: 'moneyPicker',
+		    	content: [
+					[{
+			            name: '50元',
+			            value: 50
+			        }, {
+			            name: '60元',
+			            value: 60,
+			            checked: true
+			        },{
+			            name: '70元',
+			            value: 70
+			        },{
+			            name: '80元',
+			            value: 80
+			        },{
+			            name: '90元',
+			            value: 90
+			        },{
+			            name: '100元',
+			            value: 100
+			        },{
+			            name: '110元',
+			            value: 110
+			        },{
+			            name: '120元',
+			            value: 120
+			        },{
+			            name: '130元',
+			            value: 130
+			        },{
+			            name: '140元',
+			            value: 140
+			        },{
+			            name: '150元',
+			            value: 150
+			        },{
+			            name: '160元',
+			            value: 160
+			        },{
+			            name: '170元',
+			            value: 170
+			        },{
+			            name: '180元',
+			            value: 180
+			        },{
+			            name: '190元',
+			            value: 190
+			        },{
+			            name: '200元',
+			            value: 200
+			        },{
+			            name: '210元',
+			            value: 210
+			        },{
+			            name: '220元',
+			            value: 220
+			        },{
+			            name: '230元',
+			            value: 230
+			        },{
+			            name: '240元',
+			            value: 240
+			        },{
+			            name: '250元',
+			            value: 250
+			        },{
+			            name: '260元',
+			            value: 260
+			        },{
+			            name: '270元',
+			            value: 270
+			        },{
+			            name: '280元',
+			            value: 280
+			        },{
+			            name: '290元',
+			            value: 290
+			        },{
+			            name: '300元',
+			            value: 300
+			        }],	 [{
+			            name: '60分钟',
+			            value: 60
+			        }, {
+			            name: '90分钟',
+			            value: 90
+			        }]
+		    	],
+		    	select: function(result){
+		    		$('#moneyPicker span').html(result[0] + '元 / ' + result[1] +'分钟');
+		    	}
+		    });
 		});
 	</script>
 	<script type="text/javascript">
