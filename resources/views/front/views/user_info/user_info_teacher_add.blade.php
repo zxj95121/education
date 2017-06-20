@@ -115,7 +115,10 @@ $signPackage = $jssdk->GetSignPackage();
 	                <div class="weui-cell__bd">求职状态</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;">
-
+							@if($userDetail->find_status == 0) 暂不考虑
+	                    	@elseif ($userDetail->find_status == 1) 兼职
+	                    	@elseif ($userDetail->find_status == 2) 全职
+	                    	@endif
 	                    </span>
 	                </div>
 	            </div>
@@ -517,9 +520,9 @@ $signPackage = $jssdk->GetSignPackage();
 					},
 					success: function(data) {
 						if (data.errcode == 0) {
-							$('#cell_sex').find('span').html(status);
+							$('#cell_status').find('span').html(status);
 							$('#page_row').css('display', 'none');
-							$('#sex').css('display', 'none');
+							$('#status').css('display', 'none');
 
 							$('#loadingToast').css({'display':'none', 'opacity':'0'});
 		    				$('#toast p').html('修改成功');
