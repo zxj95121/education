@@ -24,7 +24,9 @@ $(function () {
 	    	action: 0,
 	    	colHeight: 35,
 	    	result: {},
-	    	select: ''
+	    	select: function(){
+	    		
+	    	}
 	    }
     };
 
