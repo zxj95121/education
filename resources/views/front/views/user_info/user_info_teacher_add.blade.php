@@ -586,8 +586,31 @@ $signPackage = $jssdk->GetSignPackage();
 		    		yearArr,monthArr
 		    	],
 		    	select: function(result){
-		    		// console.log(result);
-		    		$('#showDatePicker span').html(result[0] + '年 ' + result[1] +'月');
+		    		$('#loadingToast').css({'display':'block', 'opacity':'1'});
+					$('#loadingToast p').html('数据保存中');
+
+		    		var month = result[1] > 9 ? result[1] : '0'+result[1];
+		    		var message = result[0]+'-'+month;
+		    		$.ajax({
+		    			url: '/front/tsave_birth',
+		    			type: 'post',
+		    			dataType: 'json',
+		    			data: {
+		    				birth: message
+		    			},
+		    			success: function(data) {
+		    				if (data.errcode == 0) {
+			    				$('#loadingToast').css({'display':'none', 'opacity':'0'});
+			    				$('#toast p').html('修改成功');
+								$('#toast').css({'display':'block', 'opacity':'1'});
+								$('#showDatePicker span').html(result[0] + '年 ' + result[1] +'月');
+								setTimeout(function(){
+									$('#toast').css({'display':'none', 'opacity':'0'});
+								},250);
+			    			}
+		    			}
+		    		})
+		    		
 		    	}
 		    });
 
