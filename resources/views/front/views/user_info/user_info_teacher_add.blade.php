@@ -583,7 +583,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    	id: 'birthPicker', 
 		    	action: 'showDatePicker',
 		    	content: [
-		    		yearArr,
+		    		yearArr,monthArr
 		    	],
 		    	select: function(result){
 		    		// console.log(result);
