@@ -249,13 +249,25 @@ $signPackage = $jssdk->GetSignPackage();
 			        </div>
 			    </div>
 			    <div style="width: 97%;margin: 0 auto;padding:20px 4px;" id="school_btns">
-			    	<button type="button" class="btn btn-info">安徽师范大学</button>
-			    	<button type="button" class="btn btn-info">安徽工程大学</button>
-			    	<button type="button" class="btn btn-info">皖南医学院</button>	
-			    	<button type="button" class="btn btn-info">芜湖职业技术学院</button>	
-			    	<button type="button" class="btn btn-info">安徽中医药高等专科学校</button>	
-			    	<button type="button" class="btn btn-info">安徽机电职业技术学院</button>	
-			    	<button type="button" class="btn btn-info">其他高校</button>	
+			    	<div class="row">
+			    		<div class="col-md-5">
+                        	<div class="panel panel-default">
+	                            <div class="panel-heading" style="background-color: #22AAE8;">
+	                                <h3 class="panel-title">本科院校</h3>
+	                            </div>
+	                            <div class="panel-body">
+	                                <button type="button" class="btn btn-info">安徽师范大学</button>
+							    	<button type="button" class="btn btn-info">安徽工程大学</button>
+							    	<button type="button" class="btn btn-info">皖南医学院</button>	
+							    	<button type="button" class="btn btn-info">芜湖职业技术学院</button>	
+							    	<button type="button" class="btn btn-info">安徽中医药高等专科学校</button>	
+							    	<button type="button" class="btn btn-info">安徽机电职业技术学院</button>	
+							    	<button type="button" class="btn btn-info">其他高校</button>
+	                            </div>
+	                        </div>
+	                    </div>
+			    	</div>
+			    		
 			    </div>
 			</div>
 
@@ -458,8 +470,6 @@ $signPackage = $jssdk->GetSignPackage();
 					}
 
 				})
-				
-
 			})
 
 			/*出生年月*/
@@ -603,14 +613,14 @@ $signPackage = $jssdk->GetSignPackage();
 			    				$('#loadingToast').css({'display':'none', 'opacity':'0'});
 			    				$('#toast p').html('修改成功');
 								$('#toast').css({'display':'block', 'opacity':'1'});
-								$('#showDatePicker span').html(result[0] + '年 ' + result[1] +'月');
+								$('#showDatePicker span').html(result[0] + '年 ' + month +'月');
 								setTimeout(function(){
 									$('#toast').css({'display':'none', 'opacity':'0'});
 								},250);
 			    			}
 		    			}
 		    		})
-		    		
+					/*select结束*/
 		    	}
 		    });
 
@@ -634,6 +644,30 @@ $signPackage = $jssdk->GetSignPackage();
 			        }]
 		    	],
 		    	select: function(result){
+		    		$('#loadingToast').css({'display':'block', 'opacity':'1'});
+					$('#loadingToast p').html('数据保存中');
+
+		    		var month = result[1] > 9 ? result[1] : '0'+result[1];
+		    		var message = result[0]+'-'+month;
+		    		$.ajax({
+		    			url: '/front/tsave_birth',
+		    			type: 'post',
+		    			dataType: 'json',
+		    			data: {
+		    				birth: message
+		    			},
+		    			success: function(data) {
+		    				if (data.errcode == 0) {
+			    				$('#loadingToast').css({'display':'none', 'opacity':'0'});
+			    				$('#toast p').html('修改成功');
+								$('#toast').css({'display':'block', 'opacity':'1'});
+								$('#showDatePicker span').html(result[0] + '年 ' + month +'月');
+								setTimeout(function(){
+									$('#toast').css({'display':'none', 'opacity':'0'});
+								},250);
+			    			}
+		    			}
+		    		})
 		    		$('#moneyPicker span').html(result[0] + '元 / ' + result[1] +'分钟');
 		    	}
 		    });
