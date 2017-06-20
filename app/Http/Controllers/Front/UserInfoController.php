@@ -104,6 +104,17 @@ class UserInfoController extends Controller
         return response()->json(['errcode'=>0]);
     }
 
+    public function t_status(Request $request) 
+    {
+        $openid = Session::get('openid');
+        $status = $request->input('status');
+        $flight = $this->returnUserFlight($openid,1);
+        $flight->find_status = $status;
+        $flight->save();
+
+        return response()->json(['errcode'=>0]);
+    }
+
     public function t_project(Request $request)
     {
     	$value = $request->input('value');

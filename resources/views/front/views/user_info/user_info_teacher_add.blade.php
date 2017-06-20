@@ -255,9 +255,9 @@ $signPackage = $jssdk->GetSignPackage();
 		                <p class="weui-actionsheet__title-text">选择求职状态</p>
 		            </div>
 		            <div class="weui-actionsheet__menu">
-		                <div class="weui-actionsheet__cell sex_actionsheet" val="1">兼职</div>
-		                <div class="weui-actionsheet__cell sex_actionsheet" val="2">全职</div>
-		                <div class="weui-actionsheet__cell sex_actionsheet" val="0">暂不考虑</div>
+		                <div class="weui-actionsheet__cell status_actionsheet" val="1">兼职</div>
+		                <div class="weui-actionsheet__cell status_actionsheet" val="2">全职</div>
+		                <div class="weui-actionsheet__cell status_actionsheet" val="0">暂不考虑</div>
 		            </div>
 		            <div class="weui-actionsheet__action">
 		                <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
@@ -487,6 +487,37 @@ $signPackage = $jssdk->GetSignPackage();
 					success: function(data) {
 						if (data.errcode == 0) {
 							$('#cell_sex').find('span').html(sex);
+							$('#page_row').css('display', 'none');
+							$('#sex').css('display', 'none');
+
+							$('#loadingToast').css({'display':'none', 'opacity':'0'});
+		    				$('#toast p').html('修改成功');
+							$('#toast').css({'display':'block', 'opacity':'1'});
+							setTimeout(function(){
+								$('#toast').css({'display':'none', 'opacity':'0'});
+							},1000);
+						}
+					}
+
+				})
+			})
+
+			/*求职状态*/
+			$('.status_actionsheet').click(function(){
+				var status = $(this).html();
+				var val = $(this).attr('val');
+				$('#loadingToast').css({'display':'block', 'opacity':'1'});
+				$('#loadingToast p').html('数据保存中');
+				$.ajax({
+					url: '/front/tsave_status',
+					type: 'post',
+					dataType: 'json',
+					data: {
+						status: val
+					},
+					success: function(data) {
+						if (data.errcode == 0) {
+							$('#cell_sex').find('span').html(status);
 							$('#page_row').css('display', 'none');
 							$('#sex').css('display', 'none');
 
