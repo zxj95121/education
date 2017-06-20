@@ -92,7 +92,7 @@ $signPackage = $jssdk->GetSignPackage();
 	                    		if (!$userDetail->birth) {
 	                    			echo '';
 	                    		} else {
-	                    			$birthArr = explode('-', $userDetail);
+	                    			$birthArr = explode('-', $userDetail->birth);
 	                    			echo $birthArr[0].'年'.$birthArr[1].'月';
 	                    		}
 	                    	@endphp
