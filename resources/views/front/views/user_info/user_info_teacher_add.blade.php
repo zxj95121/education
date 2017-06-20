@@ -420,7 +420,7 @@ $signPackage = $jssdk->GetSignPackage();
 			$('.page_set').css({'height': height+'px','top': height+'px'});
 
 			/*点击修改*/
-			$('.row_info').touchstart(function(){
+			$('.row_info').click(function(){
 				var target = $(this).attr('target');
 				$('#page_row').css('display', 'block');
 				$('#'+target).animate({'top': '0px'},250);
@@ -452,7 +452,7 @@ $signPackage = $jssdk->GetSignPackage();
 			})
 
 			/*取消修改*/
-			$('.done_romove').touchstart(function(){
+			$('.done_romove').click(function(){
 				$('#page_main').css('display', 'block');
 				$(this).parents('.page_set').animate({'top': height+'px'}, 250);
 				setTimeout(function(){
@@ -461,21 +461,21 @@ $signPackage = $jssdk->GetSignPackage();
 			})
 
 			/*性别*/
-			$('#cell_sex').touchstart(function(){
+			$('#cell_sex').click(function(){
 				$('#page_row').css('display', 'block');
 				$('#sex').css('display', 'block');
 			})
 			/*求职状态*/
-			$('#cell_status').touchstart(function(){
+			$('#cell_status').click(function(){
 				$('#page_row').css('display', 'block');
 				$('#status').css('display', 'block');
 			})
 
-			$('#iosActionsheetCancel').touchstart(function(){
+			$('#iosActionsheetCancel').click(function(){
 				$('#page_row').css('display', 'none');
 				$('#sex').css('display', 'none');
 			})
-			$('.sex_actionsheet').touchstart(function(){
+			$('.sex_actionsheet').click(function(){
 				var sex = $(this).html();
 				var val = $(this).attr('val');
 				$('#loadingToast').css({'display':'block', 'opacity':'1'});
@@ -506,7 +506,7 @@ $signPackage = $jssdk->GetSignPackage();
 			})
 
 			/*求职状态*/
-			$('.status_actionsheet').touchstart(function(){
+			$('.status_actionsheet').click(function(){
 				var status = $(this).html();
 				var val = $(this).attr('val');
 				$('#loadingToast').css({'display':'block', 'opacity':'1'});
@@ -538,13 +538,13 @@ $signPackage = $jssdk->GetSignPackage();
 
 			/*出生年月*/
 		    /*所在学校*/
-		    $('#school_btns button').touchstart(function(){
+		    $('#school_btns button').click(function(){
 		    	$('#school_btns button[class="btn btn-success"]').removeClass('btn-success').addClass('btn-info');
 		    	// var index = $(this).index('#school_btns button');
 		    	$(this).removeClass('btn-info').addClass('btn-success');
 		    })
 
-		    $('#school .done_ok').touchstart(function(){
+		    $('#school .done_ok').click(function(){
 		    	var value = $('#school_btns button[class="btn btn-success"]').html();
 		    	if (!value) {
 		    		return false;
@@ -559,7 +559,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    })
 
 		    /*文本框点击确认*/
-		    $('.done_ok1').touchstart(function(){
+		    $('.done_ok1').click(function(){
 		    	var index = $(this).index('.done_ok1');
 		    	var value = $(this).parents('.page_set').find('input').val();
 
