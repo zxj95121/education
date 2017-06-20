@@ -1,12 +1,12 @@
 $(function () {
     selfPicker = {
     	start: function(data){
-    		// selfPicker['size'+(selfPicker.length)] = selfPicker.size;
-    		selfPicker.length = selfPicker.length;
+    		selfPicker['size'+(selfPicker.length)] = {};
+            $.extend( true, selfPicker['size'+(selfPicker.length)], selfPicker.size );
     		selfPicker.current = selfPicker.length;
     		selfPicker['size'+(selfPicker.current)].action = data.action;/*进行绑定的这个名称*/
     		selfPicker['size'+(selfPicker.current)].id = data.id;
-    		selfPicker['size'+(selfPicker.current)].content = data.content;
+    		$.extend( true, selfPicker['size'+(selfPicker.current)].content, data.content );
     		selfPicker['size'+(selfPicker.current)].select = data.select;
 
     		selfPicker.arr[data.action] = selfPicker.current;
@@ -18,15 +18,7 @@ $(function () {
     	length: 1,
     	arr: [],
     	current: 0,
-    	size1:{
-    		content: {},
-	    	id: 0,
-	    	action: 0,
-	    	colHeight: 35,
-	    	result: {},
-	    	select: ''
-	    },
-	    size2:{
+    	size:{
     		content: {},
 	    	id: 0,
 	    	action: 0,
@@ -283,7 +275,7 @@ $(function () {
     		}]
     	],
     	select: function(result){
-    		console.log(result);
+    		// console.log(result);
     		$('#showDatePicker span').html(result[0] + '年 ' + result[1] +'月');
     	}
     });
