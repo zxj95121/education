@@ -1,4 +1,5 @@
 $(function () {
+	dddddddd = new Array();
     selfPicker = {
     	start: function(data){
     		selfPicker['size'+(selfPicker.length)] = {};
@@ -7,7 +8,9 @@ $(function () {
     		selfPicker['size'+(selfPicker.current)].action = data.action;/*进行绑定的这个名称*/
     		selfPicker['size'+(selfPicker.current)].id = data.id;
     		$.extend( true, selfPicker['size'+(selfPicker.current)].content, data.content );
-    		$.extend( true, selfPicker['size'+(selfPicker.current)].select, data.select );
+
+    		dddddddd[selfPicker.current] = data.select;
+    		selfPicker['size'+(selfPicker.current)].select = dddddddd[selfPicker.current];
 
     		selfPicker.arr[data.action] = selfPicker.current;
 
