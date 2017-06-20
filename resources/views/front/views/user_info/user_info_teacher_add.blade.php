@@ -564,72 +564,26 @@ $signPackage = $jssdk->GetSignPackage();
 	<script type="text/javascript">
 		$(function(){
 			/*价格*/
-			    selfPicker.start({
+			var yearArr = new Array();
+			var end = new Date().getFullYear();
+			for (var i = end-60,j = 0;i <= end;i++,j++) {
+				yearArr[j] = new Object();
+				yearArr[j].name = i+'年',
+				yearArr[j].value = i;
+			}
+
+			var monthArr = new Array();
+			for(var i = 1;i <= 12;i++) {
+				monthArr[i-1] = new Object();
+				monthArr[i-1].name = i+'月';
+				monthArr[i-1].value = i;
+			}
+
+			selfPicker.start({
 		    	id: 'birthPicker', 
 		    	action: 'showDatePicker',
 		    	content: [
-		    		[{
-		    			'name': '1960年',
-		    			'value': 1960
-		    		},{
-		    			'name': '1961年',
-		    			'value': 1961
-		    		},{
-		    			'name': '1962年',
-		    			'value': 1962
-		    		},{
-		    			'name': '1960年',
-		    			'value': 1960
-		    		},{
-		    			'name': '1961年',
-		    			'value': 1961
-		    		},{
-		    			'name': '1962年',
-		    			'value': 1962
-		    		},{
-		    			'name': '1960年',
-		    			'value': 1960
-		    		},{
-		    			'name': '1961年',
-		    			'value': 1961
-		    		},{
-		    			'name': '1962年',
-		    			'value': 1962
-		    		},{
-		    			'name': '1960年',
-		    			'value': 1960
-		    		},{
-		    			'name': '1961年',
-		    			'value': 1961
-		    		},{
-		    			'name': '1962年',
-		    			'value': 1962
-		    		},{
-		    			'name': '1960年',
-		    			'value': 1960
-		    		},{
-		    			'name': '1961年',
-		    			'value': 1961
-		    		},{
-		    			'name': '1962年',
-		    			'value': 1962
-		    		},{
-		    			'name': '1960年',
-		    			'value': 1960
-		    		},{
-		    			'name': '1961年',
-		    			'value': 1961
-		    		},{
-		    			'name': '1962年',
-		    			'value': 1962
-		    		}],
-		    		[{
-		    			'name': '1月',
-		    			'value': 1
-		    		},{
-		    			'name': '2月',
-		    			'value': 2
-		    		}]
+		    		yearArr,
 		    	],
 		    	select: function(result){
 		    		// console.log(result);
@@ -637,90 +591,18 @@ $signPackage = $jssdk->GetSignPackage();
 		    	}
 		    });
 
+			var monthArr = new Array();
+			for(var i = 50,j = 0;i <= 300;j++) {
+				monthArr[j] = new Object();
+				monthArr[j].name = i+'元',
+				monthArr[j].value = i;
+				i += 10;
+			}
 		    selfPicker.start({
 		    	id: 'myMoneyPicker', 
 		    	action: 'moneyPicker',
 		    	content: [
-					[{
-			            name: '50元',
-			            value: 50
-			        }, {
-			            name: '60元',
-			            value: 60,
-			            checked: true
-			        },{
-			            name: '70元',
-			            value: 70
-			        },{
-			            name: '80元',
-			            value: 80
-			        },{
-			            name: '90元',
-			            value: 90
-			        },{
-			            name: '100元',
-			            value: 100
-			        },{
-			            name: '110元',
-			            value: 110
-			        },{
-			            name: '120元',
-			            value: 120
-			        },{
-			            name: '130元',
-			            value: 130
-			        },{
-			            name: '140元',
-			            value: 140
-			        },{
-			            name: '150元',
-			            value: 150
-			        },{
-			            name: '160元',
-			            value: 160
-			        },{
-			            name: '170元',
-			            value: 170
-			        },{
-			            name: '180元',
-			            value: 180
-			        },{
-			            name: '190元',
-			            value: 190
-			        },{
-			            name: '200元',
-			            value: 200
-			        },{
-			            name: '210元',
-			            value: 210
-			        },{
-			            name: '220元',
-			            value: 220
-			        },{
-			            name: '230元',
-			            value: 230
-			        },{
-			            name: '240元',
-			            value: 240
-			        },{
-			            name: '250元',
-			            value: 250
-			        },{
-			            name: '260元',
-			            value: 260
-			        },{
-			            name: '270元',
-			            value: 270
-			        },{
-			            name: '280元',
-			            value: 280
-			        },{
-			            name: '290元',
-			            value: 290
-			        },{
-			            name: '300元',
-			            value: 300
-			        }],	 [{
+					monthArr,	 [{
 			            name: '60分钟',
 			            value: 60
 			        }, {
