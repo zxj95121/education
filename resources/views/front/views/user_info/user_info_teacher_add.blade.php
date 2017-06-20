@@ -250,22 +250,20 @@ $signPackage = $jssdk->GetSignPackage();
 			    </div>
 			    <div style="width: 97%;margin: 0 auto;padding:20px 4px;" id="school_btns">
 			    	<div class="row">
-			    		<div class="col-md-5">
-                        	<div class="panel panel-default">
-	                            <div class="panel-heading" style="background-color: #22AAE8;">
-	                                <h3 class="panel-title">本科院校</h3>
-	                            </div>
-	                            <div class="panel-body">
-	                                <button type="button" class="btn btn-info">安徽师范大学</button>
-							    	<button type="button" class="btn btn-info">安徽工程大学</button>
-							    	<button type="button" class="btn btn-info">皖南医学院</button>	
-							    	<button type="button" class="btn btn-info">芜湖职业技术学院</button>	
-							    	<button type="button" class="btn btn-info">安徽中医药高等专科学校</button>	
-							    	<button type="button" class="btn btn-info">安徽机电职业技术学院</button>	
-							    	<button type="button" class="btn btn-info">其他高校</button>
-	                            </div>
-	                        </div>
-	                    </div>
+			    		<div class="panel panel-color panel-primary">
+                            <div class="panel-heading"> 
+                                <h3 class="panel-title">本科院校</h3> 
+                            </div> 
+                            <div class="panel-body"> 
+                                <button type="button" class="btn btn-info">安徽师范大学</button>
+						    	<button type="button" class="btn btn-info">安徽工程大学</button>
+						    	<button type="button" class="btn btn-info">皖南医学院</button>	
+						    	<button type="button" class="btn btn-info">芜湖职业技术学院</button>	
+						    	<button type="button" class="btn btn-info">安徽中医药高等专科学校</button>	
+						    	<button type="button" class="btn btn-info">安徽机电职业技术学院</button>	
+						    	<button type="button" class="btn btn-info">其他高校</button> 
+                            </div> 
+                        </div>
 			    	</div>
 			    		
 			    </div>
