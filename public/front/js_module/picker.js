@@ -22,7 +22,7 @@ $(function () {
     	length: 1,
     	arr: [],
     	current: 0,
-    	default: []
+    	default: [],
     	size:{
     		content: {},
 	    	id: 0,
