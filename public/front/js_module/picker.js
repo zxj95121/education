@@ -7,6 +7,7 @@ $(function () {
                 selfPicker.current = data.len;
                 selfPicker.length = data.len;
                 selfPicker['size'+selfPicker.length] = {};
+                $('#'+data.id).remove();
             } else {
     	        selfPicker.current = selfPicker.length;
             }
