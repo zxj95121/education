@@ -659,6 +659,9 @@ $signPackage = $jssdk->GetSignPackage();
 		    	content: [
 		    		yearArr,monthArr
 		    	],
+		    	default: [
+		    		2017,5
+		    	],
 		    	select: function(result){
 		    		$('#loadingToast').css({'display':'block', 'opacity':'1'});
 					$('#loadingToast p').html('数据保存中');
