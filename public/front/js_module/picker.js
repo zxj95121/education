@@ -18,6 +18,14 @@ $(function () {
     		} else {
     			selfPicker.default[selfPicker.current] = new Array();
     		}
+
+    		/*click事件*/
+    		$('#'+selfPicker['size'+(selfPicker.current)].action).click(function(){
+				// console.log(selfPicker);
+				$('#pickerBigDiv').css('display', 'block');
+				$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
+		    })
+
     		picker_init(selfPicker['size'+(selfPicker.current)].id, data.content);//初始化插件
     		selfPicker.length = selfPicker.length+1;
     		// console.log(selfPicker);
@@ -165,19 +173,6 @@ $(function () {
     	$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','none');
     })
 
-    $('#showDatePicker').click(function(){
-		console.log(selfPicker);
-		$('#pickerBigDiv').css('display', 'block');
-		selfPicker.current = selfPicker.arr[$(this).attr('id')];
-		$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
-    })
-    $('#moneyPicker').click(function(){
-		console.log(selfPicker);
-		$('#pickerBigDiv').css('display', 'block');
-		selfPicker.current = selfPicker.arr[$(this).attr('id')];
-		$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
-    })
-
     function picker_init(id,content){
     	$('body').css('position','relative');
     	if ($('#pickerBigDiv').length == 0) {
@@ -208,20 +203,16 @@ $(function () {
 			if (selfPicker.default[selfPicker.current].length > 0) {
 				
 				var defaultValue = selfPicker.default[selfPicker.current][i];
-				console.log(defaultValue);
 				var num = 0;
 				var easyUse = selfPicker['size'+(selfPicker.current)].content[i];
-				console.log(easyUse);
 				for (var p in easyUse) {
 					if (easyUse[p].value == defaultValue) {
 						num = p;
 						break;
 					}
 				}
-				console.log(num);
 			} else {
 				var num = (selfPicker['size'+(selfPicker.current)].colHeight*3-marginTop)/selfPicker['size'+(selfPicker.current)].colHeight;
-				console.log(num);
     		}
 
     		/*先定位*/
