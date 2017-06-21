@@ -201,12 +201,12 @@ $(function () {
 		for (var i = 0;i < length;i++) {
 			var count = selfPicker['size'+(selfPicker.current)].content[i].length;
 			var marginTop = selfPicker['size'+(selfPicker.current)].colHeight*3;
-			marginTop -= parseInt((count)/2)*selfPicker['size'+(selfPicker.current)].colHeight;
-			$('#'+id+' .colPicker:eq('+i+')').css({'left': Math.floor(100/length)*i+'%','marginTop': marginTop+'px'});
+			
 			for (var j = 0;j < content[i].length;j++) {
 				$('#'+id+' .colPicker:eq('+i+')').append('<div class="basicPicker" val="'+content[i][j].value+'">' + content[i][j].name + '</div>');
 			}
 			if (selfPicker.default[selfPicker.current].length > 0) {
+				
 				var defaultValue = selfPicker.default[selfPicker.current][i];
 				console.log(defaultValue);
 				var num = 0;
@@ -223,6 +223,11 @@ $(function () {
 				var num = (selfPicker['size'+(selfPicker.current)].colHeight*3-marginTop)/selfPicker['size'+(selfPicker.current)].colHeight;
 				console.log(num);
     		}
+
+    		/*先定位*/
+			marginTop -= num*selfPicker['size'+(selfPicker.current)].colHeight;
+			$('#'+id+' .colPicker:eq('+i+')').css({'left': Math.floor(100/length)*i+'%','marginTop': marginTop+'px'});
+			/*再添加class*/
     		$('#'+id+' .colPicker:eq('+i+')').find('.basicPicker').eq(num).addClass('active0');
 		}
     }
