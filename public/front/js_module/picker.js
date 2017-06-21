@@ -206,10 +206,10 @@ $(function () {
 			if (selfPicker.default.length > 0) {
 				var defaultValue = selfPicker.default[selfPicker.current-1];
 				var num = 0;
-				var easyUse = selfPicker['size'+(selfPicker.current)].content;
-				for (var i in easyUse) {
-					if (easyUse[i].value == defaultValue) {
-						num = i;
+				var easyUse = selfPicker['size'+(selfPicker.current)].content[i];
+				for (var p in easyUse) {
+					if (easyUse[p].value == defaultValue) {
+						num = p;
 						break;
 					}
 				}
