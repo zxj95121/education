@@ -538,10 +538,10 @@ $signPackage = $jssdk->GetSignPackage();
 							if (val == 0) {
 								$('#moneyPicker').css('display', 'none');
 							} else if(val == 1) {
-								$('#moneyPicker').css('display', 'block');
+								$('#moneyPicker').css('display', 'flex');
 								$('#moneyPicker').find('div:eq(0)').html('期望薪资');
 							} else {
-								$('#moneyPicker').css('display', 'block');
+								$('#moneyPicker').css('display', 'flex');
 								$('#moneyPicker').find('div:eq(0)').html('期望月薪');
 							}
 
