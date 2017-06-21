@@ -2,13 +2,17 @@ $(function () {
     selfPicker = {
     	start: function(data){
     		selfPicker['size'+(selfPicker.length)] = {};
-            $.extend( true, selfPicker['size'+(selfPicker.length)], selfPicker.size );
+            
             if (data.len) {
                 selfPicker.current = data.len;
                 selfPicker.length = data.len;
+                selfPicker['size'+selfPicker.length-1] = {};
             } else {
     	        selfPicker.current = selfPicker.length;
             }
+
+            $.extend( true, selfPicker['size'+(selfPicker.length)], selfPicker.size );
+            
     		selfPicker['size'+(selfPicker.current)].action = data.action;/*进行绑定的这个名称*/
     		selfPicker['size'+(selfPicker.current)].id = data.id;
     		$.extend( true, selfPicker['size'+(selfPicker.current)].content, data.content );
