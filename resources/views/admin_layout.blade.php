@@ -107,6 +107,18 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="has-submenu {!!(Request::is('admin/doubleTeacher')? 'active' : '') !!}">
+                        <a href="#">
+                            <i class="zmdi zmdi-book"></i> 
+                            <span class="nav-label">双师class</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="list-unstyled">
+                            <li class="{!!(Request::is('admin/doubleTeacher')? 'active' : '') !!}">
+                                <a href="/admin/doubleTeacher">新增</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
                 
