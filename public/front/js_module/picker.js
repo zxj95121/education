@@ -11,8 +11,9 @@ $(function () {
 
     		selfPicker.arr[data.action] = selfPicker.current;
 
+    		console.log(data.default);
     		if (data.default) {
-    			$.extend(true, selfPicker.default, data.default);
+    			// $.extend(true, selfPicker.default, data.default);
     		}
     		picker_init(selfPicker['size'+(selfPicker.current)].id, data.content);//初始化插件
     		selfPicker.length = selfPicker.length+1;
