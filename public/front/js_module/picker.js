@@ -221,6 +221,7 @@ $(function () {
 				console.log(num);
 			} else {
 				var num = (selfPicker['size'+(selfPicker.current)].colHeight*3-marginTop)/selfPicker['size'+(selfPicker.current)].colHeight;
+				console.log(num);
     		}
     		$('#'+id+' .colPicker:eq('+i+')').find('.basicPicker').eq(num).addClass('active0');
 		}
