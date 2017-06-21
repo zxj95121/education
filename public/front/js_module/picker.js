@@ -128,7 +128,7 @@ $(function () {
     	}
 
     	var num = (selfPicker['size'+(selfPicker.current)].colHeight*3-flagTop)/selfPicker['size'+(selfPicker.current)].colHeight;
-    	
+    	console.log(num);
     	$(this).find('.basicPicker').each(function(){
     			$(this).removeClass('active0');/*去除class*/
     			$(this).removeClass('active1');/*去除class*/
@@ -200,23 +200,23 @@ $(function () {
 			if (selfPicker.default[selfPicker.current].length > 0) {
 				
 				var defaultValue = selfPicker.default[selfPicker.current][i];
-				var num = 0;
+				var placeNum = 0;
 				var easyUse = selfPicker['size'+(selfPicker.current)].content[i];
 				for (var p in easyUse) {
 					if (easyUse[p].value == defaultValue) {
-						num = p;
+						placeNum = p;
 						break;
 					}
 				}
 			} else {
-				var num = (selfPicker['size'+(selfPicker.current)].colHeight*3-marginTop)/selfPicker['size'+(selfPicker.current)].colHeight;
+				var placeNum = (selfPicker['size'+(selfPicker.current)].colHeight*3-marginTop)/selfPicker['size'+(selfPicker.current)].colHeight;
     		}
 
     		/*先定位*/
-			marginTop -= num*selfPicker['size'+(selfPicker.current)].colHeight;
+			marginTop -= placeNum*selfPicker['size'+(selfPicker.current)].colHeight;
 			$('#'+id+' .colPicker:eq('+i+')').css({'left': Math.floor(100/length)*i+'%','marginTop': marginTop+'px'});
 			/*再添加class*/
-    		$('#'+id+' .colPicker:eq('+i+')').find('.basicPicker').eq(num).addClass('active0');
+    		$('#'+id+' .colPicker:eq('+i+')').find('.basicPicker').eq(placeNum).addClass('active0');
 		}
     }
 });
