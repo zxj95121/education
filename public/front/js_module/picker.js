@@ -82,18 +82,20 @@ $(function () {
     $(document).on('touchend', '.colPicker', function(e){
     	state.dragable = false;
     	var marginTop =  parseFloat($(this).css('marginTop'));
+    	var IntTop = parseInt(marginTop);
+
     	/*不正确对其中间横线的处理代码*/
     	var mod = parseInt(marginTop)%selfPicker['size'+(selfPicker.current)].colHeight;
     	var shang = Math.ceil(selfPicker['size'+(selfPicker.current)].colHeight/2);
     	var xia = -1*Math.floor(selfPicker['size'+(selfPicker.current)].colHeight/2);
     	if (mod >=shang)
-    		mod = marginTop-mod+selfPicker['size'+(selfPicker.current)].colHeight;
+    		mod = IntTop-mod+selfPicker['size'+(selfPicker.current)].colHeight;
     	else if(mod < xia) {
-    		mod = marginTop-mod-selfPicker['size'+(selfPicker.current)].colHeight;
+    		mod = IntTop-mod-selfPicker['size'+(selfPicker.current)].colHeight;
     	} else if (mod >= xia) {
-    		mod = marginTop-mod;
+    		mod = IntTop-mod;
     	} else {
-    		mod = marginTop-mod;
+    		mod = IntTop-mod;
     	}
 
 
@@ -128,7 +130,7 @@ $(function () {
     	}
 
     	var num = (selfPicker['size'+(selfPicker.current)].colHeight*3-flagTop)/selfPicker['size'+(selfPicker.current)].colHeight;
-    	console.log(num);
+
     	$(this).find('.basicPicker').each(function(){
     			$(this).removeClass('active0');/*去除class*/
     			$(this).removeClass('active1');/*去除class*/
