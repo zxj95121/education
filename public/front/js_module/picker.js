@@ -7,7 +7,7 @@ $(function () {
                 selfPicker.current = data.len;
                 selfPicker.length = data.len;
                 selfPicker['size'+selfPicker.length] = {};
-                $('#pickerBigDiv #'+data.id).remove();
+                $('#pickerBigDiv #'+data.id).html('');
             } else {
     	        selfPicker.current = selfPicker.length;
             }
@@ -36,7 +36,11 @@ $(function () {
 				$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
 		    });
 
-    		picker_init(selfPicker['size'+(selfPicker.current)].id, data.content);/*初始化插件*/
+            if (data.len) {
+    	        picker_init(selfPicker['size'+(selfPicker.current)].id, data.content,data.len);/*初始化插件*/
+            } else {
+                picker_init(selfPicker['size'+(selfPicker.current)].id, data.content);
+            }
     		selfPicker.length = selfPicker.length+1;
 
     	},
@@ -182,7 +186,7 @@ $(function () {
     	$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','none');
     });
 
-    function picker_init(id,content){
+    function picker_init(id,content,len=0){
     	$('body').css('position','relative');
     	if ($('#pickerBigDiv').length == 0) {
     		$('body').append('<div id="pickerBigDiv" style=""></div>');
@@ -190,7 +194,8 @@ $(function () {
     		var height = document.documentElement.clientHeight;
     		$('#pickerBigDiv').css({'width':width,'height':height});
     	}
-		$('#pickerBigDiv').append($('#'+id));
+        if (len!=0)
+		   $('#pickerBigDiv').append($('#'+id));
 
 		var length = content.length;
 
