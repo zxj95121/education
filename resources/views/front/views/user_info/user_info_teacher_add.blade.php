@@ -707,6 +707,9 @@ $signPackage = $jssdk->GetSignPackage();
 			            value: 90
 			        }]
 		    	],
+		    	default: [
+		    		80,60
+		    	],
 		    	select: function(result){
 		    		$('#loadingToast').css({'display':'block', 'opacity':'1'});
 					$('#loadingToast p').html('数据保存中');
