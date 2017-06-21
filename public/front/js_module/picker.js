@@ -23,6 +23,7 @@ $(function () {
     		$('#'+selfPicker['size'+(selfPicker.current)].action).click(function(){
 				// console.log(selfPicker);
 				$('#pickerBigDiv').css('display', 'block');
+				selfPicker.current = selfPicker.arr[$(this).attr('id')];
 				$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
 		    })
 
