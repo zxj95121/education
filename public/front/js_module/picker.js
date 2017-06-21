@@ -208,14 +208,17 @@ $(function () {
 			}
 			if (selfPicker.default[selfPicker.current].length > 0) {
 				var defaultValue = selfPicker.default[selfPicker.current][i];
+				console.log(defaultValue);
 				var num = 0;
 				var easyUse = selfPicker['size'+(selfPicker.current)].content[i];
+				console.log(easyUse);
 				for (var p in easyUse) {
 					if (easyUse[p].value == defaultValue) {
 						num = p;
 						break;
 					}
 				}
+				console.log(num);
 			} else {
 				var num = (selfPicker['size'+(selfPicker.current)].colHeight*3-marginTop)/selfPicker['size'+(selfPicker.current)].colHeight;
     		}
