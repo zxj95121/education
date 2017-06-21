@@ -281,7 +281,7 @@ $signPackage = $jssdk->GetSignPackage();
 			    	<div class="row">
 			    		<div class="col-xs-12" style="margin-top: 5px;">
                             <div class="heading"> 
-                                <h3 style="margin-bottom: 0px;">本科院校</h3> 
+                                <h4 style="margin-bottom: 0px;">本科院校</h4> 
                             </div>
                             <div class="pbody"> 
                                 <button type="button" class="btn btn-info">安徽师范大学</button>
@@ -290,7 +290,7 @@ $signPackage = $jssdk->GetSignPackage();
 						    	<button type="button" class="btn btn-info">芜湖职业技术学院</button>	
 						    	<button type="button" class="btn btn-info">安徽中医药高等专科学校</button>	
 						    	<button type="button" class="btn btn-info">安徽机电职业技术学院</button>	
-						    	<button type="button" class="btn btn-info">其他高校</button> 
+						    	<button type="button" class="btn btn-info" >其他高校</button> 
                             </div> 
                         </div>
 			    	</div>

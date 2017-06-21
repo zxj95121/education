@@ -11,13 +11,18 @@ $(function () {
 
     		selfPicker.arr[data.action] = selfPicker.current;
 
+    		if (data.default) {
+    			$.extend(true, selfPicker.default, data.default);
+    		}
     		picker_init(selfPicker['size'+(selfPicker.current)].id, data.content);//初始化插件
     		selfPicker.length = selfPicker.length+1;
     		// console.log(selfPicker);
+
     	},
     	length: 1,
     	arr: [],
     	current: 0,
+    	default: []
     	size:{
     		content: {},
 	    	id: 0,
@@ -197,9 +202,19 @@ $(function () {
 			for (var j = 0;j < content[i].length;j++) {
 				$('#'+id+' .colPicker:eq('+i+')').append('<div class="basicPicker" val="'+content[i][j].value+'">' + content[i][j].name + '</div>');
 			}
-
-			var num = (selfPicker['size'+(selfPicker.current)].colHeight*3-marginTop)/selfPicker['size'+(selfPicker.current)].colHeight;
-    	
+			if (selfPicker.default) {
+				var defaultValue = selfPicker.default[selfPicker.current-1];
+				var num = 0;
+				var easyUse = selfPicker['size'+(selfPicker.current)].content;
+				for (var i in easyUse) {
+					if (easyUse[i].value == defaultValue) {
+						num = i;
+						break;
+					}
+				}
+			} else {
+				var num = (selfPicker['size'+(selfPicker.current)].colHeight*3-marginTop)/selfPicker['size'+(selfPicker.current)].colHeight;
+    		}
     		$('#'+id+' .colPicker:eq('+i+')').find('.basicPicker').eq(num).addClass('active0');
 		}
     }
