@@ -39,7 +39,7 @@ $(function () {
             if (data.len) {
     	        picker_init(selfPicker['size'+(selfPicker.current)].id, data.content,data.len);/*初始化插件*/
             } else {
-                picker_init(selfPicker['size'+(selfPicker.current)].id, data.content);
+                picker_init(selfPicker['size'+(selfPicker.current)].id, data.content,0);
             }
     		selfPicker.length = selfPicker.length+1;
 
@@ -186,7 +186,7 @@ $(function () {
     	$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','none');
     });
 
-    function picker_init(id,content,len=0){
+    function picker_init(id,content,len){
     	$('body').css('position','relative');
     	if ($('#pickerBigDiv').length == 0) {
     		$('body').append('<div id="pickerBigDiv" style=""></div>');
