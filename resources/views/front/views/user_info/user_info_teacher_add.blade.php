@@ -537,9 +537,35 @@ $signPackage = $jssdk->GetSignPackage();
 
 							if (val == 0) {
 								$('#moneyPicker').css('display', 'none');
+							} else if(val == 1) {
+								$('#moneyPicker').css('display', 'block');
+								$('#moneyPicker').find('div:eq(0)').html('期望薪资');
 							} else {
 								$('#moneyPicker').css('display', 'block');
+								$('#moneyPicker').find('div:eq(0)').html('期望月薪');
 							}
+
+							var monthArr = new Array();
+							for(var i = 1500,j = 0;i <= 5000;j++) {
+								monthArr[j] = new Object();
+								monthArr[j].name = i+'元',
+								monthArr[j].value = i;
+								i += 100;
+							}
+						    selfPicker.start({
+						    	id: 'myMoneyPicker', 
+						    	action: 'moneyPicker',
+						    	content: [
+									monthArr
+						    	],
+						    	default: [
+						    		3500
+						    	],
+						    	select: function(result){
+						    		$('#loadingToast').css({'display':'block', 'opacity':'1'});
+									$('#loadingToast p').html('数据保存中');
+						    	}
+						    });
 						}
 					}
 
