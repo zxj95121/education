@@ -558,6 +558,7 @@ $signPackage = $jssdk->GetSignPackage();
 						    	content: [
 									monthArr
 						    	],
+						    	len: 2,
 						    	default: [
 						    		3500
 						    	],
