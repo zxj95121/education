@@ -194,7 +194,7 @@ $(function () {
     		var height = document.documentElement.clientHeight;
     		$('#pickerBigDiv').css({'width':width,'height':height});
     	}
-        if (len!=0)
+        if (len==0)
 		   $('#pickerBigDiv').append($('#'+id));
 
 		var length = content.length;
