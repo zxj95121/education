@@ -13,7 +13,8 @@ $(function () {
 
     		// console.log(data.default);
     		if (data.default) {
-    			$.extend(true, selfPicker.default, data.default);
+    			selfPicker.default[selfPicker.current] = new Array();
+    			$.extend(true, selfPicker.default[selfPicker.current], data.default);
     		}
     		picker_init(selfPicker['size'+(selfPicker.current)].id, data.content);//初始化插件
     		selfPicker.length = selfPicker.length+1;
@@ -203,8 +204,8 @@ $(function () {
 			for (var j = 0;j < content[i].length;j++) {
 				$('#'+id+' .colPicker:eq('+i+')').append('<div class="basicPicker" val="'+content[i][j].value+'">' + content[i][j].name + '</div>');
 			}
-			if (selfPicker.default.length > 0) {
-				var defaultValue = selfPicker.default[selfPicker.current-1];
+			if (selfPicker.default[selfPicker.current].length > 0) {
+				var defaultValue = selfPicker.default[selfPicker.current][i];
 				var num = 0;
 				var easyUse = selfPicker['size'+(selfPicker.current)].content[i];
 				for (var p in easyUse) {
