@@ -7,7 +7,7 @@ $(function () {
                 selfPicker.current = data.len;
                 selfPicker.length = data.len;
                 selfPicker['size'+selfPicker.length] = {};
-                $('#'+data.id).html('');
+                $('#'+data.id+' .contentPicker').html('');
             } else {
     	        selfPicker.current = selfPicker.length;
             }
