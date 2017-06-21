@@ -263,7 +263,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                <div class="weui-actionsheet__cell status_actionsheet" val="0">暂不考虑</div>
 		            </div>
 		            <div class="weui-actionsheet__action">
-		                <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
+		                <div class="weui-actionsheet__cell" id="iosActionsheetCancel2">取消</div>
 		            </div>
 		        </div>
 		    </div>
@@ -475,6 +475,10 @@ $signPackage = $jssdk->GetSignPackage();
 				$('#page_row').css('display', 'none');
 				$('#sex').css('display', 'none');
 			})
+			$('#iosActionsheetCancel2').click(function(){
+				$('#page_row').css('display', 'none');
+				$('#status').css('display', 'none');
+			})
 			$('.sex_actionsheet').click(function(){
 				var sex = $(this).html();
 				var val = $(this).attr('val');
@@ -530,6 +534,12 @@ $signPackage = $jssdk->GetSignPackage();
 							setTimeout(function(){
 								$('#toast').css({'display':'none', 'opacity':'0'});
 							},1000);
+
+							if (val == 0) {
+								$('#moneyPicker').css('display', 'none');
+							} else {
+								$('#moneyPicker').css('display', 'block');
+							}
 						}
 					}
 
