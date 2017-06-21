@@ -94,6 +94,15 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
   	$router->post('/schooltwo/add','Setting\SchoolController@schooltwoAdd');//学科添加
   	$router->post('/schooltwo/edit','Setting\SchoolController@schooltwoEdit');//学科修改
   	$router->post('/schooltwo/delete','Setting\SchoolController@schooltwoDelete');//学科删除
+  	
+  	$router->get('/doubleTeacher','Teacher\DoubleTeacherController@doubleTeacher');//双师管理
+  	$router->get('/teacheroneAdd','Teacher\DoubleTeacherController@oneAdd');//双师1添加
+  	$router->post('/teacherone/Add','Teacher\DoubleTeacherController@oneAdd_post');
+  	$router->get('/teacheroneEdit','Teacher\DoubleTeacherController@oneEdit');//双师1修改
+  	$router->post('/teacherone/Edit','Teacher\DoubleTeacherController@oneEdit_post');
+  	$router->get('/teacheroneDelete','Teacher\DoubleTeacherController@oneDelete');
+  	$router->get('/teacheroneHide','Teacher\DoubleTeacherController@oneHide');
+  	 
 });
 
 
