@@ -15,6 +15,8 @@ $(function () {
     		if (data.default) {
     			selfPicker.default[selfPicker.current] = new Array();
     			$.extend(true, selfPicker.default[selfPicker.current], data.default);
+    		} else {
+    			selfPicker.default[selfPicker.current] = new Array();
     		}
     		picker_init(selfPicker['size'+(selfPicker.current)].id, data.content);//初始化插件
     		selfPicker.length = selfPicker.length+1;
