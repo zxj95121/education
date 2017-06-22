@@ -7,7 +7,8 @@ $(function () {
                 selfPicker.current = data.len;
                 selfPicker.length = data.len;
                 selfPicker['size'+selfPicker.length] = {};
-                $('#'+data.id+' .contentPicker').html('');
+                $('#'+data.id+' .contentPicker').html('').append('<div class="linePicker"></div>');
+
             } else {
     	        selfPicker.current = selfPicker.length;
             }

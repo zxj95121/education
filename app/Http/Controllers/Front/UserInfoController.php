@@ -28,7 +28,19 @@ class UserInfoController extends Controller
             ->get()[0];
         $userDetail = TeacherDetail::where('tid', $userInfo->id)
             ->get()[0];
+
+        if (!$userDetail->type) {
+            redirect('/front/selectTeacherType');
+        }
     	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail]);
+    }
+
+    public function selectTeacherType()
+    {
+        $openid = Session::get('openid');
+        $userInfo = TeacherInfo::where('openid', $openid)
+            ->get()[0];
+        return view('front/views.user_info.user_teacher_redirect');   
     }
 
     /*修改teacher的头像*/

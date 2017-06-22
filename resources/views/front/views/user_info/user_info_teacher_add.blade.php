@@ -415,6 +415,7 @@ $signPackage = $jssdk->GetSignPackage();
 	<script type="text/javascript" src="/front/js_module/picker.js"></script>
 	<script type="text/javascript">
 		$(function(){
+			find_status = {{$userDetail->find_status}};
 			var height = document.documentElement.clientHeight;
 			$('#page_row').css({'display': 'none','height': height+'px'});
 			$('.page_set').css({'height': height+'px','top': height+'px'});
@@ -540,33 +541,84 @@ $signPackage = $jssdk->GetSignPackage();
 							} else if(val == 1) {
 								$('#moneyPicker').css('display', 'flex');
 								$('#moneyPicker').find('div:eq(0)').html('期望薪资');
+
+								var monthArr = new Array();
+								for(var i = 50,j = 0;i <= 300;j++) {
+									monthArr[j] = new Object();
+									monthArr[j].name = i+'元',
+									monthArr[j].value = i;
+									i += 10;
+								}
+							    selfPicker.start({
+							    	id: 'myMoneyPicker', 
+							    	action: 'moneyPicker',
+							    	content: [
+										monthArr,	 [{
+								            name: '60分钟',
+								            value: 60
+								        }, {
+								            name: '90分钟',
+								            value: 90
+								        }]
+							    	],
+							    	default: [
+							    		80,60
+							    	],
+							    	select: function(result){
+							    		$('#loadingToast').css({'display':'block', 'opacity':'1'});
+										$('#loadingToast p').html('数据保存中');
+
+							    		var month = result[1] > 9 ? result[1] : '0'+result[1];
+							    		var message = result[0]+'-'+month;
+							    		$.ajax({
+							    			url: '/front/tsave_birth',
+							    			type: 'post',
+							    			dataType: 'json',
+							    			data: {
+							    				birth: message
+							    			},
+							    			success: function(data) {
+							    				if (data.errcode == 0) {
+								    				$('#loadingToast').css({'display':'none', 'opacity':'0'});
+								    				$('#toast p').html('修改成功');
+													$('#toast').css({'display':'block', 'opacity':'1'});
+													$('#moneyPicker span').html(result[0] + '元 / ' + result[1] +'分钟');
+													setTimeout(function(){
+														$('#toast').css({'display':'none', 'opacity':'0'});
+													},250);
+								    			}
+							    			}
+							    		})
+							    	}
+							    });
 							} else {
 								$('#moneyPicker').css('display', 'flex');
 								$('#moneyPicker').find('div:eq(0)').html('期望月薪');
+
+								var monthArr = new Array();
+								for(var i = 1500,j = 0;i <= 5000;j++) {
+									monthArr[j] = new Object();
+									monthArr[j].name = i+'元',
+									monthArr[j].value = i;
+									i += 100;
+								}
+							    selfPicker.start({
+							    	id: 'myMoneyPicker', 
+							    	action: 'moneyPicker',
+							    	content: [
+										monthArr
+							    	],
+							    	len: 2,
+							    	default: [
+							    		3500
+							    	],
+							    	select: function(result){
+							    		$('#loadingToast').css({'display':'block', 'opacity':'1'});
+										$('#loadingToast p').html('数据保存中');
+							    	}
+							    });
 							}
 
-							var monthArr = new Array();
-							for(var i = 1500,j = 0;i <= 5000;j++) {
-								monthArr[j] = new Object();
-								monthArr[j].name = i+'元',
-								monthArr[j].value = i;
-								i += 100;
-							}
-						    selfPicker.start({
-						    	id: 'myMoneyPicker', 
-						    	action: 'moneyPicker',
-						    	content: [
-									monthArr
-						    	],
-						    	len: 2,
-						    	default: [
-						    		3500
-						    	],
-						    	select: function(result){
-						    		$('#loadingToast').css({'display':'block', 'opacity':'1'});
-									$('#loadingToast p').html('数据保存中');
-						    	}
-						    });
 						}
 					}
 
@@ -727,56 +779,80 @@ $signPackage = $jssdk->GetSignPackage();
 					/*select结束*/
 		    	}
 		    });
+			if (find_status == 1) {
+				var monthArr = new Array();
+				for(var i = 50,j = 0;i <= 300;j++) {
+					monthArr[j] = new Object();
+					monthArr[j].name = i+'元',
+					monthArr[j].value = i;
+					i += 10;
+				}
+			    selfPicker.start({
+			    	id: 'myMoneyPicker', 
+			    	action: 'moneyPicker',
+			    	content: [
+						monthArr,	 [{
+				            name: '60分钟',
+				            value: 60
+				        }, {
+				            name: '90分钟',
+				            value: 90
+				        }]
+			    	],
+			    	default: [
+			    		80,60
+			    	],
+			    	select: function(result){
+			    		$('#loadingToast').css({'display':'block', 'opacity':'1'});
+						$('#loadingToast p').html('数据保存中');
 
-			var monthArr = new Array();
-			for(var i = 50,j = 0;i <= 300;j++) {
-				monthArr[j] = new Object();
-				monthArr[j].name = i+'元',
-				monthArr[j].value = i;
-				i += 10;
-			}
-		    selfPicker.start({
-		    	id: 'myMoneyPicker', 
-		    	action: 'moneyPicker',
-		    	content: [
-					monthArr,	 [{
-			            name: '60分钟',
-			            value: 60
-			        }, {
-			            name: '90分钟',
-			            value: 90
-			        }]
-		    	],
-		    	default: [
-		    		80,60
-		    	],
-		    	select: function(result){
-		    		$('#loadingToast').css({'display':'block', 'opacity':'1'});
-					$('#loadingToast p').html('数据保存中');
-
-		    		var month = result[1] > 9 ? result[1] : '0'+result[1];
-		    		var message = result[0]+'-'+month;
-		    		$.ajax({
-		    			url: '/front/tsave_birth',
-		    			type: 'post',
-		    			dataType: 'json',
-		    			data: {
-		    				birth: message
-		    			},
-		    			success: function(data) {
-		    				if (data.errcode == 0) {
-			    				$('#loadingToast').css({'display':'none', 'opacity':'0'});
-			    				$('#toast p').html('修改成功');
-								$('#toast').css({'display':'block', 'opacity':'1'});
-								$('#moneyPicker span').html(result[0] + '元 / ' + result[1] +'分钟');
-								setTimeout(function(){
-									$('#toast').css({'display':'none', 'opacity':'0'});
-								},250);
+			    		var month = result[1] > 9 ? result[1] : '0'+result[1];
+			    		var message = result[0]+'-'+month;
+			    		$.ajax({
+			    			url: '/front/tsave_birth',
+			    			type: 'post',
+			    			dataType: 'json',
+			    			data: {
+			    				birth: message
+			    			},
+			    			success: function(data) {
+			    				if (data.errcode == 0) {
+				    				$('#loadingToast').css({'display':'none', 'opacity':'0'});
+				    				$('#toast p').html('修改成功');
+									$('#toast').css({'display':'block', 'opacity':'1'});
+									$('#moneyPicker span').html(result[0] + '元 / ' + result[1] +'分钟');
+									setTimeout(function(){
+										$('#toast').css({'display':'none', 'opacity':'0'});
+									},250);
+				    			}
 			    			}
-		    			}
-		    		})
-		    	}
-		    });
+			    		})
+			    	}
+			    });
+			} else if (find_status == 2) {
+				var monthArr = new Array();
+				for(var i = 1500,j = 0;i <= 5000;j++) {
+					monthArr[j] = new Object();
+					monthArr[j].name = i+'元',
+					monthArr[j].value = i;
+					i += 100;
+				}
+			    selfPicker.start({
+			    	id: 'myMoneyPicker', 
+			    	action: 'moneyPicker',
+			    	content: [
+						monthArr
+			    	],
+			    	len: 2,
+			    	default: [
+			    		3500
+			    	],
+			    	select: function(result){
+			    		$('#loadingToast').css({'display':'block', 'opacity':'1'});
+						$('#loadingToast p').html('数据保存中');
+			    	}
+			    });
+			}
 		});
 	</script>
 	<script type="text/javascript">
