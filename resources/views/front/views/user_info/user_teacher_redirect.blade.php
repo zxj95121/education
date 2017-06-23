@@ -7,11 +7,11 @@
 <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
 <script src="/js/jquery-mobile/jquery.mobile-1.4.5.js"></script>
 </head>
-<body>
+<body style="background-color: #22AAE8;">
 
-	<div data-role="page" data-theme="b">
+	<div data-role="page" style="background-color: #22AAE8;">
 	 	<div data-role="content">
-	    	<form method="post" action="demoform.asp">
+	    	<form method="post" action="demoform.asp" style="background-color: #22AAE8;">
 	      		<fieldset data-role="fieldcontain">
 	        		<label for="day">选择身份</label>
 	        		<select name="day" id="day">
@@ -19,7 +19,7 @@
 	         			<option value="sun">职业教师</option>
 	        		</select>
 	      		</fieldset>
-	      		<input type="submit" data-inline="true" value="提交">
+	      		<input type="submit" data-inline="true" value="提交" style="background-color: #22AAE8;">
 	    	</form>
 	  	</div>
 	</div>
