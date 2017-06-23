@@ -32,15 +32,18 @@
 				if(index == 2){
 					$(this).prev().removeClass('weui-btn_primary').addClass('weui-btn_default');
 					// $(this).prev().css({'background-color':'#f8f8f8','color':'#000'});
-					$(this).prev().removeClass('ttt');
+					// $(this).prev().removeClass('ttt');
+					$(this).prev().css({'text-decoration':'none','color':'#FFF'});
 				} else {
 					$(this).next().removeClass('weui-btn_primary').addClass('weui-btn_default');
 					// $(this).next().css({'background-color':'#f8f8f8','color':'#000'});;
-					$(this).next().removeClass('ttt');
+					// $(this).next().removeClass('ttt');
+					$(this).next().css({'text-decoration':'none','color':'#FFF'});
 				}
 
 				$(this).removeClass('weui-btn_default').addClass('weui-btn_primary');
-				$(this).addClass('ttt');
+				// $(this).addClass('ttt');
+				$(this).css({'text-decoration':'none','color':'#FFF'});
 			});
 
 			$('#confirm').click(function(){
