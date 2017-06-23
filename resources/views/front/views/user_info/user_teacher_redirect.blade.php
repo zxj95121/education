@@ -32,11 +32,11 @@
 				if(index == 1){
 					$(this).prev().removeClass('weui-btn_primary').addClass('weui-btn_default');
 					// $(this).prev().css({'background-color':'#f8f8f8','color':'#000'});
-					$(this).prev().removeClass('ttt');
+					// $(this).prev().removeClass('ttt');
 				} else {
 					$(this).next().removeClass('weui-btn_primary').addClass('weui-btn_default');
 					// $(this).next().css({'background-color':'#f8f8f8','color':'#000'});;
-					$(this).next().removeClass('ttt');
+					// $(this).next().removeClass('ttt');
 				}
 
 				$(this).removeClass('weui-btn_default').addClass('weui-btn_primary').addClass('ttt');
