@@ -6,6 +6,10 @@
 	<link rel="stylesheet" type="text/css" href="/js/weui/weui.min.css" />
 	<link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.min.css" />
 	<style type="text/css">
+		#confirm:hover{
+			text-decoration: none;
+			color: #FFF;
+		}
 	</style>
 </head>
 <body>
