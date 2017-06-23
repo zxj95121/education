@@ -26,9 +26,11 @@
 			$('.weui-btn-mini').click(function(){
 				var index = $(this).index();
 				if(index == 1){
-					$(this).prev().removeClass('weui-btn_primary').addClass('weui-btn_default').css({'background-color':'#f8f8f8','color':'#000'});
+					$(this).prev().removeClass('weui-btn_primary').addClass('weui-btn_default');
+					$(this).prev().css({'background-color':'#f8f8f8','color':'#000'});
 				} else {
-					$(this).next().removeClass('weui-btn_primary').addClass('weui-btn_default').css({'background-color':'#f8f8f8','color':'#000'});;
+					$(this).next().removeClass('weui-btn_primary').addClass('weui-btn_default');
+					$(this).next().css({'background-color':'#f8f8f8','color':'#000'});;
 				}
 
 				$(this).removeClass('weui-btn_default').addClass('weui-btn_primary');
