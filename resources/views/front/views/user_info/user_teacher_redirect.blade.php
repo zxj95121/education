@@ -2,6 +2,7 @@
 <html>
 <head>
 <title></title>
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
 <link rel="stylesheet" href="/js/jquery-mobile/jquery.mobile-1.4.5.css">
 <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
 <script src="/js/jquery-mobile/jquery.mobile-1.4.5.js"></script>
