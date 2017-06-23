@@ -39,7 +39,8 @@
 					$(this).next().removeClass('ttt');
 				}
 
-				$(this).removeClass('weui-btn_default').addClass('weui-btn_primary').addClass('ttt');
+				$(this).removeClass('weui-btn_default').addClass('weui-btn_primary');
+				$(this).addClass('ttt');
 			});
 
 			$('#confirm').click(function(){
