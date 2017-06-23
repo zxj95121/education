@@ -39,7 +39,7 @@
 
 				$(this).removeClass('weui-btn_default').addClass('weui-btn_primary');
 				// $(this).addClass('ttt');
-				$(this).css({'text-decoration':'none','color':'#FFF'});
+				$(this).css({'text-decoration':'none','color':'#FFF','background-color':'#1aad19'});
 			});
 
 			$('#confirm').click(function(){
