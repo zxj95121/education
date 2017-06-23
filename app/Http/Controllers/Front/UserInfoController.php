@@ -30,7 +30,7 @@ class UserInfoController extends Controller
             ->get()[0];
 
         if (!$userDetail->type) {
-            redirect('/front/selectTeacherType');
+            return redirect('/front/selectTeacherType');
         }
     	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail]);
     }
