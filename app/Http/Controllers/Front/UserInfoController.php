@@ -41,7 +41,9 @@ class UserInfoController extends Controller
 
         if ($request->input('type')) {
             $type = $request->input('type');
-            TeacherDetail::where('openid', $openid)
+            $userInfo = TeacherInfo::where('openid', $openid)
+            ->get()[0];
+            TeacherDetail::where('tid', $userInfo->id)
                 ->update(['type'=>$type]);
             return redirect('/front/user_info_teacher');
         }
