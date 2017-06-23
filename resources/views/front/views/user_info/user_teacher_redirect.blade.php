@@ -6,10 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="/js/weui/weui.min.css" />
 	<link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.min.css" />
 	<style type="text/css">
-		.ttt{
-			text-decoration: none;
-			color: #FFF;
-		}
 	</style>
 </head>
 <body>
@@ -33,12 +29,12 @@
 					$(this).prev().removeClass('weui-btn_primary').addClass('weui-btn_default');
 					// $(this).prev().css({'background-color':'#f8f8f8','color':'#000'});
 					// $(this).prev().removeClass('ttt');
-					$(this).prev().css({'text-decoration':'none','color':'#FFF'});
+					$(this).prev().css({'background-color':'#f8f8f8','color':'#000'});
 				} else {
 					$(this).next().removeClass('weui-btn_primary').addClass('weui-btn_default');
 					// $(this).next().css({'background-color':'#f8f8f8','color':'#000'});;
 					// $(this).next().removeClass('ttt');
-					$(this).next().css({'text-decoration':'none','color':'#FFF'});
+					$(this).next().css({'background-color':'#f8f8f8','color':'#000'});
 				}
 
 				$(this).removeClass('weui-btn_default').addClass('weui-btn_primary');
