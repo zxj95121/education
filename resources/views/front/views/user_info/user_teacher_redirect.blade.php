@@ -14,11 +14,14 @@
 </head>
 <body>
 	<div class="container" style="width:95%;max-width: 500px;margin:0 auto;padding: 0px;position: relative;text-align: center;">
+		<article class="weui-article">
+            <h1>请选择您的身份</h1>
+        </article>
 		<a href="javascript:;" class="weui-btn weui-btn-mini weui-btn_default" type="1">大学生教师</a>
 		<a type="2" href="javascript:;" class="weui-btn weui-btn-mini weui-btn_default">职业教师</a>
 		
 		<br>
-		<a href="javascript:;" id="confirm" class="weui-btn weui-btn_primary">确认身份</a>
+		<a href="javascript:;" id="confirm" class="weui-btn weui-btn_primary" style="background-color: #22AAE8;">确认身份</a>
 	</div>
 
 	<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
