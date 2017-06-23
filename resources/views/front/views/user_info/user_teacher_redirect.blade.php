@@ -5,9 +5,15 @@
 	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="/js/weui/weui.min.css" />
 	<link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.min.css" />
+	<style type="text/css">
+		a:hover{
+			text-decoration: none;
+			color: #FFF;
+		}
+	</style>
 </head>
 <body>
-	<div class="container" style="max-width: 500px;margin:0 auto;padding: 0px;position: relative;text-align: center;">
+	<div class="container" style="width:95%;max-width: 500px;margin:0 auto;padding: 0px;position: relative;text-align: center;">
 		<a href="javascript:;" class="weui-btn weui-btn-mini weui-btn_default" type="1">大学生教师</a>
 		<a type="2" href="javascript:;" class="weui-btn weui-btn-mini weui-btn_default">职业教师</a>
 		
