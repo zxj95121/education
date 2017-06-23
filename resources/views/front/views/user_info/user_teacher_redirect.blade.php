@@ -29,6 +29,7 @@
 		$(function(){
 			$('.weui-btn-mini').click(function(){
 				var index = $(this).index();
+				console.log(index);
 				if(index == 1){
 					$(this).prev().removeClass('weui-btn_primary').addClass('weui-btn_default');
 					// $(this).prev().css({'background-color':'#f8f8f8','color':'#000'});
