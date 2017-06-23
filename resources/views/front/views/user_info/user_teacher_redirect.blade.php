@@ -6,10 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="/js/weui/weui.min.css" />
 	<link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.min.css" />
 	<style type="text/css">
-		a:hover{
-			text-decoration: none;
-			color: #FFF;
-		}
 	</style>
 </head>
 <body>
@@ -17,8 +13,8 @@
 		<article class="weui-article">
             <h1>请选择您的身份</h1>
         </article>
-		<a href="javascript:;" class="weui-btn weui-btn-mini weui-btn_default" type="1">大学生教师</a>
-		<a type="2" href="javascript:;" class="weui-btn weui-btn-mini weui-btn_default">职业教师</a>
+		<a href="javascript:;" class="ha weui-btn weui-btn-mini weui-btn_default" type="1">大学生教师</a>
+		<a type="2" href="javascript:;" class="ha weui-btn weui-btn-mini weui-btn_default">职业教师</a>
 		
 		<br>
 		<a href="javascript:;" id="confirm" class="weui-btn weui-btn_primary" style="background-color: #22AAE8;">确认身份</a>
@@ -36,6 +32,7 @@
 				}
 
 				$(this).removeClass('weui-btn_default').addClass('weui-btn_primary');
+				$(this).css({'text-decoration': 'none','color': '#FFF'});
 			});
 
 			$('#confirm').click(function(){
