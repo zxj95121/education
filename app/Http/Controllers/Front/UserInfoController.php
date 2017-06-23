@@ -35,9 +35,17 @@ class UserInfoController extends Controller
     	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail]);
     }
 
-    public function selectTeacherType()
+    public function selectTeacherType(Request $request)
     {
         $openid = Session::get('openid');
+
+        if ($request->input('type')) {
+            $type = $request->input('type');
+            TeacherDetail::where('openid', $openid)
+                ->update(['type']=>$type);
+            return redirect('/front/user_info_teacher');
+        }
+
         $userInfo = TeacherInfo::where('openid', $openid)
             ->get()[0];
         return view('front/views.user_info.user_teacher_redirect');   
