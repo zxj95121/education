@@ -6,12 +6,16 @@
 	<link rel="stylesheet" type="text/css" href="/js/weui/weui.min.css" />
 	<link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.min.css" />
 	<style type="text/css">
+		.ttt{
+			text-decoration: none;
+			color: #FFF;
+		}
 	</style>
 </head>
 <body>
 	<div class="container" style="width:95%;max-width: 500px;margin:0 auto;padding: 0px;position: relative;text-align: center;">
 		<article class="weui-article">
-            <h1>请选择您的身份</h1>
+            <h1 style="text-align: left;">请选择您的身份</h1>
         </article>
 		<a href="javascript:;" class="ha weui-btn weui-btn-mini weui-btn_default" type="1">大学生教师</a>
 		<a type="2" href="javascript:;" class="ha weui-btn weui-btn-mini weui-btn_default">职业教师</a>
@@ -27,14 +31,15 @@
 				var index = $(this).index();
 				if(index == 1){
 					$(this).prev().removeClass('weui-btn_primary').addClass('weui-btn_default');
-					$(this).prev().css({'background-color':'#f8f8f8','color':'#000'});
+					// $(this).prev().css({'background-color':'#f8f8f8','color':'#000'});
+					$(this).prev().removeClass('ttt');
 				} else {
 					$(this).next().removeClass('weui-btn_primary').addClass('weui-btn_default');
-					$(this).next().css({'background-color':'#f8f8f8','color':'#000'});;
+					// $(this).next().css({'background-color':'#f8f8f8','color':'#000'});;
+					$(this).next().removeClass('ttt');
 				}
 
-				$(this).removeClass('weui-btn_default').addClass('weui-btn_primary');
-				$(this).css({'text-decoration': 'none','color': '#FFF'});
+				$(this).removeClass('weui-btn_default').addClass('weui-btn_primary').addClass('ttt');
 			});
 
 			$('#confirm').click(function(){
