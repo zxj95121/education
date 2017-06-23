@@ -9,21 +9,17 @@
 </head>
 <body>
 
-	<div data-role="page">
-  		<div data-role="header">
-  			<h1>选择菜单</h1>
-  		</div>
-
+	<div data-role="page" data-theme="b">
 	 	<div data-role="content" data-theme="b">
-	    	<form method="post" action="demoform.asp">
-	      		<fieldset data-role="fieldcontain">
-	        		<label for="day">选择身份</label>
-	        		<select name="day" id="day">
-	         			<option value="sat">大学生教师</option>
-	         			<option value="sun">职业教师</option>
+	    	<form method="post" action="demoform.asp" data-theme="b">
+	      		<fieldset data-role="fieldcontain" data-theme="b">
+	        		<label for="day">选择身份</label data-theme="b">
+	        		<select name="day" id="day" data-theme="b">
+	         			<option value="sat" data-theme="b">大学生教师</option>
+	         			<option value="sun" data-theme="b">职业教师</option>
 	        		</select>
 	      		</fieldset>
-	      		<input type="submit" data-inline="true" value="提交">
+	      		<input type="submit" data-inline="true" value="提交" data-theme="b">
 	    	</form>
 	  	</div>
 	</div>
