@@ -8,15 +8,11 @@
 </head>
 <body>
 	<div class="container" style="max-width: 500px;margin:0 auto;padding: 0px;position: relative;text-align: center;">
-		<div id="example-icon-buttons" class="ionic-body active-preview">
-		    <div class="bar bar-header">
-		      <div class="h1 title">Icon Buttons</div>
-		    </div>
-		      <p>
-		        <a class="button icon-right ion-chevron-right button-calm">Learn More</a>
-		      </p>
-		    </div>
-		  </div>
+		<a href="javascript:;" class="weui-btn weui-btn-mini weui-btn_default" type="1">大学生教师</a>
+		<a type="2" href="javascript:;" class="weui-btn weui-btn-mini weui-btn_default">职业教师</a>
+		
+		<br>
+		<a href="javascript:;" id="confirm" class="weui-btn weui-btn_primary">确认身份</a>
 	</div>
 
 	<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
