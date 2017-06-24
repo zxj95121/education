@@ -140,7 +140,7 @@ class UserInfoController extends Controller
     public function t_project(Request $request)
     {
     	$value = $request->input('value');
-    	$openid = $request->input('openid');
+    	$openid = Session::get('openid');
 
     	$flight = $this->returnUserFlight($openid,1);
     	$flight->project = $value;
@@ -152,7 +152,7 @@ class UserInfoController extends Controller
     public function t_money(Request $request)
     {
         $value = $request->input('value');
-        $openid = $request->input('openid');
+        $openid = Session::get('openid');
 
         $flight = $this->returnUserFlight($openid,1);
         $flight->money = $value;
