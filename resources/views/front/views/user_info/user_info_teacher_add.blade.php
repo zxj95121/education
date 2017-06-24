@@ -535,6 +535,7 @@ $signPackage = $jssdk->GetSignPackage();
 							setTimeout(function(){
 								$('#toast').css({'display':'none', 'opacity':'0'});
 							},1000);
+							$('#moneyPicker span').html('');/*清空*/
 
 							if (val == 0) {
 								$('#moneyPicker').css('display', 'none');
