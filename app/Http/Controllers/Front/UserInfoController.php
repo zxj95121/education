@@ -157,6 +157,8 @@ class UserInfoController extends Controller
         $flight = $this->returnUserFlight($openid,1);
         $flight->money = $value;
         $flight->save();
+
+        return response()->json(['errcode'=>0]);
     }
 
     private function returnUserFlight($openid,$type=0)
