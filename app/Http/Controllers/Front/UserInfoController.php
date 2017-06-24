@@ -149,6 +149,16 @@ class UserInfoController extends Controller
     	return response()->json(['errcode'=>0]);
     }
 
+    public function t_money(Request $request)
+    {
+        $value = $request->input('value');
+        $openid = $request->input('openid');
+
+        $flight = $this->returnUserFlight($openid,1);
+        $flight->money = $value;
+        $flight->save();
+    }
+
     private function returnUserFlight($openid,$type=0)
     {
     	/*type默认为0表示该info表*/
