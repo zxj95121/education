@@ -67,7 +67,7 @@
 		})
 		$('#add').click(function(){
   			$.ajax({
-    			url:"{{URL('admin/teacherone/Add')}}",
+    			url:"{{URL('admin/teacherone/add_post')}}",
     			data:{
     				text:$('#text').val()
     			},

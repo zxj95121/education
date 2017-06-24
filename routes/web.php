@@ -94,15 +94,45 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
   	$router->post('/schooltwo/add','Setting\SchoolController@schooltwoAdd');//学科添加
   	$router->post('/schooltwo/edit','Setting\SchoolController@schooltwoEdit');//学科修改
   	$router->post('/schooltwo/delete','Setting\SchoolController@schooltwoDelete');//学科删除
-  	
-  	$router->get('/doubleTeacher','Teacher\DoubleTeacherController@doubleTeacher');//双师管理
-  	$router->get('/teacheroneAdd','Teacher\DoubleTeacherController@oneAdd');//双师1添加
-  	$router->post('/teacherone/Add','Teacher\DoubleTeacherController@oneAdd_post');
-  	$router->get('/teacheroneEdit','Teacher\DoubleTeacherController@oneEdit');//双师1修改
-  	$router->post('/teacherone/Edit','Teacher\DoubleTeacherController@oneEdit_post');
-  	$router->get('/teacheroneDelete','Teacher\DoubleTeacherController@oneDelete');
-  	$router->get('/teacheroneHide','Teacher\DoubleTeacherController@oneHide');
-  	 
+  	/**
+  	 * 双师classOne*/
+  	$router->get('/doubleTeacher','Teacher\DoubleTeacherController@doubleTeacher');//列表
+  	$router->get('/teacherone/add','Teacher\DoubleTeacherController@oneAdd');//添加
+  	$router->post('/teacherone/add_post','Teacher\DoubleTeacherController@oneAdd_post');
+  	$router->get('/teacherone/edit','Teacher\DoubleTeacherController@oneEdit');//修改
+  	$router->post('/teacherone/edit_post','Teacher\DoubleTeacherController@oneEdit_post');
+  	$router->get('/teacherone/delete','Teacher\DoubleTeacherController@oneDelete');
+  	$router->get('/teacherone/hide','Teacher\DoubleTeacherController@oneHide');
+  	/**
+  	 * 双师classTwo  
+  	 * */
+  	$router->get('/teachertwo','Teacher\DoubleTeacherController@teacherTwo');
+  	$router->get('/teachertwo/add','Teacher\DoubleTeacherController@twoAdd');
+  	$router->post('/teachertwo/add_post','Teacher\DoubleTeacherController@twoAdd_post');
+  	$router->get('/teachertwo/edit','Teacher\DoubleTeacherController@twoEdit');
+  	$router->post('/teachertwo/edit_post','Teacher\DoubleTeacherController@twoEdit_post');
+  	$router->get('/teachertwo/delete','Teacher\DoubleTeacherController@twoDelete');
+  	$router->get('/teachertwo/hide','Teacher\DoubleTeacherController@twoHide');
+  	/**
+  	 * 双师classThree
+  	 * */
+  	$router->get('/teacherthree','Teacher\DoubleTeacherController@teacherThree');
+  	$router->get('/teacherthree/add','Teacher\DoubleTeacherController@threeAdd');
+  	$router->post('/teacherthree/add_post','Teacher\DoubleTeacherController@threeAdd_post');
+  	$router->get('/teacherthree/edit','Teacher\DoubleTeacherController@threeEdit');
+  	$router->post('/teacherthree/edit_post','Teacher\DoubleTeacherController@threeEdit_post');
+  	$router->get('/teacherthree/delete','Teacher\DoubleTeacherController@threeDelete');
+  	$router->get('/teacherthree/hide','Teacher\DoubleTeacherController@threeHide');
+  	/**
+  	 * 双师classFour
+  	 * */
+  	$router->get('/teacherfour','Teacher\DoubleTeacherController@teacherFour');
+  	$router->get('/teacherfour/add','Teacher\DoubleTeacherController@fourAdd');
+  	$router->post('/teacherfour/add_post','Teacher\DoubleTeacherController@fourAdd_post');
+  	$router->get('/teacherfour/edit','Teacher\DoubleTeacherController@fourEdit');
+  	$router->post('/teacherfour/edit_post','Teacher\DoubleTeacherController@fourEdit_post');
+  	$router->get('/teacherfour/delete','Teacher\DoubleTeacherController@fourDelete');
+  	$router->get('/teacherfour/hide','Teacher\DoubleTeacherController@fourHide');
 });
 
 

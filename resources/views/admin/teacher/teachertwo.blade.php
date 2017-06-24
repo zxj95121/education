@@ -3,7 +3,12 @@
 <!-- 在这里写style样式，或者在这里外加link -->
 @section('style')
 <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css">
-
+<style>
+	.text-uppercase .ion-chevron-right{
+		margin-left: 5px;
+		margin-right:5px;
+	}
+</style>
 @endsection
 
 @section('content')
@@ -19,8 +24,10 @@
                         <div class="portlet"><!-- /primary heading -->
                             <div class="portlet-heading">
                                 <h3 class="portlet-title text-dark text-uppercase">
-                                    	双师Class管理列表
+                                		<input type="hidden" value="{{$one->id}}" name="pid">
+                                    	<a href="/admin/doubleTeacher">双师class</a><i class="ion-chevron-right"></i>{{$one['name']}}
                                 </h3>
+                                
                                 <div class="portlet-widgets">
                                     <span class="divider"></span>
                                     <a data-toggle="collapse" data-parent="#accordion1" href="#portlet2"><i class="ion-minus-round"></i></a>
@@ -54,14 +61,14 @@
                                                         @if($value->status!=1)
                                                         	<td><font><font class=""><span class="label label-danger">隐藏</span></font></font></td>
                                                         	<td class="caozuo">
-                                                        		<a href="/admin/teacherone/hide?id={{$value->id}}"><span class="label label-success" tid="{{$value->id}}" style="margin-right: 4px;">显示</span></a>
+                                                        		<a href="/admin/teachertwo/hide?id={{$value->id}}"><span class="label label-success" tid="{{$value->id}}" style="margin-right: 4px;">显示</span></a>
                                                         @else
                                                         	<td><font><font class=""><span class="label label-success">显示</span></font></font></td>
                                                         	<td class="caozuo">
-                                                        		<a href="/admin/teacherone/hide?id={{$value->id}}"><span class="label label-danger" tid="{{$value->id}}" style="margin-right: 4px;">隐藏</span></a>
+                                                        		<a href="/admin/teachertwo/hide?id={{$value->id}}"><span class="label label-danger" tid="{{$value->id}}" style="margin-right: 4px;">隐藏</span></a>
                                                         @endif
-                                                        	<a href="/admin/teachertwo?pid={{$value->id}}"><span class="label label-info" tid="{{$value->id}}" style="margin-right: 4px;">设置</span></a>
-                                                        	<a href="/admin/teacherone/edit?id={{$value->id}}"><span class="label label-primary" tid="{{$value->id}}" style="margin-right: 4px;">修改</span></a>
+                                                        	<a href="/admin/teacherthree?pid={{$value->id}}"><span class="label label-info" tid="{{$value->id}}" style="margin-right: 4px;">设置</span></a>
+                                                        	<a href="/admin/teachertwo/edit?id={{$value->id}}"><span class="label label-primary" tid="{{$value->id}}" style="margin-right: 4px;">修改</span></a>
                                                         	<a class="delete"><span class="label label-default" tid="{{$value->id}}" style="margin-right: 4px;">删除</span></a>
                                                         </td>
                                                     </tr>
@@ -90,7 +97,8 @@
             window.layer = layui.layer;
         });
         $('#add').click(function(){
-            window.location.href="{{URL('admin/teacherone/add')}}";
+            var pid = $('input[name=pid]').val();
+            window.location.href="/admin/teachertwo/add?pid="+pid;
         })
         $('.delete').click(function(){
             var otitle = $(this).parents('tr').find('.otitle').text();
@@ -99,7 +107,7 @@
 			},function(){
 				var index = window.layer.index; //获取当前弹层的索引号
 				window.layer.close(index);
-				window.location.href="/admin/teacherone/delete?id="+tid;
+				window.location.href="/admin/teachertwo/delete?id="+tid;
 			},function(){
 			})
 			return false;

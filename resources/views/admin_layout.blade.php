@@ -6,38 +6,38 @@
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
         <meta name="csrf-token" content="{{csrf_token()}}">
-        <link rel="shortcut icon" href="img/favicon_1.ico">
+        <link rel="shortcut icon" href="/admin/img/favicon_1.ico">
 
         <title>加辰教育定制</title>
 
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/bootstrap-reset.css" rel="stylesheet">
-
+        <link href="/admin/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/admin/css/bootstrap-reset.css" rel="stylesheet">
+	
         <!--Animation css-->
-        <link href="css/animate.css" rel="stylesheet">
+        <link href="/admin/css/animate.css" rel="stylesheet">
 
         <!--Icon-fonts css-->
-        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-        <link href="assets/ionicon/css/ionicons.min.css" rel="stylesheet" />
-        <link href="assets/material-design-iconic-font/css/material-design-iconic-font.min.css" rel="stylesheet" />
+        <link href="/admin/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="/admin/assets/ionicon/css/ionicons.min.css" rel="stylesheet" />
+        <link href="/admin/assets/material-design-iconic-font/css/material-design-iconic-font.min.css" rel="stylesheet" />
 
         <!--Morris Chart CSS -->
-        <link rel="stylesheet" href="assets/morris/morris.css">
+        <link rel="stylesheet" href="/admin/assets/morris/morris.css">
 
         <!-- sweet alerts -->
-        <link href="assets/sweet-alert/sweet-alert.min.css" rel="stylesheet">
+        <link href="/admin/assets/sweet-alert/sweet-alert.min.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
-        <link href="css/style.css" rel="stylesheet">
-        <link href="css/helper.css" rel="stylesheet">
+        <link href="/admin/css/style.css" rel="stylesheet">
+        <link href="/admin/css/helper.css" rel="stylesheet">
         
 
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
         <!--[if lt IE 9]>
-          <script src="js/html5shiv.js"></script>
-          <script src="js/respond.min.js"></script>
+          <script src="/admin/js/html5shiv.js"></script>
+          <script src="/admin/js/respond.min.js"></script>
         <![endif]-->
         @yield('style')
 
@@ -115,7 +115,7 @@
                         </a>
                         <ul class="list-unstyled">
                             <li class="{!!(Request::is('admin/doubleTeacher')? 'active' : '') !!}">
-                                <a href="/admin/doubleTeacher">新增</a>
+                                <a href="/admin/doubleTeacher">管理</a>
                             </li>
                         </ul>
                     </li>
@@ -177,7 +177,7 @@
                         <!-- user login dropdown start-->
                         <li class="dropdown text-center">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <img alt="" id="layout_headimg" src="img/avatar-2.jpg" class="img-circle profile-img thumb-sm">
+                                <img alt="" id="layout_headimg" src="/admin/img/avatar-2.jpg" class="img-circle profile-img thumb-sm">
                                 <span class="username" id="layout_username">John Deo </span> <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu pro-menu fadeInUp animated" tabindex="5003" style="overflow: hidden; outline: none;">
@@ -218,31 +218,31 @@
 
 
         <!-- js placed at the end of the document so the pages load faster -->
-        <script src="js/jquery.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/modernizr.min.js"></script>
-        <script src="js/pace.min.js"></script>
-        <script src="js/wow.min.js"></script>
-        <script src="js/jquery.scrollTo.min.js"></script>
-        <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+        <script src="/admin/js/jquery.js"></script>
+        <script src="/admin/js/bootstrap.min.js"></script>
+        <script src="/admin/js/modernizr.min.js"></script>
+        <script src="/admin/js/pace.min.js"></script>
+        <script src="/admin/js/wow.min.js"></script>
+        <script src="/admin/js/jquery.scrollTo.min.js"></script>
+        <script src="/admin/js/jquery.nicescroll.js" type="text/javascript"></script>
 
         <!-- Counter-up -->
-        <script src="js/waypoints.min.js" type="text/javascript"></script>
-        <script src="js/jquery.counterup.min.js" type="text/javascript"></script>
+        <script src="/admin/js/waypoints.min.js" type="text/javascript"></script>
+        <script src="/admin/js/jquery.counterup.min.js" type="text/javascript"></script>
 
          <!-- sparkline --> 
-        <script src="assets/sparkline-chart/jquery.sparkline.min.js" type="text/javascript"></script>
-        <script src="assets/sparkline-chart/chart-sparkline.js" type="text/javascript"></script> 
+        <script src="/admin/assets/sparkline-chart/jquery.sparkline.min.js" type="text/javascript"></script>
+        <script src="/admin/assets/sparkline-chart/chart-sparkline.js" type="text/javascript"></script> 
 
         <!-- skycons -->
-        <script src="js/skycons.min.js" type="text/javascript"></script>
+        <script src="/admin/js/skycons.min.js" type="text/javascript"></script>
     
         <!--Morris Chart-->
         <!-- <script src="assets/morris/morris.min.js"></script> -->
-        <script src="assets/morris/raphael.min.js"></script>
+        <script src="/admin/assets/morris/raphael.min.js"></script>
 
 
-        <script src="js/jquery.app.js"></script>
+        <script src="/admin/js/jquery.app.js"></script>
         
         <!-- Dashboard -->
         <!-- <script src="js/jquery.dashboard.js"></script> -->
