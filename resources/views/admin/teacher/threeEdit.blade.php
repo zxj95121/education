@@ -3,11 +3,17 @@
 <!-- 在这里写style样式，或者在这里外加link -->
 @section('style')
 <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css">
+<style>
+	.text-uppercase .ion-chevron-right{
+		margin-left: 5px;
+		margin-right:5px;
+	}
+</style>
 @endsection
 @section('content')
 <div class="wraper container-fluid">
                 <div class="page-title"> 
-                    <h3 class="title">双师Class</h3> 
+                    <h3 class="title">添加双师Class</h3> 
                 </div>
 
                 <div class="row">
@@ -17,7 +23,9 @@
                         <div class="portlet"><!-- /primary heading -->
                             <div class="portlet-heading">
                                 <h3 class="portlet-title text-dark text-uppercase">
-                                    	修改双师Class
+                                    	<a href="/admin/doubleTeacher">双师class</a><i class="ion-chevron-right"></i>
+                                    	<a href="/admin/teachertwo?pid={{$two['pid']}}">{{$one['name']}}</a><i class="ion-chevron-right"></i>
+                                    	{{$two['name']}}
                                 </h3>
                                 <div class="portlet-widgets">
                                     <span class="divider"></span>
@@ -67,7 +75,7 @@
 		})
 		$('#edit').click(function(){
    			$.ajax({
-    			url:"{{URL('admin/teacherone/edit_post')}}",
+    			url:"{{URL('admin/teacherthree/edit_post')}}",
     			data:{
     				text:$('#text').val(),
     				id:$('#id').val()
@@ -77,7 +85,7 @@
     			success:function(date){
     				if(date.code == 200){
 						window.layer.msg('修改成功');
-						window.location.href="{{URL('admin/doubleTeacher')}}";
+						window.location.href="/admin/teacherthree?pid="+date.pid;
             		}else{
 						window.layer.msg('添加失败，请重新添加');
                 	}
