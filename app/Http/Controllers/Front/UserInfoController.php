@@ -32,6 +32,15 @@ class UserInfoController extends Controller
         if (!$userDetail->type) {
             return redirect('/front/selectTeacherType');
         }
+
+        if ($userDetail->birth) {
+            $times = strtotime('Y-m', $userDetail->birth);
+            $time[] = date('Y', $times);
+            $time[] = date('m', $times); 
+        } else {
+            $time = '';
+        }
+        dd($time);
     	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail]);
     }
 
