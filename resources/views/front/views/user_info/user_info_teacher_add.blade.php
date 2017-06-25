@@ -565,7 +565,7 @@ $signPackage = $jssdk->GetSignPackage();
 							    	default: [
 							    		80,60
 							    	],
-							    	len: 2,
+							    	len: 1,
 							    	select: function(result){
 							    		$('#loadingToast').css({'display':'block', 'opacity':'1'});
 										$('#loadingToast p').html('数据保存中');
@@ -609,7 +609,7 @@ $signPackage = $jssdk->GetSignPackage();
 							    	content: [
 										monthArr
 							    	],
-							    	len: 2,
+							    	len: 1,
 							    	default: [
 							    		3500
 							    	],
