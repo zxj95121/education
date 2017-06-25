@@ -34,7 +34,7 @@ class UserInfoController extends Controller
         }
 
         if ($userDetail->birth) {
-            $times = strtotime('Y-m-d', $userDetail->birth.'-00 00:00:00');
+            $times = strtotime('Y-m-d', $userDetail->birth.'-01 00:00:00');
             $time[] = date('Y', $times);
             $time[] = date('m', $times); 
         } else {
