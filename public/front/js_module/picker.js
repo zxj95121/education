@@ -34,6 +34,7 @@ $(function () {
     		$('#'+selfPicker['size'+(selfPicker.current)].action).click(function(){
 				$('#pickerBigDiv').css('display', 'block');
 				selfPicker.current = selfPicker.arr[$(this).attr('id')];
+                console.log(selfPicker.current);
 				$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
 		    });
 
