@@ -40,7 +40,7 @@ class UserInfoController extends Controller
         } else {
             $time = '';
         }
-        dd($time);
+        //dd($time);
     	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail]);
     }
 
