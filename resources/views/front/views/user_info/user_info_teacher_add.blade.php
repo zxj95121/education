@@ -122,7 +122,7 @@ $signPackage = $jssdk->GetSignPackage();
 	                    </span>
 	                </div>
 	            </div>
-	            <div class="weui-cell weui-cell_access" id="moneyPicker">
+	            <div class="weui-cell weui-cell_access" id="moneyPicker" @if($userDetail->find_status == 0) style="display:none;" @endif>
 	                <div class="weui-cell__bd">期望薪资</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;"></span>
