@@ -40,8 +40,9 @@ class UserInfoController extends Controller
         } else {
             $time = '';
         }
-        dd($time);
-    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail]);
+        $time[1] = str_replace('0', '', $time[1]);
+
+    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time]);
     }
 
     public function selectTeacherType(Request $request)
