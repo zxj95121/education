@@ -780,7 +780,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    		yearArr,monthArr
 		    	],
 		    	default: [
-		    		{{$birthTime[0]}},{{$birthTime[0]}}
+		    		{{$birthTime[0]}},{{$birthTime[1]}}
 		    	],
 		    	select: function(result){
 		    		$('#loadingToast').css({'display':'block', 'opacity':'1'});
