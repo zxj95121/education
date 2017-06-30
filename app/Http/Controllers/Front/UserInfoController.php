@@ -11,6 +11,8 @@ use App\Models\TeacherInfo;
 use App\Models\ParentDetail;
 use App\Models\TeacherDetail;
 use App\Models\UserType;
+use App\Models\SchoolOne;
+use App\Models\SchoolTwo;
 use Session;
 
 class UserInfoController extends Controller
@@ -50,6 +52,18 @@ class UserInfoController extends Controller
             $money[] = $moneys[1];
         } else {
             $money = '';
+        }
+
+        /*查询学校信息*/
+        if ($userDetail->type == 1) {
+            /*大学生教师*/
+            $schoolInfo = SchoolOne::where('school_one.is_student', 1)
+                ->where('school_one.status', 1)
+                ->leftjoin('school_two as st', 'st.pid', 'school_one.id')
+                ->select('st.name as name2', 'school_one.name as name1')
+                ->get();
+            var_dump($schoolInfo);
+            dd(1);
         }
 
     	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money]);
