@@ -291,23 +291,20 @@ $signPackage = $jssdk->GetSignPackage();
 			        </div>
 			    </div>
 			    <div style="width: 97%;margin: 0 auto;padding:0px 4px;" id="school_btns">
+			    	@foreach($schoolInfo as $value)
 			    	<div class="row">
 			    		<div class="col-xs-12" style="margin-top: 5px;">
-                            <div class="heading"> 
-                                <h4 style="margin-bottom: 0px;">本科院校</h4> 
+                            <div class="heading" id1="{{$value['id1']}}"> 
+                                <h4 style="margin-bottom: 0px;">{{$value['name1']}}</h4> 
                             </div>
-                            <div class="pbody"> 
-                                <button type="button" class="btn btn-info">安徽师范大学</button>
-						    	<button type="button" class="btn btn-info">安徽工程大学</button>
-						    	<button type="button" class="btn btn-info">皖南医学院</button>	
-						    	<button type="button" class="btn btn-info">芜湖职业技术学院</button>	
-						    	<button type="button" class="btn btn-info">安徽中医药高等专科学校</button>	
-						    	<button type="button" class="btn btn-info">安徽机电职业技术学院</button>	
-						    	<button type="button" class="btn btn-info" >其他高校</button> 
+                            <div class="pbody">
+                            	@foreach($value['two'] as $v)
+                                <button type="button" class="btn btn-info" id2="{{$v['id2']}}">{{$v['name2']}}</button>
+                                @endforeach
                             </div> 
                         </div>
 			    	</div>
-			    		
+			    	@endforeach
 			    </div>
 			</div>
 

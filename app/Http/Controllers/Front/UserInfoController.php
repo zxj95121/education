@@ -61,30 +61,32 @@ class UserInfoController extends Controller
                 ->where('school_one.status', 1)
                 ->select('id', 'name')
                 ->get();
-
-            $k = 0;
-            foreach ($schoolInfo_one as $value) {
-                $id1 = $value->id;
-                $schoolInfo[$k] = array();
-                $schoolInfo[$k]['id1'] = $id1;
-                $schoolInfo[$k]['name1'] = $value->name;
-                $schoolInfo[$k]['two'] = array();
-                $schoolInfo_two = SchoolTwo::where('pid', $id1)
-                    ->where('status', 1)
-                    ->select('id', 'name')
-                    ->get();
-                foreach ($schoolInfo_two as $v) {
-                    $schoolInfo[$k]['two'][] = array('id2'=>$v->id, 'name2'=>$v->name);
-                }
-                $k++;
-            }
-            echo '<pre>';
-            var_dump($schoolInfo);
-            echo '</pre>';
-            dd(1);
+        } else if ($userDetail->type == 2) {
+            /*职业教师*/
+            $schoolInfo_one = SchoolOne::where('school_one.is_student', 0)
+                ->where('school_one.status', 1)
+                ->select('id', 'name')
+                ->get();
         }
 
-    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money]);
+        $k = 0;
+        foreach ($schoolInfo_one as $value) {
+            $id1 = $value->id;
+            $schoolInfo[$k] = array();
+            $schoolInfo[$k]['id1'] = $id1;
+            $schoolInfo[$k]['name1'] = $value->name;
+            $schoolInfo[$k]['two'] = array();
+            $schoolInfo_two = SchoolTwo::where('pid', $id1)
+                ->where('status', 1)
+                ->select('id', 'name')
+                ->get();
+            foreach ($schoolInfo_two as $v) {
+                $schoolInfo[$k]['two'][] = array('id2'=>$v->id, 'name2'=>$v->name);
+            }
+            $k++;
+        }
+
+    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money,'schoolInfo'=>$schoolInfo]);
     }
 
     public function selectTeacherType(Request $request)
