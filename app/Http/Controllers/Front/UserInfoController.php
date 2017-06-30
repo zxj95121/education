@@ -33,6 +33,7 @@ class UserInfoController extends Controller
             return redirect('/front/selectTeacherType');
         }
 
+        /*初始化出生日期用*/
         if ($userDetail->birth) {
             $times = strtotime($userDetail->birth.'-1');
             $time[] = date('Y', $times);
@@ -42,7 +43,16 @@ class UserInfoController extends Controller
         }
         $time[1] = str_replace('0', '', $time[1]);
 
-    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time]);
+        /*初始化用*/
+        if ($userDetail->money) {
+            $moneys = explode('-', $userDetail->money);
+            $money[] = $moneys[0];
+            $money[] = $moneys[1];
+        } else {
+            $money = '';
+        }
+
+    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money]);
     }
 
     public function selectTeacherType(Request $request)
@@ -142,6 +152,7 @@ class UserInfoController extends Controller
         $status = $request->input('status');
         $flight = $this->returnUserFlight($openid,1);
         $flight->find_status = $status;
+        $flight->money = '';
         $flight->save();
 
         return response()->json(['errcode'=>0]);
