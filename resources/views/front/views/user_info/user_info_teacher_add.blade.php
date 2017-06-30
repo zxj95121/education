@@ -125,7 +125,20 @@ $signPackage = $jssdk->GetSignPackage();
 	            <div class="weui-cell weui-cell_access" id="moneyPicker">
 	                <div class="weui-cell__bd">期望薪资</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;"></span>
+	                    <span style="vertical-align:middle; font-size: 17px;">
+	                    	@if($userDetail->find_status == 0) 
+	                    	@elseif ($userDetail->find_status == 1) 
+	                    		@php
+		                    		$qwxz = str_replace('-', ' 元 /', $userDetail->money).'分钟';
+		                    		echo $qwxz;
+		                    	@endphp
+	                    	@elseif ($userDetail->find_status == 2) 全职
+	                    		@php
+	                    			$qwxz = explode('-', $userDetail->money)[0].'元 / 月';
+	                    			echo $qwxz;
+	                    		@endphp
+	                    	@endif
+	                    </span>
 	                </div>
 	            </div>
 	            <div class="weui-cell weui-cell_access row_info" target="community">
