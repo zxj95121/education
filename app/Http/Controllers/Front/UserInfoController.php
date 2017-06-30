@@ -57,13 +57,30 @@ class UserInfoController extends Controller
         /*查询学校信息*/
         if ($userDetail->type == 1) {
             /*大学生教师*/
-            $schoolInfo = SchoolOne::where('school_one.is_student', 1)
+            $schoolInfo_one = SchoolOne::where('school_one.is_student', 1)
                 ->where('school_one.status', 1)
-                ->leftjoin('school_two as st', 'st.pid', 'school_one.id')
-                ->select('school_one.id as id1', 'st.name as name2', 'school_one.name as name1')
-                ->groupBy('id1')
-                ->get()->toArray();
+                ->select('id', 'name')
+                ->get();
+
+            $k = 0;
+            foreach ($schoolInfo_one as $value) {
+                $id1 = $value->id;
+                $schoolInfo[$k] = array();
+                $schoolInfo[$k]['id1'] = $id1;
+                $schoolInfo[$k]['name1'] = $value->name;
+                $schoolInfo[$k]['two'] = array();
+                $schoolInfo_two = SchoolTwo::where('pid', $id1)
+                    ->where('status', 1)
+                    ->select('id', 'name')
+                    ->get();
+                foreach ($schoolInfo_two as $v) {
+                    $schoolInfo[$k]['two'][] = array('id2'=>$v->id, 'name2'=>$v->name);
+                }
+                $k++;
+            }
+            echo '<pre>';
             var_dump($schoolInfo);
+            echo '</pre>';
             dd(1);
         }
 
