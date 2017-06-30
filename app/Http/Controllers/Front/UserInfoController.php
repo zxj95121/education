@@ -61,7 +61,7 @@ class UserInfoController extends Controller
                 ->where('school_one.status', 1)
                 ->leftjoin('school_two as st', 'st.pid', 'school_one.id')
                 ->select('school_one.id as id1', 'st.name as name2', 'school_one.name as name1')
-                ->groupby('id1')
+                ->groupBy('id1')
                 ->get()->toArray();
             var_dump($schoolInfo);
             dd(1);
