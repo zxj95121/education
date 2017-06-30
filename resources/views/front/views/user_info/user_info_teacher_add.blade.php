@@ -305,6 +305,7 @@ $signPackage = $jssdk->GetSignPackage();
                         </div>
 			    	</div>
 			    	@endforeach
+			    	<p style="text-decoration: underline;">没有找到学校，点我联系管理员。</p>
 			    </div>
 			</div>
 
