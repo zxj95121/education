@@ -60,7 +60,8 @@ class UserInfoController extends Controller
             $schoolInfo = SchoolOne::where('school_one.is_student', 1)
                 ->where('school_one.status', 1)
                 ->leftjoin('school_two as st', 'st.pid', 'school_one.id')
-                ->select('st.name as name2', 'school_one.name as name1')
+                ->select('school_one.id as id1', 'st.name as name2', 'school_one.name as name1')
+                ->groupby('id1')
                 ->get()->toArray();
             var_dump($schoolInfo);
             dd(1);
