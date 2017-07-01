@@ -87,7 +87,10 @@ class UserInfoController extends Controller
             $k++;
         }
 
-    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money,'schoolInfo'=>$schoolInfo]);
+        //根据userDetail->school读出相应信息
+        $schoolObj = SchoolTwo::find($userDetail->school);
+
+    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money,'schoolInfo'=>$schoolInfo,'schoolObj'=>$schoolObj]);
     }
 
     public function selectTeacherType(Request $request)
@@ -198,7 +201,7 @@ class UserInfoController extends Controller
     {
         $id2 = $request->input('id2');
         $openid = Session::get('openid');
-        dd($openid.'---'.$id2);
+
         $flight = $this->returnUserFlight($openid,1);
         $flight->school = $id2;
         $flight->save();

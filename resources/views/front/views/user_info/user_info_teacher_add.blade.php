@@ -102,7 +102,7 @@ $signPackage = $jssdk->GetSignPackage();
 	            <div class="weui-cell weui-cell_access row_info" target="school">
 	                <div class="weui-cell__bd">所在学校</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;"></span>
+	                    <span style="vertical-align:middle; font-size: 17px;">{{$schoolObj->name}}</span>
 	                </div>
 	            </div>
 	            <div class="weui-cell weui-cell_access row_info input_info" target="project">
@@ -299,7 +299,7 @@ $signPackage = $jssdk->GetSignPackage();
                             </div>
                             <div class="pbody">
                             	@foreach($value['two'] as $v)
-                                <button type="button" class="btn btn-info" id2="{{$v['id2']}}">{{$v['name2']}}</button>
+                                <button type="button" class="btn btn-info" id2="{{$v['id2']}}" @if($userDetail->school == $v['id2']) btn-success @endif>{{$v['name2']}}</button>
                                 @endforeach
                             </div> 
                         </div>
@@ -692,8 +692,8 @@ $signPackage = $jssdk->GetSignPackage();
 		    $('#school .done_ok').click(function(){
 		    	var schoolDom = $('#school_btns button[class="btn btn-success"]');
 		    	var value = schoolDom.html();
-		    	var id2 = $(this).attr('id2');
-		    	var id1 = $(this).parents('.pbody').prev().attr('id1');
+		    	var id2 = schoolDom.attr('id2');
+		    	var id1 = schoolDom.parents('.pbody').prev().attr('id1');
 		    	if (!value) {
 		    		return false;
 		    	} else {
