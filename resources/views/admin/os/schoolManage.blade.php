@@ -130,9 +130,9 @@
                                                         <ul id="tabs_ul_type" class="nav tabs-vertical col-lg-6" style="border-right: 2px solid #39A4D6;padding-right: 14px;width: 100%;"> 
                                                             @foreach ($data['schoolone'] as $value)
                                                             	@if ($value->is_student == 1)
-	                                                           		<li class="" data-toggle="tooltip" data-placement="top" title="大学生教师">
-	                                                           	@else
 	                                                           		<li class="" data-toggle="tooltip" data-placement="top" title="通用">
+	                                                           	@else
+	                                                           		<li class="" data-toggle="tooltip" data-placement="top" title="职业教师专用">
 	                                                            @endif
 	                                                                	<a href="#v-tab{{$value->id}}" data-toggle="tab" aria-expanded="true" idvalue="{{$value->id}}">{{$value->name}} </a>                                                          			                                                            </li> 
                                                            			</li>
@@ -290,9 +290,9 @@
 					success:function(date){
 						html = '';
 						if(student == 1){
-							html +=	'<li class="active" data-toggle="tooltip" data-placement="top" title="大学生教师">';
-						}else{
 							html +=	'<li class="active" data-toggle="tooltip" data-placement="top" title="通用">';
+						}else{
+							html +=	'<li class="active" data-toggle="tooltip" data-placement="top" title="职业教师专用">';
 						}
 					 	html += '<a href="#v-tab'+1+'" data-toggle="tab" aria-expanded="false" idvalue="'+date.id+'">'+text+'</a>';
 			            html += '</li>'	;
@@ -335,9 +335,9 @@
 					datatype:'json',
 					success:function(date){
 						if(student == 1){
-							html +=	'<li class="" data-toggle="tooltip" data-placement="top" title="大学生教师">';
-						}else{
 							html +=	'<li class="" data-toggle="tooltip" data-placement="top" title="通用">';
+						}else{
+							html +=	'<li class="" data-toggle="tooltip" data-placement="top" title="职业教师专用">';
 						}
 					 	html += '<a href="#v-tab'+num+'" data-toggle="tab" aria-expanded="false" idvalue="'+date.id+'">'+text+'</a>';
 			            html += '</li>'	;
@@ -414,9 +414,9 @@
 					$('#tabs_div1 .active a').text(text);
 					$('#tabs_div2 .active .xk').text(text);
 					if(student){
-						$('#tabs_div1 .active ').attr('data-original-title','大学生教师');
-					}else{
 						$('#tabs_div1 .active ').attr('data-original-title','通用');
+					}else{
+						$('#tabs_div1 .active ').attr('data-original-title','职业教师专用');
 					}
 					
 				},

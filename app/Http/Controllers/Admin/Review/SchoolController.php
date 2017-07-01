@@ -18,6 +18,7 @@ class SchoolController extends Controller
     {
     	$schoolApplyInfo = SchoolApply::leftJoin('user_type as ut', 'ut.openid', 'school_apply.openid')
     		->select('school_apply.id as id', 'school_apply.name as schoolName', 'school_apply.status', 'school_apply.created_at as time', 'ut.type as type', 'ut.uid as uid')
+    		->orderBy('school_apply.status')
     		->get();
     	$schoolInfo = array();
     	foreach ($schoolApplyInfo as $key => $value) {
@@ -49,6 +50,20 @@ class SchoolController extends Controller
 	    	$schoolInfo[$key]['phone'] = $flightInfo->phone;
 	    }
 
+	    /*读取一级分类*/
+
     	return view('admin.review.applySchool', ['schoolInfo'=>$schoolInfo]);
+    }
+
+    public function failed(Request $request)
+    {
+    	$id = $request->input('id');
+
+    	/*驳回申请，状态改为2*/
+    	$flight = SchoolApply::find($id);
+    	$flight->status = 2;
+    	$flight->save();
+
+    	return response()->json(['errcode'=>0]);
     }
 }
