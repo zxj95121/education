@@ -690,16 +690,32 @@ $signPackage = $jssdk->GetSignPackage();
 		    })
 
 		    $('#school .done_ok').click(function(){
-		    	var value = $('#school_btns button[class="btn btn-success"]').html();
+		    	var schoolDom = $('#school_btns button[class="btn btn-success"]');
+		    	var value = schoolDom.html();
+		    	var id2 = $(this).attr('id2');
+		    	var id1 = $(this).parents('.pbody').prev().attr('id1');
 		    	if (!value) {
 		    		return false;
 		    	} else {
-		    		$('div[target="school"]').find('span').html(value);
-		    		$('#page_main').css('display', 'block');
-					$(this).parents('.page_set').animate({'top': height+'px'}, 250);
-					setTimeout(function(){
-						$('#page_row').css('display', 'none');
-					}, 250);
+		    		$.ajax({
+		    			url: '/front/tsave_school',
+		    			dataType: 'json',
+		    			type: 'post',
+		    			data: {
+		    				id2: id2
+		    			},
+		    			success: function(data) {
+		    				if (data.errcode == 0) {
+		    					$('div[target="school"]').find('span').html(value);
+					    		$('#page_main').css('display', 'block');
+								$(this).parents('.page_set').animate({'top': height+'px'}, 250);
+								setTimeout(function(){
+									$('#page_row').css('display', 'none');
+								}, 250);
+		    				}
+		    			}
+		    		})
+		    		
 		    	}
 		    })
 
@@ -865,7 +881,7 @@ $signPackage = $jssdk->GetSignPackage();
 				success: function(data){
 					layer.close(window.openIndex);
 					layer.open({
-					    content: '提交申请成功'
+					    content: '提交申请成功，请耐心等待管理员审核。'
 					    ,skin: 'msg'
 					    ,time: 2 //2秒后自动关闭
 					});

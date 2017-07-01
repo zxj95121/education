@@ -193,6 +193,19 @@ class UserInfoController extends Controller
         return response()->json(['errcode'=>0]);
     }
 
+    /*选择学校*/
+    public function t_school(Request $request)
+    {
+        $id2 = $request->input('id2');
+        $openid = Session::get('openid');
+
+        $flight = $this->returnUserFlight($openid,1);
+        $flight->school = $id2;
+        $flight->save();
+
+        return response()->json(['errcode'=>0]);
+    }
+
     public function t_project(Request $request)
     {
     	$value = $request->input('value');
