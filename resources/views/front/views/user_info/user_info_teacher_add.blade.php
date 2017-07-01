@@ -844,11 +844,11 @@ $signPackage = $jssdk->GetSignPackage();
 
 		    /*学校添加新内容*/
 		    $('#noSchool').click(function(){
-		    	layer.open({
+		    	var openIndex = layer.open({
 				    type: 1
-				    ,content: '<input type="text" class="form-control" placeholder="请输入您所在学校" /> <button class="btn btn-success">提交</button>'
+				    ,content: '<div class="weui-cells__title">学校添加</div><div class="weui-cells weui-cells_form"> <div class="weui-cell"> <div class="weui-cell__hd"><label class="weui-label">qq</label></div> <div class="weui-cell__bd"> <input class="weui-input" type="text" placeholder="请输入您的学校"> </div> </div> <div class="weui-btn-area"> <a class="weui-btn weui-btn_primary" href="javascript:" id="addSchool">提交</a> </div>'
 				    ,anim: 'up'
-				    ,style: 'position:fixed; bottom:30%; left:0; width: 100%; height: 200px; padding:10px 0; border:none;'
+				    ,style: 'position:fixed; top:30%; left:0; width: 100%; height: 200px; padding:10px 0; border:none;'
 				});
 		    })
 		});
