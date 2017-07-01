@@ -144,6 +144,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
       /*学校审核*/
     $router->get('/applySchool', 'Review\SchoolController@applySchool');
     $router->post('/applySchool/failed', 'Review\SchoolController@failed');/*驳回申请*/
+    $router->post('/applySchool/success', 'Review\SchoolController@success');/*驳回申请*/
 });
 
 

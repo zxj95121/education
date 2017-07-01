@@ -14,6 +14,10 @@ use App\Models\UserType;
 use App\Models\SchoolOne;
 use App\Models\SchoolTwo;
 use App\Models\SchoolApply;
+use App\Models\CommunityArea;
+use App\Models\CommunityCity;
+use App\Models\CommunityCommunity;
+
 use Session;
 
 class UserInfoController extends Controller
@@ -92,6 +96,9 @@ class UserInfoController extends Controller
             $schoolObj = SchoolTwo::find($userDetail->school);
         else
             $schoolObj = '';
+
+        /*查取社区信息*/
+        // $communityOne = CommunityArea::where('status', 1)
 
     	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money,'schoolInfo'=>$schoolInfo,'schoolObj'=>$schoolObj]);
     }

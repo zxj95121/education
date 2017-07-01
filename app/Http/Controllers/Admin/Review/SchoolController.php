@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\SchoolApply;
+use App\Models\SchoolOne;
 use App\Models\SchoolTwo;
 use App\Models\ParentInfo;
 use App\Models\ParentDetail;
@@ -29,6 +30,7 @@ class SchoolController extends Controller
 
     		/*查该名称是否已经存在*/
     		$count = SchoolTwo::where('name', $value->schoolName)
+    			->where('status', '1')
     			->count();
     		$schoolInfo[$key]['explain'] = $count;
 
@@ -51,8 +53,11 @@ class SchoolController extends Controller
 	    }
 
 	    /*读取一级分类*/
+	    $schoolOneInfo = SchoolOne::where('status', '1')
+	    	->select('id', 'name')
+	    	->get();
 
-    	return view('admin.review.applySchool', ['schoolInfo'=>$schoolInfo]);
+    	return view('admin.review.applySchool', ['schoolInfo'=>$schoolInfo,'schoolOneInfo'=>$schoolOneInfo]);
     }
 
     public function failed(Request $request)
@@ -62,6 +67,26 @@ class SchoolController extends Controller
     	/*驳回申请，状态改为2*/
     	$flight = SchoolApply::find($id);
     	$flight->status = 2;
+    	$flight->save();
+
+    	return response()->json(['errcode'=>0]);
+    }
+
+    /*通过申请*/
+    public function success(Request $request)
+    {
+    	$id = $request->input('id');
+    	$cid = $request->input('cid');
+    	$name = $request->input('name');
+
+    	$flight = new SchoolTwo();
+    	$flight->name = $name;
+    	$flight->pid = $id;
+    	$flight->save();
+
+    	/*通过申请，状态改为1*/
+    	$flight = SchoolApply::find($cid);
+    	$flight->status = 1;
     	$flight->save();
 
     	return response()->json(['errcode'=>0]);

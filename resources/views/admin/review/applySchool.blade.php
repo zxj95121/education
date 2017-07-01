@@ -135,7 +135,7 @@
             </div>    
 
 
-            <div id="selectSchoolOne" class="modal fade" tabindex="-1" role="dialog">
+            <div id="selectSchoolOne" cid="" class="modal fade" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -148,15 +148,18 @@
                                     <div class="form-group">
                                         <label>选择该学校分类</label>
                                         <select class="form-control" id="schoolType">
-                                            <option>1</option>
+                                            @foreach($schoolOneInfo as $value)
+                                            <option value="{{$value->id}}">{{$value->name}}</option>
+                                            @endforeach
                                         </select>
+                                        <p style="font-size:13px;margin-top:12px;text-decoration: underline;cursor: pointer;" onclick="window.location.href='/admin/schoolManage';">找不到所属分类？点击前往新增</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="schoolAdd">确认添加</button>
                         </div>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
@@ -210,10 +213,37 @@
             var id = $(this).parents('tr').find('.tdId').html();
             var name = $(this).parents('tr').find('.tdName').html();
             $('#selectSchoolOne .modal-title').html(name);
+            $('#selectSchoolOne').attr('cid', id);
+        });
+
+        $('#schoolAdd').click(function(){
+            var name = $('#selectSchoolOne .modal-title').html();
+            var id = $('#schoolType option:selected').val();
+            var cid = $('#selectSchoolOne').attr('cid');
+            $('#selectSchoolOne').modal('hide');
+            var loadIndex = window.layer.load(2, {time: 5000});
+
+            $.ajax({
+                url: '/admin/applySchool/success',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    id: id,
+                    cid: cid,
+                    name: name
+                },
+                success: function(data) {
+                    if (data.errcode == 0) {
+                        window.layer.close(loadIndex);
+                        window.layer.msg('添加成功');
+                        window.location.reload();
+                    }
+                }
+            })
         });
 
         $('#selectSchoolOne').on('hidden.bs.modal', function (e) {
-            // do something...
+            $('#schoolType option:selected').removeProp('selected');
         })
     })
 </script>
