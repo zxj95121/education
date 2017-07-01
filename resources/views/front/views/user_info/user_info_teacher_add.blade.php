@@ -305,7 +305,8 @@ $signPackage = $jssdk->GetSignPackage();
                         </div>
 			    	</div>
 			    	@endforeach
-			    	<p style="text-decoration: underline;">没有找到学校，点我联系管理员。</p>
+			    	<br>
+			    	<p style="text-decoration: underline;" id="noSchool">没有找到学校，点我联系管理员。</p>
 			    </div>
 			</div>
 
@@ -393,6 +394,25 @@ $signPackage = $jssdk->GetSignPackage();
             <p class="weui-toast__content">已完成</p>
         </div>
     </div>
+
+    <!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  	<div class="modal-dialog" role="document">
+	    	<div class="modal-content">
+	      		<div class="modal-header">
+	        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        		<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+	      		</div>
+		      	<div class="modal-body">
+		        	...
+		      	</div>
+		      	<div class="modal-footer">
+		        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        	<button type="button" class="btn btn-primary">Save changes</button>
+		      	</div>
+		    </div>
+	  	</div>
+	</div>
 
     <div id="birthPicker" class="zxjPicker">
     	<div class="operatePicker">
@@ -820,6 +840,17 @@ $signPackage = $jssdk->GetSignPackage();
 		    @if($userDetail->find_status == 0)
 		    $('#moneyPicker').css('display', 'none');
 		    @endif
+
+
+		    /*学校添加新内容*/
+		    $('#noSchool').click(function(){
+		    	layer.open({
+				    type: 1
+				    ,content: '<input type="text" class="form-control" placeholder="请输入您所在学校" /> <button class="btn btn-success">提交</button>'
+				    ,anim: 'up'
+				    ,style: 'position:fixed; bottom:30%; left:0; width: 100%; height: 200px; padding:10px 0; border:none;'
+				});
+		    })
 		});
 	</script>
 	<script type="text/javascript">
