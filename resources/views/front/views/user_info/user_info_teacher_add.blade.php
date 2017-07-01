@@ -299,7 +299,7 @@ $signPackage = $jssdk->GetSignPackage();
                             </div>
                             <div class="pbody">
                             	@foreach($value['two'] as $v)
-                                <button type="button" class="btn btn-info" id2="{{$v['id2']}}" @if($userDetail->school == $v['id2']) btn-success @endif>{{$v['name2']}}</button>
+                                <button type="button" class="btn btn-info" id2="{{$v['id2']}}" @if($userDetail->school == $v['id2']) btn-success @else @endif>{{$v['name2']}}</button>
                                 @endforeach
                             </div> 
                         </div>
