@@ -25,7 +25,7 @@
     </div>
 
     <div class="container-fluid" id="eclass" style="display: none;">
-        eclass
+        
     </div>
     <div class="container-fluid" id="my">
         <!-- header start -->
@@ -256,6 +256,7 @@
 
 		}
         $('#twoclass').click(function(){
+            $('#eclass').load('');
         	includeLink("/front/my/twoclass.js","js");
         })
     </script>

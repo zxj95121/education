@@ -149,7 +149,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
     // oauth进行跳的路由
     $router->get('/register/oauth','LoginController@oauth');
     $router->get('/home/oauth', 'HomeController@homeOauth');
-
+	
 });
 
 /*-------------*/
@@ -181,6 +181,10 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
     $router->post('/tsave_project', 'UserInfoController@t_project');
     /*申请添加学校*/
     $router->post('/addNewSchool', 'UserInfoController@addNewSchool');
+	$router->get('/twoClass','TwoClassController@index');
+	$router->get('/twoClasstwo','TwoClassController@two');
+	$router->get('/twoClassthree','TwoClassController@three');
+	$router->get('/twoClassfour','TwoClassController@four');
 });
 
 /*-------------*/
