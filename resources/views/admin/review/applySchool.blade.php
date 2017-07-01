@@ -4,6 +4,9 @@
 @section('style')
 <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css">
 <style type="text/css">
+    .oReview{
+        cursor: pointer
+    }
 </style>
 @endsection
 
@@ -59,8 +62,8 @@
                                                                     <tbody>
                                                                         @foreach($schoolInfo as $value)
                                                                         <tr>
-                                                                            <td>{{$value['id']}}</td>
-                                                                            <td>{{$value['schoolName']}}</td>
+                                                                            <td class="tdId">{{$value['id']}}</td>
+                                                                            <td class="tdName">{{$value['schoolName']}}</td>
                                                                             <td>
                                                                                 @if($value['status'] == 0)
                                                                                     <span class="label label-default">待审核</span>
@@ -82,8 +85,11 @@
                                                                             <td>{{$value['phone']}}</td>
                                                                             <td>{{$value['time']}}</td>
                                                                             <td>
-                                                                                <span class="label label-primary reviewOk">通过审核</span>
-                                                                                <span class="label label-primary reviewFalse">驳回审核</span>
+                                                                                @if($value['status'] == 0)
+                                                                                <span class="label label-primary oReview reviewOk" data-toggle="modal" data-target="#selectSchoolOne">通过审核</span>
+                                                                                <span class="label label-primary oReview reviewFalse">驳回审核</span>
+                                                                                @else
+                                                                                @endif
                                                                             </td>
                                                                         </tr>
                                                                         @endforeach
@@ -128,6 +134,34 @@
                 </div><!-- /.modal-dialog -->
             </div>    
 
+
+            <div id="selectSchoolOne" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h2 class="modal-title" style="font-weight: bold;font-size: 22px;">通过学校申请</h2>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>选择该学校分类</label>
+                                        <select class="form-control" id="schoolType">
+                                            <option>1</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
 @endsection
             
 
@@ -142,50 +176,19 @@
     });
 
     $(function(){
-        $('#hName').keyup(function(){
-            var name = $(this).val();
-            var type = query(name);
-            $('#hType option[value="'+ type +'"]').prop('selected', 'selected');
-        })
-
-        $('#addNewHobbyBtn').click(function(){
-            var name = $('#hName').val();
-            if (name == '') {
-                return false;
-            }
-
-            var type = $('#hType option:selected').val();
-            
-            $.ajax({
-                url: '/admin/hobbyManage/newHobby',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    name: name,
-                    type: type
-                },
-                success: function(data) {
-                    if (data.errcode == 0) {
-                        window.layer.msg('添加成功');
-                        window.location.reload();
-                    }
-                }
-            })
-        })
-
-        $(document).on('click', '#hideHobby', function(){
-            var id = $(this).parent().attr('lid');
-
-            var cdom = $(this).parent();
-
-            window.layer.confirm('确认删除吗？', {
-                btn: ['确认', '取消']
-                ,btn3: function(index, layero){
+        /*驳回审核*/
+        $(document).on('click', '.reviewFalse', function(){
+            var id = $(this).parents('tr').find('.tdId').html();
+            window.layer.confirm('确认驳回申请吗?', {
+                btn: ['确认','取消']
+                ,btn2: function(index, layero){
                     window.layer.close(index);
                 }
             }, function(index, layero){
+                window.layer.close(index);
+                var loadIndex = window.layer.load(2, {time: 5000});
                 $.ajax({
-                    url: '/admin/hobbyManage/hideHobby',
+                    url: '/admin/applySchool/failed',
                     type: 'post',
                     dataType: 'json',
                     data: {
@@ -193,30 +196,24 @@
                     },
                     success: function(data) {
                         if (data.errcode == '0') {
-                            console.log(cdom.parent().find('li').length);
-                            if (cdom.parent().find('li').length <= 1)
-                                cdom.parents('.panel_hobby').remove();
-                            else
-                                cdom.remove();
-                            window.layer.close(index);
+                            window.layer.close(loadIndex);
+                            window.layer.msg('驳回成功!');
+                            window.location.reload();
                         }
                     }
-                })
+                });
             });
-            
-        })
+        });
 
-        /*让几个div保持同高*/
-        var panel_height = new Array();
-        $('.panel_hobby').each(function(){
-            var index = $(this).index('.panel_hobby');
-            panel_height[index%3] = $(this).height();
-            if ((index+1)%3 == 0) {
-                var max = Math.max.apply(null, panel_height);
-                for (var j=index-2;j<=index;j++) {
-                    $('.panel_hobby:eq('+ j +')').css('height', max+'px');
-                }
-            }
+        /*通过申请*/
+        $(document).on('click', '.reviewOk', function(){
+            var id = $(this).parents('tr').find('.tdId').html();
+            var name = $(this).parents('tr').find('.tdName').html();
+            $('#selectSchoolOne .modal-title').html(name);
+        });
+
+        $('#selectSchoolOne').on('hidden.bs.modal', function (e) {
+            // do something...
         })
     })
 </script>
