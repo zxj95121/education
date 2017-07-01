@@ -198,7 +198,7 @@ class UserInfoController extends Controller
     {
         $id2 = $request->input('id2');
         $openid = Session::get('openid');
-
+        dd($openid.'---'.$id2);
         $flight = $this->returnUserFlight($openid,1);
         $flight->school = $id2;
         $flight->save();
