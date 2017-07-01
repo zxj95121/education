@@ -1,4 +1,4 @@
-$(function(){
+
 	$(document).on('click','.class1',function(){
 		var pid = $(this).attr('pid');
 		$('#eclass').load('/front/twoClass?pid='.pid);
@@ -15,4 +15,3 @@ $(function(){
 		var pid = $(this).attr('pid');
 		$('#eclass').load('/front/twoClassfour?pid='.pid);
 	})
-})
