@@ -256,7 +256,7 @@
 
 		}
         $('#twoclass').click(function(){
-            $('#eclass').load('');
+            $('#eclass').load('/twoClass');
         	includeLink("/front/my/twoclass.js","js");
         })
     </script>
