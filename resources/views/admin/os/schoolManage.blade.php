@@ -372,7 +372,7 @@
 		$(document).on('click','#edit1',function(){
 			$('#bttitle').text('修改学校分类');
 			var moren = $('#tabs_div1 .active').attr('title')||$('#tabs_div1 .active').attr('data-original-title');
-			if(moren != '通用'){
+			if(moren != '职业教师专用'){
 				var html = '';
 				html += '<div class="form-goup2">';
 				html += '<input type="checkbox" name="is_xuesheng" checked="checked" value="1">大学生教师';
