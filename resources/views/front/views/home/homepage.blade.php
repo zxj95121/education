@@ -24,7 +24,7 @@
         classrome
     </div>
 
-    <div class="container-fluid" id="eclass" style="display: none;">
+    <div class="container-fluid" id="eclass" style="display: none; padding:0">
         
     </div>
     <div class="container-fluid" id="my">
