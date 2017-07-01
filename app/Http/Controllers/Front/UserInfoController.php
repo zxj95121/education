@@ -88,7 +88,10 @@ class UserInfoController extends Controller
         }
 
         //根据userDetail->school读出相应信息
-        $schoolObj = SchoolTwo::find($userDetail->school);
+        if ($userDetail->school)
+            $schoolObj = SchoolTwo::find($userDetail->school);
+        else
+            $schoolObj = '';
 
     	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money,'schoolInfo'=>$schoolInfo,'schoolObj'=>$schoolObj]);
     }
