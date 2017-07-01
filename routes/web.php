@@ -94,6 +94,11 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
   	$router->post('/schooltwo/add','Setting\SchoolController@schooltwoAdd');//学科添加
   	$router->post('/schooltwo/edit','Setting\SchoolController@schooltwoEdit');//学科修改
   	$router->post('/schooltwo/delete','Setting\SchoolController@schooltwoDelete');//学科删除
+
+    /*爱好特长设置*/
+    $router->get('/hobbyManage', 'Setting\HobbyController@hobbyManage');//爱好管理列表页
+    $router->post('/hobbyManage/newHobby', 'Setting\HobbyController@newHobby');//爱好新增
+    $router->post('/hobbyManage/hideHobby', 'Setting\HobbyController@hideHobby');//爱好新增
   	/**
   	 * 双师classOne*/
   	$router->get('/doubleTeacher','Teacher\DoubleTeacherController@doubleTeacher');//列表
@@ -133,6 +138,11 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
   	$router->post('/teacherfour/edit_post','Teacher\DoubleTeacherController@fourEdit_post');
   	$router->get('/teacherfour/delete','Teacher\DoubleTeacherController@fourDelete');
   	$router->get('/teacherfour/hide','Teacher\DoubleTeacherController@fourHide');
+
+
+    /*待请求审核*/
+      /*学校审核*/
+    $router->get('/applySchool', 'Review\SchoolController@applySchool');
 });
 
 

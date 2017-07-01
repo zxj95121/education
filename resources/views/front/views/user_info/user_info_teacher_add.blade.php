@@ -148,6 +148,12 @@ $signPackage = $jssdk->GetSignPackage();
 	                </div>
 	            </div>
 	            <div class="weui-cell weui-cell_access">
+	                <div class="weui-cell__bd">我的爱好特长</div>
+	                <div class="weui-cell__ft" style="color:#22AAE8;">
+	                    <span style="vertical-align:middle; font-size: 17px;" class="glyphicon glyphicon-ok"></span>
+	                </div>
+	            </div>
+	            <!-- <div class="weui-cell weui-cell_access">
 	                <div class="weui-cell__bd">我的优势</div>
 	                <div class="weui-cell__ft" style="color:#22AAE8;">
 	                    <span style="vertical-align:middle; font-size: 17px;" class="glyphicon glyphicon-ok"></span>
@@ -158,7 +164,7 @@ $signPackage = $jssdk->GetSignPackage();
 	                <div class="weui-cell__ft" style="color:#22AAE8;">
 	                    <span style="vertical-align:middle; font-size: 17px;" class="glyphicon glyphicon-ok"></span>
 	                </div>
-	            </div>
+	            </div> -->
        		</div>
 		</div>
 
