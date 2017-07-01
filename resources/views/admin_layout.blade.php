@@ -68,42 +68,18 @@
                         </a>
                     </li>
                     
-                    <li class="has-submenu {!!(Request::is('admin/managerList','admin/managerReview','admin/teacherReview','admin/parentReview')? 'active' : '') !!}">
+                    <li class="has-submenu {!!(Request::is('admin/managerList','admin/managerReview')? 'active' : '') !!}">
                         <a href="#">
                             <i class="zmdi zmdi-format-underlined"></i> 
                             <span class="nav-label">用户基本管理</span>
                             <span class="menu-arrow"></span>
                         </a>
                         <ul class="list-unstyled">
-                            <li class="{!!(Request::is('admin/parentReview')? 'active' : '') !!}">
-                                <a href="/admin/parentReview">家长资料审核</a>
-                            </li>
-                            <li class="{!!(Request::is('admin/teacherReview')? 'active' : '') !!}">
-                                <a href="/admin/teacherReview">老师资料审核</a>
-                            </li>
                             <li class="{!!(Request::is('admin/managerReview')? 'active' : '') !!}">
                                 <a href="/admin/managerReview">管理员申请</a>
                             </li>
                             <li class="{!!(Request::is('admin/managerList')? 'active' : '') !!}">
                                 <a href="/admin/managerList">管理员列表</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu {!!(Request::is('admin/communityManage','admin/subjectManage','admin/schoolManage')? 'active' : '') !!}">
-                        <a href="#">
-                            <i class="fa fa-cog"></i> 
-                            <span class="nav-label">系统设置</span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <ul class="list-unstyled">
-                            <li class="{!!(Request::is('admin/communityManage')? 'active' : '') !!}">
-                                <a href="/admin/communityManage">社区管理	</a>
-                            </li>
-                            <li class="{!!(Request::is('admin/subjectManage')? 'active' : '') !!}">
-                                <a href="/admin/subjectManage">学科管理   </a>
-                            </li>
-                            <li class="{!!(Request::is('admin/schoolManage')? 'active' : '') !!}">
-                                <a href="/admin/schoolManage">学校管理   </a>
                             </li>
                         </ul>
                     </li>
@@ -115,7 +91,40 @@
                         </a>
                         <ul class="list-unstyled">
                             <li class="{!!(Request::is('admin/doubleTeacher')? 'active' : '') !!}">
-                                <a href="/admin/doubleTeacher">管理</a>
+                                <a href="/admin/doubleTeacher">课程设置</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu {!!(Request::is('admin/applySchool')? 'active' : '') !!}">
+                        <a href="#">
+                            <i class="ion-hammer"></i> 
+                            <span class="nav-label">请求待审核</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="list-unstyled">
+                            <li class="{!!(Request::is('admin/applySchool')? 'active' : '') !!}">
+                                <a href="/admin/applySchool">待审核学校</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu {!!(Request::is('admin/communityManage','admin/subjectManage','admin/schoolManage','admin/hobbyManage')? 'active' : '') !!}">
+                        <a href="#">
+                            <i class="fa fa-cog"></i> 
+                            <span class="nav-label">系统设置</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="list-unstyled">
+                            <li class="{!!(Request::is('admin/communityManage')? 'active' : '') !!}">
+                                <a href="/admin/communityManage">社区管理   </a>
+                            </li>
+                            <li class="{!!(Request::is('admin/subjectManage')? 'active' : '') !!}">
+                                <a href="/admin/subjectManage">学科管理   </a>
+                            </li>
+                            <li class="{!!(Request::is('admin/schoolManage')? 'active' : '') !!}">
+                                <a href="/admin/schoolManage">学校管理   </a>
+                            </li>
+                            <li class="{!!(Request::is('admin/hobbyManage')? 'active' : '') !!}">
+                                <a href="/admin/hobbyManage">爱好特长   </a>
                             </li>
                         </ul>
                     </li>
