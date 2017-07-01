@@ -844,14 +844,34 @@ $signPackage = $jssdk->GetSignPackage();
 
 		    /*学校添加新内容*/
 		    $('#noSchool').click(function(){
-		    	var openIndex = layer.open({
+		    	window.openIndex = layer.open({
 				    type: 1
-				    ,content: '<div class="weui-cells__title">学校添加</div><div class="weui-cells weui-cells_form"> <div class="weui-cell"> <div class="weui-cell__hd"><label class="weui-label">qq</label></div> <div class="weui-cell__bd"> <input class="weui-input" type="text" placeholder="请输入您的学校"> </div> </div> <div class="weui-btn-area"> <a class="weui-btn weui-btn_primary" href="javascript:" id="addSchool">提交</a> </div>'
+				    ,content: '<div class="weui-cells__title">学校添加</div><div class="weui-cells weui-cells_form"> <div class="weui-cell"> <div class="weui-cell__hd"><label class="weui-label">学校名称</label></div> <div class="weui-cell__bd"> <input class="weui-input" id="input_newSchool" type="text" placeholder="请输入您的学校"> </div> </div> <div class="weui-btn-area"> <a class="weui-btn weui-btn_primary" href="javascript:" id="addSchool" onclick="addSchoolFunc();">提交</a> </div>'
 				    ,anim: 'up'
-				    ,style: 'position:fixed; top:30%; left:0; width: 100%; height: 200px; padding:10px 0; border:none;'
+				    ,style: 'position:fixed; top:26%; left:0; width: 100%; height: 200px; padding:10px 0; border:none;'
 				});
 		    })
 		});
+
+		function addSchoolFunc(){
+			var name = $('#input_newSchool').val();
+			$.ajax({
+				url: '/front/addNewSchool',
+				type: 'post',
+				dataType: 'json',
+				data: {
+					name: name
+				},
+				success: function(data){
+					layer.close(window.openIndex);
+					layer.open({
+					    content: '提交申请成功'
+					    ,skin: 'msg'
+					    ,time: 2 //2秒后自动关闭
+					});
+				}
+			})
+		}
 	</script>
 	<script type="text/javascript">
 		wx.config({

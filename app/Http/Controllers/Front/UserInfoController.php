@@ -13,6 +13,7 @@ use App\Models\TeacherDetail;
 use App\Models\UserType;
 use App\Models\SchoolOne;
 use App\Models\SchoolTwo;
+use App\Models\SchoolApply;
 use Session;
 
 class UserInfoController extends Controller
@@ -211,6 +212,20 @@ class UserInfoController extends Controller
 
         $flight = $this->returnUserFlight($openid,1);
         $flight->money = $value;
+        $flight->save();
+
+        return response()->json(['errcode'=>0]);
+    }
+
+    /*添加新学校*/
+    public function addNewSchool(Request $request)
+    {
+        $name = $request->input('name');
+        $openid = Session::get('openid');
+
+        $flight = new SchoolApply();
+        $flight->name = $name;
+        $flight->openid = $openid;
         $flight->save();
 
         return response()->json(['errcode'=>0]);
