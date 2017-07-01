@@ -13,16 +13,21 @@ class TwoClassController extends Controller
 {
     public function index(){
     	$teacherone = TeacherOne::where('status','1')->select('id','name')->get();
-    	return view('front.views.home.twoclass1',['res'=>$teacherone]);
+    	return view('front.views.home.twoclass',['res'=>$teacherone,'class'=>'class1']);
     }
     public function two(Request $request){
-    	$teachertwo = TeacherTwo::where('status','1')->select('id','name')->get();
-    	return view('front.views.home.twoclass2',['res'=>$teachertwo]);
+    	$pid = $request->input('pid');
+    	$teachertwo = TeacherTwo::where('status','1')->where('pid',$pid)->select('id','name')->get();
+    	return view('front.views.home.twoclass',['res'=>$teachertwo,'class'=>'class2']);
     }
     public function three(Request $request){
-    	
+    	$pid = $request->input('pid');
+    	$teacherthree = TeacherThree::where('status','1')->where('pid',$pid)->select('id','name')->get();
+    	return view('front.views.home.twoclass',['res'=>$teachertwo,'class'=>'class3']);
     }
     public function four(Request $request){
-    	
+    	$pid = $request->input('pid');
+    	$teacherfour = TeacherFour::where('status','1')->where('pid',$pid)->select('id','name')->get();
+    	return view('front.views.home.twoclass',['res'=>$teachertwo,'class'=>'class4']);
     }
 }
