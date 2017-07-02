@@ -30,4 +30,23 @@ class TwoClassController extends Controller
     	$teacherfour = TeacherFour::where('status','1')->where('pid',$pid)->select('id','name')->get();
     	return view('front.views.home.twoclass',['res'=>$teacherfour,'class'=>'class4']);
     }
+    public function back(Request $request){
+    	$pid = $request->input('pid');
+    	$fenlei = $request->input('fenlei');
+    	switch ($fenlei){
+    		case 'class2':
+    			$res = TeacherOne::where('status','1')->select('id','name')->get();
+    			$fenlei = 'class1';
+    			break;
+    		case 'class3';
+    			$res = TeacherTwo::where('status','1')->where('pid',$pid)->select('id','name')->get();
+    			$fenlei = 'class2';
+    			break;
+    		case 'class4';
+    			$res = TeacherFour::where('status','1')->where('pid',$pid)->select('id','name')->get();
+    			$fenlei = 'class3';
+    			break;
+    	}
+    	return view('front.views.home.twoclass',['res'=>$res,'class'=>$fenlei]);
+    }
 }
