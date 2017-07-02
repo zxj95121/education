@@ -1,18 +1,15 @@
 $(document).on('click','.class1',function(){
 	var pid = $(this).attr('pid');
-	console.log(pid);
+	$('#eclass').attr('pid1',pid);
 	$('#twoclass').load('/front/twoClasstwo?pid='+pid);
 })
 $(document).on('click','.class2',function(){
 	var pid = $(this).attr('pid');
-	console.log(pid);
-	$('#eclass').attr('pid1',pid);
+	$('#eclass').attr('pid2',pid);
 	$('#twoclass').load('/front/twoClassthree?pid='+pid);
 })
 $(document).on('click','.class3',function(){
 	var pid = $(this).attr('pid');
-	console.log(pid);
-	$('#eclass').attr('pid2',pid);
 	$('#twoclass').load('/front/twoClassfour?pid='+pid);
 })
 $(document).on('click','#houtui',function(){
