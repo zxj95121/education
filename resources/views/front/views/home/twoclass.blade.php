@@ -1,9 +1,14 @@
+<style>
+	#twoclass a:active{
+		text-decoration:none;
+	}
+</style>
 <div id="twoclass">
 	<div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#FFF;">
 	    @if($class != 'class1')
 	     	<div><div class="glyphicon glyphicon-menu-left" id="houtui" fenlei="{{$class}}"></div></div>
 	    @endif
-	    <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">请选择课程</div></div>
+	    <div class="weui-flex__item"><div class="placeholder" style="text-align:center; font-size:16px">请选择课程</div></div>
 	</div>
 	@foreach($res as $value)
 		<div  class="weui-cells" style="margin:0">
