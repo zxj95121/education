@@ -495,6 +495,10 @@ $signPackage = $jssdk->GetSignPackage();
 	        	removeActive($(this));
 	        	$(this).addClass('communityActive');
 	        	$('#community .col:eq(0)').attr('num', number);
+
+	        	$('#community .col:eq(1)').html('');
+	        	$('#community .col:eq(2)').html('');
+
 	        	for (var i in communityInfo[number]['next']) {
 	        		$('#community .col:eq(1)').append('<div class="row row_community cTwo" number="'+i+'" cid = "'+communityInfo[number]['next'][i].id+'">'+communityInfo[number]['next'][i].name+'</div>');
 	        	}
@@ -507,17 +511,20 @@ $signPackage = $jssdk->GetSignPackage();
 	        	$(this).addClass('communityActive');
 	        	$('#community .col:eq(1)').attr('num', number);
 
+	        	$('#community .col:eq(2)').html('');
+
 	        	for (var i in communityInfo[num]['next'][number]['next']){
 	        		$('#community .col:eq(2)').append('<div class="row row_community cThree" number="'+i+'" cid = "'+communityInfo[num]['next'][number]['next'][i].id+'">'+communityInfo[num]['next'][number]['next'][i].name+'</div>');
 	        	}
 	        })
 
 	        $(document).on('click', '.cThree', function(){
+	        	var cdom = $(this);
 	        	$(this).parent().find('div').each(function(){
 	        		if ($(this).hasClass('communityActive')) {
-	        			$(this).removeClass('communityActive');
+	        			cdom.removeClass('communityActive');
 	        		} else {
-	        			$(this).addClass('communityActive');
+	        			cdom.addClass('communityActive');
 	        		}
 	        	})
 	        })
