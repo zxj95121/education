@@ -348,12 +348,12 @@ $signPackage = $jssdk->GetSignPackage();
 			    </div>
 			    <div class="row" style="width: 100%;height: 100%;margin: 0 auto;" id="community">
 			    	<div class="col-xs-3 col">
-			    		<div class="row row_community">
+<!-- 			    		<div class="row row_community">
 			    			芜湖市fdfdafdf大饭店
 			    		</div>
 			    		<div class="row row_community">
 			    			安庆市
-			    		</div>
+			    		</div> -->
 			    	</div>	
 			    	<div class="col-xs-4 col">
 			    		<div class="row row_community">
@@ -474,7 +474,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        		console.log(address);
 
 	        		for (var i in communityInfo) {
-	        			$('#communityInfo .col:eq(0)').append('<div class="row row_community" cid = "'+communityInfo[i].id+'">'+communityInfo[i].name+'</div>');
+	        			$('#community .col:eq(0)').append('<div class="row row_community" cid = "'+communityInfo[i].id+'">'+communityInfo[i].name+'</div>');
 	        		}
 	        	}
 	        })
