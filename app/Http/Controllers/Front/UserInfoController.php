@@ -60,7 +60,7 @@ class UserInfoController extends Controller
             $money = '';
         }
 
-        /*查询学校信息*/
+        /*查询学校信息*/  /*以及教学年份*/
         if ($userDetail->type == 1) {
             /*大学生教师*/
             $schoolInfo_one = SchoolOne::where('school_one.is_student', 1)
@@ -134,8 +134,17 @@ class UserInfoController extends Controller
         }
 
         /*查用户的特长爱好*/
+        if ($userDetail->hobby == '') {
+            $hobbyData = '';
+        } else {
+            $fli = Hobby::find(substr($userDetail->hobby, 0, 1));
+            $hobbyData = $fli->name;
+            if (strpos($userDetail->hobby, '-') > 0) {
+                $hobbyData .= '等';
+            }
+        }
 
-    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money,'schoolInfo'=>$schoolInfo,'schoolObj'=>$schoolObj,'addressStr'=>$addressStr,'typeArr'=>$typeArr]);
+    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money,'schoolInfo'=>$schoolInfo,'schoolObj'=>$schoolObj,'addressStr'=>$addressStr,'typeArr'=>$typeArr,'hobbyData'=>$hobbyData]);
     }
 
     public function selectTeacherType(Request $request)
