@@ -1,17 +1,33 @@
 $(document).on('click','.class1',function(){
 	var pid = $(this).attr('pid');
+	$('#houtui').attr('pid1',pid);
 	$('#twoclass').load('/front/twoClasstwo?pid='+pid);
 })
 $(document).on('click','.class2',function(){
 	var pid = $(this).attr('pid');
+	$('#houtui').attr('pid2',pid);
 	$('#twoclass').load('/front/twoClassthree?pid='+pid);
 })
 $(document).on('click','.class3',function(){
 	var pid = $(this).attr('pid');
+	$('#houtui').attr('pid3',pid);
 	$('#twoclass').load('/front/twoClassfour?pid='+pid);
 })
 $(document).on('click','#houtui',function(){
-	var pid = $(this).attr('pid');
 	var twoclass = $(this).attr('fenlei');
-	$('#twoclass').load('/front/twoClassback?pid='+pid+'&fenlei='+twoclass);
+	switch(twoclass){
+		case'class1': 
+			var pid = 0;
+			break;
+		case'class2':
+			var pid = $(this).attr('pid1');
+			break;
+		case 'class3':
+			var pid = $(this).attr('pid2');
+			break;
+		case 'class4':
+			var pid = $(this).attr('pid3');
+			break;
+	}
+	$('#twoclass').load('/front/twoClassback?feneli='+twoclass+'&pid='+pid);
 })

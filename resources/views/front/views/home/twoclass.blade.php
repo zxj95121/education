@@ -1,7 +1,7 @@
 <div id="twoclass">
 	<div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#FFF;">
 	    @if($class != 'class1')
-	     	<div><div class="glyphicon glyphicon-menu-left" id="houtui" pid="{{$pid}}" fenlei="{{$class}}"></div></div>
+	     	<div><div class="glyphicon glyphicon-menu-left" id="houtui" fenlei="{{$class}}"></div></div>
 	    @endif
 	    <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">请选择课程</div></div>
 	</div>
