@@ -191,6 +191,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
     $router->post('/tsave_status', 'UserInfoController@t_status');
     $router->post('/tsave_school', 'UserInfoController@t_school');
     $router->post('/tsave_community', 'UserInfoController@t_community');
+    $router->post('/tsave_hobby', 'UserInfoController@t_hobby');
     $router->post('/tsave_project', 'UserInfoController@t_project');
 
       /*获取社区信息*/

@@ -276,6 +276,36 @@ class UserInfoController extends Controller
         return response()->json(['errcode'=>0]);
     }
 
+    /*hobby*/
+    public function t_hobby(Request $request)
+    {
+        $hobby = $request->input('hobby');
+        $openid = Session::get('openid');
+
+        $str = '';
+        foreach ($hobby as $value) {
+            if ($value) {
+                $str .= $value.'-';
+            }
+        }
+
+        if ($str != '') {
+            $str = substr($str, 0, -1);
+
+            $flight = $this->returnUserFlight($openid, 1);
+            $flight->hobby = $str;
+            $flight->save();
+
+            if (count($hobby) > 1)
+                $resp = $value.'等';
+            else
+                $resp = $value;
+        } else {
+            $resp = '';
+        }
+        return response()->json(['errcode'=>0,'html'=>$resp]);
+    }
+
     /*添加新学校*/
     public function addNewSchool(Request $request)
     {
