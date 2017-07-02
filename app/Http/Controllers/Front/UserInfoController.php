@@ -261,13 +261,14 @@ class UserInfoController extends Controller
     public function t_community(Request $request)
     {
         $address = $request->input('address');
-        var_dump($address);
-        dd(1);
+        
         $openid = Session::get('openid');
 
         $str = '';
         foreach ($address as $value) {
-            $str .= $value.'-';
+            if ($value) {
+                $str .= $value.'-';
+            }
         }
         $str = substr($str, 0, -1);
 
