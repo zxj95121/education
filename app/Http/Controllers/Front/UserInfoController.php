@@ -288,10 +288,12 @@ class UserInfoController extends Controller
             $flight->hobby = $hobby;
             $flight->save();
 
+            $valueId = substr($hobby, -1);
+            $hbData = Hobby::find($valueId);
             if (strpos('-', $hobby) > 0)
-                $resp = $value.'等';
+                $resp = $hbData->name.'等';
             else
-                $resp = $value;
+                $resp = $hbData->name;
         } else {
             $resp = '';
         }
