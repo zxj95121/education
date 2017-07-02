@@ -374,7 +374,7 @@ $signPackage = $jssdk->GetSignPackage();
 			    	@foreach($typeArr as $key => $value)
 			    	<div class="row">
 			    		<div class="col-xs-12" style="margin-top: 5px;">
-                            <div class="heading" id1="{{$value['id1']}}"> 
+                            <div class="heading"> 
                                 <h4 style="margin-bottom: 0px;">{{$key}}</h4> 
                             </div>
                             <div class="pbody">
