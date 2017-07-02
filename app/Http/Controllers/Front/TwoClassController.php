@@ -47,6 +47,6 @@ class TwoClassController extends Controller
     			$fenlei = 'class3';
     			break;
     	}
-    	return view('front.views.home.twoclass',['res'=>$res,'class'=>$fenlei]);
+    	return view('front.views.home.twoclass',['res'=>$res,'class'=>$fenlei,'pid'=>$res->pid]);
     }
 }
