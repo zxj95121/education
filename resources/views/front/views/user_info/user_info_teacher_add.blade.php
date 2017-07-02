@@ -540,7 +540,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        $('#community .done_ok').click(function(){
 	        	if (address.length < 1) {
 	        		layer.open({
-					    content: '保存失败，期望社区个数不能为0';
+					    content: '保存失败，期望社区个数不能为0'
 					    ,skin: 'msg'
 					    ,time: 2 //2秒后自动关闭
 					 });
