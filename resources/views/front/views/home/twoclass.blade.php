@@ -19,15 +19,32 @@
 	    @endif
 	    <div class="weui-flex__item"><div class="placeholder" style="text-align:center; font-size:16px">请选择课程</div></div>
 	</div>
-	@foreach($res as $value)
-		<div  class="weui-cells" style="margin:0">
-			<a class="weui-cell weui-cell_access {{$class}}" pid="{{$value->id}}">
-			    <div class="weui-cell__bd">
-			        <p style="margin-bottom:0px">{{$value->name}}</p>
-			    <iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe></div>
-			    <div class="weui-cell__ft">
-			    </div>
-			</a>
-		</div>
-	@endforeach
+	@if($class != "class3")
+		@foreach($res as $value)
+			<div  class="weui-cells" style="margin:0">
+				<a class="weui-cell weui-cell_access {{$class}}" pid="{{$value->id}}">
+				    <div class="weui-cell__bd">
+				        <p style="margin-bottom:0px">{{$value->name}}</p>
+				    <iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe></div>
+				    <div class="weui-cell__ft">
+				    </div>
+				</a>
+			</div>
+		@endforeach
+	@else
+		@foreach($res as $value)
+			<div  class="weui-cells" style="margin:0">
+				<a class="weui-cell weui-cell_access {{$class}}" pid="{{$value->id}}">
+				    <div class="weui-cell">
+				        <p style="margin-bottom:0px">{{$value->name}}</p>
+				    	<iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
+				    </div>
+				</a>
+				<a>
+					<div class="weui-cell__ft">购买</div>
+				</a>
+			</div>
+		@endforeach
+	@endif
+
 </div>
