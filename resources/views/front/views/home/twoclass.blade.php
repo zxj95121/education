@@ -33,18 +33,17 @@
 		@endforeach
 	@else
 		@foreach($res as $value)
-			<div  class="weui-cells" style="margin:0">
-				<a class="weui-cell weui-cell_access {{$class}}" pid="{{$value->id}}">
-				    <div class="weui-cell">
-				        <p style="margin-bottom:0px">{{$value->name}}</p>
-				    	<iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
-				    </div>
-				</a>
-				<a>
-					<div class="weui-cell__ft">购买</div>
-				</a>
-			</div>
-		@endforeach
+			<div class="weui-cell">
+				<a class="{{$class}}" pid="{{$value->id}}">
+                	<div class="weui-cell__bd">
+                    	<p>{{$value->name}}</p>
+                	</div>
+                </a>
+                <a>
+               		<div class="weui-cell__ft">购买</div>
+            	</a>
+            </div>
+        @endforeach		
 	@endif
 
 </div>
