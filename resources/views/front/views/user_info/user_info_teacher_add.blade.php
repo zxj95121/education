@@ -471,7 +471,11 @@ $signPackage = $jssdk->GetSignPackage();
 	        		communityInfo = data['communityInfo'];
 	        		address = data['address'];
 	        		console.log(communityInfo);
-	        		console.log(address)
+	        		console.log(address);
+
+	        		for (var i in communityInfo) {
+	        			$('#communityInfo col:eq(0)').append('<div class="row row_community" cid = "'+communityInfo[i].id+'">'+communityInfo[i].name+'</div>');
+	        		}
 	        	}
 	        })
 		})
