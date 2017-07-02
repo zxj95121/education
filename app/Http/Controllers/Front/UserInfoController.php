@@ -282,21 +282,13 @@ class UserInfoController extends Controller
         $hobby = $request->input('hobby');
         $openid = Session::get('openid');
 
-        $str = '';
-        foreach ($hobby as $value) {
-            if ($value) {
-                $str .= $value.'-';
-            }
-        }
-
-        if ($str != '') {
-            $str = substr($str, 0, -1);
+        if ($hobby != '') {
 
             $flight = $this->returnUserFlight($openid, 1);
-            $flight->hobby = $str;
+            $flight->hobby = $hobby;
             $flight->save();
 
-            if (count($hobby) > 1)
+            if (strpos('-', $hobby) > 0)
                 $resp = $value.'等';
             else
                 $resp = $value;

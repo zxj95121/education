@@ -829,11 +829,14 @@ $signPackage = $jssdk->GetSignPackage();
 
 		    /*爱好特长点OK*/
 		    $('#hobby .done_ok').click(function(){
-		    	var hobby = new Array();
-		    	$k = 0;
+		    	var hobby = '';
 		    	$('#hobby button').filter('.btn-success').each(function(){
-		    		hobby[$k++] = $(this).attr('cid');
+		    		hobby += $(this).attr('cid')+'-';
 		    	})
+
+		    	if (hobby != '') {
+		    		hobby = hobby.substr(0,-1);
+		    	}
 
 		    	$.ajax({
 	    			url: '/front/tsave_hobby',
