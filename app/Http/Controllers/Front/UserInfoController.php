@@ -289,4 +289,43 @@ class UserInfoController extends Controller
 		}
 		return $flight;
     }
+
+    /*post请求社区信息*/
+    public function getCommunity()
+    {
+        $communityOne = CommunityCity::where('status', 1)
+            ->select('id', 'name')
+            ->get();
+        $communityInfo = array();
+        foreach ($communityOne as $key => $value) {
+            $communityInfo[$key]['id'] = $value->id;
+            $communityInfo[$key]['name'] = $value->name;
+            $communityInfo[$key]['next'] = array();
+
+            $communityTwo = CommunityArea::where('status', '1')
+                ->where('cid', $value->id)
+                ->select('id', 'name', 'cid')
+                ->get();
+
+            foreach ($communityTwo as $k => $v) {
+                $communityInfo[$key]['next'][$k]['id'] = $v->id;
+                $communityInfo[$key]['next'][$k]['cid'] = $v->cid;
+                $communityInfo[$key]['next'][$k]['name'] = $v->name;
+                $communityInfo[$key]['next'][$k]['next'] = array();
+
+                $communityThree = CommunityCommunity::where('status', 1)
+                    ->where('aid', $v->id)
+                    ->select('id', 'name', 'aid')
+                    ->get();
+
+                foreach ($communityThree as $p => $q) {
+                    $communityInfo[$key]['next'][$k]['next'][$p]['id'] = $q->id;
+                    $communityInfo[$key]['next'][$k]['next'][$p]['name'] = $q->name;
+                    $communityInfo[$key]['next'][$k]['next'][$p]['aid'] = $q->aid;
+                }
+            }
+        }
+
+        return response()->json($communityInfo);
+    }
 }

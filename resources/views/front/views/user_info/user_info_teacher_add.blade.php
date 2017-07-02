@@ -452,6 +452,21 @@ $signPackage = $jssdk->GetSignPackage();
 	<script type="text/javascript" src="/front/js_module/picker.js"></script>
 	<script type="text/javascript">
 		$(function(){
+			communityInfo = new Array();
+	        $.ajax({
+	        	url: '/front/getCommunity',
+	        	type: 'post',
+	        	dataType: 'json',
+	        	data: {
+
+	        	},
+	        	success: function(data) {
+	        		communityInfo = data;
+	        		console.log(communityInfo);
+	        	}
+	        })
+		})
+		$(function(){
 			find_status = {{$userDetail->find_status}};
 			var height = document.documentElement.clientHeight;
 			$('#page_row').css({'display': 'none','height': height+'px'});
