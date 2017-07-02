@@ -832,13 +832,27 @@ $signPackage = $jssdk->GetSignPackage();
 		    	var hobby = new Array();
 		    	$k = 0;
 		    	$('#hobby button').filter('.btn-success').each(function(){
-		    		$k++;
-		    		hobby[$k] = new Array();
-		    		hobby[$k]['name'] = $(this).html();
-		    		hobby[$k++]['id'] = $(this).attr('cid');
+		    		hobby[$k++] = $(this).attr('cid');
 		    	})
 
-		    	console.log(hobby);
+		    	$.ajax({
+	    			url: '/front/tsave_hobby',
+	    			dataType: 'json',
+	    			type: 'post',
+	    			data: {
+	    				hobby: hobby
+	    			},
+	    			success: function(data) {
+	    				if (data.errcode == 0) {
+	    					$('div[target="school"]').find('span').html(data.html);
+				    		$('#page_main').css('display', 'block');
+							$(this).parents('.page_set').animate({'top': height+'px'}, 250);
+							setTimeout(function(){
+								$('#page_row').css('display', 'none');
+							}, 250);
+	    				}
+	    			}
+	    		})
 		    })
 
 		    /*期望社区点击OK*/
