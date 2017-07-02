@@ -102,8 +102,11 @@
                             <span class="menu-arrow"></span>
                         </a>
                         <ul class="list-unstyled">
-                            <li class="{!!(Request::is('admin/applySchool')? 'active' : '') !!}">
+                            <li class="{!!(Request::is('admin/applySchool', '/admin/applyHobby')? 'active' : '') !!}">
                                 <a href="/admin/applySchool">待审核学校</a>
+                            </li>
+                            <li class="{!!(Request::is('admin/applyHobby')? 'active' : '') !!}">
+                                <a href="/admin/applyHobby">待审核爱好</a>
                             </li>
                         </ul>
                     </li>
