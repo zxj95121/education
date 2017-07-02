@@ -154,8 +154,8 @@ $signPackage = $jssdk->GetSignPackage();
 	            </div>
 	            <div class="weui-cell weui-cell_access row_info" target="hobby">
 	                <div class="weui-cell__bd">我的爱好特长</div>
-	                <div class="weui-cell__ft" style="color:#22AAE8;">
-	                    <span style="vertical-align:middle; font-size: 17px;" class="glyphicon glyphicon-ok"></span>
+	                <div class="weui-cell__ft" style="font-size: 0;">
+	                    <span style="vertical-align:middle; font-size: 17px;"></span>
 	                </div>
 	            </div>
 	            <!-- <div class="weui-cell weui-cell_access">
@@ -379,7 +379,11 @@ $signPackage = $jssdk->GetSignPackage();
                             </div>
                             <div class="pbody">
                             	@foreach($value as $v)
-                                <button type="button" class="btn btn-info" cid="{{$v['id']}}">{{$v['name']}}</button>
+                            		@if(in_array($v['id'], $userDetail->hobby))
+                                		<button type="button" class="btn btn-success" cid="{{$v['id']}}">{{$v['name']}}</button>
+                                	@else
+                                		<button type="button" class="btn btn-info" cid="{{$v['id']}}">{{$v['name']}}</button>
+                                	@endif
                                 @endforeach
                             </div> 
                         </div>
