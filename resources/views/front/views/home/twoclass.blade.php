@@ -11,6 +11,11 @@
 	#twoclass a:active{
 		text-decoration:none;
 	}
+	.buyCell .label-success{
+		position: absolute;
+		right: 4px;
+		top: 2px;
+	}
 </style>
 <div id="twoclass">
 	<div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#FFF;">
@@ -33,11 +38,12 @@
 		@endforeach
 	@else
 		@foreach($res as $value)
-			<div  class="weui-cells" style="margin:0">
+			<div  class="weui-cells buyCell" style="margin:0">
 				<a class="weui-cell weui-cell_access {{$class}}" pid="{{$value->id}}">
-				    <div class="weui-cell__bd">
+				    <div class="weui-cell__bd" style="position: relative;">
 				        <p style="margin-bottom:0px">{{$value->name}}</p>
 				    	<iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
+				    	<span class="label label-success">Success</span>
 				    </div>
 				    <div class="weui-cell__ft">
 				    </div>
