@@ -25,6 +25,5 @@ $(document).on('click','#houtui',function(){
 			var pid = $('#eclass').attr('pid2');
 			break;
 	}
-	console.log(pid);
 	$('#twoclass').load('/front/twoClassback?fenlei='+twoclass+'&pid='+pid);
 })
