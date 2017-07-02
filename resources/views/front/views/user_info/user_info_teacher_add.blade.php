@@ -379,8 +379,7 @@ $signPackage = $jssdk->GetSignPackage();
                             </div>
                             <div class="pbody">
                             	@foreach($value as $v)
-                            	{{$userDetail->hobby}}
-                            		@if(strpos($userDetail->hobby, $v['id']) != false)
+                            		@if(strpos($userDetail->hobby, $v['id']) >= 0)
                                 		<button type="button" class="btn btn-success" cid="{{$v['id']}}">{{$v['name']}}</button>
                                 	@else
                                 		<button type="button" class="btn btn-info" cid="{{$v['id']}}">{{$v['name']}}</button>
