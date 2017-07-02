@@ -481,7 +481,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 	        $(document).on('click', '.cOne', function(){
 	        	var number = $(this).attr('number');
-	        	foreach (var i in communityInfo[number]['next']) {
+	        	for (var i in communityInfo[number]['next']) {
 	        		$('#community .col:eq(1)').append('<div class="row row_community cOne" number="'+i+'" cid = "'+communityInfo[number]['next'][i].id+'">'+communityInfo[number]['next'][i].name+'</div>');
 	        	}
 	        })
