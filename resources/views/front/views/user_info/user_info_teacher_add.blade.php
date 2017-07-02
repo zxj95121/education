@@ -506,9 +506,10 @@ $signPackage = $jssdk->GetSignPackage();
 	        	removeActive($(this));
 	        	$(this).addClass('communityActive');
 	        	$('#community .col:eq(1)').attr('num', number);
-	        	for (var i in community[num]['next'][number]['next']){
-	        		$('#community .col:eq(1)').append('<div class="row row_community cThree" number="'+i+'" cid = "'+communityInfo[num]['next'][number]['next'][i].id+'">'+communityInfo[num]['next'][number]['next'][i].name+'</div>');
-	        	}
+	        	console.log(community[num]['next'][number]['next']);
+	        	// for (var i in community[num]['next'][number]['next']){
+	        	// 	$('#community .col:eq(1)').append('<div class="row row_community cThree" number="'+i+'" cid = "'+communityInfo[num]['next'][number]['next'][i].id+'">'+communityInfo[num]['next'][number]['next'][i].name+'</div>');
+	        	// }
 	        })
 		})
 
