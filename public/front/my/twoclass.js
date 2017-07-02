@@ -12,7 +12,10 @@ $(document).on('click','.class3',function(){
 	var pid = $(this).attr('pid');
 	$('#twoclass').load('/front/twoClassfour?pid='+pid);
 })
-$(document).on('click','#houtui',function(){
+$(document).on('click','#houtui',function(e){
+	e = window.event;
+	console.log(e.target);
+	console.log(e.tagName)
 	var twoclass = $(this).attr('fenlei');
 	switch(twoclass){
 		case'class2':
@@ -25,10 +28,13 @@ $(document).on('click','#houtui',function(){
 			var pid = $('#eclass').attr('pid2');
 			break;
 	}
-	$('#twoclass').load('/front/twoClassback?fenlei='+twoclass+'&pid='+pid);
+	// $('#twoclass').load('/front/twoClassback?fenlei='+twoclass+'&pid='+pid);
 })
 
 $(document).on('.goumai', 'click', function(e){
-	e.stopPropagation();
+	// e.stopPropagation();
+	e = window.event;
+	console.log(e.target);
+	console.log(e.tagName)
 	console.log('dddd');
 })
