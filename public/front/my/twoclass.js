@@ -10,3 +10,6 @@ $(document).on('click','.class3',function(){
 	var pid = $(this).attr('pid');
 	$('#twoclass').load('/front/twoClassfour?pid='+pid);
 })
+$(document).on('click','#houtui',function(){
+	go(-1);
+})
