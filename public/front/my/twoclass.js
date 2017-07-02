@@ -28,6 +28,7 @@ $(document).on('click','#houtui',function(){
 	$('#twoclass').load('/front/twoClassback?fenlei='+twoclass+'&pid='+pid);
 })
 
-$(document).on('.goumai', 'click', function(){
+$(document).on('.goumai', 'click', function(e){
+	e.preventdefault();
 	console.log('dddd');
 })
