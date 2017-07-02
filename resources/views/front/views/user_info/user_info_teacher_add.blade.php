@@ -452,6 +452,13 @@ $signPackage = $jssdk->GetSignPackage();
 	<script type="text/javascript" src="/front/js_module/picker.js"></script>
 	<script type="text/javascript">
 		$(function(){
+			$.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': '{{csrf_token()}}'
+                }
+            });
+		})
+		$(function(){
 			communityInfo = new Array();
 	        $.ajax({
 	        	url: '/front/getCommunity',
@@ -928,13 +935,6 @@ $signPackage = $jssdk->GetSignPackage();
 	</script>
 
 	<script type="text/javascript">
-		$(function(){
-			$.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': '{{csrf_token()}}'
-                }
-            });
-		})
 		$(window).load(function() {
 
 			$(document).on('change', '#upload-file', function(){
