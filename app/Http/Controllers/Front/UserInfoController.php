@@ -295,7 +295,7 @@ class UserInfoController extends Controller
     {
         $openid = Session::get('openid');
 
-        $flight = returnUserFlight($openid, 1);
+        $flight = $this->returnUserFlight($openid, 1);
         $cInfo = $flight->address;
         if ($cInfo == '') {
             $address = '';
