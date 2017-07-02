@@ -370,7 +370,7 @@ $signPackage = $jssdk->GetSignPackage();
 			            <div><div class="placeholder glyphicon glyphicon-ok done_ok"></div></div>
 			        </div>
 			    </div>
-			    <div style="width: 97%;margin: 0 auto;padding:0px 4px;" id="school_btns">
+			    <div style="width: 97%;margin: 0 auto;padding:0px 4px;" id="hobby_btns">
 			    	@foreach($typeArr as $key => $value)
 			    	<div class="row">
 			    		<div class="col-xs-12" style="margin-top: 5px;">
@@ -379,7 +379,7 @@ $signPackage = $jssdk->GetSignPackage();
                             </div>
                             <div class="pbody">
                             	@foreach($value as $v)
-                                <button type="button" class="btn btn-success" cid="{{$v['id']}}">{{$v['name']}}</button>
+                                <button type="button" class="btn btn-info" cid="{{$v['id']}}">{{$v['name']}}</button>
                                 @endforeach
                             </div> 
                         </div>
@@ -787,6 +787,15 @@ $signPackage = $jssdk->GetSignPackage();
 		    	$('#school_btns button[class="btn btn-success"]').removeClass('btn-success').addClass('btn-info');
 		    	// var index = $(this).index('#school_btns button');
 		    	$(this).removeClass('btn-info').addClass('btn-success');
+		    })
+
+		    /*爱好特长*/
+		    $('#hobby_btns button').click(function(){
+		    	if ($(this).hasClass('btn-success')) {
+		    		$(this).removeClass('btn-success');
+		    	} else {
+		    		$(this).addClass('btn-success');
+		    	}
 		    })
 
 		    $('#school .done_ok').click(function(){
