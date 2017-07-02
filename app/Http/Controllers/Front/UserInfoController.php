@@ -114,7 +114,7 @@ class UserInfoController extends Controller
             }
         }
 
-    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money,'schoolInfo'=>$schoolInfo,'schoolObj'=>$schoolObj,'addressArr'=>$addressArr]);
+    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money,'schoolInfo'=>$schoolInfo,'schoolObj'=>$schoolObj,'addressStr'=>$addressStr]);
     }
 
     public function selectTeacherType(Request $request)

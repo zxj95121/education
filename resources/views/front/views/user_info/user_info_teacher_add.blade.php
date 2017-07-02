@@ -149,7 +149,7 @@ $signPackage = $jssdk->GetSignPackage();
 	            <div class="weui-cell weui-cell_access row_info" target="community">
 	                <div class="weui-cell__bd">期望教学社区</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;">{{$addressArr}}</span>
+	                    <span style="vertical-align:middle; font-size: 17px;">{{$addressStr}}</span>
 	                </div>
 	            </div>
 	            <div class="weui-cell weui-cell_access">
