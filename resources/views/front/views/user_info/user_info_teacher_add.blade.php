@@ -835,7 +835,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    	})
 
 		    	if (hobby != '') {
-		    		hobby = hobby.substr(0,-1);
+		    		hobby = hobby.substring(0,hobby.length-1);
 		    	}
 
 		    	$.ajax({
