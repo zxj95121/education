@@ -108,7 +108,10 @@ $signPackage = $jssdk->GetSignPackage();
 	                <div class="weui-cell__bd">@if($userDetail->type == 1) 入学年份 @else 教书年份 @endif</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;" class="qu-teachYear">
-	                    	
+	                    	@if($userDetail->teachYear)
+	                    		{{$userDetail->teachYear}} 年
+	                    	@else
+	                    	@endif
 	                    </span>
 	                </div>
 	            </div>
@@ -1110,7 +1113,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 		    		var message = result[0];
 		    		$.ajax({
-		    			url: '/front/tsave_birth',
+		    			url: '/front/tsave_teachYear',
 		    			type: 'post',
 		    			dataType: 'json',
 		    			data: {
@@ -1121,7 +1124,7 @@ $signPackage = $jssdk->GetSignPackage();
 			    				$('#loadingToast').css({'display':'none', 'opacity':'0'});
 			    				$('#toast p').html('修改成功');
 								$('#toast').css({'display':'block', 'opacity':'1'});
-								// $('#showDatePicker span').html(result[0] + '年 ' + month +'月');
+								$('#teachYearPicker span').html(result[0] + '年');
 								setTimeout(function(){
 									$('#toast').css({'display':'none', 'opacity':'0'});
 								},250);

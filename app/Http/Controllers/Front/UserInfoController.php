@@ -311,6 +311,19 @@ class UserInfoController extends Controller
         return response()->json(['errcode'=>0,'html'=>$resp]);
     }
 
+    /*年份*/
+    public function t_teachYear(Request $request)
+    {
+        $year = $request->input('year');
+        $openid = Session::get('openid');
+
+        $flight = $this->returnUserFlight($openid,1);
+        $flight->teachYear = $year;
+        $flight->save();
+
+        return response()->json(['errcode'=>0]);
+    }
+
     /*添加新学校*/
     public function addNewSchool(Request $request)
     {
