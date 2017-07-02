@@ -104,8 +104,8 @@ $signPackage = $jssdk->GetSignPackage();
 	                    </span>
 	                </div>
 	            </div>
-	            <div class="weui-cell weui-cell_access" id="teachYear">
-	                <div class="weui-cell__bd">教学年份</div>
+	            <div class="weui-cell weui-cell_access" id="teachYearPicker">
+	                <div class="weui-cell__bd">@if($userDetail->type == 1) 大学生教师 @else 职业教师 @endif</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;" class="qu-teachYear">
 	                    	
@@ -454,6 +454,17 @@ $signPackage = $jssdk->GetSignPackage();
     </div>
 
     <div id="myMoneyPicker" class="zxjPicker">
+    	<div class="operatePicker">
+    		<div class="canclePicker">取消</div>
+    		<div class="okPicker">确认</div>
+    	</div>
+    	<div class="contentPicker">
+    		<div class="linePicker"></div>
+    		<div class="linePicker"></div>
+    	</div>
+    </div>
+
+    <div id="teachPicker" class="zxjPicker">
     	<div class="operatePicker">
     		<div class="canclePicker">取消</div>
     		<div class="okPicker">确认</div>
@@ -1062,6 +1073,64 @@ $signPackage = $jssdk->GetSignPackage();
 				    ,style: 'position:fixed; top:26%; left:0; width: 100%; height: 200px; padding:10px 0; border:none;'
 				});
 		    })
+
+
+		    /*teachYear*/
+		    @if($userDetail->type == 1)
+		    	var yearCha = 3;
+		    @else
+		    	var yearCha = 49;
+		    @endif
+
+		    var yearArr = new Array();
+			var end = new Date().getFullYear();
+			for (var i = end-yearCha,j = 0;i <= end;i++,j++) {
+				yearArr[j] = new Object();
+				yearArr[j].name = i+'年',
+				yearArr[j].value = i;
+			}
+
+			@if($userDetail->teachYear != '')
+		    	end = $userDetail->teachYear;
+		    @else
+		    @endif
+
+			selfPicker.start({
+		    	id: 'teachPicker', 
+		    	action: 'teachYearPicker',
+		    	content: [
+		    		yearArr
+		    	],
+		    	default: [
+		    		end
+		    	],
+		    	select: function(result){
+		    		$('#loadingToast').css({'display':'block', 'opacity':'1'});
+					$('#loadingToast p').html('数据保存中');
+
+		    		var message = result[0];
+		    		$.ajax({
+		    			url: '/front/tsave_birth',
+		    			type: 'post',
+		    			dataType: 'json',
+		    			data: {
+		    				year: message
+		    			},
+		    			success: function(data) {
+		    				if (data.errcode == 0) {
+			    				$('#loadingToast').css({'display':'none', 'opacity':'0'});
+			    				$('#toast p').html('修改成功');
+								$('#toast').css({'display':'block', 'opacity':'1'});
+								$('#showDatePicker span').html(result[0] + '年 ' + month +'月');
+								setTimeout(function(){
+									$('#toast').css({'display':'none', 'opacity':'0'});
+								},250);
+			    			}
+		    			}
+		    		})
+					/*select结束*/
+		    	}
+		    });
 		});
 
 		function addSchoolFunc(){
