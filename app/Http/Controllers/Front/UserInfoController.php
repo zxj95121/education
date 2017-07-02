@@ -261,6 +261,8 @@ class UserInfoController extends Controller
     public function t_community(Request $request)
     {
         $address = $request->input('address');
+        var_dump($address);
+        dd(1);
         $openid = Session::get('openid');
 
         $str = '';
