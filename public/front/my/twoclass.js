@@ -9,13 +9,13 @@ $(document).on('click','.class2',function(){
 	$('#twoclass').load('/front/twoClassthree?pid='+pid);
 })
 $(document).on('click','.class3',function(){
-	var pid = $(this).attr('pid');
-	$('#twoclass').load('/front/twoClassfour?pid='+pid);
-})
-$(document).on('click','#houtui',function(e){
 	e = window.event;
 	console.log(e.target);
 	console.log(e.tagName)
+	var pid = $(this).attr('pid');
+	// $('#twoclass').load('/front/twoClassfour?pid='+pid);
+})
+$(document).on('click','#houtui',function(){
 	var twoclass = $(this).attr('fenlei');
 	switch(twoclass){
 		case'class2':
@@ -28,7 +28,7 @@ $(document).on('click','#houtui',function(e){
 			var pid = $('#eclass').attr('pid2');
 			break;
 	}
-	// $('#twoclass').load('/front/twoClassback?fenlei='+twoclass+'&pid='+pid);
+	$('#twoclass').load('/front/twoClassback?fenlei='+twoclass+'&pid='+pid);
 })
 
 $(document).on('.goumai', 'click', function(e){
