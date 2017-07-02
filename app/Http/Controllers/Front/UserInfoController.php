@@ -119,6 +119,7 @@ class UserInfoController extends Controller
         $typeObj = Hobby::where('status', 1)
             ->select('type')
             ->distinct('type')
+            ->orderBy('type')
             ->get();
         var_dump($typeObj->toArray());
         // Hobby::where('status', '1')
