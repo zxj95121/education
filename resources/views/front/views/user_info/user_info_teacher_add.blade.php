@@ -1094,7 +1094,7 @@ $signPackage = $jssdk->GetSignPackage();
 			}
 
 			@if($userDetail->teachYear != '')
-		    	end = $userDetail->teachYear;
+		    	end = {{$userDetail->teachYear}};
 		    @else
 		    @endif
 
