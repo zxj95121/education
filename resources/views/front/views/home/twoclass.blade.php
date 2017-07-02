@@ -1,4 +1,13 @@
 <style>
+	#twoclass a:link{
+		text-decoration:none;
+	}
+	#twoclass a:visited{
+		text-decoration:none;
+	}
+	#twoclass a:hover{
+		text-decoration:none;
+	}
 	#twoclass a:active{
 		text-decoration:none;
 	}
