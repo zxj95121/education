@@ -10,10 +10,9 @@ $(document).on('click','.class2',function(){
 })
 $(document).on('click','.class3',function(){
 	e = window.event;
-	console.log(e.target);
-	console.log(e.target.tagName)
 	var pid = $(this).attr('pid');
-	// $('#twoclass').load('/front/twoClassfour?pid='+pid);
+	if (e.target.tagName == 'P')
+		$('#twoclass').load('/front/twoClassfour?pid='+pid);
 })
 $(document).on('click','#houtui',function(){
 	var twoclass = $(this).attr('fenlei');
@@ -32,9 +31,5 @@ $(document).on('click','#houtui',function(){
 })
 
 $(document).on('.goumai', 'click', function(e){
-	// e.stopPropagation();
-	e = window.event;
-	console.log(e.target);
-	console.log(e.target.tagName)
 	console.log('dddd');
 })
