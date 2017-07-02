@@ -847,7 +847,7 @@ $signPackage = $jssdk->GetSignPackage();
 	    			},
 	    			success: function(data) {
 	    				if (data.errcode == 0) {
-	    					$('div[target="school"]').find('span').html(data.html);
+	    					$('div[target="hobby"]').find('span').html(data.html);
 				    		$('#page_main').css('display', 'block');
 							$(this).parents('.page_set').animate({'top': height+'px'}, 250);
 							setTimeout(function(){

@@ -290,7 +290,7 @@ class UserInfoController extends Controller
 
             $valueId = substr($hobby, -1);
             $hbData = Hobby::find($valueId);
-            if (strpos('-', $hobby) > 0)
+            if (strpos($hobby, '-') > 0)
                 $resp = $hbData->name.'等';
             else
                 $resp = $hbData->name;
