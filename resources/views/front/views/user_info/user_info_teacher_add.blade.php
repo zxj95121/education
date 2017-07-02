@@ -59,7 +59,7 @@ $signPackage = $jssdk->GetSignPackage();
 	            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
 		            <div><div class="placeholder">&lt;</div></div>
 		            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">个人信息</div></div>
-		            <div><div class="placeholder">提交</div></div>
+		            <!-- <div><div class="placeholder">提交</div></div> -->
 		        </div>
 	            <div class="weui-cell weui-cell_access row_info" target="headimg">
 	                <div class="weui-cell__bd">头像</div>
@@ -101,6 +101,14 @@ $signPackage = $jssdk->GetSignPackage();
 	                    			echo $birthArr[0].'年 '.$birthArr[1].'月';
 	                    		}
 	                    	@endphp
+	                    </span>
+	                </div>
+	            </div>
+	            <div class="weui-cell weui-cell_access" id="teachYear">
+	                <div class="weui-cell__bd">教学年份</div>
+	                <div class="weui-cell__ft" style="font-size: 0">
+	                    <span style="vertical-align:middle; font-size: 17px;" class="qu-teachYear">
+	                    	
 	                    </span>
 	                </div>
 	            </div>
@@ -155,7 +163,7 @@ $signPackage = $jssdk->GetSignPackage();
 	            <div class="weui-cell weui-cell_access row_info" target="hobby">
 	                <div class="weui-cell__bd">我的爱好特长</div>
 	                <div class="weui-cell__ft" style="font-size: 0;">
-	                    <span style="vertical-align:middle; font-size: 17px;"></span>
+	                    <span style="vertical-align:middle; font-size: 17px;">{{$hobbyData}}</span>
 	                </div>
 	            </div>
 	            <!-- <div class="weui-cell weui-cell_access">
