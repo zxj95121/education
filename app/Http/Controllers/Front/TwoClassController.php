@@ -32,6 +32,7 @@ class TwoClassController extends Controller
     }
     public function back(Request $request){
     	$pid = $request->input('pid');
+    	dump($pid);
     	$fenlei = $request->input('fenlei');
     	switch ($fenlei){
     		case 'class2':
