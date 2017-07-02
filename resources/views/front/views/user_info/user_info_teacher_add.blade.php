@@ -815,7 +815,8 @@ $signPackage = $jssdk->GetSignPackage();
 
 		    /*期望社区点击OK*/
 		    $('#community .done_ok').click(function(){
-	        	if (addressCommunity.length < 1) {
+		    	var len = Object.keys(addressCommunity).length;
+	        	if (len < 1) {
 	        		layer.open({
 					    content: '保存失败，期望社区个数不能为0'
 					    ,skin: 'msg'
@@ -832,7 +833,7 @@ $signPackage = $jssdk->GetSignPackage();
 	    			},
 	    			success: function(data) {
 	    				if (data.errcode == 0) {
-	    					if (addressCommunity.length > 1)
+	    					if (len > 1)
 	    						$('div[target="community"]').find('span').html(data.html.name+'等');
 	    					else
 	    						$('div[target="community"]').find('span').html(data.html.name);
