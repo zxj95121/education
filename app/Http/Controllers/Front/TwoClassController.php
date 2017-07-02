@@ -40,12 +40,12 @@ class TwoClassController extends Controller
     			$pid = 0;
     			break;
     		case 'class3';
-    			$res = TeacherTwo::where('status','1')->where('pid',$pid)->select('id','name','pid')->get();
+    			$res = TeacherTwo::where('status','1')->where('id',$pid)->select('id','name','pid')->get();
     			$fenlei = 'class2';
     			$pid = $res->pid;
     			break;
     		case 'class4';
-    			$res = TeacherFour::where('status','1')->where('pid',$pid)->select('id','name','pid')->get();
+    			$res = TeacherFour::where('status','1')->where('id',$pid)->select('id','name','pid')->get();
     			$fenlei = 'class3';
     			$pid = $res->pid;
     			break;
