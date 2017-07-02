@@ -17,6 +17,7 @@ use App\Models\SchoolApply;
 use App\Models\CommunityArea;
 use App\Models\CommunityCity;
 use App\Models\CommunityCommunity;
+use App\Models\Hobby;
 
 use Session;
 
@@ -114,6 +115,16 @@ class UserInfoController extends Controller
             }
         }
 
+        /*查特长爱好*/
+        $typeObj = Hobby::where('status', 1)
+            ->select('type')
+            ->distinct('type')
+            ->get();
+        var_dump($typeObj->toArray());
+        // Hobby::where('status', '1')
+            // ->select('id', 'name', 'type')
+            // -
+        dd(23);
     	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money,'schoolInfo'=>$schoolInfo,'schoolObj'=>$schoolObj,'addressStr'=>$addressStr]);
     }
 

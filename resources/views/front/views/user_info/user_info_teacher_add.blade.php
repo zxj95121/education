@@ -152,7 +152,7 @@ $signPackage = $jssdk->GetSignPackage();
 	                    <span style="vertical-align:middle; font-size: 17px;">{{$addressStr}}</span>
 	                </div>
 	            </div>
-	            <div class="weui-cell weui-cell_access">
+	            <div class="weui-cell weui-cell_access row_info" target="hobby">
 	                <div class="weui-cell__bd">我的爱好特长</div>
 	                <div class="weui-cell__ft" style="color:#22AAE8;">
 	                    <span style="vertical-align:middle; font-size: 17px;" class="glyphicon glyphicon-ok"></span>
@@ -353,35 +353,40 @@ $signPackage = $jssdk->GetSignPackage();
 			    </div>
 			    <div class="row" style="width: 100%;height: 100%;margin: 0 auto;">
 			    	<div class="col-xs-3 col">
-<!-- 			    		<div class="row row_community">
-			    			芜湖市fdfdafdf大饭店
-			    		</div>
-			    		<div class="row row_community">
-			    			安庆市
-			    		</div> -->
 			    	</div>	
 			    	<div class="col-xs-4 col">
-			    		<!-- <div class="row row_community">
-			    			鸠江区
-			    		</div>
-			    		<div class="row row_community">
-			    			镜湖区
-			    		</div>
-			    		<div class="row row_community">
-			    			弋江区
-			    		</div> -->
 			    	</div>
 			    	<div class="col-xs-5 col">
-			    		<!-- <div class="row row_community">
-			    			中央城
-			    		</div>
-			    		<div class="row row_community">
-			    			柏庄春暖花开
-			    		</div>
-			    		<div class="row row_community">
-			    			鲁港新镇
-			    		</div> -->
 			    	</div>
+			    </div>
+			</div>
+
+			<!-- 特长爱好 -->
+		    <div class="page__bd page_set" id="hobby">
+				<div class="weui-cells" style="margin-top:0px" >
+		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
+			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
+			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">爱好特长</div></div>
+			            <div><div class="placeholder glyphicon glyphicon-ok done_ok"></div></div>
+			        </div>
+			    </div>
+			    <div style="width: 97%;margin: 0 auto;padding:0px 4px;" id="school_btns">
+			    	@foreach($HobbyInfo as $value)
+			    	<div class="row">
+			    		<div class="col-xs-12" style="margin-top: 5px;">
+                            <div class="heading" id1="{{$value['id1']}}"> 
+                                <h4 style="margin-bottom: 0px;">{{$value['name1']}}</h4> 
+                            </div>
+                            <div class="pbody">
+                            	@foreach($value['two'] as $v)
+                                <button type="button" @if($userDetail->school == $v['id2']) class="btn btn-success" @else class="btn btn-info" @endif id2="{{$v['id2']}}">{{$v['name2']}}</button>
+                                @endforeach
+                            </div> 
+                        </div>
+			    	</div>
+			    	@endforeach
+			    	<br>
+			    	<p style="text-decoration: underline;" id="noSchool">没有找到学校，点我联系管理员。</p>
 			    </div>
 			</div>
 
@@ -818,7 +823,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    	var len = Object.keys(addressCommunity).length;
 	        	if (len < 1) {
 	        		layer.open({
-					    content: '保存失败，期望社区个数不能为0'
+					    content: '期望社区个数不能为0'
 					    ,skin: 'msg'
 					    ,time: 2 //2秒后自动关闭
 					 });
@@ -990,7 +995,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    $('#noSchool').click(function(){
 		    	window.openIndex = layer.open({
 				    type: 1
-				    ,content: '<div class="weui-cells__title">学校添加</div><div class="weui-cells weui-cells_form"> <div class="weui-cell"> <div class="weui-cell__hd"><label class="weui-label">学校名称</label></div> <div class="weui-cell__bd"> <input class="weui-input" id="input_newSchool" type="text" placeholder="请输入您的学校"> </div> </div> <div class="weui-btn-area"> <a class="weui-btn weui-btn_primary" href="javascript:" id="addSchool" onclick="addSchoolFunc();">提交</a> </div>'
+				    ,content: '<div class="weui-cells__title">学校申请</div><div class="weui-cells weui-cells_form"> <div class="weui-cell"> <div class="weui-cell__hd"><label class="weui-label">学校名称</label></div> <div class="weui-cell__bd"> <input class="weui-input" id="input_newSchool" type="text" placeholder="请输入您的学校"> </div> </div> <div class="weui-btn-area"> <a class="weui-btn weui-btn_primary" href="javascript:" id="addSchool" onclick="addSchoolFunc();">提交</a> </div>'
 				    ,anim: 'up'
 				    ,style: 'position:fixed; top:26%; left:0; width: 100%; height: 200px; padding:10px 0; border:none;'
 				});
