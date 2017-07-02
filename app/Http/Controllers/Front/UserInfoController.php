@@ -260,7 +260,7 @@ class UserInfoController extends Controller
     /*保存社区信息*/
     public function t_community(Request $request)
     {
-        $addresss = $request->input('address');
+        $address = $request->input('address');
         $openid = Session::get('openid');
 
         $str = '';
