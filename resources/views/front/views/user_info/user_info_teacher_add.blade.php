@@ -827,6 +827,19 @@ $signPackage = $jssdk->GetSignPackage();
 		    	}
 		    })
 
+		    /*爱好特长点OK*/
+		    $('#hobby .done_ok').click(function(){
+		    	var hobby = new Array();
+		    	$k = 0;
+		    	$('#hobby button').filter('.btn-success').each(function(){
+		    		$k++;
+		    		hobby[$k]['name'] = $(this).html();
+		    		hobby[$k++]['id'] = $(this).attr('cid');
+		    	})
+
+		    	console.log(hobby);
+		    })
+
 		    /*期望社区点击OK*/
 		    $('#community .done_ok').click(function(){
 		    	var len = Object.keys(addressCommunity).length;
@@ -1011,7 +1024,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    })
 
 		    /*特长添加新内容*/
-		    $('#noSchool').click(function(){
+		    $('#noHobby').click(function(){
 		    	window.openIndex = layer.open({
 				    type: 1
 				    ,content: '<div class="weui-cells__title">特长申请</div><div class="weui-cells weui-cells_form"> <div class="weui-cell"> <div class="weui-cell__hd"><label class="weui-label">特长名称</label></div> <div class="weui-cell__bd"> <input class="weui-input" id="input_newHobby" type="text" placeholder="请输入您的特长"> </div> </div> <div class="weui-btn-area"> <a class="weui-btn weui-btn_primary" href="javascript:" id="addHobby" onclick="addHobbyFunc();">提交</a> </div>'
