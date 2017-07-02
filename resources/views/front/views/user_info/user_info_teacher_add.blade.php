@@ -516,10 +516,9 @@ $signPackage = $jssdk->GetSignPackage();
 	        	$('#community .col:eq(2)').html('');
 
 	        	for (var i in communityInfo[num]['next'][number]['next']){
+	        		$('#community .col:eq(2)').append('<div class="row row_community cThree" number="'+i+'" cid = "'+communityInfo[num]['next'][number]['next'][i].id+'">'+communityInfo[num]['next'][number]['next'][i].name+'</div>');
 	        		if ($.inArray(communityInfo[num]['next'][number]['next'][i].id, address)) {
-	        			$('#community .col:eq(2)').append('<div class="row row_community cThree communityActive" number="'+i+'" cid = "'+communityInfo[num]['next'][number]['next'][i].id+'">'+communityInfo[num]['next'][number]['next'][i].name+'</div>');
-	        		} else {
-	        			$('#community .col:eq(2)').append('<div class="row row_community cThree" number="'+i+'" cid = "'+communityInfo[num]['next'][number]['next'][i].id+'">'+communityInfo[num]['next'][number]['next'][i].name+'</div>');
+	        			$('#community .col:eq(2)').find('.cThree:last').addClass('communityActive');
 	        		}
 	        	}
 	        })
