@@ -105,7 +105,7 @@ $signPackage = $jssdk->GetSignPackage();
 	                </div>
 	            </div>
 	            <div class="weui-cell weui-cell_access" id="teachYearPicker">
-	                <div class="weui-cell__bd">@if($userDetail->type == 1) 大学生教师 @else 职业教师 @endif</div>
+	                <div class="weui-cell__bd">@if($userDetail->type == 1) 入学年份 @else 教书年份 @endif</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;" class="qu-teachYear">
 	                    	
@@ -1084,7 +1084,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 		    var yearArr = new Array();
 			var end = new Date().getFullYear();
-			for (var i = end-yearCha,j = 0;i <= end;i++,j++) {
+			for (var i = end,j = 0;i >= end-yearCha;i--,j++) {
 				yearArr[j] = new Object();
 				yearArr[j].name = i+'年',
 				yearArr[j].value = i;
@@ -1121,7 +1121,7 @@ $signPackage = $jssdk->GetSignPackage();
 			    				$('#loadingToast').css({'display':'none', 'opacity':'0'});
 			    				$('#toast p').html('修改成功');
 								$('#toast').css({'display':'block', 'opacity':'1'});
-								$('#showDatePicker span').html(result[0] + '年 ' + month +'月');
+								// $('#showDatePicker span').html(result[0] + '年 ' + month +'月');
 								setTimeout(function(){
 									$('#toast').css({'display':'none', 'opacity':'0'});
 								},250);
