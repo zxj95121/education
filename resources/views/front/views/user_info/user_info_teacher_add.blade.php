@@ -379,7 +379,7 @@ $signPackage = $jssdk->GetSignPackage();
                             </div>
                             <div class="pbody">
                             	@foreach($value as $v)
-                            		@php if(strpos($userDetail->hobby, $v['id']) !== false) 
+                            		@php if(strpos($userDetail->hobby, $v['id'].'') !== false) 
                                 		echo '<button type="button" class="btn btn-success" cid="'.$v['id'].'">'.$v['name'].'</button>';
                                 		else
                                 		echo '<button type="button" class="btn btn-info" cid="'.$v['id'].'">'.$v['name'].'</button>';
