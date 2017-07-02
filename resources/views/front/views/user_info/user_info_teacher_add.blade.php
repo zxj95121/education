@@ -525,15 +525,14 @@ $signPackage = $jssdk->GetSignPackage();
 
 	        $(document).on('click', '.cThree', function(){
 	        	var cdom = $(this);
-	        	$(this).parent().find('div').each(function(){
-	        		if ($(this).hasClass('communityActive')) {
-	        			address[cdom.attr('cid')] = false;
-	        			cdom.removeClass('communityActive');
-	        		} else {
-	        			address[cdom.attr('cid')] = cdom.attr('cid');
-	        			cdom.addClass('communityActive');
-	        		}
-	        	})
+
+        		if ($(this).hasClass('communityActive')) {
+        			address[cdom.attr('cid')] = false;
+        			cdom.removeClass('communityActive');
+        		} else {
+        			address[cdom.attr('cid')] = cdom.attr('cid');
+        			cdom.addClass('communityActive');
+        		}
 
 	        	console.log(address);
 	        })
