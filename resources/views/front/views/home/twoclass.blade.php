@@ -13,8 +13,9 @@
 	}
 	.buyCell .label-success{
 		position: absolute;
-		right: 4px;
-		top: 2px;
+		right: 2px;
+		height: 100%;
+    	line-height: inherit;
 	}
 </style>
 <div id="twoclass">
@@ -43,7 +44,7 @@
 				    <div class="weui-cell__bd" style="position: relative;">
 				        <p style="margin-bottom:0px">{{$value->name}}</p>
 				    	<iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
-				    	<span class="label label-success">Success</span>
+				    	<span class="label label-success goumai">购买</span>
 				    </div>
 				    <div class="weui-cell__ft">
 				    </div>
