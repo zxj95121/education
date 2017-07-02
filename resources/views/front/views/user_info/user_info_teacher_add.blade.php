@@ -149,7 +149,7 @@ $signPackage = $jssdk->GetSignPackage();
 	            <div class="weui-cell weui-cell_access row_info" target="community">
 	                <div class="weui-cell__bd">期望教学社区</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;">中央城等</span>
+	                    <span style="vertical-align:middle; font-size: 17px;">{{$addressArr}}</span>
 	                </div>
 	            </div>
 	            <div class="weui-cell weui-cell_access">
@@ -832,7 +832,10 @@ $signPackage = $jssdk->GetSignPackage();
 	    			},
 	    			success: function(data) {
 	    				if (data.errcode == 0) {
-	    					$('div[target="community"]').find('span').html(data.html);
+	    					if (addressCommunity.length > 1)
+	    						$('div[target="community"]').find('span').html(data.html.name+'等');
+	    					else
+	    						$('div[target="community"]').find('span').html(data.html.name);
 				    		$('#page_main').css('display', 'block');
 							$(this).parents('.page_set').animate({'top': height+'px'}, 250);
 							setTimeout(function(){

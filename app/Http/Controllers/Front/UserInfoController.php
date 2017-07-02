@@ -98,9 +98,23 @@ class UserInfoController extends Controller
             $schoolObj = '';
 
         /*查取社区信息*/
-        // $communityOne = CommunityArea::where('status', 1)
+        $flight = $this->returnUserFlight($openid, 1);
+        $cInfo = $flight->address;
+        if ($cInfo == '') {
+            $addressStr = '';
+        } else {
+            $address = explode('-', $cInfo);
+            $addData = CommunityCommunity::where('id', $address[0])
+                ->select('name')
+                ->get()[0];
+            if (count($address) > 0) {
+                $addressStr = $addData->name.'等';
+            } else {
+                $addressStr = $addData->name;
+            }
+        }
 
-    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money,'schoolInfo'=>$schoolInfo,'schoolObj'=>$schoolObj]);
+    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money,'schoolInfo'=>$schoolInfo,'schoolObj'=>$schoolObj,'addressArr'=>$addressArr]);
     }
 
     public function selectTeacherType(Request $request)
