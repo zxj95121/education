@@ -4,12 +4,12 @@ $(document).on('click','.class1',function(){
 })
 $(document).on('click','.class2',function(){
 	var pid = $(this).attr('pid');
-	$('#houtui').prop('pid1',pid);
+	$('#houtui').attr('pid1',pid);
 	$('#twoclass').load('/front/twoClassthree?pid='+pid);
 })
 $(document).on('click','.class3',function(){
 	var pid = $(this).attr('pid');
-	$('#houtui').prop('pid2',pid);
+	$('#houtui').attr('pid2',pid);
 	$('#twoclass').load('/front/twoClassfour?pid='+pid);
 })
 $(document).on('click','#houtui',function(){
