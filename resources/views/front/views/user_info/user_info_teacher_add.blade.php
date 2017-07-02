@@ -371,15 +371,15 @@ $signPackage = $jssdk->GetSignPackage();
 			        </div>
 			    </div>
 			    <div style="width: 97%;margin: 0 auto;padding:0px 4px;" id="school_btns">
-			    	@foreach($HobbyInfo as $value)
+			    	@foreach($typeArr as $key => $value)
 			    	<div class="row">
 			    		<div class="col-xs-12" style="margin-top: 5px;">
                             <div class="heading" id1="{{$value['id1']}}"> 
-                                <h4 style="margin-bottom: 0px;">{{$value['name1']}}</h4> 
+                                <h4 style="margin-bottom: 0px;">{{$key}}</h4> 
                             </div>
                             <div class="pbody">
-                            	@foreach($value['two'] as $v)
-                                <button type="button" @if($userDetail->school == $v['id2']) class="btn btn-success" @else class="btn btn-info" @endif id2="{{$v['id2']}}">{{$v['name2']}}</button>
+                            	@foreach($value as $v)
+                                <button type="button" class="btn btn-success" cid="{{$v['id']}}">{{$v['name']}}</button>
                                 @endforeach
                             </div> 
                         </div>

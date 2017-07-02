@@ -128,13 +128,12 @@ class UserInfoController extends Controller
                 ->select('id', 'name')
                 ->get();
             foreach ($hobbyDetail as $k => $v) {
-                $typeArr[$key][$k]['id'] = $v->id;
-                $typeArr[$key][$k]['name'] = $v->name;
+                $typeArr[$value->type][$k]['id'] = $v->id;
+                $typeArr[$value->type][$k]['name'] = $v->name;
             }
         }
-        var_dump($typeArr);
-        dd(2);
-    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money,'schoolInfo'=>$schoolInfo,'schoolObj'=>$schoolObj,'addressStr'=>$addressStr]);
+
+    	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money,'schoolInfo'=>$schoolInfo,'schoolObj'=>$schoolObj,'addressStr'=>$addressStr,'typeArr'=>$typeArr]);
     }
 
     public function selectTeacherType(Request $request)
