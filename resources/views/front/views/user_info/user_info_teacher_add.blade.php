@@ -468,8 +468,10 @@ $signPackage = $jssdk->GetSignPackage();
 
 	        	},
 	        	success: function(data) {
-	        		communityInfo = data;
+	        		communityInfo = data['communityInfo'];
+	        		address = data['address'];
 	        		console.log(communityInfo);
+	        		console.log(address)
 	        	}
 	        })
 		})
