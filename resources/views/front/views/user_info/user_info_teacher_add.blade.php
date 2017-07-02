@@ -49,6 +49,7 @@ $signPackage = $jssdk->GetSignPackage();
 		.communityActive{
 			background: #64C9F7;
 			color: #FFF;
+			border-right: 1px solid #FFF;
 		}
 	</style>
 </head>
@@ -508,8 +509,13 @@ $signPackage = $jssdk->GetSignPackage();
 	        	$('#community .col:eq(1)').attr('num', number);
 
 	        	for (var i in communityInfo[num]['next'][number]['next']){
-	        		$('#community .col:eq(1)').append('<div class="row row_community cThree" number="'+i+'" cid = "'+communityInfo[num]['next'][number]['next'][i].id+'">'+communityInfo[num]['next'][number]['next'][i].name+'</div>');
+	        		$('#community .col:eq(2)').append('<div class="row row_community cThree" number="'+i+'" cid = "'+communityInfo[num]['next'][number]['next'][i].id+'">'+communityInfo[num]['next'][number]['next'][i].name+'</div>');
 	        	}
+	        })
+
+	        $(document).on('click', '.cThree', function(){
+	        	removeActive($(this));
+	        	$(this).addClass('communityActive');
 	        })
 		})
 
