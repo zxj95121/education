@@ -517,8 +517,8 @@ $signPackage = $jssdk->GetSignPackage();
 
 	        	for (var i in communityInfo[num]['next'][number]['next']){
 	        		$('#community .col:eq(2)').append('<div class="row row_community cThree" number="'+i+'" cid = "'+communityInfo[num]['next'][number]['next'][i].id+'">'+communityInfo[num]['next'][number]['next'][i].name+'</div>');
-	        		console.log($.inArray(communityInfo[num]['next'][number]['next'][i].id, address))
-	        		if ($.inArray(communityInfo[num]['next'][number]['next'][i].id, address) >= 0) {
+	        		
+	        		if (address[communityInfo[num]['next'][number]['next'][i].id]) {
 	        			$('#community .col:eq(2)').find('.cThree:last').addClass('communityActive');
 	        		}
 	        	}
