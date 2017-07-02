@@ -328,7 +328,8 @@ class UserInfoController extends Controller
         } else {
             $address = explode('-', $cInfo);
             foreach ($address as $v) {
-                $addressArr[$v] = $v;
+                if ($v)
+                    $addressArr[$v] = $v;
             }
         }
 

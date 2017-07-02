@@ -481,11 +481,11 @@ $signPackage = $jssdk->GetSignPackage();
 	        	},
 	        	success: function(data) {
 	        		communityInfo = data['communityInfo'];
-	        		address = data['address'];
-	        		if(!address)
-	        			address = new Array();
+	        		addressCommunity = data['address'];
+	        		if(!addressCommunity)
+	        			addressCommunity = new Array();
 	        		console.log(communityInfo);
-	        		console.log(address);
+	        		console.log(addressCommunity);
 
 	        		for (var i in communityInfo) {
 	        			$('#community .col:eq(0)').append('<div class="row row_community cOne" number="'+i+'" cid = "'+communityInfo[i].id+'">'+communityInfo[i].name+'</div>');
@@ -519,7 +519,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        	for (var i in communityInfo[num]['next'][number]['next']){
 	        		$('#community .col:eq(2)').append('<div class="row row_community cThree" number="'+i+'" cid = "'+communityInfo[num]['next'][number]['next'][i].id+'">'+communityInfo[num]['next'][number]['next'][i].name+'</div>');
 	        		
-	        		if (address[communityInfo[num]['next'][number]['next'][i].id]) {
+	        		if (addressCommunity[communityInfo[num]['next'][number]['next'][i].id]) {
 	        			$('#community .col:eq(2)').find('.cThree:last').addClass('communityActive');
 	        		}
 	        	}
@@ -529,10 +529,10 @@ $signPackage = $jssdk->GetSignPackage();
 	        	var cdom = $(this);
 
         		if ($(this).hasClass('communityActive')) {
-        			address[cdom.attr('cid')] = false;
+        			addressCommunity[cdom.attr('cid')] = false;
         			cdom.removeClass('communityActive');
         		} else {
-        			address[cdom.attr('cid')] = cdom.attr('cid');
+        			addressCommunity[cdom.attr('cid')] = cdom.attr('cid');
         			cdom.addClass('communityActive');
         		}
 	        })
@@ -827,7 +827,7 @@ $signPackage = $jssdk->GetSignPackage();
 	    			dataType: 'json',
 	    			type: 'post',
 	    			data: {
-	    				address: address
+	    				address: addressCommunity
 	    			},
 	    			success: function(data) {
 	    				if (data.errcode == 0) {
