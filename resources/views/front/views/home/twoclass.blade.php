@@ -40,9 +40,7 @@
 				    	<iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
 				    </div>
 				</a>
-				<a>
-					<div class="weui-cell__ft">购买</div>
-				</a>
+				<div class="weui-cell__ft"><a>购买</a></div>
 			</div>
         @endforeach		
 	@endif
