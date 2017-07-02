@@ -537,34 +537,6 @@ $signPackage = $jssdk->GetSignPackage();
         		}
 	        })
 
-	        $('#community .done_ok').click(function(){
-	        	if (address.length < 1) {
-	        		layer.open({
-					    content: '保存失败，期望社区个数不能为0'
-					    ,skin: 'msg'
-					    ,time: 2 //2秒后自动关闭
-					 });
-	        		return false;
-	        	}
-				$.ajax({
-	    			url: '/front/tsave_community',
-	    			dataType: 'json',
-	    			type: 'post',
-	    			data: {
-	    				address: address
-	    			},
-	    			success: function(data) {
-	    				if (data.errcode == 0) {
-	    					$('div[target="community"]').find('span').html(data.html);
-				    		$('#page_main').css('display', 'block');
-							$(this).parents('.page_set').animate({'top': height+'px'}, 250);
-							setTimeout(function(){
-								$('#page_row').css('display', 'none');
-							}, 250);
-	    				}
-	    			}
-	    		})
-	        })
 		})
 
 		$(function(){
@@ -839,6 +811,36 @@ $signPackage = $jssdk->GetSignPackage();
 		    		})
 		    	}
 		    })
+
+		    /*期望社区点击OK*/
+		    $('#community .done_ok').click(function(){
+	        	if (address.length < 1) {
+	        		layer.open({
+					    content: '保存失败，期望社区个数不能为0'
+					    ,skin: 'msg'
+					    ,time: 2 //2秒后自动关闭
+					 });
+	        		return false;
+	        	}
+				$.ajax({
+	    			url: '/front/tsave_community',
+	    			dataType: 'json',
+	    			type: 'post',
+	    			data: {
+	    				address: address
+	    			},
+	    			success: function(data) {
+	    				if (data.errcode == 0) {
+	    					$('div[target="community"]').find('span').html(data.html);
+				    		$('#page_main').css('display', 'block');
+							$(this).parents('.page_set').animate({'top': height+'px'}, 250);
+							setTimeout(function(){
+								$('#page_row').css('display', 'none');
+							}, 250);
+	    				}
+	    			}
+	    		})
+	        })
 
 		    /*文本框点击确认*/
 		    $('.done_ok1').click(function(){
