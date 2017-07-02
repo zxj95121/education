@@ -529,7 +529,8 @@ $signPackage = $jssdk->GetSignPackage();
 	        	var cdom = $(this);
 
         		if ($(this).hasClass('communityActive')) {
-        			addressCommunity[cdom.attr('cid')] = false;
+        			// addressCommunity[cdom.attr('cid')] = false;
+        			delete(addressCommunity[cdom.attr('cid')]);
         			cdom.removeClass('communityActive');
         		} else {
         			addressCommunity[cdom.attr('cid')] = cdom.attr('cid');
