@@ -833,6 +833,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    	$k = 0;
 		    	$('#hobby button').filter('.btn-success').each(function(){
 		    		$k++;
+		    		hobby[$k] = new Array();
 		    		hobby[$k]['name'] = $(this).html();
 		    		hobby[$k++]['id'] = $(this).attr('cid');
 		    	})
