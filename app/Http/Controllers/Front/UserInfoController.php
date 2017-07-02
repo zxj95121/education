@@ -324,9 +324,12 @@ class UserInfoController extends Controller
         $flight = $this->returnUserFlight($openid, 1);
         $cInfo = $flight->address;
         if ($cInfo == '') {
-            $address = '';
+            $addressArr = '';
         } else {
             $address = explode('-', $cInfo);
+            foreach ($address as $v) {
+                $addressArr[$v] = $v;
+            }
         }
 
         $communityOne = CommunityCity::where('status', 1)
@@ -363,7 +366,7 @@ class UserInfoController extends Controller
         }
 
         $data['communityInfo'] = $communityInfo;
-        $data['address'] = $address;
+        $data['address'] = $addressArr;
         return response()->json($data);
     }
 }
