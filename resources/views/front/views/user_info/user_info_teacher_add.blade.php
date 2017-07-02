@@ -814,7 +814,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 		    /*期望社区点击OK*/
 		    $('#community .done_ok').click(function(){
-	        	if (address.length < 1) {
+	        	if (addressCommunity.length < 1) {
 	        		layer.open({
 					    content: '保存失败，期望社区个数不能为0'
 					    ,skin: 'msg'
