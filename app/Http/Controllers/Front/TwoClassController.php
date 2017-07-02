@@ -18,17 +18,17 @@ class TwoClassController extends Controller
     public function two(Request $request){
     	$pid = $request->input('pid');
     	$teachertwo = TeacherTwo::where('status','1')->where('pid',$pid)->select('id','name')->get();
-    	return view('front.views.home.twoclass',['res'=>$teachertwo,'class'=>'class2']);
+    	return view('front.views.home.twoclass',['res'=>$teachertwo,'class'=>'class2','pid'=>$pid]);
     }
     public function three(Request $request){
     	$pid = $request->input('pid');
     	$teacherthree = TeacherThree::where('status','1')->where('pid',$pid)->select('id','name')->get();
-    	return view('front.views.home.twoclass',['res'=>$teacherthree,'class'=>'class3']);
+    	return view('front.views.home.twoclass',['res'=>$teacherthree,'class'=>'class3','pid'=>$pid]);
     }
     public function four(Request $request){
     	$pid = $request->input('pid');
     	$teacherfour = TeacherFour::where('status','1')->where('pid',$pid)->select('id','name')->get();
-    	return view('front.views.home.twoclass',['res'=>$teacherfour,'class'=>'class4']);
+    	return view('front.views.home.twoclass',['res'=>$teacherfour,'class'=>'class4','pid'=>$pid]);
     }
     public function back(Request $request){
     	$pid = $request->input('pid');
