@@ -293,6 +293,16 @@ class UserInfoController extends Controller
     /*post请求社区信息*/
     public function getCommunity()
     {
+        $openid = Session::get('openid');
+
+        $flight = returnUserFlight($openid, 1);
+        $cInfo = $flight->address;
+        if ($cInfo == '') {
+            $address = '';
+        } else {
+            $address = explode('-', $cInfo);
+        }
+
         $communityOne = CommunityCity::where('status', 1)
             ->select('id', 'name')
             ->get();
@@ -326,6 +336,8 @@ class UserInfoController extends Controller
             }
         }
 
-        return response()->json($communityInfo);
+        $data['communityInfo'] = $communityInfo;
+        $data['address'] = $address;
+        return response()->json($data);
     }
 }
