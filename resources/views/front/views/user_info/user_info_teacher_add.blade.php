@@ -49,7 +49,6 @@ $signPackage = $jssdk->GetSignPackage();
 		.communityActive{
 			background: #64C9F7;
 			color: #FFF;
-			border-right: 1px solid #FFF;
 		}
 	</style>
 </head>
@@ -514,8 +513,13 @@ $signPackage = $jssdk->GetSignPackage();
 	        })
 
 	        $(document).on('click', '.cThree', function(){
-	        	removeActive($(this));
-	        	$(this).addClass('communityActive');
+	        	$(this).parent().find('div').each(function(){
+	        		if ($(this).hasClass('communityActive')) {
+	        			$(this).removeClass('communityActive');
+	        		} else {
+	        			$(this).addClass('communityActive');
+	        		}
+	        	})
 	        })
 		})
 
