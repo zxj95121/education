@@ -75,17 +75,17 @@ class DoubleTeacherController extends Controller
 		$teacherone->save();
 		$two = TeacherTwo::where('pid',$id)->get();
 		if($two->count()>0){
-			TeacherTwo::where('pid',$id)->update(['status'=>-1]);
+			TeacherTwo::where('pid',$id)->update(['status'=>$teacherone->status]);
 			foreach($two as $value){
 				$twoid = $value->id;
 				$three = TeacherThree::where('pid',$twoid)->select()->get();
 				if($three->count() > 0){
-					TeacherThree::where('pid',$twoid)->update(['status'=>-1]);
+					TeacherThree::where('pid',$twoid)->update(['status'=>$teacherone->status]);
 					foreach($three as $vo2){
 						$threeid = $vo2->id;
 						$four = TeacherFour::where('pid',$threeid)->select()->get();
 						if($four->count() > 0){
-							TeacherFour::where('pid',$threeid)->update(['status'=>-1]);
+							TeacherFour::where('pid',$threeid)->update(['status'=>$teacherone->status]);
 						}
 					}
 				}
@@ -156,12 +156,12 @@ class DoubleTeacherController extends Controller
 		$teachertwo->save();
 		$three = TeacherThree::where('pid',$id)->select()->get();
 		if($three->count() > 0){
-			TeacherThree::where('pid',$id)->update(['status'=>-1]);
+			TeacherThree::where('pid',$id)->update(['status'=>$teachertwo->status]);
 			foreach($three as $vo2){
 				$threeid = $vo2->id;
 				$four = TeacherFour::where('pid',$threeid)->select()->get();
 				if($four->count() > 0){
-					TeacherFour::where('pid',$threeid)->update(['status'=>-1]);
+					TeacherFour::where('pid',$threeid)->update(['status'=>$teachertwo->status]);
 				}
 			}
 		}
@@ -226,7 +226,7 @@ class DoubleTeacherController extends Controller
 		$teacherthree->save();
 		$four = TeacherFour::where('pid',$id)->select()->get();
 		if($four->count() > 0){
-			TeacherFour::where('pid',$id)->update(['status'=>0]);
+			TeacherFour::where('pid',$id)->update(['status'=>$teacherthree->status]);
 		}
 		return redirect('admin/teacherthree?pid='.$teacherthree->pid);
 	}
