@@ -121,11 +121,19 @@ class UserInfoController extends Controller
             ->distinct('type')
             ->orderBy('type')
             ->get();
-        var_dump($typeObj->toArray());
-        // Hobby::where('status', '1')
-            // ->select('id', 'name', 'type')
-            // -
-        dd(23);
+        $typeArr = array();
+        foreach ($typeObj as $key => $value) {
+            $hobbyDetail = Hobby::where('status', 1)
+                ->where('type', $value->type)
+                ->select('id', 'name')
+                ->get();
+            foreach ($hobbyDetail as $k => $v) {
+                $typeArr[$key][$k]['id'] = $v->id;
+                $typeArr[$key][$k]['name'] = $v->name;
+            }
+        }
+        var_dump($typeArr);
+        dd(2);
     	return view('front.views.user_info.user_info_teacher_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'money'=>$money,'schoolInfo'=>$schoolInfo,'schoolObj'=>$schoolObj,'addressStr'=>$addressStr]);
     }
 
