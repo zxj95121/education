@@ -474,7 +474,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        		console.log(address);
 
 	        		for (var i in communityInfo) {
-	        			$('#communityInfo col:eq(0)').append('<div class="row row_community" cid = "'+communityInfo[i].id+'">'+communityInfo[i].name+'</div>');
+	        			$('#communityInfo .col:eq(0)').append('<div class="row row_community" cid = "'+communityInfo[i].id+'">'+communityInfo[i].name+'</div>');
 	        		}
 	        	}
 	        })
