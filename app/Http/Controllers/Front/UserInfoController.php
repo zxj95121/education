@@ -257,6 +257,29 @@ class UserInfoController extends Controller
         return response()->json(['errcode'=>0]);
     }
 
+    /*保存社区信息*/
+    public function t_community(Request $request)
+    {
+        $addresss = $request->input('address');
+        $openid = Session::get('openid');
+
+        $str = '';
+        foreach ($address as $value) {
+            $str .= $value.'-';
+        }
+        $str = substr($str, 0, -1);
+
+        $flight = $this->returnUserFlight($openid, 1);
+        $flight->address = $str;
+        $flight->save();
+
+        $html = CommunityCommunity::where('id', $value)
+            ->select('name')
+            ->get()[0];
+
+        return response()->json(['errcode'=>0,'html'=>$html]);
+    }
+
     private function returnUserFlight($openid,$type=0)
     {
     	/*type默认为0表示该info表*/

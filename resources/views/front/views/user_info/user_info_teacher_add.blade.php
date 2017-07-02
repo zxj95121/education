@@ -347,11 +347,11 @@ $signPackage = $jssdk->GetSignPackage();
 				<div class="weui-cells" style="margin-top:0px" >
 		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
 			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
-			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">期望教学社区</div></div>
+			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">期望教学社区(多选)</div></div>
 			            <div><div class="placeholder glyphicon glyphicon-ok done_ok"></div></div>
 			        </div>
 			    </div>
-			    <div class="row" style="width: 100%;height: 100%;margin: 0 auto;" id="community">
+			    <div class="row" style="width: 100%;height: 100%;margin: 0 auto;">
 			    	<div class="col-xs-3 col">
 <!-- 			    		<div class="row row_community">
 			    			芜湖市fdfdafdf大饭店
@@ -470,6 +470,7 @@ $signPackage = $jssdk->GetSignPackage();
 			})
 		}
 		$(function(){
+			/*期望社区部分*/
 			communityInfo = new Array();
 	        $.ajax({
 	        	url: '/front/getCommunity',
@@ -534,8 +535,35 @@ $signPackage = $jssdk->GetSignPackage();
         			address[cdom.attr('cid')] = cdom.attr('cid');
         			cdom.addClass('communityActive');
         		}
+	        })
 
-	        	console.log(address);
+	        $('#community .done_ok').click(function(){
+	        	if (address.length < 1) {
+	        		layer.open({
+					    content: '保存失败，期望社区个数不能为0';
+					    ,skin: 'msg'
+					    ,time: 2 //2秒后自动关闭
+					 });
+	        		return false;
+	        	}
+				$.ajax({
+	    			url: '/front/tsave_community',
+	    			dataType: 'json',
+	    			type: 'post',
+	    			data: {
+	    				address: address
+	    			},
+	    			success: function(data) {
+	    				if (data.errcode == 0) {
+	    					$('div[target="community"]').find('span').html(data.html);
+				    		$('#page_main').css('display', 'block');
+							$(this).parents('.page_set').animate({'top': height+'px'}, 250);
+							setTimeout(function(){
+								$('#page_row').css('display', 'none');
+							}, 250);
+	    				}
+	    			}
+	    		})
 	        })
 		})
 
@@ -809,7 +837,6 @@ $signPackage = $jssdk->GetSignPackage();
 		    				}
 		    			}
 		    		})
-		    		
 		    	}
 		    })
 
