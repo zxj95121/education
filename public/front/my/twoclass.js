@@ -13,5 +13,5 @@ $(document).on('click','.class3',function(){
 $(document).on('click','#houtui',function(){
 	var pid = $(this).attr('pid');
 	var twoclass = $(this).attr('fenlei');
-	$('#twoclass').load('/front/twoClassback?pid='+pid+'&fenlei'+twoclass);
+	$('#twoclass').load('/front/twoClassback?pid='+pid+'&fenlei='+twoclass);
 })
