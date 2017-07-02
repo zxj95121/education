@@ -1124,7 +1124,7 @@ $signPackage = $jssdk->GetSignPackage();
 			    				$('#loadingToast').css({'display':'none', 'opacity':'0'});
 			    				$('#toast p').html('修改成功');
 								$('#toast').css({'display':'block', 'opacity':'1'});
-								$('#teachYearPicker span').html(result[0] + '年');
+								$('#teachYearPicker span').html(result[0] + ' 年');
 								setTimeout(function(){
 									$('#toast').css({'display':'none', 'opacity':'0'});
 								},250);

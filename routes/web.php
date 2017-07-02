@@ -199,6 +199,8 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
     $router->post('/getCommunity', 'UserInfoController@getCommunity');
     /*申请添加学校*/
     $router->post('/addNewSchool', 'UserInfoController@addNewSchool');
+    /*申请添加爱好特长*/
+    $router->post('/addNewHobby', 'UserInfoController@addNewHobby');
 	/*双师class  */
     $router->get('/twoClass','TwoClassController@index');
 	$router->get('/twoClasstwo','TwoClassController@two');

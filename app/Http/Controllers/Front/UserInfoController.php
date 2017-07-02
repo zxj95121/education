@@ -18,6 +18,7 @@ use App\Models\CommunityArea;
 use App\Models\CommunityCity;
 use App\Models\CommunityCommunity;
 use App\Models\Hobby;
+use App\Models\HobbyApply;
 
 use Session;
 
@@ -331,6 +332,19 @@ class UserInfoController extends Controller
         $openid = Session::get('openid');
 
         $flight = new SchoolApply();
+        $flight->name = $name;
+        $flight->openid = $openid;
+        $flight->save();
+
+        return response()->json(['errcode'=>0]);
+    }
+    /*添加新的爱好特长*/
+    public function addNewHobby(Request $request)
+    {
+        $name = $request->input('name');
+        $openid = Session::get('openid');
+
+        $flight = new HobbyApply();
         $flight->name = $name;
         $flight->openid = $openid;
         $flight->save();
