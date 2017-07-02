@@ -45,6 +45,11 @@ $signPackage = $jssdk->GetSignPackage();
 		.col:nth-of-type(2){
 			background-color: #F0F0EA;
 		}
+
+		.communityActive{
+			background: #64C9F7;
+			color: #FFF;
+		}
 	</style>
 </head>
 <body>
@@ -458,6 +463,12 @@ $signPackage = $jssdk->GetSignPackage();
                 }
             });
 		})
+
+		function removeActive(cdom){
+			cdom.parent().find('div').each(function(){
+				$(this).removeClass('communityActive');
+			})
+		}
 		$(function(){
 			communityInfo = new Array();
 	        $.ajax({
@@ -481,8 +492,22 @@ $signPackage = $jssdk->GetSignPackage();
 
 	        $(document).on('click', '.cOne', function(){
 	        	var number = $(this).attr('number');
+	        	removeActive($(this));
+	        	$(this).addClass('communityActive');
+	        	$('#community .col:eq(0)').attr('num', number);
 	        	for (var i in communityInfo[number]['next']) {
-	        		$('#community .col:eq(1)').append('<div class="row row_community cOne" number="'+i+'" cid = "'+communityInfo[number]['next'][i].id+'">'+communityInfo[number]['next'][i].name+'</div>');
+	        		$('#community .col:eq(1)').append('<div class="row row_community cTwo" number="'+i+'" cid = "'+communityInfo[number]['next'][i].id+'">'+communityInfo[number]['next'][i].name+'</div>');
+	        	}
+	        })
+
+	        $(document).on('click', '.cTwo', function(){
+	        	var num = $('#community .col:eq(0)').attr('num');
+	        	var number = $(this).attr('number');
+	        	removeActive($(this));
+	        	$(this).addClass('communityActive');
+	        	$('#community .col:eq(1)').attr('num', number);
+	        	for (var i in comm){
+	        		$('#community .col:eq(1)').append('<div class="row row_community cThree" number="'+i+'" cid = "'+communityInfo[num]['next'][number]['next'][i].id+'">'+communityInfo[num]['next'][number]['next'][i].name+'</div>');
 	        	}
 	        })
 		})
