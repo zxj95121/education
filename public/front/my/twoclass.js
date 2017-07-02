@@ -29,6 +29,6 @@ $(document).on('click','#houtui',function(){
 })
 
 $(document).on('.goumai', 'click', function(e){
-	e.preventdefault();
+	e.stopPropagation();
 	console.log('dddd');
 })
