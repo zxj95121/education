@@ -13,6 +13,9 @@ $(document).on('click','.class3',function(){
 	var pid = $(this).attr('pid');
 	if (e.target.tagName == 'P')
 		$('#twoclass').load('/front/twoClassfour?pid='+pid);
+	else if (e.target.tagName == 'SPAN') {
+		console.log('这是购买');
+	}
 })
 $(document).on('click','#houtui',function(){
 	var twoclass = $(this).attr('fenlei');
@@ -28,8 +31,4 @@ $(document).on('click','#houtui',function(){
 			break;
 	}
 	$('#twoclass').load('/front/twoClassback?fenlei='+twoclass+'&pid='+pid);
-})
-
-$(document).on('.goumai', 'click', function(e){
-	console.log('dddd');
 })
