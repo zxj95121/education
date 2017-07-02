@@ -13,6 +13,7 @@
 	}
 	.buyCell .label-success{
 		position: absolute;
+		top: 0px;
 		right: 2px;
 		height: 100%;
     	line-height: inherit;
