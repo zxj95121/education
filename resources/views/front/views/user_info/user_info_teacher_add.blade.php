@@ -794,7 +794,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    	if ($(this).hasClass('btn-success')) {
 		    		$(this).removeClass('btn-success');
 		    	} else {
-		    		$(this).addClass('btn-success');
+		    		$(this).removeClass('btn-info').addClass('btn-success');
 		    	}
 		    })
 
