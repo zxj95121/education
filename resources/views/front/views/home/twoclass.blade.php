@@ -38,7 +38,6 @@
 				    <div class="weui-cell__bd">
 				        <p style="margin-bottom:0px">{{$value->name}}</p>
 				    	<iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
-				    	<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">按钮</a>
 				    </div>
 				    <div class="weui-cell__ft">
 				    </div>
