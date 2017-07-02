@@ -481,6 +481,8 @@ $signPackage = $jssdk->GetSignPackage();
 	        	success: function(data) {
 	        		communityInfo = data['communityInfo'];
 	        		address = data['address'];
+	        		if(!address)
+	        			address = new Array();
 	        		console.log(communityInfo);
 	        		console.log(address);
 
@@ -514,7 +516,11 @@ $signPackage = $jssdk->GetSignPackage();
 	        	$('#community .col:eq(2)').html('');
 
 	        	for (var i in communityInfo[num]['next'][number]['next']){
-	        		$('#community .col:eq(2)').append('<div class="row row_community cThree" number="'+i+'" cid = "'+communityInfo[num]['next'][number]['next'][i].id+'">'+communityInfo[num]['next'][number]['next'][i].name+'</div>');
+	        		if (address.contains(communityInfo[num]['next'][number]['next'][i].id)) {
+	        			$('#community .col:eq(2)').append('<div class="row row_community cThree communityActive" number="'+i+'" cid = "'+communityInfo[num]['next'][number]['next'][i].id+'">'+communityInfo[num]['next'][number]['next'][i].name+'</div>');
+	        		} else {
+	        			$('#community .col:eq(2)').append('<div class="row row_community cThree" number="'+i+'" cid = "'+communityInfo[num]['next'][number]['next'][i].id+'">'+communityInfo[num]['next'][number]['next'][i].name+'</div>');
+	        		}
 	        	}
 	        })
 
@@ -522,11 +528,15 @@ $signPackage = $jssdk->GetSignPackage();
 	        	var cdom = $(this);
 	        	$(this).parent().find('div').each(function(){
 	        		if ($(this).hasClass('communityActive')) {
+	        			address[cdom.attr('cid')] = false;
 	        			cdom.removeClass('communityActive');
 	        		} else {
+	        			address[cdom.attr('cid')] = cdom.attr('cid');
 	        			cdom.addClass('communityActive');
 	        		}
 	        	})
+
+	        	console.log(address);
 	        })
 		})
 
