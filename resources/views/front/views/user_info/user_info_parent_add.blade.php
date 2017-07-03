@@ -557,7 +557,7 @@ $signPackage = $jssdk->GetSignPackage();
 					 });
 	        		return false;
 	        	}
-	        	var cdomo = $(this);
+	        	var cdom = $(this);
 				$.ajax({
 	    			url: '/front/tsave_community',
 	    			dataType: 'json',
