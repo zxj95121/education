@@ -79,6 +79,7 @@ class LoginController extends Controller
         Session::put('phone', $phone);
     	Session::put('phoneCode', $phoneCode);
 
+        dd(json_decode($result, true));
 
         if ($result->result == '') {
             /*判断是否发送成功*/
