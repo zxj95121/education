@@ -79,9 +79,9 @@
                 <div class="col-xs-4">1</div>
             </div>
             <div class="row" id="my_count_bottom">
-                <div class="col-xs-4">查看过</div>
-                <div class="col-xs-4">沟通过</div>
-                <div class="col-xs-4">已成交</div>
+                <div class="col-xs-4">class订单</div>
+                <div class="col-xs-4">已确认</div>
+                <div class="col-xs-4">已完成</div>
             </div>
         </div>
         <!-- count end -->
