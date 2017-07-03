@@ -6,7 +6,7 @@ $signPackage = $jssdk->GetSignPackage();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>个人信息</title>
+	<title>加辰教育</title>
 	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
 	<link rel="stylesheet" href="/js/cutimage/css/style.css" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="/js/weui/weui.min.css" />

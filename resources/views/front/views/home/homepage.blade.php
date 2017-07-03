@@ -102,62 +102,14 @@
                 </div>
                 <div class="col-xs-3 my_function_type">
                     <div class="my_function_top">
-                        <img src="/images/home/function_child.png" />
+                        <img src="/images/home/function_add.png" />
                     </div>
                     <div class="my_function_bottom">
-                        我的孩子
-                    </div>
-                </div>
-                <div class="col-xs-3 my_function_type">
-                    <div class="my_function_top">
-                        <img src="/images/home/function_child.png" />
-                    </div>
-                    <div class="my_function_bottom">
-                        我的孩子
-                    </div>
-                </div>
-                <div class="col-xs-3 my_function_type">
-                    <div class="my_function_top">
-                        <img src="/images/home/function_child.png" />
-                    </div>
-                    <div class="my_function_bottom">
-                        我的孩子
+                        添加孩子
                     </div>
                 </div>
             </div>
             <div class="row" class="my_function">
-                <div class="col-xs-3 my_function_type">
-                    <div class="my_function_top">
-                        <img src="/images/home/function_child.png" />
-                    </div>
-                    <div class="my_function_bottom">
-                        我的孩子
-                    </div>
-                </div>
-                <div class="col-xs-3 my_function_type">
-                    <div class="my_function_top">
-                        <img src="/images/home/function_child.png" />
-                    </div>
-                    <div class="my_function_bottom">
-                        我的孩子
-                    </div>
-                </div>
-                <div class="col-xs-3 my_function_type">
-                    <div class="my_function_top">
-                        <img src="/images/home/function_child.png" />
-                    </div>
-                    <div class="my_function_bottom">
-                        我的孩子
-                    </div>
-                </div>
-                <div class="col-xs-3 my_function_type">
-                    <div class="my_function_top">
-                        <img src="/images/home/function_child.png" />
-                    </div>
-                    <div class="my_function_bottom">
-                        我的孩子
-                    </div>
-                </div>
             </div>
         </div>
         <!--function end -->
