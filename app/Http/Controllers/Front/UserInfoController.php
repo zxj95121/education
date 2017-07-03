@@ -30,7 +30,7 @@ class UserInfoController extends Controller
 
         $userInfo = ParentInfo::where('openid', $openid)
             ->get()[0];
-        $userDetail = ParentDetail::where('tid', $userInfo->id)
+        $userDetail = ParentDetail::where('pid', $userInfo->id)
             ->get()[0];
 
         if (!$userDetail->type) {
