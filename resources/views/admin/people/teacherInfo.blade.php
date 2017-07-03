@@ -42,10 +42,13 @@
 							                        <th>姓名</th>
 							                        <th>手机号</th>
 							                        <th>性别</th>
+							                        <th>爱好特长</th>
+							                        <th>擅长学科</th>
 							                        <th>教师分类</th>
 							                        <th>所学专业</th>
 							                        <th>求职状态</th>
-							                        <th>认证状态</th>
+							                        <th>期望薪资</th>
+							                        <th>期望教学社区</th>
 							                    </tr>
 							                </thead>
 							                <tbody>
@@ -61,6 +64,8 @@
 								                       	女
 								                       	@endif
 							                        </td>
+							                        <td>{{$value->hobby}}</td>
+							                        <td>{{$value->subject}}</td>
 							                        <td>
 							                        	@if($value->type == 1)
 								                       	学生教师
@@ -78,15 +83,8 @@
 							                        	暂不考虑求职
 							                        	@endif
 							                        </td>
-							                        <td>
-							                        	@if($value->status == 1)
-							                        	已认证
-							                        	@elseif($value->status == -1)
-							                        	已删除
-							                        	@else
-							                        	未认证
-							                        	@endif
-							                        </td>
+							                        <td>{{$value->money}}</td>
+							                        <td>{{$value->address}}</td>
 							                    </tr>
 							                    @endforeach
 							                </tbody>

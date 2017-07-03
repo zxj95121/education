@@ -82,7 +82,7 @@ class ManagerController extends Controller
     {
     	$res = ParentDetail::where('parent_detail.status','1')
     	->leftJoin('parent_info','parent_detail.pid','parent_info.id')
-    	->select('parent_info.name as nickname','parent_detail.id','parent_detail.name','parent_info.phone','sex','parent_info.status','type')
+    	->select('parent_info.name as nickname','parent_detail.id','parent_detail.name','parent_info.phone','sex','type','address','place')
     	->paginate(10);
     	return view('admin.people.parentInfo',['res'=>$res]);
     }
@@ -92,7 +92,7 @@ class ManagerController extends Controller
     {
     	$res = TeacherDetail::where('teacher_detail.status','1')
     		->leftJoin('teacher_info','teacher_detail.tid','teacher_info.id')
-    		->select('teacher_info.name as nickname','teacher_detail.id','teacher_detail.name','teacher_info.phone','sex','teacher_info.status','type','project','find_status')
+    		->select('teacher_info.name as nickname','teacher_detail.id','teacher_detail.name','phone','sex','type','project','find_status','address','money','hobby','subject')
     		->paginate(10);
         return view('admin.people.teacherInfo',['res'=>$res]);
     }

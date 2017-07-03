@@ -41,8 +41,9 @@
 								                    <th>姓名</th>
 								                    <th>手机号</th>
 								                    <th>性别</th>
-								                    <th>家长类别</th>
-								                    <th>认证状态</th>
+								                    <th>类别</th>
+								                    <th>住宅小区</th>
+								                    <th>单元楼层</th>
 								                </tr>
 								            </thead>
 								            <tbody>
@@ -60,20 +61,13 @@
 								                    </td>
 								                    <td>
 								                    	@if($value->type == 1)
-								                    	家长
+								                    	家长类别
 								                    	@else
 								                    	辅导机构
 								                    	@endif
 								                    </td>
-								                    <td>
-								                    	@if($value->status == 1)
-								                    	已认证
-								                    	@elseif($value->status == -1)
-								                    	已删除
-								                    	@else
-								                    	未认证
-								                    	@endif
-								                    </td>
+								                    <td>{{$value->address}}</td>
+								                    <td>{{$value->place}}</td>
 								                </tr>
 								                @endforeach
 								            </tbody>
