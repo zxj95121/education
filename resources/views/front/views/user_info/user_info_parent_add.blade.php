@@ -436,7 +436,7 @@ $signPackage = $jssdk->GetSignPackage();
         			for (var i in addressCommunity) {
         				$('.cThree[cid="'+addressCommunity[i]+'"]').removeClass('communityActive');
         			}
-        			addressCommunity.splice(0,addressCommunity.length);
+        			addressCommunity = [];
         			addressCommunity[cdom.attr('cid')] = cdom.attr('cid');
         			cdom.addClass('communityActive');
         		}
@@ -573,7 +573,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    	var index = $(this).index('.done_ok1');
 		    	var value = $(this).parents('.page_set').find('input').val();
 
-		    	var arr = new Array(/^.{1,8}$/, /^.{1,2}$/, /^[\u4e00-\u9fa5]{1,4}$/, /[\u4e00-\u9fa5]{1,10}/);
+		    	var arr = new Array(/^.{1,10}$/, /^.{1,2}$/, /^[\u4e00-\u9fa5]{1,4}$/, /[\u4e00-\u9fa5]{1,10}/);
 		    	if (!arr[index].test(value) && !(index == 1 && value == '')) {
 		    		layer.open({
 					    content: '长度或格式不正确'
