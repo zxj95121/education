@@ -49,7 +49,7 @@
 			$('#confirm').click(function(){
 				if ($('.weui-btn_default').length == 1) {
 					var type = $('.container .weui-btn_primary:eq(0)').attr('type');
-					window.location.href = '/front/selectTeacherType?type='+type;
+					window.location.href = '/front/selectParentType?type='+type;
 				}
 			})
 		})
