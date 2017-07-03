@@ -18,6 +18,6 @@ class HomeController extends Controller
 
    public function homeOauth()
    {
-   		return redirect(OauthController::getUrl(4));
+   		return redirect(OauthController::getUrl(4, 1));
    }
 }
