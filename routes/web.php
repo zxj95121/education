@@ -185,6 +185,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
     $router->get('/user_info_teacher','UserInfoController@teacher');
     /*信息跳转*/
     $router->get('/selectTeacherType','UserInfoController@selectTeacherType');
+    $router->get('/selectParentType','UserInfoController@selectParentType');
         /*teacher信息保存*/
     $router->post('/tsave_headimg', 'UserInfoController@t_headimg');
     $router->post('/tsave_nickname', 'UserInfoController@t_nickname');

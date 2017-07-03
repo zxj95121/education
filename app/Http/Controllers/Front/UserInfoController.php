@@ -26,7 +26,117 @@ class UserInfoController extends Controller
 {
     public function parent()
     {
-    	return view('front.views.user_info.user_info_parent_add');
+        $openid = Session::get('openid');
+
+        $userInfo = ParentInfo::where('openid', $openid)
+            ->get()[0];
+        $userDetail = ParentDetail::where('tid', $userInfo->id)
+            ->get()[0];
+
+        if (!$userDetail->type) {
+            return redirect('/front/selectParentType');
+        }
+
+        /*初始化出生日期用*/
+        if ($userDetail->birth) {
+            $times = strtotime($userDetail->birth.'-1');
+            $time[] = date('Y', $times);
+            $time[] = date('m', $times); 
+        } else {
+            $time = '';
+        }
+        $time[1] = str_replace('0', '', $time[1]);
+
+        /*初始化用*/
+        // if ($userDetail->money) {
+        //     $moneys = explode('-', $userDetail->money);
+        //     $money[] = $moneys[0];
+        //     $money[] = $moneys[1];
+        // } else {
+        //     $money = '';
+        // }
+
+        // /*查询学校信息*/  /*以及教学年份*/
+        // if ($userDetail->type == 1) {
+        //     /*大学生教师*/
+        //     $schoolInfo_one = SchoolOne::where('school_one.is_student', 1)
+        //         ->where('school_one.status', 1)
+        //         ->select('id', 'name')
+        //         ->get();
+        // } else if ($userDetail->type == 2) {
+        //     /*职业教师*/
+        //     $schoolInfo_one = SchoolOne::where('school_one.is_student', 0)
+        //         ->where('school_one.status', 1)
+        //         ->select('id', 'name')
+        //         ->get();
+        // }
+
+        // $k = 0;
+        // foreach ($schoolInfo_one as $value) {
+        //     $id1 = $value->id;
+        //     $schoolInfo[$k] = array();
+        //     $schoolInfo[$k]['id1'] = $id1;
+        //     $schoolInfo[$k]['name1'] = $value->name;
+        //     $schoolInfo[$k]['two'] = array();
+        //     $schoolInfo_two = SchoolTwo::where('pid', $id1)
+        //         ->where('status', 1)
+        //         ->select('id', 'name')
+        //         ->get();
+        //     foreach ($schoolInfo_two as $v) {
+        //         $schoolInfo[$k]['two'][] = array('id2'=>$v->id, 'name2'=>$v->name);
+        //     }
+        //     $k++;
+        // }
+
+        // //根据userDetail->school读出相应信息
+        // if ($userDetail->school)
+        //     $schoolObj = SchoolTwo::find($userDetail->school);
+        // else
+        //     $schoolObj = '';
+
+        /*查取社区信息*/
+        $flight = $this->returnUserFlight($openid, 1);
+        $cInfo = $flight->address;
+        if ($cInfo == '') {
+            $addressStr = '';
+        } else {
+            $address = $cInfo;
+            $addData = CommunityCommunity::where('id', $address)
+                ->select('name')
+                ->get()[0];
+            $addressStr = $addData->name;
+        }
+
+        // /*查特长爱好*/
+        // $typeObj = Hobby::where('status', 1)
+        //     ->select('type')
+        //     ->distinct('type')
+        //     ->orderBy('type')
+        //     ->get();
+        // $typeArr = array();
+        // foreach ($typeObj as $key => $value) {
+        //     $hobbyDetail = Hobby::where('status', 1)
+        //         ->where('type', $value->type)
+        //         ->select('id', 'name')
+        //         ->get();
+        //     foreach ($hobbyDetail as $k => $v) {
+        //         $typeArr[$value->type][$k]['id'] = $v->id;
+        //         $typeArr[$value->type][$k]['name'] = $v->name;
+        //     }
+        // }
+
+        // /*查用户的特长爱好*/
+        // if ($userDetail->hobby == '') {
+        //     $hobbyData = '';
+        // } else {
+        //     $fli = Hobby::find(substr($userDetail->hobby, 0, 1));
+        //     $hobbyData = $fli->name;
+        //     if (strpos($userDetail->hobby, '-') > 0) {
+        //         $hobbyData .= '等';
+        //     }
+        // }
+
+        return view('front.views.user_info.user_info_parent_add',['openid'=>$openid,'userInfo'=>$userInfo,'userDetail'=>$userDetail,'birthTime'=>$time,'addressStr'=>$addressStr]);
     }
 
     public function teacher()
@@ -164,6 +274,24 @@ class UserInfoController extends Controller
         $userInfo = TeacherInfo::where('openid', $openid)
             ->get()[0];
         return view('front/views.user_info.user_teacher_redirect');   
+    }
+
+    public function selectParentType(Request $request)
+    {
+        $openid = Session::get('openid');
+
+        if ($request->input('type')) {
+            $type = $request->input('type');
+            $userInfo = ParentInfo::where('openid', $openid)
+            ->get()[0];
+            ParentDetail::where('tid', $userInfo->id)
+                ->update(['type'=>$type]);
+            return redirect('/front/user_info_parent');
+        }
+
+        $userInfo = ParentInfo::where('openid', $openid)
+            ->get()[0];
+        return view('front/views.user_info.user_parent_redirect');   
     }
 
     /*修改teacher的头像*/

@@ -17,8 +17,8 @@
 		<article class="weui-article">
             <h1 style="text-align: left;">请选择您的身份 <span style="font-size:13px;">(一旦选择，不许更改)</span></h1>
         </article>
-		<a href="javascript:;" class="ha weui-btn weui-btn-mini weui-btn_default" type="1">大学生教师</a>
-		<a type="2" href="javascript:;" class="ha weui-btn weui-btn-mini weui-btn_default">职业教师</a>
+		<a href="javascript:;" class="ha weui-btn weui-btn-mini weui-btn_default" type="1">学生家长</a>
+		<a type="2" href="javascript:;" class="ha weui-btn weui-btn-mini weui-btn_default">辅导机构</a>
 		
 		<br>
 		<a href="javascript:;" id="confirm" class="weui-btn weui-btn_primary" style="background-color: #22AAE8;">确认身份</a>

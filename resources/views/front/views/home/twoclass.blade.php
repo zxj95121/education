@@ -45,7 +45,7 @@
 				    <div class="weui-cell__bd" style="position: relative;">
 				        <p style="margin-bottom:0px">{{$value->name}}</p>
 				    	<iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
-				    	<span class="label label-success goumai">购买</span>
+				    	<span class="label label-success"> 购买 </span>
 				    </div>
 				    <div class="weui-cell__ft">
 				    </div>
