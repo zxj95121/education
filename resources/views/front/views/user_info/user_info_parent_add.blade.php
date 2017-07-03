@@ -557,6 +557,7 @@ $signPackage = $jssdk->GetSignPackage();
 					 });
 	        		return false;
 	        	}
+	        	var cdomo = $(this);
 				$.ajax({
 	    			url: '/front/tsave_community',
 	    			dataType: 'json',
@@ -571,10 +572,11 @@ $signPackage = $jssdk->GetSignPackage();
 	    					else
 	    						$('div[target="community"]').find('span').html(data.html.name);
 				    		$('#page_main').css('display', 'block');
-							$(this).parents('.page_set').animate({'top': height+'px'}, 250);
+							cdom.parents('.page_set').animate({'top': height+'px'}, 250);
 							setTimeout(function(){
 								$('#page_row').css('display', 'none');
 							}, 250);
+
 	    				}
 	    			}
 	    		})

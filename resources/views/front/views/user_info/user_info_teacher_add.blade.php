@@ -844,6 +844,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    	var value = schoolDom.html();
 		    	var id2 = schoolDom.attr('id2');
 		    	var id1 = schoolDom.parents('.pbody').prev().attr('id1');
+		    	var cdom = $(this);
 		    	if (!value) {
 		    		return false;
 		    	} else {
@@ -858,7 +859,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    				if (data.errcode == 0) {
 		    					$('div[target="school"]').find('span').html(value);
 					    		$('#page_main').css('display', 'block');
-								$(this).parents('.page_set').animate({'top': height+'px'}, 250);
+								cdom.parents('.page_set').animate({'top': height+'px'}, 250);
 								setTimeout(function(){
 									$('#page_row').css('display', 'none');
 								}, 250);
@@ -879,6 +880,8 @@ $signPackage = $jssdk->GetSignPackage();
 		    		hobby = hobby.substring(0,hobby.length-1);
 		    	}
 
+		    	var cdom = $(this);
+
 		    	$.ajax({
 	    			url: '/front/tsave_hobby',
 	    			dataType: 'json',
@@ -890,7 +893,7 @@ $signPackage = $jssdk->GetSignPackage();
 	    				if (data.errcode == 0) {
 	    					$('div[target="hobby"]').find('span').html(data.html);
 				    		$('#page_main').css('display', 'block');
-							$(this).parents('.page_set').animate({'top': height+'px'}, 250);
+							cdom.parents('.page_set').animate({'top': height+'px'}, 250);
 							setTimeout(function(){
 								$('#page_row').css('display', 'none');
 							}, 250);
@@ -910,6 +913,7 @@ $signPackage = $jssdk->GetSignPackage();
 					});
 	        		return false;
 	        	}
+	        	var cdom = $(this);
 				$.ajax({
 	    			url: '/front/tsave_community',
 	    			dataType: 'json',
@@ -924,7 +928,7 @@ $signPackage = $jssdk->GetSignPackage();
 	    					else
 	    						$('div[target="community"]').find('span').html(data.html.name);
 				    		$('#page_main').css('display', 'block');
-							$(this).parents('.page_set').animate({'top': height+'px'}, 250);
+							cdom.parents('.page_set').animate({'top': height+'px'}, 250);
 							setTimeout(function(){
 								$('#page_row').css('display', 'none');
 							}, 250);
