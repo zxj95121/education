@@ -89,7 +89,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="has-submenu {!!(Request::is('admin/doubleTeacher')? 'active' : '') !!}">
+                    <li class="has-submenu {!!(Request::is('admin/doubleTeacher', 'admin/classPrice')? 'active' : '') !!}">
                         <a href="#">
                             <i class="zmdi zmdi-book"></i> 
                             <span class="nav-label">双师class</span>
@@ -97,7 +97,10 @@
                         </a>
                         <ul class="list-unstyled">
                             <li class="{!!(Request::is('admin/doubleTeacher')? 'active' : '') !!}">
-                                <a href="/admin/doubleTeacher">课程设置</a>
+                                <a href="/admin/doubleTeacher">课程内容管理</a>
+                            </li>
+                            <li class="{!!(Request::is('admin/classPrice')? 'active' : '') !!}">
+                                <a href="/admin/classPrice">课程价格设置</a>
                             </li>
                         </ul>
                     </li>
