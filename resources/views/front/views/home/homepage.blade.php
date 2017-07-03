@@ -89,7 +89,7 @@
         <!--function start -->
         <div id="my_functions">
             <div class="row" class="my_function function_child">
-                <div class="col-xs-3 my_function_type" id="user_info">
+                <!-- <div class="col-xs-3 my_function_type" id="user_info">
                     <div class="my_function_top">
                         <img src="/images/home/function_info.png" />
                     </div>
@@ -99,7 +99,7 @@
                     <div class="my_function_float">
                         <img src="/images/home/function_cicle.png" />
                     </div>
-                </div>
+                </div> -->
                 <div class="col-xs-3 my_function_type">
                     <div class="my_function_top">
                         <img src="/images/home/function_add.png" />
