@@ -80,16 +80,20 @@ class ManagerController extends Controller
     /*家长信息*/
     public function parentInfo(Request $request)
     {
-    	
-        return view('admin.people.parentInfo');
+    	$res = ParentDetail::where('parent_detail.status','1')
+    	->leftJoin('parent_info','parent_detail.pid','parent_info.id')
+    	->select('parent_info.name as nickname','parent_detail.id','parent_detail.name','parent_info.phone','sex','parent_info.status','type')
+    	->paginate(10);
+    	return view('admin.people.parentInfo',['res'=>$res]);
     }
 
     /*教师信息*/
     public function teacherInfo(Request $request)
     {
-    	$res = TeacherDetail::find(1);
-		
-    	dd($res->teacherinfo());
-        return view('admin.people.teacherInfo');
+    	$res = TeacherDetail::where('teacher_detail.status','1')
+    		->leftJoin('teacher_info','teacher_detail.tid','teacher_info.id')
+    		->select('teacher_info.name as nickname','teacher_detail.id','teacher_detail.name','teacher_info.phone','sex','teacher_info.status','type','project','find_status')
+    		->paginate(10);
+        return view('admin.people.teacherInfo',['res'=>$res]);
     }
 }
