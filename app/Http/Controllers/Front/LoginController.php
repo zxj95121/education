@@ -74,12 +74,11 @@ class LoginController extends Controller
     	$phoneCode = ''.rand(0,9).rand(0,9).rand(0,9).rand(0,9);
     	
         require_once($_SERVER['DOCUMENT_ROOT'].'/php/Qcloud/Sms/SmsSenderDemo.php');
-        $postSms = new postPhoneCodeSms();
-        $postSms->post($phone, $phoneCode);
+        $result = postPhoneCodeSms('13095533632', '2343');
         
         Session::put('phone', $phone);
     	Session::put('phoneCode', $phoneCode);
-    	return response()->json(['errcode'=>0,'phoneCode'=>$phoneCode]);
+    	return response()->json(['errcode'=>0,'phoneCode'=>$phoneCode,'result'=>$result]);
     	/**
     	* 返回true，发送验证码成功，否则发送失败
     	*/
