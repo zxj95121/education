@@ -51,7 +51,15 @@
             <div class="col-xs-5" id="my_header_basic">
                 <div class="col-xs-10">
                     <span>张贤健</span><br>
-                    <span>我是名师</span>
+                    <span>
+                        @if($userType->type == 1)
+                            我是管理员
+                        @elseif($userType->type == 2)
+                            我是家长
+                        @elseif($userType->type == 3)
+                            我是名师
+                        @endif
+                    </span>
                 </div>
             </div>
             @if($userType->type == 2)
