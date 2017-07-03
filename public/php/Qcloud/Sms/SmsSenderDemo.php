@@ -3,7 +3,7 @@
 require_once "SmsSender.php";
 
 class postPhoneCodeSms {
-    public static function post($phone,$code)
+    public function post($phone,$code)
     {
         try {
             // 请根据实际 appid 和 appkey 进行开发，以下只作为演示 sdk 使用

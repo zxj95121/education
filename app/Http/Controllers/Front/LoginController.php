@@ -75,7 +75,7 @@ class LoginController extends Controller
     	
         require_once($_SERVER['DOCUMENT_ROOT'].'/php/Qcloud/Sms/SmsSenderDemo.php');
         $postSms = new postPhoneCodeSms();
-        $postSms::post($phone, $phoneCode);
+        $postSms->post($phone, $phoneCode);
         
         Session::put('phone', $phone);
     	Session::put('phoneCode', $phoneCode);
