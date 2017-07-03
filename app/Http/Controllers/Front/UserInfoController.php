@@ -404,6 +404,32 @@ class UserInfoController extends Controller
     	return response()->json(['errcode'=>0]);
     }
 
+    /*parent端的place*/
+    public function t_place(Request $request)
+    {
+        $value = $request->input('value');
+        $openid = Session::get('openid');
+
+        $flight = $this->returnUserFlight($openid,1);
+        $flight->place = $value;
+        $flight->save();
+
+        return response()->json(['errcode'=>0]);
+    }
+
+    /*parent端的surname*/
+    public function t_surname(Request $request)
+    {
+        $value = $request->input('value');
+        $openid = Session::get('openid');
+
+        $flight = $this->returnUserFlight($openid,1);
+        $flight->surname = $value;
+        $flight->save();
+
+        return response()->json(['errcode'=>0]);
+    }
+
     public function t_money(Request $request)
     {
         $value = $request->input('value');

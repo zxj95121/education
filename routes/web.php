@@ -200,6 +200,10 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
     $router->post('/tsave_teachYear', 'UserInfoController@t_teachYear');
     $router->post('/tsave_project', 'UserInfoController@t_project');
 
+      /*parent*/
+    $router->post('/tsave_place', 'UserInfoController@t_place');
+    $router->post('/tsave_surname', 'UserInfoController@t_surname');
+
       /*获取社区信息*/
     $router->post('/getCommunity', 'UserInfoController@getCommunity');
     /*申请添加学校*/

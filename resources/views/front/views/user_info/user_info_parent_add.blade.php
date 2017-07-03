@@ -76,12 +76,18 @@ $signPackage = $jssdk->GetSignPackage();
 	                    <span style="vertical-align:middle; font-size: 17px;">{{$userDetail->name}}</span>
 	                </div>
 	            </div>
+	            <div class="weui-cell weui-cell_access row_info input_info" target="surname">
+	                <div class="weui-cell__bd">姓氏</div>
+	                <div class="weui-cell__ft" style="font-size: 0">
+	                    <span style="vertical-align:middle; font-size: 17px;">{{$userDetail->surname}}</span>
+	                </div>
+	            </div>
 	            <div class="weui-cell weui-cell_access" id="cell_sex">
-	                <div class="weui-cell__bd">性别</div>
+	                <div class="weui-cell__bd">身份</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;">
-	                    	@if($userDetail->sex == 0) 女
-	                    	@elseif ($userDetail->sex == 1) 男
+	                    	@if($userDetail->sex == 0) 妈妈
+	                    	@elseif ($userDetail->sex == 1) 爸爸
 	                    	@endif
 	                    </span>
 	                </div>
@@ -212,6 +218,27 @@ $signPackage = $jssdk->GetSignPackage();
 			    </div>
 			</div>
 
+			<!-- 姓氏 -->
+			<div class="page__bd page_set" id="surname">
+				<div class="weui-cells" style="margin-top:0px" >
+		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
+			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
+			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">姓氏</div></div>
+			            <div><div class="placeholder glyphicon glyphicon-ok done_ok1"></div></div>
+			        </div>
+			    </div>
+			    <div style="width: 97%;margin: 0 auto;" class="div_detail">
+			    	<div class="weui-cells__title"><span>1</span>/2</div>
+			    	<div class="weui-cells">
+			            <div class="weui-cell">
+			                <div class="weui-cell__bd">
+			                    <input class="weui-input input_set" name="surname" type="text" placeholder="请输入姓氏">
+			                </div>
+			            </div>
+       				</div>
+			    </div>
+			</div>
+
 			<!-- 性别 -->
 			<div id="sex" style="display: none;">
 		        <div class="weui-mask" id="iosMask" style="opacity: 1;"></div>
@@ -234,7 +261,7 @@ $signPackage = $jssdk->GetSignPackage();
 				<div class="weui-cells" style="margin-top:0px" >
 		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
 			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
-			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">专业</div></div>
+			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">详细地址</div></div>
 			            <div><div class="placeholder glyphicon glyphicon-ok done_ok1"></div></div>
 			        </div>
 			    </div>
@@ -546,7 +573,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    	var index = $(this).index('.done_ok1');
 		    	var value = $(this).parents('.page_set').find('input').val();
 
-		    	var arr = new Array(/^.{1,8}$/,/^[\u4e00-\u9fa5]{1,4}$/,/[\u4e00-\u9fa5]{1,10}/);
+		    	var arr = new Array(/^.{1,8}$/, /^.{1,2}$/, /^[\u4e00-\u9fa5]{1,4}$/, /[\u4e00-\u9fa5]{1,10}/);
 		    	if (!arr[index].test(value) && !(index == 1 && value == '')) {
 		    		layer.open({
 					    content: '长度或格式不正确'
@@ -557,15 +584,17 @@ $signPackage = $jssdk->GetSignPackage();
 			    	var tid = $(this).parents('.page_set').attr('id');
 			    	$('.row_info[target="'+tid+'"]').find('span').html(value);
 
-			    	if (index == 1 && value == '') {
-						$('.row_info[target="'+tid+'"]').find('span').html('选填');
-			    	}
+			   //  	if (index == 1 && value == '') {
+						// $('.row_info[target="'+tid+'"]').find('span').html('选填');
+			   //  	}
 
 			    	if (index == 0) {
 			    		var url = '/front/tsave_nickname';
 			    	} else if (index == 1) {
 			    		var url = '/front/tsave_name';
 			    	} else if (index == 2) {
+			    		var url = '/front/tsave_surname';
+			    	} else if (index == 3) {
 			    		var url = '/front/tsave_place';
 			    	}
 			    	/*发送ajax请求更换数据*/
