@@ -16,6 +16,10 @@
 	padding:7% 0px 7% 20px;
 }
 
+#my_header_img > div {
+	padding-right: 0px;
+}
+
 /*my  顶部头像*/
 #my_header_img{
 	padding: 0px;

@@ -141,6 +141,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
   	$router->get('/teacherfour/delete','Teacher\DoubleTeacherController@fourDelete');
   	$router->get('/teacherfour/hide','Teacher\DoubleTeacherController@fourHide');
 
+    /*双师class价格课程设置*/
+    $router->get('/classPrice', 'Teacher\ClassPriceController@classPrice');
+
 
     /*待请求审核*/
       /*学校审核*/
