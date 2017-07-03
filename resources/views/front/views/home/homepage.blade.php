@@ -26,21 +26,29 @@
     </style>
 </head>
 <body>
-
-    <div class="container-fluid" id="teacher" style="display: none;">
-        teacher
-    </div>
-
+	@if($userType->type == 2)
+		<div class="container-fluid" id="teacher" style="display: none;">
+        	teacher
+    	</div>
+    	<div class="container-fluid" id="classroom" style="display: none;">
+        	classrome
+    	</div>
+    	<div class="container-fluid" id="eclass" style="display: none; padding:0">
+        
+    	</div>
+	@elseif($userType->type == 3)
+		<div class="container-fluid" id="studytime" style="display: none;">
+        	教学时间
+    	</div>
+    	<div class="container-fluid" id="studyplace" style="display: none;">
+        	教学地点
+    	</div>
+    	<div class="container-fluid" id="salary" style="display: none; padding:0">
+        	薪资待遇
+    	</div>
+	@endif
     <div class="container-fluid" id="parent" style="display: none;">
         parent
-    </div>
-
-    <div class="container-fluid" id="classroom" style="display: none;">
-        classrome
-    </div>
-
-    <div class="container-fluid" id="eclass" style="display: none; padding:0">
-        
     </div>
     <div class="container-fluid" id="my">
         <!-- header start -->
@@ -78,122 +86,162 @@
             @endif
         </div>
         <!-- header end -->
+		@if($userType->type == 1)
+        
 
-        <!-- count start -->
-        <div class="row" id="my_count">
-            <div class="row" id="my_count_top">
-                <div class="col-xs-4">3</div>
-                <div class="col-xs-4">2</div>
-                <div class="col-xs-4">1</div>
-            </div>
-            <div class="row" id="my_count_bottom">
-                <div class="col-xs-4">class订单</div>
-                <div class="col-xs-4">已确认</div>
-                <div class="col-xs-4">已完成</div>
-            </div>
-        </div>
-        <!-- count end -->
-        <div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
-        <!--function start -->
-        <div id="my_functions">
-            <div class="row" class="my_function function_child">
-                <!-- <div class="col-xs-3 my_function_type" id="user_info">
-                    <div class="my_function_top">
-                        <img src="/images/home/function_info.png" />
-                    </div>
-                    <div class="my_function_bottom">
-                        个人信息
-                    </div>
-                    <div class="my_function_float">
-                        <img src="/images/home/function_cicle.png" />
-                    </div>
-                </div> -->
-                <div class="col-xs-3 my_function_type" id="addChild">
-                    <div class="my_function_top">
-                        <img src="/images/home/function_add.png" />
-                    </div>
-                    <div class="my_function_bottom">
-                        添加孩子
-                    </div>
-                </div>
-            </div>
-            <div class="row" class="my_function">
-            </div>
-        </div>
-        <!--function end -->
-        <div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
-        <!-- option start -->
-        <div class="weui-cells" id="my_option">
-
-            <a class="weui-cell weui-cell_access" href="/front/user_info_teacher">
-                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
-                <div class="weui-cell__bd">
-                    <p>消息通知</p>
-                </div>
-                <div class="weui-cell__ft">说明文字</div>
-            </a>
-            <a class="weui-cell weui-cell_access" href="javascript:;">
-                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
-                <div class="weui-cell__bd">
-                    <p>cell standard</p>
-                </div>
-                <div class="weui-cell__ft">说明文字</div>
-            </a>
-            <a class="weui-cell weui-cell_access" href="javascript:;">
-                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
-                <div class="weui-cell__bd">
-                    <p>cell standard</p>
-                </div>
-                <div class="weui-cell__ft">说明文字</div>
-            </a>
-            <a class="weui-cell weui-cell_access" href="javascript:;">
-                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
-                <div class="weui-cell__bd">
-                    <p>cell standard</p>
-                </div>
-                <div class="weui-cell__ft">说明文字</div>
-            </a>
-        </div>
-        <!-- option end -->
+        @elseif($userType->type == 2)
+	       	<div class="row" id="my_count">
+	            <div class="row" id="my_count_top">
+	                <div class="col-xs-4">3</div>
+	                <div class="col-xs-4">2</div>
+	                <div class="col-xs-4">1</div>
+	            </div>
+	            <div class="row" id="my_count_bottom">
+	                <div class="col-xs-4">class订单</div>
+	                <div class="col-xs-4">已确认</div>
+	                <div class="col-xs-4">已完成</div>
+	            </div>
+	        </div>
+	       	<div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
+	        
+        @elseif($userType->type == 3)
+	        <div class="row" id="my_count">
+	            <div class="row" id="my_count_top">
+	                <div class="col-xs-4">3</div>
+	                <div class="col-xs-4">2</div>
+	                <div class="col-xs-4">1</div>
+	            </div>
+	            <div class="row" id="my_count_bottom">
+	                <div class="col-xs-4">class订单</div>
+	                <div class="col-xs-4">已确认</div>
+	                <div class="col-xs-4">已完成</div>
+	            </div>
+	        </div>
+	       	<div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
+        @endif
+        @if($userType->type == 1)
+        @elseif($userType->type == 2)
+       		<div id="my_functions">
+	            <div class="row" class="my_function function_child">
+	                <!-- <div class="col-xs-3 my_function_type" id="user_info">
+	                    <div class="my_function_top">
+	                        <img src="/images/home/function_info.png" />
+	                    </div>
+	                    <div class="my_function_bottom">
+	                        个人信息
+	                    </div>
+	                    <div class="my_function_float">
+	                        <img src="/images/home/function_cicle.png" />
+	                    </div>
+	                </div> -->
+	                <div class="col-xs-3 my_function_type" id="addChild">
+	                    <div class="my_function_top">
+	                        <img src="/images/home/function_add.png" />
+	                    </div>
+	                    <div class="my_function_bottom">
+	                        添加孩子
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="row" class="my_function">
+	            </div>
+	        </div>
+	        <div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
+        @elseif($userType->type == 3)
+        @endif
+        
+        @if($userType->type == 1)
+        @elseif($userType->type == 2)
+       		<div class="weui-cells" id="my_option">
+	            <a class="weui-cell weui-cell_access" href="/front/user_info_teacher">
+	                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>消息通知</p>
+	                </div>
+	                <div class="weui-cell__ft">说明文字</div>
+	            </a>
+	            <a class="weui-cell weui-cell_access" href="javascript:;">
+	                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>cell standard</p>
+	                </div>
+	                <div class="weui-cell__ft">说明文字</div>
+	            </a>
+	            <a class="weui-cell weui-cell_access" href="javascript:;">
+	                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>cell standard</p>
+	                </div>
+	                <div class="weui-cell__ft">说明文字</div>
+	            </a>
+	            <a class="weui-cell weui-cell_access" href="javascript:;">
+	                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>cell standard</p>
+	                </div>
+	                <div class="weui-cell__ft">说明文字</div>
+	            </a>
+	        </div>
+        @elseif($userType->type == 3)
+        @endif
     </div>
-    <div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
-        <a href="javascript:void(0);" class="weui-tabbar__item" for="teacher">
-            <span style="display: inline-block;position: relative;">
-                <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
-                <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
-            </span>
-            <p class="weui-tabbar__label">名师定制</p>
-        </a>
-        <a href="javascript:void(0);" class="weui-tabbar__item" for="classroom">
-            <img src="/images/home/menu_classroom.png" alt="" class="weui-tabbar__icon">
-            <p class="weui-tabbar__label">教室定制</p>
-        </a>
-        <a id="twoclass" href="javascript:void(0);" class="weui-tabbar__item" for="eclass">
-            <span style="display: inline-block;position: relative;">
-                <img src="/images/home/menu_class.png" alt="" class="weui-tabbar__icon">
-                <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
-            </span>
-            <p class="weui-tabbar__label">双师class</p>
-        </a>
-        <a href="javascript:void(0);" class="weui-tabbar__item" for="my">
-            <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
-            <p class="weui-tabbar__label">我的</p>
-        </a>
-    </div>
-
+    @if($userType->type == 1)
+   	@elseif($userType->type == 2)
+   		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
+	        <a href="javascript:void(0);" class="weui-tabbar__item" for="teacher">
+	            <span style="display: inline-block;position: relative;">
+	                <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
+	                <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
+	            </span>
+	            <p class="weui-tabbar__label">名师定制</p>
+	        </a>
+	        <a href="javascript:void(0);" class="weui-tabbar__item" for="classroom">
+	            <img src="/images/home/menu_classroom.png" alt="" class="weui-tabbar__icon">
+	            <p class="weui-tabbar__label">教室定制</p>
+	        </a>
+	        <a id="twoclass" href="javascript:void(0);" class="weui-tabbar__item" for="eclass">
+	            <span style="display: inline-block;position: relative;">
+	                <img src="/images/home/menu_class.png" alt="" class="weui-tabbar__icon">
+	                <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
+	            </span>
+	            <p class="weui-tabbar__label">双师class</p>
+	        </a>
+	        <a href="javascript:void(0);" class="weui-tabbar__item" for="my">
+	            <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
+	            <p class="weui-tabbar__label">我的</p>
+	        </a>
+	    </div>
+   	@elseif($userType->type == 3)
+   		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
+	        <a href="javascript:void(0);" class="weui-tabbar__item" for="studytime">
+	            <span style="display: inline-block;position: relative;">
+	                <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
+	                <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
+	            </span>
+	            <p class="weui-tabbar__label">教学时间</p>
+	        </a>
+	        <a href="javascript:void(0);" class="weui-tabbar__item" for="studyplace">
+	            <img src="/images/home/menu_classroom.png" alt="" class="weui-tabbar__icon">
+	            <p class="weui-tabbar__label">教学地点</p>
+	        </a>
+	        <a id="twoclass" href="javascript:void(0);" class="weui-tabbar__item" for="salary">
+	            <span style="display: inline-block;position: relative;">
+	                <img src="/images/home/menu_class.png" alt="" class="weui-tabbar__icon">
+	                <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
+	            </span>
+	            <p class="weui-tabbar__label">薪资待遇</p>
+	        </a>
+	        <a href="javascript:void(0);" class="weui-tabbar__item" for="my">
+	            <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
+	            <p class="weui-tabbar__label">我的</p>
+	        </a>
+	    </div>
+   	@endif
     <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="/js/layui/layer_only/mobile/layer.js"></script>
     <script type="text/javascript" src="/front/js_module/homepage/homepage.js"></script>
-    <script type="text/javascript" src="/front/js_module/homepage/my.js"></script>
-
-	<!-- <script type="text/javascript" src="/js/layui/layui.js"></script> -->
-    
+    <script type="text/javascript" src="/front/js_module/homepage/my.js"></script>    
     <script type="text/javascript">
-		// $(function(){
-	 //        layui.use('layer', function(){
-	 //            window.layer = layui.layer;
-	 //        });
-		// })
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': '{{csrf_token()}}'

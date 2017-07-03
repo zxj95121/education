@@ -15,12 +15,13 @@ class HomeController extends Controller
     public function home()
     {
     	$openid = Session::get('openid');
-
     	$userType = UserType::where('openid', $openid)
 			->select('type', 'uid')
-			->get()[0];
-		
-    	return view('front.views.home.homepage',['userType'=>$userType]);
+			->get();
+    	if($userType->count() <= 0){
+    		return redirect('/front/register');
+    	}
+    	return view('front.views.home.homepage',['userType'=>$userType[0]]);
     }
 
    public function homeOauth()
