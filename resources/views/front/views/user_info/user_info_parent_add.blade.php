@@ -47,6 +47,18 @@ $signPackage = $jssdk->GetSignPackage();
 			background: #64C9F7;
 			color: #FFF;
 		}
+		#page_main a:link{
+			text-decoration: none;
+		}
+		#page_main a:visited{
+			text-decoration: none;
+		}
+		#page_main a:hover{
+			text-decoration: none;
+		}
+		#page_main a:active{
+			text-decoration: none;
+		}
 	</style>
 </head>
 <body>
