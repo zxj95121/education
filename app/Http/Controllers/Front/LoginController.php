@@ -79,10 +79,7 @@ class LoginController extends Controller
         Session::put('phone', $phone);
     	Session::put('phoneCode', $phoneCode);
 
-        var_dump($result);
-        var_dump(json_decode($result, true));
-
-        if ($result->result == '') {
+        if ($result['result'] == '') {
             /*判断是否发送成功*/
             return response()->json(['errcode'=>0,'phoneCode'=>$phoneCode]);
         } else {

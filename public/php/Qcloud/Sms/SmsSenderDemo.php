@@ -22,9 +22,9 @@ function postPhoneCodeSms($phone,$code)
         // 假设模板内容为：测试短信，{1}，{2}，{3}，上学。
         $params = array($code);
         $result = $singleSender->sendWithParam("86", $phoneNumber1, $templId, $params, "", "", "");
-        $rsp = json_decode($result);
-        echo $result;
-        echo "<br>";
+        $rsp = json_decode($result, true);
+        return $rsp;
+        // echo $result;
 
         // $multiSender = new SmsMultiSender($appid, $appkey);
 
