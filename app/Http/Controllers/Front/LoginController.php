@@ -78,7 +78,16 @@ class LoginController extends Controller
         
         Session::put('phone', $phone);
     	Session::put('phoneCode', $phoneCode);
-    	return response()->json(['errcode'=>0,'phoneCode'=>$phoneCode,'result'=>$result]);
+
+
+        if ($result->result == '') {
+            /*判断是否发送成功*/
+            return response()->json(['errcode'=>0,'phoneCode'=>$phoneCode]);
+        } else {
+            return response()->json(['errcode'=>3,'reason'=>'验证码发送失败，请重试']);
+        }
+
+    	
     	/**
     	* 返回true，发送验证码成功，否则发送失败
     	*/
