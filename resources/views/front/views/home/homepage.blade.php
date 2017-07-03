@@ -162,15 +162,11 @@
                 <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
                 <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
             </span>
-            <p class="weui-tabbar__label">搜名师</p>
-        </a>
-        <a href="javascript:void(0);" class="weui-tabbar__item" for="parent">
-            <img src="/images/home/menu_parent.png" alt="" class="weui-tabbar__icon">
-            <p class="weui-tabbar__label">搜家长</p>
+            <p class="weui-tabbar__label">名师定制</p>
         </a>
         <a href="javascript:void(0);" class="weui-tabbar__item" for="classroom">
             <img src="/images/home/menu_classroom.png" alt="" class="weui-tabbar__icon">
-            <p class="weui-tabbar__label">搜教室</p>
+            <p class="weui-tabbar__label">教室定制</p>
         </a>
         <a id="twoclass" href="javascript:void(0);" class="weui-tabbar__item" for="eclass">
             <span style="display: inline-block;position: relative;">
