@@ -72,14 +72,14 @@ class LoginController extends Controller
             return response()->json(['errcode'=>2,'reason'=>'手机号已经注册']);
         }
     	$phoneCode = ''.rand(0,9).rand(0,9).rand(0,9).rand(0,9);
-    	
+    	$phone = 'fsa';
         require_once($_SERVER['DOCUMENT_ROOT'].'/php/Qcloud/Sms/SmsSenderDemo.php');
         $result = postPhoneCodeSms($phone, $phoneCode);
         
         Session::put('phone', $phone);
     	Session::put('phoneCode', $phoneCode);
 
-        dd(json_decode($result, true));
+        var_dump(json_decode($result, true));
 
         if ($result->result == '') {
             /*判断是否发送成功*/
