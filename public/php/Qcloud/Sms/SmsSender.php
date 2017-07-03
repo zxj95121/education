@@ -2,8 +2,6 @@
 
 // Works well with php5.3 and php5.6.
 
-namespace Qcloud\Sms;
-
 class SmsSenderUtil {
     function getRandom() {
         return rand(100000, 999999);
