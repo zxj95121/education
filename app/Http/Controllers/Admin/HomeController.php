@@ -220,10 +220,18 @@ class HomeController extends Controller
             return response()->json(['errcode'=>2,'reason'=>'手机号已经注册']);
         }
 
-        $phoneCode = 8888;
+        require_once($_SERVER['DOCUMENT_ROOT'].'/php/Qcloud/Sms/SmsSenderDemo.php');
+        $result = postPhoneCodeSms($phone, $phoneCode);
+        
         Session::put('phone', $phone);
         Session::put('phoneCode', $phoneCode);
-        return response()->json(['errcode'=>0,'phoneCode'=>$phoneCode]);
+
+        if ($result['result'] == '') {
+            /*判断是否发送成功*/
+            return response()->json(['errcode'=>0,'phoneCode'=>$phoneCode]);
+        } else {
+            return response()->json(['errcode'=>3,'reason'=>'验证码发送失败，请重试']);
+        }
     }
 
     /*提交代码*/

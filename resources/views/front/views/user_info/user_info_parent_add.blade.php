@@ -268,6 +268,25 @@ $signPackage = $jssdk->GetSignPackage();
 		        </div>
 		    </div>
 
+			<!-- 期望教学社区 -->
+		    <div class="page__bd page_set" id="community">
+				<div class="weui-cells" style="margin-top:0px" >
+		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
+			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
+			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">所在社区</div></div>
+			            <div><div class="placeholder glyphicon glyphicon-ok done_ok"></div></div>
+			        </div>
+			    </div>
+			    <div class="row" style="width: 100%;height: 100%;margin: 0 auto;">
+			    	<div class="col-xs-3 col">
+			    	</div>	
+			    	<div class="col-xs-4 col">
+			    	</div>
+			    	<div class="col-xs-5 col">
+			    	</div>
+			    </div>
+			</div>
+
 			<!-- 所学专业 -->
 			<div class="page__bd page_set" id="place">
 				<div class="weui-cells" style="margin-top:0px" >
@@ -286,25 +305,6 @@ $signPackage = $jssdk->GetSignPackage();
 			                </div>
 			            </div>
        				</div>
-			    </div>
-			</div>
-
-			<!-- 期望教学社区 -->
-		    <div class="page__bd page_set" id="community">
-				<div class="weui-cells" style="margin-top:0px" >
-		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
-			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
-			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">所在社区</div></div>
-			            <div><div class="placeholder glyphicon glyphicon-ok done_ok"></div></div>
-			        </div>
-			    </div>
-			    <div class="row" style="width: 100%;height: 100%;margin: 0 auto;">
-			    	<div class="col-xs-3 col">
-			    	</div>	
-			    	<div class="col-xs-4 col">
-			    	</div>
-			    	<div class="col-xs-5 col">
-			    	</div>
 			    </div>
 			</div>
 
