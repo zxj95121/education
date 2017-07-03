@@ -101,39 +101,16 @@ $signPackage = $jssdk->GetSignPackage();
 	                    </span>
 	                </div>
 	            </div>
-	            <div class="weui-cell weui-cell_access" id="teachYearPicker">
-	                <div class="weui-cell__bd">@if($userDetail->type == 1) 入学年份 @else 教书年份 @endif</div>
-	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;" class="qu-teachYear">
-	                    	@if($userDetail->teachYear)
-	                    		{{$userDetail->teachYear}} 年
-	                    	@else
-	                    	@endif
-	                    </span>
-	                </div>
-	            </div>
-	            <div class="weui-cell weui-cell_access row_info input_info" target="project">
-	                <div class="weui-cell__bd">所学专业</div>
-	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;">{{$userDetail->project}}</span>
-	                </div>
-	            </div>
 	            <div class="weui-cell weui-cell_access row_info" target="community">
 	                <div class="weui-cell__bd">所在社区</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;">{{$addressStr}}</span>
 	                </div>
 	            </div>
-	            <div class="weui-cell weui-cell_access row_info" target="danyuan">
-	                <div class="weui-cell__bd">栋/单元</div>
+	            <div class="weui-cell weui-cell_access row_info input_info" target="place">
+	                <div class="weui-cell__bd">栋单元楼层</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;"><div id="danyuan1">选填</div></span>
-	                </div>
-	            </div>
-	            <div class="weui-cell weui-cell_access row_info" target="hobby">
-	                <div class="weui-cell__bd">我的爱好特长</div>
-	                <div class="weui-cell__ft" style="font-size: 0;">
-	                    <span style="vertical-align:middle; font-size: 17px;">{{$hobbyData}}</span>
+	                    <span style="vertical-align:middle; font-size: 17px;">{{$userDetail->place}}</span>
 	                </div>
 	            </div>
 	            <!-- <div class="weui-cell weui-cell_access">
@@ -240,11 +217,11 @@ $signPackage = $jssdk->GetSignPackage();
 		        <div class="weui-mask" id="iosMask" style="opacity: 1;"></div>
 		        <div class="weui-actionsheet weui-actionsheet_toggle" id="iosActionsheet">
 		            <div class="weui-actionsheet__title">
-		                <p class="weui-actionsheet__title-text">选择性别</p>
+		                <p class="weui-actionsheet__title-text">选择身份</p>
 		            </div>
 		            <div class="weui-actionsheet__menu">
-		                <div class="weui-actionsheet__cell sex_actionsheet" val="1">男</div>
-		                <div class="weui-actionsheet__cell sex_actionsheet" val="0">女</div>
+		                <div class="weui-actionsheet__cell sex_actionsheet" val="1">爸爸</div>
+		                <div class="weui-actionsheet__cell sex_actionsheet" val="0">妈妈</div>
 		            </div>
 		            <div class="weui-actionsheet__action">
 		                <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
@@ -252,26 +229,8 @@ $signPackage = $jssdk->GetSignPackage();
 		        </div>
 		    </div>
 
-		    <!-- 性别 -->
-			<div id="status" style="display: none;">
-		        <div class="weui-mask" id="iosMask" style="opacity: 1;"></div>
-		        <div class="weui-actionsheet weui-actionsheet_toggle" id="iosActionsheet">
-		            <div class="weui-actionsheet__title">
-		                <p class="weui-actionsheet__title-text">选择求职状态</p>
-		            </div>
-		            <div class="weui-actionsheet__menu">
-		                <div class="weui-actionsheet__cell status_actionsheet" val="1">兼职</div>
-		                <div class="weui-actionsheet__cell status_actionsheet" val="2">全职</div>
-		                <div class="weui-actionsheet__cell status_actionsheet" val="0">暂不考虑</div>
-		            </div>
-		            <div class="weui-actionsheet__action">
-		                <div class="weui-actionsheet__cell" id="iosActionsheetCancel2">取消</div>
-		            </div>
-		        </div>
-		    </div>
-
 			<!-- 所学专业 -->
-			<div class="page__bd page_set" id="project">
+			<div class="page__bd page_set" id="place">
 				<div class="weui-cells" style="margin-top:0px" >
 		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
 			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
@@ -284,7 +243,7 @@ $signPackage = $jssdk->GetSignPackage();
 			    	<div class="weui-cells">
 			            <div class="weui-cell">
 			                <div class="weui-cell__bd">
-			                    <input class="weui-input input_set" name="project" type="text" placeholder="所学专业">
+			                    <input class="weui-input input_set" name="place" type="text" placeholder="所在栋单元楼层">
 			                </div>
 			            </div>
        				</div>
@@ -307,39 +266,6 @@ $signPackage = $jssdk->GetSignPackage();
 			    	</div>
 			    	<div class="col-xs-5 col">
 			    	</div>
-			    </div>
-			</div>
-
-			<!-- 特长爱好 -->
-		    <div class="page__bd page_set" id="hobby">
-				<div class="weui-cells" style="margin-top:0px" >
-		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
-			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
-			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">爱好特长</div></div>
-			            <div><div class="placeholder glyphicon glyphicon-ok done_ok"></div></div>
-			        </div>
-			    </div>
-			    <div style="width: 97%;margin: 0 auto;padding:0px 4px;" id="hobby_btns">
-			    	@foreach($typeArr as $key => $value)
-			    	<div class="row">
-			    		<div class="col-xs-12" style="margin-top: 5px;">
-                            <div class="heading"> 
-                                <h4 style="margin-bottom: 0px;">{{$key}}</h4> 
-                            </div>
-                            <div class="pbody">
-                            	@foreach($value as $v)
-                            		@php if(strpos($userDetail->hobby, $v['id'].'') !== false) 
-                                		echo '<button type="button" class="btn btn-success" cid="'.$v['id'].'">'.$v['name'].'</button>';
-                                		else
-                                		echo '<button type="button" class="btn btn-info" cid="'.$v['id'].'">'.$v['name'].'</button>';
-                                	@endphp
-                                @endforeach
-                            </div> 
-                        </div>
-			    	</div>
-			    	@endforeach
-			    	<br>
-			    	<p style="text-decoration: underline;" id="noHobby">没有找到特长，点我联系管理员。</p>
 			    </div>
 			</div>
 
@@ -384,17 +310,6 @@ $signPackage = $jssdk->GetSignPackage();
 	</div>
 
     <div id="birthPicker" class="zxjPicker">
-    	<div class="operatePicker">
-    		<div class="canclePicker">取消</div>
-    		<div class="okPicker">确认</div>
-    	</div>
-    	<div class="contentPicker">
-    		<div class="linePicker"></div>
-    		<div class="linePicker"></div>
-    	</div>
-    </div>
-
-    <div id="teachPicker" class="zxjPicker">
     	<div class="operatePicker">
     		<div class="canclePicker">取消</div>
     		<div class="okPicker">确认</div>
@@ -554,11 +469,6 @@ $signPackage = $jssdk->GetSignPackage();
 				$('#page_row').css('display', 'block');
 				$('#sex').css('display', 'block');
 			})
-			/*求职状态*/
-			$('#cell_status').click(function(){
-				$('#page_row').css('display', 'block');
-				$('#status').css('display', 'block');
-			})
 
 			$('#iosActionsheetCancel').click(function(){
 				$('#page_row').css('display', 'none');
@@ -598,48 +508,7 @@ $signPackage = $jssdk->GetSignPackage();
 				})
 			})
 
-
-		    /*爱好特长*/
-		    $('#hobby_btns button').click(function(){
-		    	if ($(this).hasClass('btn-success')) {
-		    		$(this).removeClass('btn-success').addClass('btn-info');
-		    	} else {
-		    		$(this).removeClass('btn-info').addClass('btn-success');
-		    	}
-		    })
-
-		    /*爱好特长点OK*/
-		    $('#hobby .done_ok').click(function(){
-		    	var hobby = '';
-		    	$('#hobby button').filter('.btn-success').each(function(){
-		    		hobby += $(this).attr('cid')+'-';
-		    	})
-
-		    	if (hobby != '') {
-		    		hobby = hobby.substring(0,hobby.length-1);
-		    	}
-
-		    	$.ajax({
-	    			url: '/front/tsave_hobby',
-	    			dataType: 'json',
-	    			type: 'post',
-	    			data: {
-	    				hobby: hobby
-	    			},
-	    			success: function(data) {
-	    				if (data.errcode == 0) {
-	    					$('div[target="hobby"]').find('span').html(data.html);
-				    		$('#page_main').css('display', 'block');
-							$(this).parents('.page_set').animate({'top': height+'px'}, 250);
-							setTimeout(function(){
-								$('#page_row').css('display', 'none');
-							}, 250);
-	    				}
-	    			}
-	    		})
-		    })
-
-		    /*期望社区点击OK*/
+		    /*所在社区点击OK*/
 		    $('#community .done_ok').click(function(){
 		    	var len = Object.keys(addressCommunity).length;
 	        	if (len < 1) {
@@ -698,7 +567,7 @@ $signPackage = $jssdk->GetSignPackage();
 			    	} else if (index == 1) {
 			    		var url = '/front/tsave_name';
 			    	} else if (index == 2) {
-			    		var url = '/front/tsave_project';
+			    		var url = '/front/tsave_place';
 			    	}
 			    	/*发送ajax请求更换数据*/
 
@@ -805,96 +674,8 @@ $signPackage = $jssdk->GetSignPackage();
 					/*select结束*/
 		    	}
 		    });
-
-
-		    /*特长添加新内容*/
-		    $('#noHobby').click(function(){
-		    	window.openIndex = layer.open({
-				    type: 1
-				    ,content: '<div class="weui-cells__title">特长申请</div><div class="weui-cells weui-cells_form"> <div class="weui-cell"> <div class="weui-cell__hd"><label class="weui-label">特长名称</label></div> <div class="weui-cell__bd"> <input class="weui-input" id="input_newHobby" type="text" placeholder="请输入您的特长"> </div> </div> <div class="weui-btn-area"> <a class="weui-btn weui-btn_primary" href="javascript:" id="addHobby" onclick="addHobbyFunc();">提交</a> </div>'
-				    ,anim: 'up'
-				    ,style: 'position:fixed; top:26%; left:0; width: 100%; height: 200px; padding:10px 0; border:none;'
-				});
-		    })
-
-
-		    /*teachYear*/
-		    @if($userDetail->type == 1)
-		    	var yearCha = 3;
-		    @else
-		    	var yearCha = 49;
-		    @endif
-
-		    var yearArr = new Array();
-			var end = new Date().getFullYear();
-			for (var i = end,j = 0;i >= end-yearCha;i--,j++) {
-				yearArr[j] = new Object();
-				yearArr[j].name = i+'年',
-				yearArr[j].value = i;
-			}
-
-			@if($userDetail->teachYear != '')
-		    	end = {{$userDetail->teachYear}};
-		    @else
-		    @endif
-
-			selfPicker.start({
-		    	id: 'teachPicker', 
-		    	action: 'teachYearPicker',
-		    	content: [
-		    		yearArr
-		    	],
-		    	default: [
-		    		end
-		    	],
-		    	select: function(result){
-		    		$('#loadingToast').css({'display':'block', 'opacity':'1'});
-					$('#loadingToast p').html('数据保存中');
-
-		    		var message = result[0];
-		    		$.ajax({
-		    			url: '/front/tsave_teachYear',
-		    			type: 'post',
-		    			dataType: 'json',
-		    			data: {
-		    				year: message
-		    			},
-		    			success: function(data) {
-		    				if (data.errcode == 0) {
-			    				$('#loadingToast').css({'display':'none', 'opacity':'0'});
-			    				$('#toast p').html('修改成功');
-								$('#toast').css({'display':'block', 'opacity':'1'});
-								$('#teachYearPicker span').html(result[0] + ' 年');
-								setTimeout(function(){
-									$('#toast').css({'display':'none', 'opacity':'0'});
-								},250);
-			    			}
-		    			}
-		    		})
-					/*select结束*/
-		    	}
-		    });
 		});
 
-		function addHobbyFunc(){
-			var name = $('#input_newHobby').val();
-			$.ajax({
-				url: '/front/addNewHobby',
-				type: 'post',
-				dataType: 'json',
-				data: {
-					name: name
-				},
-				success: function(data){
-					layer.close(window.openIndex);
-					layer.open({
-					    content: '提交申请成功，请耐心等待管理员审核。'
-					    ,skin: 'msg'
-					    ,time: 2 //2秒后自动关闭
-					});
-				}
-			})
-		}
 	</script>
 	<script type="text/javascript">
 		wx.config({
