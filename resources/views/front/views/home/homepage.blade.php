@@ -178,17 +178,18 @@
     </div>
 
     <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
-
+    <script type="text/javascript" src="/js/layui/layer_only/mobile/layer.js"></script>
     <script type="text/javascript" src="/front/js_module/homepage/homepage.js"></script>
     <script type="text/javascript" src="/front/js_module/homepage/my.js"></script>
 
-	<script type="text/javascript" src="/js/layui/layui.js"></script>
+	<!-- <script type="text/javascript" src="/js/layui/layui.js"></script> -->
+    
     <script type="text/javascript">
-		$(function(){
-	        layui.use('layer', function(){
-	            window.layer = layui.layer;
-	        });
-		})
+		// $(function(){
+	 //        layui.use('layer', function(){
+	 //            window.layer = layui.layer;
+	 //        });
+		// })
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': '{{csrf_token()}}'
