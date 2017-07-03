@@ -73,7 +73,7 @@ $signPackage = $jssdk->GetSignPackage();
 		            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">个人信息</div></div>
 		            <!-- <div><div class="placeholder">提交</div></div> -->
 		        </div>
-	            <div class="weui-cell weui-cell_access row_info" target="headimg">
+	            <div class="weui-cell weui-cell_access" target="headimg" onclick="sorry();">
 	                <div class="weui-cell__bd">头像</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px; display:inline-block;"><img id="headimgPhone" style="width:70px;border-radius:50%;" src="{{$userInfo->headimg}}"></span>
@@ -1263,9 +1263,17 @@ $signPackage = $jssdk->GetSignPackage();
 			$(document).on('click', '#btnZoomOut', function(){
 				cropper.zoomOut();
 			})
-		});
+		});	
+	</script>
 
-		
+	<script type="text/javascript">
+		function sorry(){
+			layer.open({
+			    content: '暂不支持修改头像'
+			    ,skin: 'msg'
+			    ,time: 2 //2秒后自动关闭
+			 });
+		}
 	</script>
 </body>
 </html>
