@@ -79,6 +79,7 @@ class LoginController extends Controller
         Session::put('phone', $phone);
     	Session::put('phoneCode', $phoneCode);
 
+        var_dump($result);
         var_dump(json_decode($result, true));
 
         if ($result->result == '') {
