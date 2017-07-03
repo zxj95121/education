@@ -41,12 +41,12 @@ class UserInfoController extends Controller
         if ($userDetail->birth) {
             $times = strtotime($userDetail->birth.'-1');
             $time[] = date('Y', $times);
-            $time[] = date('m', $times); 
+            $time[] = date('m', $times);
+            $time[1] = str_replace('0', '', $time[1]);
         } else {
             $time = '';
         }
-        $time[1] = str_replace('0', '', $time[1]);
-
+        
         /*初始化用*/
         // if ($userDetail->money) {
         //     $moneys = explode('-', $userDetail->money);
@@ -157,10 +157,10 @@ class UserInfoController extends Controller
             $times = strtotime($userDetail->birth.'-1');
             $time[] = date('Y', $times);
             $time[] = date('m', $times); 
+            $time[1] = str_replace('0', '', $time[1]);
         } else {
             $time = '';
         }
-        $time[1] = str_replace('0', '', $time[1]);
 
         /*初始化用*/
         if ($userDetail->money) {
