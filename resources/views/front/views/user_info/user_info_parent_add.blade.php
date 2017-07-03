@@ -418,7 +418,6 @@ $signPackage = $jssdk->GetSignPackage();
 		})
 
 		$(function(){
-			find_status = {{$userDetail->find_status}};
 			var height = document.documentElement.clientHeight;
 			$('#page_row').css({'display': 'none','height': height+'px'});
 			$('.page_set').css({'height': height+'px','top': height+'px'});
