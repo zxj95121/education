@@ -133,12 +133,15 @@ $signPackage = $jssdk->GetSignPackage();
 	                    <span style="vertical-align:middle; font-size: 17px;">@if($schoolObj) {{$schoolObj->name}} @else @endif</span>
 	                </div>
 	            </div>
+	            @if($userDetail->type == 1)
 	            <div class="weui-cell weui-cell_access row_info input_info" target="project">
 	                <div class="weui-cell__bd">所学专业</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;">{{$userDetail->project}}</span>
 	                </div>
 	            </div>
+	            @else
+	            @endif
 	            <div class="weui-cell weui-cell_access" id="cell_status">
 	                <div class="weui-cell__bd">求职状态</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
