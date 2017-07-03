@@ -105,7 +105,7 @@ $signPackage = $jssdk->GetSignPackage();
 	                </div>
 	            </div>
 	            <div class="weui-cell weui-cell_access" id="showDatePicker">
-	                <div class="weui-cell__bd">出生日期</div>
+	                <div class="weui-cell__bd">出生年月</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;" class="qu-birth">
 	                    	@php

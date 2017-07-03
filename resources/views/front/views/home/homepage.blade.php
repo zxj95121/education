@@ -9,6 +9,21 @@
     <link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.css">
     <link rel="stylesheet" href="/css/weui.css"/>
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/my.css">
+
+    <style type="text/css">
+        #my a:link{
+            text-decoration: none;
+        }
+        #my a:visited{
+            text-decoration: none;
+        }
+        #my a:hover{
+            text-decoration: none;
+        }
+        #my a:active{
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -39,9 +54,20 @@
                     <span>我是名师</span>
                 </div>
             </div>
-            <div class="col-xs-5" id="my_header_add_content">
-                <p>个人信息<i class="glyphicon glyphicon-chevron-right"></i></p>
-            </div>
+            @if($userType->type == 2)
+            <a href="/front/user_info_parent">
+                <div class="col-xs-5" id="my_header_add_content">
+                    <p>个人信息<i class="glyphicon glyphicon-chevron-right"></i></p>
+                </div>
+            </a>
+            @elseif($userType->type == 3)
+            <a href="/front/user_info_teacher">
+                <div class="col-xs-5" id="my_header_add_content">
+                    <p>个人信息<i class="glyphicon glyphicon-chevron-right"></i></p>
+                </div>
+            </a>
+            @else
+            @endif
         </div>
         <!-- header end -->
 
