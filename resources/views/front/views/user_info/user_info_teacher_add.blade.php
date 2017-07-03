@@ -904,7 +904,7 @@ $signPackage = $jssdk->GetSignPackage();
 					    content: '期望社区个数不能为0'
 					    ,skin: 'msg'
 					    ,time: 2 //2秒后自动关闭
-					 });
+					});
 	        		return false;
 	        	}
 				$.ajax({

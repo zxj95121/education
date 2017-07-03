@@ -9,6 +9,7 @@ class ChildController extends Controller
 {
     public function addChild()
     {
-    	echo 'heheh'；
+    	echo 'heheh';
+    	return view('front.views.parent.addChild');
     }
 }
