@@ -58,7 +58,7 @@
             </div>
             <div class="col-xs-5" id="my_header_basic">
                 <div class="col-xs-10">
-                    <span style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: inline-block;width: 100%;">{$res->nickname}</span><br>
+                    <span style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: inline-block;width: 100%;">{{$res->nickname}}</span><br>
                     <span>
                         @if($userType->type == 1)
                             我是管理员
