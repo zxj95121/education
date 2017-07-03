@@ -11,4 +11,8 @@ $(function(){
 	/*bottom*/
 	$('#my_option').css('marginBottom', $('#all_bottom').css('height'));
 
+	/*添加孩子点击*/
+	$('#addChild').click(function(){
+		window.location.href = "/front/parent/addChild";
+	})
 })

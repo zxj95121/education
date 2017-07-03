@@ -210,6 +210,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
     $router->post('/addNewSchool', 'UserInfoController@addNewSchool');
     /*申请添加爱好特长*/
     $router->post('/addNewHobby', 'UserInfoController@addNewHobby');
+
 	/*双师class  */
     $router->get('/twoClass','TwoClassController@index');
 	$router->get('/twoClasstwo','TwoClassController@two');
@@ -217,6 +218,10 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 	$router->get('/twoClassfour','TwoClassController@four');
 	/*双师class后退  */
 	$router->get('/twoClassback','TwoClassController@back');
+
+
+  /*parent模块，child相关*/
+  $router->get('/parent/addChild', 'Parent\ChildController@addChild');
 });
 
 /*-------------*/

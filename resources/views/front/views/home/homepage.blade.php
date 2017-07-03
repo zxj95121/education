@@ -100,7 +100,7 @@
                         <img src="/images/home/function_cicle.png" />
                     </div>
                 </div> -->
-                <div class="col-xs-3 my_function_type">
+                <div class="col-xs-3 my_function_type" id="addChild">
                     <div class="my_function_top">
                         <img src="/images/home/function_add.png" />
                     </div>
