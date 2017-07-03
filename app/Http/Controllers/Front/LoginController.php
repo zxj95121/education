@@ -71,8 +71,11 @@ class LoginController extends Controller
         if ($count_teacher != 0 || $count_parent != 0) {
             return response()->json(['errcode'=>2,'reason'=>'手机号已经注册']);
         }
-    	// $phoneCode = ''.rand(0,9).rand(0,9).rand(0,9).rand(0,9);
-    	$phoneCode = 8888;
+    	$phoneCode = ''.rand(0,9).rand(0,9).rand(0,9).rand(0,9);
+    	
+        require_once($_SERVER['DOCUMENT_ROOT'].'/php/Qcloud/Sms/SmsSenderDemo.php');
+        postPhoneCodeSms::post($phone, $phoneCode);
+        
         Session::put('phone', $phone);
     	Session::put('phoneCode', $phoneCode);
     	return response()->json(['errcode'=>0,'phoneCode'=>$phoneCode]);

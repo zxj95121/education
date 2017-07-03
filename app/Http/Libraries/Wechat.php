@@ -49,7 +49,6 @@ class Wechat extends ServiceProvider
         curl_close($curl);
         return json_decode($output,true);
     }
-
 }
 
 ?>
