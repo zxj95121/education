@@ -12,7 +12,7 @@
 
             <div class="wraper container-fluid">
                 <div class="page-title"> 
-                    <h3 class="title">家长资料审核</h3> 
+                    <h3 class="title">教师信息</h3> 
                 </div>
 
                 <div class="row">

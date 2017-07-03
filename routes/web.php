@@ -67,8 +67,10 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/managerRemove', 'ManagerController@managerRemove');
     $router->post('/managerOpen', 'ManagerController@managerOpen');
 
-    $router->get('/parentReview', 'ManagerController@parentReview');//学生家长审核
-    $router->get('/teacherReview', 'ManagerController@teacherReview');//教师审核
+    $router->get('/parentInfo', 'ManagerController@parentInfo');
+    $router->get('/teacherInfo', 'ManagerController@teacherInfo');
+    
+    
     
     /* 系统参数设置  */
     $router->get('/communityManage', 'Setting\CommunityController@communityManage'); //社区管理

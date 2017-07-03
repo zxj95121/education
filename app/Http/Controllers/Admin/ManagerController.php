@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 
 use App\Models\AdminInfo;
 use App\Models\UserType;
+use App\Models\TeacherDetail;
+use App\Models\ParentDetail;
 use Session;
 
 class ManagerController extends Controller
@@ -75,15 +77,19 @@ class ManagerController extends Controller
     	return response()->json(['errcode'=>0]);
     }
 
-    /*学生家长审核*/
-    public function parentReview(Request $request)
+    /*家长信息*/
+    public function parentInfo(Request $request)
     {
-        return view('admin.people.parentReview');
+    	
+        return view('admin.people.parentInfo');
     }
 
-    /*老师审核*/
-    public function teacherReview(Request $request)
+    /*教师信息*/
+    public function teacherInfo(Request $request)
     {
-        return view('admin.people.teacherReview');
+    	$res = TeacherDetail::find(1);
+		
+    	dd($res->teacherinfo());
+        return view('admin.people.teacherInfo');
     }
 }
