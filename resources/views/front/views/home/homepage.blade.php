@@ -88,7 +88,7 @@
         <div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
         <!--function start -->
         <div id="my_functions">
-            <div class="row" class="my_function">
+            <div class="row" class="my_function function_child">
                 <div class="col-xs-3 my_function_type" id="user_info">
                     <div class="my_function_top">
                         <img src="/images/home/function_info.png" />
