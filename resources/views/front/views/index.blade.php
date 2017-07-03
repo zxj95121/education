@@ -24,7 +24,6 @@
         </div>
         <div id="head">
         </div>
-        <!-- <p>注意:请认准本页面从安师大蓝天论坛微信公众号进入。</p> -->
         <div id="form">
             <div id="Phone" class="input" style="position: relative;">
                 <lable>手机号：</lable>

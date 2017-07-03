@@ -74,7 +74,7 @@ class LoginController extends Controller
     	$phoneCode = ''.rand(0,9).rand(0,9).rand(0,9).rand(0,9);
     	
         require_once($_SERVER['DOCUMENT_ROOT'].'/php/Qcloud/Sms/SmsSenderDemo.php');
-        $result = postPhoneCodeSms('13095533632', '2343');
+        $result = postPhoneCodeSms($phone, $phoneCode);
         
         Session::put('phone', $phone);
     	Session::put('phoneCode', $phoneCode);
