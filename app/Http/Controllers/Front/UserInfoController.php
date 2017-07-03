@@ -284,7 +284,7 @@ class UserInfoController extends Controller
             $type = $request->input('type');
             $userInfo = ParentInfo::where('openid', $openid)
             ->get()[0];
-            ParentDetail::where('tid', $userInfo->id)
+            ParentDetail::where('pid', $userInfo->id)
                 ->update(['type'=>$type]);
             return redirect('/front/user_info_parent');
         }
