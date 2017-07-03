@@ -1,10 +1,9 @@
 <?php
 
-require_once "SmsSender.php";
-
 class postPhoneCodeSms {
     public function post($phone,$code)
     {
+        require_once "SmsSender.php";
         try {
             // 请根据实际 appid 和 appkey 进行开发，以下只作为演示 sdk 使用
             $appid = 1400033207;
