@@ -54,11 +54,11 @@
         <!-- header start -->
         <div class="row" id="my_header">
             <div class="col-xs-2" id="my_header_img">
-                <img src="http://wx.qlogo.cn/mmopen/twzEicfDU8lTKRO4jibmPvp1ibxRaGvcKgEkGiaWfUVCZavod3RtVIKh3NiaGBhUjia2dzmzBWSQ8I0KzLooYZ2JlchqIJyZx58WiaR/0">
+                <img src="{{$res->headimg}}">
             </div>
             <div class="col-xs-5" id="my_header_basic">
                 <div class="col-xs-10">
-                    <span>张贤健</span><br>
+                    <span style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: inline-block;width: 100%;">{$res->nickname}</span><br>
                     <span>
                         @if($userType->type == 1)
                             我是管理员
@@ -186,6 +186,12 @@
         @endif
     </div>
     @if($userType->type == 1)
+   		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
+	        <a href="javascript:void(0);" class="weui-tabbar__item" for="my">
+	            <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
+	            <p class="weui-tabbar__label">我的</p>
+	        </a>
+	    </div>
    	@elseif($userType->type == 2)
    		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
 	        <a href="javascript:void(0);" class="weui-tabbar__item" for="teacher">
