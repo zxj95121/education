@@ -50,6 +50,18 @@ $signPackage = $jssdk->GetSignPackage();
 			background: #64C9F7;
 			color: #FFF;
 		}
+		#page_main a:link{
+			text-decoration: none;
+		}
+		#page_main a:visited{
+			text-decoration: none;
+		}
+		#page_main a:hover{
+			text-decoration: none;
+		}
+		#page_main a:active{
+			text-decoration: none;
+		}
 	</style>
 </head>
 <body>
@@ -57,7 +69,7 @@ $signPackage = $jssdk->GetSignPackage();
 		<div class="page__bd" id="page_main">
 			<div class="weui-cells" style="margin-top:0px" >
 	            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
-		            <div><div class="placeholder">&lt;</div></div>
+		            <a href="/front/home/oauth"><div><div class="placeholder">&lt;</div></div></a>
 		            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">个人信息</div></div>
 		            <!-- <div><div class="placeholder">提交</div></div> -->
 		        </div>
