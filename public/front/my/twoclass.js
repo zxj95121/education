@@ -41,7 +41,7 @@ $(document).on('click','.class3',function(){
 						    type: 1
 						    ,content: data
 						    ,anim: 'up'
-						    ,style: 'position:fixed; bottom:0; left:0; width: 100%; height: 150px;padding:10px 0; border:none;'
+						    ,style: 'position:fixed; bottom:0; left:0; width: 100%; min-height: 150px;padding:10px 0; border:none;'
 						});
 					}
 				}, 50);
