@@ -23,6 +23,18 @@
         #my a:active{
             text-decoration: none;
         }
+        #all_bottom p:link{
+            text-decoration: none;
+        }
+        #all_bottom p:visited{
+            text-decoration: none;
+        }
+        #all_bottom p:hover{
+            text-decoration: none;
+        }
+        #all_bottom p:active{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -155,6 +167,7 @@
         @endif
         
         @if($userType->type == 1)
+        	
         @elseif($userType->type == 2)
        		<div class="weui-cells" id="my_option">
 	            <a class="weui-cell weui-cell_access" href="/front/user_info_teacher">
@@ -187,6 +200,36 @@
 	            </a>
 	        </div>
         @elseif($userType->type == 3)
+        	<div class="weui-cells" id="my_option">
+	            <a class="weui-cell weui-cell_access" href="/front/user_info_teacher">
+	                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>消息通知</p>
+	                </div>
+	                <div class="weui-cell__ft">说明文字</div>
+	            </a>
+	            <a class="weui-cell weui-cell_access" href="javascript:;">
+	                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>cell standard</p>
+	                </div>
+	                <div class="weui-cell__ft">说明文字</div>
+	            </a>
+	            <a class="weui-cell weui-cell_access" href="javascript:;">
+	                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>cell standard</p>
+	                </div>
+	                <div class="weui-cell__ft">说明文字</div>
+	            </a>
+	            <a class="weui-cell weui-cell_access" href="javascript:;">
+	                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>cell standard</p>
+	                </div>
+	                <div class="weui-cell__ft">说明文字</div>
+	            </a>
+	        </div>
         @endif
     </div>
     @if($userType->type == 1)
@@ -201,7 +244,6 @@
 	        <a href="javascript:void(0);" class="weui-tabbar__item" for="teacher">
 	            <span style="display: inline-block;position: relative;">
 	                <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
-	                <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
 	            </span>
 	            <p class="weui-tabbar__label">名师定制</p>
 	        </a>
@@ -212,7 +254,6 @@
 	        <a id="twoclass" href="javascript:void(0);" class="weui-tabbar__item" for="eclass">
 	            <span style="display: inline-block;position: relative;">
 	                <img src="/images/home/menu_class.png" alt="" class="weui-tabbar__icon">
-	                <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
 	            </span>
 	            <p class="weui-tabbar__label">双师class</p>
 	        </a>
@@ -226,7 +267,6 @@
 	        <a href="javascript:void(0);" class="weui-tabbar__item" for="studytime">
 	            <span style="display: inline-block;position: relative;">
 	                <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
-	                <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
 	            </span>
 	            <p class="weui-tabbar__label">教学时间</p>
 	        </a>
@@ -237,7 +277,6 @@
 	        <a id="twoclass" href="javascript:void(0);" class="weui-tabbar__item" for="salary">
 	            <span style="display: inline-block;position: relative;">
 	                <img src="/images/home/menu_class.png" alt="" class="weui-tabbar__icon">
-	                <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
 	            </span>
 	            <p class="weui-tabbar__label">薪资待遇</p>
 	        </a>
