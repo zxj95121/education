@@ -30,7 +30,7 @@ class HomeController extends Controller
 		$res['userType'] = UserType::where('openid', $openid)
 			->select('type', 'uid')
 			->get();
-		if(count($res['userType'])==0){
+		if(count($res['userType']) == 0){
 			return $res;	
 		}
 		switch($res['userType'][0]->type){
