@@ -16,9 +16,8 @@ $(document).on('click','.class3',function(){
 	else if (e.target.tagName == 'SPAN') {
 		console.log('这是购买');
 		var loadIndex = layer.open({
-		    type: 3
+		    type: 2
 		    ,content: ''
-		    ,time:5000
 		});
 		var timeLay = 0;
 		var layInter = setInterval(function(){
