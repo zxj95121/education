@@ -34,7 +34,7 @@ class PayClassController extends Controller
     	return view('front.views.home.checkMessageResult', ['result'=>$result]);
     }
 
-    private function getUid($opend)
+    private function getUid($openid)
     {
     	$userType = UserType::where('openid', $openid)
     		->select('uid')
