@@ -15,6 +15,10 @@ $(document).on('click','.class3',function(){
 		$('#twoclass').load('/front/twoClassfour?pid='+pid);
 	else if (e.target.tagName == 'SPAN') {
 		console.log('这是购买');
+		layer.open({
+		    type: 1
+		    ,content: '加载中'
+		});
 	}
 })
 $(document).on('click','#houtui',function(){
