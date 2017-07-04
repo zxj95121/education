@@ -17,7 +17,7 @@ class CreateClassPrice extends Migration
             $table->increments('id')->comment('主键');
             $table->string('area')->comment('价格区间');
             $table->string('price')->comment('对应的价格');
-            $table->tinyInteger('status')->default('0')->comment('1可用,0不可用');
+            $table->tinyInteger('status')->default('1')->comment('1可用,0不可用');
             $table->timestamps();
         });
     }

@@ -4,7 +4,11 @@
 @section('style')
 <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css">
 <link href="assets/tagsinput/jquery.tagsinput.css" rel="stylesheet" />
-
+<style type="text/css">
+    #areaTable td{
+        vertical-align: middle;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -40,16 +44,31 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="table-responsive">
-                                            <table class="table table-hover">
+                                            <table class="table table-hover" id="showPrice" style="max-width: 800px;">
                                                 <thead>
                                                     <tr>
-                                                        <th><font><font>名称</font></font></th>
-                                                        <th><font><font>状态</font></font></th>
-                                                        <th><font><font>操作</font></font></th>
+                                                        <th><font><font>序号</font></font></th>
+                                                        <th><font><font>课程数区间</font></font></th>
+                                                        <th><font><font>单价</font></font></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                	
+                                                    @php $priceObjLength = count($priceObj); @endphp
+                                                	@foreach($priceObj as $key => $value)
+                                                    <tr>
+                                                        <td>{{$key+1}}</td>
+                                                        <td>
+                                                            @if($key == 0)
+                                                                <={{$value->area}}
+                                                            @elseif($key == $priceObjLength-1)
+                                                                >={{$value->area}}
+                                                            @else
+                                                                {{$value->area}}
+                                                            @endif
+                                                        </td>
+                                                        <td>{{number_format((float)$value->price, 2)}}</td>
+                                                    </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
@@ -75,25 +94,27 @@
 			        	<form class="form-horizontal" role="form" id="firstStep">
 	                        <div class="form-group">
 	                            <label class="col-sm-2 control-label">请输入间隔的数字</label>
-	                            <div class="col-sm-7">
+	                            <div class="col-sm-10">
 	                                <input name="tags" id="tags" class="form-control" value="" style="display: none;">
 	                            </div>
-	                        </div><!-- form-group -->
+	                        </div>
                     	</form>
-                    	<table class="table">
+                        <p id="error_p" style="display: none;color:red;font-size: 14px;">
+                            <span class="col-sm-2"></span>
+                            <span class="col-sm-10"></span>
+                        </p>
+                    	<table class="table" id="areaTable" style="display: none;">
                     		<tr>
                     			<th>#</th>
                     			<th>区间段</th>
                     			<th>价格</th>
                     		</tr>
-                    		<tr></tr>
-                    		<tr></tr>
-                    		<tr></tr>
                     	</table>
 			      	</div>
 			      	<div class="modal-footer">
-			        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        	<button type="button" class="btn btn-primary">Save changes</button>
+			        	<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                        <!-- <button type="button" class="btn btn-primary" id="nextTwo">下一步</button> -->
+			        	<button type="button" class="btn btn-success" style="display: none;" id="nextThree">确认保存</button>
 			      	</div>
 		    	</div>
 		  	</div>
@@ -105,9 +126,151 @@
 @section('jquery')
 <script type="text/javascript" src="/js/layui/layui.js"></script>
 <script src="assets/tagsinput/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="/js/json2.js"></script>
 <script type="text/javascript">
 	$(function(){
-		jQuery('#tags').tagsInput({width:'auto'});
+        layui.use('layer', function(){
+            window.layer = layui.layer;
+        });
+
+		jQuery('#tags').tagsInput({width:'auto',
+            onAddTag:function(tag){
+                autoload();
+            },
+            onRemoveTag:function(tag){
+                autoload();
+            }
+        });
+
+        $(document).on('focus', '#tags_tag', function(){
+            $('#error_p').hide();
+        })
+
+
+        /*确认保存按钮*/
+        $('#nextThree').click(function(){
+            var reg = /^(\d{1,8})(\.\d{1,2})?$/;
+            var flag = 0;
+            $('#areaTable tr:gt(0)').find('input').each(function(){
+                var value = $(this).val();
+                if (reg.test(value)){
+                    $(this).parent().removeClass('has-error');
+                }
+                else{
+                    $(this).parent().addClass('has-error');
+                    flag = 1;
+                }
+            })
+            if(flag == 0) {
+                // console.log('成功');
+                var data = new Object();
+                var k = 0;
+                $('#areaTable tr:gt(0)').find('input').each(function(){
+                    var price = $(this).val();
+                    var area = $(this).attr('area');
+                    data[k] = new Object();
+                    data[k]['price'] = price;
+                    data[k++]['area'] = area;
+                })
+            }
+            
+            // data = JSON.stringify(data);
+            var loadIndex = window.layer.load(2,{time: 5000});
+            /*ajax存储价格*/
+            $.ajax({
+                url: '/admin/classPrice/newPrice',
+                dataType: 'json',
+                type: 'post',
+                data: {
+                    data: data
+                },
+                success: function (data) {
+                    if (data.errcode == 0) {
+                        window.layer.close(loadIndex);
+                        window.layer.msg('更新价格成功');
+                        window.location.reload();
+                    }
+                }
+            })
+        })
+
+        $(document).on('blur', '.input_price', function(){
+            var reg = /^(\d{1,8})(\.\d{1,2})?$/;
+            var value = $(this).val();
+            if (reg.test(value)){
+                $(this).parent().removeClass('has-error');
+            }
+            else{
+                $(this).parent().addClass('has-error');
+            }
+        })
+
+        $('#newPriceModal').on('hidden.bs.modal', function (e) {
+            $('#areaTable tr:gt(0)').remove();
+            $('#areaTable').hide();
+
+            $('#tags_tagsinput .tag').each(function(){
+                var value = $(this).find('span').text().trim();
+                $('#tags').removeTag(value);
+            })
+
+            // $('#nextTwo').show();
+            $('#nextThree').hide();
+        })
+
+        function autoload(){
+            var tagArr = new Array();
+            var reg = /^\d+$/;
+            var flag = 0;
+            $('#tags_tagsinput .tag').each(function(){
+                var value = $(this).find('span').text().trim();
+                if (!reg.test(value)) {
+                    $('#error_p').show().find('.col-sm-10').html('必须全部为数字');
+                    flag = 1;
+                }
+                tagArr[tagArr.length] = parseInt(value);
+            })
+            if (tagArr.length == 0) {
+                $('#error_p').show().find('.col-sm-10').html('不能为空');
+                flag = 1;
+            }
+
+            if (flag == 0) {
+                $('#areaTable tr:gt(0)').remove();
+                $('#areaTable').show();
+                $('#nextTwo').hide();
+                $('#nextThree').show();
+                var len = tagArr.length;
+                for (var i = 0;i < len-1;i++) {
+                    for(var j = i+1;j < len;j++) {
+                        if (tagArr[i] > tagArr[j]) {
+                            var temp = tagArr[i];
+                            tagArr[i] = tagArr[j];
+                            tagArr[j] = temp;
+                        }
+                    }
+                }
+
+                var prev = 1;
+                for (var k = 0;k <= len;k++) {
+                    if (k == 0) {
+                        $('#areaTable tbody').append('<tr> <td>'+(k+1)+'</td> <td> <= '+(tagArr[k]-1)+'</td> <td><input area="'+(tagArr[k]-1)+'" type="text" class="input_price form-control"/></td> </tr>');
+                        prev = tagArr[k];
+                    }
+                    else if (k == len) {
+                        $('#areaTable tbody').append('<tr> <td>'+(k+1)+'</td> <td> >= '+prev+'</td> <td><input area="'+prev+'" type="text" class="input_price form-control"/></td> </tr>');
+                        prev = tagArr[k];
+                    } else {
+                        $('#areaTable tbody').append('<tr> <td>'+(k+1)+'</td> <td>'+prev+'-'+(tagArr[k]-1)+'</td> <td><input area="'+prev+'-'+(tagArr[k]-1)+'" type="text" class="input_price form-control"/></td> </tr>');
+                        prev = tagArr[k];
+                    }
+                }
+            } else {
+                $('#areaTable tr:gt(0)').remove();
+                $('#areaTable').hide();
+                $('#nextThree').hide();
+            }
+        }
 	})
 </script>
 @endsection
