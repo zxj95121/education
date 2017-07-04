@@ -131,3 +131,8 @@
 .function_child .my_function_type{
 	border-bottom: 0px solid transparent;
 }
+
+#my_option p{
+	position: relative;
+	top: 5px;
+}
