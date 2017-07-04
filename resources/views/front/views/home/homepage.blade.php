@@ -170,33 +170,12 @@
         	
         @elseif($userType->type == 2)
        		<div class="weui-cells" id="my_option">
-	            <a class="weui-cell weui-cell_access" href="/front/user_info_teacher">
-	                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	            <a class="weui-cell weui-cell_access" href="/front/setClassTime">
+	                <div class="weui-cell__hd"><img src="/images/home/option_time.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
 	                <div class="weui-cell__bd">
-	                    <p>消息通知</p>
+	                    <p>上课时间倾向</p>
 	                </div>
-	                <div class="weui-cell__ft">说明文字</div>
-	            </a>
-	            <a class="weui-cell weui-cell_access" href="javascript:;">
-	                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
-	                <div class="weui-cell__bd">
-	                    <p>cell standard</p>
-	                </div>
-	                <div class="weui-cell__ft">说明文字</div>
-	            </a>
-	            <a class="weui-cell weui-cell_access" href="javascript:;">
-	                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
-	                <div class="weui-cell__bd">
-	                    <p>cell standard</p>
-	                </div>
-	                <div class="weui-cell__ft">说明文字</div>
-	            </a>
-	            <a class="weui-cell weui-cell_access" href="javascript:;">
-	                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
-	                <div class="weui-cell__bd">
-	                    <p>cell standard</p>
-	                </div>
-	                <div class="weui-cell__ft">说明文字</div>
+	                <div class="weui-cell__ft">必填</div>
 	            </a>
 	        </div>
         @elseif($userType->type == 3)
