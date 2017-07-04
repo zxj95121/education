@@ -15,10 +15,38 @@ $(document).on('click','.class3',function(){
 		$('#twoclass').load('/front/twoClassfour?pid='+pid);
 	else if (e.target.tagName == 'SPAN') {
 		console.log('这是购买');
-		layer.open({
+		var loadIndex = layer.open({
 		    type: 3
-		    ,content: '加载中'
+		    ,content: '<img src="/js/layui/css/modules/layer/default/loading-2.gif" /><br />载入中'
 		});
+		var timeLay = 0;
+		var layInter = setInterval(function(){
+			timeLay += 50;
+		}, 50);
+		$.ajax({
+			url: '/front/parent/checkMessage'
+			dataType: 'html',
+			type: 'post',
+			data: {
+
+			},
+			success: function(data){
+				var successInter = setInterval(function(){
+					if (timeLay >= 300) {
+						clearInterval(layInter);
+						clearInterval(successInter);
+
+						/*展示data*/
+						layer.open({
+						    type: 1
+						    ,content: 'data'
+						    ,anim: 'up'
+						    ,style: 'position:fixed; bottom:0; left:0; width: 100%; height: 200px; padding:10px 0; border:none;'
+						});
+					}
+				}, 50);
+			}
+		})
 	}
 })
 $(document).on('click','#houtui',function(){
