@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Models\ParentDetail;
 use App\Models\UserType;
 
+use Session;
+
 class PayClassController extends Controller
 {
     public function checkMessage(Request $request)
