@@ -9,7 +9,7 @@
     <div class="weui-form-preview__bd">
         <div class="weui-form-preview__item">
             <label class="weui-form-preview__label"></label>
-            <span class="weui-form-preview__value" id="closeOpen0">关闭</span>
+            <span class="weui-form-preview__value glyphicon glyphicon-remove" style="color:#22AAE8;" id="closeOpen0"></span>
         </div>
     </div>
     <div class="weui-form-preview__bd">
