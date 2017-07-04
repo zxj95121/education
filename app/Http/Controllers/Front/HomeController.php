@@ -30,7 +30,9 @@ class HomeController extends Controller
 		$res['userType'] = UserType::where('openid', $openid)
 			->select('type', 'uid')
 			->get();
-		var_dump(count($res['userType'])==0);
+		if(count($res['userType'])==0){
+			return $res;	
+		}
 		switch($res['userType'][0]->type){
 			case '1':
 				$res['data'] = AdminInfo::where('openid',$openid)->get();
