@@ -49,7 +49,7 @@ $(document).on('click','.class3',function(){
 								layer.close(openIndex);
 							})
 						} else {
-							$(body).append(data);
+							$('#twoclass').after(data);
 						}
 					}
 				}, 50);
