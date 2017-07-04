@@ -35,11 +35,11 @@ $(document).on('click','.class3',function(){
 					if (timeLay >= 300) {
 						clearInterval(layInter);
 						clearInterval(successInter);
-
 						/*展示data*/
+						layer.close(loadIndex);
 						layer.open({
 						    type: 1
-						    ,content: 'data'
+						    ,content: data
 						    ,anim: 'up'
 						    ,style: 'position:fixed; bottom:0; left:0; width: 100%; height: 200px; padding:10px 0; border:none;'
 						});
