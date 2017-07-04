@@ -19,7 +19,7 @@ class HomeController extends Controller
     {
     	$openid = Session::get('openid');
 		$res = $this->userType($openid);
-    	if($res['userType']){
+    	if(count($res['userType'])){
     		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0]]);
     	}else{
     		return redirect('/front/register');
