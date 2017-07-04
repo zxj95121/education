@@ -26,7 +26,7 @@ class PayClassController extends Controller
 			$result[$k]['word'] = '所在社区';
 			$result[$k++]['reason'] = '未填写';
 		}
-		if ($flight->address == '') {
+		if ($flight->place == '') {
 			$result[$k]['word'] = '栋单元楼层';
 			$result[$k++]['reason'] = '未填写';
 		}
