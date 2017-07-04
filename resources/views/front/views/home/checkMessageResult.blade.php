@@ -1,5 +1,5 @@
 @if($result)
-<div class="weui-form-preview" style="position: absolute;bottom: 0px;">
+<div class="weui-form-preview" style="">
     <div class="weui-form-preview__hd">
         <div class="weui-form-preview__item">
             <label class="weui-form-preview__label">出错提示</label>
@@ -15,7 +15,7 @@
         @endforeach
     </div>
     <div class="weui-form-preview__ft">
-        <a href="javascript:;" class="weui-btn weui-btn_warn">警告类操作 Normal</a>
+        <a href="javascript:;" class="weui-btn weui-btn_warn">现在去完善信息</a>
     </div>
 </div>
 
