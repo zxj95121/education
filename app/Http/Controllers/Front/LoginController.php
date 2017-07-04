@@ -168,7 +168,7 @@ class LoginController extends Controller
             $flight->save();
         }
 
-        Session::put('front_id', $$flight->id);
+        Session::put('front_id', $flight->id);
         Session::forget('phoneCode');
         Session::forget('phone');
 
