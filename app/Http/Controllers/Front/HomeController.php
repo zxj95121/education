@@ -19,17 +19,18 @@ class HomeController extends Controller
     {
     	$openid = Session::get('openid');
 		$res = $this->userType($openid);
-		dump($res['userType']->count());
-    	if($res['userType']->count() <= 0){
+    	if($res['userType']->count()){
+    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0]]);
+    	}else{
     		return redirect('/front/register');
     	}
-    	return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0]]);
     }
 	public function userType($openid)
 	{
 		$res['userType'] = UserType::where('openid', $openid)
 			->select('type', 'uid')
 			->get();
+		dump($res['userType'][0]->type);
 		switch($res['userType'][0]->type){
 			case '1':
 				$res['data'] = AdminInfo::where('openid',$openid)->get();
