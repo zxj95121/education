@@ -33,26 +33,20 @@
             <div class="weui-dialog">
                 <div class="weui-dialog__hd"><strong class="weui-dialog__title">订单详情</strong></div>
                 <div class="weui-dialog__bd">
-                    <div class="weui-cells">
-                        <div class="weui-cell">
-                            <div class="weui-cell__bd">
-                                <p>标题文字</p>
-                            </div>
-                            <div class="weui-cell__ft">说明文字</div>
-                        </div>
-                        <div class="weui-cell">
-                            <div class="weui-cell__bd">
-                                <p>标题文字</p>
-                            </div>
-                            <div class="weui-cell__ft">说明文字</div>
-                        </div>
-                        <div class="weui-cell">
-                            <div class="weui-cell__bd">
-                                <p>标题文字</p>
-                            </div>
-                            <div class="weui-cell__ft">说明文字</div>
-                        </div>
-                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="badge">14</span>
+                            课程名称
+                        </li>
+                        <li class="list-group-item">
+                            <span class="badge">14</span>
+                            课程次数
+                        </li>
+                        <li class="list-group-item">
+                            <span class="badge">14</span>
+                            订单总价
+                        </li>
+                    </ul>
                 </div>
                 <div class="weui-dialog__ft">
                     <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">取消订单</a>
