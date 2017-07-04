@@ -9,8 +9,8 @@
     <div class="weui-form-preview__bd">
         @foreach($result as $value)
         <div class="weui-form-preview__item">
-            <label class="weui-form-preview__label">{{$value->word}}</label>
-            <span class="weui-form-preview__value">{{$value->reason}}</span>
+            <label class="weui-form-preview__label">{{$value['word']}}</label>
+            <span class="weui-form-preview__value">{{$value['reason']}}</span>
         </div>
         @endforeach
     </div>
