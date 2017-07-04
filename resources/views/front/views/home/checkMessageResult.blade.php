@@ -7,6 +7,12 @@
         </div>
     </div> -->
     <div class="weui-form-preview__bd">
+        <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label"></label>
+            <span class="weui-form-preview__value">关闭</span>
+        </div>
+    </div>
+    <div class="weui-form-preview__bd">
         @foreach($result as $value)
         <div class="weui-form-preview__item">
             <label class="weui-form-preview__label">{{$value['word']}}</label>
