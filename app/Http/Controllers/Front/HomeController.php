@@ -35,13 +35,13 @@ class HomeController extends Controller
 		}
 		switch($res['userType'][0]->type){
 			case '1':
-				$res['data'] = AdminInfo::where('openid',$openid)->get();
+				$res['data'] = AdminInfo::where('id',$res['userType'][0]->uid)->get();
 				break;
 			case '2':
-				$res['data'] = ParentInfo::where('openid',$openid)->get();
+				$res['data'] = ParentInfo::where('id',$res['userType'][0]->uid)->get();
 				break;
 			case '3';
-				$res['data'] = TeacherInfo::where('openid',$openid)->get();
+				$res['data'] = TeacherInfo::where('id',$res['userType'][0]->uid)->get();
 				break;
 		}
 		return $res;
