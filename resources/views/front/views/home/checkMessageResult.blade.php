@@ -9,7 +9,7 @@
     <div class="weui-form-preview__bd">
         <div class="weui-form-preview__item">
             <label class="weui-form-preview__label"></label>
-            <span class="weui-form-preview__value">关闭</span>
+            <span class="weui-form-preview__value" id="closeOpen0">关闭</span>
         </div>
     </div>
     <div class="weui-form-preview__bd">
@@ -21,7 +21,7 @@
         @endforeach
     </div>
 <!--     <div class="weui-form-preview__ft"> -->
-        <a href="javascript:;" class="weui-btn weui-btn_warn">现在去完善信息</a>
+        <a href="/front/user_info_parent" class="weui-btn weui-btn_warn">现在去完善信息</a>
     <!-- </div> -->
 </div>
 

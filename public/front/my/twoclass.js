@@ -37,12 +37,16 @@ $(document).on('click','.class3',function(){
 						clearInterval(successInter);
 						/*展示data*/
 						layer.close(loadIndex);
-						layer.open({
+						var openIndex = layer.open({
 						    type: 1
 						    ,content: data
 						    ,anim: 'up'
 						    ,style: 'position:fixed; bottom:0; left:0; width: 100%; min-height: 150px;padding:10px 0; border:none;'
 						});
+
+						$(document).on('click', '#closeOpen0', function(){
+							layer.close(openIndex);
+						})
 					}
 				}, 50);
 			}
