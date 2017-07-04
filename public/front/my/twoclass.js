@@ -16,7 +16,7 @@ $(document).on('click','.class3',function(){
 	else if (e.target.tagName == 'SPAN') {
 		console.log('这是购买');
 		layer.open({
-		    type: 1
+		    type: 3
 		    ,content: '加载中'
 		});
 	}
