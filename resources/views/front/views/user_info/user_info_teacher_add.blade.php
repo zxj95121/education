@@ -1038,9 +1038,12 @@ $signPackage = $jssdk->GetSignPackage();
 		    	content: [
 		    		yearArr,monthArr
 		    	],
+		    	@if($birthTime)
 		    	default: [
 		    		{{$birthTime[0]}},{{$birthTime[1]}}
 		    	],
+				@else 
+				@endif
 		    	select: function(result){
 		    		$('#loadingToast').css({'display':'block', 'opacity':'1'});
 					$('#loadingToast p').html('数据保存中');
