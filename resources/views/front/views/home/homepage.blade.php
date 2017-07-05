@@ -219,46 +219,46 @@
 	    </div>
    	@elseif($userType->type == 2)
    		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
-	        <a href="javascript:void(0);" class="weui-tabbar__item" for="teacher">
+	        <a href="javascript:void(0);" class="weui-tabbar__item" for="teacher" id="teacher1">
 	            <span style="display: inline-block;position: relative;">
 	                <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
 	            </span>
 	            <p class="weui-tabbar__label">名师定制</p>
 	        </a>
-	        <a href="javascript:void(0);" class="weui-tabbar__item" for="classroom">
+	        <a href="javascript:void(0);" class="weui-tabbar__item" for="classroom" id="classroom1">
 	            <img src="/images/home/menu_classroom.png" alt="" class="weui-tabbar__icon">
 	            <p class="weui-tabbar__label">教室定制</p>
 	        </a>
-	        <a id="twoclass" href="javascript:void(0);" class="weui-tabbar__item" for="eclass">
+	        <a id="twoclass" href="javascript:void(0);" class="weui-tabbar__item" for="eclass" id="eclass1">
 	            <span style="display: inline-block;position: relative;">
 	                <img src="/images/home/menu_class.png" alt="" class="weui-tabbar__icon">
 	            </span>
 	            <p class="weui-tabbar__label">双师class</p>
 	        </a>
-	        <a href="javascript:void(0);" class="weui-tabbar__item" for="my">
+	        <a href="javascript:void(0);" class="weui-tabbar__item" for="my" id="my1">
 	            <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
 	            <p class="weui-tabbar__label">我的</p>
 	        </a>
 	    </div>
    	@elseif($userType->type == 3)
    		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
-	        <a href="javascript:void(0);" class="weui-tabbar__item" for="studytime">
+	        <a href="javascript:void(0);" class="weui-tabbar__item" for="studytime" id="studytime1">
 	            <span style="display: inline-block;position: relative;">
 	                <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
 	            </span>
 	            <p class="weui-tabbar__label">教学时间</p>
 	        </a>
-	        <a href="javascript:void(0);" class="weui-tabbar__item" for="studyplace">
+	        <a href="javascript:void(0);" class="weui-tabbar__item" for="studyplace" id="studyplace1">
 	            <img src="/images/home/menu_classroom.png" alt="" class="weui-tabbar__icon">
 	            <p class="weui-tabbar__label">教学地点</p>
 	        </a>
-	        <a id="twoclass" href="javascript:void(0);" class="weui-tabbar__item" for="salary">
+	        <a id="twoclass" href="javascript:void(0);" class="weui-tabbar__item" for="salary" id="salary1">
 	            <span style="display: inline-block;position: relative;">
 	                <img src="/images/home/menu_class.png" alt="" class="weui-tabbar__icon">
 	            </span>
 	            <p class="weui-tabbar__label">薪资待遇</p>
 	        </a>
-	        <a href="javascript:void(0);" class="weui-tabbar__item" for="my">
+	        <a href="javascript:void(0);" class="weui-tabbar__item" for="my" id="my1">
 	            <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
 	            <p class="weui-tabbar__label">我的</p>
 	        </a>
@@ -273,14 +273,14 @@
     		var url = [];	
     		url = window.location.href.split('#');
     		if(url.length == 1){
-    			var obj = document.getElementById('my');
-    			obj.style.cssText = "display:block";
+    			var obj = document.getElementById('my1');
+    			obj.trigger('click');
     		}else{
     			var obj = document.getElementById(url[1]);
     			if(obj){
-    				obj.style.cssText = "display:block";
+    				document.getElementById(url[1]+'1').trigger('click');
     			}else{
-    				document.getElementById('my').style.cssText = "display:block";
+    				document.getElementById('my').trigger('click');
     			}
     		}
         })
