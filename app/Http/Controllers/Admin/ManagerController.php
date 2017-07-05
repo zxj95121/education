@@ -9,6 +9,9 @@ use App\Models\AdminInfo;
 use App\Models\UserType;
 use App\Models\TeacherDetail;
 use App\Models\ParentDetail;
+use App\Models\CommunityCommunity;
+use App\Models\CommunityArea;
+use App\Models\CommunityCity;
 use Session;
 
 class ManagerController extends Controller
@@ -84,6 +87,18 @@ class ManagerController extends Controller
     	->leftJoin('parent_info','parent_detail.pid','parent_info.id')
     	->select('parent_info.name as nickname','parent_detail.id','parent_detail.name','parent_info.phone','sex','type','address','place')
     	->paginate(10);
+    	for($i = 0; $i < count($res); $i++){
+    		$address3 = CommunityCommunity::where('id',$res[$i]->address)
+    			->select('aid','name')
+    			->get();
+    		$address2 = CommunityArea::where('id',$address3[0]->aid)
+    			->select('cid','name')
+    			->get();
+    		$address1 = CommunityCity::where('id',$address2[0]->cid)
+    			->select('name')
+    			->get();
+    		$res[$i]->address = $address1[0]->name.$address2[0]->name.$address3[0]->name;
+    	}
     	return view('admin.people.parentInfo',['res'=>$res]);
     }
 
@@ -94,6 +109,33 @@ class ManagerController extends Controller
     		->leftJoin('teacher_info','teacher_detail.tid','teacher_info.id')
     		->select('teacher_info.name as nickname','teacher_detail.id','teacher_detail.name','phone','sex','type','project','find_status','address','money','hobby','subject')
     		->paginate(10);
+    	for($i = 0; $i < count($res); $i++){
+    		$arr = explode('-',$res[$i]->money);
+    		if($arr[1] == 1){
+    			$res[$i]->money = $arr[0].'/月';
+    		}else{
+    			$res[$i]->money = $arr[0].'/'.$arr[1].'分钟';
+    		}
+    	}
         return view('admin.people.teacherInfo',['res'=>$res]);
+    }
+    public function expect(Request $request)
+    {
+    	$id = $request->input('id');
+    	$teacher = TeacherDetail::find($id);
+    	$arr = explode('-',$teacher->address);
+    	for($i = 0; $i < count($arr); $i++){
+    		$address3 = CommunityCommunity::where('id',$arr[$i])
+    		->select('aid','name')
+    		->get();
+    		$address2 = CommunityArea::where('id',$address3[0]->aid)
+    		->select('cid','name')
+    		->get();
+    		$address1 = CommunityCity::where('id',$address2[0]->cid)
+    		->select('name')
+    		->get();
+    		$res[$i] = $address1[0]->name.$address2[0]->name.$address3[0]->name;
+    	}
+    	return response()->json(['code'=>200,'res'=>$res]);
     }
 }
