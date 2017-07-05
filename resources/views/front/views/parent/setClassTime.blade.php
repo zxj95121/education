@@ -159,7 +159,7 @@
 					},
 					success: function(data) {
 						if (data.errcode == 0) {
-							$('#loadingToast').show();
+							$('#loadingToast').hide();
 							cdom.replaceWith('<a href="#" class="button button-fill button-warning cancleBtn">取消选择</a>');
 							setTimeout(function(){
 								$('#toast').hide();
@@ -187,7 +187,7 @@
 					},
 					success: function(data) {
 						if (data.errcode == 0) {
-							$('#toast').show();
+							$('#toast').hide();
 							cdom.replaceWith('<a href="#" class="button button-fill selectBtn">选择</a>');
 							setTimeout(function(){
 								$('#toast').hide();
