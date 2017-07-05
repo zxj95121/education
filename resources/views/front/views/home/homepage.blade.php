@@ -159,8 +159,8 @@
 	                    </div>
 	                </div>
 	            </div>
-	            <div class="row" class="my_function">
-	            </div>
+	            <!-- <div class="row" class="my_function">
+	            </div> -->
 	        </div>
 	        <div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
         @elseif($userType->type == 3)
