@@ -101,8 +101,6 @@
             @endif
         </div>
         <!-- header end -->
-
-    <div class="row" id="my_count">
 		@if($userType->type == 1)
         
 
@@ -210,7 +208,6 @@
 	            </a>
 	        </div>
         @endif
-        </div>
     </div>
     @if($userType->type == 1)
    		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
@@ -272,19 +269,19 @@
     <script type="text/javascript" src="/front/js_module/homepage/my.js"></script>
     <script type="text/javascript">
     	$(function(){
-    	// 	var url = [];	
-    	// 	url = window.location.href.split('#');
-    	// 	if(url.length == 1){
-    	// 		$('#my1').trigger('click');
-    	// 	}else{
-    	// 		var obj = document.getElementById(url[1]);
-    	// 		if(obj){
-     //    			$('#'+url[1]+'1').trigger('click');
-    	// 		}else{
-    	// 			$('#my1').trigger('click');
-    	// 		}
-    	// 	}
-     //    })
+    		var url = [];	
+    		url = window.location.href.split('#');
+    		if(url.length == 1){
+    			$('#my1').trigger('click');
+    		}else{
+    			var obj = document.getElementById(url[1]);
+    			if(obj){
+        			$('#'+url[1]+'1').trigger('click');
+    			}else{
+    				$('#my1').trigger('click');
+    			}
+    		}
+        })
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': '{{csrf_token()}}'
