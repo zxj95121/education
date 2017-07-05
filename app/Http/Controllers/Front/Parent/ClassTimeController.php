@@ -13,7 +13,7 @@ class ClassTimeController extends Controller
 {
     public function setClassTime(Request $request)
     {
-    	$front_id = Session::get('front_id');
+    	$front_id = $this->getUid(Session::get('openid'));
 
     	$classType[] = ClassTime::where('status', 1)
     		->where('type', '1')
@@ -30,7 +30,7 @@ class ClassTimeController extends Controller
     {
     	$status = $request->input('status');
 
-    	$front_id = Session::get('front_id');
+    	$front_id = $this->getUid(Session::get('openid'));
 
     	ParentDetail::where('id', $front_id)
     		->update(['prefer_type'=>$status]);
@@ -41,7 +41,7 @@ class ClassTimeController extends Controller
     public function selectTime(Request $request)
     {
     	$id = $request->input('id');
-    	$front_id = Session::get('front_id');
+    	$front_id = $this->getUid(Session::get('openid'));
 
     	$flight = ParentDetail::find($front_id);
     	$prefer_time = $flight->prefer_time;
@@ -51,5 +51,13 @@ class ClassTimeController extends Controller
     		$flight->save();
     	}
 		return response()->json(['errcode'=>0]);
+    }
+
+    private function getUid($openid)
+    {
+    	$userType = UserType::where('openid', $openid)
+    		->select('uid')
+    		->get()[0];
+    	return $userType->uid;
     }
 }
