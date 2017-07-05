@@ -19,9 +19,9 @@ class ClassTimeController extends Controller
     {
     	$status = $request->input('status');
 
-    	$openid = Session::get('openid');
+    	$openid = Session::get('front_id');
 
-    	ParentDetail::where('openid', $openid)
+    	ParentDetail::where('id', $front_id)
     		->update(['prefer_type', $status]);
     		
     	return response()->json(['errcode'=>0]);
