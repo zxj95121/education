@@ -225,7 +225,7 @@
 	            <img src="/images/home/menu_classroom.png" alt="" class="weui-tabbar__icon">
 	            <p class="weui-tabbar__label">教室定制</p>
 	        </a>
-	        <a id="twoclass" href="javascript:void(0);" class="weui-tabbar__item" for="eclass" id="eclass1">
+	        <a href="javascript:void(0);" class="weui-tabbar__item" for="eclass" id="eclass1">
 	            <span style="display: inline-block;position: relative;">
 	                <img src="/images/home/menu_class.png" alt="" class="weui-tabbar__icon">
 	            </span>
@@ -248,7 +248,7 @@
 	            <img src="/images/home/menu_classroom.png" alt="" class="weui-tabbar__icon">
 	            <p class="weui-tabbar__label">教学地点</p>
 	        </a>
-	        <a id="twoclass" href="javascript:void(0);" class="weui-tabbar__item" for="salary" id="salary1">
+	        <a  href="javascript:void(0);" class="weui-tabbar__item" for="salary" id="salary1">
 	            <span style="display: inline-block;position: relative;">
 	                <img src="/images/home/menu_class.png" alt="" class="weui-tabbar__icon">
 	            </span>
@@ -323,7 +323,7 @@
 			}
 
 		}
-        $('#twoclass').click(function(){
+        $('#eclass1').click(function(){
             $('#eclass').load('/front/twoClass');
         	includeLink("/front/my/twoclass.js","js");
         })
