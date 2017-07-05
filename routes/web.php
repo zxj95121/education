@@ -145,6 +145,12 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->get('/classPrice', 'Teacher\ClassPriceController@classPrice');
     $router->post('/classPrice/newPrice', 'Teacher\ClassPriceController@newPrice');
 
+    /*双师class课程设置*/
+    $router->get('/setClassTime', 'Teacher\ClassTimeController@setClassTime');
+    $router->post('/setClassTime/newTime', 'Teacher\ClassTimeController@newTime');
+    $router->post('/setClassTime/editTime', 'Teacher\ClassTimeController@editTime');
+    $router->post('/setClassTime/deleteTime', 'Teacher\ClassTimeController@deleteTime');
+
 
     /*待请求审核*/
       /*学校审核*/
