@@ -240,6 +240,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 
   /*设置上课时间期望*/
   $router->get('/setClassTime', 'Parent\ClassTimeController@setClassTime');
+  $router->post('/setClassTime/selectType', 'Parent\ClassTimeController@selectType');/*ajax请求是否加辰自动排课*/
 });
 
 /*-------------*/
