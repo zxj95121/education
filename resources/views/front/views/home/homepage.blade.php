@@ -118,7 +118,6 @@
 	            </div>
 	        </div>
 	       	<div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
-	        
         @elseif($userType->type == 3)
 	        <div class="row" id="my_count">
 	            <div class="row" id="my_count_top">
