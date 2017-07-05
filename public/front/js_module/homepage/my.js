@@ -6,7 +6,7 @@ $(function(){
 
 	// console.log($('.jiange')[0].offsetWidth)
 	/*间隔高度*/
-	$('.jiange').css('width', parseInt($('.jiange')[0].offsetWidth)+parseInt($('#my').css('paddingLeft'))*2+'px');
+	$('.jiange').css('width', parseInt($('#my').width())+parseInt($('#my').css('paddingLeft'))*2+'px');
 	$('.jiange').css({'position':'relative', 'right': $('#my').css('paddingLeft')});
 
 	/*bottom*/
