@@ -145,10 +145,61 @@
 			})
 
 			/*选择课程按钮*/
-			$('.selectBtn').click(function(){
+			$(document).on('click', '.selectBtn', function(){
 				$('#loadingToast').show();
-				ajax进行更改
-			})
+				var cdom = $(this);
+				var id = $(this).parents('tr');
+				$('#toast').find('.weui-toast__content').html('已设置可上课');
+				$.ajax({
+					url: '/front/setClassTime/selectTime',
+					dataType: 'json',
+					type: 'post',
+					data: {
+						id: id
+					},
+					success: function(data) {
+						if (data.errcode == 0) {
+							$('#loadingToast').show();
+							cdom.replaceWith('<a href="#" class="button button-fill button-warning cancleBtn">取消选择</a>');
+							setTimeout(function(){
+								$('#toast').hide();
+							}, 1150);
+						}
+					},
+					error: function() {
+						$('#loadingToast').show();
+						alert('选择失败,请重试');
+					}
+				})
+			});
+
+			$(document).on('click', '.cancleBtn', function(){
+				$('#loadingToast').show();
+				var cdom = $(this);
+				var id = $(this).parents('tr');
+				$('#toast').find('.weui-toast__content').html('已取消选择');
+				$.ajax({
+					url: '/front/setClassTime/cancleTime',
+					dataType: 'json',
+					type: 'post',
+					data: {
+						id: id
+					},
+					success: function(data) {
+						if (data.errcode == 0) {
+							$('#toast').show();
+							cdom.replaceWith('<a href="#" class="button button-fill selectBtn">选择</a>');
+							setTimeout(function(){
+								$('#toast').hide();
+							}, 1150);
+						}
+					},
+					error: function() {
+						$('#loadingToast').show();
+						alert('取消选择失败,请重试');
+					}
+				})
+			});
 		})
 	</script>
 </body>

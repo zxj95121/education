@@ -40,6 +40,16 @@ class ClassTimeController extends Controller
 
     public function selectTime(Request $request)
     {
+    	$id = $request->input('id');
+    	$front_id = Session::get('front_id');
 
+    	$flight = ParentDetail::find($front_id);
+    	$prefer_time = $flight->prefer_time;
+    	if ($prefer_time == '' || strpos($prefer_time, '-') == 0) {
+    		/*空和负数说明一开始用户没有选择任何东西*/
+    		$flight->prefer_time = $id;
+    		$flight->save();
+    	}
+		return response()->json(['errcode'=>0]);
     }
 }
