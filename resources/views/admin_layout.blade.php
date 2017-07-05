@@ -107,14 +107,14 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="has-submenu {!!(Request::is('admin/applySchool')? 'active' : '') !!}">
+                    <li class="has-submenu {!!(Request::is('admin/applySchool', 'admin/applyHobby')? 'active' : '') !!}">
                         <a href="#">
                             <i class="ion-hammer"></i> 
                             <span class="nav-label">请求待审核</span>
                             <span class="menu-arrow"></span>
                         </a>
                         <ul class="list-unstyled">
-                            <li class="{!!(Request::is('admin/applySchool', '/admin/applyHobby')? 'active' : '') !!}">
+                            <li class="{!!(Request::is('admin/applySchool')? 'active' : '') !!}">
                                 <a href="/admin/applySchool">待审核学校</a>
                             </li>
                             <li class="{!!(Request::is('admin/applyHobby')? 'active' : '') !!}">

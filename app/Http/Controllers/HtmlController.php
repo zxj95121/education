@@ -40,4 +40,9 @@ class HtmlController extends Controller
     {
         return 'front.views.user_info.user_info_teacher_add';
     }
+
+    private function classTime()
+    {
+        return 'front.views.parent.setClassTime';
+    }
 }
