@@ -69,7 +69,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
 
     $router->get('/parentInfo', 'ManagerController@parentInfo');
     $router->get('/teacherInfo', 'ManagerController@teacherInfo');
-    
+    $router->post('/expect','ManagerController@expect');//教学社区
     
     
     /* 系统参数设置  */
