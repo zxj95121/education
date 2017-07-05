@@ -148,7 +148,7 @@
 			$(document).on('click', '.selectBtn', function(){
 				$('#loadingToast').show();
 				var cdom = $(this);
-				var id = $(this).parents('tr');
+				var id = $(this).parents('tr').attr('cid');
 				$('#toast').find('.weui-toast__content').html('已设置可上课');
 				$.ajax({
 					url: '/front/setClassTime/selectTime',
@@ -176,7 +176,7 @@
 			$(document).on('click', '.cancleBtn', function(){
 				$('#loadingToast').show();
 				var cdom = $(this);
-				var id = $(this).parents('tr');
+				var id = $(this).parents('tr').attr('cid');
 				$('#toast').find('.weui-toast__content').html('已取消选择');
 				$.ajax({
 					url: '/front/setClassTime/cancleTime',
