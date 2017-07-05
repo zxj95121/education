@@ -160,7 +160,7 @@
 					success: function(data) {
 						if (data.errcode == 0) {
 							$('#loadingToast').hide();
-							cdom.replaceWith('<a href="#" class="button button-fill button-warning cancleBtn">取消选择</a>');
+							cdom.replaceWith('<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>');
 							setTimeout(function(){
 								$('#toast').hide();
 							}, 1150);
