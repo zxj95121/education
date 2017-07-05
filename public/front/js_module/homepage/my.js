@@ -6,8 +6,9 @@ $(function(){
 
 	// console.log($('.jiange')[0].offsetWidth)
 	/*间隔高度*/
-	$('.jiange').css('width', parseInt($('#my').width())+'px');
-	$('.jiange').css({'position':'relative', 'right': $('#my').css('paddingLeft')});
+	var jiangeW = document.documentElement.clientWidth;
+	$('.jiange').css('width', parseInt(jiangeW)+'px');
+	// $('.jiange').css({'position':'relative', 'right': $('#my').css('paddingLeft')});
 
 	/*bottom*/
 	$('#my_option').css('marginBottom', $('#all_bottom').css('height'));
