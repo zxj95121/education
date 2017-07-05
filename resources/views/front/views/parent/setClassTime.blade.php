@@ -20,10 +20,10 @@
 <body>
 	<div class="page">
 		<header class="bar bar-nav">
-            <h1 class="title">选择可上课时间</h1>
+            <h1 class="title">请选择可上课时间</h1>
         </header>
 		<div class="content">
-			<div class="list-block top" hide="false" style="padding:8px 0;">
+			<div class="list-block top" hide="false" style="margin:8px 0;">
 			    <ul>
 			      	<li class="item-content">
 				        <div class="item-inner">

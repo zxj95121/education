@@ -19,10 +19,12 @@ class ClassTimeController extends Controller
     	$classType[] = ClassTime::where('status', 1)
     		->where('type', '1')
     		->select('id', 'low', 'high')
+    		->orderBy('low')
     		->get();
     	$classType[] = ClassTime::where('status', 1)
     		->where('type', '2')
     		->select('id', 'low', 'high')
+    		->orderBy('low')
     		->get();
     	return view('front.views.parent.setClassTime',['classType'=>$classType]);
     }
