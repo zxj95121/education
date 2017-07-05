@@ -4,10 +4,10 @@ $(function(){
 		$(this).css('height', width);
 	})
 
-	console.log($('.jiange').width());
+	// console.log($('.jiange')[0].offsetWidth)
 	/*间隔高度*/
-	// $('.jiange').css('width', parseInt($('.jiange:eq(0)').width())+parseInt($('#my').css('paddingLeft'))*2+'px');
-	// $('.jiange').css({'position':'relative', 'right': $('#my').css('paddingLeft')});
+	$('.jiange').css('width', parseInt($('.jiange')[0].offsetWidth)+parseInt($('#my').css('paddingLeft'))*2+'px');
+	$('.jiange').css({'position':'relative', 'right': $('#my').css('paddingLeft')});
 
 	/*bottom*/
 	$('#my_option').css('marginBottom', $('#all_bottom').css('height'));
