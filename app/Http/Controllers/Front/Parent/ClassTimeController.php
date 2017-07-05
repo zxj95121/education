@@ -22,7 +22,7 @@ class ClassTimeController extends Controller
     	$front_id = Session::get('front_id');
 
     	ParentDetail::where('id', $front_id)
-    		->update(['prefer_type', $status]);
+    		->update(['prefer_type'=>$status]);
     		
     	return response()->json(['errcode'=>0]);
     }
