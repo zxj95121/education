@@ -101,6 +101,8 @@
             @endif
         </div>
         <!-- header end -->
+
+    <div class="row" id="my_count">
 		@if($userType->type == 1)
         
 
@@ -208,6 +210,7 @@
 	            </a>
 	        </div>
         @endif
+        </div>
     </div>
     @if($userType->type == 1)
    		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
