@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\ParentDetail;
 use App\Models\ClassTime;
+use App\Models\UserType;
 use Session;
 
 class ClassTimeController extends Controller
