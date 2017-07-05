@@ -8,7 +8,7 @@ $(function(){
 	/*间隔高度*/
 	var jiangeW = document.documentElement.clientWidth;
 	$('.jiange').css('width', parseInt(jiangeW)+'px');
-	// $('.jiange').css({'position':'relative', 'right': $('#my').css('paddingLeft')});
+	$('.jiange').css({'position':'relative', 'right': $('#my').css('paddingLeft')});
 
 	/*bottom*/
 	$('#my_option').css('marginBottom', $('#all_bottom').css('height'));
