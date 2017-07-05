@@ -57,6 +57,32 @@ class ClassTimeController extends Controller
 		return response()->json(['errcode'=>0]);
     }
 
+    /*取消选择*/
+    public function cancleTime(Request $request)
+    {
+    	$id = $request->input('id');
+    	$front_id = $this->getUid(Session::get('openid'));
+
+    	$flight = ParentDetail::find($front_id);
+    	$prefer_time = $flight->prefer_time;
+
+    	$times = explode('-', $prefer_time);
+    	if (count($times) <= 1) {
+    		$prefer_time = '';
+    	} else {
+    		$prefer_time = '';
+    		foreach ($times as $v) {
+    			if ($v != $id)
+    				$prefer_time .= $v+'-';
+    		}
+    		$prefer_time = substr($prefer_time, 0, -1);
+    	}
+    	$flight->prefer_time = $prefer_time;
+    	$flight->save();
+
+    	return response()->json(['errcode'=>0]);
+    }
+
     private function getUid($openid)
     {
     	$userType = UserType::where('openid', $openid)
