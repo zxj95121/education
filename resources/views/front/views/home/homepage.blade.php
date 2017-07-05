@@ -58,9 +58,6 @@
         	薪资待遇
     	</div>
 	@endif
-    <div class="container-fluid" id="parent" style="display: none;">
-        parent
-    </div>
     <div class="container-fluid" id="my" style="display:none">
         <!-- header start -->
         <div class="row" id="my_header">
