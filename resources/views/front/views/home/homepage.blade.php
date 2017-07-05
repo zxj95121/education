@@ -273,14 +273,13 @@
     		var url = [];	
     		url = window.location.href.split('#');
     		if(url.length == 1){
-    			var obj = document.getElementById('my1');
-    			obj.trigger('click');
+    			$('#my1').trigger('click');
     		}else{
     			var obj = document.getElementById(url[1]);
     			if(obj){
-    				document.getElementById(url[1]+'1').trigger('click');
+        			$('#'+url[1]+'1').trigger('click');
     			}else{
-    				document.getElementById('my').trigger('click');
+    				$('#my1').trigger('click');
     			}
     		}
         })
