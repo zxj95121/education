@@ -44,29 +44,33 @@
 		  	<div class="content-block-title" hide="true">周一到周五</div>
 	  		<div class="list-block" hide="true">
 			    <ul>
-			      	<li class="item-content">
+			    @foreach($classType[0] as $value)
+			      	<li class="item-content" cid="{{$value->id}}">
 				        <div class="item-inner">
-				          	<div class="item-title">商品名称</div>
+				          	<div class="item-title">{{$value->low}}-{{$value->high}}</div>
 				          	<div class="item-after">
 				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
 				          		<a href="#" class="button button-fill selectBtn">选择</a>
 				          	</div>
 				        </div>
 				    </li>
+				@endforeach
 				</ul>
 		  	</div>
 		  	<div class="content-block-title" hide="true">周末-节假日</div>
 		  	<div class="list-block" hide="true">
 		    	<ul>
-		      		<li class="item-content">
+		    	@foreach($classType[1] as $value)
+		      		<li class="item-content" cid="{{$value->id}}">
 		        		<div class="item-inner">
-		          			<div class="item-title">商品名称</div>
+		          			<div class="item-title">{{$value->low}}-{{$value->high}}</div>
 		          			<div class="item-after">
 		          				<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
 				          		<a href="#" class="button button-fill selectBtn">选择</a>
 		          			</div>
 		        		</div>
 		      		</li>
+		      	@endforeach
 		    	</ul>
 		  	</div>
 		</div>
