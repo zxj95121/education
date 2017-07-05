@@ -61,7 +61,7 @@
     <div class="container-fluid" id="parent" style="display: none;">
         parent
     </div>
-    <div class="container-fluid" id="my">
+    <div class="container-fluid" id="my" style="display:none">
         <!-- header start -->
         <div class="row" id="my_header">
             <div class="col-xs-2" id="my_header_img">
