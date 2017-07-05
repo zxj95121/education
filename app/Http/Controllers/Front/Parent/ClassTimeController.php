@@ -19,7 +19,7 @@ class ClassTimeController extends Controller
     {
     	$status = $request->input('status');
 
-    	$openid = Session::get('front_id');
+    	$front_id = Session::get('front_id');
 
     	ParentDetail::where('id', $front_id)
     		->update(['prefer_type', $status]);
