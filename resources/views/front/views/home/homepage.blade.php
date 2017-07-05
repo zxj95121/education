@@ -271,7 +271,7 @@
     <script type="text/javascript" src="/front/js_module/homepage/homepage.js"></script>
     <script type="text/javascript" src="/front/js_module/homepage/my.js"></script>
     <script type="text/javascript">
-    	// $(function(){
+    	$(function(){
     	// 	var url = [];	
     	// 	url = window.location.href.split('#');
     	// 	if(url.length == 1){
