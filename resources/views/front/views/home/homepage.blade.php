@@ -269,22 +269,22 @@
     <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="/js/layui/layer_only/mobile/layer.js"></script>
     <script type="text/javascript" src="/front/js_module/homepage/homepage.js"></script>
-    <script type="text/javascript" src="/front/js_module/homepage/my.js"></script>    
+    <script type="text/javascript" src="/front/js_module/homepage/my.js"></script>
     <script type="text/javascript">
-    	$(function(){
-    		var url = [];	
-    		url = window.location.href.split('#');
-    		if(url.length == 1){
-    			$('#my1').trigger('click');
-    		}else{
-    			var obj = document.getElementById(url[1]);
-    			if(obj){
-        			$('#'+url[1]+'1').trigger('click');
-    			}else{
-    				$('#my1').trigger('click');
-    			}
-    		}
-        })
+    	// $(function(){
+    	// 	var url = [];	
+    	// 	url = window.location.href.split('#');
+    	// 	if(url.length == 1){
+    	// 		$('#my1').trigger('click');
+    	// 	}else{
+    	// 		var obj = document.getElementById(url[1]);
+    	// 		if(obj){
+     //    			$('#'+url[1]+'1').trigger('click');
+    	// 		}else{
+    	// 			$('#my1').trigger('click');
+    	// 		}
+    	// 	}
+     //    })
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': '{{csrf_token()}}'
