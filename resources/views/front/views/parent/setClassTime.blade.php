@@ -134,7 +134,7 @@
 								$('#toast').show();
 								setTimeout(function(){
 									$('#toast').hide();
-								}, 1150);
+								}, 850);
 							}
 						}
 					},
@@ -159,11 +159,11 @@
 					},
 					success: function(data) {
 						if (data.errcode == 0) {
-							$('#loadingToast').hide();
+							$('#loadingToast').show();
 							cdom.replaceWith('<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>');
 							setTimeout(function(){
 								$('#toast').hide();
-							}, 1150);
+							}, 700);
 						}
 					},
 					error: function() {
@@ -187,11 +187,11 @@
 					},
 					success: function(data) {
 						if (data.errcode == 0) {
-							$('#toast').hide();
+							$('#toast').show();
 							cdom.replaceWith('<a href="#" class="button button-fill selectBtn">选择</a>');
 							setTimeout(function(){
 								$('#toast').hide();
-							}, 1150);
+							}, 700);
 						}
 					},
 					error: function() {

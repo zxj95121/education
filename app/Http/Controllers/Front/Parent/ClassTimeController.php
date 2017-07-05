@@ -46,11 +46,14 @@ class ClassTimeController extends Controller
 
     	$flight = ParentDetail::find($front_id);
     	$prefer_time = $flight->prefer_time;
-    	if (!$prefer_time || strpos($prefer_time, '-') == 0) {
+    	if (!$prefer_time || strpos($prefer_time, '-') === 0) {
     		/*空和负数说明一开始用户没有选择任何东西*/
     		$flight->prefer_time = $id;
-    		$flight->save();
+    	} else {
+    		/*说明这里有东西*/
+    		$flight->prefer_time = $prefer_time.'-'.$id;
     	}
+    	$flight->save();
 		return response()->json(['errcode'=>0]);
     }
 
