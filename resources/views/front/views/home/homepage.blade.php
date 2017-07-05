@@ -7,9 +7,8 @@
     <!-- 引入 WeUI -->
     
     <link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/weui.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/weui.css"/>
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/my.css">
-
     <style type="text/css">
         #my a:link{
             text-decoration: none;
@@ -270,6 +269,21 @@
     <script type="text/javascript" src="/front/js_module/homepage/homepage.js"></script>
     <script type="text/javascript" src="/front/js_module/homepage/my.js"></script>    
     <script type="text/javascript">
+    	$(function(){
+    		var url = [];	
+    		url = window.location.href.split('#');
+    		if(url.length == 1){
+    			var obj = document.getElementById('my');
+    			obj.style.cssText = "display:block";
+    		}else{
+    			var obj = document.getElementById(url[1]);
+    			if(obj){
+    				obj.style.cssText = "display:block";
+    			}else{
+    				document.getElementById('my').style.cssText = "display:block";
+    			}
+    		}
+        })
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': '{{csrf_token()}}'
