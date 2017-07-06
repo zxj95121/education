@@ -13,6 +13,8 @@ class wechatIndexCatchonController extends Controller
 
     public function index()
     {
+        echo 1;
+        exit;
         if (!isset($_GET['echostr'])) {
             $this->responseMsg();
             exit;
