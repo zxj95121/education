@@ -33,7 +33,7 @@ class PayClassController extends Controller
 
 		$order_no = date('YmdHis', time()).rand(1000,9999);
 
-		$flight = EclassOrder();
+		$flight = new EclassOrder();
 		$flight->uid = $uid;
 		$flight->tid = $tid;
 		$flight->order_no = $order_no;
