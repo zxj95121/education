@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\ParentDetail;
+use App\Models\TeacherFour;
+use App\Models\TeacherThree;
+use App\Models\TeacherTwo;
+use App\Models\TeacherOne;
 use App\Models\UserType;
 
 use Session;
@@ -36,6 +40,25 @@ class PayClassController extends Controller
 			$noTime = true;
 		else
 			$noTime = false;
+
+		if(!$result && !$noTime) {
+			/*读取课程数量*/
+			$pid = $request->input('pid');
+			$threeObj = TeacherThree::find($pid);
+
+			$twoid = $threeObj->pid;
+			$twoObj = TeacherTwo::find($twoid);
+
+			$oneid = $twoObj->pid;
+			$oneObj = TeacherOne::fifnd($oneid);
+
+			$count = TeacherFour::where('pid', $threeObj->pid)
+				->where('status', 1)
+				->count();
+			$name = $oneObj->name.$twoObj->name.$threeObj->name;
+
+			return view('front.views.home.checkMessageResult', ['result'=>$result,'noTime'=>$noTime,'name'=>$name,'count'=>$count]);
+		}
     	return view('front.views.home.checkMessageResult', ['result'=>$result,'noTime'=>$noTime]);
     }
 

@@ -28,7 +28,7 @@ $(document).on('click','.class3',function(){
 			dataType: 'html',
 			type: 'post',
 			data: {
-
+				pid: pid
 			},
 			success: function(data){
 				var successInter = setInterval(function(){

@@ -40,8 +40,8 @@
     </div>
     <div class="weui-form-preview__bd">
         <div class="weui-form-preview__item">
-            <label class="weui-form-preview__label">上课时间</label>
-            <span class="weui-form-preview__value">未填写</span>
+            <label class="weui-form-preview__label">至少选择三个上课时间</label>
+            <span class="weui-form-preview__value">未完成</span>
         </div>
     </div>
 <!--     <div class="weui-form-preview__ft"> -->
@@ -49,35 +49,28 @@
     <!-- </div> -->
 </div>
 @else
-    <div id="dialogs">
-        <!--BEGIN dialog1-->
-        <div class="js_dialog" id="iosDialog1" style="opacity: 1;">
-            <div class="weui-mask"></div>
-            <div class="weui-dialog">
-                <div class="weui-dialog__hd"><strong class="weui-dialog__title">订单详情</strong></div>
-                <div class="weui-dialog__bd">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <span class="badge">14</span>
-                            课程名称
-                        </li>
-                        <li class="list-group-item">
-                            <span class="badge">14</span>
-                            课程次数
-                        </li>
-                        <li class="list-group-item">
-                            <span class="badge">14</span>
-                            订单总价
-                        </li>
-                    </ul>
-                </div>
-                <div class="weui-dialog__ft">
-                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">取消订单</a>
-                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">确认订单</a>
-                </div>
+<div class="page__bd">
+    <div class="weui-form-preview">
+        <div class="weui-form-preview__hd">
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">课程名称</label>
+                <em class="weui-form-preview__value">地方撒GV但是</em>
             </div>
         </div>
-        <!--END dialog1-->
+        <div class="weui-form-preview__bd">
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">课时数量</label>
+                <span class="weui-form-preview__value">59</span>
+            </div>
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">课程价格</label>
+                <span class="weui-form-preview__value">¥2400.00</span>
+            </div>
+        </div>
+        <div class="weui-form-preview__ft">
+            <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">操作</a>
+        </div>
     </div>
+</div>
 
 @endif
