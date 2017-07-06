@@ -78,7 +78,7 @@
    			$.alert('fda');
 
    			$(document).on('click', '#order_pay', function(){
-   				var version = parseInt(explode('Mozilla/', navigator.userAgent)[1]);
+   				var version = parseInt(navigator.userAgent.split('Mozilla/')[1]);
    				alert(version);
    			})
 		})
