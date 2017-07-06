@@ -31,7 +31,12 @@ class PayClassController extends Controller
 			$result[$k++]['reason'] = '未填写';
 		}
 
-    	return view('front.views.home.checkMessageResult', ['result'=>$result]);
+		$selectTime = explode('-', $flight->prefer_time);
+		if($flight->prefer_type == 0 && count($selectTime) < 3) 
+			$noTime = true;
+		else
+			$noTime = false;
+    	return view('front.views.home.checkMessageResult', ['result'=>$result,'noTime'=>$noTime]);
     }
 
     private function getUid($openid)
