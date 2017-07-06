@@ -586,8 +586,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    $('.done_ok1').click(function(){
 		    	var index = $(this).index('.done_ok1');
 		    	var value = $(this).parents('.page_set').find('input').val();
-		    	console.log(index);
-		    	var arr = new Array(/^.{1,10}$/, /^.{1,2}$/, /^[\u4e00-\u9fa5]{1,4}$/, /[\u4e00-\u9fa5]{1,10}/);
+		    	var arr = new Array(/[\u4e00-\u9fa5]{1,10}/,/^[\u4e00-\u9fa5]{1,4}$/, /^.{1,2}$/, /^.{1,10}$/);
 		    	if (!arr[index].test(value) && !(index == 2 && value == '')) {
 		    		layer.open({
 					    content: '长度或格式不正确'
