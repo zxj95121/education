@@ -123,7 +123,7 @@
     		if(url.length == 1){
     			var back = '/front/home#my';
     		}else{
-    			var back = '/front/home#classroom';
+    			var back = '/front/home#'+url[1];
     		}
     		$('#backHome').attr('href', back);
 
