@@ -27,9 +27,9 @@ class ClassTimeController extends Controller
     		->orderBy('low')
     		->get();
 
-        $userClass = ParentDetail::find($front_id);
-        $userClass = explode('-', $userClass->prefer_time);
-    	return view('front.views.parent.setClassTime',['classType'=>$classType,'userClass'=>$userClass]);
+        $flight = ParentDetail::find($front_id);
+        $userClass = explode('-', $flight->prefer_time);
+    	return view('front.views.parent.setClassTime',['classType'=>$classType,'userClass'=>$userClass,'flight'=>$flight]);
     }
 
     public function selectType(Request $request)
@@ -72,20 +72,17 @@ class ClassTimeController extends Controller
     	$prefer_time = $flight->prefer_time;
 
     	$times = explode('-', $prefer_time);
-        var_dump($times);
+
     	if (count($times) <= 1) {
     		$prefer_time = '';
     	} else {
     		$prefer_time = '';
     		foreach ($times as $v) {
     			if ($v != $id)
-    				$prefer_time .= $v+'-';
+    				$prefer_time .= $v.'-';
     		}
-            var_dump($prefer_time);
     		$prefer_time = substr($prefer_time, 0, -1);
     	}
-        var_dump($prefer_time);
-        dd(1);
     	$flight->prefer_time = $prefer_time;
     	$flight->save();
 

@@ -32,7 +32,7 @@
 				          		<div class="item-input">
 				          			<span class="operateShow">关</span>
 					              	<label class="label-switch">
-					                	<input type="checkbox" id="checkbox">
+					                	<input type="checkbox" id="checkbox" @if($flight->prefer_type == 1) checked="checked" @else @endif>
 					                	<div class="checkbox" id="selectCheckbox"></div>
 					              	</label>
 					            </div>
@@ -111,6 +111,11 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
+
+            @if($flight->prefer_type == 1)
+            	$('div[hide="true"]').hide();
+            @else 
+            @endif
 
 			$(document).on('click', '#selectCheckbox', function(){
 				var val = $(this).parents('label').find('input:checked').length;
