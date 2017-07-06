@@ -13,7 +13,7 @@ class EclassPriceController extends Controller
     	$threeObj = TeacherThree::find($id);
     	$pid = $threeObj->pid;
 
-    	$count = TeacherFour::where('id', $pid)
+    	$count = TeacherFour::where('pid', $pid)
     		->where('status', 1)
     		->count();
 
