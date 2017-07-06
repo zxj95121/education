@@ -69,6 +69,7 @@ class ClassTimeController extends Controller
     	$prefer_time = $flight->prefer_time;
 
     	$times = explode('-', $prefer_time);
+        var_dump($times);
     	if (count($times) <= 1) {
     		$prefer_time = '';
     	} else {
@@ -79,6 +80,8 @@ class ClassTimeController extends Controller
     		}
     		$prefer_time = substr($prefer_time, 0, -1);
     	}
+        var_dump($prefer_time);
+        dd(1);
     	$flight->prefer_time = $prefer_time;
     	$flight->save();
 

@@ -13,7 +13,9 @@ class TwoClassController extends Controller
 {
     public function index(){
     	$teacherone = TeacherOne::where('status','1')->select('id','name')->get();
-    	return view('front.views.home.twoclass',['res'=>$teacherone,'class'=>'class1']);
+        $front_id = $this->getUid(Session::get('openid'));
+        $flight = ParentDetail::find($front_id);
+    	return view('front.views.home.twoclass',['res'=>$teacherone,'class'=>'class1','parentDetail'=>$flight]);
     }
     public function two(Request $request){
     	$pid = $request->input('pid');
@@ -48,5 +50,13 @@ class TwoClassController extends Controller
     			break;
     	}
     	return view('front.views.home.twoclass',['res'=>$res,'class'=>$fenlei]);
+    }
+
+    private function getUid($openid)
+    {
+        $userType = UserType::where('openid', $openid)
+            ->select('uid')
+            ->get()[0];
+        return $userType->uid;
     }
 }
