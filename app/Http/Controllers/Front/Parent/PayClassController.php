@@ -90,7 +90,7 @@ class PayClassController extends Controller
 			$count = $res['count'];
 			$unitPrice = $res['unitPrice'];
 			$price = number_format($count*$unitPrice, 2);
-			return view('front.views.home.checkMessageResult', ['result'=>$result,'noTime'=>$noTime,'name'=>$name,'count'=>$count,'price'=>$price,'id'=>$id]);
+			return view('front.views.home.checkMessageResult', ['result'=>$result,'noTime'=>$noTime,'name'=>$name,'count'=>$count,'price'=>$price,'id'=>$pid]);
 		}
     	return view('front.views.home.checkMessageResult', ['result'=>$result,'noTime'=>$noTime]);
     }
