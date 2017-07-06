@@ -34,19 +34,6 @@
         #all_bottom p:active{
             text-decoration: none;
         }
-        a{
-        	color: @link-color;
-		    text-decoration: none;
-		
-		    &:hover,
-		    &:focus {
-		      color: @link-hover-color;
-		    }
-		
-		    &:focus {
-		      .tab-focus();
-		    }
-        }
     </style>
 </head>
 <body>
@@ -229,6 +216,19 @@
 	        </div>
         @endif
     </div>
+    <style>
+    	a{
+        	color: @link-color;
+		    text-decoration: none;
+		    &:hover,
+		    &:focus {
+		      color: @link-hover-color;
+		    }
+		    &:focus {
+		      .tab-focus();
+		    }
+    	}
+    </style>
     @if($userType->type == 1)
    		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
 	        <a href="javascript:void(0);" class="weui-tabbar__item" for="my">
