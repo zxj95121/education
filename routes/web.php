@@ -29,6 +29,7 @@ Route::get('/html', 'HtmlController@index');
 //<!------------Wechat文件夹----------------------->
 /*微信接入主程序*/
 Route::any('/wechatIndex', 'Wechat\WechatIndexController@index');
+Route::any('/wechatIndexCatchon', 'Wechat\WechatIndexCatchonController@index');
 
 /*微信网页授权*/
 Route::get('/oauth/getCode', 'Wechat\OauthController@getCode');
