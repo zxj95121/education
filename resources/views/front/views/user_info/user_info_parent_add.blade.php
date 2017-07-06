@@ -376,7 +376,7 @@ $signPackage = $jssdk->GetSignPackage();
             });
 
             var urlRedir = new Array();
-            urlRedir = window.location.href.split('#');
+            urlRedir = window.location.href.split('?action=');
     		if(urlRedir.length == 1){
     			var backHome = '/front/home#my';
     		}else{
