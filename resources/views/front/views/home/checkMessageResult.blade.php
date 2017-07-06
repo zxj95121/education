@@ -54,21 +54,21 @@
         <div class="weui-form-preview__hd">
             <div class="weui-form-preview__item">
                 <label class="weui-form-preview__label">课程名称</label>
-                <em class="weui-form-preview__value">{{$name}}</em>
+                <em class="weui-form-preview__value" style="font-size:1.3em;">{{$name}}</em>
             </div>
         </div>
         <div class="weui-form-preview__bd">
             <div class="weui-form-preview__item">
                 <label class="weui-form-preview__label">课时数量</label>
-                <span class="weui-form-preview__value">{{$count}}</span>
+                <span class="weui-form-preview__value" style="font-size:1em;">{{$count}}</span>
             </div>
             <div class="weui-form-preview__item">
                 <label class="weui-form-preview__label">课程价格</label>
-                <span class="weui-form-preview__value">¥2400.00</span>
+                <span class="weui-form-preview__value" style="font-size:1em;">{{$price}}</span>
             </div>
         </div>
         <div class="weui-form-preview__ft">
-            <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">操作</a>
+            <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">生成订单</a>
         </div>
     </div>
 </div>

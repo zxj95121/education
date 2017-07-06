@@ -12,6 +12,7 @@ use App\Models\TeacherTwo;
 use App\Models\TeacherOne;
 use App\Models\UserType;
 
+use App\Http\Controllers\EclassPrice;
 use Session;
 
 class PayClassController extends Controller
@@ -55,9 +56,14 @@ class PayClassController extends Controller
 			$count = TeacherFour::where('pid', $threeObj->pid)
 				->where('status', 1)
 				->count();
-			$name = $oneObj->name.$twoObj->name.$threeObj->name;
+			$name = $oneObj->name.'<br />'.$twoObj->name.$threeObj->name;
 
-			return view('front.views.home.checkMessageResult', ['result'=>$result,'noTime'=>$noTime,'name'=>$name,'count'=>$count]);
+			/*查取单价*/
+			$res = EclassPrice::getUnitPrice($pid);
+			$count = $res['count'];
+			$unitPrice = $res['unitPrice'];
+			$price = number_format($count*$unitPrice, 2);
+			return view('front.views.home.checkMessageResult', ['result'=>$result,'noTime'=>$noTime,'name'=>$name,'count'=>$count,'price'=>$price]);
 		}
     	return view('front.views.home.checkMessageResult', ['result'=>$result,'noTime'=>$noTime]);
     }
