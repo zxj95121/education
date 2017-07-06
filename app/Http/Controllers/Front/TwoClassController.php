@@ -8,6 +8,8 @@ use App\Models\TeacherOne;
 use App\Models\TeacherTwo;
 use App\Models\TeacherThree;
 use App\Models\TeacherFour;
+use App\Models\UserType;
+use App\Models\ParentDetail;
 
 use Session;
 
