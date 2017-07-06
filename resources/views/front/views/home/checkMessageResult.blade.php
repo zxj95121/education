@@ -21,7 +21,7 @@
         @endforeach
     </div>
 <!--     <div class="weui-form-preview__ft"> -->
-        <a href="/front/user_info_parent" style="width: 90%;margin: 0 auto;" class="weui-btn weui-btn_warn">现在去完善信息</a>
+        <a href="/front/user_info_parent#eclass" style="width: 90%;margin: 0 auto;" class="weui-btn weui-btn_warn">现在去完善信息</a>
     <!-- </div> -->
 </div>
 @elseif($noTime)
