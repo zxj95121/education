@@ -81,6 +81,7 @@ class ClassTimeController extends Controller
     			if ($v != $id)
     				$prefer_time .= $v+'-';
     		}
+            var_dump($prefer_time);
     		$prefer_time = substr($prefer_time, 0, -1);
     	}
         var_dump($prefer_time);
