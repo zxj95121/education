@@ -11,6 +11,7 @@ use App\Models\TeacherThree;
 use App\Models\TeacherTwo;
 use App\Models\TeacherOne;
 use App\Models\UserType;
+use App\Models\EclassOrder;
 
 use App\Http\Controllers\EclassPriceController;
 use Session;
@@ -32,7 +33,15 @@ class PayClassController extends Controller
 
 		$order_no = date('YmdHis', time()).rand(1000,9999);
 
-		
+		$flight = EclassOrder();
+		$flight->uid = $uid;
+		$flight->tid = $tid;
+		$flight->order_no = $order_no;
+		$flight->count = $count;
+		$flight->price = $price;
+		$flight->save();
+
+		return view('front.views.parent.eclassOrder');
 	}
 
     public function checkMessage(Request $request)
