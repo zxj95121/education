@@ -19,7 +19,7 @@ class EclassPriceController extends Controller
 
     	$priceObj = ClassPrice::where('status', 1)
     		->select('area', 'price')
-    		->get;
+    		->get();
 
     	foreach ($priceObj as $key => $value) {
     		$area = $value->area;
