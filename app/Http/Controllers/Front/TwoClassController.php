@@ -9,6 +9,8 @@ use App\Models\TeacherTwo;
 use App\Models\TeacherThree;
 use App\Models\TeacherFour;
 
+use Session;
+
 class TwoClassController extends Controller
 {
     public function index(){
