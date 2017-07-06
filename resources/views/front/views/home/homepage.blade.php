@@ -34,6 +34,19 @@
         #all_bottom p:active{
             text-decoration: none;
         }
+        a{
+        	color: @link-color;
+		    text-decoration: none;
+		
+		    &:hover,
+		    &:focus {
+		      color: @link-hover-color;
+		    }
+		
+		    &:focus {
+		      .tab-focus();
+		    }
+        }
     </style>
 </head>
 <body>
