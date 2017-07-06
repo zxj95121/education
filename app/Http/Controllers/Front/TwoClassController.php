@@ -23,6 +23,14 @@ class TwoClassController extends Controller
     }
     public function two(Request $request){
     	$pid = $request->input('pid');
+    	if(empty($pid)){
+			$sess = Session::get('sess');
+			$pid = $sess['pid'];
+    	}else{
+    		$sess['pid'] = $pid;
+    		$sess['class'] = 'class2';
+    		Session::put('sess', $sess);
+    	}
     	$teachertwo = TeacherTwo::where('status','1')->where('pid',$pid)->select('id','name')->get();
         $front_id = $this->getUid(Session::get('openid'));
         $flight = ParentDetail::find($front_id);
@@ -30,6 +38,14 @@ class TwoClassController extends Controller
     }
     public function three(Request $request){
     	$pid = $request->input('pid');
+    	if(empty($pid)){
+    		$sess = Session::get('sess');
+    		$pid = $sess['pid'];
+    	}else{
+    		$sess['pid'] = $pid;
+    		$sess['class'] = 'class3';
+    		Session::put('sess', $sess);
+    	}
     	$teacherthree = TeacherThree::where('status','1')->where('pid',$pid)->select('id','name')->get();
     	return view('front.views.home.twoclass',['res'=>$teacherthree,'class'=>'class3','pid'=>$pid]);
     }
