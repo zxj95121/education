@@ -38,7 +38,7 @@
 				</a>
 			</div>
 		@endforeach
-		@php $selectTime = explode('-', $parentDetail->prefer_time); @endphp
+		@php if($class != "class4" ) $selectTime = explode('-', $parentDetail->prefer_time); @endphp
 		@if($class != "class4" && $parentDetail->prefer_type == 0 && count($selectTime) < 3)
 			<div class="alert alert-success" role="alert"><a href="/front/setClassTime#eclass" style="text-decoration: underline;">您还没有设置上课时间，立即点我去设置。</a></div>
 		@else
