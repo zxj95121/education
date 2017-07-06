@@ -1,18 +1,18 @@
 $(document).on('click','.class1',function(){
 	var pid = $(this).attr('pid');
 	$('#eclass').attr('pid1',pid);
-	$('#eclass1').load('/front/twoClasstwo?pid='+pid);
+	$('#twoclass').load('/front/twoClasstwo?pid='+pid);
 })
 $(document).on('click','.class2',function(){
 	var pid = $(this).attr('pid');
 	$('#eclass').attr('pid2',pid);
-	$('#eclass1').load('/front/twoClassthree?pid='+pid);
+	$('#twoclass').load('/front/twoClassthree?pid='+pid);
 })
 $(document).on('click','.class3',function(){
 	e = window.event;
 	var pid = $(this).attr('pid');
 	if (e.target.tagName == 'P')
-		$('#eclass1').load('/front/twoClassfour?pid='+pid);
+		$('#twoclass').load('/front/twoClassfour?pid='+pid);
 	else if (e.target.tagName == 'SPAN') {
 		console.log('这是购买');
 		var loadIndex = layer.open({
@@ -49,7 +49,7 @@ $(document).on('click','.class3',function(){
 								layer.close(openIndex);
 							})
 						} else {
-							$('#eclass1').after(data);
+							$('#twoclass').after(data);
 						}
 					}
 				}, 50);
@@ -70,5 +70,5 @@ $(document).on('click','#houtui',function(){
 			var pid = $('#eclass').attr('pid2');
 			break;
 	}
-	$('#eclass1').load('/front/twoClassback?fenlei='+twoclass+'&pid='+pid);
+	$('#twoclass').load('/front/twoClassback?fenlei='+twoclass+'&pid='+pid);
 })

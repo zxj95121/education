@@ -33,8 +33,10 @@
 				    <div class="weui-cell__bd">
 				        <p style="margin-bottom:0px">{{$value->name}}</p>
 				    <iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe></div>
-				    <div class="weui-cell__ft">
-				    </div>
+				    @if($class != "class4")
+					    <div class="weui-cell__ft">
+					    </div>
+				    @endif
 				</a>
 			</div>
 		@endforeach
