@@ -38,7 +38,10 @@
 				</a>
 			</div>
 		@endforeach
-		<div class="alert alert-success" role="alert"><a href="/front/setClassTime" style="text-decoration: underline;">您还没有设置上课时间，立即点我去设置。</a></div>
+		@if($parentDetail->prefer_type == 0 && $parentDetail->prefer_time == '')
+			<div class="alert alert-success" role="alert"><a href="/front/setClassTime?action=classroom" style="text-decoration: underline;">您还没有设置上课时间，立即点我去设置。</a></div>
+		@else
+		@endif
 	@else
 		@foreach($res as $value)
 			<div  class="weui-cells buyCell" style="margin:0">
