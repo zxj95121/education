@@ -39,7 +39,7 @@
 			</div>
 		@endforeach
 		@if($parentDetail->prefer_type == 0 && $parentDetail->prefer_time == '')
-			<div class="alert alert-success" role="alert"><a href="/front/setClassTime?action=classroom" style="text-decoration: underline;">您还没有设置上课时间，立即点我去设置。</a></div>
+			<div class="alert alert-success" role="alert"><a href="/front/setClassTime#classroom" style="text-decoration: underline;">您还没有设置上课时间，立即点我去设置。</a></div>
 		@else
 		@endif
 	@else
