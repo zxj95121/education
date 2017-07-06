@@ -78,7 +78,8 @@
    			$.alert('fda');
 
    			$(document).on('click', '#order_pay', function(){
-   				 console.log(navigator.userAgent);
+   				console.log(navigator.userAgent);
+   				alert(navigator.userAgent);
    			})
 		})
 	</script>
