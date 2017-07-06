@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Controllers\Wechat\MsgCrypt;
 
-class WechatIndexController extends Controller
+class wechatIndexCatchonController extends Controller
 {
 	/*接受公众平台消息主PHP文件*/
 
