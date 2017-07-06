@@ -26,7 +26,10 @@ class ClassTimeController extends Controller
     		->select('id', 'low', 'high')
     		->orderBy('low')
     		->get();
-    	return view('front.views.parent.setClassTime',['classType'=>$classType]);
+
+        $userClass = ParentDetail::find($front_id);
+        $userClass = explode('-', $userClass->prefer_time);
+    	return view('front.views.parent.setClassTime',['classType'=>$classType,'userClass'=>$userClass]);
     }
 
     public function selectType(Request $request)

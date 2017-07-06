@@ -50,7 +50,11 @@
 				          	<div class="item-title">{{$value->low}}-{{$value->high}}</div>
 				          	<div class="item-after">
 				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
-				          		<a href="#" class="button button-fill selectBtn">选择</a>
+				          		@if(in_array($value->id, $userClass))
+				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          		@else
+				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          		@endif
 				          	</div>
 				        </div>
 				    </li>
@@ -66,7 +70,11 @@
 		          			<div class="item-title">{{$value->low}}-{{$value->high}}</div>
 		          			<div class="item-after">
 		          				<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
-				          		<a href="#" class="button button-fill selectBtn">选择</a>
+				          		@if(in_array($value->id, $userClass))
+				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          		@else
+				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          		@endif
 		          			</div>
 		        		</div>
 		      		</li>
