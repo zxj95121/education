@@ -24,7 +24,9 @@ class TwoClassController extends Controller
     public function two(Request $request){
     	$pid = $request->input('pid');
     	$teachertwo = TeacherTwo::where('status','1')->where('pid',$pid)->select('id','name')->get();
-    	return view('front.views.home.twoclass',['res'=>$teachertwo,'class'=>'class2','pid'=>$pid]);
+        $front_id = $this->getUid(Session::get('openid'));
+        $flight = ParentDetail::find($front_id);
+    	return view('front.views.home.twoclass',['res'=>$teachertwo,'class'=>'class2','pid'=>$pid,'parentDetail'=>$flight]]);
     }
     public function three(Request $request){
     	$pid = $request->input('pid');
