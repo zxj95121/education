@@ -39,23 +39,33 @@
 <body>
 	@if($userType->type == 2)
 		<div class="container-fluid" id="teacher" style="display: none;">
-        	teacher
+        	<div class="weui-loadmore weui-loadmore_line">
+            	<span class="weui-loadmore__tips">暂无数据</span>
+        	</div>
     	</div>
     	<div class="container-fluid" id="classroom" style="display: none;">
-        	classrome
+        	 <div class="weui-loadmore weui-loadmore_line">
+            	<span class="weui-loadmore__tips">暂无数据</span>
+        	</div>
     	</div>
     	<div class="container-fluid" id="eclass" style="display: none; padding:0">
         
     	</div>
 	@elseif($userType->type == 3)
 		<div class="container-fluid" id="studytime" style="display: none;">
-        	教学时间
+        	<div class="weui-loadmore weui-loadmore_line">
+            	<span class="weui-loadmore__tips">暂无数据</span>
+        	</div>
     	</div>
     	<div class="container-fluid" id="studyplace" style="display: none;">
-        	教学地点
+        	 <div class="weui-loadmore weui-loadmore_line">
+            	<span class="weui-loadmore__tips">暂无数据</span>
+        	</div>
     	</div>
     	<div class="container-fluid" id="salary" style="display: none; padding:0">
-        	薪资待遇
+        	 <div class="weui-loadmore weui-loadmore_line">
+            	<span class="weui-loadmore__tips">暂无数据</span>
+        	</div>
     	</div>
 	@endif
     <div class="container-fluid" id="my" style="display:none">
