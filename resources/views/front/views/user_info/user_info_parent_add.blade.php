@@ -375,14 +375,14 @@ $signPackage = $jssdk->GetSignPackage();
                 }
             });
 
-            var url = new Array();
-            url = window.location.href.split('#');
-    		if(url.length == 1){
-    			var back = '/front/home#my';
+            var urlRedir = new Array();
+            urlRedir = window.location.href.split('#');
+    		if(urlRedir.length == 1){
+    			var backHome = '/front/home#my';
     		}else{
-    			var back = '/front/home#'+url[1];
+    			var backHome = '/front/home#'+urlRedir[1];
     		}
-    		$('#backHome').attr('href', back);
+    		$('#backHome').attr('href', backHome);
 		})
 
 		function removeActive(cdom){
