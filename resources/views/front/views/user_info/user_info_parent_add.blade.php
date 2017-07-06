@@ -362,7 +362,7 @@ $signPackage = $jssdk->GetSignPackage();
 	<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="/js/cutimage/js/cropbox.js"></script>
 	<script type="text/javascript" src="/js/weui/zepto.min.js"></script>
-	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
 	<script type="text/javascript" src="/js/weui/example.js"></script>
 	<script type="text/javascript" src="/js/layui/layer_only/mobile/layer.js"></script>
