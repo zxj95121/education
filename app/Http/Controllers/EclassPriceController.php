@@ -44,4 +44,19 @@ class EclassPriceController extends Controller
 
     	return array('count'=>$count,'unitPrice'=>$unitPrice);
     }
+
+    public static function getName($id)
+    {
+        $threeObj = TeacherThree::find($id);
+
+        $twoid = $threeObj->pid;
+        $twoObj = TeacherTwo::find($twoid);
+
+        $oneid = $twoObj->pid;
+        $oneObj = TeacherOne::find($oneid);
+
+        $name = $oneObj->name.$twoObj->name.$threeObj->name;
+
+        return $name;
+    }
 }

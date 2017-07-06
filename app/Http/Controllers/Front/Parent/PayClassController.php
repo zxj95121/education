@@ -41,7 +41,9 @@ class PayClassController extends Controller
 		$flight->price = $price;
 		$flight->save();
 
-		return view('front.views.parent.eclassOrder');
+		$name = EclassPriceController::getName($tid);
+
+		return view('front.views.parent.eclassOrder', $name);
 	}
 
     public function checkMessage(Request $request)

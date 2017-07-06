@@ -45,4 +45,9 @@ class HtmlController extends Controller
     {
         return 'front.views.parent.setClassTime';
     }
+
+    private function order()
+    {
+        return 'front.views.parent.eclassOrder';
+    }
 }
