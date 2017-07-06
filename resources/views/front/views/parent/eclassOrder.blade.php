@@ -59,7 +59,7 @@
       					</li>
 				    </ul>
 				    <div class="row" style="margin-top:30px;">
-						<div class="col-100"><a href="#" class="button button-big button-fill button-success">立即支付</a></div>
+						<div class="col-100"><a href="#" class="button button-big button-fill button-success" id="order_pay">立即支付</a></div>
 					</div>
 				</div>
 			</div>
@@ -76,6 +76,10 @@
 	<script type="text/javascript">
 		$(function(){
    			$.alert('fda');
+
+   			$(document).on('click', '#order_pay', function(){
+   				 console.log(navigator.userAgent);
+   			})
 		})
 	</script>
 </body>
