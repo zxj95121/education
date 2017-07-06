@@ -50,7 +50,7 @@ class PayClassController extends Controller
 			$twoObj = TeacherTwo::find($twoid);
 
 			$oneid = $twoObj->pid;
-			$oneObj = TeacherOne::fifnd($oneid);
+			$oneObj = TeacherOne::find($oneid);
 
 			$count = TeacherFour::where('pid', $threeObj->pid)
 				->where('status', 1)
