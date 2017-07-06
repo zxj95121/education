@@ -54,13 +54,13 @@
         <div class="weui-form-preview__hd">
             <div class="weui-form-preview__item">
                 <label class="weui-form-preview__label">课程名称</label>
-                <em class="weui-form-preview__value">地方撒GV但是</em>
+                <em class="weui-form-preview__value">{{$name}}</em>
             </div>
         </div>
         <div class="weui-form-preview__bd">
             <div class="weui-form-preview__item">
                 <label class="weui-form-preview__label">课时数量</label>
-                <span class="weui-form-preview__value">59</span>
+                <span class="weui-form-preview__value">{{$count}}</span>
             </div>
             <div class="weui-form-preview__item">
                 <label class="weui-form-preview__label">课程价格</label>
