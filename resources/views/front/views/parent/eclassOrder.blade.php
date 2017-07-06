@@ -22,16 +22,48 @@
   			<div class="content-block-title">双师class订单</div>
   				<div class="list-block">
     				<ul>
+    					<li class="item-content">
+        					<div class="item-media"><i class="icon icon-f7"></i></div>
+        					<div class="item-inner">
+          						<div class="item-title">订单编号</div>
+          						<div class="item-after">2015102100000205</div>
+        					</div>
+      					</li>
       					<li class="item-content">
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">
           						<div class="item-title">课程名称</div>
-          						<div class="item-after">{{$name}}</div>
+          						<div class="item-after">一年级第一阶段</div>
+        					</div>
+      					</li>
+      					<li class="item-content">
+        					<div class="item-media"><i class="icon icon-f7"></i></div>
+        					<div class="item-inner">
+          						<div class="item-title">课时数量</div>
+          						<div class="item-after">63</div>
+        					</div>
+      					</li>
+      					<li class="item-content">
+        					<div class="item-media"><i class="icon icon-f7"></i></div>
+        					<div class="item-inner">
+          						<div class="item-title">订单价格</div>
+          						<div class="item-after" style="font-weight: bold;">¥2400</div>
+        					</div>
+      					</li>
+      					<li class="item-content">
+        					<div class="item-media"><i class="icon icon-f7"></i></div>
+        					<div class="item-inner">
+          						<div class="item-title">状态</div>
+          						<div class="item-after">待支付</div>
         					</div>
       					</li>
 				    </ul>
+				    <div class="row" style="margin-top:30px;">
+						<div class="col-100"><a href="#" class="button button-big button-fill button-success">立即支付</a></div>
+					</div>
 				</div>
 			</div>
+			
 	  	</div>
 	</div>
 

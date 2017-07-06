@@ -59,8 +59,10 @@ class EclassPriceController extends Controller
 
         if ($type == 1)
             $name = $oneObj->name.$twoObj->name.$threeObj->name;
-        else
+        else if ($type == 2)
             $name = $twoObj->name.$threeObj->name;
+        else if ($type == 0)
+            $name = $oneObj->name;
         return $name;
     }
 }
