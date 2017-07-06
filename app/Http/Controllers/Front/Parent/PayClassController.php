@@ -12,7 +12,7 @@ use App\Models\TeacherTwo;
 use App\Models\TeacherOne;
 use App\Models\UserType;
 
-use App\Http\Controllers\EclassPrice;
+use App\Http\Controllers\EclassPriceController;
 use Session;
 
 class PayClassController extends Controller
@@ -59,7 +59,7 @@ class PayClassController extends Controller
 			$name = $oneObj->name.'<br />'.$twoObj->name.$threeObj->name;
 
 			/*查取单价*/
-			$res = EclassPrice::getUnitPrice($pid);
+			$res = EclassPriceController::getUnitPrice($pid);
 			$count = $res['count'];
 			$unitPrice = $res['unitPrice'];
 			$price = number_format($count*$unitPrice, 2);
