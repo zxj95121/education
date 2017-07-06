@@ -36,7 +36,7 @@
 				          	<div class="item-title">由加辰安排</div>
 				          	<div class="item-after">
 				          		<div class="item-input">
-				          			<span class="operateShow">关</span>
+				          			<span class="operateShow">@if($flight->prefer_type == 1) 开 @else 关 @endif</span>
 					              	<label class="label-switch">
 					                	<input type="checkbox" id="checkbox" @if($flight->prefer_type == 1) checked="checked" @else @endif>
 					                	<div class="checkbox" id="selectCheckbox"></div>

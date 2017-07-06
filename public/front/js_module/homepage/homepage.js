@@ -12,6 +12,8 @@ $(function(){
 		})
 		$('#'+forDiv).css('display', 'block');
 		$(this).find('img').attr('src', $(this).find('img').attr('src').replace('.png', '_fill.png'));
+
+		$(this).find('p').css('text-decoration', 'none');
 	})
 
 	var imgUrl = new Array(

@@ -17,6 +17,24 @@ use Session;
 
 class PayClassController extends Controller
 {
+	/*新订单*/
+	public function newEclassOrder(Request $request)
+	{
+		$openid = Session::get('openid');
+		$uid = $this->getUid($openid);
+		/*新订单*/
+		$tid = $request->input('id');
+		/*查取价格*/
+		$res = EclassPriceController::getUnitPrice($tid);
+		$count = $res['count'];
+		$unitPrice = $res['unitPrice'];
+		$price = number_format($count*$unitPrice, 2);
+
+		$order_no = date('YmdHis', time()).rand(1000,9999);
+
+		
+	}
+
     public function checkMessage(Request $request)
     {
     	$openid = Session::get('openid');
@@ -63,7 +81,7 @@ class PayClassController extends Controller
 			$count = $res['count'];
 			$unitPrice = $res['unitPrice'];
 			$price = number_format($count*$unitPrice, 2);
-			return view('front.views.home.checkMessageResult', ['result'=>$result,'noTime'=>$noTime,'name'=>$name,'count'=>$count,'price'=>$price]);
+			return view('front.views.home.checkMessageResult', ['result'=>$result,'noTime'=>$noTime,'name'=>$name,'count'=>$count,'price'=>$price,'id'=>$id]);
 		}
     	return view('front.views.home.checkMessageResult', ['result'=>$result,'noTime'=>$noTime]);
     }
