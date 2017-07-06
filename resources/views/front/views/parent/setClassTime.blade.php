@@ -20,6 +20,12 @@
 <body>
 	<div class="page">
 		<header class="bar bar-nav">
+			<button class="button button-link button-nav pull-left">
+    			<a id="backHome" href="">
+    				<span class="icon icon-left"></span>
+    				返回
+    			</a>
+  			</button>
             <h1 class="title">请选择可上课时间</h1>
         </header>
 		<div class="content">
@@ -111,6 +117,15 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
+
+			var url = new Array();
+            url = window.location.href.split('#');
+    		if(url.length == 1){
+    			var back = '/front/home#my';
+    		}else{
+    			var back = '/front/home#classroom';
+    		}
+    		$('#backHome').attr('href', back);
 
             @if($flight->prefer_type == 1)
             	$('div[hide="true"]').hide();
