@@ -10,28 +10,16 @@
     <link rel="stylesheet" type="text/css" href="/css/weui.css"/>
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/my.css">
     <style type="text/css">
-        #my a:link{
+        a:link{
             text-decoration: none;
         }
-        #my a:visited{
+         a:visited{
             text-decoration: none;
         }
-        #my a:hover{
+         a:hover{
             text-decoration: none;
         }
-        #my a:active{
-            text-decoration: none;
-        }
-        #all_bottom p:link{
-            text-decoration: none;
-        }
-        #all_bottom p:visited{
-            text-decoration: none;
-        }
-        #all_bottom p:hover{
-            text-decoration: none;
-        }
-        #all_bottom p:active{
+         a:active{
             text-decoration: none;
         }
     </style>
@@ -40,12 +28,12 @@
 	@if($userType->type == 2)
 		<div class="container-fluid" id="teacher" style="display: none;">
         	<div class="weui-loadmore weui-loadmore_line">
-            	<span class="weui-loadmore__tips">暂无数据</span>
+            	<span class="weui-loadmore__tips">功能正在开发中</span>
         	</div>
     	</div>
     	<div class="container-fluid" id="classroom" style="display: none;">
         	 <div class="weui-loadmore weui-loadmore_line">
-            	<span class="weui-loadmore__tips">暂无数据</span>
+            	<span class="weui-loadmore__tips">功能正在开发中</span>
         	</div>
     	</div>
     	<div class="container-fluid" id="eclass" style="display: none; padding:0">
@@ -54,17 +42,17 @@
 	@elseif($userType->type == 3)
 		<div class="container-fluid" id="studytime" style="display: none;">
         	<div class="weui-loadmore weui-loadmore_line">
-            	<span class="weui-loadmore__tips">暂无数据</span>
+            	<span class="weui-loadmore__tips">功能正在开发中</span>
         	</div>
     	</div>
     	<div class="container-fluid" id="studyplace" style="display: none;">
         	 <div class="weui-loadmore weui-loadmore_line">
-            	<span class="weui-loadmore__tips">暂无数据</span>
+            	<span class="weui-loadmore__tips">功能正在开发中</span>
         	</div>
     	</div>
     	<div class="container-fluid" id="salary" style="display: none; padding:0">
         	 <div class="weui-loadmore weui-loadmore_line">
-            	<span class="weui-loadmore__tips">暂无数据</span>
+            	<span class="weui-loadmore__tips">功能正在开发中</span>
         	</div>
     	</div>
 	@endif
@@ -216,19 +204,7 @@
 	        </div>
         @endif
     </div>
-    <style>
-    	a{
-        	color: @link-color;
-		    text-decoration: none;
-		    &:hover,
-		    &:focus {
-		      color: @link-hover-color;
-		    }
-		    &:focus {
-		      .tab-focus();
-		    }
-    	}
-    </style>
+
     @if($userType->type == 1)
    		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
 	        <a href="javascript:void(0);" class="weui-tabbar__item" for="my">
