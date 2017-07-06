@@ -53,9 +53,9 @@ class PayClassController extends Controller
 			$oneid = $twoObj->pid;
 			$oneObj = TeacherOne::find($oneid);
 
-			$count = TeacherFour::where('pid', $threeObj->pid)
-				->where('status', 1)
-				->count();
+			// $count = TeacherFour::where('pid', $threeObj->id)
+			// 	->where('status', 1)
+			// 	->count();
 			$name = $oneObj->name.$twoObj->name.$threeObj->name;
 
 			/*查取单价*/

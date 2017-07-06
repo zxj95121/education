@@ -11,7 +11,7 @@ class EclassPriceController extends Controller
 {
     public static function getUnitPrice($id){
     	$threeObj = TeacherThree::find($id);
-    	$pid = $threeObj->pid;
+    	$pid = $threeObj->id;
 
     	$count = TeacherFour::where('pid', $pid)
     		->where('status', 1)
