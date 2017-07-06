@@ -43,7 +43,7 @@ class PayClassController extends Controller
 
 		$name = EclassPriceController::getName($tid);
 
-		return view('front.views.parent.eclassOrder', $name);
+		return view('front.views.parent.eclassOrder', ['name'=>$name]);
 	}
 
     public function checkMessage(Request $request)
