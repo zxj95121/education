@@ -1,18 +1,18 @@
 $(document).on('click','.class1',function(){
 	var pid = $(this).attr('pid');
 	$('#eclass').attr('pid1',pid);
-	$('#twoclass').load('/front/twoClasstwo?pid='+pid);
+	$('#eclass').load('/front/twoClasstwo?pid='+pid);
 })
 $(document).on('click','.class2',function(){
 	var pid = $(this).attr('pid');
 	$('#eclass').attr('pid2',pid);
-	$('#twoclass').load('/front/twoClassthree?pid='+pid);
+	$('#eclass').load('/front/twoClassthree?pid='+pid);
 })
 $(document).on('click','.class3',function(){
 	e = window.event;
 	var pid = $(this).attr('pid');
 	if (e.target.tagName == 'P')
-		$('#twoclass').load('/front/twoClassfour?pid='+pid);
+		$('#eclass').load('/front/twoClassfour?pid='+pid);
 	else if (e.target.tagName == 'SPAN') {
 		console.log('这是购买');
 		var loadIndex = layer.open({
