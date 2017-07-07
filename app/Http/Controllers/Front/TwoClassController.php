@@ -135,17 +135,17 @@ class TwoClassController extends Controller
     		case 'class2':
     			$res = TeacherOne::where('status','1')->select('id','name')->get();
     			$fenlei = 'class1';
-                Session::put('sess', array('class'=>'class1','pid'=>$pid));
+                Session::put('sess', array('class'=>'class2','pid'=>$pid));
     			break;
     		case 'class3';
     			$res = TeacherTwo::where('status','1')->where('pid',$pid)->select('id','name')->get();
     			$fenlei = 'class2';
-                Session::put('sess', array('class'=>'class2','pid'=>$pid));
+                Session::put('sess', array('class'=>'class3','pid'=>$pid));
     			break;
     		case 'class4';
     			$res = TeacherThree::where('status','1')->where('pid',$pid)->select('id','name')->get();
     			$fenlei = 'class3';
-                Session::put('sess', array('class'=>'class3','pid'=>$pid));
+                Session::put('sess', array('class'=>'class4','pid'=>$pid));
     			break;
     	}
     	return view('front.views.home.twoclass',['res'=>$res,'class'=>$fenlei]);
