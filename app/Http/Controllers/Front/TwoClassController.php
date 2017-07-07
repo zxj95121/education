@@ -15,7 +15,7 @@ use Session;
 
 class TwoClassController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
     	$sess = Session::get('sess');
     	if(!empty($sess)){
     		if($sess['class'] == 'class2'){
@@ -35,7 +35,8 @@ class TwoClassController extends Controller
     	
     }
     public function two(Request $request){
-    	$pid = $request->input('pid');
+        if (!Session::has('sess'))
+    	   $pid = $request->input('pid');
     	if(empty($pid)){
 			$sess = Session::get('sess');
 			$pid = $sess['pid'];
@@ -50,7 +51,8 @@ class TwoClassController extends Controller
     	return view('front.views.home.twoclass',['res'=>$teachertwo,'class'=>'class2','pid'=>$pid,'parentDetail'=>$flight]);
     }
     public function three(Request $request){
-    	$pid = $request->input('pid');
+        if (!Session::has('sess'))
+        	$pid = $request->input('pid');
     	if(empty($pid)){
     		$sess = Session::get('sess');
     		$pid = $sess['pid'];
@@ -63,7 +65,8 @@ class TwoClassController extends Controller
     	return view('front.views.home.twoclass',['res'=>$teacherthree,'class'=>'class3','pid'=>$pid]);
     }
     public function four(Request $request){
-    	$pid = $request->input('pid');
+    	if (!Session::has('sess'))
+            $pid = $request->input('pid');
     	if(empty($pid)){
     		$sess = Session::get('sess');
     		$pid = $sess['pid'];
