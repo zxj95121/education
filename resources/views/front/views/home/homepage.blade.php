@@ -37,7 +37,8 @@
         	</div>
     	</div>
     	<div class="container-fluid" id="eclass" style="display: none; padding:0">
-        
+        	<div id="twoclass">
+        	</div>
     	</div>
 	@elseif($userType->type == 3)
 		<div class="container-fluid" id="studytime" style="display: none;">
