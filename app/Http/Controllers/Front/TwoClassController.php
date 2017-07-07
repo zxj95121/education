@@ -19,13 +19,13 @@ class TwoClassController extends Controller
     	$sess = Session::get('sess');
     	if(Session::has('sess')){
     		if($sess['class'] == 'class2'){
-    			$this->twotwo();
+    			$array = $this->twotwo();
     		}else if($sess['class'] == 'class3'){
-    			$this->threethree();
+    			$array = $this->threethree();
     		}else if($sess['class'] == 'class4'){
-    			$this->fourfour();
+    			$array = $this->fourfour();
     		}
-    		return;
+    		return view('front.views.home.twoclass',$array);
     	}else{
     		$teacherone = TeacherOne::where('status','1')->select('id','name')->get();
     		$front_id = $this->getUid(Session::get('openid'));
@@ -56,7 +56,8 @@ class TwoClassController extends Controller
         $teachertwo = TeacherTwo::where('status','1')->where('pid',$pid)->select('id','name')->get();
         $front_id = $this->getUid(Session::get('openid'));
         $flight = ParentDetail::find($front_id);
-        return view('front.views.home.twoclass',['res'=>$teachertwo,'class'=>'class2','pid'=>$pid,'parentDetail'=>$flight]);
+        $array = ['res'=>$teachertwo,'class'=>'class2','pid'=>$pid,'parentDetail'=>$flight];
+        return $array;
     }
 
     public function three(Request $request){
@@ -77,7 +78,8 @@ class TwoClassController extends Controller
         $sess = Session::get('sess');
         $pid = $sess['pid'];
         $teacherthree = TeacherThree::where('status','1')->where('pid',$pid)->select('id','name')->get();
-        return view('front.views.home.twoclass',['res'=>$teacherthree,'class'=>'class3','pid'=>$pid]);
+        $array = ['res'=>$teacherthree,'class'=>'class3','pid'=>$pid];
+        return $array;
     }
 
     public function four(Request $request){
@@ -98,7 +100,8 @@ class TwoClassController extends Controller
         $sess = Session::get('sess');
         $pid = $sess['pid'];
         $teacherfour = TeacherFour::where('status','1')->where('pid',$pid)->select('id','name')->get();
-        return view('front.views.home.twoclass',['res'=>$teacherfour,'class'=>'class4','pid'=>$pid]);
+        $array = ['res'=>$teacherfour,'class'=>'class4','pid'=>$pid];
+        return $array;
     }
 
     public function back(Request $request){
