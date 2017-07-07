@@ -52,7 +52,7 @@ class TwoClassController extends Controller
 
     public function twotwo(){
         $sess = Session::get('sess');
-        $pid = $sess['pid'];
+        $pid = $sess['pid'];dd($pid);
         $teachertwo = TeacherTwo::where('status','1')->where('pid',$pid)->select('id','name')->get();
         $front_id = $this->getUid(Session::get('openid'));
         $flight = ParentDetail::find($front_id);
