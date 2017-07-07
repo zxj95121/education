@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>je-form</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/jeui.css"  media="all">
+    <script type="text/javascript" src="js/modules/jquery.min.js"></script>
+    <script type="text/javascript" src="js/modules/jeCheck.js"></script>
+    <script type="text/javascript" src="js/modules/jeSelect.js"></script>
+</head>
+<body>
+<div class="je-p20">
+    <blockquote class="je-quote je-f16">
+        响应式的表单集合
+    </blockquote>
+    <form id="itemcheac">
+    <div class="je-form-item">
+        <label class="je-label je-f14">单行输入框</label>
+        <div class="je-inputbox">
+            <input type="text" name="title" autocomplete="off" placeholder="请输入标题" class="je-input">
+        </div>
+    </div>
+    <div class="je-form-item">
+        <label class="je-label je-f14">验证必填项</label>
+        <div class="je-inputbox">
+            <input type="text" name="title" autocomplete="off" placeholder="请输入" class="je-input">
+        </div>
+    </div>
+    <div class="je-form-item">
+        <div class="je-w33 je-dib">
+            <label class="je-label je-f14">验证必填项</label>
+            <div class="je-inputbox">
+                <input type="text" name="title" autocomplete="off" placeholder="请输入" class="je-input">
+            </div>
+        </div>
+        <div class="je-w33 je-dib">
+            <label class="je-label je-f14">验证必填项</label>
+            <div class="je-inputbox">
+                <input type="text" name="title" autocomplete="off" placeholder="请输入" class="je-input">
+            </div>
+        </div>
+        <div class="je-w33 je-dib">
+            <label class="je-label je-f14">验证必填项</label>
+            <div class="je-inputbox">
+                <input type="text" name="title" autocomplete="off" placeholder="请输入" disabled class="je-input">
+            </div>
+        </div>
+    </div>
+    <div class="je-form-item">
+        <label class="je-label je-f14">普通文本域</label>
+        <div class="je-inputbox">
+            <textarea placeholder="请输入内容" class="je-textarea"></textarea>
+        </div>
+    </div>
+    <div class="je-form-item je-f14">
+        <label class="je-label je-f14">多选内容</label>
+        <input type="checkbox" name="checkbox" data-val="1" disabled jename="HTML">
+        <input type="checkbox" name="checkbox" data-val="2" checked disabled jename="选中并禁用">
+        <input type="checkbox" name="checkbox" data-val="3" checked jename="CSS">
+        <input type="checkbox" name="checkbox" data-val="4" jename="JavaScript">
+        <input type="checkbox" name="checkbox" data-val="5" jename="SEO">
+        <input type="checkbox" name="checkbox" data-val="6" jename="PHP">
+        <input type="checkbox" name="checkbox" data-val="7" jename="JAVA">
+        <input type="checkbox" name="checkbox" data-val="8" jename=".NET">
+    </div>
+    <div class="je-form-item je-f14">
+        <label class="je-label je-f14">单选内容</label>
+        <input type="radio" name="radio" jename="视觉设计师">
+        <input type="radio" name="radio" >
+        <input type="radio" name="radio" checked jename="前端工程师">
+        <input type="radio" name="radio" jename="数据分析师">
+        <input type="radio" name="radio" disabled jename="选中并禁用">
+    </div>
+
+    <div class="je-form-item je-f14">
+        <label class="je-label je-f14">switch多选</label>
+        <input type="checkbox" name="checkboxswitch" switch disabled jename="HTML">
+        <input type="checkbox" name="checkboxswitch" switch checked disabled jename="选中并禁用">
+        <input type="checkbox" name="checkboxswitch" switch checked jename="CSS">
+        <input type="checkbox" name="checkboxswitch" switch jename="JavaScript">
+        <input type="checkbox" name="checkboxswitch" switch jename="SEO">
+    </div>
+    <div class="je-form-item je-f14">
+        <label class="je-label je-f14">switch单选</label>
+        <input type="radio" name="radioswitch" switch jename="视觉设计师">
+        <input type="radio" name="radioswitch" switch checked jename="前端工程师">
+        <input type="radio" name="radioswitch" switch disabled jename="选中并禁用">
+    </div>
+        
+    <div class="je-form-item je-f14">
+        <label class="je-label je-f14">下拉选择</label>
+        <select class="myselect" id="myselect">
+            <option value="交互设计">交互设计</option>
+            <option value="视觉设计">视觉设计</option>
+            <optgroup label="技术开发">
+                <option value="前端开发">前端开发</option>
+                <option value="后端开发">后端开发</option>
+            </optgroup>
+            <option value="用户研究">用户研究</option>
+            <option value="产品经理">产品经理</option>
+            <optgroup label="城市记忆">
+                <option value="你工作的第一个城市">你工作的第一个城市</option>
+            </optgroup>
+            <optgroup label="学生时代">
+                <option value="你的工号">你的工号</option>
+                <option value="你最喜欢的老师">你最喜欢的老师</option>
+            </optgroup>
+        </select>
+        <select class="myselect" >
+            <option value="交互设计11">交互设计11</option>
+            <option value="视觉设计22">视觉设计22</option>
+            <optgroup label="开发">
+                <option value="前端开发">前端开发</option>
+                <option value="后端开发" selected>后端开发</option>
+            </optgroup>
+            <option value="用户研究33">用户研究33</option>
+            <option value="产品经理44">产品经理44</option>
+        </select>
+    </div>
+    </form>
+    
+    
+    <blockquote class="je-quote je-f16">
+        方框风格的表单集合
+    </blockquote>
+    <div class="je-form-pane">
+        <label class="je-label je-f14">单行输入框</label>
+        <div class="je-inputbox">
+            <input type="text" name="title" autocomplete="off" placeholder="请输入标题" class="je-input">
+        </div>
+    </div>
+    <div class="je-form-pane">
+        <label class="je-label je-f14">验证必填项</label>
+        <div class="je-inputbox">
+            <input type="text" name="title" autocomplete="off" placeholder="请输入" class="je-input">
+        </div>
+    </div>
+    <div class="je-form-pane">
+        <div class="je-w33 je-dib">
+            <label class="je-label je-f14">验证必填项</label>
+            <div class="je-inputbox">
+                <input type="text" name="title" autocomplete="off" placeholder="请输入" class="je-input">
+            </div>
+        </div>
+        <div class="je-w33 je-dib">
+            <label class="je-label je-f14">验证必填项</label>
+            <div class="je-inputbox">
+                <input type="text" name="title" autocomplete="off" placeholder="请输入" class="je-input">
+            </div>
+        </div>
+        <div class="je-w33 je-dib">
+            <button class="je-btn je-f14">默认按钮</button>
+        </div>
+    </div>
+    <div class="je-form-text">
+        <label class="je-label je-f14">普通文本域</label>
+        <textarea placeholder="请输入内容" class="je-textarea"></textarea>
+    </div>
+</div>
+<script type="text/javascript">
+    $("#itemcheac").jeCheck({
+        itemfun:function (elem) {
+            //alert(elem.attr("jename"))
+        }
+    })
+    $(".myselect").jeSelect({sosList:false});
+//    $("#myselect").on("change",function () {
+//        console.log($(this).get(0).selectedIndex)
+//    })
+</script>
+</body>
+</html>

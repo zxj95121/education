@@ -152,6 +152,10 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/setClassTime/editTime', 'Teacher\ClassTimeController@editTime');
     $router->post('/setClassTime/deleteTime', 'Teacher\ClassTimeController@deleteTime');
 
+    /*双师class订单管理*/
+    $router->get('/eclassOrderList', 'EclassOrderController@list');
+    $router->post('/eclassOrderList/confirmOK', 'EclassOrderController@confirmOK');
+
 
     /*待请求审核*/
       /*学校审核*/

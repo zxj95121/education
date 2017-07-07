@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>je-table</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/jeui.css"  media="all">
+    <script type="text/javascript" src="js/modules/jquery.min.js"></script>
+    <script type="text/javascript" src="js/modules/jeTable.js"></script>
+    <script type="text/javascript" src="js/userdata.js"></script>
+    <style>
+        .je-field .je-btn {
+            margin: 0 7px 10px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="je-p20">
+    
+    <blockquote class="je-quote je-f16">
+        默认表格
+    </blockquote>
+    <div id="testtwo" class="je-f14"></div>
+    
+    <blockquote class="je-quote je-f16 je-mt20">
+        默认表格
+    </blockquote>
+    <div id="testtable" class="je-f14"></div>
+    
+</div>
+<script type="text/javascript">
+
+    $("#testtable").jeTable({
+        //width:600,
+        height:"400",
+        isPage:false,
+        datas:user.data,
+        columnSort:[1,2,3,4],
+        columns:[
+            {name:'ID', field:'id', width:"80", align: 'center'},
+            {name:'姓名', field:'userName', width:"120", align: 'left', renderer: ""},
+            { name:'性别', field:'userSex' ,width:"100", align:'center'},
+            { name:'邮箱', field:'email' ,width:"300", align:'left' },
+            { name:'手机', field:'phone' ,width:"150", align:'center'},
+            { name:'身份证号', field:'identity' ,width:"200", align:'left', renderer: ""},
+            { name:'地址', field:'address' ,width:"250", align:'left', renderer: ""},
+            { name:'时间', field:'joinTime' ,width:"200", align:'left', renderer: function(obj,rowidx){
+                return formatdate(obj.joinTime,"YYYY-MM-DD hh:mm:ss")
+            }},
+            { name:'详情', field:'id' ,width:"100", align:'center',renderer: function(obj,rowidx){
+                //console.log(obj)
+                return "<a href='javascript:;' class='je-blue' onclick=objtest('"+obj.userName+"')>查看"+rowidx+"</a>";
+            }}
+        ]
+    })
+    $("#testtwo").jeTable({
+        //width:"100%",
+        height:300,
+        datas:{
+            url:"http://cm.jtccs.com/testitem.php",
+            //url:"http://sinarts.byethost17.com/testitem.php",
+            data:{totalcount:"600"},
+            type:"POST",
+            async:false,
+            dataType:"jsonp",
+            field:"rows"
+        },
+        pageField:{
+            pageIndex:{field:"size",num:1},
+            pageSize:{field:"pagesize",num:15},
+            ellipsis:true,
+            dataCount:"totalCount",
+            pageCount:"totalPage" 
+        },
+        columnSort:[],
+        columns:[
+            {name:'ID', field:'id', width:"80", align: 'center',isShow:false, renderer: ""},
+            { name:'名称', field:'name' ,width:"550", align:'left' },
+            {name:'随机字符',field:'randStr',width:"150", align:'left'},
+            { name:'随机数字', field:'time' ,width:"200", align:'left', renderer: ""}
+        ],
+        itemfun:function (elem,data) {
+            elem.on("dblclick",function () {
+                //var trdata = $.parseJSON($(this).attr("trdata"));
+                console.log(data)
+            })
+        },
+        success:function (elem) {
+            
+        }
+    })
+    function objtest(obj){
+        alert(obj)
+        console.log(obj);
+    }
+    
+    function formatdate(str,attr) {
+        if (isNaN(str)){
+            return str;
+        }else {
+            var fmt = attr || "YYYY-MM-DD", dateNum = parseInt((str.toString()).substring(0,10)),
+                times = new Date(dateNum * 1000);
+            var o = {
+                "M+": times.getMonth() + 1, // 月
+                "D+": times.getDate(), // 日
+                "h+": times.getHours(), // 时
+                "m+": times.getMinutes(), // 分
+                "s+": times.getSeconds(), // 秒
+                "q+": Math.floor((times.getMonth() + 3) / 3), // 季度
+                "ms": times.getMilliseconds() // 毫秒
+            };
+            if (/(Y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (times.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o) {
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            }
+            return fmt;
+        }
+    }
+    // 仿jq生成dom对象
+    var parseHTML = function(str) {
+        var tmp = document.implementation.createHTMLDocument();
+        tmp.body.innerHTML = str;
+        return tmp.body.children;
+    };
+
+    //alert(parseHTML("<div></div>"));
+</script>
+</body>
+</html>
