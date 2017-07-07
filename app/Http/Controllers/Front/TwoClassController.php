@@ -15,13 +15,14 @@ use Session;
 
 class TwoClassController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
     	$sess = Session::get('sess');
     	if(!empty($sess)){
     		if($sess['class'] == 'class2'){
     			$this->two();
     		}else if($sess['class'] == 'class3'){
-    			$this->three();
+                $pid = $request->input('pid');
+    			$this->three($pid);
     		}else if($sess['class'] == 'class4'){
     			$this->four();
     		}
@@ -49,8 +50,8 @@ class TwoClassController extends Controller
         $flight = ParentDetail::find($front_id);
     	return view('front.views.home.twoclass',['res'=>$teachertwo,'class'=>'class2','pid'=>$pid,'parentDetail'=>$flight]);
     }
-    public function three(Request $request){
-    	$pid = $request->input('pid');
+    public function three($pid){
+    	// $pid = $request->input('pid');
     	if(empty($pid)){
     		$sess = Session::get('sess');
     		$pid = $sess['pid'];
