@@ -328,7 +328,7 @@
         	includeLink("/front/my/twoclass.js","js");
 
         	$.ajax({
-        		url: '/twoClass/getpid',
+        		url: '/front/twoClass/getpid',
         		dataType: 'json',
         		type: 'post',
         		data: {
