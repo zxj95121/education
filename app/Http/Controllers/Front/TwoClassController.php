@@ -17,7 +17,7 @@ class TwoClassController extends Controller
 {
     public function index(Request $request){
     	$sess = Session::get('sess');
-    	if(!empty($sess)){
+    	if(Session::has('sess')){
     		if($sess['class'] == 'class2'){
     			$this->twotwo();
     		}else if($sess['class'] == 'class3'){
