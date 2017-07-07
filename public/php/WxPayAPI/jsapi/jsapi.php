@@ -1,8 +1,8 @@
 <?php 
 ini_set('date.timezone','Asia/Shanghai');
 //error_reporting(E_ERROR);
-require_once "../lib/WxPay.Api.php";
-require_once "WxPay.JsApiPay.php";
+require_once $_SERVER['DOCUMENT_ROOT'].'/php/WxPayAPI/lib/WxPay.Api.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/php/WxPayAPI/jsapi/WxPay.JsApiPay.php';
 // require_once 'log.php';
 
 //初始化日志
