@@ -135,6 +135,7 @@ class TwoClassController extends Controller
     		case 'class2':
     			$res = TeacherOne::where('status','1')->select('id','name')->get();
     			$fenlei = 'class1';
+                Session::put('sess', array('class'=>'class1','pid'=>$pid));
     			break;
     		case 'class3';
     			$res = TeacherTwo::where('status','1')->where('pid',$pid)->select('id','name')->get();
