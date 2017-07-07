@@ -76,7 +76,6 @@ class TwoClassController extends Controller
     public function threethree(){
         $sess = Session::get('sess');
         $pid = $sess['pid'];
-        dd($pid);
         $teacherthree = TeacherThree::where('status','1')->where('pid',$pid)->select('id','name')->get();
         return view('front.views.home.twoclass',['res'=>$teacherthree,'class'=>'class3','pid'=>$pid]);
     }
