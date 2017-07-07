@@ -233,6 +233,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 	$router->get('/twoClasstwo','TwoClassController@two');
 	$router->get('/twoClassthree','TwoClassController@three');
 	$router->get('/twoClassfour','TwoClassController@four');
+  $router->post('/twoClass/getpid', 'TwoClassController@getpid');
 	/*双师class后退  */
 	$router->get('/twoClassback','TwoClassController@back');
 

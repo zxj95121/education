@@ -326,6 +326,21 @@
         $('#eclass1').click(function(){
             $('#eclass').load('/front/twoClass');
         	includeLink("/front/my/twoclass.js","js");
+
+        	$.ajax({
+        		url: '/twoClass/getpid',
+        		dataType: 'json',
+        		type: 'post',
+        		data: {
+
+        		},
+        		success: function(data) {
+        			if(data.errcode == 0) {
+        				$('#eclass').attr('pid1',data.pid1);
+        				$('#eclass').attr('pid2',data.pid2);
+        			}
+        		}
+        	})
         })
     </script>
 </body>

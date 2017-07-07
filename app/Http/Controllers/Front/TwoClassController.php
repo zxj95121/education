@@ -82,6 +82,30 @@ class TwoClassController extends Controller
         return $array;
     }
 
+    public function getpid(){
+        if (Session::has('sess')) {
+            $sess = Session::get('sess');
+            $class = $sess['class'];
+            if ($class == 'class4') {
+                $pid = $sess['pid'];
+                $pid2 = TeacherThree::where('status', '1')
+                    ->where('id', $pid)
+                    ->select('pid')
+                    ->get()[0]->pid;
+                $pid1 = TeacherTwo::where('status', '1')
+                    ->where('id', $pid2)
+                    ->select('pid')
+                    ->get()[0]->pid;
+                echo json_encode(['errcode'=>0,'pid1'=>$pid1,'pid2'=>$pid2]);
+                exit;
+            }
+        } else {
+            echo json_encode(['errcode'=>1]);
+            exit;
+        }
+        
+    }
+
     public function four(Request $request){
     	$pid = $request->input('pid');
     	if(empty($pid)){
