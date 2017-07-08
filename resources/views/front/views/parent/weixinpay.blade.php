@@ -30,7 +30,7 @@ $input->SetAttach("test");//附加数据
 $input->SetOut_trade_no('20150806125346');//商户订单号
 $input->SetTotal_fee("1");//标价金额
 $input->SetTime_start(date("YmdHis"));//交易起始时间
-$input->SetTime_expire(date("YmdHis", time() + 600));//交易结束时间
+$input->SetTime_expire(date("YmdHis", time() + 300));//交易结束时间
 $input->SetGoods_tag("test");//订单优惠标记
 $input->SetNotify_url("http://api.zhangxianjian.com/front/parent/notify");//通知地址
 $input->SetTrade_type("JSAPI");//交易类型
