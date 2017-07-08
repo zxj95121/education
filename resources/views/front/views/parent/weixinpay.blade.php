@@ -22,7 +22,6 @@ function printf_info($data)
 //①、获取用户openid
 $tools = new JsApiPay();
 $openId = $tools->GetOpenid();
-var_dump($openId);
 //②、统一下单
 $input = new WxPayUnifiedOrder();
 $input->SetBody("test");//商品描述
@@ -35,8 +34,6 @@ $input->SetNotify_url("http://api.zhangxianjian.com/front/parent/notify");//通�
 $input->SetTrade_type("JSAPI");//交易类型
 $input->SetOpenid($openId);//用户标识
 $order = WxPayApi::unifiedOrder($input);
-var_dump($order);
-die;
 echo '<font color="#f00"><b>统一下单支付单信息</b></font><br/>';
 printf_info($order);
 $jsApiParameters = $tools->GetJsApiParameters($order);
