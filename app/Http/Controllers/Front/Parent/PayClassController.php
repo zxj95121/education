@@ -16,8 +16,6 @@ use App\Models\EclassOrder;
 use App\Http\Controllers\EclassPriceController;
 use Session;
 
-use Illuminate\Support\Facades\DB;
-
 class PayClassController extends Controller
 {
 	/*新订单*/
@@ -105,13 +103,9 @@ class PayClassController extends Controller
 	{
 		return view('front.views.parent.weixinpay');
 	}
-	public function notify(Request $request)
+	public function notify()
 	{
-		$post = $request->all();
-		$post = json_decode($post);
-		DB::table('ceshi')->insert([
-				['text' => $post]
-		]);
+		
 	}
     private function getUid($openid)
     {
