@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class HtmlController extends Controller
 {
     public function index(Request $request)
@@ -50,4 +50,12 @@ class HtmlController extends Controller
     {
         return 'front.views.parent.eclassOrder';
     }
+	public function notify(Request $request)
+	{
+		$post = $request->all();
+		$post = json_decode($post);
+		DB::table('ceshi')->insert([
+				['text' => $post]
+		]);
+	}
 }
