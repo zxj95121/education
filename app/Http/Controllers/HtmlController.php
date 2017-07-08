@@ -52,10 +52,14 @@ class HtmlController extends Controller
     }
 	public function notify(Request $request)
 	{
+		
 		$post = $request->all();
-		$post = json_decode($post);
-		DB::table('ceshi')->insert([
-				['text' => $post]
-		]);
+		if(!empty($post)){
+			$post = json_decode($post);
+			DB::table('ceshi')->insert([
+					['text' => $post]
+			]);
+		}
+
 	}
 }
