@@ -103,6 +103,10 @@ class PayClassController extends Controller
 	{
 		return view('front.views.parent.weixinpay');
 	}
+	public function notify()
+	{
+		
+	}
     private function getUid($openid)
     {
     	$userType = UserType::where('openid', $openid)

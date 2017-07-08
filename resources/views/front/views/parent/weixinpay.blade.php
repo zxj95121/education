@@ -22,7 +22,7 @@ function printf_info($data)
 //①、获取用户openid
 $tools = new JsApiPay();
 $openId = $tools->GetOpenid();
-dump($openId);
+var_dump($openId);
 //②、统一下单
 $input = new WxPayUnifiedOrder();
 $input->SetBody("test");//商品描述
@@ -32,7 +32,7 @@ $input->SetTotal_fee("1");//标价金额
 $input->SetTime_start(date("YmdHis"));//交易起始时间
 $input->SetTime_expire(date("YmdHis", time() + 600));//交易结束时间
 $input->SetGoods_tag("test");//订单优惠标记
-$input->SetNotify_url("");//通知地址
+$input->SetNotify_url("http://api.zhangxianjian.com/front/parent/notify");//通知地址
 $input->SetTrade_type("JSAPI");//交易类型
 $input->SetOpenid($openId);//用户标识
 $order = WxPayApi::unifiedOrder($input);
