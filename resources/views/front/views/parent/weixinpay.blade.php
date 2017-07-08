@@ -34,6 +34,8 @@ $input->SetNotify_url("http://api.zhangxianjian.com/weixin/notify");//通知地�
 $input->SetTrade_type("JSAPI");//交易类型
 $input->SetOpenid($openId);//用户标识
 $order = WxPayApi::unifiedOrder($input);
+var_dump($order);
+die;
 echo '<font color="#f00"><b>统一下单支付单信息</b></font><br/>';
 printf_info($order);
 $jsApiParameters = $tools->GetJsApiParameters($order);
