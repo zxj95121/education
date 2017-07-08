@@ -103,9 +103,10 @@ class PayClassController extends Controller
 	{
 		return view('front.views.parent.weixinpay');
 	}
+
 	public function notify()
 	{
-		echo 123;	
+		echo 123;
 	}
     private function getUid($openid)
     {

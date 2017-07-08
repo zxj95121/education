@@ -31,6 +31,7 @@ Route::get('/html', 'HtmlController@index');
 Route::any('/wechatIndex', 'Wechat\WechatIndexController@index');
 Route::any('/wechatIndexCatchon', 'Wechat\WechatIndexCatchonController@index');
 
+Route::any('/weixin/notify','HtmlController@notify');
 /*微信网页授权*/
 Route::get('/oauth/getCode', 'Wechat\OauthController@getCode');
 
@@ -246,7 +247,6 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
       /*新订单*/
   $router->get('/parent/newEclassOrder', 'Parent\PayClassController@newEclassOrder');
   $router->get('/parent/weixinpay','Parent\PayClassController@weixinpay');
-  $router->get('/parent/notify','Parent\PayClassController@notify');
   /*设置上课时间期望*/
   $router->get('/setClassTime', 'Parent\ClassTimeController@setClassTime');
   $router->post('/setClassTime/selectType', 'Parent\ClassTimeController@selectType');/*ajax请求是否加辰自动排课*/
