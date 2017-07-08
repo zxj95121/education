@@ -22,18 +22,19 @@ function printf_info($data)
 //①、获取用户openid
 $tools = new JsApiPay();
 $openId = $tools->GetOpenid();
+dump($openId);
 //②、统一下单
 $input = new WxPayUnifiedOrder();
-$input->SetBody("test");
-$input->SetAttach("test");
-$input->SetOut_trade_no(WxPayConfig::MCHID.date("YmdHis"));
-$input->SetTotal_fee("1");
-$input->SetTime_start(date("YmdHis"));
-$input->SetTime_expire(date("YmdHis", time() + 600));
-$input->SetGoods_tag("test");
-$input->SetNotify_url("http://paysdk.weixin.qq.com/example/notify.php");
-$input->SetTrade_type("JSAPI");
-$input->SetOpenid($openId);
+$input->SetBody("test");//商品描述
+$input->SetAttach("test");//附加数据
+$input->SetOut_trade_no('20150806125346');//商户订单号
+$input->SetTotal_fee("1");//标价金额
+$input->SetTime_start(date("YmdHis"));//交易起始时间
+$input->SetTime_expire(date("YmdHis", time() + 600));//交易结束时间
+$input->SetGoods_tag("test");//订单优惠标记
+$input->SetNotify_url("");//通知地址
+$input->SetTrade_type("JSAPI");//交易类型
+$input->SetOpenid($openId);//用户标识
 $order = WxPayApi::unifiedOrder($input);
 var_dump($order);
 die;
