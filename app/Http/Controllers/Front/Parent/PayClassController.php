@@ -105,7 +105,7 @@ class PayClassController extends Controller
 	}
 	public function notify()
 	{
-		
+		echo 123;	
 	}
     private function getUid($openid)
     {
