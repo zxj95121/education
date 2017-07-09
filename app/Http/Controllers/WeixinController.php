@@ -10,8 +10,11 @@ class WeixinController extends Controller
     public function notify(Request $request)
     {
     	$date = $request->all();
+    	$date = json_decode($date);
+    	dump($date);
+    	die;
     	if($date != ''){
-    		Db::table('ceshi')->insert([
+    		DB::table('ceshi')->insert([
     				['text'=>$date]
     		]);
     	}
