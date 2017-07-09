@@ -2,8 +2,8 @@
 /**
 * 2015-06-29 修复签名问题
 **/
-require_once "WxPay.Config.php";
-require_once "WxPay.Exception.php";
+require_once $_SERVER['DOCUMENT_ROOT'].'/php/WxPayAPI/lib/WxPay.Config.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/php/WxPayAPI/lib/WxPay.Exception.php';
 
 /**
  * 
