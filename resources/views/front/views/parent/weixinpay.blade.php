@@ -26,7 +26,7 @@ $openId = $tools->GetOpenid();
 $input = new WxPayUnifiedOrder();
 $input->SetBody("test");//商品描述
 $input->SetAttach("test");//附加数据
-$input->SetOut_trade_no('20150806125346');//商户订单号
+$input->SetOut_trade_no('2015080612534'.time());//商户订单号
 $input->SetTotal_fee("1");//标价金额
 $input->SetTime_start(date("YmdHis"));//交易起始时间
 $input->SetGoods_tag("test");//订单优惠标记
@@ -36,8 +36,6 @@ $input->SetOpenid($openId);//用户标识
 $order = WxPayApi::unifiedOrder($input);
 echo '<font color="#f00"><b>统一下单支付单信息</b></font><br/>';
 printf_info($order);
-var_dump($order);
-die;
 $jsApiParameters = $tools->GetJsApiParameters($order);
 
 //获取共享收货地址js函数参数
