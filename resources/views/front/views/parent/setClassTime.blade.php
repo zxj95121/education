@@ -26,7 +26,13 @@
     				返回
     			</a>
   			</button>
-            <h1 class="title">选择可上课时间(至少选三个)</h1>
+            <h1 class="title">选择可上课时间</h1>
+            <button class="button button-link button-nav pull-right">
+    			<a id="setOK" href="">
+    				<span class="icon icon-right"></span>
+    				提交
+    			</a>
+  			</button>
         </header>
 		<div class="content">
 			<div class="list-block top" hide="false" style="margin:8px 0;">
