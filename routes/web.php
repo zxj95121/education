@@ -25,7 +25,7 @@ Route::get('/html/{name}',function($name){
 });
 Route::get('/html', 'HtmlController@index');
 
-
+Route::any('/wxpay/notify','WeixinController@notify');
 //<!------------Wechat文件夹----------------------->
 /*微信接入主程序*/
 Route::any('/wechatIndex', 'Wechat\WechatIndexController@index');
