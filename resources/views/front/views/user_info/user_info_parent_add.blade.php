@@ -89,7 +89,7 @@ $signPackage = $jssdk->GetSignPackage();
 	                </div>
 	            </div>
 	            <div class="weui-cell weui-cell_access row_info input_info" target="surname">
-	                <div class="weui-cell__bd">姓氏</div>
+	                <div class="weui-cell__bd">家长尊姓</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;">{{$userDetail->surname}}</span>
 	                </div>
