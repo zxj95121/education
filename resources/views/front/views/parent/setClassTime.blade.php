@@ -34,9 +34,7 @@
   			</button>
         </header>
 		<div class="content">
-			<header class="bar bar-nav">
-		      	<h1 class="title" style="color: red;">注意：上课时间设置只有一次机会。</h1>
-		  	</header>
+		    <p style="color: red;">注意：上课时间设置只有一次机会。</p>
 			<div class="list-block top" hide="false" style="margin:8px 0;">
 			    <ul>
 			      	<li class="item-content">
