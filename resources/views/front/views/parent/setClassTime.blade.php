@@ -29,12 +29,14 @@
             <h1 class="title">选择可上课时间</h1>
             <button class="button button-link button-nav pull-right">
     			<a id="setOK" href="">
-    				<span class="icon icon-right"></span>
-    				提交
+    				提交<span class="icon icon-check"></span>
     			</a>
   			</button>
         </header>
 		<div class="content">
+			<header class="bar bar-nav">
+		      	<h1 class="title" style="color: red;">注意：上课时间设置只有一次机会。</h1>
+		  	</header>
 			<div class="list-block top" hide="false" style="margin:8px 0;">
 			    <ul>
 			      	<li class="item-content">
