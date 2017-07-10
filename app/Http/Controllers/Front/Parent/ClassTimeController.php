@@ -96,7 +96,14 @@ class ClassTimeController extends Controller
         $select = $request->input('select');
         $is_order = $request->input('is_order');
 
-        dd($request->all());
+        $str = implode('-', $select);
+
+        $front_id = $this->getUid(Session::get('openid'));
+
+        ParentDetail::where('id', $front_id)
+            ->update(['prefer_type'=>$is_order,'prefer_time'=>$str,'classTimes'=>$classTimes]);
+            
+        return response()->json(['errcode'=>0]);
     }
 
     private function getUid($openid)
