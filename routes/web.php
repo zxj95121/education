@@ -158,6 +158,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/eclassOrderList/confirmOK', 'EclassOrderController@confirmOK');
     $router->post('/eclassOrderList/confirmXX', 'EclassOrderController@confirmXX');//驳回审核
 
+    /*查订单用户的信息*/
+    $router->post('/classOrder/useDetail', 'EclassOrderController@useDetail');
+
 
     /*待请求审核*/
       /*学校审核*/

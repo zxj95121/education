@@ -14,7 +14,14 @@
     ::-webkit-scrollbar{  
         height: 20px;  
         background-color: #C1C1C1;  
-    }  
+    }
+    #useOrderModal tr{
+        border-top: 0px solid transparent;
+    }
+    #useOrderModal td,#useOrderModal th{
+        font-size: 16px;
+        border-top: 0px solid transparent;
+    }
 </style>
 @endsection
 
@@ -116,7 +123,7 @@
                                                 <tbody>
                                                     @foreach($orderList as $value)
                                                     <tr oid="{{$value->id}}">
-                                                        <td>{{$value->id}}</td>
+                                                        <td id="td_id">{{$value->id}}</td>
                                                         <td>
                                                             @if($value->pay_status == 1 && $value->confirm_status == 0)
                                                                 <span class="label label-info orderOKBtn">确认订单</span>
@@ -137,10 +144,10 @@
                                                             @else
                                                             @endif
                                                         </td>
-                                                        <td>{{$value->order_no}}</td>
-                                                        <td>{{$value->name1}}&gt;{{$value->name2}}&gt;{{$value->name3}}</td>
-                                                        <td>{{$value->count}}</td>
-                                                        <td>{{$value->price}}</td>
+                                                        <td id="td_no">{{$value->order_no}}</td>
+                                                        <td id="td_name">{{$value->name1}}&gt;{{$value->name2}}&gt;{{$value->name3}}</td>
+                                                        <td id="td_count">{{$value->count}}</td>
+                                                        <td id="td_price">{{$value->price}}</td>
                                                         <td>
                                                             @if($value->pay_status == 1)
                                                                 <span class="label label-success">已支付</span>
@@ -158,9 +165,9 @@
                                                                 <span class="label label-danger">已驳回</span></td>
                                                             @endif
                                                         </td>
-                                                        <td>{{$value->nickname}}</td>
+                                                        <td id="td_nickname">{{$value->nickname}}</td>
                                                         <td>{{$value->phone}}</td>
-                                                        <td>{{$value->created_at}}</td>
+                                                        <td id="td_time">{{$value->created_at}}</td>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
@@ -203,9 +210,130 @@
             </div> -->
 
             <div id="useOrderModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-dialog modal-lg" role="document" style="width: 80%;">
                     <div class="modal-content">
-                    ..fdaf.
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel" style="font-weight: bold;font-size: 18px;font-family: '宋体';">分配订单到教室、日期</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <table class="table" style="width: 100%;display: inline-table;">
+                                        <tr>
+                                            <th width="50%">订单详情</th>
+                                            <th width="50%"></th>
+                                        </tr>
+                                        <tr>
+                                            <td>订单ID: <span id="span_id">8</span></td>
+                                            <td>订单编号: <span id="span_no">145151</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>课程名称: <span id="span_name">laochanglaochang</span></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>课时数量: <span id="span_count">8</span></td>
+                                            <td>订单价格: <span id="span_price" style="color:red;">80.00</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>用户昵称: <span id="span_nickname">young</span></td>
+                                            <td>订单时间: <span id="span_time" style="color:red;">2017</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">用户选择时间</div>
+                                        <div class="panel-body">
+                                            <p id="timeP">
+                                                <span class="label label-primary">周一放学后</span>
+                                                <span class="label label-primary">周二放学后</span>
+                                                <span class="label label-primary">周三放学后</span>
+                                                <span class="label label-primary">周四放学后</span>
+                                                <span class="label label-primary">周五放学后</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">用户每周上课次数</div>
+                                        <div class="panel-body">
+                                            <h2 id="h2Times">3次</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <table class="table table-hover" style="width: 100%;display: inline-table;">
+                                        <tr>
+                                            <th width="25%">班级详情</th>
+                                            <th width="25%"></th>
+                                            <th width="25%"></th>
+                                            <th width="25%"></th>
+                                        </tr>
+                                        <tr>
+                                            <th>ID:</th>
+                                            <th>名称:</th>
+                                            <th>班级已有人数:</th>
+                                            <th>课程种类:</th>
+                                        </tr>
+                                        @foreach($classObj as $value)
+                                        <tr>
+                                            <td>{{$value->id}}</td>
+                                            <td>{{$value->name}}</td>
+                                            <td>5</td>
+                                            <td>2</td>
+                                        </tr>
+                                        @endforeach
+                                    </table>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">当前所选课时、星期、班级<b>已有课程</b></div>
+                                        <div class="panel-body">
+                                            <span class="label label-primary">fdasfdfad</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <form class="form-inline p-20" role="form">
+                                    <div class="form-group" style="margin-right: 20px;">
+                                        <label for="weekSelect">选择星期 </label>
+                                        <select class="form-control" id="weekSelect">
+                                            <option value="1">星期一</option>
+                                            <option value="2">星期二</option>
+                                            <option value="3">星期三</option>
+                                            <option value="4">星期四</option>
+                                            <option value="5">星期五</option>
+                                            <option value="6">星期六</option>
+                                            <option value="7">星期日</option>
+                                        </select>
+                                    </div>
+                                      
+                                    <div class="form-group m-l-10" style="margin-right: 20px;">
+                                        <label for="keshiSelect">选择课时 </label>
+                                        <select class="form-control" id="keshiSelect">
+                                            <option value="1">17:30-19:00</option>
+                                            <option value="2">19:00-20:30</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group m-l-10" style="margin-right: 20px;">
+                                        <label for="classSelect">选择班级 </label>
+                                        <select class="form-control" id="classSelect">
+                                        @foreach($classObj as $value)
+                                            <option value="{{$value->id}}">{{$value->name}}</option>
+                                        @endforeach
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-success m-l-10">确认添加该课时</button>
+                                </form>
+                            </div>      
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary">保存</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -287,6 +415,38 @@
         /*分配订单*/
         $(document).on('click', '.orderUseBtn', function(){
             $('#useOrderModal').modal('show');
+            var cdom = $(this).parents('tr');
+            var id = cdom.find('#td_id').html();
+            var no = cdom.find('#td_no').html();
+            var count = cdom.find('#td_count').html();
+            var price = cdom.find('#td_price').html();
+            var name = cdom.find('#td_name').html();
+            var nickname = cdom.find('#td_nickname').html();
+            var time = cdom.find('#td_time').html();
+            $('#span_time').html(time);
+            $('#span_nickname').html(nickname);
+            $('#span_name').html(name);
+            $('#span_price').html(price);
+            $('#span_count').html(count);
+            $('#span_no').html(no);
+            $('#span_id').html(id);
+
+            $('#timeP').html('');
+            $('#h2Times').html('');
+
+            $.ajax({
+                url: '/admin/classOrder/useDetail',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    if (data.errcode == 0) {
+                        
+                    }
+                }
+            })
         })
 
         $('.pagination li a').each(function(){
