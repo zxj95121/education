@@ -328,7 +328,7 @@
 								$('#toast').show();
 								setTimeout(function(){
 									$('#toast').hide();
-								}, 8s50);
+								}, 850);
 				// 			}
 				// 		}
 				// 	},
@@ -482,7 +482,7 @@
 					var is_order = 0;
 				console.log(is_order);
 				console.log(select);
-				
+
 			})
 		})
 	</script>
