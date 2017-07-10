@@ -25,7 +25,6 @@ class PayClassController extends Controller
 		$uid = $this->getUid($openid);
 		/*新订单*/
 		$tid = $request->input('id');
-		dd($tid);
 		/*查取价格*/
 		$res = EclassPriceController::getUnitPrice($tid);
 		$count = $res['count'];
