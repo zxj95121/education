@@ -467,21 +467,46 @@
 						select[len++] = choose;
 				})
 
-				if (len < min) {
-					layer.open({
-					    content: '每周上'+classTimes+'节课所选时间不能低于'+min+'个'
-					    ,skin: 'msg'
-					    ,time: 2 //2秒后自动关闭
-					 });
-	        		return false;
-				}
 
-				if ($('.content-block-title').css('display') == 'none')
+				if ($('.content-block-title').css('display') == 'none') {
 					var is_order = 1;
+					if (len < min) {
+						layer.open({
+						    content: '每周上'+classTimes+'节课所选时间不能低于'+min+'个'
+						    ,skin: 'msg'
+						    ,time: 2 //2秒后自动关闭
+						 });
+		        		return false;
+					}
+				}
 				else
 					var is_order = 0;
-				console.log(is_order);
-				console.log(select);
+				$('#loadingToast').show();
+				$('#toast').find('.weui-toast__content').html('提交成功');
+				$.ajax({
+					url: '/front/setClassTime/setAll',
+					dataType: 'json',
+					type: 'post',
+					data: {
+						classTimes: classTimes,
+						is_order: is_order,
+						select: select
+					},
+					success: function(data) {
+						if (data.errcode == 0) {
+							$('#loadingToast').hide();
+							$('#toast').show();
+							setTimeout(function(){
+								$('#toast').hide();
+							}, 700);
+							window.location.href = $('#backHome').attr('href');
+						}
+					},
+					error: function() {
+						$('#loadingToast').hide();
+						alert('设置失败,请重试');
+					}
+				})
 
 			})
 		})

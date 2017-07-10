@@ -89,6 +89,16 @@ class ClassTimeController extends Controller
     	return response()->json(['errcode'=>0]);
     }
 
+    /*二改设置全部*/
+    public function setAll(Request $request)
+    {
+        $classTimes = $request->input('time');
+        $select = $request->input('select');
+        $is_order = $request->input('is_order');
+
+        dd($request->all());
+    }
+
     private function getUid($openid)
     {
     	$userType = UserType::where('openid', $openid)
