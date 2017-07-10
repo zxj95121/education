@@ -11,10 +11,9 @@ class WeixinController extends Controller
     {
     	$date = $request->all();
     	$date = json_encode($date);
-    	dump($date);
     	if($date != ''){
     		DB::table('ceshi')->insert([
-    				['text'=>$date]
+    				'text'=>$date
     		]);
     	}
     }
