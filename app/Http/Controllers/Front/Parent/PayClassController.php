@@ -27,8 +27,8 @@ class PayClassController extends Controller
 		$tid = $request->input('id');
 
 		if (strpos($tid, 'id') > 0) {
-			$tid = (int)$tid;
-			$flight = EclassOrder::find($tid);
+			$id = Session::get('order_id');
+			$flight = EclassOrder::find($id);
 			$order_id = $flight->id;
 			
 			$name = EclassPriceController::getName($tid, 2);
@@ -52,6 +52,7 @@ class PayClassController extends Controller
 			$flight->save();
 
 			$order_id = $flight->id;
+			Session::put('order_id', $order_id);
 			
 			$name = EclassPriceController::getName($tid, 2);
 			$firstName = EclassPriceController::getName($tid, 0);
