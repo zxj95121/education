@@ -443,7 +443,7 @@
 							cdom.replaceWith('<a href="#" class="button button-fill selectBtn">选择</a>');
 							setTimeout(function(){
 								$('#toast').hide();
-				// 			}, 700);
+							}, 700);
 				// 		}
 				// 	},
 				// 	error: function() {
