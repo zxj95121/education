@@ -34,20 +34,106 @@
   			</button>
         </header>
 		<div class="content">
-		    <p style="color: red;">注意：上课时间设置只有一次机会。</p>
+		    <p style="color: red;padding-left: 12px;">注意：上课时间设置只有一次机会。</p>
 			<div class="list-block top" hide="false" style="margin:8px 0;">
 			    <ul>
-			      	<li class="item-content">
+			    	<li class="item-content">
 				        <div class="item-inner">
-				          	<div class="item-title">由加辰安排</div>
+				          	<div class="item-title">请选择每周上课次数</div>
 				          	<div class="item-after">
 				          		<div class="item-input">
-				          			<span class="operateShow">@if($flight->prefer_type == 1) 开 @else 关 @endif</span>
+				          			<select id="classTimes">
+						                <option value="1">1</option>
+						                <option value="2">2</option>
+						                <option selected="selected" value="3">3</option>
+						                <option value="4">4</option>
+						                <option value="5">5</option>
+						                <option value="6">6</option>
+						                <option value="7">7</option>
+						                <option value="8">8</option>
+						                <option value="9">9</option>
+						                <option value="10">10</option>
+						                <option value="11">11</option>
+						                <option value="12">12</option>
+						                <option value="13">13</option>
+						                <option value="14">14</option>
+						                <option value="15">15</option>
+						                <option value="16">16</option>
+						                <option value="17">17</option>
+						                <option value="18">18</option>
+						                <option value="19">19</option>
+						                <option value="20">20</option>
+              						</select>
+					            </div>
+				          	</div>
+				        </div>
+				    </li>
+			      	<li class="item-content">
+				        <div class="item-inner">
+				          	<div class="item-title">是否由加辰安排</div>
+				          	<div class="item-after">
+				          		<div class="item-input">
+				          			<span class="operateShow">@if($flight->prefer_type == 1) 是 @else 否 @endif</span>
 					              	<label class="label-switch">
 					                	<input type="checkbox" id="checkbox" @if($flight->prefer_type == 1) checked="checked" @else @endif>
 					                	<div class="checkbox" id="selectCheckbox"></div>
 					              	</label>
 					            </div>
+				          	</div>
+				        </div>
+				    </li>
+				</ul>
+		  	</div>
+		  	<div class="content-block-title" hide="true">放学后</div>
+	  		<div class="list-block" hide="true">
+			    <ul>
+			      	<li class="item-content">
+				        <div class="item-inner">
+				          	<div class="item-title">周一</div>
+				          	<div class="item-after">
+				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          	</div>
+				        </div>
+				    </li>
+				    <li class="item-content">
+				        <div class="item-inner">
+				          	<div class="item-title">周二</div>
+				          	<div class="item-after">
+				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          	</div>
+				        </div>
+				    </li>
+				    <li class="item-content">
+				        <div class="item-inner">
+				          	<div class="item-title">周三</div>
+				          	<div class="item-after">
+				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          	</div>
+				        </div>
+				    </li>
+				    <li class="item-content">
+				        <div class="item-inner">
+				          	<div class="item-title">周四</div>
+				          	<div class="item-after">
+				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          	</div>
+				        </div>
+				    </li>
+				    <li class="item-content">
+				        <div class="item-inner">
+				          	<div class="item-title">周五</div>
+				          	<div class="item-after">
+				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          			<a href="#" class="button button-fill selectBtn">选择</a>
 				          	</div>
 				        </div>
 				    </li>
@@ -142,14 +228,14 @@
 				var val = $(this).parents('label').find('input:checked').length;
 				if (val == 0) {
 					/*表示之前是0，现在已打开*/
-					$('.operateShow').html('开');
+					$('.operateShow').html('是');
 					$('div[hide="true"]').hide();
 					$('#toast').find('.weui-toast__content').html('由加辰安排');
 					/*ajax进行更改*/
 					var status = '1';//''表示
 
 				} else {
-					$('.operateShow').html('关');
+					$('.operateShow').html('否');
 					$('div[hide="true"]').show();
 
 					var status = '0';
