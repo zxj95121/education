@@ -467,9 +467,11 @@
 						select[len++] = choose;
 				})
 
-
 				if ($('.content-block-title').css('display') == 'none') {
 					var is_order = 1;
+				}
+				else{
+					var is_order = 0;
 					if (len < min) {
 						layer.open({
 						    content: '每周上'+classTimes+'节课所选时间不能低于'+min+'个'
@@ -479,8 +481,6 @@
 		        		return false;
 					}
 				}
-				else
-					var is_order = 0;
 				$('#loadingToast').show();
 				$('#toast').find('.weui-toast__content').html('提交成功');
 				$.ajax({

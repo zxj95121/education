@@ -96,13 +96,17 @@ class ClassTimeController extends Controller
         $select = $request->input('select');
         $is_order = $request->input('is_order');
 
-        $str = implode('-', $select);
+         $front_id = $this->getUid(Session::get('openid'));
 
-        $front_id = $this->getUid(Session::get('openid'));
+        if ($is_order == 0){
+            $str = implode('-', $select);
+            ParentDetail::where('id', $front_id)
+                ->update(['prefer_type'=>$is_order,'prefer_time'=>$str,'classTimes'=>$classTimes]);
+        } else {
+            ParentDetail::where('id', $front_id)
+                ->update(['prefer_type'=>$is_order,'classTimes'=>$classTimes]);
+        }
 
-        ParentDetail::where('id', $front_id)
-            ->update(['prefer_type'=>$is_order,'prefer_time'=>$str,'classTimes'=>$classTimes]);
-            
         return response()->json(['errcode'=>0]);
     }
 
