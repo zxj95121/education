@@ -25,27 +25,38 @@ class PayClassController extends Controller
 		$uid = $this->getUid($openid);
 		/*新订单*/
 		$tid = $request->input('id');
-		/*查取价格*/
-		$res = EclassPriceController::getUnitPrice($tid);
-		$count = $res['count'];
-		$unitPrice = $res['unitPrice'];
-		$price = number_format($count*$unitPrice, 2);
 
-		$order_no = date('YmdHis', time()).rand(1000,9999);
+		if (strpos($tid, 'id') > 0) {
+			$tid = (int)$tid;
+			$flight = EclassOrder::find($tid);
+			$order_id = $flight->id;
+			
+			$name = EclassPriceController::getName($tid, 2);
+			$firstName = EclassPriceController::getName($tid, 0);
+			$flight->classname = $firstName.$name;
+		} else {
+			/*查取价格*/
+			$res = EclassPriceController::getUnitPrice($tid);
+			$count = $res['count'];
+			$unitPrice = $res['unitPrice'];
+			$price = number_format($count*$unitPrice, 2);
 
-		$flight = new EclassOrder();
-		$flight->uid = $uid;
-		$flight->tid = $tid;
-		$flight->order_no = $order_no;
-		$flight->count = $count;
-		$flight->price = $price;
-		$flight->save();
+			$order_no = date('YmdHis', time()).rand(1000,9999);
 
-		$order_id = $flight->id;
-		
-		$name = EclassPriceController::getName($tid, 2);
-		$firstName = EclassPriceController::getName($tid, 0);
-		$flight->classname = $firstName.$name;
+			$flight = new EclassOrder();
+			$flight->uid = $uid;
+			$flight->tid = $tid;
+			$flight->order_no = $order_no;
+			$flight->count = $count;
+			$flight->price = $price;
+			$flight->save();
+
+			$order_id = $flight->id;
+			
+			$name = EclassPriceController::getName($tid, 2);
+			$firstName = EclassPriceController::getName($tid, 0);
+			$flight->classname = $firstName.$name;
+		}
 		return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight]);
 	}
 
