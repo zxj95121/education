@@ -274,6 +274,7 @@
 	<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="/js/zepto.min.js"></script>
 	<script type="text/javascript" src="/js/sm.min.js"></script>
+	<script type="text/javascript" src="/js/layui/layer_only/mobile/layer.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			/*初始化ajax*/
@@ -314,27 +315,27 @@
 					var status = '0';
 				}
 
-				$.ajax({
-					url: '/front/setClassTime/selectType',
-					dataType: 'json',
-					type: 'post',
-					data: {
-						status: status
-					},
-					success: function(data){
-						if (data.errcode == 0) {
-							if (status == 1) {
+				// $.ajax({
+				// 	url: '/front/setClassTime/selectType',
+				// 	dataType: 'json',
+				// 	type: 'post',
+				// 	data: {
+				// 		status: status
+				// 	},
+				// 	success: function(data){
+				// 		if (data.errcode == 0) {
+				// 			if (status == 1) {
 								$('#toast').show();
 								setTimeout(function(){
 									$('#toast').hide();
-								}, 850);
-							}
-						}
-					},
-					error: function(){
+								}, 8s50);
+				// 			}
+				// 		}
+				// 	},
+				// 	error: function(){
 						
-					}
-				})
+				// 	}
+				// })
 			})
 
 			/*选择课程按钮*/
@@ -466,12 +467,22 @@
 						select[len++] = choose;
 				})
 
+				if (len < min) {
+					layer.open({
+					    content: '每周上'+classTimes+'节课所选时间不能低于'+min+'个';
+					    ,skin: 'msg'
+					    ,time: 2 //2秒后自动关闭
+					 });
+	        		return false;
+				}
+
 				if ($('.content-block-title').css('display') == 'none')
 					var is_order = 1;
 				else
 					var is_order = 0;
 				console.log(is_order);
 				console.log(select);
+				
 			})
 		})
 	</script>
