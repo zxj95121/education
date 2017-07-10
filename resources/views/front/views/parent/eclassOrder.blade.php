@@ -1,8 +1,3 @@
-<?php
-require_once $_SERVER['DOCUMENT_ROOT']."/php/jssdk/jssdk.php";
-$jssdk = new JSSDK(getenv('wx4c99c82dad498e47'), getenv('4c3b0c0a4dd30780c043d7461116020c'));
-$signPackage = $jssdk->GetSignPackage();
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,43 +81,6 @@ $signPackage = $jssdk->GetSignPackage();
 		})
 	</script>
 	<script type="text/javascript">
-		wx.config({
-		    debug: false,
-		    appId: '<?php echo $signPackage["appId"];?>',
-		    timestamp: <?php echo $signPackage["timestamp"];?>,
-		    nonceStr: '<?php echo $signPackage["nonceStr"];?>',
-		    signature: '<?php echo $signPackage["signature"];?>',
-		    jsApiList: [
-		      	// 所有要调用的 API 都要加到这个列表中
-		      	'hideAllNonBaseMenuItem',
-		      	'closeWindow',
-		      	'chooseWXPay'
-		    ]
-		});
-		wx.ready(function () {
-			$(document).on('click', '#order_pay', function(){
-   				var version = parseInt(navigator.userAgent.split('Mozilla/')[1]);
-   				if (version > 5) {
-   					var time = new Date().getTime();
-   					var  x="qTp0sU1Sr23tnNOPQuRl4ov5mHIJKLM6wy789xYabXckWdzeiZfhjgVABCDEFG";
-   					var len = parseInt(Math.random()*10)+20;
-   					var str = '';
-   					for (var i = 0;i <= len;i++) {
-   						str += x[parseInt(Math.random()*62)];
-   					}
-   					wx.chooseWXPay({
-					    timestamp: time, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
-					    nonceStr: str, // 支付签名随机串，不长于 32 位
-					    package: '{{$order_id}}', // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
-					    signType: 'MD5', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
-					    paySign: '', // 支付签名
-					    success: function (res) {
-					        // 支付成功后的回调函数
-					    }
-					});
-   				}
-   			})
-		});
 	</script>
 </body>
 </html>
