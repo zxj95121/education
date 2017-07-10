@@ -45,8 +45,7 @@ class PayClassController extends Controller
 		
 		$name = EclassPriceController::getName($tid, 2);
 		$firstName = EclassPriceController::getName($tid, 0);
-		var_dump($name);
-		var_dump($firstName);
+		$flight->classname = $firstName.$name;
 		return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight]);
 	}
 

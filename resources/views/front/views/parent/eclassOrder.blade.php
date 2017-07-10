@@ -7,7 +7,7 @@ $tools = new JsApiPay();
 $openId = $tools->GetOpenid();
 //②、统一下单
 $input = new WxPayUnifiedOrder();
-$input->SetBody("test");//商品描述
+$input->SetBody($flight->classname);//商品描述
 $input->SetOut_trade_no($flight->order_no);//商户订单号
 $input->SetTotal_fee("1");//标价金额
 $input->SetTime_start(date("YmdHis"));//交易起始时间
@@ -59,21 +59,21 @@ $jsApiParameters = $tools->GetJsApiParameters($order);
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">
           						<div class="item-title">课程名称</div>
-          						<div class="item-after">一年级第一阶段</div>
+          						<div class="item-after">{{$name}}</div>
         					</div>
       					</li>
       					<li class="item-content">
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">
           						<div class="item-title">课时数量</div>
-          						<div class="item-after">63</div>
+          						<div class="item-after">{{$flight->count}}</div>
         					</div>
       					</li>
       					<li class="item-content">
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">
           						<div class="item-title">订单价格</div>
-          						<div class="item-after" style="font-weight: bold;">¥2400</div>
+          						<div class="item-after" style="font-weight: bold;">¥{{$flight->price}}</div>
         					</div>
       					</li>
       					<li class="item-content">
@@ -109,9 +109,9 @@ $jsApiParameters = $tools->GetJsApiParameters($order);
 				function(res){
 					WeixinJSBridge.log(res.err_msg);
 					if(res.err_msg == "get_brand_wcpay_request:ok"){
-						window.location.href="http://blog.sina.com.cn/u/1863605217";  
+						window.location.href="http://api.zhangxianjian.com/front/home";  
 					}else{
-						window.location.href="http://blog.sina.com.cn/u/1863605217";  
+						window.location.href="http://api.zhangxianjian.com/front/home";  
 					}  
 				}
 		);
