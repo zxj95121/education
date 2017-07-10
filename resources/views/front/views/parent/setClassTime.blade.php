@@ -36,7 +36,7 @@
   			@else
   				<button class="button button-link button-nav pull-right">
     			<a href="" style="color:red;">
-    				提交<span class="icon icon-check"></span>
+    				已设置
     			</a>
   			</button>
   			@endif
