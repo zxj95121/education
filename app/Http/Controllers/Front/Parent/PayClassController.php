@@ -34,7 +34,7 @@ class PayClassController extends Controller
 			
 			$name = EclassPriceController::getName($tid, 2);
 			$firstName = EclassPriceController::getName($tid, 0);
-			$flight->classname = $firstName.$name;
+			$classname = $firstName.$name;
 		} else {
 			/*查取价格*/
 			$res = EclassPriceController::getUnitPrice($tid);
@@ -57,9 +57,9 @@ class PayClassController extends Controller
 			
 			$name = EclassPriceController::getName($tid, 2);
 			$firstName = EclassPriceController::getName($tid, 0);
-			$flight->classname = $firstName.$name;
+			$classname = $firstName.$name;
 		}
-		return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight]);
+		return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight,'classname'=>$classname]);
 	}
 
     public function checkMessage(Request $request)

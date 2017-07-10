@@ -7,7 +7,7 @@ $tools = new JsApiPay();
 $openId = $tools->GetOpenid();
 //②、统一下单
 $input = new WxPayUnifiedOrder();
-$input->SetBody($flight->classname);//商品描述
+$input->SetBody($classname);//商品描述
 $input->SetOut_trade_no($flight->order_no);//商户订单号
 $input->SetTotal_fee("1");//标价金额
 $input->SetTime_start(date("YmdHis"));//交易起始时间
