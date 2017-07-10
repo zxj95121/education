@@ -21,36 +21,33 @@ class PayClassController extends Controller
 	/*新订单*/
 	public function newEclassOrder(Request $request)
 	{
-			$openid = Session::get('openid');
-			$uid = $this->getUid($openid);
-			/*新订单*/
-			$tid = $request->input('id');
-			$tid = substr($tid,0,strpos($tid,'id'));
-			/*查取价格*/
-			$res = EclassPriceController::getUnitPrice($tid);
-			$count = $res['count'];
-			$unitPrice = $res['unitPrice'];
-			$price = number_format($count*$unitPrice, 2);
-			$order_no = date('YmdHis', time()).rand(1000,9999);
-			$flight = new EclassOrder();
-			$flight->uid = $uid;
-			$flight->tid = $tid;
-			$flight->order_no = $order_no;
-			$flight->count = $count;
-			$flight->price = $price;
-			$flight->save();
-			$order_id = $flight->id;
-			$name = EclassPriceController::getName($tid, 2);
-			$firstName = EclassPriceController::getName($tid, 0);
-			$classname = $firstName.$name;
-			$jsApiParameters = $this->wxpay();
-			return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight,'classname'=>$classname,'jsApiParameters'=>$jsApiParameters]);
-		
-	}
-	public function wxpay()
-	{
 		require_once $_SERVER['DOCUMENT_ROOT'].'/php/WxPayAPI/lib/WxPay.Api.php';
 		require_once $_SERVER['DOCUMENT_ROOT'].'/php/WxPayAPI/jsapi/WxPay.JsApiPay.php';
+		$openid = Session::get('openid');
+		$uid = $this->getUid($openid);
+		/*新订单*/
+		$tid = $request->input('id');
+		//$tid = substr($tid,0,strpos($tid,'id'));
+		/*查取价格*/
+		$res = EclassPriceController::getUnitPrice($tid);
+		$count = $res['count'];
+		$unitPrice = $res['unitPrice'];
+		$price = number_format($count*$unitPrice, 2);
+		$order_no = date('YmdHis', time()).rand(1000,9999);
+		$flight = new EclassOrder();
+		$flight->uid = $uid;
+		$flight->tid = $tid;
+		$flight->order_no = $order_no;
+		$flight->count = $count;
+		$flight->price = $price;
+		$flight->save();
+		$order_id = $flight->id;
+		$name = EclassPriceController::getName($tid, 2);
+		$firstName = EclassPriceController::getName($tid, 0);
+		$classname = $firstName.$name;
+		
+		
+		
 		//①、获取用户openid
 		$tools = new JsApiPay();
 		$openId = $tools->GetOpenid();
@@ -65,7 +62,8 @@ class PayClassController extends Controller
 		$input->SetOpenid($openId);//用户标识
 		$order = WxPayApi::unifiedOrder($input);
 		$jsApiParameters = $tools->GetJsApiParameters($order);
-		return $jsApiParameters;
+		
+		return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight,'classname'=>$classname,'jsApiParameters'=>$jsApiParameters]);
 		
 	}
     public function checkMessage(Request $request)
