@@ -461,7 +461,7 @@
 				var len = 0;
 				$('.li-select').each(function(){
 					var choose = $(this).attr('choose');
-					if($(this).find('.button-danger').length() > 0)
+					if($(this).find('.button-danger').length > 0)
 						select[len++] = choose;
 				})
 				console.log(select);
