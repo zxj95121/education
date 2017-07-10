@@ -27,12 +27,14 @@ class PayClassController extends Controller
 		$tid = $request->input('id');
 
 		if (strpos($tid, 'id') > 0) {
-			$tid = (int)$tid;
+			$tid = explode('=', $tid)[1];
 			$id = Session::get('order_id');
 			$flight = EclassOrder::find($id);
 			$order_id = $id;
 			
 			$name = EclassPriceController::getName($tid, 2);
+			$firstName = EclassPriceController::getName($tid, 0);
+			$flight->classname = $firstName.$name;
 		} else {
 			/*查取价格*/
 			$res = EclassPriceController::getUnitPrice($tid);
