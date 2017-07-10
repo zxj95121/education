@@ -55,6 +55,7 @@
                                                 <select name="pay_select" id="pay_select" class="form-control">
                                                     <option value="">请选择支付状态</option>
                                                     <option value="1" @if($pay_select == 1) selected="selected" @else @endif>已支付</option>
+                                                    <option value="2" @if($pay_select == 2) selected="selected" @else @endif>已退款</option>
                                                     <option value="0" @if($pay_select != null && $pay_select == 0) selected="selected" @else @endif>未支付</option>
                                                 </select>
                                             </div>
@@ -216,9 +217,36 @@
 </script>
 <script type="text/javascript">
     $(function(){
+        /*确认审核订单*/
         $(document).on('click', '.orderOKBtn', function(){
-
+            var id = $(this).parents('tr').attr('oid');
+            window.layer.confirm('确认审核通过吗，ID为'+id+'？', {
+                btn: ['确认', '取消'] //可以无限个按钮
+                ,btn2: function(index, layero){
+                window.layer.close(index);
+              }
+            }, function(index, layero){
+                window.layer.close(index);
+                var loadIndex = window.layer.load(2, {time:5000});
+                $.ajax({
+                    url: '/admin/eclassOrderList/confirmOK',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        id: id
+                    },
+                    success: function(data) {
+                        if (data.errcode == 0) {
+                            window.layer.close(loadIndex);
+                            window.layer.msg('确认成功！');
+                            window.location.reload();
+                        }
+                    }
+                });
+            });
         })
+
+        /*确认驳回*/
 
         $('.pagination li a').each(function(){
             var href = $(this).attr('href');
