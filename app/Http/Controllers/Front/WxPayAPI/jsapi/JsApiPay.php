@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Front\WxPayAPI\jsapi;
 use App\Http\Controllers\Front\WxPayAPI\lib\WxPayApi;
+use App\Http\Controllers\Front\WxPayAPI\lib\WxPayConfig;
 /**
  * 
  * JSAPI支付实现类
