@@ -76,6 +76,7 @@ class PayClassController extends Controller
 			$noTime = false;
 
 		if(!$result && !$noTime) {
+			dd($pid);
 			/*读取课程数量*/
 			$pid = $request->input('pid');
 			$threeObj = TeacherThree::find($pid);
