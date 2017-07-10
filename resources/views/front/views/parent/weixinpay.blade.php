@@ -1,24 +1,7 @@
 <?php 
-//ini_set('date.timezone','Asia/Shanghai');
-//error_reporting(E_ERROR);
-// require_once "../lib/WxPay.Api.php";
-// require_once "WxPay.JsApiPay.php";
+
 require_once $_SERVER['DOCUMENT_ROOT'].'/php/WxPayAPI/lib/WxPay.Api.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/php/WxPayAPI/jsapi/WxPay.JsApiPay.php';
-// require_once 'log.php';
-
-//初始化日志
-// $logHandler= new CLogFileHandler("../logs/".date('Y-m-d').'.log');
-// $log = Log::Init($logHandler, 15);
-
-//打印输出数组信息
-function printf_info($data)
-{
-    foreach($data as $key=>$value){
-        echo "<font color='#00ff55;'>$key</font> : $value <br/>";
-    }
-}
-
 //①、获取用户openid
 $tools = new JsApiPay();
 $openId = $tools->GetOpenid();
@@ -34,13 +17,7 @@ $input->SetNotify_url("http://api.zhangxianjian.com/wxpay/notify");//通知地�
 $input->SetTrade_type("JSAPI");//交易类型
 $input->SetOpenid($openId);//用户标识
 $order = WxPayApi::unifiedOrder($input);
-echo '<font color="#f00"><b>统一下单支付单信息</b></font><br/>';
-printf_info($order);
 $jsApiParameters = $tools->GetJsApiParameters($order);
-
-//获取共享收货地址js函数参数
-$editAddress = $tools->GetEditAddressParameters();
-
 //③、在支持成功回调通知中处理成功之后的事宜，见 notify.php
 /**
  * 注意：

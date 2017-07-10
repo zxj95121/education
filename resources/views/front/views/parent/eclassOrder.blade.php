@@ -1,3 +1,29 @@
+<?php 
+
+require_once $_SERVER['DOCUMENT_ROOT'].'/php/WxPayAPI/lib/WxPay.Api.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/php/WxPayAPI/jsapi/WxPay.JsApiPay.php';
+//①、获取用户openid
+$tools = new JsApiPay();
+$openId = $tools->GetOpenid();
+//②、统一下单
+$input = new WxPayUnifiedOrder();
+$input->SetBody("test");//商品描述
+$input->SetOut_trade_no($flight->order_no);//商户订单号
+$input->SetTotal_fee("1");//标价金额
+$input->SetTime_start(date("YmdHis"));//交易起始时间
+$input->SetNotify_url("http://api.zhangxianjian.com/wxpay/notify");//通知地址
+$input->SetTrade_type("JSAPI");//交易类型
+$input->SetOpenid($openId);//用户标识
+$order = WxPayApi::unifiedOrder($input);
+$jsApiParameters = $tools->GetJsApiParameters($order);
+//③、在支持成功回调通知中处理成功之后的事宜，见 notify.php
+/**
+ * 注意：
+ * 1、当你的回调地址不可访问的时候，回调通知会失败，可以通过查询订单来确认支付是否成功
+ * 2、jsapi支付时需要填入用户openid，WxPay.JsApiPay.php中有获取openid流程 （文档可以参考微信公众平台“网页授权接口”，
+ * 参考http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html）
+ */
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +52,7 @@
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">
           						<div class="item-title">订单编号</div>
-          						<div class="item-after">2015102100000205</div>
+          						<div class="item-after">{{$flight->order_no}}</div>
         					</div>
       					</li>
       					<li class="item-content">
@@ -59,7 +85,7 @@
       					</li>
 				    </ul>
 				    <div class="row" style="margin-top:30px;">
-						<div class="col-100"><a href="#" class="button button-big button-fill button-success" id="order_pay">立即支付</a></div>
+						<div class="col-100"><a href="#" class="button button-big button-fill button-success" id="order_pay" onclick="callpay()">立即支付</a></div>
 					</div>
 				</div>
 			</div>
@@ -73,14 +99,23 @@
 	<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 	<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
 	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-
-	<script>$.init()</script>
-	<script type="text/javascript">
-		$(function(){
-   			$.alert('fda');
-		})
-	</script>
-	<script type="text/javascript">
+    <script type="text/javascript">
+	//调用微信JS api 支付
+	function callpay()
+	{
+		WeixinJSBridge.invoke(
+				'getBrandWCPayRequest',
+				<?php echo $jsApiParameters; ?>,
+				function(res){
+					WeixinJSBridge.log(res.err_msg);
+					if(res.err_msg == "get_brand_wcpay_request:ok"){
+						window.location.href="http://blog.sina.com.cn/u/1863605217";  
+					}else{
+						window.location.href="http://blog.sina.com.cn/u/1863605217";  
+					}  
+				}
+		);
+	}
 	</script>
 </body>
 </html>

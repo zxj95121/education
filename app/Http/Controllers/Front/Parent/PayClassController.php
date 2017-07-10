@@ -42,11 +42,12 @@ class PayClassController extends Controller
 		$flight->save();
 
 		$order_id = $flight->id;
-
+		
 		$name = EclassPriceController::getName($tid, 2);
 		$firstName = EclassPriceController::getName($tid, 0);
-
-		return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id]);
+		var_dump($name);
+		var_dump($firstName);
+		return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight]);
 	}
 
     public function checkMessage(Request $request)
@@ -104,10 +105,6 @@ class PayClassController extends Controller
 		return view('front.views.parent.weixinpay');
 	}
 
-	public function notify()
-	{
-		echo 123;
-	}
     private function getUid($openid)
     {
     	$userType = UserType::where('openid', $openid)
