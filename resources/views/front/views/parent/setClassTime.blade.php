@@ -337,62 +337,120 @@
 			})
 
 			/*选择课程按钮*/
+			// $(document).on('click', '.selectBtn', function(){
+			// 	$('#loadingToast').show();
+			// 	var cdom = $(this);
+			// 	var id = $(this).parents('li').attr('choose');
+			// 	$('#toast').find('.weui-toast__content').html('已设置可上课');
+			// 	$.ajax({
+			// 		url: '/front/setClassTime/selectTime',
+			// 		dataType: 'json',
+			// 		type: 'post',
+			// 		data: {
+			// 			id: id
+			// 		},
+			// 		success: function(data) {
+			// 			if (data.errcode == 0) {
+			// 				$('#loadingToast').hide();
+			// 				$('#toast').show();
+			// 				cdom.replaceWith('<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>');
+			// 				setTimeout(function(){
+			// 					$('#toast').hide();
+			// 				}, 700);
+			// 			}
+			// 		},
+			// 		error: function() {
+			// 			$('#loadingToast').hide();
+			// 			alert('选择失败,请重试');
+			// 		}
+			// 	})
+			// });
+
 			$(document).on('click', '.selectBtn', function(){
-				$('#loadingToast').show();
+				// $('#loadingToast').show();
 				var cdom = $(this);
-				var id = $(this).parents('li').attr('choose');
+				// var id = $(this).parents('li').attr('choose');
 				$('#toast').find('.weui-toast__content').html('已设置可上课');
-				$.ajax({
-					url: '/front/setClassTime/selectTime',
-					dataType: 'json',
-					type: 'post',
-					data: {
-						id: id
-					},
-					success: function(data) {
-						if (data.errcode == 0) {
-							$('#loadingToast').hide();
+				// $.ajax({
+				// 	url: '/front/setClassTime/selectTime',
+				// 	dataType: 'json',
+				// 	type: 'post',
+				// 	data: {
+				// 		id: id
+				// 	},
+				// 	success: function(data) {
+				// 		if (data.errcode == 0) {
+							// $('#loadingToast').hide();
 							$('#toast').show();
 							cdom.replaceWith('<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>');
 							setTimeout(function(){
 								$('#toast').hide();
 							}, 700);
-						}
-					},
-					error: function() {
-						$('#loadingToast').hide();
-						alert('选择失败,请重试');
-					}
-				})
+				// 		}
+				// 	},
+				// 	error: function() {
+				// 		$('#loadingToast').hide();
+				// 		alert('选择失败,请重试');
+				// 	}
+				// })
 			});
 
+			// $(document).on('click', '.cancleBtn', function(){
+			// 	$('#loadingToast').show();
+			// 	var cdom = $(this);
+			// 	var id = $(this).parents('li').attr('cid');
+			// 	$('#toast').find('.weui-toast__content').html('已取消选择');
+			// 	$.ajax({
+			// 		url: '/front/setClassTime/cancleTime',
+			// 		dataType: 'json',
+			// 		type: 'post',
+			// 		data: {
+			// 			id: id
+			// 		},
+			// 		success: function(data) {
+			// 			if (data.errcode == 0) {
+			// 				$('#loadingToast').hide();
+			// 				$('#toast').show();
+			// 				cdom.replaceWith('<a href="#" class="button button-fill selectBtn">选择</a>');
+			// 				setTimeout(function(){
+			// 					$('#toast').hide();
+			// 				}, 700);
+			// 			}
+			// 		},
+			// 		error: function() {
+			// 			$('#loadingToast').hide();
+			// 			alert('取消选择失败,请重试');
+			// 		}
+			// 	})
+			// });
+
 			$(document).on('click', '.cancleBtn', function(){
-				$('#loadingToast').show();
+				// $('#loadingToast').show();
 				var cdom = $(this);
-				var id = $(this).parents('li').attr('cid');
+				// var id = $(this).parents('li').attr('cid');
 				$('#toast').find('.weui-toast__content').html('已取消选择');
-				$.ajax({
-					url: '/front/setClassTime/cancleTime',
-					dataType: 'json',
-					type: 'post',
-					data: {
-						id: id
-					},
-					success: function(data) {
-						if (data.errcode == 0) {
-							$('#loadingToast').hide();
+				// $.ajax({
+				// 	url: '/front/setClassTime/cancleTime',
+				// 	dataType: 'json',
+				// 	type: 'post',
+				// 	data: {
+				// 		id: id
+				// 	},
+				// 	success: function(data) {
+				// 		if (data.errcode == 0) {
+				// 			$('#loadingToast').hide();
 							$('#toast').show();
 							cdom.replaceWith('<a href="#" class="button button-fill selectBtn">选择</a>');
 							setTimeout(function(){
 								$('#toast').hide();
-							}, 700);
-						}
-					},
-					error: function() {
-						$('#loadingToast').hide();
-						alert('取消选择失败,请重试');
-					}
-				})
+				// 			}, 700);
+				// 		}
+				// 	},
+				// 	error: function() {
+				// 		$('#loadingToast').hide();
+				// 		alert('取消选择失败,请重试');
+				// 	}
+				// })
 			});
 		})
 	</script>
