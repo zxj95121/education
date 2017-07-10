@@ -27,6 +27,7 @@ class PayClassController extends Controller
 		$tid = $request->input('id');
 
 		if (strpos($tid, 'id') > 0) {
+			$tid = (int)$tid;
 			$id = Session::get('order_id');
 			$flight = EclassOrder::find($id);
 			$order_id = $id;
