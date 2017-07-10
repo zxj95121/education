@@ -27,8 +27,8 @@
     			</a>
   			</button>
             <h1 class="title">选择可上课时间</h1>
-            <button class="button button-link button-nav pull-right">
-    			<a id="setOK" href="">
+            <button class="button button-link button-nav pull-right" id="setOK">
+    			<a href="">
     				提交<span class="icon icon-check"></span>
     			</a>
   			</button>
@@ -40,7 +40,7 @@
 			    	<li class="item-content">
 				        <div class="item-inner">
 				          	<div class="item-title">请选择每周上课次数</div>
-				          	<div class="item-after" style="width: 30%;">
+				          	<div class="item-after" style="width: 20%;">
 				          		<div class="item-input">
 				          			<select id="classTimes">
 						                <option value="1">1</option>
@@ -87,7 +87,7 @@
 		  	<div class="content-block-title" hide="true">下午放学后</div>
 	  		<div class="list-block" hide="true">
 			    <ul>
-			      	<li class="item-content" choose="1">
+			      	<li class="item-content li-select" choose="1">
 				        <div class="item-inner">
 				          	<div class="item-title">周一</div>
 				          	<div class="item-after">
@@ -100,7 +100,7 @@
 				          	</div>
 				        </div>
 				    </li>
-				    <li class="item-content" choose="2">
+				    <li class="item-content li-select" choose="2">
 				        <div class="item-inner">
 				          	<div class="item-title">周二</div>
 				          	<div class="item-after">
@@ -113,7 +113,7 @@
 				          	</div>
 				        </div>
 				    </li>
-				    <li class="item-content" choose="3">
+				    <li class="item-content li-select" choose="3">
 				        <div class="item-inner">
 				          	<div class="item-title">周三</div>
 				          	<div class="item-after">
@@ -126,7 +126,7 @@
 				          	</div>
 				        </div>
 				    </li>
-				    <li class="item-content" choose="4">
+				    <li class="item-content li-select" choose="4">
 				        <div class="item-inner">
 				          	<div class="item-title">周四</div>
 				          	<div class="item-after">
@@ -139,7 +139,7 @@
 				          	</div>
 				        </div>
 				    </li>
-				    <li class="item-content" choose="5">
+				    <li class="item-content li-select" choose="5">
 				        <div class="item-inner">
 				          	<div class="item-title">周五</div>
 				          	<div class="item-after">
@@ -157,7 +157,7 @@
 		  	<div class="content-block-title" hide="true">周末</div>
 	  		<div class="list-block" hide="true">
 			    <ul>
-			      	<li class="item-content" choose="6">
+			      	<li class="item-content li-select" choose="6">
 				        <div class="item-inner">
 				          	<div class="item-title">周六上午</div>
 				          	<div class="item-after">
@@ -170,7 +170,7 @@
 				          	</div>
 				        </div>
 				    </li>
-				    <li class="item-content" choose="7">
+				    <li class="item-content li-select" choose="7">
 				        <div class="item-inner">
 				          	<div class="item-title">周六下午</div>
 				          	<div class="item-after">
@@ -183,7 +183,7 @@
 				          	</div>
 				        </div>
 				    </li>
-				    <li class="item-content" choose="8">
+				    <li class="item-content li-select" choose="8">
 				        <div class="item-inner">
 				          	<div class="item-title">周日上午</div>
 				          	<div class="item-after">
@@ -196,7 +196,7 @@
 				          	</div>
 				        </div>
 				    </li>
-				    <li class="item-content" choose="9">
+				    <li class="item-content li-select" choose="9">
 				        <div class="item-inner">
 				          	<div class="item-title">周日下午</div>
 				          	<div class="item-after">
@@ -452,6 +452,20 @@
 				// 	}
 				// })
 			});
+
+			$('#setOK').click(function(){
+				var classTimes = $('#classTimes option:selected').val();
+				var min = Math.ceil(classTimes/2);
+
+				var select = new Array();
+				var len = 0;
+				$('.li-select').each(function(){
+					var choose = $(this).attr('choose');
+					if($(this).find('.button-danger').length() > 0)
+						select[len++] = choose;
+				})
+				console.log(select);
+			})
 		})
 	</script>
 </body>
