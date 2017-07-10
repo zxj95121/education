@@ -22,7 +22,7 @@ class PayClassController extends Controller
 	public function newEclassOrder(Request $request)
 	{
 
-		if($request->input('code')){
+		
 			$openid = Session::get('openid');
 			$uid = $this->getUid($openid);
 			/*新订单*/
@@ -35,15 +35,15 @@ class PayClassController extends Controller
 			$price = number_format($count*$unitPrice, 2);
 			
 			$order_no = date('YmdHis', time()).rand(1000,9999);
-			
-			$flight = new EclassOrder();
-			$flight->uid = $uid;
-			$flight->tid = $tid;
-			$flight->order_no = $order_no;
-			$flight->count = $count;
-			$flight->price = $price;
-			$flight->save();
-			
+			if($request->input('code')){
+				$flight = new EclassOrder();
+				$flight->uid = $uid;
+				$flight->tid = $tid;
+				$flight->order_no = $order_no;
+				$flight->count = $count;
+				$flight->price = $price;
+				$flight->save();
+			}
 			$order_id = $flight->id;
 			
 			
@@ -52,7 +52,6 @@ class PayClassController extends Controller
 			$classname = $firstName.$name;
 			
 			return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight,'classname'=>$classname]);
-		}
 		
 	}
 
