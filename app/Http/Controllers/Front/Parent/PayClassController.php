@@ -24,7 +24,7 @@ class PayClassController extends Controller
 		$openid = Session::get('openid');
 		$uid = $this->getUid($openid);
 		/*新订单*/
-		$tid = $request->input('id');
+		$tid = $request->input('oooid');
 		/*查取价格*/
 		$res = EclassPriceController::getUnitPrice($tid);
 		$count = $res['count'];
