@@ -41,7 +41,7 @@
 				        <div class="item-inner">
 				          	<div class="item-title">请选择每周上课次数</div>
 				          	<div class="item-after">
-				          		<div class="item-input">
+				          		<div class="item-input" style="width: 30%;">
 				          			<select id="classTimes">
 						                <option value="1">1</option>
 						                <option value="2">2</option>
@@ -92,8 +92,11 @@
 				          	<div class="item-title">周一</div>
 				          	<div class="item-after">
 				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          		@if(in_array('1', $userClass))
 				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          		@else
 				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          		@endif
 				          	</div>
 				        </div>
 				    </li>
@@ -102,8 +105,11 @@
 				          	<div class="item-title">周二</div>
 				          	<div class="item-after">
 				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          		@if(in_array('2', $userClass))
 				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          		@else
 				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          		@endif
 				          	</div>
 				        </div>
 				    </li>
@@ -112,8 +118,11 @@
 				          	<div class="item-title">周三</div>
 				          	<div class="item-after">
 				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          		@if(in_array('3', $userClass))
 				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          		@else
 				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          		@endif
 				          	</div>
 				        </div>
 				    </li>
@@ -122,8 +131,11 @@
 				          	<div class="item-title">周四</div>
 				          	<div class="item-after">
 				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          		@if(in_array('4', $userClass))
 				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          		@else
 				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          		@endif
 				          	</div>
 				        </div>
 				    </li>
@@ -132,8 +144,11 @@
 				          	<div class="item-title">周五</div>
 				          	<div class="item-after">
 				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          		@if(in_array('5', $userClass))
 				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          		@else
 				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          		@endif
 				          	</div>
 				        </div>
 				    </li>
@@ -147,8 +162,11 @@
 				          	<div class="item-title">周六上午</div>
 				          	<div class="item-after">
 				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          		@if(in_array('6', $userClass))
 				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          		@else
 				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          		@endif
 				          	</div>
 				        </div>
 				    </li>
@@ -157,8 +175,11 @@
 				          	<div class="item-title">周六下午</div>
 				          	<div class="item-after">
 				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          		@if(in_array('7', $userClass))
 				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          		@else
 				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          		@endif
 				          	</div>
 				        </div>
 				    </li>
@@ -167,8 +188,11 @@
 				          	<div class="item-title">周日上午</div>
 				          	<div class="item-after">
 				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          		@if(in_array('8', $userClass))
 				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          		@else
 				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          		@endif
 				          	</div>
 				        </div>
 				    </li>
@@ -177,8 +201,11 @@
 				          	<div class="item-title">周日下午</div>
 				          	<div class="item-after">
 				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          		@if(in_array('9', $userClass))
 				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          		@else
 				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          		@endif
 				          	</div>
 				        </div>
 				    </li>
