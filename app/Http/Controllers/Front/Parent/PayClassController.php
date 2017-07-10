@@ -17,7 +17,7 @@ use App\Http\Controllers\EclassPriceController;
 
 use App\Http\Controllers\Front\WxPayAPI\jsapi\JsApiPay;
 use App\Http\Controllers\Front\WxPayAPI\lib\WxPayUnifiedOrder;
-
+use App\Http\Controllers\Front\WxPayAPI\lib\WxPayApi;
 use Session;
 
 class PayClassController extends Controller
