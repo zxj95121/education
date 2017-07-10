@@ -29,7 +29,7 @@ class PayClassController extends Controller
 		if (strpos($tid, 'id') > 0) {
 			$id = Session::get('order_id');
 			$flight = EclassOrder::find($id);
-			$order_id = $flight->id;
+			$order_id = $id;
 			
 			$name = EclassPriceController::getName($tid, 2);
 			$firstName = EclassPriceController::getName($tid, 0);
