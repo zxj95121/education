@@ -33,8 +33,6 @@ class PayClassController extends Controller
 			$order_id = $id;
 			
 			$name = EclassPriceController::getName($tid, 2);
-			$firstName = EclassPriceController::getName($tid, 0);
-			$flight->classname = $firstName.$name;
 		} else {
 			/*查取价格*/
 			$res = EclassPriceController::getUnitPrice($tid);
