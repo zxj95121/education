@@ -30,11 +30,15 @@
             @if(!$flight->classTimes)
             <button class="button button-link button-nav pull-right" id="setOK">
     			<a href="">
-    				提交<span class="icon icon-check"></span>
+    				提交
     			</a>
   			</button>
   			@else
-  				<span style="color:red;">提交无效</span>
+  				<button class="button button-link button-nav pull-right">
+    			<a href="" style="color:red;">
+    				提交<span class="icon icon-check"></span>
+    			</a>
+  			</button>
   			@endif
         </header>
 		<div class="content">
