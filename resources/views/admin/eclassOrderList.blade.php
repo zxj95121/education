@@ -184,7 +184,7 @@
 
 
 
-            <div class="modal fade" tabindex="-1" role="dialog">
+<!--             <div class="modal fade" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -198,9 +198,17 @@
                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                             <button type="button" class="btn btn-primary">确认通过</button>
                         </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
+                    </div>
+                </div>
+            </div> -->
+
+            <div id="useOrderModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                    ..fdaf.
+                    </div>
+                </div>
+            </div>
 
 @endsection
             
@@ -274,6 +282,11 @@
                     }
                 });
             });
+        })
+
+        /*分配订单*/
+        $(document).on('click', '.orderUseBtn', function(){
+            $('#useOrderModal').modal('show');
         })
 
         $('.pagination li a').each(function(){
