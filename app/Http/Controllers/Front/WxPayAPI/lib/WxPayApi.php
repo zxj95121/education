@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Front\WxPayAPI\lib;
 use App\Http\Controllers\Front\WxPayAPI\lib\WxPayException;
 use App\Http\Controllers\Front\WxPayAPI\lib\WxPayConfig;
-use App\Http\Controllers\Front\WxPayAPI\lib\WxPayDataBase;
+use App\Http\Controllers\Front\WxPayAPI\lib\WxPayUnifiedOrder;
 
 /**
  * 
