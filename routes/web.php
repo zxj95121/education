@@ -156,6 +156,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     /*双师class订单管理*/
     $router->get('/eclassOrderList', 'EclassOrderController@list');
     $router->post('/eclassOrderList/confirmOK', 'EclassOrderController@confirmOK');
+    $router->post('/eclassOrderList/confirmXX', 'EclassOrderController@confirmXX');//驳回审核
 
 
     /*待请求审核*/
@@ -253,6 +254,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
   $router->post('/setClassTime/selectType', 'Parent\ClassTimeController@selectType');/*ajax请求是否加辰自动排课*/
   $router->post('/setClassTime/selectTime', 'Parent\ClassTimeController@selectTime');/*ajax请求选课*/
   $router->post('/setClassTime/cancleTime', 'Parent\ClassTimeController@cancleTime');/*ajax取消选择*/
+  $router->post('/setClassTime/setAll', 'Parent\ClassTimeController@setAll');/*ajax设置所有*/
 });
 
 /*-------------*/

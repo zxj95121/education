@@ -5,10 +5,10 @@
 <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css">
 <link rel="stylesheet" type="text/css" href="/js/jeui/jedate.css">
 <style type="text/css">
-    .orderXXBtn,.orderOKBtn{
+    .orderXXBtn,.orderOKBtn,.orderUseBtn{
         cursor: pointer;
     }
-    .orderOverBtn,.orderPayBtn,.orderSuccessBtn{
+    .orderOverBtn,.orderPayBtn,.orderSuccessBtn,.orderUseBtn{
         user-select: none;
     }
     ::-webkit-scrollbar{  
@@ -55,6 +55,7 @@
                                                 <select name="pay_select" id="pay_select" class="form-control">
                                                     <option value="">请选择支付状态</option>
                                                     <option value="1" @if($pay_select == 1) selected="selected" @else @endif>已支付</option>
+                                                    <option value="2" @if($pay_select == 2) selected="selected" @else @endif>已退款</option>
                                                     <option value="0" @if($pay_select != null && $pay_select == 0) selected="selected" @else @endif>未支付</option>
                                                 </select>
                                             </div>
@@ -127,11 +128,12 @@
                                                             @else
                                                             @endif
                                                             @if($value->pay_status == 2)
-                                                                <span class="label label-danger orderOverBtn">订单已取消</span>
+                                                                <span class="label label-danger orderOverBtn">订单已驳回</span>
                                                             @else
                                                             @endif
                                                             @if($value->pay_status == 1 && $value->confirm_status == 1)
                                                                 <span class="label label-success orderSuccessBtn">订单已通过</span>
+                                                                <span class="label label-info orderUseBtn">分配该订单</span>
                                                             @else
                                                             @endif
                                                         </td>
@@ -216,8 +218,62 @@
 </script>
 <script type="text/javascript">
     $(function(){
+        /*确认审核订单*/
         $(document).on('click', '.orderOKBtn', function(){
+            var id = $(this).parents('tr').attr('oid');
+            window.layer.confirm('确认审核<b style="color:green;">通过</b>吗，ID为'+id+'？', {
+                btn: ['确认', '取消'] //可以无限个按钮
+                ,btn2: function(index, layero){
+                window.layer.close(index);
+              }
+            }, function(index, layero){
+                window.layer.close(index);
+                var loadIndex = window.layer.load(2, {time:5000});
+                $.ajax({
+                    url: '/admin/eclassOrderList/confirmOK',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        id: id
+                    },
+                    success: function(data) {
+                        if (data.errcode == 0) {
+                            window.layer.close(loadIndex);
+                            window.layer.msg('确认成功！');
+                            window.location.reload();
+                        }
+                    }
+                });
+            });
+        })
 
+        /*确认驳回*/
+        $(document).on('click', '.orderXXBtn', function(){
+            var id = $(this).parents('tr').attr('oid');
+            window.layer.confirm('确认<b style="color:red;">驳回</b>审核吗，ID为'+id+'将自动退款!', {
+                btn: ['确认', '取消'] //可以无限个按钮
+                ,btn2: function(index, layero){
+                window.layer.close(index);
+              }
+            }, function(index, layero){
+                window.layer.close(index);
+                var loadIndex = window.layer.load(2, {time:5000});
+                $.ajax({
+                    url: '/admin/eclassOrderList/confirmXX',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        id: id
+                    },
+                    success: function(data) {
+                        if (data.errcode == 0) {
+                            window.layer.close(loadIndex);
+                            window.layer.msg('驳回成功！');
+                            window.location.reload();
+                        }
+                    }
+                });
+            });
         })
 
         $('.pagination li a').each(function(){

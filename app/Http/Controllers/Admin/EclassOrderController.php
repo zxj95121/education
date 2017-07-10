@@ -62,5 +62,23 @@ class EclassOrderController extends Controller
     public function confirmOK(Request $request)
     {
     	$id = $request->input('id');
+
+        $flight = EclassOrder::find($id);
+        $flight->confirm_status = 1;
+        $flight->save();
+
+        return response()->json(['errcode'=>0]);
+    }
+
+    /*驳回审核*/
+    public function confirmXX(Request $request) {
+        $id = $request->input('id');
+
+        $flight = EclassOrder::find($id);
+        $flight->confirm_status = 2;
+        $flight->pay_status = 2;
+        $flight->save();
+
+        return response()->json(['errcode'=>0]);
     }
 }

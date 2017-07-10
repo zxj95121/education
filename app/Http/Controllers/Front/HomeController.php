@@ -19,9 +19,9 @@ class HomeController extends Controller
     {
     	$openid = Session::get('openid');
 		$res = $this->userType($openid);
-    	if(count($res['userType'])){
+    	if (count($res['userType'])){
     		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0]]);
-    	}else{
+    	} else {
     		return redirect('/front/register');
     	}
     }
@@ -50,4 +50,12 @@ class HomeController extends Controller
 	{
    		return redirect(OauthController::getUrl(4, 0));
 	}
+
+	private function getUid($openid)
+    {
+    	$userType = UserType::where('openid', $openid)
+    		->select('uid')
+    		->get()[0];
+    	return $userType->uid;
+    }
 }

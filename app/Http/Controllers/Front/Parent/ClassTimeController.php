@@ -89,6 +89,27 @@ class ClassTimeController extends Controller
     	return response()->json(['errcode'=>0]);
     }
 
+    /*二改设置全部*/
+    public function setAll(Request $request)
+    {
+        $classTimes = $request->input('classTimes');
+        $select = $request->input('select');
+        $is_order = $request->input('is_order');
+
+         $front_id = $this->getUid(Session::get('openid'));
+
+        if ($is_order == 0){
+            $str = implode('-', $select);
+            ParentDetail::where('id', $front_id)
+                ->update(['prefer_type'=>$is_order,'prefer_time'=>$str,'classTimes'=>$classTimes]);
+        } else {
+            ParentDetail::where('id', $front_id)
+                ->update(['prefer_type'=>$is_order,'classTimes'=>$classTimes]);
+        }
+
+        return response()->json(['errcode'=>0]);
+    }
+
     private function getUid($openid)
     {
     	$userType = UserType::where('openid', $openid)
