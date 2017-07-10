@@ -27,11 +27,15 @@
     			</a>
   			</button>
             <h1 class="title">选择可上课时间</h1>
+            @if(!$flight->classTimes)
             <button class="button button-link button-nav pull-right" id="setOK">
     			<a href="">
     				提交<span class="icon icon-check"></span>
     			</a>
   			</button>
+  			@else
+  				<span style="color:red;">提交无效</span>
+  			@endif
         </header>
 		<div class="content">
 		    <p style="color: red;padding-left: 12px;">注意：上课时间设置只有一次机会。</p>
