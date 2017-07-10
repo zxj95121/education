@@ -63,8 +63,12 @@ $editAddress = $tools->GetEditAddressParameters();
 				'getBrandWCPayRequest',
 				<?php echo $jsApiParameters; ?>,
 				function(res){
-					 WeixinJSBridge.log(res.err_msg);
-					//alert(res.err_code+res.err_desc+res.err_msg);
+					WeixinJSBridge.log(res.err_msg);
+					if(res.err_msg == "get_brand_wcpay_request:ok"){
+						window.location.href="http://blog.sina.com.cn/u/1863605217";  
+					}else{
+						window.location.href="http://blog.sina.com.cn/u/1863605217";  
+					}  
 				}
 		);
 	}
