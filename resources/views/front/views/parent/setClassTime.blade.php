@@ -469,7 +469,7 @@
 
 				if (len < min) {
 					layer.open({
-					    content: '每周上'+classTimes+'节课所选时间不能低于'+min+'个';
+					    content: '每周上'+classTimes+'节课所选时间不能低于'+min+'个'
 					    ,skin: 'msg'
 					    ,time: 2 //2秒后自动关闭
 					 });
