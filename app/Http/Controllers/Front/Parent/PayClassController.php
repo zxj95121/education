@@ -25,7 +25,7 @@ class PayClassController extends Controller
 		$uid = $this->getUid($openid);
 		/*新订单*/
 		$tid = $request->input('id');
-		dd($tid);
+		dd($request->all());
 		/*查取价格*/
 		$res = EclassPriceController::getUnitPrice($tid);
 		$count = $res['count'];
@@ -76,7 +76,6 @@ class PayClassController extends Controller
 			$noTime = false;
 
 		if(!$result && !$noTime) {
-			dd($pid);
 			/*读取课程数量*/
 			$pid = $request->input('pid');
 			$threeObj = TeacherThree::find($pid);
