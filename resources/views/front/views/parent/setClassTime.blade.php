@@ -84,10 +84,10 @@
 				    </li>
 				</ul>
 		  	</div>
-		  	<div class="content-block-title" hide="true">放学后</div>
+		  	<div class="content-block-title" hide="true">下午放学后</div>
 	  		<div class="list-block" hide="true">
 			    <ul>
-			      	<li class="item-content">
+			      	<li class="item-content" choose="1">
 				        <div class="item-inner">
 				          	<div class="item-title">周一</div>
 				          	<div class="item-after">
@@ -97,7 +97,7 @@
 				          	</div>
 				        </div>
 				    </li>
-				    <li class="item-content">
+				    <li class="item-content" choose="2">
 				        <div class="item-inner">
 				          	<div class="item-title">周二</div>
 				          	<div class="item-after">
@@ -107,7 +107,7 @@
 				          	</div>
 				        </div>
 				    </li>
-				    <li class="item-content">
+				    <li class="item-content" choose="3">
 				        <div class="item-inner">
 				          	<div class="item-title">周三</div>
 				          	<div class="item-after">
@@ -117,7 +117,7 @@
 				          	</div>
 				        </div>
 				    </li>
-				    <li class="item-content">
+				    <li class="item-content" choose="4">
 				        <div class="item-inner">
 				          	<div class="item-title">周四</div>
 				          	<div class="item-after">
@@ -127,7 +127,7 @@
 				          	</div>
 				        </div>
 				    </li>
-				    <li class="item-content">
+				    <li class="item-content" choose="5">
 				        <div class="item-inner">
 				          	<div class="item-title">周五</div>
 				          	<div class="item-after">
@@ -139,7 +139,52 @@
 				    </li>
 				</ul>
 		  	</div>
-		  	<div class="content-block-title" hide="true">周一到周五</div>
+		  	<div class="content-block-title" hide="true">周末</div>
+	  		<div class="list-block" hide="true">
+			    <ul>
+			      	<li class="item-content" choose="6">
+				        <div class="item-inner">
+				          	<div class="item-title">周六上午</div>
+				          	<div class="item-after">
+				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          	</div>
+				        </div>
+				    </li>
+				    <li class="item-content" choose="7">
+				        <div class="item-inner">
+				          	<div class="item-title">周六下午</div>
+				          	<div class="item-after">
+				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          	</div>
+				        </div>
+				    </li>
+				    <li class="item-content" choose="8">
+				        <div class="item-inner">
+				          	<div class="item-title">周日上午</div>
+				          	<div class="item-after">
+				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          	</div>
+				        </div>
+				    </li>
+				    <li class="item-content" choose="9">
+				        <div class="item-inner">
+				          	<div class="item-title">周日下午</div>
+				          	<div class="item-after">
+				          		<span style="user-select:none;opacity: 0;z-index: -3;">0</span>
+				          			<a href="#" class="button button-fill button-danger cancleBtn">取消选择</a>
+				          			<a href="#" class="button button-fill selectBtn">选择</a>
+				          	</div>
+				        </div>
+				    </li>
+				</ul>
+		  	</div>
+		  	<!-- <div class="content-block-title" hide="true">周一到周五</div>
 	  		<div class="list-block" hide="true">
 			    <ul>
 			    @foreach($classType[0] as $value)
@@ -178,7 +223,7 @@
 		      		</li>
 		      	@endforeach
 		    	</ul>
-		  	</div>
+		  	</div> -->
 		</div>
 	</div>
 
