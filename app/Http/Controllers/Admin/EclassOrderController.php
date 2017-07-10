@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 
 use App\Models\EclassOrder;
 use App\Models\ParentInfo;
+use App\Models\ParentDetail;
+use App\Models\BanJi;
+use App\Models\OrderClassTime;
 
 use Session;
 
@@ -55,7 +58,15 @@ class EclassOrderController extends Controller
     		->select('pi.phone as phone', 'pi.name as nickname', 'to.name as name1', 'tt.name as name2', 'th.name as name3', 'eclass_order.*')
     		->paginate(5);
     	// dd($orderList->toArray());
-    	return view('admin.eclassOrderList', ['orderList'=>$orderList,'str'=>$str,'order_no'=>$order_no,'pay_select'=>$pay_select,'confirm_select'=>$confirm_select,'date0'=>$date0,'date1'=>$date1]);
+
+        /*获取班级信息*/
+        $classObj = BanJi::where('status', '1')
+            ->get();
+
+        /*对每一个班级，查信息*/
+    	return view('admin.eclassOrderList', ['orderList'=>$orderList,'str'=>$str,'order_no'=>$order_no,'pay_select'=>$pay_select,'confirm_select'=>$confirm_select,'date0'=>$date0,'date1'=>$date1,
+                'classObj'=>$classObj
+            ]);
     }
 
     /*确认通过该订单*/
@@ -80,5 +91,18 @@ class EclassOrderController extends Controller
         $flight->save();
 
         return response()->json(['errcode'=>0]);
+    }
+
+    public function useDetail(Request $request)
+    {
+        $id = $request->input('id');
+
+        $orderObj = EclassOrder::find($id);
+
+        $uid = $orderObj->uid;
+
+        $parentObj = ParentDetail::find($uid);
+
+        
     }
 }
