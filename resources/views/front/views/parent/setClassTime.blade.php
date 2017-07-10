@@ -40,8 +40,8 @@
 			    	<li class="item-content">
 				        <div class="item-inner">
 				          	<div class="item-title">请选择每周上课次数</div>
-				          	<div class="item-after">
-				          		<div class="item-input" style="width: 30%;">
+				          	<div class="item-after" style="width: 30%;">
+				          		<div class="item-input">
 				          			<select id="classTimes">
 						                <option value="1">1</option>
 						                <option value="2">2</option>
@@ -340,7 +340,7 @@
 			$(document).on('click', '.selectBtn', function(){
 				$('#loadingToast').show();
 				var cdom = $(this);
-				var id = $(this).parents('li').attr('cid');
+				var id = $(this).parents('li').attr('choose');
 				$('#toast').find('.weui-toast__content').html('已设置可上课');
 				$.ajax({
 					url: '/front/setClassTime/selectTime',
