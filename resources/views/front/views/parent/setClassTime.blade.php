@@ -43,26 +43,27 @@
 				          	<div class="item-after" style="width: 20%;">
 				          		<div class="item-input">
 				          			<select id="classTimes">
-						                <option value="1">1</option>
-						                <option value="2">2</option>
-						                <option selected="selected" value="3">3</option>
-						                <option value="4">4</option>
-						                <option value="5">5</option>
-						                <option value="6">6</option>
-						                <option value="7">7</option>
-						                <option value="8">8</option>
-						                <option value="9">9</option>
-						                <option value="10">10</option>
-						                <option value="11">11</option>
-						                <option value="12">12</option>
-						                <option value="13">13</option>
-						                <option value="14">14</option>
-						                <option value="15">15</option>
-						                <option value="16">16</option>
-						                <option value="17">17</option>
-						                <option value="18">18</option>
-						                <option value="19">19</option>
-						                <option value="20">20</option>
+				          				@php $classTimes = $flight->classTimes; @endphp
+						                <option value="1" @if($classTimes == 1) selected="selected" @else @endif>1</option>
+						                <option value="2" @if($classTimes == 2) selected="selected" @else @endif>2</option>
+						                <option @if($classTimes == 3 || !$classTimes) selected="selected" @else @endif value="3">3</option>
+						                <option @if($classTimes == 4) selected="selected" @else @endif value="4">4</option>
+						                <option @if($classTimes == 5) selected="selected" @else @endif value="5">5</option>
+						                <option @if($classTimes == 6) selected="selected" @else @endif value="6">6</option>
+						                <option @if($classTimes == 7) selected="selected" @else @endif value="7">7</option>
+						                <option @if($classTimes == 8) selected="selected" @else @endif value="8">8</option>
+						                <option @if($classTimes == 9) selected="selected" @else @endif value="9">9</option>
+						                <option @if($classTimes == 10) selected="selected" @else @endif value="10">10</option>
+						                <option @if($classTimes == 11) selected="selected" @else @endif value="11">11</option>
+						                <option @if($classTimes == 12) selected="selected" @else @endif value="12">12</option>
+						                <option @if($classTimes == 13) selected="selected" @else @endif value="13">13</option>
+						                <option @if($classTimes == 14) selected="selected" @else @endif value="14">14</option>
+						                <option @if($classTimes == 15) selected="selected" @else @endif value="15">15</option>
+						                <option @if($classTimes == 16) selected="selected" @else @endif value="16">16</option>
+						                <option @if($classTimes == 17) selected="selected" @else @endif value="17">17</option>
+						                <option @if($classTimes == 18) selected="selected" @else @endif value="18">18</option>
+						                <option @if($classTimes == 19) selected="selected" @else @endif value="19">19</option>
+						                <option @if($classTimes == 20) selected="selected" @else @endif value="20">20</option>
               						</select>
 					            </div>
 				          	</div>
@@ -464,6 +465,12 @@
 					if($(this).find('.button-danger').length > 0)
 						select[len++] = choose;
 				})
+
+				if ($('.content-block-title').css('display') == 'none')
+					var is_order = 1;
+				else
+					var is_order = 0;
+				console.log(is_order);
 				console.log(select);
 			})
 		})
