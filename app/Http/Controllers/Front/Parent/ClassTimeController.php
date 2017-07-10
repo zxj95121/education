@@ -92,7 +92,7 @@ class ClassTimeController extends Controller
     /*二改设置全部*/
     public function setAll(Request $request)
     {
-        $classTimes = $request->input('time');
+        $classTimes = $request->input('classTimes');
         $select = $request->input('select');
         $is_order = $request->input('is_order');
 
