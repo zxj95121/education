@@ -103,6 +103,13 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->get('/hobbyManage', 'Setting\HobbyController@hobbyManage');//爱好管理列表页
     $router->post('/hobbyManage/newHobby', 'Setting\HobbyController@newHobby');//爱好新增
     $router->post('/hobbyManage/hideHobby', 'Setting\HobbyController@hideHobby');//爱好新增
+
+    /*班级设置*/
+    $router->get('/classSetting', 'Setting\ClassSettingController@index');
+    $router->post('/classSetting/add', 'Setting\ClassSettingController@add');
+    $router->post('/classSetting/edit', 'Setting\ClassSettingController@edit');
+    $router->post('/classSetting/delete', 'Setting\ClassSettingController@delete');
+
   	/**
   	 * 双师classOne*/
   	$router->get('/doubleTeacher','Teacher\DoubleTeacherController@doubleTeacher');//列表
