@@ -14,6 +14,7 @@ use App\Models\UserType;
 use App\Models\EclassOrder;
 
 use App\Http\Controllers\EclassPriceController;
+
 use Session;
 
 class PayClassController extends Controller
@@ -25,43 +26,39 @@ class PayClassController extends Controller
 		$uid = $this->getUid($openid);
 		/*新订单*/
 		$tid = $request->input('id');
-
-		if (strpos($tid, 'id') > 0) {
-			$tid = explode('=', $tid)[1];
-			$id = Session::get('order_id');
-			$flight = EclassOrder::find($id);
-			$order_id = $id;
-			
-			$name = EclassPriceController::getName($tid, 2);
-			$firstName = EclassPriceController::getName($tid, 0);
-			$classname = $firstName.$name;
-		} else {
-			/*查取价格*/
-			$res = EclassPriceController::getUnitPrice($tid);
-			$count = $res['count'];
-			$unitPrice = $res['unitPrice'];
-			$price = number_format($count*$unitPrice, 2);
-
-			$order_no = date('YmdHis', time()).rand(1000,9999);
-
-			$flight = new EclassOrder();
-			$flight->uid = $uid;
-			$flight->tid = $tid;
-			$flight->order_no = $order_no;
-			$flight->count = $count;
-			$flight->price = $price;
-			$flight->save();
-
-			$order_id = $flight->id;
-			Session::put('order_id', $order_id);
-			
-			$name = EclassPriceController::getName($tid, 2);
-			$firstName = EclassPriceController::getName($tid, 0);
-			$classname = $firstName.$name;
-		}
+		/*查取价格*/
+		$res = EclassPriceController::getUnitPrice($tid);
+		$count = $res['count'];
+		$unitPrice = $res['unitPrice'];
+		$price = number_format($count*$unitPrice, 2);
+		$order_no = date('YmdHis', time()).rand(1000,9999);
+		$flight = new EclassOrder();
+		$flight->uid = $uid;
+		$flight->tid = $tid;
+		$flight->order_no = $order_no;
+		$flight->count = $count;
+		$flight->price = $price;
+		$flight->save();
+		$order_id = $flight->id;
+		$name = EclassPriceController::getName($tid, 2);
+		$firstName = EclassPriceController::getName($tid, 0);
+		$classname = $firstName.$name;
+		Session::put('jname',$name);
+		Session::put('jorder_id',$order_id);
+		Session::put('jclassname',$classname);
+		Session::put('jflight',$flight);
+		return redirect('/front/parent/newEclassOrder2');
+		
+		
+	}
+	public function newEclassOrder2()
+	{
+		$name = Session::get('jname');
+		$order_id = Session::get('jorder_id');
+		$classname = Session::get('jclassname');
+		$flight = Session::get('jflight');
 		return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight,'classname'=>$classname]);
 	}
-
     public function checkMessage(Request $request)
     {
     	$openid = Session::get('openid');
