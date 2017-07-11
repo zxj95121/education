@@ -5,7 +5,8 @@
     <title>微信支付样例-退款</title>
 </head>
 <?php
-
+var_dump(getcwd());
+exit;
 require_once $_SERVER['DOCUMENT_ROOT']."/php/WxPayAPI/lib/WxPay.Api.php";
 function printf_info($data)
 {
