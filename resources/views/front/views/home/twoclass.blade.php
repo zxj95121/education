@@ -40,7 +40,7 @@
 				</a>
 			</div>
 		@endforeach
-		@if(isset($parentDetail))
+		@if(isset($parentDetail) && !$parentDetail->classTimes)
 			<div class="alert alert-success" role="alert"><a href="/front/setClassTime#eclass" style="text-decoration: underline;">您还没有设置上课时间，立即点我去设置。</a></div>
 		@else
 		@endif
