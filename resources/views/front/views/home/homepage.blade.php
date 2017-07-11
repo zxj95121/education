@@ -108,7 +108,7 @@
 	                <div class="col-xs-4">1</div>
 	            </div>
 	            <div class="row" id="my_count_bottom">
-	                <div class="col-xs-4">class订单</div>
+	                <a href="/front/parent/myClassOrder"><div class="col-xs-4">class订单</div></a>
 	                <div class="col-xs-4">已确认</div>
 	                <div class="col-xs-4">已完成</div>
 	            </div>
