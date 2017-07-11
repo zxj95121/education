@@ -98,6 +98,15 @@ class TwoClassController extends Controller
                     ->get()[0]->pid;
                 echo json_encode(['errcode'=>0,'pid1'=>$pid1,'pid2'=>$pid2]);
                 exit;
+            } elseif ($class == 'class3') {
+                $pid = $sess['pid'];
+                $pid1 = TeacherTwo::where('status', '1')
+                    ->where('id', $pid)
+                    ->select('pid')
+                    ->get()[0]->pid;
+                $pid2 = $pid;
+                echo json_encode(['errcode'=>0,'pid1'=>$pid1,'pid2'=>$pid2]);
+                exit;
             }
         } else {
             echo json_encode(['errcode'=>1]);
