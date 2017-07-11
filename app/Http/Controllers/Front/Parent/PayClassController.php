@@ -22,10 +22,9 @@ class PayClassController extends Controller
 	/*新订单*/
 	public function newEclassOrder(Request $request)
 	{
-
-			$openid = Session::get('openid');
-			$uid = $this->getUid($openid);
 			if(empty($request->input('code'))){
+				$openid = Session::get('openid');
+				$uid = $this->getUid($openid);
 				/*新订单*/
 				$tid = $request->input('id');
 				/*查取价格*/
