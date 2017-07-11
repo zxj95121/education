@@ -1,5 +1,5 @@
 <?php
-	/* require_once $_SERVER['DOCUMENT_ROOT'].'/php/WxPayAPI/lib/WxPay.Api.php';
+	require_once $_SERVER['DOCUMENT_ROOT'].'/php/WxPayAPI/lib/WxPay.Api.php';
 	require_once $_SERVER['DOCUMENT_ROOT'].'/php/WxPayAPI/jsapi/WxPay.JsApiPay.php';
 	//①、获取用户openid
 	$tools = new JsApiPay();
@@ -14,7 +14,7 @@
 	$input->SetTrade_type("JSAPI");//交易类型
 	$input->SetOpenid($openId);//用户标识
 	$order = WxPayApi::unifiedOrder($input);
-	$jsApiParameters = $tools->GetJsApiParameters($order); */
+	$jsApiParameters = $tools->GetJsApiParameters($order); 
 ?>
 <!DOCTYPE html>
 <html>

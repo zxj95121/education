@@ -15,9 +15,6 @@ use App\Models\EclassOrder;
 
 use App\Http\Controllers\EclassPriceController;
 
-use App\Http\Controllers\Front\WxPayAPI\jsapi\JsApiPay;
-use App\Http\Controllers\Front\WxPayAPI\lib\WxPayUnifiedOrder;
-use App\Http\Controllers\Front\WxPayAPI\lib\WxPayApi;
 use Session;
 
 class PayClassController extends Controller
@@ -25,50 +22,40 @@ class PayClassController extends Controller
 	/*新订单*/
 	public function newEclassOrder(Request $request)
 	{
+
 			$openid = Session::get('openid');
 			$uid = $this->getUid($openid);
-			/*新订单*/
-			$tid = $request->input('id');
-			//$tid = substr($tid,0,strpos($tid,'id'));
-			/*查取价格*/
-			$res = EclassPriceController::getUnitPrice($tid);
-			$count = $res['count'];
-			$unitPrice = $res['unitPrice'];
-			$price = number_format($count*$unitPrice, 2);
-			$order_no = date('YmdHis', time()).rand(1000,9999);
-			$flight = new EclassOrder();
-			$flight->uid = $uid;
-			$flight->tid = $tid;
-			$flight->order_no = $order_no;
-			$flight->count = $count;
-			$flight->price = $price;
-			$flight->save();
-			$order_id = $flight->id;
-			$name = EclassPriceController::getName($tid, 2);
-			$firstName = EclassPriceController::getName($tid, 0);
-			$classname = $firstName.$name;
-			
-			//①、获取用户openid
-			$tools = new JsApiPay();
-			$openId = $tools->GetOpenid();
-			//②、统一下单
-			$input = new WxPayUnifiedOrder();
-			$input->SetBody($classname);//商品描述
-			$input->SetOut_trade_no($flight->order_no);//商户订单号
-			$input->SetTotal_fee("1");//标价金额
-			$input->SetTime_start(date("YmdHis"));//交易起始时间
-			$input->SetNotify_url("http://api.zhangxianjian.com/wxpay/notify");//通知地址
-			$input->SetTrade_type("JSAPI");//交易类型
-			$input->SetOpenid($openId);//用户标识
-			$order = WxPayApi::unifiedOrder($input);
-			$jsApiParameters = $tools->GetJsApiParameters($order);
-			
-			
-			return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight,'classname'=>$classname,'jsApiParameters'=>$jsApiParameters]);
-		
-	}
-	public function wxpay()
-	{
+			if(empty($request->input('code'))){
+				/*新订单*/
+				$tid = $request->input('id');
+				/*查取价格*/
+				$res = EclassPriceController::getUnitPrice($tid);
+				$count = $res['count'];
+				$unitPrice = $res['unitPrice'];
+				$price = number_format($count*$unitPrice, 2);
+				$order_no = date('YmdHis', time()).rand(1000,9999);
+				$flight = new EclassOrder();
+				$flight->uid = $uid;
+				$flight->tid = $tid;
+				$flight->order_no = $order_no;
+				$flight->count = $count;
+				$flight->price = $price;
+				$flight->save();
+				$order_id = $flight->id;
+				$name = EclassPriceController::getName($tid, 2);
+				$firstName = EclassPriceController::getName($tid, 0);
+				$classname = $firstName.$name;
+				Session::put('jname',$name);
+				Session::put('jorder_id',$order_id);
+				Session::put('jflight',$flight);
+				Session::put('jclassname',$classname);
+			}else{
+				$name = Session::get('jname');
+				$order_id = Session::get('jorder_id');
+				$flight = Session::get('jflight');
+				$classname = Session::get('jclassname');
+			}			
+			return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight,'classname'=>$classname]);
 		
 	}
     public function checkMessage(Request $request)
