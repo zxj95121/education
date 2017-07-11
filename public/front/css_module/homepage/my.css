@@ -51,8 +51,9 @@
 	margin: 0 auto;
 }
 .row_count{
-	width: 33%;
+	/*width: 33%;*/
 	border-right: 1px dotted #eeeeee;
+	/*display: inline-block;*/
 }
 .col-xs-4{
 	width: 100%;

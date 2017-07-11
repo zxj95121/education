@@ -102,17 +102,17 @@
 
         @elseif($userType->type == 2)
 	       	<div class="row" id="my_count">
-	            <div class="row_count" id="my_count_left">
-	                <div class="col-xs-4">3</div>
-	                <div class="col-xs-4">class订单</div>
+	            <div class="row_count col-xs-4" id="my_count_left">
+	                <div class="colXS">3</div>
+	                <div class="colXS">class订单</div>
 	            </div>
-	            <div class="row_count" id="my_count_center">
-	                <div class="col-xs-4">3</div>
-	                <div class="col-xs-4">class订单</div>
+	            <div class="row_count col-xs-4" id="my_count_center">
+	                <div class="colXS">3</div>
+	                <div class="colXS">class订单</div>
 	            </div>
-	            <div class="row_count" id="my_count_right">
-	                <div class="col-xs-4">3</div>
-	                <div class="col-xs-4">class订单</div>
+	            <div class="row_count col-xs-4" id="my_count_right">
+	                <div class="colXS">3</div>
+	                <div class="colXS">class订单</div>
 	            </div>
 	        </div>
 	       	<div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
