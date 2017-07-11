@@ -96,13 +96,11 @@ class EclassOrderController extends Controller
         $flight->confirm_status = 2;
         $flight->pay_status = 2;
         $flight->save();
-		$this->tuikuan($flight->id);
         return response()->json(['errcode'=>0]);
     }
 	public function tuikuan(){
 		return view('admin.tuikuan');
 	}
-	
     public function useDetail(Request $request)
     {
         $id = $request->input('id');
