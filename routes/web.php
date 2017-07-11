@@ -166,8 +166,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/eclassOrderList/confirmXX', 'EclassOrderController@confirmXX');//驳回审核
 
     /*退款*/
-    $router->get('/tuikuan', 'EclassOrderController@tuikuan');
-
+    $router->any('/tuikuan', 'EclassOrderController@tuikuan');
     /*查订单用户的信息*/
     $router->post('/classOrder/useDetail', 'EclassOrderController@useDetail');
     $router->post('/classOrder/useDetails', 'EclassOrderController@useDetails');
