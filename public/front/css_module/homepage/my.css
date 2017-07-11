@@ -54,7 +54,7 @@
 	width: 33%;
 	border-right: 1px dotted #eeeeee;
 }
-#col-xs-4{
+.col-xs-4{
 	width: 100%;
 	padding-top: 13px;
 	color: #ccc;
