@@ -55,11 +55,16 @@
 	border-right: 1px dotted #eeeeee;
 	/*display: inline-block;*/
 }
-.colXS{
+.colXS:nth-of-type(0){
 	width: 100%;
 	padding-top: 13px;
 	color: #ccc;
-	margin-bottom: 16px;
+	margin-bottom: 5px;
+}
+.colXS:nth-of-type(1){
+	width: 100%;
+	color: #ccc;
+	margin-bottom: 15px;
 }
 /*#my_count_top{
 	margin-top: 20px;
