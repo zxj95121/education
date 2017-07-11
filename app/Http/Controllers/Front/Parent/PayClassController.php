@@ -51,6 +51,7 @@ class PayClassController extends Controller
 				Session::put('jclassname',$classname);
 			}else{
 				var_dump(Session::all());
+				die();
 				$name = Session::get('jname');
 				$order_id = Session::get('jorder_id');
 				var_dump($order_id); 
