@@ -116,15 +116,17 @@
 	       	<div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
         @elseif($userType->type == 3)
 	        <div class="row" id="my_count">
-	            <div class="row" id="my_count_top">
+	            <div class="row_count" id="my_count_left">
 	                <div class="col-xs-4">3</div>
-	                <div class="col-xs-4">2</div>
-	                <div class="col-xs-4">1</div>
-	            </div>
-	            <div class="row" id="my_count_bottom">
 	                <div class="col-xs-4">class订单</div>
-	                <div class="col-xs-4">已确认</div>
-	                <div class="col-xs-4">已完成</div>
+	            </div>
+	            <div class="row_count" id="my_count_center">
+	                <div class="col-xs-4">3</div>
+	                <div class="col-xs-4">class订单</div>
+	            </div>
+	            <div class="row_count" id="my_count_right">
+	                <div class="col-xs-4">3</div>
+	                <div class="col-xs-4">class订单</div>
 	            </div>
 	        </div>
 	       	<div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
