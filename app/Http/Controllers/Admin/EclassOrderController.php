@@ -100,7 +100,7 @@ class EclassOrderController extends Controller
         return response()->json(['errcode'=>0]);
     }
 	public function tuikuan(){
-		return view('admin.tukuan');
+		return view('admin.tuikuan');
 	}
 	
     public function useDetail(Request $request)
