@@ -104,17 +104,17 @@
 	       	<div class="row" id="my_count">
 	            <a href="/front/parent/myClassOrder">
 	            	<div class="row_count col-xs-4" id="my_count_left">
-	                	<div class="colXS">3</div>
+	                	<div class="colXS">1</div>
 	                	<div class="colXS">class订单</div>
 	            	</div>
 	            </a>
 	            <div class="row_count col-xs-4" id="my_count_center">
-	                <div class="colXS">3</div>
-	                <div class="colXS">class订单</div>
+	                <div class="colXS">1</div>
+	                <div class="colXS">进行中</div>
 	            </div>
 	            <div class="row_count col-xs-4" id="my_count_right">
-	                <div class="colXS">3</div>
-	                <div class="colXS">class订单</div>
+	                <div class="colXS">1</div>
+	                <div class="colXS">已完成</div>
 	            </div>
 	        </div>
 	       	<div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
