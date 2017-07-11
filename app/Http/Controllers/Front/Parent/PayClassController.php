@@ -47,7 +47,7 @@ class PayClassController extends Controller
 				$jorder['name'] = $name;
 				$jorder['order_id'] = $order_id;
 				$jorder['classname'] = $classname;
-				Session::put('jorder', $jorder);
+				Session::flash('jorder',$jorder);
 			}else{
 				var_dump(Session::all());
 				die;
