@@ -45,11 +45,13 @@ class PayClassController extends Controller
 				$name = EclassPriceController::getName($tid, 2);
 				$firstName = EclassPriceController::getName($tid, 0);
 				$classname = $firstName.$name;
-				Session::put('jname',$name);
-				Session::put('jorder_id',$order_id);
-				Session::put('jclassname',$classname);
+				$jorder['name'] = $name;
+				$jorder['order_id'] = $order_id;
+				$jorder['classname'] = $classname;
+				Session::put('jorder', $jorder);
 			}else{
 				var_dump(Session::all());
+				die;
 				$name = Session::get('jname');
 				$order_id = Session::get('jorder_id');
 				var_dump($order_id); 
