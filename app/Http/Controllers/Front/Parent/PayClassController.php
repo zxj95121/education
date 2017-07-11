@@ -54,6 +54,7 @@ class PayClassController extends Controller
 				$order_id = Session::get('jorder_id');
 				$flight = Session::get('jflight');
 				$classname = Session::get('jclassname');
+				var_dump($flight);
 			}			
 			return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight,'classname'=>$classname]);
 		
