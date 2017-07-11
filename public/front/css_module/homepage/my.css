@@ -51,19 +51,17 @@
 	margin: 0 auto;
 }
 .row_count{
-	/*width: 33%;*/
 	border-right: 1px dotted #eeeeee;
-	/*display: inline-block;*/
 }
 .colXS:nth-of-type(1){
 	width: 100%;
 	padding-top: 13px;
-	color: #ccc;
+	color: #6C6C6C;
 	margin-bottom: 5px;
 }
 .colXS:nth-of-type(2){
 	width: 100%;
-	color: #ccc;
+	color: #555555;
 	margin-bottom: 15px;
 }
 /*#my_count_top{
