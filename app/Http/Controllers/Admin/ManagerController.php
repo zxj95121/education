@@ -123,6 +123,9 @@ class ManagerController extends Controller
     {
     	$id = $request->input('id');
     	$teacher = TeacherDetail::find($id);
+    	if (empty($teacher->address)) {
+    		return response()->json(['code'=>233]);
+    	}
     	$arr = explode('-',$teacher->address);
     	for($i = 0; $i < count($arr); $i++){
     		$address3 = CommunityCommunity::where('id',$arr[$i])
