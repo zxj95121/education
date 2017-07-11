@@ -131,6 +131,11 @@
 @section('jquery')
 <script type="text/javascript" src="/js/layui/layui.js"></script>
 <script>
+	$(function(){
+	    layui.use('layer', function(){
+	        window.layer = layui.layer;
+	    });
+	})
 	$('.identity').click(function(){
 		var id = $(this).attr('tid'); 
 		var tname = $(this).parents('tbody').find('.tname').text();
@@ -150,8 +155,8 @@
 					$('#myModalLabel').html(tname+'期望教学社区');
 					$('#myModal tbody').html(html);
 					$('#myModal').modal('show');
-				}else{
-					alert('请重新查看');
+				}else if(date.code == 233){
+					window.layer.msg('该用户未填写期望教学社区'); 
 				}
 				
 			}

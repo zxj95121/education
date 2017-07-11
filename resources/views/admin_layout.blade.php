@@ -146,6 +146,18 @@
                             </li>
                         </ul>
                     </li>
+                   	<li class="has-submenu {!!(Request::is('admin/bill')? 'active' : '') !!}">
+                        <a href="#">
+                            <i class="fa fa-cog"></i> 
+                            <span class="nav-label">账单管理</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="list-unstyled">
+                            <li class="{!!(Request::is('admin/bill')? 'active' : '') !!}">
+                                <a href="/admin/bill">流水账   </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
                 

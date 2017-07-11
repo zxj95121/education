@@ -24,14 +24,13 @@ Route::get('/html/{name}',function($name){
     return redirect('/html?res='.$name);
 });
 Route::get('/html', 'HtmlController@index');
-
+/*微信class支付回调 */
 Route::any('/wxpay/notify','WeixinController@notify');
 //<!------------Wechat文件夹----------------------->
 /*微信接入主程序*/
 Route::any('/wechatIndex', 'Wechat\WechatIndexController@index');
 Route::any('/wechatIndexCatchon', 'Wechat\WechatIndexCatchonController@index');
 
-Route::any('/weixin/notify','HtmlController@notify');
 /*微信网页授权*/
 Route::get('/oauth/getCode', 'Wechat\OauthController@getCode');
 
@@ -157,20 +156,22 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->get('/eclassOrderList', 'EclassOrderController@list');
     $router->post('/eclassOrderList/confirmOK', 'EclassOrderController@confirmOK');
     $router->post('/eclassOrderList/confirmXX', 'EclassOrderController@confirmXX');//驳回审核
-
+    /*退款  */
+    $router->get('/tuikuan','EclassOrderController@tuikuan');
     /*查订单用户的信息*/
     $router->post('/classOrder/useDetail', 'EclassOrderController@useDetail');
-
-
     /*待请求审核*/
       /*学校审核*/
     $router->get('/applySchool', 'Review\SchoolController@applySchool');
     $router->post('/applySchool/failed', 'Review\SchoolController@failed');/*驳回申请*/
     $router->post('/applySchool/success', 'Review\SchoolController@success');/*驳回申请*/
-      /*爱好申请*/
+    /*爱好申请*/
     $router->get('/applyHobby', 'Review\HobbyController@applyHobby');
     $router->post('/applyHobby/failed', 'Review\HobbyController@failed');/*驳回申请*/
     $router->post('/applyHobby/success', 'Review\HobbyController@success');/*驳回申请*/
+	/*账单管理  */
+	$router->get('/bill','BillController@bill');   
+
 });
 
 
