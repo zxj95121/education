@@ -51,6 +51,7 @@ class PayClassController extends Controller
 			}else{
 				$name = Session::get('jname');
 				$order_id = Session::get('jorder_id');
+				var_dump($order_id); 
 				$flight = EclassOrder::find($order_id);
 				$classname = Session::get('jclassname');
 				var_dump($flight);
