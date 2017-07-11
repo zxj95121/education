@@ -22,6 +22,9 @@
         font-size: 16px;
         border-top: 0px solid transparent;
     }
+    .classOrderDelete{
+        cursor: pointer;
+    }
 </style>
 @endsection
 
@@ -229,16 +232,15 @@
                                             <td>订单编号: <span id="span_no">145151</span></td>
                                         </tr>
                                         <tr>
-                                            <td>课程名称: <span id="span_name">laochanglaochang</span></td>
-                                            <td></td>
+                                            <td colspan="2">课程名称: <span id="span_name" style="color:red;"></span></td>
                                         </tr>
                                         <tr>
                                             <td>课时数量: <span id="span_count">8</span></td>
-                                            <td>订单价格: <span id="span_price" style="color:red;">80.00</span></td>
+                                            <td>订单价格: <span id="span_price">80.00</span></td>
                                         </tr>
                                         <tr>
                                             <td>用户昵称: <span id="span_nickname">young</span></td>
-                                            <td>订单时间: <span id="span_time" style="color:red;">2017</span></td>
+                                            <td>订单时间: <span id="span_time">2017</span></td>
                                         </tr>
                                         <tr>
                                             <td></td>
@@ -260,12 +262,12 @@
                                     <div class="panel panel-default">
                                         <div class="panel-heading">用户每周上课次数</div>
                                         <div class="panel-body">
-                                            <h2 id="h2Times">3次</h2>
+                                            <h2 id="h2Times" style="font-weight: bold;font-size: 17px;">3次</h2>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <table class="table table-hover" style="width: 100%;display: inline-table;">
+                                    <table id="classTable" class="table table-striped" style="width: 100%;display: inline-table;">
                                         <tr>
                                             <th width="25%">班级详情</th>
                                             <th width="25%"></th>
@@ -279,7 +281,7 @@
                                             <th>课程种类:</th>
                                         </tr>
                                         @foreach($classObj as $value)
-                                        <tr>
+                                        <tr cid="{{$value->id}}">
                                             <td>{{$value->id}}</td>
                                             <td>{{$value->name}}</td>
                                             <td>5</td>
@@ -289,8 +291,7 @@
                                     </table>
                                     <div class="panel panel-default">
                                         <div class="panel-heading">当前所选课时、星期、班级<b>已有课程</b></div>
-                                        <div class="panel-body">
-                                            <span class="label label-primary">fdasfdfad</span>
+                                        <div class="panel-body" id="span_hasHave">
                                         </div>
                                     </div>
                                 </div>
@@ -300,21 +301,22 @@
                                     <div class="form-group" style="margin-right: 20px;">
                                         <label for="weekSelect">选择星期 </label>
                                         <select class="form-control" id="weekSelect">
-                                            <option value="1">星期一</option>
-                                            <option value="2">星期二</option>
-                                            <option value="3">星期三</option>
-                                            <option value="4">星期四</option>
-                                            <option value="5">星期五</option>
-                                            <option value="6">星期六</option>
-                                            <option value="7">星期日</option>
+                                            <option value="1" type="1">星期一</option>
+                                            <option value="2" type="1">星期二</option>
+                                            <option value="3" type="1">星期三</option>
+                                            <option value="4" type="1">星期四</option>
+                                            <option value="5" type="1">星期五</option>
+                                            <option value="6" type="2">星期六</option>
+                                            <option value="7" type="2">星期日</option>
                                         </select>
                                     </div>
                                       
                                     <div class="form-group m-l-10" style="margin-right: 20px;">
                                         <label for="keshiSelect">选择课时 </label>
                                         <select class="form-control" id="keshiSelect">
-                                            <option value="1">17:30-19:00</option>
-                                            <option value="2">19:00-20:30</option>
+                                        @foreach ($classTime as $value)
+                                            <option type="{{$value->type}}" value="{{$value->id}}">{{$value->low}}-{{$value->high}}</option>
+                                        @endforeach
                                         </select>
                                     </div>
                                     
@@ -326,13 +328,28 @@
                                         @endforeach
                                         </select>
                                     </div>
-                                    <button type="submit" class="btn btn-success m-l-10">确认添加该课时</button>
+                                    <button type="button" class="btn btn-success m-l-10" id="ksAdd">确认添加该课时</button>
                                 </form>
-                            </div>      
+                            </div>
+                            <div class="row">
+                                <table class="table table-striped" id="orderClassTime">
+                                    <thead>
+                                        <tr>
+                                            <th>星期</th>
+                                            <th>详细时间</th>
+                                            <th>所在班级</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>     
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                            <button type="button" class="btn btn-primary">保存</button>
+                            <!-- <button type="button" class="btn btn-primary">保存</button> -->
                         </div>
                     </div>
                 </div>
@@ -415,6 +432,8 @@
         /*分配订单*/
         $(document).on('click', '.orderUseBtn', function(){
             $('#useOrderModal').modal('show');
+            $('#orderClassTime tbody').html('');
+
             var cdom = $(this).parents('tr');
             var id = cdom.find('#td_id').html();
             var no = cdom.find('#td_no').html();
@@ -423,6 +442,9 @@
             var name = cdom.find('#td_name').html();
             var nickname = cdom.find('#td_nickname').html();
             var time = cdom.find('#td_time').html();
+
+            $('#useOrderModal').attr('oid', id);
+
             $('#span_time').html(time);
             $('#span_nickname').html(nickname);
             $('#span_name').html(name);
@@ -443,7 +465,70 @@
                 },
                 success: function(data) {
                     if (data.errcode == 0) {
-                        
+                        console.log(data);
+                        var classTimes = data.result.classTimes;
+                        $('#h2Times').html(classTimes+' 次');
+                        var time = data.result.time;
+                        for (var i in time) {
+                            switch (time[i]) {
+                                case '1':
+                                    var str = '周一放学后';
+                                    break;
+                                case '2':
+                                    var str = '周二放学后';
+                                    break;
+                                case '3':
+                                    var str = '周三放学后';
+                                    break;
+                                case '4':
+                                    var str = '周四放学后';
+                                    break;
+                                case '5':
+                                    var str = '周五放学后';
+                                    break;
+                                case '6':
+                                    var str = '周六上午';
+                                    break;
+                                case '7':
+                                    var str = '周六下午';
+                                    break;
+                                case '8':
+                                    var str = '周日上午';
+                                    break;
+                                case '9':
+                                    var str = '周日下午';
+                                    break;
+                            }
+                            $('#timeP').append('<span class="label label-primary">'+str+'</span>　');
+                        }
+
+                        var oct = data.result.order_class_time;
+                        for (var i in oct) {
+                            switch (oct[i]['week']) {
+                                case 1:
+                                    var weekStr = '星期一';
+                                    break;
+                                case 2:
+                                    var weekStr = '星期二';
+                                    break;
+                                case 3:
+                                    var weekStr = '星期三';
+                                    break;
+                                case 4:
+                                    var weekStr = '星期四';
+                                    break;
+                                case 5:
+                                    var weekStr = '星期五';
+                                    break;
+                                case 6:
+                                    var weekStr = '星期六';
+                                    break;
+                                case 7:
+                                    var weekStr = '星期日';
+                                    break;
+                            }
+                            $('#orderClassTime tbody').append('<tr kid="'+oct[i]['id']+'"><td>'+weekStr+'</td><td>'+oct[i]['low']+'-'+oct[i]['high']+'</td><td>'+oct[i]['cname']+'</td><td><span class="label label-info classOrderDelete">删除</span></td></tr>');
+                        }
                     }
                 }
             })
@@ -454,7 +539,132 @@
             if (href)
                 $(this).attr('href', href+'{!!$str!!}');
         })
+        weekTimeType = 0;
+        weekTimeChange();
+        setUseMessage();
+        $('#weekSelect').change(function(){
+            weekTimeChange();
+            setUseMessage();
+        })
+
+        $('#keshiSelect').change(function(){
+            setUseMessage();
+        })
+
+        $('#classSelect').change(function(){
+            setUseMessage();
+        })
+
+        $('#ksAdd').click(function(){
+            var week = $('#weekSelect option:selected').val();
+            var keshi = $('#keshiSelect option:selected').val();
+            var clas = $('#classSelect option:selected').val();
+            var id = $('#useOrderModal').attr('oid');
+
+            $.ajax({
+                url: '/admin/classOrder/keAdd',
+                dataType: 'json',
+                type: 'post',
+                data: {
+                    week: week,
+                    keshi: keshi,
+                    class: clas,
+                    id: id
+                },
+                success: function(data) {
+                    if (data.errcode == 0) {
+                        $('#orderClassTime tbody').append('<tr kid="'+data.id+'"><td>'+$('#weekSelect option[value="'+week+'"]').html()+'</td><td>'+$('#keshiSelect option[value="'+keshi+'"]').html()+'</td><td>'+$('#classSelect option[value="'+clas+'"]').html()+'</td><td><span class="label label-info classOrderDelete">删除</span></td></tr>');
+                        setUseMessage();
+                    } else {
+                        window.layer.msg(data.reason);
+                    }
+                }
+            })
+        })
+
+        /*删除课时安排*/
+        $(document).on('click', '.classOrderDelete', function(){
+            var kid = $(this).parents('tr').attr('kid');
+            var cdom = $(this).parents('tr');
+            window.layer.confirm('确认删除该课时吗？', {
+                btn: ['确认', '取消'] //可以无限个按钮
+                ,btn2: function(index, layero){
+                window.layer.close(index);
+              }
+            }, function(index, layero){
+                window.layer.close(index);
+                var loadIndex = window.layer.load(2, {time:5000});
+                $.ajax({
+                    url: '/admin/classOrder/deleteKeshi',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        id: kid
+                    },
+                    success: function(data) {
+                        if (data.errcode == 0) {
+                            window.layer.close(loadIndex);
+                            window.layer.msg('删除成功！');
+                            setUseMessage();
+                            cdom.remove();
+                        }
+                    }
+                });
+            });
+        })
     })
+
+    function weekTimeChange(){
+        var type = $('#weekSelect option:selected').attr('type');
+        if (type == 1) {
+            $('#keshiSelect option[type="2"]').css('display', 'none');
+            $('#keshiSelect option[type="1"]').css('display', 'block');
+            if (weekTimeType != type) {
+                $('#keshiSelect option[type="1"]').eq(0).prop('selected', 'selected');
+                weekTimeType = type;
+            }
+        } else {
+            $('#keshiSelect option[type="1"]').css('display', 'none');
+            $('#keshiSelect option[type="2"]').css('display', 'block');
+            if (weekTimeType != type) {
+                $('#keshiSelect option[type="2"]').eq(0).prop('selected', 'selected');
+                weekTimeType = type;
+            }
+        }
+    }
+
+    function setUseMessage(){
+        var week = $('#weekSelect option:selected').val();
+        var keshi = $('#keshiSelect option:selected').val();
+        var clas = $('#classSelect option:selected').val();
+        // var id = $('#useOrderModal').attr('oid');
+
+        $.ajax({
+            url: '/admin/classOrder/useDetails',
+            dataType: 'json',
+            type: 'post',
+            data: {
+                week: week,
+                keshi: keshi,
+                class: clas
+            },
+            success: function(data) {
+                if (data.errcode == 0) {
+                    console.log(data);
+                    $('#span_hasHave').html('');
+                    for (var i in data.nameArr) {
+                        $('#span_hasHave').append('<span class="label label-primary">'+data.nameArr[i]+'</span>　');
+                    }
+
+                    for (var i in data.classDetail) {
+                        var cdom = $('#classTable').find('tr[cid="'+i+'"]');
+                        cdom.find('td:eq(2)').html(data.classDetail[i]['count']);
+                        cdom.find('td:eq(3)').html(data.classDetail[i]['kcCount']);
+                    }
+                }
+            }
+        })
+    }
 </script>
 <script>
 var date = new Date();

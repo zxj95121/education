@@ -160,6 +160,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
 
     /*查订单用户的信息*/
     $router->post('/classOrder/useDetail', 'EclassOrderController@useDetail');
+    $router->post('/classOrder/useDetails', 'EclassOrderController@useDetails');
+    $router->post('/classOrder/keAdd', 'EclassOrderController@keAdd');//给订单分配新的课时
+    $router->post('/classOrder/deleteKeshi', 'EclassOrderController@deleteKeshi');//给订单分配新的课时
 
 
     /*待请求审核*/

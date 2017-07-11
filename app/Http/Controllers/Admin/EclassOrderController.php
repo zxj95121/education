@@ -10,6 +10,9 @@ use App\Models\ParentInfo;
 use App\Models\ParentDetail;
 use App\Models\BanJi;
 use App\Models\OrderClassTime;
+use App\Models\ClassTime;
+
+use App\Http\Controllers\EclassPriceController;
 
 use Session;
 
@@ -63,9 +66,13 @@ class EclassOrderController extends Controller
         $classObj = BanJi::where('status', '1')
             ->get();
 
-        /*对每一个班级，查信息*/
+        /*获取课时信息*/
+        $classTime = ClassTime::where('status', '1')
+            ->get();
+
     	return view('admin.eclassOrderList', ['orderList'=>$orderList,'str'=>$str,'order_no'=>$order_no,'pay_select'=>$pay_select,'confirm_select'=>$confirm_select,'date0'=>$date0,'date1'=>$date1,
-                'classObj'=>$classObj
+                'classObj'=>$classObj,
+                'classTime'=>$classTime
             ]);
     }
 
@@ -103,6 +110,112 @@ class EclassOrderController extends Controller
 
         $parentObj = ParentDetail::find($uid);
 
+        $result['time'] = explode('-', $parentObj->prefer_time);
+        $result['classTimes'] = $parentObj->classTimes;
+
+        /*获取订单的信息*/
         
+        $result['order_class_time'] = OrderClassTime::where('order_class_time.order_id', $id)
+            ->where('order_class_time.status', '1')
+            ->leftJoin('class', 'class.id', 'order_class_time.class_id')
+            ->leftJoin('class_time as ct', 'ct.id', 'order_class_time.ct_id')
+            ->select('ct.low as low', 'ct.high as high', 'class.name as cname', 'order_class_time.id as id', 'order_class_time.week as week')
+            ->get();
+
+        return response()->json(['errcode'=>0,'result'=>$result]);
+    }
+
+    /*每次改变条件进行查询*/
+    public function useDetails(Request $request)
+    {
+        $week = $request->input('week');
+        $keshi = $request->input('keshi');
+        $class = $request->input('class');
+
+        /*获取课时\班级信息*/
+        $Banji = BanJi::where('status', '1')
+            ->get();
+        $array = array();
+        foreach ($Banji as $value) {
+            $cid = $value->id;
+            $obj = OrderClassTime::where('class_id', $cid)
+                ->where('ct_id', $keshi)
+                ->where('week', $week)
+                ->where('status', '1');
+            $array[$cid]['count'] = $obj->count();
+            $obj = $obj->distinct('order_id')
+                ->get();
+
+            $arr = array();
+            foreach ($obj as $v) {
+                $flight = EclassOrder::find($v->order_id);
+                if (!in_array($flight->tid, $arr))
+                    $arr[] = $flight->tid;
+            }
+            $array[$cid]['kcCount'] = count($arr);
+
+            if ($cid == $class) {
+                /*这个需要找具体课程名称*/
+                $nameArr = array();
+                foreach ($arr as $p) {
+                    $name = EclassPriceController::getName($p);
+                    $nameArr[] = $name;
+                }
+            }
+        }
+        // OrderClassTime::where('week', $week)
+            // ->where('ct_id', $keshi);
+        return response()->json(['errcode'=>0,'nameArr'=>$nameArr,'classDetail'=>$array]);
+    }
+
+    /*给订单分配新的课时*/
+    public function keAdd(Request $request)
+    {
+        $week = $request->input('week');
+        $keshi = $request->input('keshi');
+        $class = $request->input('class');
+        $id = $request->input('id');
+
+        $count = OrderClassTime::where('order_id', $id)
+            ->where('week', $week)
+            ->where('ct_id', $keshi)
+            ->where('status', '1')
+            ->count();
+        if($count > 0) {
+            return response()->json(['errcode'=>1,'reason'=>'添加失败！该时间该订单已有课时安排']);
+        }
+
+        /*查已有课时安排次数*/
+        $orderObj = EclassOrder::find($id);
+        $uid = $orderObj->uid;
+        $classTimes = ParentDetail::find($uid)->classTimes;
+        $times = OrderClassTime::where('order_id', $id)
+            ->where('status', '1')
+            ->count();
+
+        if ($times >= $classTimes) {
+            return response()->json(['errcode'=>1,'reason'=>'添加失败！该订单课时安排已到客户期望次数']);
+        }
+
+        $flight = new OrderClassTime();
+        $flight->order_id = $id;
+        $flight->class_id = $class;
+        $flight->ct_id = $keshi;
+        $flight->week = $week;
+        $flight->save();
+
+        return response()->json(['errcode'=>0,'id'=>$flight->id]);
+    }
+
+    /*删除已分配课时*/
+    public function deleteKeshi(Request $request)
+    {
+        $id = $request->input('id');
+
+        $flight = OrderClassTime::find($id);
+        $flight->status = 0;
+        $flight->save();
+
+        return response()->json(['errcode'=>0]);
     }
 }
