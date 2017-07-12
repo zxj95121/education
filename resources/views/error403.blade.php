@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>加辰教育</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/sm.min.css">
 </head>
@@ -21,7 +22,7 @@
                     您要访问的页面走丢了...
                 </p>
                 <p style="text-align: center;">
-                    <a href="/front/home/oauth" class="button button-fill" style="width: 50%;margin:10px auto 0px;">返回首页 </a>
+                    <a onclick="window.location.href='/front/home/oauth';" class="button button-fill" style="width: 50%;margin:10px auto 0px;">返回首页 </a>
                 </p>
             </div>
         </div>
