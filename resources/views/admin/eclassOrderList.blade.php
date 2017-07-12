@@ -265,6 +265,12 @@
                                             <h2 id="h2Times" style="font-weight: bold;font-size: 17px;">3次</h2>
                                         </div>
                                     </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">用户要求备注</div>
+                                        <div class="panel-body">
+                                            <h2 id="time_remark" style="font-weight: bold;font-size: 17px;"></h2>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <table id="classTable" class="table table-striped" style="width: 100%;display: inline-table;">
@@ -481,6 +487,7 @@
                         console.log(data);
                         var classTimes = data.result.classTimes;
                         $('#h2Times').html(classTimes+' 次');
+                        $('#time_remark').html(data.result.time_remark);
                         var time = data.result.time;
                         for (var i in time) {
                             switch (time[i]) {

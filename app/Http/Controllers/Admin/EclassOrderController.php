@@ -122,6 +122,7 @@ class EclassOrderController extends Controller
 
         $result['time'] = explode('-', $parentObj->prefer_time);
         $result['classTimes'] = $parentObj->classTimes;
+        $result['time_remark'] = $parentObj->time_remark;
 
         /*获取订单的信息*/
         

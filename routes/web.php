@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 /*前台错误指向地址*/
 Route::get('/front/error_403',function(){
-	echo '访问被禁止了';
+	 return view('error403');
 });
 
 Route::get('/html/{name}',function($name){
