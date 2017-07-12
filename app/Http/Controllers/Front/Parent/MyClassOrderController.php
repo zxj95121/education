@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Models\EclassOrder;
 use App\Models\UserType;
 use App\Http\Controllers\EclassPriceController;
+
+use App\Http\Controllers\Wechat\OauthController;
 use Session;
 
 class MyClassOrderController extends Controller
