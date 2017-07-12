@@ -49,4 +49,9 @@ class HtmlController extends Controller
     {
         return 'front.views.parent.eclassOrder';
     }
+
+    private function myOrder()
+    {
+        return 'front.views.parent.myClassOrder';
+    }
 }
