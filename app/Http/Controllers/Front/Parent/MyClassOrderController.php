@@ -22,6 +22,7 @@ class MyClassOrderController extends Controller
     	$noPayObj = EclassOrder::where('uid', $front_id)
     		->where('pay_status', 0)
     		->where('status', 1)
+    		->orderBy('id', 'desc')
     		->get()
     		->toArray();
     	foreach ($noPayObj as $key => $value) {
@@ -35,6 +36,7 @@ class MyClassOrderController extends Controller
     		->where('pay_status', '1')
     		->where('confirm_status', '0')
     		->where('status', '1')
+    		->orderBy('id', 'desc')
     		->get()
     		->toArray();
     	foreach ($noConfirmObj as $key => $value) {
@@ -48,6 +50,7 @@ class MyClassOrderController extends Controller
     		->where('pay_status', '1')
     		->where('confirm_status', '1')
     		->where('status', '1')
+    		->orderBy('id', 'desc')
     		->get()
     		->toArray();
     	foreach ($teachingObj as $key => $value) {
@@ -55,6 +58,8 @@ class MyClassOrderController extends Controller
     		$name = EclassPriceController::getName($tid,1,' 》');
     		$teachingObj[$key]['name'] = $name;
     	}
+    	
+    	/*已结束订单*/
 
     	return view('front.views.parent.myClassOrder', [
     		'noPayObj' => $noPayObj,
