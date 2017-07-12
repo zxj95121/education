@@ -268,6 +268,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
       /*新订单*/
   $router->get('/parent/newEclassOrder', 'Parent\PayClassController@newEclassOrder');
   $router->get('/parent/newEclassOrder2','Parent\PayClassController@newEclassOrder2');
+  $router->get('/parent/showPayEclassOrder','Parent\PayClassController@showPayEclassOrder');
   $router->get('/parent/weixinpay','Parent\PayClassController@weixinpay');
   /*设置上课时间期望*/
   $router->get('/setClassTime', 'Parent\ClassTimeController@setClassTime');

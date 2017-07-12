@@ -24,7 +24,7 @@ class MyClassOrderController extends Controller
     		->toArray();
     	foreach ($noPayObj as $key => $value) {
     		$tid = $value['tid'];
-    		$name = EclassPriceController::getName($tid);
+    		$name = EclassPriceController::getName($tid,1,' 》');
     		$noPayObj[$key]['name'] = $name;
     	}
     	return view('front.views.parent.myClassOrder', [

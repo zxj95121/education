@@ -48,10 +48,8 @@ class PayClassController extends Controller
 		Session::put('jclassname',$classname);
 		Session::put('jflight',$flight);
 		return redirect('/front/parent/newEclassOrder2');
-		
-		
 	}
-	public function newEclassOrder2()
+	public function newEclassOrder2(Request $request)
 	{
 		$name = Session::get('jname');
 		$order_id = Session::get('jorder_id');
@@ -59,6 +57,21 @@ class PayClassController extends Controller
 		$flight = Session::get('jflight');
 		return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight,'classname'=>$classname]);
 	}
+
+	public function showPayEclassOrder(Request $request)
+	{
+		$openid = Session::get('openid');
+		$uid = $this->getUid($openid);
+		/*新订单*/
+		$order_id = $request->input('id');
+
+		$flight = EclassOrder::find($order_id);
+
+		$name = EclassPriceController::getName($flight->tid, 2);
+		$classname = EclassPriceController::getName($flight->tid);
+		return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight,'classname'=>$classname]);
+	}
+
     public function checkMessage(Request $request)
     {
     	$openid = Session::get('openid');
