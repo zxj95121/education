@@ -221,10 +221,10 @@
 				</ul>
 		  	</div>
 		  	<div class="content-block-title" hide="true">如有其他要求请填写说明</div>
-		  	<div class="content-block list-block">
+		  	<div class="content-block list-block" hide="true">
 		    	<div class="row">
 		      		<div class="col-100">
-		      			<textarea id="request" style="width: 100%;height: 80px;">在此说明，不超过50字。</textarea>
+		      			<textarea id="request" style="width: 100%;height: 80px;border: 1px solid #A9A9A9;">在此说明，不超过50字。</textarea>
 		      		</div>
 		    	</div>
 		  	</div>
