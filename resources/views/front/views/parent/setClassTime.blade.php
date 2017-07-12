@@ -224,7 +224,7 @@
 		  	<div class="content-block list-block" hide="true">
 		    	<div class="row">
 		      		<div class="col-100">
-		      			<textarea id="request" style="width: 100%;height: 80px;border: 1px solid #A9A9A9;"></textarea>
+		      			<textarea id="request" style="width: 100%;height: 80px;border: 1px solid #A9A9A9;">{{$flight->time_remark}}</textarea>
 		      		</div>
 		    	</div>
 		  	</div>
