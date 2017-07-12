@@ -28,12 +28,12 @@
 	@if($userType->type == 2)
 		<div class="container-fluid" id="teacher" style="display: none;">
         	<div class="weui-loadmore weui-loadmore_line">
-            	<span class="weui-loadmore__tips">功能正在开发中</span>
+            	<span class="weui-loadmore__tips">名师定制功能正在开发中</span>
         	</div>
     	</div>
     	<div class="container-fluid" id="classroom" style="display: none;">
         	 <div class="weui-loadmore weui-loadmore_line">
-            	<span class="weui-loadmore__tips">功能正在开发中</span>
+            	<span class="weui-loadmore__tips">教室定制功能正在开发中</span>
         	</div>
     	</div>
     	<div class="container-fluid" id="eclass" style="display: none; padding:0">
