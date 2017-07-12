@@ -19,9 +19,8 @@ class WeixinController extends Controller
     			$bill = Bill::where('transaction_id',$postObj->transaction_id)->get();
     			if(count($bill) == 0){
     				$bill = new Bill();
-    				$bill->transaction_id = $postObj->transaction_id;
     				$bill->oid = $order->id;
-    				$bill->openid = $postObj->appid;
+    				$bill->openid = $order->uid;
     				$bill->save();
     			}
     		}

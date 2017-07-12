@@ -11,6 +11,7 @@ use App\Models\ParentDetail;
 use App\Models\BanJi;
 use App\Models\OrderClassTime;
 use App\Models\ClassTime;
+use App\Models\Bill;
 
 use App\Http\Controllers\EclassPriceController;
 
@@ -97,6 +98,11 @@ class EclassOrderController extends Controller
         	$flight->confirm_status = 2;
         	$flight->pay_status = 2;
         	$flight->save();
+        	$bill = new Bill();
+        	$bill->transaction_id = $res['sign'];
+        	$bill->type = '-EC';
+        	$bill->oid = $flight->id;
+        	$bill->openid = $flight->uid;
         	return response()->json(['errcode'=>0]);
         }else{
         	return response()->json(['errcode'=>1,'msg'=>$res['err_code_des']]);
