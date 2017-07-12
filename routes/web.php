@@ -202,6 +202,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
     // oauth进行跳的路由
     $router->get('/register/oauth','LoginController@oauth');
     $router->get('/home/oauth', 'HomeController@homeOauth');
+    $router->get('/parent/myClassOrder/oauth', 'Parent\MyClassOrderController@oauth');
 	
 });
 

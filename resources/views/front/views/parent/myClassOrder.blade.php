@@ -13,7 +13,7 @@
 	      		<span class="icon icon-left"></span>
 	      		返回
 	    	</a>
-	    	<a class="icon icon-refresh pull-right"></a>
+	    	<a class="icon icon-refresh pull-right" onclick="window.location.reload();"></a>
 	    	<h1 class="title">历史订单</h1>
 	  	</header>
 	  	<div class="content">

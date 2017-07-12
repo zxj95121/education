@@ -46,6 +46,13 @@ class MyClassOrderController extends Controller
     	]);
     }
 
+
+    /*oauth*/
+    public function oauth()
+	{
+   		return redirect(OauthController::getUrl(4, 0));
+	}
+
     private function getUid($openid)
     {
     	$userType = UserType::where('openid', $openid)
