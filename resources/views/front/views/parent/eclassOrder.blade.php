@@ -27,7 +27,7 @@
 <body>
 	<div class="page">
 	  	<header class="bar bar-nav">
-	    	<a class="button button-link button-nav pull-left" href="/demos/card" data-transition='slide-out'>
+	    	<a class="button button-link button-nav pull-left" href="@if(isset($back)) {{$back}} @else /front/home#eclass @endif" data-transition='slide-out'>
 	      		<span class="icon icon-left"></span>
 	      		返回
 	    	</a>
