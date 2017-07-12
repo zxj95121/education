@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\EclassOrder;
+use App\Models\UserType;
 use App\Http\Controllers\EclassPriceController;
 use Session;
 
