@@ -220,14 +220,9 @@
 				    </li>
 				</ul>
 		  	</div>
+		  	<div class="content-block-title" hide="true">如有其他要求请填写说明</div>
 		  	<div class="item-content">
-	          	<div class="item-media"><i class="icon icon-form-comment"></i></div>
-	          	<div class="item-inner">
-	            	<div class="item-title label">其他要求请说明</div>
-	            	<div class="item-input">
-	              		<textarea id="request"></textarea>
-	            	</div>
-	          	</div>
+	            <textarea id="request"></textarea>
 	        </div>
 		  	<!-- <div class="content-block-title" hide="true">周一到周五</div>
 	  		<div class="list-block" hide="true">
