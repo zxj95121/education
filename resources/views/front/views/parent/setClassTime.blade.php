@@ -221,9 +221,13 @@
 				</ul>
 		  	</div>
 		  	<div class="content-block-title" hide="true">如有其他要求请填写说明</div>
-		  	<div class="item-content">
-	            <textarea id="request"></textarea>
-	        </div>
+		  	<div class="content-block">
+		    	<div class="row">
+		      		<div class="col-100">
+		      			<textarea id="request"></textarea>
+		      		</div>
+		    	</div>
+		  	</div>
 		  	<!-- <div class="content-block-title" hide="true">周一到周五</div>
 	  		<div class="list-block" hide="true">
 			    <ul>
