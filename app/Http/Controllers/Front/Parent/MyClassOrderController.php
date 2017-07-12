@@ -27,8 +27,22 @@ class MyClassOrderController extends Controller
     		$name = EclassPriceController::getName($tid,1,' 》');
     		$noPayObj[$key]['name'] = $name;
     	}
+
+    	/*查待审核订单*/
+    	$noConfirmObj = EclassOrder::where('uid', $front_id)
+    		->where('pay_status', '1')
+    		->where('pay_confirm', '0')
+    		->where('status', '1')
+    		->get()
+    		->toArray();
+    	foreach ($noConfirmObj as $key => $value) {
+    		$tid = $value['tid'];
+    		$name = EclassPriceController::getName($tid,1,' 》');
+    		$noConfirmObj[$key]['name'] = $name;
+    	}
     	return view('front.views.parent.myClassOrder', [
-    		'noPayObj' => $noPayObj
+    		'noPayObj' => $noPayObj,
+    		'noConfirmObj' => $noConfirmObj
     	]);
     }
 
