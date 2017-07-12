@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\EclassOrder;
 use App\Http\Controllers\EclassPriceController;
+use Session;
 
 class MyClassOrderController extends Controller
 {
