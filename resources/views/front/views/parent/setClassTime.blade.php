@@ -220,7 +220,7 @@
 				    </li>
 				</ul>
 		  	</div>
-		  	<div class="content-block-title" hide="true">如有其他要求请填写说明</div>
+		  	<div class="content-block-title" hide="true">如有其他要求请填写说明（50字以内）</div>
 		  	<div class="content-block list-block" hide="true">
 		    	<div class="row">
 		      		<div class="col-100">
@@ -493,9 +493,19 @@
 						    content: '每周上'+classTimes+'节课所选时间不能低于'+min+'个'
 						    ,skin: 'msg'
 						    ,time: 2 //2秒后自动关闭
-						 });
+						});
 		        		return false;
 					}
+				}
+
+				var remark = $('#request').val();
+				if (remark.length >= 50) {
+						layer.open({
+						    content: '要求文字字数为'+remark.length+',超限制'
+						    ,skin: 'msg'
+						    ,time: 2 //2秒后自动关闭
+						});
+						return false;
 				}
 				$('#loadingToast').show();
 				$('#toast').find('.weui-toast__content').html('提交成功');
@@ -506,7 +516,8 @@
 					data: {
 						classTimes: classTimes,
 						is_order: is_order,
-						select: select
+						select: select,
+						remark: remark
 					},
 					success: function(data) {
 						if (data.errcode == 0) {
