@@ -16,7 +16,7 @@ class WeixinController extends Controller
     			$order = EclassOrder::where('order_no',$postObj->out_trade_no)->first();
     			$order->pay_status = 1;
     			$order->save();
-    			$bill = Bill::where('transaction_id',$postObj->transaction_id)->get();
+    			$bill = Bill::where('oid',$order->id)->get();
     			if(count($bill) == 0){
     				$bill = new Bill();
     				$bill->oid = $order->id;
