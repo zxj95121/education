@@ -328,6 +328,16 @@
                                         @endforeach
                                         </select>
                                     </div>
+
+                                    <div class="form-group m-l-10" style="margin-right: 20px;">
+                                        <!-- <input type="checkbox" name="hospital" id="hospitalCheckBox" onclick="weekTimeChange();"> -->
+                                        <!-- <label for="classSelect">节假日 </label> -->
+                                        <label class="cr-styled">
+                                            <input type="checkbox" name="hospital" id="hospitalCheckBox" onclick="weekTimeChange();setUseMessage();">
+                                            <i class="fa"></i> 
+                                            节假日
+                                        </label>
+                                    </div>
                                     <button type="button" class="btn btn-success m-l-10" id="ksAdd">确认添加该课时</button>
                                 </form>
                             </div>
@@ -619,20 +629,28 @@
 
     function weekTimeChange(){
         var type = $('#weekSelect option:selected').attr('type');
-        if (type == 1) {
+        var checkbox = $('input[name="hospital"]:checked').val();
+        if (type == 1 && !checkbox) {
             $('#keshiSelect option[type="2"]').css('display', 'none');
             $('#keshiSelect option[type="1"]').css('display', 'block');
-            if (weekTimeType != type) {
-                $('#keshiSelect option[type="1"]').eq(0).prop('selected', 'selected');
-                weekTimeType = type;
-            }
-        } else {
+                
+            $('#keshiSelect option[type="1"]').eq(0).prop('selected', 'selected');
+        } else if(type == 1 && checkbox) {
+            $('#keshiSelect option[type="1"]').css('display', 'none');
+            $('#keshiSelect option[type="2"]').css('display', 'block');
+            
+            $('#keshiSelect option[type="2"]').eq(0).prop('selected', 'selected');
+        } else if (type == 1 && !checkbox){
             $('#keshiSelect option[type="1"]').css('display', 'none');
             $('#keshiSelect option[type="2"]').css('display', 'block');
             if (weekTimeType != type) {
                 $('#keshiSelect option[type="2"]').eq(0).prop('selected', 'selected');
                 weekTimeType = type;
             }
+        } else {
+            $('#keshiSelect option[type="1"]').css('display', 'none');
+            $('#keshiSelect option[type="2"]').css('display', 'block');
+            $('#keshiSelect option[type="2"]').eq(0).prop('selected', 'selected');
         }
     }
 

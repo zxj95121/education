@@ -196,16 +196,16 @@ class EclassOrderController extends Controller
         }
 
         /*查已有课时安排次数*/
-        $orderObj = EclassOrder::find($id);
-        $uid = $orderObj->uid;
-        $classTimes = ParentDetail::find($uid)->classTimes;
-        $times = OrderClassTime::where('order_id', $id)
-            ->where('status', '1')
-            ->count();
+        // $orderObj = EclassOrder::find($id);
+        // $uid = $orderObj->uid;
+        // $classTimes = ParentDetail::find($uid)->classTimes;
+        // $times = OrderClassTime::where('order_id', $id)
+        //     ->where('status', '1')
+        //     ->count();
 
-        if ($times >= $classTimes) {
-            return response()->json(['errcode'=>1,'reason'=>'添加失败！该订单课时安排已到客户期望次数']);
-        }
+        // if ($times >= $classTimes) {
+        //     return response()->json(['errcode'=>1,'reason'=>'添加失败！该订单课时安排已到客户期望次数']);
+        // }
 
         $flight = new OrderClassTime();
         $flight->order_id = $id;
