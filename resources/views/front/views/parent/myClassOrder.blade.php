@@ -17,24 +17,58 @@
 	    	<h1 class="title">历史订单</h1>
 	  	</header>
 	  	<div class="content">
-			<div class="content-block-title">Facebook卡片</div>
-			  	<div class="card facebook-card">
-			    	<div class="card-header no-border">
-			      		<div class="facebook-avatar">
-			      			<img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="34" height="34">
-			      		</div>
-			      		<div class="facebook-name">夜萧</div>
-			      		<div class="facebook-date">星期一 3:47pm</div>
-			    	</div>
-			    	<div class="card-content">
-			    		<img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="100%">
-			    	</div>
-		    		<div class="card-footer no-border">
-				      	<a href="#" class="link">赞</a>
-				      	<a href="#" class="link">评论</a>
-				      	<a href="#" class="link">分享</a>
-				    </div>
-		  		</div>
+		  	<div class="buttons-tab">
+			    <a href="#tab1" class="tab-link active button">待付款</a>
+			    <a href="#tab2" class="tab-link button">待审核</a>
+			    <a href="#tab3" class="tab-link button">授课中</a>
+			    <a href="#tab4" class="tab-link button">已完成</a>
+			 </div>
+	  		<div class="content-block">
+	    		<div class="tabs">
+	      			<div id="tab1" class="tab active">
+	      			@foreach($noPayObj as $value)
+					  	<div class="content-block-title">订单编号：<span>{{$value['order_no']}}</span></div>
+						<div class="list-block media-list">
+					    	<ul>
+					      		<li>
+						        	<a href="#" class="item-link item-content" style="font-size: 15px;">
+						          		<div class="item-inner">
+							            	<div class="item-title-row">
+							              		<div class="item-title">状态：<span style="color:#343639;">待审核</span></div>
+							              		<div class="item-after">{{$value['created_at']}}</div>
+							            	</div>
+							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
+						            		<div class="item-text">
+						            			<p>课程名称：<span style="font-size: 13px;color: #343639;">{{$value['name']}}</span></p>
+						            		</div>
+						          		</div>
+						        	</a>
+					      		</li>
+					    	</ul>
+					  	</div>
+					@endforeach
+					  	<!-- 加载提示符 -->
+			          	<div class="infinite-scroll-preloader" style="display: none;">
+			              	<div class="preloader"></div>
+			          	</div>
+	      			</div>
+			      	<div id="tab2" class="tab">
+			        	<div class="content-block">
+			          		<p>This is tab 2 content</p>
+			        	</div>
+			      	</div>
+			      	<div id="tab3" class="tab">
+			        	<div class="content-block">
+			          		<p>This is tab 3 content</p>
+			        	</div>
+			     	</div>
+			     	<div id="tab4" class="tab">
+			        	<div class="content-block">
+			          		<p>This is tab 4 content</p>
+			        	</div>
+			     	</div>
+	    		</div>
+	  		</div>
 	  	</div>
 	</div>
 
