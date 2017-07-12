@@ -99,10 +99,9 @@ class EclassOrderController extends Controller
         	$flight->pay_status = 2;
         	$flight->save();
         	$bill = new Bill();
-        	$bill->transaction_id = $res['sign'];
-        	$bill->type = '-EC';
+        	$bill->type = 'EC-';
         	$bill->oid = $flight->id;
-        	$bill->openid = $flight->uid;
+        	$bill->save();
         	return response()->json(['errcode'=>0]);
         }else{
         	return response()->json(['errcode'=>1,'msg'=>$res['err_code_des']]);

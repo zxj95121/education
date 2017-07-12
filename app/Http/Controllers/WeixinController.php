@@ -20,7 +20,6 @@ class WeixinController extends Controller
     			if(count($bill) == 0){
     				$bill = new Bill();
     				$bill->oid = $order->id;
-    				$bill->openid = $order->uid;
     				$bill->save();
     			}
     		}
