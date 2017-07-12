@@ -39,7 +39,7 @@
 							            	</div>
 							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
 						            		<div class="item-text">
-						            			<p>课程名称：<span style="font-size: 13px;color: #343639;">{{$value['name']}}</span></p>
+						            			课程名称：<span style="font-size: 13px;color: #343639;">{{$value['name']}}</span>
 						            		</div>
 						          		</div>
 						        	</a>
