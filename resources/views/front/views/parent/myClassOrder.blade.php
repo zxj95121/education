@@ -30,8 +30,8 @@
 					  	<div class="content-block-title">订单编号：<span>{{$value['order_no']}}</span></div>
 						<div class="list-block media-list">
 					    	<ul>
-					      		<li>
-						        	<a href="/front/parent/showPayEclassOrder?id={{$value['id']}}" class="item-link item-content" style="font-size: 15px;">
+					      		<li onclick="window.location.href='/front/parent/showPayEclassOrder?id={{$value['id']}}';">
+						        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
 						          		<div class="item-inner">
 							            	<div class="item-title-row">
 							              		<div class="item-title">状态：<span style="color:#343639;">待付款</span></div>
