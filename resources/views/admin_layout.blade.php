@@ -151,8 +151,8 @@
                     </li>
                    	<li class="has-submenu {!!(Request::is('admin/bill')? 'active' : '') !!}">
                         <a href="#">
-                            <i class="fa fa-cog"></i> 
-                            <span class="nav-label">账单管理</span>
+                            <i class="zmdi zmdi-money"></i> 
+                            <span class="nav-label">流水账管理</span>
                             <span class="menu-arrow"></span>
                         </a>
                         <ul class="list-unstyled">
