@@ -93,7 +93,7 @@
 				    </li>
 				</ul>
 		  	</div>
-		  	<div class="content-block-title" hide="true">下午放学后</div>
+		  	<div class="content-block-title" hide="true">下午放学后（寒暑假代表全天可用）</div>
 	  		<div class="list-block" hide="true">
 			    <ul>
 			      	<li class="item-content li-select" choose="1">
@@ -163,7 +163,7 @@
 				    </li>
 				</ul>
 		  	</div>
-		  	<div class="content-block-title" hide="true">周末</div>
+		  	<div class="content-block-title" hide="true">周末/节假日</div>
 	  		<div class="list-block" hide="true">
 			    <ul>
 			      	<li class="item-content li-select" choose="6">
