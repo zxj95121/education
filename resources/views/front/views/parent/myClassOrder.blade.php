@@ -53,9 +53,31 @@
 			          	</div>
 	      			</div>
 			      	<div id="tab2" class="tab">
-			        	<div class="content-block">
-			          		<p>This is tab 2 content</p>
-			        	</div>
+			       	@foreach($noConfirmObj as $value)
+					  	<div class="content-block-title">订单编号：<span>{{$value['order_no']}}</span></div>
+						<div class="list-block media-list">
+					    	<ul>
+					      		<li>
+						        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
+						          		<div class="item-inner">
+							            	<div class="item-title-row">
+							              		<div class="item-title">状态：<span style="color:#3B833E;">待审核</span></div>
+							              		<div class="item-after">{{$value['created_at']}}</div>
+							            	</div>
+							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
+						            		<div class="item-text">
+						            			课程名称：<span style="font-size: 13px;color: #343639;">{{$value['name']}}</span>
+						            		</div>
+						          		</div>
+						        	</a>
+					      		</li>
+					    	</ul>
+					  	</div>
+					@endforeach
+					  	<!-- 加载提示符 -->
+			          	<div class="infinite-scroll-preloader" style="display: none;">
+			              	<div class="preloader"></div>
+			          	</div>
 			      	</div>
 			      	<div id="tab3" class="tab">
 			        	<div class="content-block">

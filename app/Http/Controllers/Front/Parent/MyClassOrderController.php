@@ -31,7 +31,7 @@ class MyClassOrderController extends Controller
     	/*查待审核订单*/
     	$noConfirmObj = EclassOrder::where('uid', $front_id)
     		->where('pay_status', '1')
-    		->where('pay_confirm', '0')
+    		->where('confirm_status', '0')
     		->where('status', '1')
     		->get()
     		->toArray();
