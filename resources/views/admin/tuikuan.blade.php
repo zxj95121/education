@@ -26,7 +26,7 @@ if(isset($_REQUEST["out_trade_no"]) && $_REQUEST["out_trade_no"] != ""){
 	$input->SetRefund_fee($refund_fee);
     $input->SetOut_refund_no(WxPayConfig::MCHID.date("YmdHis"));
     $input->SetOp_user_id(WxPayConfig::MCHID);
-	printf_info(WxPayApi::refund($input));
+	var_dump(WxPayApi::refund($input));
 	exit();
 }
 ?>
