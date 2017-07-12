@@ -9,7 +9,7 @@
 <body>
 	<div class="page">
 	  	<header class="bar bar-nav">
-	    	<a class="button button-link button-nav pull-left" href="/demos/card" data-transition='slide-out'>
+	    	<a class="button button-link button-nav pull-left" href="/front/home" data-transition='slide-out'>
 	      		<span class="icon icon-left"></span>
 	      		返回
 	    	</a>
@@ -27,25 +27,27 @@
 	    		<div class="tabs">
 	      			<div id="tab1" class="tab active">
 	      			@foreach($noPayObj as $value)
-					  	<div class="content-block-title">订单编号：<span>{{$value['order_no']}}</span></div>
-						<div class="list-block media-list">
-					    	<ul>
-					      		<li>
-						        	<a href="#" class="item-link item-content" style="font-size: 15px;">
-						          		<div class="item-inner">
-							            	<div class="item-title-row">
-							              		<div class="item-title">状态：<span style="color:#343639;">待审核</span></div>
-							              		<div class="item-after">{{$value['created_at']}}</div>
-							            	</div>
-							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
-						            		<div class="item-text">
-						            			<p>课程名称：<span style="font-size: 13px;color: #343639;">{{$value['name']}}</span></p>
-						            		</div>
-						          		</div>
-						        	</a>
-					      		</li>
-					    	</ul>
-					  	</div>
+		      			<a href="/front/parent/showPayEclassOrder?id={{$value['id']}}">
+						  	<div class="content-block-title">订单编号：<span>{{$value['order_no']}}</span></div>
+							<div class="list-block media-list">
+						    	<ul>
+						      		<li>
+							        	<a href="#" class="item-link item-content" style="font-size: 15px;">
+							          		<div class="item-inner">
+								            	<div class="item-title-row">
+								              		<div class="item-title">状态：<span style="color:#343639;">待付款</span></div>
+								              		<div class="item-after">{{$value['created_at']}}</div>
+								            	</div>
+								            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
+							            		<div class="item-text">
+							            			<p>课程名称：<span style="font-size: 13px;color: #343639;">{{$value['name']}}</span></p>
+							            		</div>
+							          		</div>
+							        	</a>
+						      		</li>
+						    	</ul>
+						  	</div>
+						 </a>
 					@endforeach
 					  	<!-- 加载提示符 -->
 			          	<div class="infinite-scroll-preloader" style="display: none;">

@@ -47,7 +47,7 @@ class EclassPriceController extends Controller
     	return array('count'=>$count,'unitPrice'=>$unitPrice);
     }
 
-    public static function getName($id, $type=1)
+    public static function getName($id, $type=1, $sign='')
     {
         $threeObj = TeacherThree::find($id);
 
@@ -58,9 +58,9 @@ class EclassPriceController extends Controller
         $oneObj = TeacherOne::find($oneid);
 
         if ($type == 1)
-            $name = $oneObj->name.$twoObj->name.$threeObj->name;
+            $name = $oneObj->name.$sign.$twoObj->name.$sign.$threeObj->name;
         else if ($type == 2)
-            $name = $twoObj->name.$threeObj->name;
+            $name = $twoObj->name.$sign.$threeObj->name;
         else if ($type == 0)
             $name = $oneObj->name;
         return $name;
