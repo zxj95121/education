@@ -28,15 +28,20 @@ $(document).on('click','.class3',function(){
 			success: function(data){
 				if (data.errcode == 0) {
 					layer.close(loadIndex);
-					var str = '<div class="weui-skin_android" id="childsheet" style="opacity: 1;"> <div class="weui-mask"></div> <div class="weui-actionsheet"> <div class="weui-actionsheet__menu"> ';
+					var str = '<div class="weui-skin_android" id="childsheet" style="opacity: 0;"> <div class="weui-mask"></div> <div class="weui-actionsheet"> <div class="weui-actionsheet__menu"> ';
 					for (var i in data.child) {
 						str += '<div class="weui-actionsheet__cell child_Cell" cid=""><input type="radio" name="child" value="'+data.child[i].id+'" />'+data.child[i].name+'</div>';
 					}
 					str += '<div class="weui-actionsheet__cell childCellClick" style="background: #1AAD19;color:#FFF;text-align:center;">点我确认</div></div> </div> </div>';
 					$('#twoclass').after(str);
+					$('#child').fadeIn(200);
 					
 					$(document).on('click', '.child_Cell', function(){
 						$(this).find('input')[0].click();
+					})
+
+					$('#childsheet .weui-mask').click(function(){
+						$('#child').fadeOut(200);
 					})
 
 					$(document).on('click', '.childCellClick', function(){
