@@ -14,11 +14,8 @@ $(document).on('click','.class3',function(){
 	if (e.target.tagName == 'P')
 		$('#eclass').load('/front/twoClassfour?pid='+pid);
 	else if (e.target.tagName == 'SPAN') {
-		$('#twoclass').after('<div class="weui-skin_android" id="androidActionsheet" style="opacity: 1;">'+
-			' <div class="weui-mask"></div> <div class="weui-actionsheet"> <div class="weui-actionsheet__menu">'+
-			' <div class="weui-actionsheet__cell"><input type="radio" />示例菜单</div> <div class="weui-actionsheet__cell">示例菜单</div>'+
-			' <div class="weui-actionsheet__cell">示例菜单</div> </div> </div> </div>');
-		return false;
+		// $('#twoclass').after('<div class="weui-skin_android" id="androidActionsheet" style="opacity: 1;"> <div class="weui-mask"></div> <div class="weui-actionsheet"> <div class="weui-actionsheet__menu"> <div class="weui-actionsheet__cell"><input type="radio" />示例菜单</div> <div class="weui-actionsheet__cell">示例菜单</div> <div class="weui-actionsheet__cell">示例菜单</div> </div> </div> </div>');
+		// return false;
 		// console.log('这是购买');
 		var loadIndex = layer.open({
 		    type: 2
