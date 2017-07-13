@@ -163,7 +163,7 @@
 		                    	我的孩子
 		                    </div>
 		                </div>
-	                @endif
+	                @endforeach
 	                @if(empty($key) || $key <= 3){
 	                	<div class="col-xs-3 my_function_type" id="addChild">
 		                    <div class="my_function_top">
