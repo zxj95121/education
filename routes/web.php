@@ -278,6 +278,10 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
   $router->post('/setClassTime/selectTime', 'Parent\ClassTimeController@selectTime');/*ajax请求选课*/
   $router->post('/setClassTime/cancleTime', 'Parent\ClassTimeController@cancleTime');/*ajax取消选择*/
   $router->post('/setClassTime/setAll', 'Parent\ClassTimeController@setAll');/*ajax设置所有*/
+
+  
+  
+  
 });
 
 /*-------------*/
