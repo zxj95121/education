@@ -68,7 +68,7 @@
             </div>
         </div>
         <div class="weui-form-preview__ft">
-            <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="/front/parent/newEclassOrder?id={{$id}}" style="text-decoration: none;">生成订单</a>
+            <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="/front/parent/newEclassOrder?id={{$id}}&child={{$child}}" style="text-decoration: none;">生成订单</a>
         </div>
     </div>
 </div>

@@ -41,53 +41,51 @@ $(document).on('click','.class3',function(){
 
 					$(document).on('click', '.childCellClick', function(){
 						var child = $('input[name="child"]:checked').val();
-						if (child) {
-							console.log(child);
-						} else {
-							alert('fou ');
-							console.log(child);
+						if (!child) {
+							return false;
 						}
 
-						// var loadIndex = layer.open({
-						//     type: 2
-						//     ,content: ''
-						// });
-						// var timeLay = 0;
-						// var layInter = setInterval(function(){
-						// 	timeLay += 50;
-						// }, 50);
-						// $.ajax({
-						// 	url: '/front/parent/checkMessage',
-						// 	dataType: 'html',
-						// 	type: 'post',
-						// 	data: {
-						// 		pid: pid
-						// 	},
-						// 	success: function(data){
-						// 		var successInter = setInterval(function(){
-						// 			if (timeLay >= 300) {
-						// 				clearInterval(layInter);
-						// 				clearInterval(successInter);
-						// 				/*展示data*/
-						// 				layer.close(loadIndex);
-						// 				if (data.indexOf('weui-form-preview__bd') > 0) {
-						// 					var openIndex = layer.open({
-						// 					    type: 1
-						// 					    ,content: data
-						// 					    ,anim: 'up'
-						// 					    ,style: 'position:fixed; bottom:0; left:0; width: 100%; min-height: 150px;padding:10px 0; border:none;'
-						// 					});
+						var loadIndex = layer.open({
+						    type: 2
+						    ,content: ''
+						});
+						var timeLay = 0;
+						var layInter = setInterval(function(){
+							timeLay += 50;
+						}, 50);
+						$.ajax({
+							url: '/front/parent/checkMessage',
+							dataType: 'html',
+							type: 'post',
+							data: {
+								pid: pid,
+								child: child
+							},
+							success: function(data){
+								var successInter = setInterval(function(){
+									if (timeLay >= 300) {
+										clearInterval(layInter);
+										clearInterval(successInter);
+										/*展示data*/
+										layer.close(loadIndex);
+										if (data.indexOf('weui-form-preview__bd') > 0) {
+											var openIndex = layer.open({
+											    type: 1
+											    ,content: data
+											    ,anim: 'up'
+											    ,style: 'position:fixed; bottom:0; left:0; width: 100%; min-height: 150px;padding:10px 0; border:none;'
+											});
 
-						// 					$(document).on('click', '#closeOpen0', function(){
-						// 						layer.close(openIndex);
-						// 					})
-						// 				} else {
-						// 					$('#twoclass').after(data);
-						// 				}
-						// 			}
-						// 		}, 50);
-						// 	}
-						// })
+											$(document).on('click', '#closeOpen0', function(){
+												layer.close(openIndex);
+											})
+										} else {
+											$('#twoclass').after(data);
+										}
+									}
+								}, 50);
+							}
+						})
 
 						/*点击响应结束*/
 					});
