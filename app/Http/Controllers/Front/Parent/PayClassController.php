@@ -12,6 +12,7 @@ use App\Models\TeacherTwo;
 use App\Models\TeacherOne;
 use App\Models\UserType;
 use App\Models\EclassOrder;
+use App\Models\ParentChild;
 
 use App\Http\Controllers\EclassPriceController;
 
