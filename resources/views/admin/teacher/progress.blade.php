@@ -3,6 +3,7 @@
 <!-- 在这里写style样式，或者在这里外加link -->
 @section('style')
 <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css">
+<link rel="stylesheet" type="text/css" href="/js/jeui/jedate.css">
 <style type="text/css">
 </style>
 @endsection
@@ -38,26 +39,18 @@
                                             <div class="col-md-3">
                                                 <input type="text" name="orderno" id="orderno" class="form-control" placeholder="根据订单编号查询" value=" ">
                                             </div> -->
-                                            <label for="pay_select" class="col-md-1 clh text-right">星期：</label>
+                                            <label for="pay_select" class="col-md-1 clh text-right">日期:</label>
                                             <div class="col-md-2">
-                                                <select name="pay_select" id="pay_select" class="form-control">
-                                                    <option value="">请选择星期</option>
-                                                    <option value="1">星期一</option>
-                                                    <option value="2">星期二</option>
-                                                    <option value="3">星期三</option>
-                                                    <option value="4">星期四</option>
-                                                    <option value="5">星期五</option>
-                                                    <option value="6">星期六</option>
-                                                    <option value="7">星期日</option>
-                                                </select>
+                                                <input type="text" class="form-control" name="" id="inputstart">
+                                                <input type="hidden" name="hiddenDate" id="hiddenDate">
                                             </div>
                                             <label class="col-md-1 clh text-right">班级:</label>
                                             <div class="col-md-2">
                                                 <select name="confirm_select" id="confirm_select" class="form-control">
                                                     <option value="">请选择班级</option>
-                                                    <option value="0">未审核</option>
-                                                    <option value="1">审核通过</option>
-                                                    <option value="2">已驳回</option>
+                                                    @foreach($banji as $value)
+                                                        <option value="{{$value->id}}">{{$value->name}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                             <button class="btn btn-success" style="margin-left: 20px;">确认查询</button>
@@ -116,11 +109,47 @@
 <!-- 加js代码，或引入 -->
 @section('jquery')
 <script type="text/javascript" src="/js/layui/layui.js"></script>
+<script type="text/javascript" src="/js/jeui/jedate.js"></script>
 <script type="text/javascript">
 	$(function(){
         layui.use('layer', function(){
             window.layer = layui.layer;
         });
     });
+</script>
+<script>
+var date = new Date();
+var year = date.getFullYear();
+var month = date.getMonth()+1;
+if(month < 10)
+    month = '0'+month;
+var day = date.getDate();
+if(day < 10)
+    day = '0'+day;
+var str = year+'-'+month+'-'+day;
+
+$('#hiddenDate').val(str);
+
+var start = {
+    format: 'YYYY-MM-DD',
+    minDate: '2017-07-01', //设定最小日期为当前日期
+    festival: false,
+    isinitVal:true,                            //是否初始化时间，默认不初始化时间
+    initAddVal:{DD:"+0"}, 
+    maxDate: '2099-01-01', //最大日期
+    choosefun: function(elem, val, date){
+        // end.minDate = val; //开始日选好后，重置结束日的最小日期
+        // endDates();
+        $('#hiddenDate').val(val);
+    },
+    okfun:function(elem, val, date) {
+        $('#hiddenDate').val(val);
+    }, 
+};
+// $('#inpstart').jeDate(start);
+// $('#inpend').jeDate(end);
+ 
+//或者是
+$.jeDate('#inputstart',start);
 </script>
 @endsection
