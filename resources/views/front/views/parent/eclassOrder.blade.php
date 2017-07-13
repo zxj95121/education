@@ -64,6 +64,13 @@
       					<li class="item-content">
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">
+          						<div class="item-title">授课学生</div>
+          						<div class="item-after">{{$childName}}</div>
+        					</div>
+      					</li>
+      					<li class="item-content">
+        					<div class="item-media"><i class="icon icon-f7"></i></div>
+        					<div class="item-inner">
           						<div class="item-title">订单价格</div>
           						<div class="item-after" style="font-weight: bold;">¥{{$flight->price}}</div>
         					</div>

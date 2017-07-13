@@ -46,10 +46,13 @@ class PayClassController extends Controller
 		$name = EclassPriceController::getName($tid, 2);
 		$firstName = EclassPriceController::getName($tid, 0);
 		$classname = $firstName.$name;
+
+		$childName = ParentChild::find($flight->child)->name;
 		Session::put('jname',$name);
 		Session::put('jorder_id',$order_id);
 		Session::put('jclassname',$classname);
 		Session::put('jflight',$flight);
+		Session::put('child', $childName);
 		return redirect('/front/parent/newEclassOrder2');
 	}
 	public function newEclassOrder2(Request $request)
@@ -58,7 +61,8 @@ class PayClassController extends Controller
 		$order_id = Session::get('jorder_id');
 		$classname = Session::get('jclassname');
 		$flight = Session::get('jflight');
-		return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight,'classname'=>$classname]);
+		$childName = Session::get('child');
+		return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight,'classname'=>$classname,'childName'=>$childName]);
 	}
 
 	public function showPayEclassOrder(Request $request)
@@ -70,9 +74,11 @@ class PayClassController extends Controller
 
 		$flight = EclassOrder::find($order_id);
 
+		$childName = ParentChild::find($flight->child)->name;/*学生名称*/
+
 		$name = EclassPriceController::getName($flight->tid, 2);
 		$classname = EclassPriceController::getName($flight->tid);
-		return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight,'classname'=>$classname,'back'=>'/front/parent/myClassOrder']);
+		return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight,'classname'=>$classname,'back'=>'/front/parent/myClassOrder','childName'=>$childName]);
 	}
 
     public function checkMessage(Request $request)
