@@ -160,7 +160,7 @@
 		                    	@endif
 		                    </div>
 		                    <div class="my_function_bottom">
-		                    	我的孩子
+		                    	我的孩子{{$key}}
 		                    </div>
 		                </div>
 	                @endforeach
