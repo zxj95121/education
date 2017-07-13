@@ -94,7 +94,6 @@
 <script type="text/javascript" src="/js/layui/layui.js"></script>
 <script type="text/javascript">
     $(function(){
-
         layui.use('layer', function(){
             window.layer = layui.layer;
         });
