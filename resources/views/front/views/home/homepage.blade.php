@@ -164,7 +164,7 @@
 		                    </div>
 		                </div>
 	                @endforeach
-	                @if(empty($key) || $key <= 3){
+	                @if(empty($key) || $key <= 3)
 	                	<div class="col-xs-3 my_function_type" id="addChild">
 		                    <div class="my_function_top">
 		                        <img src="/images/home/function_add.png" />
@@ -173,7 +173,7 @@
 		                     	 添加孩子
 		                    </div>
 		                </div>
-	                }
+	                @endif
 
 	            </div>
 	            <!-- <div class="row" class="my_function">
