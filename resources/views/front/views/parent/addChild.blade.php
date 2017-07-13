@@ -85,7 +85,7 @@
 				success:function(date){
 					if(date.code == 200){
 						$.toast('添加成功');
-						settimeout(function(){
+						setTimeout(function(){
 							window.location.href="/front/home";
 						},2000);
 					}
