@@ -34,14 +34,14 @@ $(document).on('click','.class3',function(){
 					}
 					str += '<div class="weui-actionsheet__cell childCellClick" style="background: #1AAD19;color:#FFF;text-align:center;">点我确认</div></div> </div> </div>';
 					$('#twoclass').after(str);
-					$('#child').fadeIn(200);
+					$('#childsheet').fadeIn(200);
 					
 					$(document).on('click', '.child_Cell', function(){
 						$(this).find('input')[0].click();
 					})
 
 					$(document).on('click', '.child-weui-mask', function(){
-						$('#child').fadeOut(200);
+						$('#childsheet').fadeOut(200);
 					})
 
 					$(document).on('click', '.childCellClick', function(){
