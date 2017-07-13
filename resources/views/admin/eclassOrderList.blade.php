@@ -354,6 +354,7 @@
                                             <th>星期</th>
                                             <th>详细时间</th>
                                             <th>所在班级</th>
+                                            <th>是否节假日</th>
                                             <th>操作</th>
                                         </tr>
                                     </thead>
@@ -547,7 +548,8 @@
                                     var weekStr = '星期日';
                                     break;
                             }
-                            $('#orderClassTime tbody').append('<tr kid="'+oct[i]['id']+'"><td>'+weekStr+'</td><td>'+oct[i]['low']+'-'+oct[i]['high']+'</td><td>'+oct[i]['cname']+'</td><td><span class="label label-info classOrderDelete">删除</span></td></tr>');
+                            var type = (oct[i]['type']=='1')?'节假日':'普通';
+                            $('#orderClassTime tbody').append('<tr kid="'+oct[i]['id']+'"><td>'+weekStr+'</td><td>'+oct[i]['low']+'-'+oct[i]['high']+'</td><td>'+oct[i]['cname']+'</td><td>'+type+'</td><td><span class="label label-info classOrderDelete">删除</span></td></tr>');
                         }
                     }
                 }
@@ -580,6 +582,8 @@
             var keshi = $('#keshiSelect option:selected').val();
             var clas = $('#classSelect option:selected').val();
             var id = $('#useOrderModal').attr('oid');
+            var checkbox = $('input[name="hospital"]:checked').val()?'1':'0';
+            var checkboxTd = (checkbox==1)?'节假日':'普通';
 
             $.ajax({
                 url: '/admin/classOrder/keAdd',
@@ -589,11 +593,12 @@
                     week: week,
                     keshi: keshi,
                     class: clas,
-                    id: id
+                    id: id,
+                    checkbox: checkbox
                 },
                 success: function(data) {
                     if (data.errcode == 0) {
-                        $('#orderClassTime tbody').append('<tr kid="'+data.id+'"><td>'+$('#weekSelect option[value="'+week+'"]').html()+'</td><td>'+$('#keshiSelect option[value="'+keshi+'"]').html()+'</td><td>'+$('#classSelect option[value="'+clas+'"]').html()+'</td><td><span class="label label-info classOrderDelete">删除</span></td></tr>');
+                        $('#orderClassTime tbody').append('<tr kid="'+data.id+'"><td>'+$('#weekSelect option[value="'+week+'"]').html()+'</td><td>'+$('#keshiSelect option[value="'+keshi+'"]').html()+'</td><td>'+$('#classSelect option[value="'+clas+'"]').html()+'</td><td>'+checkboxTd+'</td><td><span class="label label-info classOrderDelete">删除</span></td></tr>');
                         setUseMessage();
                     } else {
                         window.layer.msg(data.reason);

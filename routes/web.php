@@ -110,6 +110,11 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/classSetting/edit', 'Setting\ClassSettingController@edit');
     $router->post('/classSetting/delete', 'Setting\ClassSettingController@delete');
 
+    /*节假日设置*/
+    $router->get('/festivalSetting', 'Setting\FestivalSettingController@index');
+    $router->post('/festivalSetting/add', 'Setting\FestivalSettingController@add');
+    $router->post('/festivalSetting/change', 'Setting\FestivalSettingController@change');
+
   	/**
   	 * 双师classOne*/
   	$router->get('/doubleTeacher','Teacher\DoubleTeacherController@doubleTeacher');//列表

@@ -128,7 +128,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="has-submenu {!!(Request::is('admin/communityManage','admin/subjectManage','admin/schoolManage','admin/hobbyManage','admin/classSetting')? 'active' : '') !!}">
+                    <li class="has-submenu {!!(Request::is('admin/communityManage','admin/subjectManage','admin/schoolManage','admin/hobbyManage','admin/classSetting','admin/festivalSetting')? 'active' : '') !!}">
                         <a href="#">
                             <i class="fa fa-cog"></i> 
                             <span class="nav-label">系统设置</span>
@@ -149,6 +149,9 @@
                             </li>
                             <li class="{!!(Request::is('admin/classSetting')? 'active' : '') !!}">
                                 <a href="/admin/classSetting">班级设置   </a>
+                            </li>
+                            <li class="{!!(Request::is('admin/festivalSetting')? 'active' : '') !!}">
+                                <a href="/admin/festivalSetting">节假日设置   </a>
                             </li>
                         </ul>
                     </li>

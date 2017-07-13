@@ -130,7 +130,7 @@ class EclassOrderController extends Controller
             ->where('order_class_time.status', '1')
             ->leftJoin('class', 'class.id', 'order_class_time.class_id')
             ->leftJoin('class_time as ct', 'ct.id', 'order_class_time.ct_id')
-            ->select('ct.low as low', 'ct.high as high', 'class.name as cname', 'order_class_time.id as id', 'order_class_time.week as week')
+            ->select('ct.low as low', 'ct.high as high', 'class.name as cname', 'order_class_time.id as id', 'order_class_time.week as week','order_class_time.type as type')
             ->get();
 
         return response()->json(['errcode'=>0,'result'=>$result]);
@@ -186,6 +186,7 @@ class EclassOrderController extends Controller
         $keshi = $request->input('keshi');
         $class = $request->input('class');
         $id = $request->input('id');
+        $checkbox = $request->input('checkbox');
 
         $count = OrderClassTime::where('order_id', $id)
             ->where('week', $week)
@@ -211,6 +212,7 @@ class EclassOrderController extends Controller
         $flight = new OrderClassTime();
         $flight->order_id = $id;
         $flight->class_id = $class;
+        $flight->type = $checkbox;
         $flight->ct_id = $keshi;
         $flight->week = $week;
         $flight->save();
