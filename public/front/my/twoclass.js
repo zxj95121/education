@@ -40,7 +40,7 @@ $(document).on('click','.class3',function(){
 					})
 
 					$(document).on('click', '.child-weui-mask', function(){
-						$('#childsheet').fadeOut(200);
+						
 					})
 
 					$(document).on('click', '.childCellClick', function(){
@@ -48,7 +48,8 @@ $(document).on('click','.class3',function(){
 						if (!child) {
 							return false;
 						}
-						console.log(child);
+						$('#childsheet').fadeOut(200);
+						
 						var loadIndex = layer.open({
 						    type: 2
 						    ,content: ''
