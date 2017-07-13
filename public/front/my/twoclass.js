@@ -14,7 +14,7 @@ $(document).on('click','.class3',function(){
 	if (e.target.tagName == 'P')
 		$('#eclass').load('/front/twoClassfour?pid='+pid);
 	else if (e.target.tagName == 'SPAN') {
-		var loadIndex = layer.open({
+		loadIndex = layer.open({
 		    type: 2
 		    ,content: ''
 		});
