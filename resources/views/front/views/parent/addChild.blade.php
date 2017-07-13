@@ -40,7 +40,7 @@
 			            			<div class="item-title label">性别</div>
 			            			<div class="item-input">
 			              				<select name="sex">
-			              					<option vlaue="1">男</option>
+			              					<option value="1">男</option>
 			              					<option value="0">女</option>
 			              				</select>
 			            			</div>
@@ -64,7 +64,7 @@
   	<script>
 	    $(document).on('click','.button-success',function(){
 			var name = $('input[name=name]').val();
-			var sex = $('select option:selected').val();
+			var sex = $('select[name=sex]').val();
 			if(name.length > 4){
 				$.toast("名字最长输入4字符");
 				return false;
