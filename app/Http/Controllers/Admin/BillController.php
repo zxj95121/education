@@ -11,7 +11,7 @@ class BillController extends Controller
 {
    	public function bill(Request $request)
    	{
-   		$res = Bill::where('status',1)
+   		$res = Bill::where('bill.status',1)
    		->leftJoin('eclass_order','eclass_order.id','oid')
    		->leftJoin('parent_info', 'parent_info.id', 'eclass_order.uid')
    		->select('bill.id','bill.created_at','bill.type','eclass_order.order_no','eclass_order.price','parent_info.name')
