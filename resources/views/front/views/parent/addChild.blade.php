@@ -85,9 +85,10 @@
 				success:function(date){
 					if(date.code == 200){
 						$.toast('添加成功');
+						$('.button-success').replaceWith('<a href="#" class="button button-big button-fill button-danger">已完成</a>')
 						setTimeout(function(){
 							window.location.href="/front/home";
-						},2000);
+						},1000);
 					}
 				}
 			})		
