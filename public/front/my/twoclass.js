@@ -33,7 +33,7 @@ $(document).on('click','.class3',function(){
 						str += '<div class="weui-actionsheet__cell" cid="'+data.child[i].id+'"><input type="radio" name="child"/>　　'+data.child[i].name+'</div>';
 					}
 					str += '</div> </div> </div>';
-					$('#twoclass').after($str);
+					$('#twoclass').after(str);
 					// console.log(data);
 				}
 			}
