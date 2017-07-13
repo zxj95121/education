@@ -41,7 +41,7 @@ $(document).on('click','.class3',function(){
 					})
 
 					$(document).on('click', '.child-weui-mask', function(){
-						
+						$('#childsheet').fadeOut(200);
 					})
 
 					$(document).on('click', '.childCellClick', function(){
