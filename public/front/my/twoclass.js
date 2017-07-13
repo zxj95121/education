@@ -28,7 +28,7 @@ $(document).on('click','.class3',function(){
 			success: function(data){
 				if (data.errcode == 0) {
 					layer.close(loadIndex);
-					var str = '<div class="weui-skin_android" id="childsheet" style="opacity: 0;"> <div class="weui-mask"></div> <div class="weui-actionsheet"> <div class="weui-actionsheet__menu"> ';
+					var str = '<div class="weui-skin_android" id="childsheet" style="opacity: 0;"> <div class="weui-mask child-weui-mask"></div> <div class="weui-actionsheet"> <div class="weui-actionsheet__menu"> ';
 					for (var i in data.child) {
 						str += '<div class="weui-actionsheet__cell child_Cell" cid=""><input type="radio" name="child" value="'+data.child[i].id+'" />'+data.child[i].name+'</div>';
 					}
@@ -40,7 +40,7 @@ $(document).on('click','.class3',function(){
 						$(this).find('input')[0].click();
 					})
 
-					$('#childsheet .weui-mask').click(function(){
+					$(document).on('click', '.child-weui-mask', function(){
 						$('#child').fadeOut(200);
 					})
 
