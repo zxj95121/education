@@ -75,7 +75,7 @@
 			$.ajax({
 				headers:{
 					'X-CSRF-TOKEN': '{{csrf_token()}}'
-				}
+				},
 				type:'post',
 				url:'/front/child/post',
 				data:{
