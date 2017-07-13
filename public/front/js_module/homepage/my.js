@@ -18,12 +18,12 @@ $(function(){
 		window.location.href = "/front/parent/addChild";
 	})
 	/*孩子列表点击*/
-	$(document).on('click','listChild',function(){
+	$(document).on('click','.listChild',function(){
 		layer.open({
 			content:'该功能正在开发中...',
 			skin:'msg',
 			time:2
 		});
-		//alert($(this).id);
+		//alert($(this).attr('childid'));
 	})
 })
