@@ -64,7 +64,7 @@
   	<script>
 	    $(document).on('click','.button-success',function(){
 			var name = $('input[name=name]').val();
-			var sex = $('select[name=sex]').val();
+			var sex = $('select[name=sex] option:selected').val();
 			if(name.length > 4){
 				$.toast("名字最长输入4字符");
 				return false;
@@ -75,7 +75,7 @@
 			$.ajax({
 				headers:{
 					'X-CSRF-TOKEN': '{{csrf_token()}}'
-				},
+				},	
 				type:'post',
 				url:'/front/child/post',
 				data:{
