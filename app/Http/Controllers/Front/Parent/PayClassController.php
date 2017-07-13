@@ -122,6 +122,24 @@ class PayClassController extends Controller
 		}
     	return view('front.views.home.checkMessageResult', ['result'=>$result,'noTime'=>$noTime]);
     }
+
+    /*查孩子信息*/
+    public function getChild(Request $request)
+    {
+    	/*getChild*/
+    	$openid = Session::get('openid');
+
+		$id = $this->getUid($openid);
+
+		$childObj = ParentChild::where('status', '1')
+			->where('pid', $id)
+			->select('name','id')
+			->get()
+			->toArray();
+
+		return response()->json(['errcode'=>0,'child'=>$childObj]);
+    }
+
     private function getUid($openid)
     {
     	$userType = UserType::where('openid', $openid)
