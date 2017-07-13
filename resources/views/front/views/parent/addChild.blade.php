@@ -14,13 +14,13 @@
 
   </head>
   <body>
-    <div class="page-group">
+    <div class="page-group" style="background:#fff">
         <div class="page page-current">
 		    <header class="bar bar-nav">
-			 	<h1 class='title'>添加我的孩子</h1>
+			 	<h1 class='title' style="background: #22AAE8;color: #fff;">添加我的孩子</h1>
 			</header>
 			<div class="content">
-			  	<div class="list-block">
+			  	<div class="list-block" style="margin-top: 0px;margin-bottom: 20px;">
 			    	<ul>
 			     		<li class="align-top">
 			        		<div class="item-content">
@@ -49,7 +49,7 @@
 			    		</li>
 			    	</ul>
 				</div>
-				<div class="content-block">
+				<div class="content-block" style="margin-top:20px">
 					<div class="row">
 						<div class="col-50"><a href="#" class="button button-big button-fill button-danger">取消</a></div>
 						<div class="col-50"><a href="#" class="button button-big button-fill button-success">提交</a></div>
@@ -58,9 +58,39 @@
 			</div>
         </div>
     </div>
-    <script type='text/javascript' src='/sj/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='/js/zepto.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
-
+  	<script type='text/javascript' src='/admin/js/jquery-1.11.1.min.js'></script>
+  	<script>
+  		$('.button-success').click(function(){
+			var name = $('input[name=name]').val();
+			var sex = $('select[name=sex]').val();
+			if(name.length > 4){
+				$.toast("名字最长输入4字符");
+				return false
+			}else if(name.length < 1){
+				$.toast('还没输入名字呢');
+				return false;
+			}
+			$.ajax({
+				type:'post',
+				url:'/font/child/post',
+				data:{
+					name:name,
+					sex:sex
+				},
+				success:function(date){
+					if(date.code == 200){
+						$.toast('添加成功');
+						window.location.href="/front/home";
+					}
+				}
+			})
+  	  	})
+  	  	$('.button-danger').click(function(){
+			window.location.href = '/front/home';
+  	  	})
+  	</script>
   </body>
 </html>
