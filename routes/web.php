@@ -268,6 +268,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 
   /*parent模块，child相关*/
   $router->get('/parent/addChild', 'Parent\ChildController@addChild');
+  $router->post('/child/post', 'Parent\ChildController@addPost');
   /*parent模块，购买相关*/
   $router->post('/parent/checkMessage', 'Parent\PayClassController@checkMessage');
   /*/parent/myClassOrder*/
