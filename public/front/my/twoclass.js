@@ -48,7 +48,7 @@ $(document).on('click','.class3',function(){
 						if (!child) {
 							return false;
 						}
-
+						console.log(child);
 						var loadIndex = layer.open({
 						    type: 2
 						    ,content: ''
