@@ -30,7 +30,7 @@ $(document).on('click','.class3',function(){
 					layer.close(loadIndex);
 					var str = '<div class="weui-skin_android" id="childsheet" style="opacity: 1;"> <div class="weui-mask"></div> <div class="weui-actionsheet"> <div class="weui-actionsheet__menu"> ';
 					for (var i in data.child) {
-						str += '<div class="weui-actionsheet__cell child_Cell" cid="'+data.child[i].id+'"><input type="radio" name="child"/>　　'+data.child[i].name+'</div>';
+						str += '<div class="weui-actionsheet__cell child_Cell" cid=""><input type="radio" name="child" value="'+data.child[i].id+'" />'+data.child[i].name+'</div>';
 					}
 					str += '<div class="weui-actionsheet__cell childCellClick" style="background: #1AAD19;color:#FFF;text-align:center;">点我确认</div></div> </div> </div>';
 					$('#twoclass').after(str);
