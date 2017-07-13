@@ -28,13 +28,16 @@ $(document).on('click','.class3',function(){
 			success: function(data){
 				if (data.errcode == 0) {
 					layer.close(loadIndex);
-					var str = '<div class="weui-skin_android" id="androidActionsheet" style="opacity: 1;"> <div class="weui-mask"></div> <div class="weui-actionsheet"> <div class="weui-actionsheet__menu"> ';
+					var str = '<div class="weui-skin_android" id="childsheet" style="opacity: 1;"> <div class="weui-mask"></div> <div class="weui-actionsheet"> <div class="weui-actionsheet__menu"> ';
 					for (var i in data.child) {
-						str += '<div class="weui-actionsheet__cell" cid="'+data.child[i].id+'"><input type="radio" name="child"/>　　'+data.child[i].name+'</div>';
+						str += '<div class="weui-actionsheet__cell child_Cell" cid="'+data.child[i].id+'"><input type="radio" name="child"/>　　'+data.child[i].name+'</div>';
 					}
 					str += '</div> </div> </div>';
 					$('#twoclass').after(str);
-					// console.log(data);
+					
+					$(document).on('click', '.child_Cell', function(){
+						$(this).find('input')[0].click();
+					})
 				}
 			}
 		})
