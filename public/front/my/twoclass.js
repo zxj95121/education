@@ -14,7 +14,9 @@ $(document).on('click','.class3',function(){
 	if (e.target.tagName == 'P')
 		$('#eclass').load('/front/twoClassfour?pid='+pid);
 	else if (e.target.tagName == 'SPAN') {
-		console.log('这是购买');
+		$('#twoclass').after('<div class="weui-skin_android" id="androidActionsheet" style="opacity: 1;"> <div class="weui-mask"></div> <div class="weui-actionsheet"> <div class="weui-actionsheet__menu"> <div class="weui-actionsheet__cell">示例菜单</div> <div class="weui-actionsheet__cell">示例菜单</div> <div class="weui-actionsheet__cell">示例菜单</div> </div> </div> </div>');
+		exit;
+		// console.log('这是购买');
 		var loadIndex = layer.open({
 		    type: 2
 		    ,content: ''
