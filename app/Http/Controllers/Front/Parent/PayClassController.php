@@ -122,11 +122,6 @@ class PayClassController extends Controller
 		}
     	return view('front.views.home.checkMessageResult', ['result'=>$result,'noTime'=>$noTime]);
     }
-	public function weixinpay()
-	{
-		return view('front.views.parent.weixinpay');
-	}
-
     private function getUid($openid)
     {
     	$userType = UserType::where('openid', $openid)

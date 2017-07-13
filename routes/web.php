@@ -261,7 +261,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 	$router->get('/twoClasstwo','TwoClassController@two');
 	$router->get('/twoClassthree','TwoClassController@three');
 	$router->get('/twoClassfour','TwoClassController@four');
-  $router->post('/twoClass/getpid', 'TwoClassController@getpid');
+	$router->post('/twoClass/getpid', 'TwoClassController@getpid');
 	/*双师class后退  */
 	$router->get('/twoClassback','TwoClassController@back');
 
@@ -277,13 +277,16 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
   $router->get('/parent/newEclassOrder', 'Parent\PayClassController@newEclassOrder');
   $router->get('/parent/newEclassOrder2','Parent\PayClassController@newEclassOrder2');
   $router->get('/parent/showPayEclassOrder','Parent\PayClassController@showPayEclassOrder');
-  $router->get('/parent/weixinpay','Parent\PayClassController@weixinpay');
   /*设置上课时间期望*/
   $router->get('/setClassTime', 'Parent\ClassTimeController@setClassTime');
   $router->post('/setClassTime/selectType', 'Parent\ClassTimeController@selectType');/*ajax请求是否加辰自动排课*/
   $router->post('/setClassTime/selectTime', 'Parent\ClassTimeController@selectTime');/*ajax请求选课*/
   $router->post('/setClassTime/cancleTime', 'Parent\ClassTimeController@cancleTime');/*ajax取消选择*/
   $router->post('/setClassTime/setAll', 'Parent\ClassTimeController@setAll');/*ajax设置所有*/
+
+  
+  
+  
 });
 
 /*-------------*/
