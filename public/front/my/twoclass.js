@@ -14,10 +14,10 @@ $(document).on('click','.class3',function(){
 	if (e.target.tagName == 'P')
 		$('#eclass').load('/front/twoClassfour?pid='+pid);
 	else if (e.target.tagName == 'SPAN') {
-		loadIndex = layer.open({
-		    type: 2
-		    ,content: ''
-		});
+		// loadIndex = layer.open({
+		//     type: 2
+		//     ,content: ''
+		// });
 		$.ajax({
 			url: '/front/parent/getChild',
 			dataType: 'html',
@@ -27,7 +27,7 @@ $(document).on('click','.class3',function(){
 			},
 			success: function(data){
 				if (data.errcode == 0) {
-					layer.close(loadIndex);
+					// layer.close(loadIndex);
 					var str = '<div class="weui-skin_android" id="androidActionsheet" style="opacity: 1;"> <div class="weui-mask"></div> <div class="weui-actionsheet"> <div class="weui-actionsheet__menu"> ';
 					for (var i in data.child) {
 						$str += '<div class="weui-actionsheet__cell" cid="'+data.child[i].id+'"><input type="radio" name="child"/>　　'+data.child[i].name+'</div>';
