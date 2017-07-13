@@ -32,7 +32,7 @@ $(document).on('click','.class3',function(){
 					for (var i in data.child) {
 						str += '<div class="weui-actionsheet__cell child_Cell" cid="'+data.child[i].id+'"><input type="radio" name="child"/>　　'+data.child[i].name+'</div>';
 					}
-					str += '</div> </div> </div>';
+					str += '<div class="weui-actionsheet__cell childCellClick" style="background: #51C332;color:#FFF;text-align:center;">示例菜单</div></div> </div> </div>';
 					$('#twoclass').after(str);
 					
 					$(document).on('click', '.child_Cell', function(){
