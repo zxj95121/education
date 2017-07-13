@@ -12,15 +12,17 @@ use Session;
 use App\Models\AdminInfo;
 use App\Models\ParentInfo;
 use App\Models\TeacherInfo;
-
+use App\Models\ParentChild;
 class HomeController extends Controller
 {
     public function home()
     {
     	$openid = Session::get('openid');
+    	
 		$res = $this->userType($openid);
     	if (count($res['userType'])){
-    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0]]);
+    		$child = ParentChild::where('pid',$openid)->where('status',1)->select('id','sex')->get();
+    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child]);
     	} else {
     		return redirect('/front/register');
     	}

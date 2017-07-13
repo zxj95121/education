@@ -150,14 +150,31 @@
 	                        <img src="/images/home/function_cicle.png" />
 	                    </div>
 	                </div> -->
-	                <div class="col-xs-3 my_function_type" id="addChild">
-	                    <div class="my_function_top">
-	                        <img src="/images/home/function_add.png" />
-	                    </div>
-	                    <div class="my_function_bottom">
-	                        添加孩子
-	                    </div>
-	                </div>
+	                @foreach($child as $key => $value)
+	                	<div class="col-xs-3 my_function_type" class="listChild" id="{{$value->id}}">
+		                    <div class="my_function_top">
+		                    	@if($value->sex == 0)
+		                        	<img src="/images/home/function_child_girl.png" />
+		                    	@else
+		                    		<img src="/images/home/function_child_boy.png" />
+		                    	@endif
+		                    </div>
+		                    <div class="my_function_bottom">
+		                    	我的孩子
+		                    </div>
+		                </div>
+	                @endif
+	                @if(empty($key) || $key <= 3){
+	                	<div class="col-xs-3 my_function_type" id="addChild">
+		                    <div class="my_function_top">
+		                        <img src="/images/home/function_add.png" />
+		                    </div>
+		                    <div class="my_function_bottom">
+		                     	 添加孩子
+		                    </div>
+		                </div>
+	                }
+
 	            </div>
 	            <!-- <div class="row" class="my_function">
 	            </div> -->
