@@ -61,14 +61,13 @@
     <script type='text/javascript' src='/js/zepto.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
-  	<script type='text/javascript' src='/admin/js/jquery-1.11.1.min.js'></script>
   	<script>
-	    $.ajaxSetup({
+  		$.ajaxSettings({
 	        headers: {
 	            'X-CSRF-TOKEN': '{{csrf_token()}}'
 	        }
 	    });
-  		$('.button-success').click(function(){
+	    $(document).on('click','.button-success',function(){
 			var name = $('input[name=name]').val();
 			var sex = $('select[name=sex]').val();
 			if(name.length > 4){
@@ -91,11 +90,11 @@
 						window.location.href="/front/home";
 					}
 				}
-			})
-  	  	})
-  	  	$('.button-danger').click(function(){
+			})		
+		})
+		$(document).on('click','.button-danger',function(){
 			window.location.href = '/front/home	';
-  	  	})
+		})
   	</script>
   </body>
 </html>
