@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Front\Parent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ParentChild;
-
+use Session;
 class ChildController extends Controller
 {
     public function addChild()
@@ -14,9 +14,12 @@ class ChildController extends Controller
     }
     public function addPost(Request $request)
     {
+    	var_dump(Session::all());
+    	die;
     	$obj = new ParentChild();
     	$obj->name = $request->input('name');
     	$obj->sex = $request->input('sex');
+    	$obj->pid = '';
     	$obj->save();
     	return response()->json(['code'=>200]);
     }
