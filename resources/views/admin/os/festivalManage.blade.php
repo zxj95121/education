@@ -233,22 +233,12 @@
     });
 </script>
 <script>
-var date = new Date();
-var year = date.getFullYear();
-var month = date.getMonth()+1;
-if(month < 10)
-    month = '0'+month;
-var day = date.getDate();
-if(day < 10)
-    day = '0'+day;
-var str = year+'-'+month+'-'+day;
-
 var start = {
     format: 'YYYY-MM-DD',
     minDate: '2017-07-01', //设定最小日期为当前日期
     festival: true,
     ishmsVal:false,
-    minDate: str, //最大日期
+    manDate: '2099-01-01', //最大日期
     choosefun: function(elem, val, date){
         // end.minDate = val; //开始日选好后，重置结束日的最小日期
         // endDates();
@@ -258,10 +248,10 @@ var start = {
         $('#hiddenDate').val(val);
     }, 
 };
-// $('#inpstart').jeDate(start);
+$('#inputstart').jeDate(start);
 // $('#inpend').jeDate(end);
  
 //或者是
-$.jeDate('#inputstart',start);
+// $.jeDate('#inputstart',start);
 </script>
 @endsection
