@@ -63,6 +63,11 @@
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
   	<script type='text/javascript' src='/admin/js/jquery-1.11.1.min.js'></script>
   	<script>
+	    $.ajaxSetup({
+	        headers: {
+	            'X-CSRF-TOKEN': '{{csrf_token()}}'
+	        }
+	    });
   		$('.button-success').click(function(){
 			var name = $('input[name=name]').val();
 			var sex = $('select[name=sex]').val();
