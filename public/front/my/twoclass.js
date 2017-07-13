@@ -32,12 +32,65 @@ $(document).on('click','.class3',function(){
 					for (var i in data.child) {
 						str += '<div class="weui-actionsheet__cell child_Cell" cid="'+data.child[i].id+'"><input type="radio" name="child"/>　　'+data.child[i].name+'</div>';
 					}
-					str += '<div class="weui-actionsheet__cell childCellClick" style="background: #51C332;color:#FFF;text-align:center;">示例菜单</div></div> </div> </div>';
+					str += '<div class="weui-actionsheet__cell childCellClick" style="background: #1AAD19;color:#FFF;text-align:center;">点我确认</div></div> </div> </div>';
 					$('#twoclass').after(str);
 					
 					$(document).on('click', '.child_Cell', function(){
 						$(this).find('input')[0].click();
 					})
+
+					$(document).on('click', '.childCellClick', function(){
+						var child = $('input[name="child"]').val();
+						if (child) {
+							console.log(child);
+						} else {
+							alert('fou ');
+							console.log(child);
+						}
+
+						// var loadIndex = layer.open({
+						//     type: 2
+						//     ,content: ''
+						// });
+						// var timeLay = 0;
+						// var layInter = setInterval(function(){
+						// 	timeLay += 50;
+						// }, 50);
+						// $.ajax({
+						// 	url: '/front/parent/checkMessage',
+						// 	dataType: 'html',
+						// 	type: 'post',
+						// 	data: {
+						// 		pid: pid
+						// 	},
+						// 	success: function(data){
+						// 		var successInter = setInterval(function(){
+						// 			if (timeLay >= 300) {
+						// 				clearInterval(layInter);
+						// 				clearInterval(successInter);
+						// 				/*展示data*/
+						// 				layer.close(loadIndex);
+						// 				if (data.indexOf('weui-form-preview__bd') > 0) {
+						// 					var openIndex = layer.open({
+						// 					    type: 1
+						// 					    ,content: data
+						// 					    ,anim: 'up'
+						// 					    ,style: 'position:fixed; bottom:0; left:0; width: 100%; min-height: 150px;padding:10px 0; border:none;'
+						// 					});
+
+						// 					$(document).on('click', '#closeOpen0', function(){
+						// 						layer.close(openIndex);
+						// 					})
+						// 				} else {
+						// 					$('#twoclass').after(data);
+						// 				}
+						// 			}
+						// 		}, 50);
+						// 	}
+						// })
+
+						/*点击响应结束*/
+					});
 				}
 			}
 		})
