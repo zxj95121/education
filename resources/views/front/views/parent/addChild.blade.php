@@ -68,14 +68,14 @@
 			var sex = $('select[name=sex]').val();
 			if(name.length > 4){
 				$.toast("名字最长输入4字符");
-				return false
+				return false;
 			}else if(name.length < 1){
 				$.toast('还没输入名字呢');
 				return false;
 			}
 			$.ajax({
 				type:'post',
-				url:'/font/child/post',
+				url:'/front/child/post',
 				data:{
 					name:name,
 					sex:sex
@@ -89,7 +89,7 @@
 			})
   	  	})
   	  	$('.button-danger').click(function(){
-			window.location.href = '/front/home';
+			window.location.href = '/front/home	';
   	  	})
   	</script>
   </body>
