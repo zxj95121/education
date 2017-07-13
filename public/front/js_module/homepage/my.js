@@ -15,11 +15,6 @@ $(function(){
 
 	/*添加孩子点击*/
 	$('#addChild').click(function(){
-/*		layer.open({
-		    content: '该功能正在开发中...'
-		    ,skin: 'msg'
-		    ,time: 2 //2秒后自动关闭
-		});*/ 
 		window.location.href = "/front/parent/addChild";
 	})
 })
