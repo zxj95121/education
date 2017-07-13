@@ -40,7 +40,7 @@ $(document).on('click','.class3',function(){
 					})
 
 					$(document).on('click', '.childCellClick', function(){
-						var child = $('input[name="child"]').val();
+						var child = $('input[name="child"]:checked').val();
 						if (child) {
 							console.log(child);
 						} else {
