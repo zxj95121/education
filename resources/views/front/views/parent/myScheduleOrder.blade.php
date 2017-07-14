@@ -52,24 +52,6 @@
 		function noSchedule() {
 			$.alert('管理员暂未分配该订单,请稍后再试');
 		}
-
-		var callback = function(records) {
-		    records.map(function(record) {
-		        console.log('Mutation type: ' + record.type);
-		        console.log('Mutation target: ' + record.target);
-		    });
-		};
-		var observer = new MutationObserver(callback);
-
-		var article = document.querySelector('article');
-
-		var options = {
-		    'childList': true,
-		    'arrtibutes': true,
-		    'characterData': true
-		};
-
-		observer.observer(article, options);
 	</script>
 </body>
 </html>
