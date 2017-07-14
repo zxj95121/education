@@ -10,7 +10,6 @@ use App\Models\UserType;
 use App\Http\Controllers\EclassPriceController;
 
 use App\Http\Controllers\Wechat\OauthController;
-use App\Http\Controllers\EclassPriceController;
 use App\Models\EclassProgress;
 use App\Models\TeacherFour;
 use App\Models\ParentChild;
