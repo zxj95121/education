@@ -33,6 +33,10 @@
 			/*nothing*/
 		});
 
+		$('.picker-calendar-day').unbind('touch', function(){
+			/*nothing*/
+		});
+
 		$(document).on('click', '.picker-calendar-day', function(){
 			console.log('fasdf');
 		})
