@@ -114,7 +114,7 @@ class MyScheduleController extends Controller
     		}
     	}
 
-    	return reponse()->json(['errcode'=>0,'data'=>$data]);
+    	return response()->json(['errcode'=>0,'data'=>$data]);
     }
 
     /*oauth*/
