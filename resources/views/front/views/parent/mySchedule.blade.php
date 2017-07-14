@@ -21,12 +21,10 @@
 		</div>
 	</div>	
 
-	<div class="weui-skin_android" id="androidActionsheet" style="opacity: 1;">
-        <div class="weui-mask"></div>
+	<div class="weui-skin_android" id="androidActionsheet" style="opacity: 1;display: none;">
+        <div class="weui-mask" style="z-index: 4999;"></div>
         <div class="weui-actionsheet">
             <div class="weui-actionsheet__menu">
-                <div class="weui-actionsheet__cell">示例菜单</div>
-                <div class="weui-actionsheet__cell">示例菜单</div>
                 <div class="weui-actionsheet__cell">示例菜单</div>
             </div>
         </div>
@@ -72,8 +70,17 @@
 		    	day = (day < 10) ? ('0'+day):day;
 		    	var date = year+'-'+month+'-'+day;
 
-				alert(1);
+				$('#androidActionsheet').css('display', 'block');
+				$('.weui-actionsheet__menu').html('');
+				var obj = window.schedule.date.detail;
+				for (var i in obj) {
+					$('.weui-actionsheet__menu').append('<div class="weui-actionsheet__cell">'+obj[i].low+'-'+obj[i].high+'</div>');
+				}
 			}
+		})
+
+		$(document).on('click', '.weui-mask', function(){
+			$('#androidActionsheet').css('display', 'none');
 		})
 
 		var MutationObserver = window.MutationObserver ||
