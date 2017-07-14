@@ -52,7 +52,9 @@
 	<script type="text/javascript">
 
 		$(document).on('click', '.picker-calendar-day', function(){
-			console.log('fasdf');
+			if ($(this).find('span').css('backgroundColor') == '#0894ec') {
+				$(this).find('span').css({'backgroundColor':'#FFF','color':'#000'});
+			}
 		})
 
 		var MutationObserver = window.MutationObserver ||
