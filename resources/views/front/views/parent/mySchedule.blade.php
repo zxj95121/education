@@ -64,18 +64,18 @@
 		$(document).on('click', '.picker-calendar-day', function(){
 			if ($(this).attr('state') == '1') {
 				var year = $(this).attr('data-year');
-		    	var month = $(this).attr('data-month');
-		    	var day = $(this).attr('data-day');
+		    	var month = parseInt($(this).attr('data-month'));
+		    	var day = parseInt($(this).attr('data-day'));
+		    	month++;
 		    	month = (month < 10) ? ('0'+month):month;
 		    	day = (day < 10) ? ('0'+day):day;
 		    	var date = year+'-'+month+'-'+day;
-		    	console.log(date);
 				$('#androidActionsheet').css('display', 'block');
 				$('.weui-actionsheet__menu').html('');
-				// var obj = window.schedule.date.detail;
-				// for (var i in obj) {
-					// $('.weui-actionsheet__menu').append('<div class="weui-actionsheet__cell">'+obj[i].low+'-'+obj[i].high+'</div>');
-				// }
+				var obj = window.schedule.date.detail;
+				for (var i in obj) {
+					$('.weui-actionsheet__menu').append('<div class="weui-actionsheet__cell">'+obj[i].low+'-'+obj[i].high+'</div>');
+				}
 			}
 		})
 
