@@ -42,6 +42,8 @@
             success: function(data) {
             	if (data.errcode == 0) {
             		console.log(data.errcode);
+            		window.schedule = data.data;
+            		setStatus();
             	}
             }
 		})
@@ -84,6 +86,11 @@
 		    	var date = year+'-'+month+'-'+day;
 
 		    })
+
+			var schedule = window.schedule;
+		    for (var i in schedule) {
+		    	console.log(schedule[i]);
+		    }
 		}
 	</script>
 </body>
