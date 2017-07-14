@@ -32,9 +32,15 @@ class MyScheduleController extends Controller
     		$teachingObj[$key]['name'] = $name;
     	}
     	
-    	return view('front.views.parent.mySchedule', [
+    	return view('front.views.parent.myScheduleOrder', [
     		'teachingObj' => $teachingObj
     	]);
+    }
+
+    /*查看课表页*/
+    public function schedule()
+    {
+    	return view('front.views.parent.mySchedule');
     }
 
     /*oauth*/
