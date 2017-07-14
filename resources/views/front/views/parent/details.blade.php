@@ -24,7 +24,10 @@
 				<h1 class="title">授课详情</h1>
 			</header>
 			<div class="content">
-				<div class="content-block-title" style=" margin-bottom: 0px;margin-top: 0px;"><p>{{$classname}}<p><p>授课学生:{{$childname}}</p></div>
+				<div class="content-block-title" style=" margin-bottom: 0px;margin-top: 0px;">
+					<p style="font-size: 16px; font-weight: bold; ">{{$classname}}<p>
+					<p>授课学生：<b>{{$childname}}</b></p>
+				</div>
 				<div class="list-block" style="margin-top: 0px">
 					<ul>
 						@foreach($res as $key => $value)
@@ -32,9 +35,9 @@
 								<div class="item-inner">
 									<div class="item-title">{{$value->name}}</div>
 									@if($value->zhuangtai == 0)
-										<div class="item-after">已完成</div>
+										<div class="item-after"style="color: #DE5145;">未完成</div>
 									@else
-										<div class="item-after">未完成</div>
+										<div class="item-after" style="color: #3B833E;">已完成</div>
 									@endif
 								</div>
 							</li>
