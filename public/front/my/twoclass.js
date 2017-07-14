@@ -30,6 +30,14 @@ $(document).on('click','.class3',function(){
 				if (data.errcode == 0) {
 					layer.close(loadIndex);
 					var str = '<div class="weui-skin_android" id="childsheet" style="opacity: 1;"> <div class="weui-mask child-weui-mask"></div> <div class="weui-actionsheet"> <div class="weui-actionsheet__menu"> ';
+					if (data.child.length == 0) {
+						  layer.open({
+							    content: '请先添加自己的孩子'
+							    ,skin: 'msg'
+							    ,time: 2 //2秒后自动关闭
+							  });
+						  return false;
+					}
 					for (var i in data.child) {
 						str += '<div class="weui-actionsheet__cell child_Cell" cid=""><input type="radio" name="child" value="'+data.child[i].id+'" />'+data.child[i].name+'</div>';
 					}
