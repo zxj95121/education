@@ -113,9 +113,6 @@ class EclassOrderController extends Controller
         	return response()->json(['errcode'=>1,'msg'=>$res['err_code_des']]);
         }
     }
-	public function tuikuan(){
-		return view('admin.tuikuan');
-	}
     public function useDetail(Request $request)
     {
         $id = $request->input('id');
