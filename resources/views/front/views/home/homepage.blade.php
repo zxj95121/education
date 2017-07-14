@@ -169,7 +169,7 @@
 		                    <div class="my_function_top">
 		                        <img src="/images/home/function_add.png" />
 		                    </div>
-		                    <div class="my_function_bottom">
+		                    <div class="my_function_bottom" style="padding-top:11px">
 		                     	 添加孩子
 		                    </div>
 		                </div>
