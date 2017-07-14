@@ -29,6 +29,7 @@ class HomeController extends Controller
     		$orderstatus[2] = EclassOrder::where('uid',$parentinfo->id)
 	    		->where('pay_status', '1')
 	    		->where('confirm_status', '1')
+	    		->where('complete', '0')
 	    		->where('status', '1')
 	    		->count();
     		$orderstatus[3] = EclassOrder::where('uid',$parentinfo->id)
