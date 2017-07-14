@@ -2,7 +2,7 @@ $(function(){
 	/*底部点击效果*/
 	$('#all_bottom .weui-tabbar__item').click(function(){
 		var forDiv = $(this).attr('for');
-		history.pushState('', 'title', '/front/home#'+forDiv);
+		history.pushState('', '', '/front/home#'+forDiv);
 		console.log(forDiv);
 		$('#all_bottom .weui-tabbar__item').each(function(){
 			var sforDiv = $(this).attr('for');

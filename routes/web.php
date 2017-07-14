@@ -214,6 +214,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
     $router->get('/register/oauth','LoginController@oauth');
     $router->get('/home/oauth', 'HomeController@homeOauth');
     $router->get('/parent/myClassOrder/oauth', 'Parent\MyClassOrderController@oauth');
+    $router->get('/parent/mySchedule/oauth', 'Parent\MyScheduleController@oauth');
 	
 });
 
@@ -278,6 +279,8 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
   $router->post('/parent/getChild', 'Parent\PayClassController@getChild');
   /*/parent/myClassOrder*/
   $router->get('/parent/myClassOrder', 'Parent\MyClassOrderController@index');
+
+  $router->get('/parent/mySchedule', 'Parent\MyScheduleController@orderList');
 
       /*新订单*/
   $router->get('/parent/newEclassOrder', 'Parent\PayClassController@newEclassOrder');
