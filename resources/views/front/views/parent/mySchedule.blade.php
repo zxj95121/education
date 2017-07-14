@@ -41,7 +41,7 @@
 		};
 		var observer = new MutationObserver(callback);
 
-		var article = document.querySelector('.picker-calendar-month-current');
+		var article = document.querySelector('.picker-calendar-months-wrapper');
 
 		var options = {
 		    'childList': true,
