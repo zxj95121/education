@@ -73,7 +73,7 @@
 				$('#androidActionsheet').css('display', 'block');
 				$('.weui-actionsheet__menu').html('');
 				console.log(date);
-				var obj = window.schedule['date']['detail'];
+				var obj = window.schedule[date]['detail'];
 				for (var i in obj) {
 					$('.weui-actionsheet__menu').append('<div class="weui-actionsheet__cell">'+obj[i].low+'-'+obj[i].high+'</div>');
 				}
