@@ -29,7 +29,7 @@
 	<script type="text/javascript">
 		$.init();
 
-		$.unbind('.picker-calendar-day', function(){
+		$('.picker-calendar-day').unbind('click', function(){
 			/*nothing*/
 		});
 
