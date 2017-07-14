@@ -103,12 +103,14 @@ class MyScheduleController extends Controller
     			->where('order_class_time.type', $type)
     			->where('order_class_time.status', '1')
     			->leftJoin('class_time as ct', 'ct.id', 'order_class_time.ct_id')
-    			->select('ct.low as low', 'ct.high as high')
+    			->leftJoin('class', 'class.id', 'ct.class_id')
+    			->select('ct.low as low', 'ct.high as high', 'class.name as name')
     			->get();
 
     			foreach ($KeshiObj as $value) {
     				$temp['low'] = $value->low;
     				$temp['high'] = $value->high;
+    				$temp['name'] = $value->name;
     				$data[$date]['detail'][] = $temp;
     			}
     		}

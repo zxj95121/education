@@ -75,7 +75,7 @@
 				console.log(date);
 				var obj = window.schedule[date]['detail'];
 				for (var i in obj) {
-					$('.weui-actionsheet__menu').append('<div class="weui-actionsheet__cell">'+obj[i].low+'-'+obj[i].high+'</div>');
+					$('.weui-actionsheet__menu').append('<div class="weui-actionsheet__cell">'+obj[i].low+'-'+obj[i].high+' （'+obj[i].name+'）</div>');
 				}
 			}
 		})
