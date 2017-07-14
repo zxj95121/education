@@ -32,6 +32,7 @@
 		var MutationObserver = window.MutationObserver ||
 		    window.WebKitMutationObserver ||
 		    window.MozMutationObserver;
+
 		var callback = function(records) {
 		    records.map(function(record) {
 		        console.log('Mutation type: ' + record.type);
@@ -40,7 +41,7 @@
 		};
 		var observer = new MutationObserver(callback);
 
-		var article = document.querySelector('article');
+		var article = document.querySelector('.picker-calendar-month-current');
 
 		var options = {
 		    'childList': true,
