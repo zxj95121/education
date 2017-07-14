@@ -33,7 +33,7 @@
 			/*nothing*/
 		});
 
-		$('.picker-calendar-day').unbind('touch', function(){
+		$('.picker-calendar-day').unbind('touchstart', function(){
 			/*nothing*/
 		});
 
