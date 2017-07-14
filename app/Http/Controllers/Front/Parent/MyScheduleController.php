@@ -103,7 +103,7 @@ class MyScheduleController extends Controller
     			->where('order_class_time.type', $type)
     			->where('order_class_time.status', '1')
     			->leftJoin('class_time as ct', 'ct.id', 'order_class_time.ct_id')
-    			->leftJoin('class', 'class.id', 'ct.class_id')
+    			->leftJoin('class', 'class.id', 'order_class_time.class_id')
     			->select('ct.low as low', 'ct.high as high', 'class.name as name')
     			->get();
 
