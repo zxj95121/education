@@ -9,6 +9,7 @@ use App\Models\UserType;
 use App\Http\Controllers\EclassPriceController;
 use App\Models\OrderClassTime;
 use App\Models\ParentChild;
+use App\Models\DateType;
 
 use App\Http\Controllers\Wechat\OauthController;
 use Session;
@@ -61,7 +62,50 @@ class MyScheduleController extends Controller
     	$child = $orderObj->child;
     	$childObj = ParentChild::find($child);
     	$childName = $childObj->name;
-    	return view('front.views.parent.mySchedule',['childName'=>$childName]);
+
+    	/*查出该订单至今乃至未来的可用日期*/
+    	$orderTime = date('Y-m-d', strtotime($orderObj->created_at));
+    	$dateObj = DateType::where('day', '>=', $orderTime)
+    		->where('status', '1')
+    		->select('day', 'type')
+    		->get();
+
+    	/**/
+    	$data = array();
+    	foreach ($dateObj as $value) {
+    		$date = $value->day;
+    		$type = $value->type;
+    		$week = date('w', strtotime($date));
+    		$week = ($week == 0)?'7':$week;
+
+    		$count = OrderClassTime::where('order_id', $id)
+    			->where('week', $week)
+    			->where('type', $type)
+    			->where('status', '1')
+    			->count();
+
+    		if ($count <= 0) {
+    			$data[$date]['state'] = '0';
+    		} else {
+    			$data[$date]['state'] = '1';
+    			/*继续获取详情*/
+    			$KeshiObj = OrderClassTime::where('order_class_time.order_id', $id)
+    			->where('order_class_time.week', $week)
+    			->where('order_class_time.type', $type)
+    			->where('order_class_time.status', '1')
+    			->leftJoin('class_time as ct', 'ct.id', 'order_class_time.ct_id')
+    			->select('ct.low as low', 'ct.high as high')
+    			->get();
+
+    			foreach ($KeshiObj as $value) {
+    				$temp['low'] = $value->low;
+    				$temp['high'] = $value->high;
+    				$data[$date]['detail'][] = $temp;
+    			}
+    		}
+
+    	}
+    	return view('front.views.parent.mySchedule',['childName'=>$childName,'data'=>$data]);
     }
 
     /*oauth*/

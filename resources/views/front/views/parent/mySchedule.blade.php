@@ -27,15 +27,15 @@
 	<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
 
 	<script type="text/javascript">
+		$.ajaxSettings({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+	</script>
+
+	<script type="text/javascript">
 		$.init();
-
-		$('.picker-calendar-day').unbind('click', function(){
-			/*nothing*/
-		});
-
-		$('.picker-calendar-day').unbind('touchstart', function(){
-			/*nothing*/
-		});
 
 		$(document).on('click', '.picker-calendar-day', function(){
 			console.log('fasdf');
@@ -70,6 +70,7 @@
 		    	month = (month < 10) ? ('0'+month):month;
 		    	day = (day < 10) ? ('0'+day):day;
 		    	var date = year+'-'+month+'-'+day;
+
 		    })
 		}
 	</script>
