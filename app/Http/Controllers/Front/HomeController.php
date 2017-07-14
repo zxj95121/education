@@ -24,7 +24,7 @@ class HomeController extends Controller
     		$parentinfo = ParentInfo::where('openid',$openid)->select('id')->first();
     		$child = ParentChild::where('pid',$parentinfo->id)->where('status',1)->select('id','sex','name')->get();
     		$orderstatus[1] = EclassOrder::where('uid',$parentinfo->id)
-    			->where('pay_status', 0)
+    			->where('status', '1')
     			->count();
     		$orderstatus[2] = EclassOrder::where('uid',$parentinfo->id)
 	    		->where('pay_status', '1')
