@@ -89,7 +89,12 @@
 
 			var schedule = window.schedule;
 		    for (var i in schedule) {
-		    	console.log(schedule[i]);
+		    	var date = i;
+		    	var arr = date.split('-');
+		    	var year = arr[0];
+		    	var month = parseInt(arr[1]);
+		    	var day = parseInt(arr[1]);
+		    	console.log(year+'-'+month+'-'+day);
 		    }
 		}
 	</script>
