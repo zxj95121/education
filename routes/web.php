@@ -214,8 +214,12 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
     $router->get('/register/oauth','LoginController@oauth');
     $router->get('/home/oauth', 'HomeController@homeOauth');
     $router->get('/parent/myClassOrder/oauth', 'Parent\MyClassOrderController@oauth');
+<<<<<<< HEAD
     $router->get('/parent/mySchedule/oauth', 'Parent\MyScheduleController@oauth');
 	
+=======
+	$router->get('/parent/myClassOrder/details', 'Parent\MyClassOrderController@details');
+>>>>>>> zaa
 });
 
 /*-------------*/

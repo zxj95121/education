@@ -84,7 +84,7 @@
 					  	<div class="content-block-title">订单编号：<span>{{$value['order_no']}}</span></div>
 						<div class="list-block media-list">
 					    	<ul>
-					      		<li>
+					      		<li  onclick="window.location.href='/front/parent/myClassOrder/details?id={{$value['id']}}';">
 						        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
 						          		<div class="item-inner">
 							            	<div class="item-title-row">
