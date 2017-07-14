@@ -9,10 +9,10 @@
 <body>
 	<div class="page">
 	  	<header class="bar bar-nav">
-	    	<!-- <a class="button button-link button-nav pull-left" href="/front/home" data-transition='slide-out'>
+	    	<a class="button button-link button-nav pull-left" href="/front/home#my" data-transition='slide-out'>
 	      		<span class="icon icon-left"></span>
 	      		返回
-	    	</a> -->
+	    	</a>
 	    	<h1 class="title">请点击授课中订单</h1>
 	  	</header>
 	  	<div class="content">
@@ -22,7 +22,7 @@
 				<div class="list-block media-list">
 			    	<ul>
 			      		<li>
-				        	<a @if($value['schedule']) onclick="window.location.href='/front/parent/mySchedule/schedule';" @else onclick="noSchedule();" @endif class="item-link item-content" style="font-size: 15px;">
+				        	<a @if($value['schedule']) onclick="window.location.href='/front/parent/mySchedule/schedule/{{$value['id']}}';" @else onclick="noSchedule();" @endif class="item-link item-content" style="font-size: 15px;">
 				          		<div class="item-inner">
 					            	<div class="item-title-row">
 					              		<div class="item-title">课表：<span style="color:#3B833E;">@if($value['schedule']) 已安排 @else 未安排 @endif</span></div>

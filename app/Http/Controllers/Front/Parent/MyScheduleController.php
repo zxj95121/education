@@ -8,6 +8,7 @@ use App\Models\EclassOrder;
 use App\Models\UserType;
 use App\Http\Controllers\EclassPriceController;
 use App\Models\OrderClassTime;
+use App\Models\ParentChild;
 
 use App\Http\Controllers\Wechat\OauthController;
 use Session;
@@ -52,9 +53,14 @@ class MyScheduleController extends Controller
     }
 
     /*查看课表页*/
-    public function schedule()
+    public function schedule($id)
     {
-    	return view('front.views.parent.mySchedule');
+    	/*查出订单的授课孩子*/
+    	$orderObj = EclassOrder::find($id);
+    	$child = $orderObj->child;
+    	$childObj = ParentChild::find($child);
+    	$childName = $childObj->name;
+    	return view('front.views.parent.mySchedule',['childName'=>$childName]);
     }
 
     /*oauth*/

@@ -13,7 +13,7 @@
 	      		<span class="icon icon-left"></span>
 	      		返回
 	    	</a> -->
-	    	<h1 class="title">张晓亮的课程表</h1>
+	    	<h1 class="title">{{$childName}}的课程表</h1>
 	  	</header>
 	  	<div class="content">
 法第三方
