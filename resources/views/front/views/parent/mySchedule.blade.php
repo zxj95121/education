@@ -27,6 +27,8 @@
 	<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
 
 	<script type="text/javascript">
+		$.init();
+
 		$.ajaxSettings({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -35,7 +37,6 @@
 	</script>
 
 	<script type="text/javascript">
-		$.init();
 
 		$(document).on('click', '.picker-calendar-day', function(){
 			console.log('fasdf');
