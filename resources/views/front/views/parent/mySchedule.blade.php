@@ -44,7 +44,7 @@
 		var article = document.querySelector('.picker-calendar-months-wrapper');
 
 		var options = {
-		    'characterData': true
+		    'childList': true
 		};
 
 		observer.observe(article, options);
