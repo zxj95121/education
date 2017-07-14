@@ -105,7 +105,7 @@ class MyClassOrderController extends Controller
     	$child = ParentChild::find($order->child);
     	$classname = EclassPriceController::getName($order->tid);
     	foreach($all as $key => $value){
-    		if(isset($fourMid) && $value->id <= $fourMid){
+    		if(isset($fourMid) && $value->id <= $fourMid->fid){
     			$all[$key]['zhuangtai'] = 1;
     		}else{
     			$all[$key]['zhuangtai'] = 0;
