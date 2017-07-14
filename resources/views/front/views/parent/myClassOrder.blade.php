@@ -158,6 +158,8 @@
 		var ids = GetQueryString('action');
 		if(ids){
 			$('.buttons-tab').find('a').eq(parseInt(ids)-1).trigger('click');
+		}else{
+			$('.buttons-tab').find('a').eq(0).trigger('click');
 		}
 	</script>
 </body>
