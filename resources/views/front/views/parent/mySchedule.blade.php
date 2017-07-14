@@ -29,15 +29,24 @@
 	<script type="text/javascript">
 		$.init();
 
+		$.unbind('.picker-calendar-day', function(){
+			/*nothing*/
+		});
+
+		$(document).on('click', '.picker-calendar-day', function(){
+			console.log('fasdf');
+		})
+
 		var MutationObserver = window.MutationObserver ||
 		    window.WebKitMutationObserver ||
 		    window.MozMutationObserver;
 
 		var callback = function(records) {
-		    records.forEach(function(record) {
-		        console.log('Mutation type: ' + record.type);
-		        console.log('Mutation target: ' + record.target);
-		    });
+		    // records.forEach(function(record) {
+		    //     console.log('Mutation type: ' + record.type);
+		    //     console.log('Mutation target: ' + record.target);
+		    // });
+		    setStatus();
 		};
 		var observer = new MutationObserver(callback);
 
@@ -48,6 +57,17 @@
 		};
 
 		observer.observe(article, options);
+
+		function setStatus() {
+			$('.picker-calendar-day').each(function(){
+		    	var year = $(this).attr('data-year');
+		    	var month = $(this).attr('data-month');
+		    	var day = $(this).attr('data-day');
+		    	month = (month < 10) ? ('0'+month):month;
+		    	day = (day < 10) ? ('0'+day):day;
+		    	var date = year+'-'+month+'-'+day;
+		    })
+		}
 	</script>
 </body>
 </html>
