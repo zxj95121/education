@@ -34,7 +34,7 @@
 		    window.MozMutationObserver;
 
 		var callback = function(records) {
-		    records.map(function(record) {
+		    records.forEach(function(record) {
 		        console.log('Mutation type: ' + record.type);
 		        console.log('Mutation target: ' + record.target);
 		    });
