@@ -109,7 +109,7 @@
 					WeixinJSBridge.log(res.err_msg);
 					if(res.err_msg == "get_brand_wcpay_request:ok"){
 						$('#order_pay').replaceWith('<a href="#" class="button button-big button-fill button-danger">已完成</a>');
-						window.location.href="http://api.zhangxianjian.com/front/home";  
+						window.location.href="/front/parent/myClassOrder?action=2";  
 					}else{
 						window.location.href="http://api.zhangxianjian.com/front/home";  
 					}  
