@@ -61,7 +61,7 @@ class MyClassOrderController extends Controller
     	
     	/*已完成订单*/
 		$complete = EclassOrder::where('uid', $front_id)
-			->where('confirm_status',1)
+			->where('complete',1)
 			->where('status', 1)
 			->orderBy('id', 'desc')
 			->get()
