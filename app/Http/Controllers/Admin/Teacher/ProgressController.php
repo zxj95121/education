@@ -53,7 +53,9 @@ class ProgressController extends Controller
 	        })
 	        ->leftJoin('class_time as ct', 'ct.id', 'order_class_time.ct_id')
 	        ->leftJoin('teacher_three as tt', 'tt.id', 'eo.tid')
-    		->select('order_class_time.order_id as oid', 'order_class_time.id as oct_id', 'eo.order_no as order_no', 'pc.name as name', 'ct.low as low', 'ct.high as high', 'tt.name as className', 'order_class_time.ct_id as ct_id')
+	        ->leftJoin('teacher_two as ttwo', 'ttwo.id', 'tt.pid')
+	        ->leftJoin('teacher_one as tone', 'tone.id', 'ttwo.pid')
+    		->select('order_class_time.order_id as oid', 'order_class_time.id as oct_id', 'eo.order_no as order_no', 'pc.name as name', 'ct.low as low', 'ct.high as high', 'tt.name as className', 'ttwo.name as twoClassName', 'tone.name as oneClassName', 'order_class_time.ct_id as ct_id')
     		->get()
     		->toArray();
     	// dd($orderObj->toArray());
@@ -135,6 +137,7 @@ class ProgressController extends Controller
 		$pid = $fourFlight->pid;
 		$last = TeacherFour::where('pid', $pid)
 			->select('id')
+			->orderBy('id', 'desc')
 			->get()[0]->id;
 
 		if ($last == $fid) {

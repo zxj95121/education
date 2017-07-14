@@ -29,13 +29,15 @@ class EclassOrderController extends Controller
     	$confirm_select = $request->input('confirm_select');
     	$date0 = $request->input('date0');
     	$date1 = $request->input('date1');
+        $stuName = $request->input('stuName');
 
 
     	$orderList = EclassOrder::where('eclass_order.status', '1')
     		->leftJoin('parent_info as pi', 'pi.id', 'eclass_order.uid')
     		->leftJoin('teacher_three as th', 'th.id', 'eclass_order.tid')
     		->leftJoin('teacher_two as tt', 'tt.id', 'th.pid')
-    		->leftJoin('teacher_one as to', 'to.id', 'tt.pid');
+    		->leftJoin('teacher_one as to', 'to.id', 'tt.pid')
+            ->leftJoin('parent_child as pc', 'pc.id', 'eclass_order.child');
 
     	$str = '';
 
@@ -57,9 +59,13 @@ class EclassOrderController extends Controller
     		$str .= '&date0='.$date0;
     		$str .= '&date1='.$date1;
     	}
+        if ($stuName) {
+            $orderList = $orderList->where('pc.name', 'like', '%'.$stuName.'%');
+            $str .= '&stuName='.$stuName;
+        }
 
     	$orderList = $orderList->orderBy('eclass_order.created_at', 'desc')
-    		->select('pi.phone as phone', 'pi.name as nickname', 'to.name as name1', 'tt.name as name2', 'th.name as name3', 'eclass_order.*')
+    		->select('pi.phone as phone', 'pi.name as nickname', 'to.name as name1', 'tt.name as name2', 'th.name as name3', 'eclass_order.*', 'pc.name as stuName')
     		->paginate(5);
     	// dd($orderList->toArray());
 
@@ -71,7 +77,7 @@ class EclassOrderController extends Controller
         $classTime = ClassTime::where('status', '1')
             ->get();
 
-    	return view('admin.eclassOrderList', ['orderList'=>$orderList,'str'=>$str,'order_no'=>$order_no,'pay_select'=>$pay_select,'confirm_select'=>$confirm_select,'date0'=>$date0,'date1'=>$date1,
+    	return view('admin.eclassOrderList', ['orderList'=>$orderList,'str'=>$str,'order_no'=>$order_no,'pay_select'=>$pay_select,'confirm_select'=>$confirm_select,'date0'=>$date0,'date1'=>$date1,'stuName'=>$stuName,
                 'classObj'=>$classObj,
                 'classTime'=>$classTime
             ]);

@@ -83,13 +83,17 @@
                                     <div class="row m-b-15">
                                         <div class="form-group">
                                             <label class="col-md-1 clh text-right">订单时间范围：</label>
-                                            <div class="col-md-3">
+                                            <div class="col-md-2">
                                                 <span class="wstxt"><b>开始日期：</b></span><input type="text" class="workinput wicon form-control" id="inpstart" readonly>
                                                 <input type="hidden" name="date0" id="date0" value='{{$date0}}'>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-2">
                                                 <span class="wstxt"><b>结束日期：</b></span><input type="text" class="workinput wicon form-control" id="inpend" readonly>
                                                 <input type="hidden" name="date1" id="date1" value='{{$date1}}'>
+                                            </div>
+                                            <label for="stuName" class="col-md-1 clh text-right">学生姓名：</label>
+                                            <div class="col-md-2">
+                                                <input type="text" name="stuName" id="stuName" class="form-control" placeholder="根据学生姓名查询" @if($stuName) value="{{$stuName}}" @else value="" @endif">
                                             </div>
                                         </div>
                                     </div>
@@ -115,6 +119,7 @@
                                                         <th>订单编号</th>
                                                         <th>课程名称</th>
                                                         <th>课时数量</th>
+                                                        <th>学生名称</th>
                                                         <th>订单价格</th>
                                                         <th>支付状态</th>
                                                         <th>操作状态</th>
@@ -128,6 +133,7 @@
                                                     <tr oid="{{$value->id}}">
                                                         <td id="td_id">{{$value->id}}</td>
                                                         <td>
+                                                        @if($value->complete == 0)
                                                             @if($value->pay_status == 1 && $value->confirm_status == 0)
                                                                 <span class="label label-info orderOKBtn">确认订单</span>
                                                                 <span class="label label-warning orderXXBtn">驳回订单</span>
@@ -146,10 +152,14 @@
                                                                 <span class="label label-info orderUseBtn">分配该订单</span>
                                                             @else
                                                             @endif
+                                                        @else
+                                                            <span class="label label-success">订单已授课完成</span>
+                                                        @endif
                                                         </td>
                                                         <td id="td_no">{{$value->order_no}}</td>
                                                         <td id="td_name">{{$value->name1}}&gt;{{$value->name2}}&gt;{{$value->name3}}</td>
                                                         <td id="td_count">{{$value->count}}</td>
+                                                        <td>{{$value->stuName}}</td>
                                                         <td id="td_price">{{$value->price}}</td>
                                                         <td>
                                                             @if($value->pay_status == 1)

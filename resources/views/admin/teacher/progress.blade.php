@@ -70,7 +70,7 @@
                                                     <th>订单编号</th>
                                                     <th>学生姓名</th>
                                                     <th>上课时间</th>
-                                                    <th>课程名称(三级)</th>
+                                                    <th>课程名称</th>
                                                     <th>当前课时名称</th>
                                                     <th>操作</th>
                                                 </tr>
@@ -171,9 +171,9 @@
                             }
 
                             if (res.is_set) {
-                                $('#detailTable tbody').append('<tr ct_id="'+res.ct_id+'" isset="'+res.is_set+'" oid="'+res.oid+'"> <td>'+res.oct_id+'</td> <td>'+res.order_no+'</td> <td>'+res.name+'</td> <td>'+res.low+'-'+res.high+'</td> <td>'+res.className+'</td> <td class="currentClassName">'+progress_name+'</td> <td><span class="label label-info settingProgress">设置课程进度</span><span class="label label-default" style="margin-left:9px;">此课时已设置</span></td> </tr>');
+                                $('#detailTable tbody').append('<tr ct_id="'+res.ct_id+'" isset="'+res.is_set+'" oid="'+res.oid+'"> <td>'+res.oct_id+'</td> <td>'+res.order_no+'</td> <td>'+res.name+'</td> <td>'+res.low+'-'+res.high+'</td> <td>'+res.oneClassName+' > '+res.twoClassName+' > '+res.className+'</td> <td class="currentClassName">'+progress_name+'</td> <td><span class="label label-info settingProgress">设置课程进度</span><span class="label label-default" style="margin-left:9px;">此课时已设置</span></td> </tr>');
                             } else {
-                                $('#detailTable tbody').append('<tr ct_id="'+res.ct_id+'" isset="'+res.is_set+'" oid="'+res.oid+'"> <td>'+res.oct_id+'</td> <td>'+res.order_no+'</td> <td>'+res.name+'</td> <td>'+res.low+'-'+res.high+'</td> <td>'+res.className+'</td> <td class="currentClassName">'+progress_name+'</td> <td><span class="label label-info settingProgress">设置课程进度</span></td> </tr>');
+                                $('#detailTable tbody').append('<tr ct_id="'+res.ct_id+'" isset="'+res.is_set+'" oid="'+res.oid+'"> <td>'+res.oct_id+'</td> <td>'+res.order_no+'</td> <td>'+res.name+'</td> <td>'+res.low+'-'+res.high+'</td> <td>'+res.oneClassName+' > '+res.twoClassName+' > '+res.className+'</td> <td class="currentClassName">'+progress_name+'</td> <td><span class="label label-info settingProgress">设置课程进度</span></td> </tr>');
                             }
                         }
                         console.log(data.data);

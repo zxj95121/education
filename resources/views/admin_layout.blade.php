@@ -52,7 +52,8 @@
             <!-- brand -->
             <div class="logo">
                 <a href="/admin/dashboard" class="logo-expanded">
-                    <i class="ion-social-buffer"></i>
+                    <!-- <i class="ion-social-buffer"></i> -->
+                    <img src="/admin/img/index.png" style="height:33px;">
                     <span class="nav-label">加辰教育定制</span>
                 </a>
             </div>
