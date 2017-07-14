@@ -9,14 +9,14 @@
 <body>
 	<div class="page">
 	  	<header class="bar bar-nav">
-	    	<!-- <a class="button button-link button-nav pull-left" href="/front/home" data-transition='slide-out'>
+	    	<a class="button button-link button-nav pull-left" href="/front/parent/mySchedule" data-transition='slide-out'>
 	      		<span class="icon icon-left"></span>
 	      		返回
-	    	</a> -->
+	    	</a>
 	    	<h1 class="title">{{$childName}}的课程表</h1>
 	  	</header>
 	  	<div class="content">
-法第三方
+	  		<div data-toggle='date' />
 	  	</div>
 	</div>
 
