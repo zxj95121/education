@@ -63,6 +63,11 @@ class MyScheduleController extends Controller
     	$childObj = ParentChild::find($child);
     	$childName = $childObj->name;
 
+    	return view('front.views.parent.mySchedule',['childName'=>$childName,'data'=>$data]);
+    }
+
+    public function getSchedule(Request $request)
+    {
     	/*查出该订单至今乃至未来的可用日期*/
     	$orderTime = date('Y-m-d', strtotime($orderObj->created_at));
     	$dateObj = DateType::where('day', '>=', $orderTime)
@@ -103,9 +108,7 @@ class MyScheduleController extends Controller
     				$data[$date]['detail'][] = $temp;
     			}
     		}
-
     	}
-    	return view('front.views.parent.mySchedule',['childName'=>$childName,'data'=>$data]);
     }
 
     /*oauth*/

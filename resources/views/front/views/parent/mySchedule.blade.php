@@ -29,11 +29,12 @@
 	<script type="text/javascript">
 		$.init();
 
-		$.ajaxSettings({
-            headers: {
+		$.ajax({
+			headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+            },
+            url: '/front'
+		})
 	</script>
 
 	<script type="text/javascript">
