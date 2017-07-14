@@ -4,6 +4,7 @@
 	<title>加辰教育</title>
 	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
 	<meta name="csrf-token" content="{{csrf_token()}}">
+	<link rel="stylesheet" type="text/css" href="/css/weui.css"/>
 	<link rel="stylesheet" type="text/css" href="/css/sm.min.css">
 </head>
 <body>
@@ -19,6 +20,17 @@
 		  	<div data-toggle='date'></div>
 		</div>
 	</div>	
+
+	<div class="weui-skin_android" id="androidActionsheet" style="opacity: 1;">
+        <div class="weui-mask"></div>
+        <div class="weui-actionsheet">
+            <div class="weui-actionsheet__menu">
+                <div class="weui-actionsheet__cell">示例菜单</div>
+                <div class="weui-actionsheet__cell">示例菜单</div>
+                <div class="weui-actionsheet__cell">示例菜单</div>
+            </div>
+        </div>
+    </div>
 
 	
 	<!-- <script type="text/javascript" src="/js/zepto.min.js"></script> -->
