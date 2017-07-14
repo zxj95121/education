@@ -94,7 +94,7 @@
 		    	var arr = date.split('-');
 		    	var year = arr[0];
 		    	var month = parseInt(arr[1]);
-		    	var day = parseInt(arr[1]);
+		    	var day = parseInt(arr[2]);
 		    	console.log(year+'-'+month+'-'+day);
 		    }
 		}
