@@ -81,7 +81,7 @@ class MyScheduleController extends Controller
 
     	/**/
     	$data = array();
-    	foreach ($dateObj as $value) {
+    	foreach ($dateObj as $key => $value) {
     		$date = $value->day;
     		$type = $value->type;
     		$week = date('w', strtotime($date));
@@ -94,9 +94,9 @@ class MyScheduleController extends Controller
     			->count();
 
     		if ($count <= 0) {
-    			$data[$date]['state'] = '0';
+    			$data[$key][$date]['state'] = '0';
     		} else {
-    			$data[$date]['state'] = '1';
+    			$data[$key][$date]['state'] = '1';
     			/*继续获取详情*/
     			$KeshiObj = OrderClassTime::where('order_class_time.order_id', $id)
     			->where('order_class_time.week', $week)
@@ -109,7 +109,7 @@ class MyScheduleController extends Controller
     			foreach ($KeshiObj as $value) {
     				$temp['low'] = $value->low;
     				$temp['high'] = $value->high;
-    				$data[$date]['detail'][] = $temp;
+    				$data[$key][$date]['detail'][] = $temp;
     			}
     		}
     	}
