@@ -90,6 +90,7 @@
 			var schedule = window.schedule;
 		    for (var i in schedule) {
 		    	var date = i;
+		    	console.log(date);
 		    	var arr = date.split('-');
 		    	var year = arr[0];
 		    	var month = parseInt(arr[1]);
