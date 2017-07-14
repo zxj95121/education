@@ -1,8 +1,8 @@
 <?php 
 	require_once $_SERVER['DOCUMENT_ROOT']."/php/WxPayAPI/lib/WxPay.Api.php";
 	$out_trade_no = $flight->order_no;
-	$total_fee = $flight->price;
-	$refund_fee = $flight->price;
+	$total_fee = (int)((float)$flight->price)*100;
+	$refund_fee = (int)((float)$flight->price)*100;
 	$input = new WxPayRefund();
 	$input->SetOut_trade_no($out_trade_no);
 	$input->SetTotal_fee($total_fee);
