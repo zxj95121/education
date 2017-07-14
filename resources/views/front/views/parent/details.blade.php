@@ -24,7 +24,7 @@
 				<h1 class="title">授课详情</h1>
 			</header>
 			<div class="content">
-				<div class="content-block-title" style=" margin-bottom: 0px;margin-top: 0px;">{{$classname}}授课学生{{$childname}}</div>
+				<div class="content-block-title" style=" margin-bottom: 0px;margin-top: 0px;"><p>{{$classname}}<p><p>授课学生:{{$childname}}</p></div>
 				<div class="list-block" style="margin-top: 0px">
 					<ul>
 						@foreach($res as $key => $value)
