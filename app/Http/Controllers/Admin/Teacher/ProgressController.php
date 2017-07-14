@@ -10,6 +10,7 @@ use App\Models\DateType;
 use App\Models\EclassOrder;
 use App\Models\OrderClassTime;
 use App\Models\EclassProgress;
+use App\Models\TeacherFour;
 
 class ProgressController extends Controller
 {
@@ -45,6 +46,7 @@ class ProgressController extends Controller
     		->where('order_class_time.type', $dateType)
     		->where('order_class_time.status', 1)
     		->leftJoin('eclass_order as eo', 'eo.id', 'order_class_time.order_id')
+    		->where('eo.complete', '0')
     		->leftJoin('parent_child as pc', function ($join) {
 	            $join->on('pc.pid', '=', 'eo.uid')
 	            	->on('pc.id', '=', 'eo.child');
@@ -126,6 +128,21 @@ class ProgressController extends Controller
 		$flight->ct_id = $ct_id;
 		$flight->day = $date;
 		$flight->save();
+
+		/*查询这个fid是否是最后一个ID，是的话就将这个订单变成已完成状态*/
+
+		$fourFlight = TeacherFour::find($fid);
+		$pid = $fourFlight->pid;
+		$last = TeacherFour::where('pid', $pid)
+			->select('id')
+			->get()[0]->id;
+
+		if ($last == $fid) {
+			/*这已经是最后一个课程*/
+			$eclass = EclassOrder::find($oid);
+			$eclass->complete = '1';
+			$eclass->save();
+		}
 
 		return response()->json(['errcode'=>0]);
     }

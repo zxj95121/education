@@ -171,9 +171,9 @@
                             }
 
                             if (res.is_set) {
-                                $('#detailTable tbody').append('<tr ct_id="'+res.ct_id+'" isset="'+res.is_set+'" oid="'+res.oid+'"> <td>'+res.oct_id+'</td> <td>'+res.order_no+'</td> <td>'+res.name+'</td> <td>'+res.low+'-'+res.high+'</td> <td>'+res.className+'</td> <td>'+progress_name+'</td> <td><span class="label label-info settingProgress">设置课程进度</span><span class="label label-default" style="margin-left:9px;">此课时已设置</span></td> </tr>');
+                                $('#detailTable tbody').append('<tr ct_id="'+res.ct_id+'" isset="'+res.is_set+'" oid="'+res.oid+'"> <td>'+res.oct_id+'</td> <td>'+res.order_no+'</td> <td>'+res.name+'</td> <td>'+res.low+'-'+res.high+'</td> <td>'+res.className+'</td> <td class="currentClassName">'+progress_name+'</td> <td><span class="label label-info settingProgress">设置课程进度</span><span class="label label-default" style="margin-left:9px;">此课时已设置</span></td> </tr>');
                             } else {
-                                $('#detailTable tbody').append('<tr ct_id="'+res.ct_id+'" isset="'+res.is_set+'" oid="'+res.oid+'"> <td>'+res.oct_id+'</td> <td>'+res.order_no+'</td> <td>'+res.name+'</td> <td>'+res.low+'-'+res.high+'</td> <td>'+res.className+'</td> <td>'+progress_name+'</td> <td><span class="label label-info settingProgress">设置课程进度</span></td> </tr>');
+                                $('#detailTable tbody').append('<tr ct_id="'+res.ct_id+'" isset="'+res.is_set+'" oid="'+res.oid+'"> <td>'+res.oct_id+'</td> <td>'+res.order_no+'</td> <td>'+res.name+'</td> <td>'+res.low+'-'+res.high+'</td> <td>'+res.className+'</td> <td class="currentClassName">'+progress_name+'</td> <td><span class="label label-info settingProgress">设置课程进度</span></td> </tr>');
                             }
                         }
                         console.log(data.data);
@@ -241,6 +241,7 @@
             var fid = $(this).parents('tr').find('td:eq(0)').html();
             var oid = $('#modal1').attr('oid');
             var ct_id = $('#modal1').attr('ct_id');
+            var name = $(this).parents('tr').find('td:eq(1)').html();
 
             var cdom = $(this).parent();
             $.ajax({
@@ -258,6 +259,8 @@
                         cdom.html('<button type="button" class="btn btn-success">已授课</button>');
                         $('#detailTable tbody tr[oid="'+oid+'"][ct_id="'+ct_id+'"]').find('td:last').append('<span class="label label-default" style="margin-left:9px;">此课时已设置</span>');
                         $('#detailTable tbody tr[oid="'+oid+'"][ct_id="'+ct_id+'"]').attr('isset', '1');
+
+                        $('#detailTable tbody tr[oid="'+oid+'"][ct_id="'+ct_id+'"]').find('.currentClassName').html('<span class="label label-primary">'+name+'</span>');
                     }
                 }
             })
