@@ -13,7 +13,7 @@
 	      		<span class="icon icon-left"></span>
 	      		返回
 	    	</a> -->
-	    	<h1 class="title">请选择授课订单</h1>
+	    	<h1 class="title">请点击授课中订单</h1>
 	  	</header>
 	  	<div class="content">
 	  		<div class="content-block">
@@ -22,10 +22,10 @@
 				<div class="list-block media-list">
 			    	<ul>
 			      		<li>
-				        	<a href="/front/parent/mySchedule/schedule" class="item-link item-content" style="font-size: 15px;">
+				        	<a @if($value['schedule']) onclick="window.location.href='/front/parent/mySchedule/schedule';" @else onclick="noSchedule();" @endif class="item-link item-content" style="font-size: 15px;">
 				          		<div class="item-inner">
 					            	<div class="item-title-row">
-					              		<div class="item-title">状态：<span style="color:#3B833E;">授课中</span></div>
+					              		<div class="item-title">课表：<span style="color:#3B833E;">@if($value['schedule']) 已安排 @else 未安排 @endif</span></div>
 					              		<div class="item-after">{{$value['created_at']}}</div>
 					            	</div>
 					            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
@@ -47,5 +47,10 @@
 	<!-- <script type="text/javascript" src="/js/sm.min.js"></script> -->
 	<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 	<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+	<script type="text/javascript">
+		function noSchedule() {
+			$.alert('管理员暂未分配该订单,请稍后再试');
+		}
+	</script>
 </body>
 </html>

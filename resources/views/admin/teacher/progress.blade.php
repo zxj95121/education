@@ -66,7 +66,7 @@
                                         <table class="table table-striped" id="detailTable" style="">
                                             <thead>
                                                 <tr>
-                                                    <th>订单ID</th>
+                                                    <th>课时分配ID</th>
                                                     <th>订单编号</th>
                                                     <th>学生姓名</th>
                                                     <th>上课时间</th>

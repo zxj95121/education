@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\EclassOrder;
 use App\Models\UserType;
 use App\Http\Controllers\EclassPriceController;
+use App\Http\Controllers\OrderClassTime;
 
 use App\Http\Controllers\Wechat\OauthController;
 use Session;
@@ -26,10 +27,23 @@ class MyScheduleController extends Controller
     		->orderBy('id', 'desc')
     		->get()
     		->toArray();
+
     	foreach ($teachingObj as $key => $value) {
     		$tid = $value['tid'];
     		$name = EclassPriceController::getName($tid,1,' 》');
     		$teachingObj[$key]['name'] = $name;
+
+
+    		/*查看是否已经安排课表*/
+    		$order_id = $value['id'];
+    		$schedule = OrderClassTime::where('order_id', $order_id)
+    			->where('status', '1')
+    			->count();
+    		if ($schedule > 0) {
+    			$teachingObj[$key]['schedule'] = '1';
+    		} else {
+    			$teachingObj[$key]['schedule'] = '0';
+    		}
     	}
     	
     	return view('front.views.parent.myScheduleOrder', [
