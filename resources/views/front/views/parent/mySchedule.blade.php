@@ -52,8 +52,15 @@
 	<script type="text/javascript">
 
 		$(document).on('click', '.picker-calendar-day', function(){
-			if ($(this).find('span').css('backgroundColor') == '#0894ec') {
-				$(this).find('span').css({'backgroundColor':'#FFF','color':'#000'});
+			if ($(this).attr('state') == '1') {
+				var year = $(this).attr('data-year');
+		    	var month = $(this).attr('data-month');
+		    	var day = $(this).attr('data-day');
+		    	month = (month < 10) ? ('0'+month):month;
+		    	day = (day < 10) ? ('0'+day):day;
+		    	var date = year+'-'+month+'-'+day;
+
+				alert(1);
 			}
 		})
 
@@ -79,21 +86,10 @@
 		observer.observe(article, options);
 
 		function setStatus() {
-			$('.picker-calendar-day').each(function(){
-		    	var year = $(this).attr('data-year');
-		    	var month = $(this).attr('data-month');
-		    	var day = $(this).attr('data-day');
-		    	month = (month < 10) ? ('0'+month):month;
-		    	day = (day < 10) ? ('0'+day):day;
-		    	var date = year+'-'+month+'-'+day;
-
-		    })
-
 			var schedule = window.schedule;
 		    for (var i in schedule) {
 		    	if (schedule[i].state == 1) {
 			    	var date = i;
-			    	console.log(date);
 			    	var arr = date.split('-');
 			    	var year = arr[0];
 			    	var month = parseInt(arr[1]);
@@ -101,7 +97,9 @@
 			    	var day = parseInt(arr[2]);
 
 			    	/*找对应的日期变色*/
-			    	$('.picker-calendar-day[data-year="'+year+'"][data-month="'+month+'"][data-day="'+day+'"]').find('span').css({'background': '#058B12','color':'#FFF'});
+			    	var cdom = $('.picker-calendar-day[data-year="'+year+'"][data-month="'+month+'"][data-day="'+day+'"]');
+			    	cdom.attr('state', '1');
+			    	cdom.find('span').css({'background': '#058B12','color':'#FFF'});
 			    }
 		    }
 		}
