@@ -69,13 +69,13 @@
 		    	month = (month < 10) ? ('0'+month):month;
 		    	day = (day < 10) ? ('0'+day):day;
 		    	var date = year+'-'+month+'-'+day;
-
+		    	console.log(date);
 				$('#androidActionsheet').css('display', 'block');
 				$('.weui-actionsheet__menu').html('');
-				var obj = window.schedule.date.detail;
-				for (var i in obj) {
-					$('.weui-actionsheet__menu').append('<div class="weui-actionsheet__cell">'+obj[i].low+'-'+obj[i].high+'</div>');
-				}
+				// var obj = window.schedule.date.detail;
+				// for (var i in obj) {
+					// $('.weui-actionsheet__menu').append('<div class="weui-actionsheet__cell">'+obj[i].low+'-'+obj[i].high+'</div>');
+				// }
 			}
 		})
 
