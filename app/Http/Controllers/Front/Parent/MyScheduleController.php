@@ -42,4 +42,12 @@ class MyScheduleController extends Controller
 	{
    		return redirect(OauthController::getUrl(6, 0));
 	}
+
+	private function getUid($openid)
+    {
+    	$userType = UserType::where('openid', $openid)
+    		->select('uid')
+    		->get()[0];
+    	return $userType->uid;
+    }
 }
