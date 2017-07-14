@@ -26,6 +26,7 @@ class MyScheduleController extends Controller
     		->where('pay_status', '1')
     		->where('confirm_status', '1')
     		->where('status', '1')
+    		->where('complete', '0')
     		->orderBy('id', 'desc')
     		->get()
     		->toArray();
@@ -56,18 +57,21 @@ class MyScheduleController extends Controller
     /*查看课表页*/
     public function schedule(Request $request)
     {
-    	$id =$request->route( 'id' );
+    	$id =$request->input( 'id' );
     	/*查出订单的授课孩子*/
     	$orderObj = EclassOrder::find($id);
     	$child = $orderObj->child;
     	$childObj = ParentChild::find($child);
     	$childName = $childObj->name;
 
-    	return view('front.views.parent.mySchedule',['childName'=>$childName,'data'=>$data]);
+    	return view('front.views.parent.mySchedule',['childName'=>$childName,'id'=>$id]);
     }
 
     public function getSchedule(Request $request)
     {
+    	$id =$request->route( 'id' );
+    	/*查出订单的授课孩子*/
+    	$orderObj = EclassOrder::find($id);
     	/*查出该订单至今乃至未来的可用日期*/
     	$orderTime = date('Y-m-d', strtotime($orderObj->created_at));
     	$dateObj = DateType::where('day', '>=', $orderTime)
@@ -109,6 +113,8 @@ class MyScheduleController extends Controller
     			}
     		}
     	}
+
+    	return reponse()->json(['errcode'=>0,'data'=>$data]);
     }
 
     /*oauth*/

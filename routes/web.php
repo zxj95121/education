@@ -284,6 +284,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 
   $router->get('/parent/mySchedule', 'Parent\MyScheduleController@orderList');
   $router->get('/parent/mySchedule/schedule/{id}', 'Parent\MyScheduleController@schedule');
+  $router->post('/parent/mySchedule/getSchedule', 'Parent\MyScheduleController@getSchedule');
 
       /*新订单*/
   $router->get('/parent/newEclassOrder', 'Parent\PayClassController@newEclassOrder');

@@ -33,7 +33,17 @@
 			headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            url: '/front'
+            url: '/front/parent/mySchedule/getSchedule',
+            dataType: 'json',
+            type: 'post',
+            data: {
+            	id: '{{$id}}'
+            },
+            success: function(data) {
+            	if (data.errcode == 0) {
+            		console.log(data.errcode);
+            	}
+            }
 		})
 	</script>
 
