@@ -66,7 +66,7 @@ $signPackage = $jssdk->GetSignPackage();
 		<div class="page__bd" id="page_main">
 			<div class="weui-cells" style="margin-top:0px" >
 	            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
-		            <a id="backHome" href="/front/home/oauth"><div><div class="glyphicon glyphicon-menu-left"></div></div></a>
+		            <div onclick="window.location.href='/front/home/oauth'"><div class="glyphicon glyphicon-menu-left"></div></div>
 		            
 		            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">个人信息</div></div>
 		            <!-- <div><div class="placeholder">提交</div></div> -->
