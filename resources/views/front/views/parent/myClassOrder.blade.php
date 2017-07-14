@@ -115,7 +115,7 @@
 							        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
 							          		<div class="item-inner">
 								            	<div class="item-title-row">
-								              		<div class="item-title">状态：<span style="color:#343639;">待付款</span></div>
+								              		<div class="item-title">状态：<span style="color:#343639;">已完成</span></div>
 								              		<div class="item-after">{{$value['created_at']}}</div>
 								            	</div>
 								            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
@@ -157,10 +157,8 @@
 		}
 		var ids = GetQueryString('action');
 		if(ids){
-			console.log(2);
 			$('.buttons-tab').find('a').eq(parseInt(ids)-1).trigger('click');
 		}else{
-			console.log(1);
 			$('.buttons-tab').find('a').eq(0).trigger('click');
 		}
 	</script>
