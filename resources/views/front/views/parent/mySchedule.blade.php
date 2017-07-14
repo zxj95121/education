@@ -94,8 +94,11 @@
 		    	var arr = date.split('-');
 		    	var year = arr[0];
 		    	var month = parseInt(arr[1]);
+		    	month--;
 		    	var day = parseInt(arr[2]);
-		    	console.log(year+'-'+month+'-'+day);
+
+		    	/*找对应的日期变色*/
+		    	$('.picker-calendar-day[data-year="'+year+'"][data-month="'+month+'"][data-day="'+day+'"]').find('span').css('background', '#058B12');
 		    }
 		}
 	</script>
