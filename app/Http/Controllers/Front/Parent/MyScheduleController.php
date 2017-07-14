@@ -53,8 +53,9 @@ class MyScheduleController extends Controller
     }
 
     /*查看课表页*/
-    public function schedule($id)
+    public function schedule(Request $request)
     {
+    	$id =$request->route( 'id' );
     	/*查出订单的授课孩子*/
     	$orderObj = EclassOrder::find($id);
     	$child = $orderObj->child;
