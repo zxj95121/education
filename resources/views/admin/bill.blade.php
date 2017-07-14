@@ -59,9 +59,9 @@
                                                     <td>
                                                         @if($value->type == 'EC')
 
-                                                            <span class="label label-success status">已支付</span>
+                                                            <span class="label label-success status">入账</span>
                                                         @elseif($value->type == 'EC-')
-                                                            <span class="label label-warning status">已退款</span>
+                                                            <span class="label label-warning status">支出</span>
                                                         @endif
                                                     </td>
                                                     <td>{{$value->created_at}}</td>

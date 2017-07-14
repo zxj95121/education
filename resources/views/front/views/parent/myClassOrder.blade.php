@@ -107,9 +107,36 @@
 			          	</div>
 			     	</div>
 			     	<div id="tab4" class="tab">
-			        	<div class="content-block">
-			          		<p>This is tab 4 content</p>
-			        	</div>
+				     	@foreach($complete as $key4 => $value)
+						  	<div class="content-block-title">订单编号：<span>{{$value['order_no']}}</span></div>
+							<div class="list-block media-list">
+						    	<ul>
+						      		<li onclick="window.location.href='/front/parent/showPayEclassOrder?id={{$value['id']}}';">
+							        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
+							          		<div class="item-inner">
+								            	<div class="item-title-row">
+								              		<div class="item-title">状态：<span style="color:#343639;">已完成</span></div>
+								              		<div class="item-after">{{$value['created_at']}}</div>
+								            	</div>
+								            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
+							            		<div class="item-text">
+							            			课程名称：<span style="font-size: 13px;color: #343639;">{{$value['name']}}</span>
+							            		</div>
+							          		</div>
+							        	</a>
+						      		</li>
+						    	</ul>
+						  	</div>
+						@endforeach
+					  	<!-- 加载提示符 -->
+			          	<div class="infinite-scroll-preloader" style="display: none;">
+			              	<div class="preloader"></div>
+			          	</div>
+			          	@if(!isset($key4))
+			        		<div class="content-block">
+			          			<p>暂无数据</p>
+			        		</div>
+			        	@endif
 			     	</div>
 	    		</div>
 	  		</div>
@@ -121,5 +148,19 @@
 	<!-- <script type="text/javascript" src="/js/sm.min.js"></script> -->
 	<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 	<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+	<script>
+		function GetQueryString(name)
+		{
+		     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		     var r = window.location.search.substr(1).match(reg);
+		     if(r!=null)return  unescape(r[2]); return null;
+		}
+		var ids = GetQueryString('action');
+		if(ids){
+			$('.buttons-tab').find('a').eq(parseInt(ids)-1).trigger('click');
+		}else{
+			$('.buttons-tab').find('a').eq(0).trigger('click');
+		}
+	</script>
 </body>
 </html>

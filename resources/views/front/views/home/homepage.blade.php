@@ -108,14 +108,18 @@
 	                	<div class="colXS">class订单</div>
 	            	</div>
 	            </a>
-	            <div class="row_count col-xs-4" id="my_count_center">
-	                <div class="colXS">1</div>
-	                <div class="colXS">进行中</div>
-	            </div>
-	            <div class="row_count col-xs-4" id="my_count_right">
-	                <div class="colXS">1</div>
-	                <div class="colXS">已完成</div>
-	            </div>
+	            <a href="/front/parent/myClassOrder?action=3">
+		            <div class="row_count col-xs-4" id="my_count_center">
+		                <div class="colXS">1</div>
+		                <div class="colXS">进行中</div>
+		            </div>
+	            </a>
+	            <a href="/front/parent/myClassOrder?action=4">
+		            <div class="row_count col-xs-4" id="my_count_right">
+		                <div class="colXS">1</div>
+		                <div class="colXS">已完成</div>
+		            </div>
+	        	</a>
 	        </div>
 	       	<div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
         @elseif($userType->type == 3)
