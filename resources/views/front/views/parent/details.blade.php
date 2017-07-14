@@ -24,8 +24,8 @@
 				<h1 class="title">授课详情</h1>
 			</header>
 			<div class="content">
-				<div class="content-block-title">{{$classname}}授课学生{{$childname}}</div>
-				<div class="list-block">
+				<div class="content-block-title" style=" margin-bottom: 0px;margin-top: 0px;">{{$classname}}授课学生{{$childname}}</div>
+				<div class="list-block" style="margin-top: 0px">
 					<ul>
 						@foreach($res as $key => $value)
 							<li class="item-content">
@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='/js/zepto.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
 
