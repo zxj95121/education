@@ -18,7 +18,7 @@
 	  	</header>
 	  	<div class="content">
 		  	<div class="buttons-tab">
-			    <a href="#tab1" class="tab-link active button">待付款</a>
+			    <a href="#tab1" class="tab-link button">待付款</a>
 			    <a href="#tab2" class="tab-link button">待审核</a>
 			    <a href="#tab3" class="tab-link button">授课中</a>
 			    <a href="#tab4" class="tab-link button">已完成</a>
@@ -148,5 +148,17 @@
 	<!-- <script type="text/javascript" src="/js/sm.min.js"></script> -->
 	<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 	<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+	<script>
+		function GetQueryString(name)
+		{
+		     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		     var r = window.location.search.substr(1).match(reg);
+		     if(r!=null)return  unescape(r[2]); return null;
+		}
+		var ids = GetQueryString('action');
+		if(ids){
+			$('.buttons-tab').find('a').eq(parseInt(ids)-1).trigger('click');
+		}
+	</script>
 </body>
 </html>
