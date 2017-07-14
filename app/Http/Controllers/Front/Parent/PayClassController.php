@@ -100,11 +100,11 @@ class PayClassController extends Controller
 			$result[$k++]['reason'] = '未填写';
 		}
 
-		$selectTime = explode('-', $flight->prefer_time);
-		if($flight->prefer_type == 0 && count($selectTime) < 3) 
-			$noTime = true;
-		else
+		
+		if(isset($flight->classTimes)) 
 			$noTime = false;
+		else
+			$noTime = true;
 
 		if(!$result && !$noTime) {
 			/*读取课程数量*/
