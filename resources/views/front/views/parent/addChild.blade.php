@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>添加我的孩子</title>
+    <title>加辰教育</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" href="/favicon.ico">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -68,8 +68,13 @@
 			if(name.length > 4){
 				$.toast("名字最长输入4字符");
 				return false;
-			}else if(name.length < 1){
-				$.toast('还没输入名字呢');
+			}else if(name.length <= 1){
+				$.toast('名字长度输入不正确');
+				return false;
+			}
+			var reg = /^[\u4E00-\u9FA5]+$/; 
+			if(!reg.test(name)){
+				$.toast('名字格式输入不正确');
 				return false;
 			}
 			$.ajax({

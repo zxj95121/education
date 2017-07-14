@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front\Parent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ParentChild;
+use App\Models\ParentInfo;
 use Session;
 class ChildController extends Controller
 {
@@ -17,7 +18,8 @@ class ChildController extends Controller
     	$obj = new ParentChild();
     	$obj->name = $request->input('name');
     	$obj->sex = $request->input('sex');
-    	$obj->pid = Session::get('openid');
+    	$parentinfo = ParentInfo::where('openid',Session::get('openid'))->select('id')->first();
+    	$obj->pid = $parentinfo->id;
     	$obj->save();
     	return response()->json(['code'=>200]);
     }

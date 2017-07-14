@@ -21,7 +21,8 @@ class HomeController extends Controller
     	
 		$res = $this->userType($openid);
     	if (count($res['userType'])){
-    		$child = ParentChild::where('pid',$openid)->where('status',1)->select('id','sex','name')->get();
+    		$parentinfo = ParentInfo::where('openid',$openid)->select('id')->first();
+    		$child = ParentChild::where('pid',$parentinfo->id)->where('status',1)->select('id','sex','name')->get();
     		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child]);
     	} else {
     		return redirect('/front/register');
