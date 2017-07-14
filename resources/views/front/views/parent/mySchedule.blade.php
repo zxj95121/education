@@ -18,6 +18,18 @@
 	  	</header>
 	  	<div class="content">
 		  	<div data-toggle='date'></div>
+		  	<div class="content-block-title">课程表说明</div>
+		  	<div class="card">
+			    <div class="card-content">
+			      	<div class="card-content-inner">
+			      		<ol>
+			      			<li>课程表只显示最近的课程表安排，管理员定期更新</li>
+			      			<li>绿色日期表示该日有课程安排</li>
+			      			<li>点击绿色可查看课程具体时间以及上课班级</li>
+			      		</ol>
+			      	</div>
+			    </div>
+			</div>
 		</div>
 	</div>	
 
