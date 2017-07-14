@@ -5,9 +5,12 @@
 <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css">
 <link rel="stylesheet" type="text/css" href="/js/jeui/jedate.css">
 <style type="text/css">
-.settingProgress{
-    cursor: pointer;
-}
+    .settingProgress{
+        cursor: pointer;
+    }
+    #classTable td{
+        vertical-align: middle;
+    }
 </style>
 @endsection
 
@@ -93,27 +96,28 @@
 			        	<h4 class="modal-title" id="myModalLabel">设置课程进度</h4>
 			      	</div>
 			      	<div class="modal-body">
-			        	<form class="form-horizontal" role="form" id="firstStep">
-	                        <div class="form-group">
-	                            <h3>学生姓名 <span class="label label-default">张仙剑</span></h3>
-	                        </div>
-                    	</form>
-                        <p id="error_p" style="display: none;color:red;font-size: 14px;">
-                            <span class="col-sm-2"></span>
-                            <span class="col-sm-10"></span>
-                        </p>
-                    	<table class="table" id="areaTable" style="display: none;">
-                    		<tr>
-                    			<th>#</th>
-                    			<th>区间段</th>
-                    			<th>价格</th>
-                    		</tr>
+
+	                    <h3>
+                            学生姓名：  　 
+                            <span style="color:#626A74;font-size:20px;font-weight: bold;">张仙剑</span>
+                        </h3>
+                    	<table class="table table-striped" id="classTable" style="display: table;">
+                    		<thead>
+                                <tr>
+                    			    <th>ID</th>
+                    			    <th>名称</th>
+                    		        <th>操作</th>
+                                </tr>
+                    		</thead>
+                            <tbody>
+                                
+                            </tbody>
                     	</table>
 			      	</div>
 			      	<div class="modal-footer">
 			        	<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                         <!-- <button type="button" class="btn btn-primary" id="nextTwo">下一步</button> -->
-			        	<button type="button" class="btn btn-success" style="display: none;" id="nextThree">确认保存</button>
+			        	<button type="button" class="btn btn-success" style="display: none;" id="baocun">确认保存</button>
 			      	</div>
 		    	</div>
 		  	</div>
@@ -144,6 +148,8 @@
                 return false;
             }
 
+            $('#modal1').attr('date', date);
+
             $.ajax({
                 url: '/admin/classProgress/search',
                 type: 'post',
@@ -159,11 +165,16 @@
                         for (var i in data.data) {
                             var res = data.data[i];
                             if (res.progress_id == 0) {
-                                var progress_name = '<span class="label label-default">未开课</span>';
+                                var progress_name = '<span class="label label-default">没有进度</span>';
                             } else {
                                 var progress_name = '<span class="label label-primary">'+res.progress_name+'</span>';
                             }
-                            $('#detailTable tbody').append('<tr oid="'+res.oid+'"> <td>'+res.oid+'</td> <td>'+res.order_no+'</td> <td>'+res.name+'</td> <td>'+res.low+'-'+res.high+'</td> <td>'+res.className+'</td> <td>'+progress_name+'</td> <td><span class="label label-info settingProgress">设置课程进度</span></td> </tr>');
+
+                            if (res.is_set) {
+                                $('#detailTable tbody').append('<tr ct_id="'+res.ct_id+'" isset="'+res.is_set+'" oid="'+res.oid+'"> <td>'+res.oct_id+'</td> <td>'+res.order_no+'</td> <td>'+res.name+'</td> <td>'+res.low+'-'+res.high+'</td> <td>'+res.className+'</td> <td>'+progress_name+'</td> <td><span class="label label-info settingProgress">设置课程进度</span><span class="label label-default" style="margin-left:9px;">此课时已设置</span></td> </tr>');
+                            } else {
+                                $('#detailTable tbody').append('<tr ct_id="'+res.ct_id+'" isset="'+res.is_set+'" oid="'+res.oid+'"> <td>'+res.oct_id+'</td> <td>'+res.order_no+'</td> <td>'+res.name+'</td> <td>'+res.low+'-'+res.high+'</td> <td>'+res.className+'</td> <td>'+progress_name+'</td> <td><span class="label label-info settingProgress">设置课程进度</span></td> </tr>');
+                            }
                         }
                         console.log(data.data);
                     } else if (data.errcode == 1) {
@@ -180,6 +191,76 @@
         $(document).on('click', '.settingProgress', function(){
             $('#modal1').modal('show');
             $('#modal1').attr('oid', $(this).parents('tr').attr('oid'));
+            $('#classTable tbody').html('');
+            var oid = $(this).parents('tr').attr('oid');
+            var isset = $(this).parents('tr').attr('isset');
+            var ct_id = $(this).parents('tr').attr('ct_id');
+            $('#modal1').attr('ct_id', ct_id);
+            console.log(ct_id);
+            $.ajax({
+                url: '/admin/classProgress/getClass',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    oid: oid
+                },
+                success: function(data) {
+                    var flag = 0;
+                    if (data.data.progress_id == 0) {
+                        flag = 1;
+                    }
+                    for (var i in data.all) {
+                        var res = data.all[i];
+                        if (res.id <= data.data.progress_id) {
+                            if (data.data.progress_id == res.id) {
+                                flag = 1;
+                            }
+                            $('#classTable tbody').append('<tr> <td>'+res.id+'</td> <td>'+res.name+'</td> <td><button type="button" class="btn btn-success">已授课</button></td> </tr>');
+                        } else {
+                            if (isset != 1) {
+                                if (flag == 1) {
+                                    $('#classTable tbody').append('<tr> <td>'+res.id+'</td> <td>'+res.name+'</td> <td><button type="button" class="btn btn-info okProgress">确认该课程</button></td> </tr>');
+                                    flag = 0;
+                                } else {
+                                    $('#classTable tbody').append('<tr> <td>'+res.id+'</td> <td>'+res.name+'</td> <td></td> </tr>');
+                                }
+                            } else {
+                                /*已经设置*/
+                                $('#classTable tbody').append('<tr> <td>'+res.id+'</td> <td>'+res.name+'</td> <td></td> </tr>');
+                            }
+
+                        }
+                    }
+                    /*success内结束*/
+                }
+            })
+        })
+
+        /*okProgress*/
+        $(document).on('click', '.okProgress', function(){
+            var fid = $(this).parents('tr').find('td:eq(0)').html();
+            var oid = $('#modal1').attr('oid');
+            var ct_id = $('#modal1').attr('ct_id');
+
+            var cdom = $(this).parent();
+            $.ajax({
+                url: '/admin/classProgress/setDetailProgerss',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    oid: oid,
+                    fid: fid,
+                    date: $('#modal1').attr('date'),
+                    ct_id: ct_id
+                },
+                success: function(data) {
+                    if (data.errcode == 0) {
+                        cdom.html('<button type="button" class="btn btn-success">已授课</button>');
+                        $('#detailTable tbody tr[oid="'+oid+'"][ct_id="'+ct_id+'"]').find('td:last').append('<span class="label label-default" style="margin-left:9px;">此课时已设置</span>');
+                        $('#detailTable tbody tr[oid="'+oid+'"][ct_id="'+ct_id+'"]').attr('isset', '1');
+                    }
+                }
+            })
         })
     })
 </script>

@@ -51,7 +51,7 @@ class ProgressController extends Controller
 	        })
 	        ->leftJoin('class_time as ct', 'ct.id', 'order_class_time.ct_id')
 	        ->leftJoin('teacher_three as tt', 'tt.id', 'eo.tid')
-    		->select('order_class_time.id as oid', 'eo.order_no as order_no', 'pc.name as name', 'ct.low as low', 'ct.high as high', 'tt.name as className')
+    		->select('order_class_time.order_id as oid', 'order_class_time.id as oct_id', 'eo.order_no as order_no', 'pc.name as name', 'ct.low as low', 'ct.high as high', 'tt.name as className', 'order_class_time.ct_id as ct_id')
     		->get()
     		->toArray();
     	// dd($orderObj->toArray());
@@ -64,15 +64,69 @@ class ProgressController extends Controller
     			$orderObj[$key]['progress_name'] = '未开课';
     		} else {
     			$result = EclassProgress::where('eclass_progress.oid', $oid)
-    				->where('status', 1)
+    				->where('eclass_progress.status', 1)
     				->leftJoin('teacher_four as tf', 'tf.id', 'eclass_progress.fid')
     				->orderBy('eclass_progress.fid', 'desc')
-    				->select('eclass_progress.id as progress_id', 'tf.name as progress_name')
+    				->select('eclass_progress.id as progress_id', 'tf.name as progress_name', 'eclass_progress.day as date')
     				->get()[0];
+    			if (EclassProgress::where('oid', $oid)->where('day', $date)->where('ct_id', $value['ct_id'])->count() > 0) {
+    				$orderObj[$key]['is_set'] = 1;
+    			} else {
+    				$orderObj[$key]['is_set'] = 0;
+    			}
     			$orderObj[$key]['progress_id'] = $result->progress_id;
     			$orderObj[$key]['progress_name'] = $result->progress_name;
     		}
     	}
     	return response()->json(['errcode'=>0,'data'=>$orderObj]);
+    }
+
+    /*getClass*/
+    public function getClass(Request $request)
+    {
+    	$oid = $request->input('oid');
+
+    	$count = EclassProgress::where('oid', $oid)
+    			->count();
+		if ($count <= 0) {
+			$data['progress_id'] = 0;
+			$data['progress_name'] = '没有进度';
+		} else {
+	    	$result = EclassProgress::where('eclass_progress.oid', $oid)
+				->where('eclass_progress.status', 1)
+				->leftJoin('teacher_four as tf', 'tf.id', 'eclass_progress.fid')
+				->where('tf.status', 1)
+				->orderBy('eclass_progress.fid', 'desc')
+				->select('eclass_progress.fid as progress_id', 'tf.name as progress_name')
+				->get()[0];
+			$data['progress_id'] = $result->progress_id;
+			$data['progress_name'] = $result->progress_name;
+		}
+
+		$all = EclassOrder::where('eclass_order.id', $oid)
+			->leftJoin('teacher_four as tf', 'tf.pid', 'eclass_order.tid')
+			->where('tf.status', '1')
+			->select('tf.id', 'tf.name')
+			->get();
+
+		return response()->json(['errcode'=>0,'data'=>$data,'all'=>$all]);
+    }
+
+    /*设置新的课程进度*/
+    public function setDetailProgerss(Request $request)
+    {
+    	$oid = $request->input('oid');
+    	$fid = $request->input('fid');
+    	$date = $request->input('date');
+    	$ct_id = $request->input('ct_id');
+
+    	$flight = new EclassProgress();
+    	$flight->oid = $oid;
+    	$flight->fid = $fid;
+		$flight->ct_id = $ct_id;
+		$flight->day = $date;
+		$flight->save();
+
+		return response()->json(['errcode'=>0]);
     }
 }
