@@ -161,6 +161,12 @@
 		}else{
 			$('.buttons-tab').find('a').eq(0).trigger('click');
 		}
+		$('.buttons-tab a').click(function(){
+			var num = $(this).attr('href').substr($(this).attr('href').length-1,$(this).attr('href').length);
+			var stateObject = {};
+			var newUrl = "/front/parent/myClassOrder?action="+num;
+			history.pushState(stateObject,'',newUrl);
+		})
 	</script>
 </body>
 </html>
