@@ -44,8 +44,6 @@
 		var article = document.querySelector('.picker-calendar-months-wrapper');
 
 		var options = {
-		    'childList': true,
-		    'arrtibutes': true,
 		    'characterData': true
 		};
 
