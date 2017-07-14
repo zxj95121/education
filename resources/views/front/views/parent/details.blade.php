@@ -17,10 +17,14 @@
     <div class="page-group">
         <div class="page page-current">
 			<header class="bar bar-nav">
-				<a class="icon icon-left pull-left" href="/front/parent/myClassOrder?action=3"></a>
-				<h1 class="title">授课列表</h1>
+				<a class="button button-link button-nav pull-left" href="/front/parent/myClassOrder?action=3" data-transition='slide-out'>
+	      			<span class="icon icon-left"></span>
+	      			返回
+	    		</a>
+				<h1 class="title">授课详情</h1>
 			</header>
 			<div class="content">
+				<div class="content-block-title">{{$classname}}授课学生{{$childname}}</div>
 				<div class="list-block">
 					<ul>
 						@foreach($res as $key => $value)

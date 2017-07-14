@@ -10,8 +10,10 @@ use App\Models\UserType;
 use App\Http\Controllers\EclassPriceController;
 
 use App\Http\Controllers\Wechat\OauthController;
+use App\Http\Controllers\EclassPriceController;
 use App\Models\EclassProgress;
 use App\Models\TeacherFour;
+use App\Models\ParentChild;
 use Session;
 
 class MyClassOrderController extends Controller
@@ -101,6 +103,8 @@ class MyClassOrderController extends Controller
 		$fourMid = EclassProgress::where('oid',$id)->where('status',1)->select('fid','oid')->orderBy('id','desc')->first();
     	$order = EclassOrder::find($id);
 		$all = TeacherFour::where('pid',$order->tid)->where('status',1)->get();
+    	$child = ParentChild::find($order->child);
+    	$classname = EclassPriceController::getName($order->tid);
     	foreach($all as $key => $value){
     		if(isset($fourMid) && $value->id <= $fourid){
     			$all[$key]['zhuangtai'] = 1;
@@ -108,6 +112,6 @@ class MyClassOrderController extends Controller
     			$all[$key]['zhuangtai'] = 0;
     		}
     	}
-    	return view('front.views.parent.details',['res'=>$all]);
+    	return view('front.views.parent.details',['res'=>$all,'childname'=>$child->name,'classname'=>$classname]);
     }
 }
