@@ -12,7 +12,6 @@ use App\Http\Controllers\EclassPriceController;
 use App\Http\Controllers\Wechat\OauthController;
 use App\Models\EclassProgress;
 use App\Models\TeacherFour;
-use App\Models\EclassOrder;
 use Session;
 
 class MyClassOrderController extends Controller
