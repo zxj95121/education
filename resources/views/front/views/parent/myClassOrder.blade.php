@@ -18,7 +18,7 @@
 	  	</header>
 	  	<div class="content">
 		  	<div class="buttons-tab">
-			    <a href="#tab1" class="tab-link button">待付款</a>
+			    <a href="#tab1" class="tab-link action button">待付款</a>
 			    <a href="#tab2" class="tab-link button">待审核</a>
 			    <a href="#tab3" class="tab-link button">授课中</a>
 			    <a href="#tab4" class="tab-link button">已完成</a>
