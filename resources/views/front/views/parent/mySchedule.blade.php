@@ -49,7 +49,7 @@
 		    'characterData': true
 		};
 
-		observer.observer(article, options);
+		observer.observe(article, options);
 	</script>
 </body>
 </html>
