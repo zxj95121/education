@@ -57,7 +57,7 @@ class MyScheduleController extends Controller
     /*查看课表页*/
     public function schedule(Request $request)
     {
-    	$id =$request->input( 'id' );
+    	$id =$request->route( 'id' );
     	/*查出订单的授课孩子*/
     	$orderObj = EclassOrder::find($id);
     	$child = $orderObj->child;
@@ -69,7 +69,7 @@ class MyScheduleController extends Controller
 
     public function getSchedule(Request $request)
     {
-    	$id =$request->route( 'id' );
+    	$id =$request->input( 'id' );
     	/*查出订单的授课孩子*/
     	$orderObj = EclassOrder::find($id);
     	/*查出该订单至今乃至未来的可用日期*/
