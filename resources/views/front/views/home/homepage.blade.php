@@ -227,9 +227,7 @@
 	                <div class="weui-cell__ft"></div>
 	            </a>
 	        </div>
-	        @elseif($res->type == '2')
-	        <div></div>
-	        @else
+	        @elseif(!$res->type)
 	        <div class="weui-cells" id="my_option">
 	            <a class="weui-cell weui-cell_access" href="/front/user_info_parent">
 	                <div class="weui-cell__hd"><img src="/images/home/option_information.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
@@ -239,6 +237,7 @@
 	                <div class="weui-cell__ft"></div>
 	            </a>
 	        </div>
+	        @else
 	        @endif
         @elseif($userType->type == 3)
         	<div class="weui-cells" id="my_option">
