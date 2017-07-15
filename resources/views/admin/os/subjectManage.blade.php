@@ -141,6 +141,21 @@
 	                                                            </table>
 	                                                        </div>
                                                         @endif
+                                                        @foreach($arr as $key=>$value)                                                   @foreach($arr as $key=>$value)
+	                                                        <div class="tab-pane" id="v-tab{{$key}}">
+	                                                            <table class="table table-striped">
+		                                                                <thead>
+		                                                                    <tr>
+			                                                                    <th>学科名称</th>
+			                                                                    <th>学科分类</th>
+			                                                                    <th>操作</th>
+		                                                               		</tr>
+		                                                                </thead>
+		                                                                <tbody>
+		                                                                </tbody>
+		                                                        </table>
+	                                                        </div>
+                                                 		@endforeach
                                                     </div>                                               	
                                                 </div>
                                             </div> 
@@ -200,12 +215,12 @@
     		you = you.substr(1,you.length);
     		$('#'+you).addClass('active');
         }
-		$('#addfenlei').click(function(){
-			$('#bttitle').text('新增学科分类');
+        $(document).on('click','#addfenlei',function(){
+        	$('#bttitle').text('新增学科分类');
 			$('#field-1').val('');
 			var button = '<button type="button" class="btn btn-info" id="baocun1"><font><font>保存更改</font></font></button> ';
 			$('.modal-footer button:last').replaceWith(button);
-		})
+        })
 		/*新增分类保存  */
 		$(document).on('click','#baocun1',function(){
 			var text = $('#field-1').val();
