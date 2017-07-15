@@ -18,7 +18,7 @@
 	  	<div class="content">
 	  		<div class="content-block">
 	  		@if(count($teachingObj) == 0)
-	  		
+	  			<div class="content-block">暂无授课中订单</div>
 	  		@else
 	  		@endif
 	       	@foreach($teachingObj as $value)
