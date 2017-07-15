@@ -12,6 +12,7 @@ use App\Models\ParentDetail;
 use App\Models\CommunityCommunity;
 use App\Models\CommunityArea;
 use App\Models\CommunityCity;
+use App\Models\Hobby;
 use Session;
 
 class ManagerController extends Controller
@@ -111,12 +112,27 @@ class ManagerController extends Controller
     		->leftJoin('teacher_info','teacher_detail.tid','teacher_info.id')
     		->select('teacher_info.name as nickname','teacher_detail.id','teacher_detail.name','phone','sex','type','project','find_status','address','money','hobby','subject')
     		->paginate(10);
+    	if(isset($res->hobby)){
+    		
+    	}
     	for($i = 0; $i < count($res); $i++){
+    		
     		$arr = explode('-',$res[$i]->money);
     		if($arr[1] == 1){
     			$res[$i]->money = $arr[0].'/月';
     		}else{
     			$res[$i]->money = $arr[0].'/'.$arr[1].'分钟';
+    		}
+    		$arr1 = explode('-',$res[$i]->hobby);
+    		$hobby = '';
+    		if(count($arr1) > 0){
+    			for ($j = 0; $j < count($arr1); $j++) {
+    				$hobbyObj = Hobby::find($arr1[$j]);
+    				$hobby = $hobby.'、'.$hobbyObj->name;
+    			}
+    			$res[$i]->aihao = substr($hobby,3,strlen($hobby));
+    		}else{
+    			$res[$i]->aihao = '';
     		}
     	}
         return view('admin.people.teacherInfo',['res'=>$res]);
