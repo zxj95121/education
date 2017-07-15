@@ -185,23 +185,27 @@ class UserInfoController extends Controller
                 ->select('id', 'name')
                 ->get();
         }
+		if(count($schoolInfo_one) > 0){
+			$k = 0;
+			foreach ($schoolInfo_one as $value) {
+				$id1 = $value->id;
+				$schoolInfo[$k] = array();
+				$schoolInfo[$k]['id1'] = $id1;
+				$schoolInfo[$k]['name1'] = $value->name;
+				$schoolInfo[$k]['two'] = array();
+				$schoolInfo_two = SchoolTwo::where('pid', $id1)
+				->where('status', 1)
+				->select('id', 'name')
+				->get();
+				foreach ($schoolInfo_two as $v) {
+					$schoolInfo[$k]['two'][] = array('id2'=>$v->id, 'name2'=>$v->name);
+				}
+				$k++;
+			}
+		}else{
+			$schoolInfo = '';
+		}
 
-        $k = 0;
-        foreach ($schoolInfo_one as $value) {
-            $id1 = $value->id;
-            $schoolInfo[$k] = array();
-            $schoolInfo[$k]['id1'] = $id1;
-            $schoolInfo[$k]['name1'] = $value->name;
-            $schoolInfo[$k]['two'] = array();
-            $schoolInfo_two = SchoolTwo::where('pid', $id1)
-                ->where('status', 1)
-                ->select('id', 'name')
-                ->get();
-            foreach ($schoolInfo_two as $v) {
-                $schoolInfo[$k]['two'][] = array('id2'=>$v->id, 'name2'=>$v->name);
-            }
-            $k++;
-        }
 
         //根据userDetail->school读出相应信息
         if ($userDetail->school)
