@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\EclassOrder;
 use App\Models\Bill;
 use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\EclassPriceController;
 use App\Models\ParentInfo;
 
 class WeixinController extends Controller
