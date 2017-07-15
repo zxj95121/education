@@ -141,6 +141,21 @@
 	                                                            </table>
 	                                                        </div>
                                                         @endif
+                                                 @foreach($arr as $key=>$value)
+                                                        <div class="tab-pane" id="v-tab{{$key}}">
+                                                            <table class="table table-striped">
+	                                                                <thead>
+	                                                                    <tr>
+		                                                                    <th>学科名称</th>
+		                                                                    <th>学科分类</th>
+		                                                                    <th>操作</th>
+	                                                               		</tr>
+	                                                                </thead>
+	                                                                <tbody>
+	                                                                </tbody>
+	                                                        </table>
+                                                        </div>
+                                                  @endforeach
                                                     </div>                                               	
                                                 </div>
                                             </div> 
@@ -210,7 +225,7 @@
 		$(document).on('click','#baocun1',function(){
 			var text = $('#field-1').val();
 			if($('#tabs_ul_type li:eq(0)').length == '0'){
-				console.log(123);
+				
 				/* 新增学科分类 ajax */
 				$.ajax({
 					url:'{{URL("admin/subjectone/add")}}',
@@ -287,8 +302,9 @@
 				})
 			}
 			$('#addxueke').show();
-			$('#tabs_div1').show();
 			$('#modal1').modal('hide');
+			$('#tabs_div1').show();
+			
 		})
 		/*修改分类  */
 		$('#edit1').click(function(){
