@@ -47,6 +47,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['domai
     $router->get('/scanConfirm', 'HomeController@scanConfirm');
     $router->post('/scanOK', 'HomeController@scan_OK');
     $router->post('/passwordConfirm', 'HomeController@passwordConfirm');
+    /*退出登陆*/
+    $router->post('/logout', 'HomeController@logout');
         /*申请后台管理员*/
     $router->get('/applyAdmin', 'HomeController@applyAdmin');
     $router->get('/adminApply', 'HomeController@adminApply');

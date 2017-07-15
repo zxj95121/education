@@ -164,6 +164,12 @@ class HomeController extends Controller
         }
     }
 
+    /*Log out*/
+    public function logout()
+    {
+        Session::forget('admin_id');
+    }
+
     /*申请管理员oauth*/
     public function applyAdmin(Request $request)
     {

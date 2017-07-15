@@ -230,7 +230,7 @@
                                 <span class="username" id="layout_username">John Deo </span> <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu pro-menu fadeInUp animated" tabindex="5003" style="overflow: hidden; outline: none;">
-                                <li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                                <li id="LogoutLi"><a href="#"><i class="fa fa-sign-out"></i> 退出登录</a></li>
                             </ul>
                         </li>
                         <!-- user login dropdown end -->       
@@ -328,6 +328,21 @@
                             $('#computer_footer').html(data.computer_footer);
                         }
                     }
+                })
+
+                /*Logout*/
+                $('#LogoutLi').click(function(){
+                    $.ajax({
+                        url: '/admin/logout',
+                        dataType: 'html',
+                        type: 'post',
+                        data: {
+
+                        },
+                        success: function(data) {
+                            window.location.reload();
+                        }
+                    })
                 })
             });
             /* BEGIN SVG WEATHER ICON */
