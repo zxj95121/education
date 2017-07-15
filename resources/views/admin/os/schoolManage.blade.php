@@ -272,7 +272,6 @@
 		$(document).on('click','#baocun1',function(){
 			var text = $('#field-1').val();
 			var student = $('input[name=is_xuesheng]:checked').val();
-			console.log(student);
 			if(student){
 				student = 1;
 			}else{

@@ -17,6 +17,9 @@
     <div class="page-group" style="background:#fff">
         <div class="page page-current">
 		    <header class="bar bar-nav">
+		    	<a class="button button-link button-nav pull-left" href="/front/home" data-transition="slide-out" style="color:#fff">
+	      			<span class="icon icon-left"></span>返回
+	    		</a>
 			 	<h1 class='title' style="background: #22AAE8;color: #fff;">添加我的孩子</h1>
 			</header>
 			<div class="content">

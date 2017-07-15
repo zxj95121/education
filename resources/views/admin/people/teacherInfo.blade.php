@@ -62,7 +62,7 @@
 					                       	女
 					                       	@endif
 				                        </td>
-				                        <td>{{$value->hobby}}</td>
+				                        <td>{{$value->aihao}}</td>
 				                        <td>{{$value->subject}}</td>
 				                        <td>
 				                        	@if($value->type == 1)

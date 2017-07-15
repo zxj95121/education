@@ -209,9 +209,8 @@
 		/*新增分类保存  */
 		$(document).on('click','#baocun1',function(){
 			var text = $('#field-1').val();
-			var html = '';
-			var html2 = '';
 			if($('#tabs_ul_type li:eq(0)').length == '0'){
+				console.log(123);
 				/* 新增学科分类 ajax */
 				$.ajax({
 					url:'{{URL("admin/subjectone/add")}}',
@@ -221,9 +220,11 @@
 					type:'post',
 					datatype:'json',
 					success:function(date){
+						html = '';
 					 	html +=	'<li class="active">';
 					 	html += '<a href="#v-tab'+1+'" data-toggle="tab" aria-expanded="false" idvalue="'+date.id+'">'+text+'</a>';
 			            html += '</li>'	;
+			            html2 = '';
 			            html2 += '<div class="tab-pane" id="v-tab'+1+'">';
 			            html2 += '<table class="table table-striped">';
 			            html2 += '<thead>';
@@ -246,6 +247,7 @@
 					}
 				})
 			}else{
+				console.log(456);
 				var href = $('#tabs_div1 li:last').find('a').attr('href');
 				var num = parseInt(href.substr(6,href.length))+1;
 				/* 新增学科分类 ajax */
@@ -257,9 +259,11 @@
 					type:'post',
 					datatype:'json',
 					success:function(date){
+						html = '';
 					 	html +=	'<li class="">';
 					 	html += '<a href="#v-tab'+num+'" data-toggle="tab" aria-expanded="false" idvalue="'+date.id+'">'+text+'</a>';
 			            html += '</li>'	;
+			            html2 = '';
 			            html2 += '<div class="tab-pane" id="v-tab'+num+'">';
 			            html2 += '<table class="table table-striped">';
 			            html2 += '<thead>';
@@ -391,6 +395,7 @@
 					if($('#tabs_div2 .active tbody tr:last').length == '1'){
 						$('#tabs_div2 .active tbody tr:last').after(html);
 					}else{
+						console.log(23333);
 						$('#tabs_div2 .active tbody').html(html);
 					}
 				},
