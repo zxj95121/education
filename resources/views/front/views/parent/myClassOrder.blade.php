@@ -115,7 +115,7 @@
 							        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
 							          		<div class="item-inner">
 								            	<div class="item-title-row">
-								              		<div class="item-title">状态：<span style="color:#343639;">已完成</span></div>
+								              		<div class="item-title">状态：<span @if($value['pay_status'] == '2') style="color:#D81227;" @else style="color:#343639;" @endif>@if($value['pay_status'] == '2') 已退款 @else 已完成 @endif</span></div>
 								              		<div class="item-after">{{$value['created_at']}}</div>
 								            	</div>
 								            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>

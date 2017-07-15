@@ -102,6 +102,7 @@ class EclassOrderController extends Controller
         require_once $_SERVER['DOCUMENT_ROOT']."/php/WxPayAPI/lib/tuikuan.php";
         if($res['result_code'] === 'SUCCESS'){
         	$flight->confirm_status = 2;
+            $flight->complete = 1;
         	$flight->pay_status = 2;
         	$flight->save();
         	$bill = new Bill();
