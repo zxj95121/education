@@ -225,7 +225,6 @@
 		$(document).on('click','#baocun1',function(){
 			var text = $('#field-1').val();
 			if($('#tabs_ul_type li:eq(0)').length == '0'){
-				
 				/* 新增学科分类 ajax */
 				$.ajax({
 					url:'{{URL("admin/subjectone/add")}}',
@@ -240,7 +239,7 @@
 					 	html += '<a href="#v-tab'+1+'" data-toggle="tab" aria-expanded="false" idvalue="'+date.id+'">'+text+'</a>';
 			            html += '</li>'	;
 			            html2 = '';
-			            html2 += '<div class="tab-pane" id="v-tab'+1+'">';
+			            html2 += '<div class="tab-pane active" id="v-tab'+1+'">';
 			            html2 += '<table class="table table-striped">';
 			            html2 += '<thead>';
 			            html2 += '<tr>';
