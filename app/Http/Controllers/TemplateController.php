@@ -13,7 +13,7 @@ class TemplateController extends Controller
     	$res = '{
 				"touser":"'.$openid.'",
 				"template_id":"Aes29u_WuVTbyxSZPHqB5g3gzjEsx7Pj_9CSqJXLB70",
-				"url": "'.$_SERVER["SERVER_NAME"].'/parent/myClassOrder/oauth",
+				"url": "http://'.$_SERVER["SERVER_NAME"].'/parent/myClassOrder/oauth",
 				"topcolor":"#FF0000",
     			"data":{
     				"first":{"value": "'.$title.'","color":"#173177"},
