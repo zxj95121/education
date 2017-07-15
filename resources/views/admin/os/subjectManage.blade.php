@@ -141,21 +141,6 @@
 	                                                            </table>
 	                                                        </div>
                                                         @endif
-                                                        @foreach($arr as $key=>$value)                                                   @foreach($arr as $key=>$value)
-	                                                        <div class="tab-pane" id="v-tab{{$key}}">
-	                                                            <table class="table table-striped">
-		                                                                <thead>
-		                                                                    <tr>
-			                                                                    <th>学科名称</th>
-			                                                                    <th>学科分类</th>
-			                                                                    <th>操作</th>
-		                                                               		</tr>
-		                                                                </thead>
-		                                                                <tbody>
-		                                                                </tbody>
-		                                                        </table>
-	                                                        </div>
-                                                 		@endforeach
                                                     </div>                                               	
                                                 </div>
                                             </div> 
