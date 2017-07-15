@@ -20,6 +20,7 @@ class SubjectController extends Controller
 		foreach ($data['subjectone'] as $value) {
 			$arr[$value->id] = true;
 		}
+		dump($arr);
 		return view('admin.os.subjectManage',['data'=>$data,'arr'=>$arr]);
     }
     public function subjectoneAdd(Request $request)
