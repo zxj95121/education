@@ -102,7 +102,7 @@
                                             <button type="submit" class="btn btn-info w-md">查询</button>
                                         </div>
                                         <div class="col-md-2">
-                                            <button onclick="window.location.href='http://blue.api/admin/eclassOrderList'" type="button" class="btn btn-default w-md">重置查询条件</button>
+                                            <button onclick="window.location.href='/admin/eclassOrderList'" type="button" class="btn btn-default w-md">重置查询条件</button>
                                         </div>
                                     </div>
                                 </form>
