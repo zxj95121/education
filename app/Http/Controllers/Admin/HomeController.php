@@ -220,6 +220,8 @@ class HomeController extends Controller
             return response()->json(['errcode'=>2,'reason'=>'手机号已经注册']);
         }
 
+        $phoneCode = ''.rand(0,9).rand(0,9).rand(0,9).rand(0,9);
+        
         require_once($_SERVER['DOCUMENT_ROOT'].'/php/Qcloud/Sms/SmsSenderDemo.php');
         $result = postPhoneCodeSms($phone, $phoneCode);
         
