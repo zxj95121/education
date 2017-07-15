@@ -46,7 +46,7 @@ class HomeController extends Controller
 	    		exit;
 	    	}
     	} else {
-    		return redirect('/front/register');
+    		return redirect('/front/register/oauth');
     	}
     }
 	public function userType($openid)
