@@ -14,6 +14,7 @@ use App\Models\ParentInfo;
 use App\Models\TeacherInfo;
 use App\Models\ParentChild;
 use App\Models\EclassOrder;
+use App\Models\ParentDetail;
 class HomeController extends Controller
 {
     public function home()
@@ -39,7 +40,8 @@ class HomeController extends Controller
 	    			->where('complete',1)
 					->where('status', 1)
 					->count();
-	    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus]);
+				$parentDetail = ParentDetail::where('pid', $res['data'][0]->id)->get()[0];
+	    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus,'parentDetail'=>$parentDetail]);
 	    	} elseif ($res['type'] == '3') {
 	    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0]]);
 	    	} else {
