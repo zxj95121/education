@@ -473,6 +473,8 @@
             var nickname = cdom.find('#td_nickname').html();
             var time = cdom.find('#td_time').html();
 
+            var checkbox = $('input[name="hospital"]:checked').val()?'1':'0';
+
             $('#useOrderModal').attr('oid', id);
 
             $('#span_time').html(time);
@@ -491,7 +493,8 @@
                 type: 'post',
                 dataType: 'json',
                 data: {
-                    id: id
+                    id: id,
+                    checkbox: checkbox
                 },
                 success: function(data) {
                     if (data.errcode == 0) {
@@ -575,6 +578,11 @@
         weekTimeChange();
         setUseMessage();
         $('#weekSelect').change(function(){
+            weekTimeChange();
+            setUseMessage();
+        })
+
+        $('#hospitalCheckBox').change(function(){
             weekTimeChange();
             setUseMessage();
         })
@@ -681,6 +689,7 @@
         var keshi = $('#keshiSelect option:selected').val();
         var clas = $('#classSelect option:selected').val();
         // var id = $('#useOrderModal').attr('oid');
+        var checkbox = $('input[name="hospital"]:checked').val()?'1':'0';
 
         $.ajax({
             url: '/admin/classOrder/useDetails',
@@ -689,7 +698,8 @@
             data: {
                 week: week,
                 keshi: keshi,
-                class: clas
+                class: clas,
+                checkbox: checkbox
             },
             success: function(data) {
                 if (data.errcode == 0) {

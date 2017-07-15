@@ -120,6 +120,8 @@ class EclassOrderController extends Controller
 
         $orderObj = EclassOrder::find($id);
 
+        $checkbox = $request->input('checkbox');
+
         $uid = $orderObj->uid;
 
         $parentObj = ParentDetail::find($uid);
@@ -131,6 +133,7 @@ class EclassOrderController extends Controller
         /*获取订单的信息*/
         
         $result['order_class_time'] = OrderClassTime::where('order_class_time.order_id', $id)
+            ->where('order_class_time.type', $checkbox)
             ->where('order_class_time.status', '1')
             ->leftJoin('class', 'class.id', 'order_class_time.class_id')
             ->leftJoin('class_time as ct', 'ct.id', 'order_class_time.ct_id')
@@ -146,6 +149,7 @@ class EclassOrderController extends Controller
         $week = $request->input('week');
         $keshi = $request->input('keshi');
         $class = $request->input('class');
+        $checkbox = $request->input('checkbox');
 
         /*获取课时\班级信息*/
         $Banji = BanJi::where('status', '1')
@@ -154,6 +158,7 @@ class EclassOrderController extends Controller
         foreach ($Banji as $value) {
             $cid = $value->id;
             $obj = OrderClassTime::where('class_id', $cid)
+                ->where('type', $checkbox)
                 ->where('ct_id', $keshi)
                 ->where('week', $week)
                 ->where('status', '1');
