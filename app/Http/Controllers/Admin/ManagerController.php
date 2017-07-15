@@ -123,9 +123,20 @@ class ManagerController extends Controller
     		}else{
     			$res[$i]->money = $arr[0].'/'.$arr[1].'分钟';
     		}
-    		$arr1 = explode('-',$res[$i]->hobby);
-    		$hobby = '';
-    		if(count($arr1) > 0){
+            if( !empty( $res[$i]->hobby ) ){
+                $arr1 = explode('-',$res[$i]->hobby);
+
+                $hobby = '';
+
+                for ($j = 0; $j < count($arr1); $j++){
+                    $hobbyObj = Hobby::find($arr1[$j]);
+                    $hobby = $hobby.'、'.$hobbyObj->name;
+                }
+                $res[$i]->aihao = substr($hobby,3,strlen($hobby));
+            }else{
+                 $res[$i]->aihao = '';
+            }
+/*    		if(count($arr1) > 0){
     			for ($j = 0; $j < count($arr1); $j++) {
     				$hobbyObj = Hobby::find($arr1[$j]);
     				$hobby = $hobby.'、'.$hobbyObj->name;
@@ -133,7 +144,7 @@ class ManagerController extends Controller
     			$res[$i]->aihao = substr($hobby,3,strlen($hobby));
     		}else{
     			$res[$i]->aihao = '';
-    		}
+    		}*/
     	}
         return view('admin.people.teacherInfo',['res'=>$res]);
     }
