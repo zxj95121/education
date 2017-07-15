@@ -533,7 +533,10 @@
                                     var str = '周日下午';
                                     break;
                             }
-                            $('#timeP').append('<span class="label label-primary">'+str+'</span>　');
+                            if (str)
+                                $('#timeP').append('<span class="label label-primary">'+str+'</span>　');
+                            else
+                                $('#timeP').append('<span class="label label-primary">由加辰安排</span>　');
                         }
 
                         var oct = data.result.order_class_time;
