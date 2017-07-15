@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\EclassOrder;
 use App\Models\Bill;
-use App\Http\Controllers\Template;
+use App\Http\Controllers\TemplateController;
 use App\Models\ParentInfo;
 
 class WeixinController extends Controller
