@@ -228,6 +228,7 @@
 	            </a>
 	        </div>
 	        @elseif($res->type == 2)
+	        <div></div>
 	        @else
 	        <div class="weui-cells" id="my_option">
 	            <a class="weui-cell weui-cell_access" href="/front/user_info_parent">
