@@ -17,6 +17,10 @@
 	  	</header>
 	  	<div class="content">
 	  		<div class="content-block">
+	  		@if(count($teachingObj) == 0)
+	  		
+	  		@else
+	  		@endif
 	       	@foreach($teachingObj as $value)
 			  	<div class="content-block-title">订单编号：<span>{{$value['order_no']}}</span></div>
 				<div class="list-block media-list">

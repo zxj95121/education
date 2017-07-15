@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/js/h-ui/static/h-ui/css/H-ui.min.css">
     <style type="text/css">
         #head{
-            background-image:url('<?php echo 'http://wx.qlogo.cn/mmopen/w6MofXPc5Nj9oWjZKbm3svI0grH1AMuYg6OaoQoc5TNjuic9iazY1YZKD9yQ4p8WP0Ovo6QVG6kxyrHvWJPJ39V9vM0zS033OS/0'; ?>');
+            background-image:url('{{$headimgurl}}');
         }
         .radio-box{
             color: #FFF;
@@ -50,7 +50,7 @@
             <button id="login_btn" type="submit">确认绑定</button>
         </div>
         <div id="information">
-            <p>Copyright 皖 2013-2017 zhangxianjian.com</p>
+            <p>{{$phone_footer}}</p>
         </div>
     </div>
 

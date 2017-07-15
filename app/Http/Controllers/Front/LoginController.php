@@ -16,6 +16,7 @@ use App\Models\UserType;
 use Session;
 use Wechat;
 use Hash;
+use Config;
 use Identity;
 
 class LoginController extends Controller
@@ -37,7 +38,8 @@ class LoginController extends Controller
         } else {
             return redirect('/front/error_403');
         }
-    	return view('front.views.index',['openid'=>$openid,'nickname'=>$nickname,'headimgurl'=>$headimgurl]);
+        $phone_footer = Config::get('constants.phone_footer');
+    	return view('front.views.index',['openid'=>$openid,'nickname'=>$nickname,'headimgurl'=>$headimgurl,'phone_footer'=>$phone_footer]);
     }
 
     /*进行网址跳转*/
