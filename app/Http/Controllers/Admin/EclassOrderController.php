@@ -120,8 +120,6 @@ class EclassOrderController extends Controller
 
         $orderObj = EclassOrder::find($id);
 
-        $checkbox = $request->input('checkbox');
-
         $uid = $orderObj->uid;
 
         $parentObj = ParentDetail::find($uid);
@@ -133,7 +131,6 @@ class EclassOrderController extends Controller
         /*获取订单的信息*/
         
         $result['order_class_time'] = OrderClassTime::where('order_class_time.order_id', $id)
-            ->where('order_class_time.type', $checkbox)
             ->where('order_class_time.status', '1')
             ->leftJoin('class', 'class.id', 'order_class_time.class_id')
             ->leftJoin('class_time as ct', 'ct.id', 'order_class_time.ct_id')

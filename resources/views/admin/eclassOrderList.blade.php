@@ -473,8 +473,6 @@
             var nickname = cdom.find('#td_nickname').html();
             var time = cdom.find('#td_time').html();
 
-            var checkbox = $('input[name="hospital"]:checked').val()?'1':'0';
-
             $('#useOrderModal').attr('oid', id);
 
             $('#span_time').html(time);
@@ -493,8 +491,7 @@
                 type: 'post',
                 dataType: 'json',
                 data: {
-                    id: id,
-                    checkbox: checkbox
+                    id: id
                 },
                 success: function(data) {
                     if (data.errcode == 0) {
