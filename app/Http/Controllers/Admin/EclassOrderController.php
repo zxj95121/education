@@ -197,6 +197,7 @@ class EclassOrderController extends Controller
         $count = OrderClassTime::where('order_id', $id)
             ->where('week', $week)
             ->where('ct_id', $keshi)
+            ->where('type', $checkbox)
             ->where('status', '1')
             ->count();
         if($count > 0) {
