@@ -20,7 +20,7 @@ $(document).on('click','.class3',function(){
 
 		var offset = $("#cartNum").offset();
         var img = '/images/home/cart.png'; //获取当前点击图片链接   
-        var flyer = $('<img class="flyer-img" src="' + img + '">'); //抛物体对象   
+        var flyer = $('<img class="flyer-img" style="width:20px;height:20px;" src="' + img + '">'); //抛物体对象   
         flyer.fly({   
             start: {   
                 left: event.pageX,//抛物体起点横坐标   
