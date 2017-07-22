@@ -151,5 +151,6 @@ $(document).on('click','#houtui',function(){
 function setCartPosition(){
 	var bottomHeight = $('#all_bottom').height();
 	$('#myCart').css({'position':'fixed','bottom':bottomHeight+'px'});
-	console.log('fdfa');
+	$('#myCart').before('<div id="zhicheng0"></div>');
+	$('#zhicheng0').css({'height':bottomHeight+40+'px','opacity':0});
 }

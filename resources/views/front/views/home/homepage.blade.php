@@ -332,6 +332,9 @@
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
     <script type="text/javascript">
     	$(function(){
+    		cartArr = new Array();
+
+
     		var url = [];	
     		url = window.location.href.split('#');
     		if(url.length == 1){
@@ -414,6 +417,8 @@
         function setCartPosition(){
 			var bottomHeight = $('#all_bottom').height();
 			$('#myCart').css({'position':'fixed','bottom':bottomHeight+'px'});
+			$('#myCart').before('<div id="zhicheng0"></div>');
+			$('#zhicheng0').css({'height':bottomHeight+40+'px','opacity':0});
 		}
     </script>
 </body>
