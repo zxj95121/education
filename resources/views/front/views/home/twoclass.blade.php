@@ -59,10 +59,10 @@
 				</a>
 			</div>
         @endforeach	
-        	<div id="myCart" style="height: 40px;background: #F0F0F2;width: 100%;">
+        	<div id="myCart" style="height: 40px;background: #F90000;width: 100%;">
                 <div class="col-xs-12" style="width:100%;height:100%;text-align: center;">
                     <span style="vertical-align: middle;line-height: 40px;color:#7C7C7C;">我的购物车</span>
-                    <span class="weui-badge" style="margin-left: 5px;line-height: 40px;">8</span>
+                    <span class="weui-badge" style="margin-left: 5px;background: #F90000;color:#FFF;">8</span>
                 </div>
             </div>	
 	@endif
