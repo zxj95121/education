@@ -25,7 +25,10 @@ $(function(){
 		'/images/home/menu_class.png',
 		'/images/home/menu_class_fill.png',
 		'/images/home/menu_my.png',
-		'/images/home/menu_my_fill.png'
+		'/images/home/menu_my_fill.png',
+
+		'/images/home/cart.png',
+		'/images/home/cart_red.png'
 		);
 	var loadImg = new Array();
 	// 预加载图片
