@@ -50,6 +50,7 @@ $(document).on('click','.class3',function(){
 	            },
 	            onEnd: function() {
 	                this.destory(); //销毁抛物体
+	                $('#cartNum').html(cartArr.length);
 	            }   
 	        });
 	    }

@@ -63,7 +63,7 @@
         	<div id="myCart" style="height: 40px;background: #52525A;width: 100%;">
                 <div style="width:70%;height:100%;text-align: center;float: left;">
                     <span style="vertical-align: middle;line-height: 40px;color:#FFF;">我的购物车</span>
-                    <span class="weui-badge" style="margin-left: 5px;background: #FFF;color:#52525A;" id="cartNum">8</span>
+                    <span class="weui-badge" style="margin-left: 5px;background: #FFF;color:#52525A;" id="cartNum">0</span>
                 </div>
                 <div style="width:30%;height: 100%;text-align: center;background: #F90000;line-height: 40px;float: right;color:#FFF;font-size:18px;">
                 	去结算
