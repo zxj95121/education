@@ -409,6 +409,7 @@
         			if(data.errcode == 0) {
         				$('#eclass').attr('pid1',data.pid1);
         				$('#eclass').attr('pid2',data.pid2);
+        				setCartPosition();
         			}
         		}
         	})
@@ -417,8 +418,11 @@
         function setCartPosition(){
 			var bottomHeight = $('#all_bottom').height();
 			$('#myCart').css({'position':'fixed','bottom':bottomHeight+'px'});
-			$('#myCart').before('<div id="zhicheng0"></div>');
-			$('#zhicheng0').css({'height':bottomHeight+40+'px','opacity':0});
+			if ($('#myCart').length == 0) {
+				$('#zhicheng').css({'height':bottomHeight+'px','opacity':0});
+			} else {
+				$('#zhicheng').css({'height':bottomHeight+40+'px','opacity':0});
+			}
 		}
     </script>
 </body>

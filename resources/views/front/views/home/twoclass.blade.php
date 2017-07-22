@@ -59,6 +59,7 @@
 				</a>
 			</div>
         @endforeach	
+        	<div id="zhicheng"></div>
         	<div id="myCart" style="height: 40px;background: #52525A;width: 100%;">
                 <div style="width:70%;height:100%;text-align: center;float: left;">
                     <span style="vertical-align: middle;line-height: 40px;color:#FFF;">我的购物车</span>
