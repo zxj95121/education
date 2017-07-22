@@ -80,7 +80,7 @@
                 </div>
             </div>
 
-            <div id="orderdetail" style="position: fixed;z-index: 99;width: 100%;min-height: 259px;max-height: 477px;">
+            <div id="orderdetail" style="position: fixed;z-index: 99;width: 100%;min-height: 259px;max-height: 477px;overflow: scroll;">
             	<div class="cartblock">
             		<div class="cartheader" style="width:100%;background: #D8E0F7;padding:6px 10px;">
             			<p style="font-size:1.1em;margin: 0px 0px;">英语自然拼读</p>
