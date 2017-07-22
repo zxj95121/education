@@ -59,9 +59,9 @@
 				</a>
 			</div>
         @endforeach	
-        	<div id="myCart" style="position: absolute;bottom: -121px;height: 35px;background: #F0F;width: 100%;">
-                <div class="col-xs-12">
-                    <span style="vertical-align: middle;">单行列表</span>
+        	<div id="myCart" style="height: 36px;background: #F0F0F2;width: 100%;">
+                <div class="col-xs-12" style="width:100%;text-align: center;">
+                    <span style="vertical-align: middle;">我的购物车</span>
                     <span class="weui-badge" style="margin-left: 5px;">8</span>
                 </div>
             </div>	
