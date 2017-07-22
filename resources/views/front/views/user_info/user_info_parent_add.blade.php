@@ -59,6 +59,9 @@ $signPackage = $jssdk->GetSignPackage();
 		#page_main a:active{
 			text-decoration: none;
 		}
+		.cTwo,.cOne,.cThree{
+			cursor: pointer;
+		}
 	</style>
 </head>
 <body>
