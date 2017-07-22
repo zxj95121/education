@@ -18,6 +18,9 @@
 		height: 100%;
     	line-height: inherit;
 	}
+	.class1,.class2,.class3{
+		cursor: pointer;
+	}
 </style>
 <div id="twoclass">
 	<div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#FFF;">

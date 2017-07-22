@@ -1,4 +1,4 @@
-
+$('#cartNum').html(cartArr.length);
 $(document).on('click','.class1',function(){
 	var pid = $(this).attr('pid');
 	$('#eclass').attr('pid1',pid);

@@ -333,7 +333,7 @@
     <script type="text/javascript">
     	$(function(){
     		cartArr = new Array();
-    		
+
     		var url = [];	
     		url = window.location.href.split('#');
     		if(url.length == 1){
@@ -354,7 +354,7 @@
         });
 	    var urlStyle = [];
 	    var urlScript = [];
-	    /* 加载js css */
+	    /* 加载js css*/
 		function includeLink(url,urlType) {
 			if(urlType == "css"){
 				for(var i = 0; i < urlStyle.length;i++){
