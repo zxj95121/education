@@ -75,19 +75,19 @@
                 <div style="width:30%;height: 100%;text-align: center;background: #F90000;z-index: 999;line-height: 40px;float: right;color:#FFF;font-size:18px;">
                 	去结算
                 </div>
+            </div>
 
-                <div class="orderdetail" style="position: absolute;top: -50px;z-index: 99;width: 100%;">
-                	<div class="cartblock">
-                		<div class="cartheader" style="width:100%;background: #D8E0F7;">
-                			<header>的咖啡</header>
-                		</div>
-                		<div class="cartcontent" style="width: 100%;background: #FFF;">
-                			fsdfbr	<br>fsdafb <br>fsadfsdb <br>大幅度br	<br>防守打法
-                		</div>
-                		<div class="cartfooter" style="width:100%;height: 5px;background: #D8E0F7;">
-                		</div>
-                	</div>
-                </div>
+            <div id="orderdetail" style="position: fixed;z-index: 99;width: 100%;">
+            	<div class="cartblock">
+            		<div class="cartheader" style="width:100%;background: #D8E0F7;">
+            			<header>的咖啡</header>
+            		</div>
+            		<div class="cartcontent" style="width: 100%;background: #FFF;">
+            			fsdfbr	<br>fsdafb <br>fsadfsdb <br>大幅度br	<br>防守打法
+            		</div>
+            		<div class="cartfooter" style="width:100%;height: 5px;background: #D8E0F7;">
+            		</div>
+            	</div>
             </div>
 	@endif
 
