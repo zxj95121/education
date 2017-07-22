@@ -27,7 +27,7 @@ class PayClassController extends Controller
 		$uid = $this->getUid($openid);
 		/*新订单*/
 		$tid = $request->input('id');
-		$child = $request->input('child');
+		// $child = $request->input('child');
 		/*查取价格*/
 		$res = EclassPriceController::getUnitPrice($tid);
 		$count = $res['count'];
@@ -40,7 +40,7 @@ class PayClassController extends Controller
 		$flight->order_no = $order_no;
 		$flight->count = $count;
 		$flight->price = $price;
-		$flight->child = $child;
+		// $flight->child = $child;
 		$flight->save();
 		$order_id = $flight->id;
 		$name = EclassPriceController::getName($tid, 2);
@@ -111,7 +111,7 @@ class PayClassController extends Controller
 		if(!$result && !$noTime) {
 			/*读取课程数量*/
 			$pid = $request->input('pid');
-			$child = $request->input('child');
+			// $child = $request->input('child');
 			$threeObj = TeacherThree::find($pid);
 
 			$twoid = $threeObj->pid;
@@ -130,7 +130,7 @@ class PayClassController extends Controller
 			$count = $res['count'];
 			$unitPrice = $res['unitPrice'];
 			$price = number_format($count*$unitPrice, 2);
-			return view('front.views.home.checkMessageResult', ['result'=>$result,'noTime'=>$noTime,'name'=>$name,'count'=>$count,'price'=>$price,'id'=>$pid,'child'=>$child]);
+			return view('front.views.home.checkMessageResult', ['result'=>$result,'noTime'=>$noTime,'name'=>$name,'count'=>$count,'price'=>$price,'id'=>$pid]);
 		}
     	return view('front.views.home.checkMessageResult', ['result'=>$result,'noTime'=>$noTime]);
     }

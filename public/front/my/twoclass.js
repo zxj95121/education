@@ -73,7 +73,7 @@ $(document).on('click','.class3',function(){
 							type: 'post',
 							data: {
 								pid: pid,
-								child: child
+								// child: child
 							},
 							success: function(data){
 								var successInter = setInterval(function(){
