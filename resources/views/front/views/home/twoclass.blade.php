@@ -29,7 +29,7 @@
 	}
 </style>
 <div id="twoclass">
-	<div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#FFF;">
+	<div class="weui-cell weui-cell_access twoclassHead" style="height:40px;background:#22AAE8;color:#FFF;">
 	    @if($class != 'class1')
 	     	<div><div class="glyphicon glyphicon-menu-left" id="houtui" fenlei="{{$class}}"></div></div>
 	    @endif
@@ -80,7 +80,7 @@
                 </div>
             </div>
 
-            <div id="orderdetail" style="position: fixed;z-index: 99;width: 100%;min-height: 259px;max-height: 477px;overflow: scroll;">
+            <div id="orderdetail" style="position: fixed;z-index: 99;width: 100%;min-height: 259px;overflow: scroll;">
             	<div class="cartblock">
             		<div class="cartheader" style="width:100%;background: #D8E0F7;padding:6px 10px;">
             			<p style="font-size:1.1em;margin: 0px 0px;">英语自然拼读</p>
