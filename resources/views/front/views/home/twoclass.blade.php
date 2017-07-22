@@ -58,6 +58,13 @@
 				    </div>
 				</a>
 			</div>
+			<div class="weui-cell weui-cell_access">
+                <div class="weui-cell__bd">
+                    <span style="vertical-align: middle">单行列表</span>
+                    <span class="weui-badge" style="margin-left: 5px;">8</span>
+                </div>
+                <div class="weui-cell__ft"></div>
+            </div>
         @endforeach		
 	@endif
 
