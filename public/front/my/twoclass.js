@@ -1,3 +1,5 @@
+cartArr = new Array();
+
 $(document).on('click','.class1',function(){
 	var pid = $(this).attr('pid');
 	$('#eclass').attr('pid1',pid);
@@ -21,21 +23,34 @@ $(document).on('click','.class3',function(){
 		var offset = $("#cartNum").offset();
         var img = '/images/home/cart_red.png'; //获取当前点击图片链接   
         var flyer = $('<img class="flyer-img" style="width:20px;height:20px;z-index:2000;" src="' + img + '">'); //抛物体对象   
-        console.log($(this).html());
-        flyer.fly({   
-            start: {   
-                left: event.pageX,//抛物体起点横坐标   
-                top: event.pageY //抛物体起点纵坐标   
-            },   
-            end: {   
-                left: offset.left,//抛物体终点横坐标   
-                top: offset.top, //抛物体终点纵坐标  
-            },   
-            onEnd: function() {     
-                this.destory(); //销毁抛物体   
+        var thisAdd = $(this);
+        var id = thisAdd.attr('pid');
+        /*检查该购物车是否已经有*/
+        var temp = 0;
+        var len = cartArr.length;
+       	for (var i = 0; i < len;i++) {
+       		if (cartArr[i] == id) {
+       			temp = 1;
+       			break;
+       		}
+       	}
+       	if( temp == 0 ) {
+	        flyer.fly({   
+	            start: {   
+	                left: event.pageX,//抛物体起点横坐标   
+	                top: event.pageY //抛物体起点纵坐标   
+	            },   
+	            end: {   
+	                left: offset.left,//抛物体终点横坐标   
+	                top: offset.top, //抛物体终点纵坐标  
+	            },   
+	            onEnd: function() {     
+	                this.destory(); //销毁抛物体   
 
-            }   
-        });
+	                cartArr[len] = id;
+	            }   
+	        });
+	    }
 		// loadIndex = layer.open({
 		//     type: 2
 		//     ,content: ''
