@@ -80,7 +80,7 @@
             <div id="orderdetail" style="position: fixed;z-index: 99;width: 100%;">
             	<div class="cartblock">
             		<div class="cartheader" style="width:100%;background: #D8E0F7;padding:6px 10px;">
-            			<p><h2>英语自然拼读</h2></p>
+            			<p style="font-size:1.1em;">英语自然拼读</p>
             		</div>
             		<div class="cartcontent" style="width: 100%;background: #FFF;">
             			fsdfbr	<br>fsdafb <br>fsadfsdb <br>大幅度br	<br>防守打法
