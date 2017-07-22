@@ -422,6 +422,7 @@
 			} else {
 				$('#zhicheng').css({'height':bottomHeight+40+'px','opacity':0});
 			}
+			$('#cartNum').html(cartArr.length);/*购物车个数显示*/
 		}
     </script>
 </body>
