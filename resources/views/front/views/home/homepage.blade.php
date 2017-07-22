@@ -10,6 +10,9 @@
     <link rel="stylesheet" type="text/css" href="/css/weui.css"/>
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/my.css">
     <style type="text/css">
+	    #twoclass{
+	    	position: relative;
+	    }
         a:link{
             text-decoration: none;
         }

@@ -6,7 +6,9 @@ $(document).on('click','.class1',function(){
 $(document).on('click','.class2',function(){
 	var pid = $(this).attr('pid');
 	$('#eclass').attr('pid2',pid);
-	$('#eclass').load('/front/twoClassthree?pid='+pid);
+	$('#eclass').load('/front/twoClassthree?pid='+pid, function(){
+		console.log('fsadf');
+	});
 })
 $(document).on('click','.class3',function(){
 	e = window.event;

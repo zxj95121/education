@@ -59,7 +59,7 @@
 				</a>
 			</div>
         @endforeach	
-        	<div class="row">
+        	<div class="" style="position: absolute;bottom: -121px;height: 35px;background: #F0F;width: 100%;">
                 <div class="col-xs-12">
                     <span style="vertical-align: middle;">单行列表</span>
                     <span class="weui-badge" style="margin-left: 5px;">8</span>
