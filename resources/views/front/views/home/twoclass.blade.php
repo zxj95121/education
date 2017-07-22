@@ -86,12 +86,24 @@
             			<div  class="weui-cells" style="margin:0;">
 							<a class="weui-cell weui-cell_access">
 							    <div class="weui-cell__bd" style="position: relative;">
-							        <p style="margin-bottom:0px"></p>
+							        <p style="margin-bottom:0px">fa发f</p>
 							    	<iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
 							    	
 							    </div>
 							    <div class="weui-cell__ft">
-							    	<span class="btn btn-danger" style="background-color:#FFF;background-image:url('/images/home/cart_delete.png');background-size:100% 100%;width:32px;height:27px;"> </span>
+							    	<span class="btn btn-danger" style="background-color:#FFF;border-color:#FFF;background-image:url('/images/home/cart_delete.png');background-size:100% 100%;width:32px;height:27px;"> </span>
+							    </div>
+							</a>
+						</div>
+						<div  class="weui-cells" style="margin:0;">
+							<a class="weui-cell weui-cell_access">
+							    <div class="weui-cell__bd" style="position: relative;">
+							        <p style="margin-bottom:0px">大幅度工人房</p>
+							    	<iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
+							    	
+							    </div>
+							    <div class="weui-cell__ft">
+							    	<span class="btn btn-danger" style="background-color:#FFF;border-color:#FFF;background-image:url('/images/home/cart_delete.png');background-size:100% 100%;width:32px;height:27px;"> </span>
 							    </div>
 							</a>
 						</div>
