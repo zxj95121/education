@@ -46,6 +46,7 @@
 				</a>
 			</div>
 		@endforeach
+		<div id="zhicheng"></div>
 		@if(isset($parentDetail) && !$parentDetail->classTimes)
 			<!-- <div class="alert alert-success" role="alert"><a href="/front/setClassTime#eclass" style="text-decoration: underline;">您还没有设置上课时间，立即点我去设置。</a></div> -->
 		@else
@@ -66,7 +67,7 @@
 			</div>
         @endforeach	
         	<div id="zhicheng"></div>
-        	<div id="myCart" style="height: 40px;background: #52525A;width: 100%;">
+        	<div id="myCart" style="height: 40px;background: #52525A;width: 100%;z-index: 999;">
                 <div style="width:70%;height:100%;text-align: center;float: left;">
                     <span style="vertical-align: middle;line-height: 40px;color:#FFF;">我的购物车</span>
                     <span class="weui-badge" style="margin-left: 5px;background: #FFF;color:#52525A;" id="cartNum">0</span>
@@ -74,7 +75,21 @@
                 <div style="width:30%;height: 100%;text-align: center;background: #F90000;line-height: 40px;float: right;color:#FFF;font-size:18px;">
                 	去结算
                 </div>
-            </div>	
+
+                <div class="orderdetail" style="position: absolute;top: -50px;z-index: 99;width: 100%;">
+                	<div class="cartblock">
+                		<div class="cartheader" style="width:100%;">
+                			头
+                		</div>
+                		<div class="cartcontent">
+                			
+                		</div>
+                		<div class="cartfooter">
+                			脚
+                		</div>
+                	</div>
+                </div>
+            </div>
 	@endif
 
 </div>
