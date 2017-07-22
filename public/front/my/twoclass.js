@@ -15,49 +15,49 @@ $(document).on('click','.class3',function(){
 		$('#eclass').load('/front/twoClassfour?pid='+pid);
 	else if (e.target.tagName == 'SPAN') {
 		$('#childsheet').remove();
-		loadIndex = layer.open({
-		    type: 2
-		    ,content: ''
-		});
-		$.ajax({
-			url: '/front/parent/getChild',
-			dataType: 'json',
-			type: 'post',
-			data: {
+		// loadIndex = layer.open({
+		//     type: 2
+		//     ,content: ''
+		// });
+		// $.ajax({
+		// 	url: '/front/parent/getChild',
+		// 	dataType: 'json',
+		// 	type: 'post',
+		// 	data: {
 
-			},
-			success: function(data){
-				if (data.errcode == 0) {
-					layer.close(loadIndex);
-					var str = '<div class="weui-skin_android" id="childsheet" style="opacity: 1;"> <div class="weui-mask child-weui-mask"></div> <div class="weui-actionsheet"> <div class="weui-actionsheet__menu"> ';
-					if (data.child.length == 0) {
-						  layer.open({
-							    content: '请先添加自己的孩子'
-							    ,skin: 'msg'
-							    ,time: 2 //2秒后自动关闭
-							  });
-						  return false;
-					}
-					for (var i in data.child) {
-						str += '<div class="weui-actionsheet__cell child_Cell" cid=""><input type="radio" name="child" value="'+data.child[i].id+'" />'+data.child[i].name+'</div>';
-					}
-					str += '<div class="weui-actionsheet__cell childCellClick" style="background: #1AAD19;color:#FFF;text-align:center;">点我确认</div></div> </div> </div>';
-					$('#twoclass').after(str);
+		// 	},
+		// 	success: function(data){
+		// 		if (data.errcode == 0) {
+		// 			layer.close(loadIndex);
+		// 			var str = '<div class="weui-skin_android" id="childsheet" style="opacity: 1;"> <div class="weui-mask child-weui-mask"></div> <div class="weui-actionsheet"> <div class="weui-actionsheet__menu"> ';
+		// 			if (data.child.length == 0) {
+		// 				  layer.open({
+		// 					    content: '请先添加自己的孩子'
+		// 					    ,skin: 'msg'
+		// 					    ,time: 2 //2秒后自动关闭
+		// 					  });
+		// 				  return false;
+		// 			}
+		// 			for (var i in data.child) {
+		// 				str += '<div class="weui-actionsheet__cell child_Cell" cid=""><input type="radio" name="child" value="'+data.child[i].id+'" />'+data.child[i].name+'</div>';
+		// 			}
+		// 			str += '<div class="weui-actionsheet__cell childCellClick" style="background: #1AAD19;color:#FFF;text-align:center;">点我确认</div></div> </div> </div>';
+		// 			$('#twoclass').after(str);
 					
-					$(document).on('click', '.child_Cell', function(){
-						$(this).find('input')[0].click();
-					})
+		// 			$(document).on('click', '.child_Cell', function(){
+		// 				$(this).find('input')[0].click();
+		// 			})
 
-					$(document).on('click', '.child-weui-mask', function(){
-						$('#childsheet').fadeOut(200);
-					})
+		// 			$(document).on('click', '.child-weui-mask', function(){
+		// 				$('#childsheet').fadeOut(200);
+		// 			})
 
-					$(document).on('click', '.childCellClick', function(){
-						var child = $('input[name="child"]:checked').val();
-						if (!child) {
-							return false;
-						}
-						$('#childsheet').fadeOut(200);
+		// 			$(document).on('click', '.childCellClick', function(){
+		// 				var child = $('input[name="child"]:checked').val();
+		// 				if (!child) {
+		// 					return false;
+		// 				}
+		// 				$('#childsheet').fadeOut(200);
 						
 						var loadIndex = layer.open({
 						    type: 2
@@ -101,11 +101,11 @@ $(document).on('click','.class3',function(){
 							}
 						})
 
-						/*点击响应结束*/
-					});
-				}
-			}
-		})
+		// 				/*点击响应结束*/
+		// 			});
+		// 		}
+		// 	}
+		// })
 		
 	}
 })

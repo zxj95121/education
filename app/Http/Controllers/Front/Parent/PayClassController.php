@@ -87,24 +87,26 @@ class PayClassController extends Controller
 
 		$id = $this->getUid($openid);
 
-		$flight = ParentDetail::find($id);
+		// $flight = ParentDetail::find($id);
 
 		$result = array();
-		$k = 0;
-		if ($flight->address == '') {
-			$result[$k]['word'] = '所在社区';
-			$result[$k++]['reason'] = '未填写';
-		}
-		if ($flight->place == '') {
-			$result[$k]['word'] = '栋单元楼层';
-			$result[$k++]['reason'] = '未填写';
-		}
+		// $k = 0;
+		// if ($flight->address == '') {
+		// 	$result[$k]['word'] = '所在社区';
+		// 	$result[$k++]['reason'] = '未填写';
+		// }
+		// if ($flight->place == '') {
+		// 	$result[$k]['word'] = '栋单元楼层';
+		// 	$result[$k++]['reason'] = '未填写';
+		// }
 
 		
-		if(isset($flight->classTimes)) 
-			$noTime = false;
-		else
-			$noTime = true;
+		// if(isset($flight->classTimes)) 
+		// 	$noTime = false;
+		// else
+		// 	$noTime = true;
+
+		$noTime = false;/*新增关于去掉限制*/
 
 		if(!$result && !$noTime) {
 			/*读取课程数量*/
