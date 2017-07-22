@@ -407,6 +407,12 @@
         		}
         	})
         })
+        setCartPosition();
+        function setCartPosition(){
+			var bottomHeight = $('#all_bottom').height();
+			$('#myCart').css({'position':'fixed','bottom':bottomHeight+'px'});
+			console.log('fdfa');
+		}
     </script>
 </body>
 </html>
