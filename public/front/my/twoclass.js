@@ -182,6 +182,7 @@ function setCartPosition(){
 		$('#zhicheng').css({'height':bottomHeight+40+'px','opacity':0});
 	}
 	var height = document.body.clientHeight;
+	console.log(height);
 	$('#orderdetail').css('maxHeight', height-bottomHeight-40-$('.twoclassHead').height()+'px');
 	$('#orderdetail').css({'bottom':bottomHeight+40+'px'});
 	$('#cartNum').html(cartArr.length);/*购物车个数显示*/
