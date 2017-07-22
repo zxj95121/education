@@ -28,6 +28,7 @@ $(function(){
 		'/images/home/menu_my_fill.png',
 
 		'/images/home/cart.png',
+		'/images/home/cart_dark.png',
 		'/images/home/cart_red.png'
 		);
 	var loadImg = new Array();

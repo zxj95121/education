@@ -35,19 +35,21 @@ $(document).on('click','.class3',function(){
        		}
        	}
        	if( temp == 0 ) {
+       		cartArr[len] = id;
+       		/*将该购物车变为不可选*/
+       		var lin = $(this).find('span');
+       		lin.css({'background-color':'#FFF','background':'#FFF','background-image':"url('/images/home/cart_dark.png')"});
 	        flyer.fly({   
 	            start: {   
 	                left: event.pageX,//抛物体起点横坐标   
 	                top: event.pageY //抛物体起点纵坐标   
-	            },   
+	            },
 	            end: {   
 	                left: offset.left,//抛物体终点横坐标   
 	                top: offset.top, //抛物体终点纵坐标  
-	            },   
-	            onEnd: function() {     
-	                this.destory(); //销毁抛物体   
-
-	                cartArr[len] = id;
+	            },
+	            onEnd: function() {
+	                this.destory(); //销毁抛物体
 	            }   
 	        });
 	    }
