@@ -422,7 +422,7 @@
 			} else {
 				$('#zhicheng').css({'height':bottomHeight+40+'px','opacity':0});
 			}
-			var height = document.body.clientHeight;
+			var height = document.documentElement.clientHeight;
 			console.log(height);
 			$('#orderdetail').css('maxHeight', height-bottomHeight-40-$('.twoclassHead').height()+'px');
 			console.log(height);
