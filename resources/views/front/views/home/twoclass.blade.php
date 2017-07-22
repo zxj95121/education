@@ -54,13 +54,13 @@
 				    	
 				    </div>
 				    <div class="weui-cell__ft">
-				    	<span class="btn btn-success addCart" style="background-image:url('/images/home/cart.png');background-size:100% 100%;width:32px;height:27px;"> </span>
+				    	<span class="btn btn-success" style="background-image:url('/images/home/cart.png');background-size:100% 100%;width:32px;height:27px;"> </span>
 				    </div>
 				</a>
 			</div>
         @endforeach	
         	<div id="zhicheng"></div>
-        	<div id="myCart" style="height: 40px;background: #52525A;width: 100%;z-index: 2;">
+        	<div id="myCart" style="height: 40px;background: #52525A;width: 100%;">
                 <div style="width:70%;height:100%;text-align: center;float: left;">
                     <span style="vertical-align: middle;line-height: 40px;color:#FFF;">我的购物车</span>
                     <span class="weui-badge" style="margin-left: 5px;background: #FFF;color:#52525A;" id="cartNum">8</span>

@@ -31,7 +31,7 @@ $(function () {
     		}
 
     		/*click事件*/
-    		$('#'+selfPicker['size'+(selfPicker.current)].action).touchstart(function(){
+    		$('#'+selfPicker['size'+(selfPicker.current)].action).click(function(){
 				$('#pickerBigDiv').css('display', 'block');
 				selfPicker.current = selfPicker.arr[$(this).attr('id')];
 				$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','block');
@@ -164,7 +164,7 @@ $(function () {
     	}
     });
 
-    $(document).on('touchstart', '.okPicker', function(){
+    $(document).on('click', '.okPicker', function(){
     	var colPickerJquery = $('#'+selfPicker['size'+(selfPicker.current)].id+' .colPicker');
     	for (var i = 0;i < colPickerJquery.length;i++) {
     		var marginTop = parseInt($(colPickerJquery[i]).css('marginTop'));
@@ -182,7 +182,7 @@ $(function () {
     });
 
     /*取消*/
-    $(document).on('touchstart', '.canclePicker', function(){
+    $(document).on('click', '.canclePicker', function(){
     	$('#pickerBigDiv').css('display', 'none');
     	$('#'+selfPicker['size'+(selfPicker.current)].id).css('display','none');
     });
