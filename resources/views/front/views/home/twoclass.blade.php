@@ -54,7 +54,7 @@
 				    	
 				    </div>
 				    <div class="weui-cell__ft">
-				    	<span class="label label-success" style="background-image:url('/images/home/cart.png');background-size:100% 100%;width:32px;height:27px;"> </span>
+				    	<span class="btn btn-success" style="background-image:url('/images/home/cart.png');background-size:100% 100%;width:32px;height:27px;"> </span>
 				    </div>
 				</a>
 			</div>
