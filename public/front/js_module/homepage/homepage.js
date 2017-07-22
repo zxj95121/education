@@ -29,7 +29,8 @@ $(function(){
 
 		'/images/home/cart.png',
 		'/images/home/cart_dark.png',
-		'/images/home/cart_red.png'
+		'/images/home/cart_red.png',
+		'/images/home/cart_delete.png'
 		);
 	var loadImg = new Array();
 	// 预加载图片
