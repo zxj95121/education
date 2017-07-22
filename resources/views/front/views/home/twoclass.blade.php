@@ -24,6 +24,9 @@
 	#houtui{
 		cursor: pointer;
 	}
+	.weui-cells{
+		font-size: 16px;
+	}
 </style>
 <div id="twoclass">
 	<div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#FFF;">
@@ -103,7 +106,7 @@
 							    	
 							    </div>
 							    <div class="weui-cell__ft">
-							    	<span class="btn btn-danger" style="background-color:#FFF;border-color:#FFF;background-image:url('/images/home/cart_delete.png');background-size:100% 100%;width:32px;height:27px;"> </span>
+							    	<span class="btn btn-danger" style="background-color:#FFF;border-color:#FFF;background-image:url('/images/home/cart_delete.png');background-size:100% 100%;width:28px;height:28px;"> </span>
 							    </div>
 							</a>
 						</div>
