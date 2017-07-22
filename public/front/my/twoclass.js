@@ -142,10 +142,11 @@ $(document).on('click','#houtui',function(){
 			break;
 		case 'class4':
 			var pid = $('#eclass').attr('pid2');
-			setCartPosition();
 			break;
 	}
-	$('#twoclass').load('/front/twoClassback?fenlei='+twoclass+'&pid='+pid);
+	$('#twoclass').load('/front/twoClassback?fenlei='+twoclass+'&pid='+pid, function(){
+		setCartPosition();
+	});
 })
 
 function setCartPosition(){
