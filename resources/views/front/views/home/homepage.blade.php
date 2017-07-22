@@ -425,5 +425,13 @@
 			}
 		}
     </script>
+
+    <script type="text/javascript">
+    	/*添加购物车的一些操作*/
+    	$(document).on('click', '.addCart', function(){
+    		var id = $(this).parents('a').attr('pid');
+    		
+    	})
+    </script>
 </body>
 </html>

@@ -46,7 +46,7 @@
 				$(this).css({'text-decoration':'none','color':'#FFF','background-color':'#1aad19'});
 			});
 
-			$('#confirm').click(function(){
+			$('#confirm').touchstart(function(){
 				if ($('.weui-btn_default').length == 1) {
 					var type = $('.container .weui-btn_primary:eq(0)').attr('type');
 					window.location.href = '/front/selectParentType?type='+type;

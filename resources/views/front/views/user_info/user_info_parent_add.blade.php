@@ -415,7 +415,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        	}
 	        })
 
-	        $(document).on('click', '.cOne', function(){
+	        $(document).on('touchstart', '.cOne', function(){
 	        	var number = $(this).attr('number');
 	        	removeActive($(this));
 	        	$(this).addClass('communityActive');
@@ -429,7 +429,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        	}
 	        })
 
-	        $(document).on('click', '.cTwo', function(){
+	        $(document).on('touchstart', '.cTwo', function(){
 	        	var num = $('#community .col:eq(0)').attr('num');
 	        	var number = $(this).attr('number');
 	        	removeActive($(this));
@@ -447,7 +447,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        	}
 	        })
 
-	        $(document).on('click', '.cThree', function(){
+	        $(document).on('touchstart', '.cThree', function(){
 	        	var cdom = $(this);
 
         		if ($(this).hasClass('communityActive')) {
@@ -472,7 +472,7 @@ $signPackage = $jssdk->GetSignPackage();
 			$('.page_set').css({'height': height+'px','top': height+'px'});
 
 			/*点击修改*/
-			$('.row_info').click(function(){
+			$('.row_info').touchstart(function(){
 				var target = $(this).attr('target');
 				$('#page_row').css('display', 'block');
 				$('#'+target).animate({'top': '0px'},250);
@@ -504,7 +504,7 @@ $signPackage = $jssdk->GetSignPackage();
 			})
 
 			/*取消修改*/
-			$('.done_romove').click(function(){
+			$('.done_romove').touchstart(function(){
 				$('#page_main').css('display', 'block');
 				$(this).parents('.page_set').animate({'top': height+'px'}, 250);
 				setTimeout(function(){
@@ -513,20 +513,20 @@ $signPackage = $jssdk->GetSignPackage();
 			})
 
 			/*性别*/
-			$('#cell_sex').click(function(){
+			$('#cell_sex').touchstart(function(){
 				$('#page_row').css('display', 'block');
 				$('#sex').css('display', 'block');
 			})
 
-			$('#iosActionsheetCancel').click(function(){
+			$('#iosActionsheetCancel').touchstart(function(){
 				$('#page_row').css('display', 'none');
 				$('#sex').css('display', 'none');
 			})
-			$('#iosActionsheetCancel2').click(function(){
+			$('#iosActionsheetCancel2').touchstart(function(){
 				$('#page_row').css('display', 'none');
 				$('#status').css('display', 'none');
 			})
-			$('.sex_actionsheet').click(function(){
+			$('.sex_actionsheet').touchstart(function(){
 				var sex = $(this).html();
 				var val = $(this).attr('val');
 				$('#loadingToast').css({'display':'block', 'opacity':'1'});
@@ -557,7 +557,7 @@ $signPackage = $jssdk->GetSignPackage();
 			})
 
 		    /*所在社区点击OK*/
-		    $('#community .done_ok').click(function(){
+		    $('#community .done_ok').touchstart(function(){
 		    	var len = Object.keys(addressCommunity).length;
 	        	if (len < 1) {
 	        		layer.open({
@@ -593,7 +593,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        })
 
 		    /*文本框点击确认*/
-		    $('.done_ok1').click(function(){
+		    $('.done_ok1').touchstart(function(){
 		    	var index = $(this).index('.done_ok1');
 		    	var value = $(this).parents('.page_set').find('input').val();
 		    	var arr = new Array(/[\u4e00-\u9fa5]{1,10}/,/^[\u4e00-\u9fa5]{1,4}$/, /^.{1,2}$/, /^.{1,10}$/);
@@ -760,7 +760,7 @@ $signPackage = $jssdk->GetSignPackage();
 				reader.readAsDataURL(this.files[0]);
 				// this.files = [];
 			})
-			$(document).on('click', '#btnCrop', function(){
+			$(document).on('touchstart', '#btnCrop', function(){
 				var img = cropper.getDataURL();
 				console.log(typeof(img));
 				console.log(img);

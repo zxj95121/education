@@ -539,7 +539,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        	}
 	        })
 
-	        $(document).on('click', '.cOne', function(){
+	        $(document).on('touchstart', '.cOne', function(){
 	        	var number = $(this).attr('number');
 	        	removeActive($(this));
 	        	$(this).addClass('communityActive');
@@ -553,7 +553,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        	}
 	        })
 
-	        $(document).on('click', '.cTwo', function(){
+	        $(document).on('touchstart', '.cTwo', function(){
 	        	var num = $('#community .col:eq(0)').attr('num');
 	        	var number = $(this).attr('number');
 	        	removeActive($(this));
@@ -571,7 +571,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        	}
 	        })
 
-	        $(document).on('click', '.cThree', function(){
+	        $(document).on('touchstart', '.cThree', function(){
 	        	var cdom = $(this);
 
         		if ($(this).hasClass('communityActive')) {
@@ -593,7 +593,7 @@ $signPackage = $jssdk->GetSignPackage();
 			$('.page_set').css({'height': height+'px','top': height+'px'});
 
 			/*点击修改*/
-			$('.row_info').click(function(){
+			$('.row_info').touchstart(function(){
 				var target = $(this).attr('target');
 				$('#page_row').css('display', 'block');
 				$('#'+target).animate({'top': '0px'},250);
@@ -625,7 +625,7 @@ $signPackage = $jssdk->GetSignPackage();
 			})
 
 			/*取消修改*/
-			$('.done_romove').click(function(){
+			$('.done_romove').touchstart(function(){
 				$('#page_main').css('display', 'block');
 				$(this).parents('.page_set').animate({'top': height+'px'}, 250);
 				setTimeout(function(){
@@ -634,25 +634,25 @@ $signPackage = $jssdk->GetSignPackage();
 			})
 
 			/*性别*/
-			$('#cell_sex').click(function(){
+			$('#cell_sex').touchstart(function(){
 				$('#page_row').css('display', 'block');
 				$('#sex').css('display', 'block');
 			})
 			/*求职状态*/
-			$('#cell_status').click(function(){
+			$('#cell_status').touchstart(function(){
 				$('#page_row').css('display', 'block');
 				$('#status').css('display', 'block');
 			})
 
-			$('#iosActionsheetCancel').click(function(){
+			$('#iosActionsheetCancel').touchstart(function(){
 				$('#page_row').css('display', 'none');
 				$('#sex').css('display', 'none');
 			})
-			$('#iosActionsheetCancel2').click(function(){
+			$('#iosActionsheetCancel2').touchstart(function(){
 				$('#page_row').css('display', 'none');
 				$('#status').css('display', 'none');
 			})
-			$('.sex_actionsheet').click(function(){
+			$('.sex_actionsheet').touchstart(function(){
 				var sex = $(this).html();
 				var val = $(this).attr('val');
 				$('#loadingToast').css({'display':'block', 'opacity':'1'});
@@ -683,7 +683,7 @@ $signPackage = $jssdk->GetSignPackage();
 			})
 
 			/*求职状态*/
-			$('.status_actionsheet').click(function(){
+			$('.status_actionsheet').touchstart(function(){
 				var status = $(this).html();
 				var val = $(this).attr('val');
 				$('#loadingToast').css({'display':'block', 'opacity':'1'});
@@ -824,14 +824,14 @@ $signPackage = $jssdk->GetSignPackage();
 
 			/*出生年月*/
 		    /*所在学校*/
-		    $('#school_btns button').click(function(){
+		    $('#school_btns button').touchstart(function(){
 		    	$('#school_btns button[class="btn btn-success"]').removeClass('btn-success').addClass('btn-info');
 		    	// var index = $(this).index('#school_btns button');
 		    	$(this).removeClass('btn-info').addClass('btn-success');
 		    })
 
 		    /*爱好特长*/
-		    $('#hobby_btns button').click(function(){
+		    $('#hobby_btns button').touchstart(function(){
 		    	if ($(this).hasClass('btn-success')) {
 		    		$(this).removeClass('btn-success').addClass('btn-info');
 		    	} else {
@@ -839,7 +839,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    	}
 		    })
 
-		    $('#school .done_ok').click(function(){
+		    $('#school .done_ok').touchstart(function(){
 		    	var schoolDom = $('#school_btns button[class="btn btn-success"]');
 		    	var value = schoolDom.html();
 		    	var id2 = schoolDom.attr('id2');
@@ -870,7 +870,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    })
 
 		    /*爱好特长点OK*/
-		    $('#hobby .done_ok').click(function(){
+		    $('#hobby .done_ok').touchstart(function(){
 		    	var hobby = '';
 		    	$('#hobby button').filter('.btn-success').each(function(){
 		    		hobby += $(this).attr('cid')+'-';
@@ -903,7 +903,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    })
 
 		    /*期望社区点击OK*/
-		    $('#community .done_ok').click(function(){
+		    $('#community .done_ok').touchstart(function(){
 		    	var len = Object.keys(addressCommunity).length;
 	        	if (len < 1) {
 	        		layer.open({
@@ -938,7 +938,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        })
 
 		    /*文本框点击确认*/
-		    $('.done_ok1').click(function(){
+		    $('.done_ok1').touchstart(function(){
 		    	var index = $(this).index('.done_ok1');
 		    	var value = $(this).parents('.page_set').find('input').val();
 
@@ -1080,7 +1080,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 
 		    /*学校添加新内容*/
-		    $('#noSchool').click(function(){
+		    $('#noSchool').touchstart(function(){
 		    	window.openIndex = layer.open({
 				    type: 1
 				    ,content: '<div class="weui-cells__title">学校申请</div><div class="weui-cells weui-cells_form"> <div class="weui-cell"> <div class="weui-cell__hd"><label class="weui-label">学校名称</label></div> <div class="weui-cell__bd"> <input class="weui-input" id="input_newSchool" type="text" placeholder="请输入您的学校"> </div> </div> <div class="weui-btn-area"> <a class="weui-btn weui-btn_primary" href="javascript:" id="addSchool" onclick="addSchoolFunc();">提交</a> </div>'
@@ -1090,7 +1090,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    })
 
 		    /*特长添加新内容*/
-		    $('#noHobby').click(function(){
+		    $('#noHobby').touchstart(function(){
 		    	window.openIndex = layer.open({
 				    type: 1
 				    ,content: '<div class="weui-cells__title">特长申请</div><div class="weui-cells weui-cells_form"> <div class="weui-cell"> <div class="weui-cell__hd"><label class="weui-label">特长名称</label></div> <div class="weui-cell__bd"> <input class="weui-input" id="input_newHobby" type="text" placeholder="请输入您的特长"> </div> </div> <div class="weui-btn-area"> <a class="weui-btn weui-btn_primary" href="javascript:" id="addHobby" onclick="addHobbyFunc();">提交</a> </div>'
