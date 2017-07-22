@@ -2,7 +2,9 @@
 $(document).on('click','.class1',function(){
 	var pid = $(this).attr('pid');
 	$('#eclass').attr('pid1',pid);
-	$('#eclass').load('/front/twoClasstwo?pid='+pid);
+	$('#eclass').load('/front/twoClasstwo?pid='+pid, function(){
+		setCartPosition();
+	});
 })
 $(document).on('click','.class2',function(){
 	var pid = $(this).attr('pid');
@@ -15,7 +17,9 @@ $(document).on('click','.class3',function(){
 	e = window.event;
 	var pid = $(this).attr('pid');
 	if (e.target.tagName == 'P')
-		$('#eclass').load('/front/twoClassfour?pid='+pid);
+		$('#eclass').load('/front/twoClassfour?pid='+pid, function(){
+		setCartPosition();
+	});
 	else if (e.target.tagName == 'SPAN') {
 		$('#childsheet').remove();
 
