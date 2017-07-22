@@ -145,7 +145,9 @@ $(document).on('click','#houtui',function(){
 			setCartPosition();
 			break;
 	}
-	$('#twoclass').load('/front/twoClassback?fenlei='+twoclass+'&pid='+pid);
+	$('#twoclass').load('/front/twoClassback?fenlei='+twoclass+'&pid='+pid, function(){
+		setCartPosition();
+	});
 })
 
 function setCartPosition(){
