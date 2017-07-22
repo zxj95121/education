@@ -59,10 +59,13 @@
 				</a>
 			</div>
         @endforeach	
-        	<div id="myCart" style="height: 40px;background: #F90000;width: 100%;">
-                <div class="col-xs-12" style="width:100%;height:100%;text-align: center;">
+        	<div id="myCart" style="height: 40px;background: #52525A;width: 100%;">
+                <div style="width:70%;height:100%;text-align: center;">
                     <span style="vertical-align: middle;line-height: 40px;color:#FFF;">我的购物车</span>
-                    <span class="weui-badge" style="margin-left: 5px;background: #FFF;color:#F90000;" id="cartNum">8</span>
+                    <span class="weui-badge" style="margin-left: 5px;background: #FFF;color:#52525A;" id="cartNum">8</span>
+                </div>
+                <div style="width:30%;height: 100%;text-align: center;background: #F90000;line-height: 40px;">
+                	去结算
                 </div>
             </div>	
 	@endif
