@@ -38,7 +38,7 @@ $(document).on('click','.class3',function(){
        		cartArr[len] = id;
        		/*将该购物车变为不可选*/
        		var lin = $(this).find('span');
-       		lin.css({'background-color':'#FFF','background':'#FFF','background-image':"url('/images/home/cart_dark.png')"});
+       		lin.css({'background-color':'#FFF','border-color':'#FFF','background-image':"url('/images/home/cart_dark.png')"});
 	        flyer.fly({   
 	            start: {   
 	                left: event.pageX,//抛物体起点横坐标   
