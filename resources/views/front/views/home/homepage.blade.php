@@ -329,6 +329,7 @@
     <script type="text/javascript" src="/js/layui/layer_only/mobile/layer.js"></script>
     <script type="text/javascript" src="/front/js_module/homepage/homepage.js"></script>
     <script type="text/javascript" src="/front/js_module/homepage/my.js"></script>
+    <script type="text/javascript" src="/js/jquery.fly.js"></script>
     <script type="text/javascript">
     	$(function(){
     		var url = [];	

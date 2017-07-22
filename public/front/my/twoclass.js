@@ -17,6 +17,23 @@ $(document).on('click','.class3',function(){
 		$('#eclass').load('/front/twoClassfour?pid='+pid);
 	else if (e.target.tagName == 'SPAN') {
 		$('#childsheet').remove();
+
+		var offset = $("#cartNum").offset();
+        var img = '/images/home/cart.png'; //获取当前点击图片链接   
+        var flyer = $('<img class="flyer-img" src="' + img + '">'); //抛物体对象   
+        flyer.fly({   
+            start: {   
+                left: event.pageX,//抛物体起点横坐标   
+                top: event.pageY //抛物体起点纵坐标   
+            },   
+            end: {   
+                left: offset.left,//抛物体终点横坐标   
+                top: offset.top, //抛物体终点纵坐标  
+            },   
+            onEnd: function() {     
+                this.destory(); //销毁抛物体   
+            }   
+        });
 		// loadIndex = layer.open({
 		//     type: 2
 		//     ,content: ''
@@ -61,7 +78,9 @@ $(document).on('click','.class3',function(){
 		// 				}
 		// 				$('#childsheet').fadeOut(200);
 						
-						var loadIndex = layer.open({
+
+
+						/*var loadIndex = layer.open({
 						    type: 2
 						    ,content: ''
 						});
@@ -82,7 +101,6 @@ $(document).on('click','.class3',function(){
 									if (timeLay >= 300) {
 										clearInterval(layInter);
 										clearInterval(successInter);
-										/*展示data*/
 										layer.close(loadIndex);
 										if (data.indexOf('weui-form-preview__bd') > 0) {
 											var openIndex = layer.open({
@@ -101,7 +119,9 @@ $(document).on('click','.class3',function(){
 									}
 								}, 50);
 							}
-						})
+						})*/
+
+
 
 		// 				/*点击响应结束*/
 		// 			});
