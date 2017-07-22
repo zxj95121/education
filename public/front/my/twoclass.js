@@ -1,4 +1,3 @@
-cartArr = new Array();
 
 $(document).on('click','.class1',function(){
 	var pid = $(this).attr('pid');

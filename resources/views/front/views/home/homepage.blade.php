@@ -332,7 +332,8 @@
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
     <script type="text/javascript">
     	$(function(){
-
+    		cartArr = new Array();
+    		
     		var url = [];	
     		url = window.location.href.split('#');
     		if(url.length == 1){
