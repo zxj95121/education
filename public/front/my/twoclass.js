@@ -1,4 +1,4 @@
-$('#cartNum').html(cartArr.length);
+
 $(document).on('click','.class1',function(){
 	var pid = $(this).attr('pid');
 	$('#eclass').attr('pid1',pid);
@@ -12,6 +12,7 @@ $(document).on('click','.class2',function(){
 	});
 })
 $(document).on('click','.class3',function(){
+	$('#cartNum').html(cartArr.length);/*购物车个数显示*/
 	e = window.event;
 	var pid = $(this).attr('pid');
 	if (e.target.tagName == 'P')
