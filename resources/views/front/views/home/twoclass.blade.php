@@ -80,10 +80,22 @@
             <div id="orderdetail" style="position: fixed;z-index: 99;width: 100%;">
             	<div class="cartblock">
             		<div class="cartheader" style="width:100%;background: #D8E0F7;padding:6px 10px;">
-            			<p style="font-size:1.1em;">英语自然拼读</p>
+            			<p style="font-size:1.1em;margin: 0px 0px;">英语自然拼读</p>
             		</div>
             		<div class="cartcontent" style="width: 100%;background: #FFF;">
-            			fsdfbr	<br>fsdafb <br>fsadfsdb <br>大幅度br	<br>防守打法
+            			<div class="weui-cell weui-cell_swiped">
+			                <div class="weui-cell__bd" style="transform: translateX(-68px)">
+			                    <div class="weui-cell">
+			                        <div class="weui-cell__bd">
+			                            <p>标题文字</p>
+			                        </div>
+			                        <div class="weui-cell__ft">说明文字</div>
+			                    </div>
+			                </div>
+			                <div class="weui-cell__ft">
+			                    <a class="weui-swiped-btn weui-swiped-btn_warn" href="javascript:">删除</a>
+			                </div>
+			            </div>
             		</div>
             		<div class="cartfooter" style="width:100%;height: 8px;background: #D8E0F7;">
             		</div>
