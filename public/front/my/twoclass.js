@@ -182,8 +182,8 @@ function setCartPosition(){
 		$('#zhicheng').css({'height':bottomHeight+40+'px','opacity':0});
 	}
 	var height = document.documentElement.clientHeight;
-	console.log(height);
-	$('#orderdetail').css('maxHeight', height-bottomHeight-40-$('.twoclassHead').height()+'px');
+	console.log(bottomHeight);
+	$('#orderdetail').css('maxHeight', height-bottomHeight-40-40+'px');
 	$('#orderdetail').css({'bottom':bottomHeight+40+'px'});
 	$('#cartNum').html(cartArr.length);/*购物车个数显示*/
 	/*对购物车已有的三级变灰色*/
