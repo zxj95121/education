@@ -389,7 +389,9 @@
 
 		}
         $('#eclass1').click(function(){
-            $('#eclass').load('/front/twoClass');
+            $('#eclass').load('/front/twoClass', function(){
+            	setCartPosition();
+            });
         	includeLink("/front/my/twoclass.js","js");
 
         	$.ajax({
@@ -403,7 +405,6 @@
         			if(data.errcode == 0) {
         				$('#eclass').attr('pid1',data.pid1);
         				$('#eclass').attr('pid2',data.pid2);
-        				setCartPosition();
         			}
         		}
         	})
