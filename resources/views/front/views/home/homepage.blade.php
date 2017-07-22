@@ -423,6 +423,10 @@
 				$('#zhicheng').css({'height':bottomHeight+40+'px','opacity':0});
 			}
 			$('#cartNum').html(cartArr.length);/*购物车个数显示*/
+			/*对购物车已有的三级变灰色*/
+			for (var i = 0;i < cartArr.length;i++) {
+				$('.buyCell a[pid="'+cartArr[i]+'"]').find('span').css({'background-color':'#FFF','border-color':'#FFF','background-image':"url('/images/home/cart_dark.png')"});
+			}
 		}
     </script>
 </body>
