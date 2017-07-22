@@ -7,7 +7,7 @@ $(document).on('click','.class2',function(){
 	var pid = $(this).attr('pid');
 	$('#eclass').attr('pid2',pid);
 	$('#eclass').load('/front/twoClassthree?pid='+pid, function(){
-		console.log('fsadf');
+		setCartPosition();
 	});
 })
 $(document).on('click','.class3',function(){
@@ -122,7 +122,12 @@ $(document).on('click','#houtui',function(){
 			break;
 		case 'class4':
 			var pid = $('#eclass').attr('pid2');
+			setCartPosition();
 			break;
 	}
 	$('#twoclass').load('/front/twoClassback?fenlei='+twoclass+'&pid='+pid);
 })
+
+function setCartPosition(){
+	console.log('fdfa');
+}
