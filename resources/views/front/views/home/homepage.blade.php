@@ -474,7 +474,7 @@
 				$(this).parents('.cartblock').remove();
 			}
 
-			setCartPosition();
+			console.log(cartArr);
 		})
 
 		/*直接将购物车详情内容根据cartOrder对象重置*/
