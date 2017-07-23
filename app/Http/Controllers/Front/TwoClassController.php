@@ -72,16 +72,32 @@ class TwoClassController extends Controller
     		Session::put('sess', $sess);
     	}
     	$teacherthree = TeacherThree::where('status','1')->where('pid',$pid)->select('id','name')->get();
+
+        /*获取课时数*/
+        $kcNum = array();
+        foreach ($teacherthree as $value) {
+            $id = $value->id;
+            $kcNum[] = TeacherFour::where('pid', $id)->count();
+        }
+
         $nameObj = TeacherTwo::where('id', $pid)->select('name')->get()[0];
-    	return view('front.views.home.twoclass',['res'=>$teacherthree,'class'=>'class3','pid'=>$pid,'name'=>$nameObj->name]);
+    	return view('front.views.home.twoclass',['res'=>$teacherthree,'class'=>'class3','pid'=>$pid,'name'=>$nameObj->name,'kcNum'=>$kcNum]);
     }
 
     public function threethree(){
         $sess = Session::get('sess');
         $pid = $sess['pid'];
         $teacherthree = TeacherThree::where('status','1')->where('pid',$pid)->select('id','name')->get();
+
+        /*获取课时数*/
+        $kcNum = array();
+        foreach ($teacherthree as $value) {
+            $id = $value->id;
+            $kcNum[] = TeacherFour::where('pid', $id)->count();
+        }
+
         $nameObj = TeacherTwo::where('id', $pid)->select('name')->get()[0];
-        $array = ['res'=>$teacherthree,'class'=>'class3','pid'=>$pid,'name'=>$nameObj->name];
+        $array = ['res'=>$teacherthree,'class'=>'class3','pid'=>$pid,'name'=>$nameObj->name,'kcNum'=>$kcNum];
         return $array;
     }
 
@@ -160,7 +176,13 @@ class TwoClassController extends Controller
     			$fenlei = 'class3';
                 Session::put('sess', array('class'=>'class3','pid'=>$pid));
                 $nameObj = TeacherTwo::where('id', $pid)->select('name')->get()[0];
-                return view('front.views.home.twoclass',['res'=>$res,'class'=>$fenlei,'pid'=>$pid,'name'=>$nameObj->name]);
+
+                $kcNum = array();
+                foreach ($res as $value) {
+                    $id = $value->id;
+                    $kcNum[] = TeacherFour::where('pid', $id)->count();
+                }
+                return view('front.views.home.twoclass',['res'=>$res,'class'=>$fenlei,'pid'=>$pid,'name'=>$nameObj->name,'kcNum'=>$kcNum]);
     			break;
     	}
     	return view('front.views.home.twoclass',['res'=>$res,'class'=>$fenlei]);

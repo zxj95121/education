@@ -55,9 +55,9 @@
 		@else
 		@endif
 	@else
-		@foreach($res as $value)
+		@foreach($res as $key => $value)
 			<div  class="weui-cells buyCell" style="margin:0">
-				<a class="weui-cell weui-cell_access {{$class}}" pid="{{$value->id}}">
+				<a class="weui-cell weui-cell_access {{$class}}" pid="{{$value->id}}" kcNum="{{$kcNum[$key]}}">
 				    <div class="weui-cell__bd" style="position: relative;">
 				        <p style="margin-bottom:0px">{{$value->name}}</p>
 				    	<iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>

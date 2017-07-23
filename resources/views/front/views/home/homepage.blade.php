@@ -333,6 +333,7 @@
     <script type="text/javascript">
     	$(function(){
     		cartArr = new Array();
+    		cartOrder = new Object();
 
     		var url = [];	
     		url = window.location.href.split('#');
