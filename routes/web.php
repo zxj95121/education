@@ -289,7 +289,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
   $router->post('/parent/mySchedule/getSchedule', 'Parent\MyScheduleController@getSchedule');
 
       /*新订单*/
-  $router->get('/parent/newEclassOrder', 'Parent\PayClassController@newEclassOrder');
+  $router->post('/parent/newEclassOrder', 'Parent\PayClassController@newEclassOrder');
   $router->get('/parent/newEclassOrder2','Parent\PayClassController@newEclassOrder2');
   $router->get('/parent/showPayEclassOrder','Parent\PayClassController@showPayEclassOrder');
   /*设置上课时间期望*/
