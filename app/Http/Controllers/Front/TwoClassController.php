@@ -159,6 +159,7 @@ class TwoClassController extends Controller
     			$res = TeacherThree::where('status','1')->where('pid',$pid)->select('id','name')->get();
     			$fenlei = 'class3';
                 Session::put('sess', array('class'=>'class3','pid'=>$pid));
+                return view('front.views.home.twoclass',['res'=>$res,'class'=>$fenlei,'pid'=>$pid]);
     			break;
     	}
     	return view('front.views.home.twoclass',['res'=>$res,'class'=>$fenlei]);
