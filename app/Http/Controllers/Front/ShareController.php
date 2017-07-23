@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\NewUser;
 use App\Http\Controllers\Wechat\OauthController;
+use Session;
 class ShareController extends Controller
 {
 	public function index(Request $request)
