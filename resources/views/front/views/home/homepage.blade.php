@@ -435,7 +435,7 @@
 		}
 
 		$('#myCartLeft').click(function(){
-			$('.orderdetail').slideUp();
+			$('#orderdetail').slideDown();
 		})
     </script>
 </body>
