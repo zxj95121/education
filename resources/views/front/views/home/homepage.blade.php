@@ -424,7 +424,7 @@
 			}
 			var height = document.documentElement.clientHeight;
 			console.log(height);
-			$('#orderdetail').css('height', height-bottomHeight-40-$('.twoclassHead').height()+'px');
+			$('#orderdetail').css('height', height-bottomHeight-40-40+'px');
 			console.log(height);
 			$('#orderdetail').css({'bottom':bottomHeight+40+'px'});
 			$('#cartNum').html(cartArr.length);/*购物车个数显示*/
