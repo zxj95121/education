@@ -56,6 +56,7 @@
 		@endif
 	@else
 		@foreach($res as $value)
+			<div id="hideTwo" pid=""></div>
 			<div  class="weui-cells buyCell" style="margin:0">
 				<a class="weui-cell weui-cell_access {{$class}}" pid="{{$value->id}}">
 				    <div class="weui-cell__bd" style="position: relative;">
@@ -80,20 +81,20 @@
                 </div>
             </div>
 
-            <div id="orderdetail" style="position: fixed;z-index: 99;width: 100%;overflow: scroll;display: none;">
+            <div id="orderdetail" style="position: fixed;z-index: 99;width: 100%;overflow: scroll;display: none;font-family: arial, helvetica, sans-serif;">
             	<div class="cartTop" style="position: relative;text-align: center;line-height: 39px;height:39px;background: #E50F12;color:#FFF;z-index: 100;cursor: pointer;">
             		我的购物车
             		<div class="cartTopRight" id="orderdetailClose" style="height: 39px;cursor: pointer;line-height: 39px;position: absolute;right: 10px;top: 0px;">关闭</div>
             	</div>
-            	<div class="cartblock">
-            		<div class="cartheader" style="width:100%;background: #D8E0F7;padding:6px 10px;">
+            	<div class="cartblock" pid="">
+            		<div class="cartheader" style="width:100%;background: #EA6969;color: #FFF;padding:6px 10px;">
             			<p style="font-size:1.1em;margin: 0px 0px;">英语自然拼读</p>
             		</div>
             		<div class="cartcontent" style="width: 100%;background: #FFF;">
 						<div  class="weui-cells" style="margin:0;">
 							<a class="weui-cell weui-cell_title">
 							    <div class="weui-cell__bd" style="position: relative;color:#333;">
-							        <p style="margin-bottom:0px">大幅度工人房</p>
+							        <p style="font-size:15px;">大幅度工人房</p>
 							    	<iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
 							    	
 							    </div>
@@ -134,10 +135,10 @@
 							</a>
 						</div>
             		</div>
-            		<div class="cartfooter" style="width:100%;height: 8px;background: #D8E0F7;">
+            		<div class="cartfooter" style="width:100%;height: 8px;background: #FFFFFF;">
             		</div>
             	</div>
-            	<div class="cartblock">
+            	<div class="cartblock" pid="">
             		<div class="cartheader" style="width:100%;background: #D8E0F7;padding:6px 10px;">
             			<p style="font-size:1.1em;margin: 0px 0px;">英语自然拼读</p>
             		</div>
@@ -186,7 +187,7 @@
 							</a>
 						</div>
             		</div>
-            		<div class="cartfooter" style="width:100%;height: 8px;background: #D8E0F7;">
+            		<div class="cartfooter" style="width:100%;height: 8px;background: #FFFFFF;">
             		</div>
             	</div>
             </div>
