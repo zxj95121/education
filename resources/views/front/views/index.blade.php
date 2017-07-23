@@ -205,7 +205,7 @@
                                 //表示手机号验证码无误
                                 $('#tishi').html('绑定成功！页面即将跳转...');
                                 $('#tishi').css('opacity',1);
-                                setTimeout(function(){$('#phone').val('');$('#phoneCode').val('');window.location.href="/front/home";},500);
+                                setTimeout(function(){$('#phone').val('');$('#phoneCode').val('');window.location.href="/front/home";},10);
                             }
                             else{
                                 //绑定失败

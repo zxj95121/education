@@ -12,6 +12,7 @@ use App\Models\ParentInfo;
 use App\Models\ParentDetail;
 use App\Models\TeacherDetail;
 use App\Models\UserType;
+use App\Models\NewUser;
 
 use Session;
 use Wechat;
@@ -169,6 +170,17 @@ class LoginController extends Controller
             $flight->type = '3';
             $flight->save();
         }
+
+        /*user_type的id*/
+        $uid = $flight->id;
+        /*存到new_user表*/
+        $flight = new NewUser();
+        $flight->openid = $openid;
+        $flight->type = '1';
+        $flight->voucher = 188;
+        $flight->phone = $phone;
+        $flight->nickname = $nickname;
+        $flight->save();
 
         Session::put('front_id', $flight->id);
         Session::forget('phoneCode');
