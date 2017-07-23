@@ -474,7 +474,12 @@
 				$(this).parents('.cartblock').remove();
 			}
 
-			console.log(cartArr);
+			$('.buyCell a').find('span').each(function(){
+				$(this).css({'background-color':'#5cb85c','border-color':'#4cae4c','background-image':"url('/images/home/cart.png')"});
+			})
+			for (var i = 0;i < cartArr.length;i++) {
+				$('.buyCell a[pid="'+cartArr[i]+'"]').find('span').css({'background-color':'#FFF','border-color':'#FFF','background-image':"url('/images/home/cart_dark.png')"});
+			}
 		})
 
 		/*直接将购物车详情内容根据cartOrder对象重置*/
