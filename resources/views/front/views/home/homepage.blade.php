@@ -437,7 +437,7 @@
 		$(document).on('click', '#myCartLeft', function(){
 			var bottom = parseInt($('#orderdetail').css('bottom'));
 			var height = $('#orderdetail').height();
-			$('#orderdetail').slideDown();
+			$('#orderdetail').slideUp();
 			// $('#orderdetail').animate({'bottom':(bottom-height)+'px'}, 350);
 		})
     </script>
