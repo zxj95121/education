@@ -232,6 +232,7 @@ $(document).on('click', '#myCartRight', function(){
 		    ,content: ''
 		});
 		$('#cartOrderForm textarea').val(JSON.stringify(cartOrder));
+		$('#inputcartTotal').val(cartTotal);
 		$('#cartOrderForm')[0].submit();
 	}
 })

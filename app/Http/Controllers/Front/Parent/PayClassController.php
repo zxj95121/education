@@ -23,6 +23,7 @@ class PayClassController extends Controller
 	/*新订单*/
 	public function newEclassOrder(Request $request) {
 		// var_dump($request->all());
+		$cartTotal = $request->input('cartTotal');
 		$cartOrder = json_decode($request->input('cartOrder'), true);
 		var_dump($cartOrder);
 		exit;

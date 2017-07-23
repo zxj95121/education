@@ -145,6 +145,7 @@
 
             <form id="cartOrderForm" action="/front/parent/newEclassOrder" method="post" style="display: none;">
             	<textarea name="cartOrder"></textarea>
+            	<input type="hidden" name="cartTotal" id="inputcartTotal">
             	{{csrf_field()}}
             </form>
             <!-- <div class="js_dialog" id="cartConfirm" style="opacity: 1;display: none;">
