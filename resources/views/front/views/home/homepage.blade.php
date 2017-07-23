@@ -450,23 +450,28 @@
 		/*deleteCartBtn*/
 		$(document).on('click', '.deleteCartBtn', function(){
 			var blockCount = $(this).parents('.cartblock').find('.cartcontent').length;
-			if (blockCount == 1) {
-				var id = $(this).parents('.cartblock').attr('pid');
-				var pid = $(this).parents('.cartcontent').attr('pid');
-				var count = cartOrder[id]['val'][pid].count;
-				cartTotal = cartTotal-count;
 
-				var len = cartArr.length;
-				for (var i = 0;i < len;i++) {
-					if( cartArr[i] == pid) {
-						delete(cartArr[i]);
-						break;
-					}
+			var id = $(this).parents('.cartblock').attr('pid');
+			var pid = $(this).parents('.cartcontent').attr('pid');
+			var count = cartOrder[id]['val'][pid].count;
+			cartTotal = cartTotal-count;
+
+			var len = cartArr.length;
+			for (var i = 0;i < len;i++) {
+				if( cartArr[i] == pid) {
+					delete(cartArr[i]);
+					break;
 				}
+			}
 
-				$('#cartNum').html(cartTotal);
+			$('#cartNum').html(cartTotal);
+
+			if (blockCount != 1) {
 				delete(cartOrder[id]['val'][pid]);
 				$(this).parents('.cartcontent').remove();
+			} else {
+				delete(cartOrder[id]);
+				$(this).parents('.cartblock').remove();
 			}
 		})
 
