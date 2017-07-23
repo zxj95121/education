@@ -183,7 +183,7 @@ function setCartPosition(){
 	}
 	var height = document.documentElement.clientHeight;
 	console.log(bottomHeight);
-	$('#orderdetail').css('maxHeight', height-bottomHeight-40-40+'px');
+	$('#orderdetail').css('Height', height-bottomHeight-40-40+'px');
 	$('#orderdetail').css({'bottom':bottomHeight+40+'px'});
 	$('#cartNum').html(cartArr.length);/*购物车个数显示*/
 	/*对购物车已有的三级变灰色*/
