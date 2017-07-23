@@ -447,6 +447,29 @@
 			}
 		})
 
+		/*deleteCartBtn*/
+		$(document).on('click', '.deleteCartBtn', function(){
+			var blockCount = $(this).parents('.cartblock').find('.cartcontent').length;
+			if (blockCount == 1) {
+				var id = $(this).parents('.cartblock').attr('pid');
+				var pid = $(this).parents('.cartcontent').attr('pid');
+				var count = cartOrder[id]['val'][pid].count;
+				cartTotal = cartTotal-count;
+
+				var len = cartArr.length;
+				for (var i = 0;i < len;i++) {
+					if( cartArr[i] == pid) {
+						delete(cartArr[i]);
+						break;
+					}
+				}
+
+				$('#cartNum').html(cartTotal);
+				delete(cartOrder[id]]['val'][pid]);
+				$(this).parents('.cartcontent').remove();
+			}
+		})
+
 		/*直接将购物车详情内容根据cartOrder对象重置*/
 function cartInit(){
 	$('#orderdetail .cartblock').each(function(){
@@ -460,8 +483,8 @@ function cartInit(){
 			$('#orderdetail .cartblock:last').append('<div class="cartcontent" style="width: 100%;background: #FFF;" pid="'+j+'">'
 			 +'<div  class="weui-cells" style="margin:0;"> <a class="weui-cell weui-cell_title"> <div class="weui-cell__bd"'
 			  +'style="position: relative;color:#333;"> <p style="font-size:15px;">'+val[j].name+'</p> <iframe id="tmp_downloadhelper_iframe"'
-			   +'style="display: none;"></iframe> </div> <div class="weui-cell__ft"> <span>'+val[j].count+'课时</span> <span class="btn btn-danger"'
-			    +'style="background-color:#FFF;border-color:#FFF;background-image:url(\'/images/home/cart_delete.png\');'
+			   +'style="display: none;"></iframe> </div> <div class="weui-cell__ft"> <span>'+val[j].count+'课时</span> <span class="btn btn-danger deleteCartBtn"'
+			    +'style="background-color:#FFF;border-color:#FFF;cursor:pointer;background-image:url(\'/images/home/cart_delete.png\');'
 			    +'background-size:100% 100%;width:28px;height:28px;"> </span> </div> </a> </div> </div>');
 		}
 	}
