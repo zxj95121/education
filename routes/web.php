@@ -24,8 +24,9 @@ Route::get('/html/{name}',function($name){
     return redirect('/html?res='.$name);
 });
 Route::get('/html', 'HtmlController@index');
-
+/*微信支付回调  */
 Route::any('/wxpay/notify','WeixinController@notify');
+
 //<!------------Wechat文件夹----------------------->
 /*微信接入主程序*/
 Route::any('/wechatIndex', 'Wechat\WechatIndexController@index');
@@ -220,6 +221,8 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
     $router->get('/parent/mySchedule/oauth', 'Parent\MyScheduleController@oauth');
 	
 	$router->get('/parent/myClassOrder/details', 'Parent\MyClassOrderController@details');
+	/*微信分享  */
+	$router->get('/share/oauth', 'ShareController@oauth');
 });
 
 /*-------------*/
@@ -298,10 +301,6 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
   $router->post('/setClassTime/selectTime', 'Parent\ClassTimeController@selectTime');/*ajax请求选课*/
   $router->post('/setClassTime/cancleTime', 'Parent\ClassTimeController@cancleTime');/*ajax取消选择*/
   $router->post('/setClassTime/setAll', 'Parent\ClassTimeController@setAll');/*ajax设置所有*/
-
-  
-  /*微信分享  */
-  $router->get('/fenxiang', 'WxShareController@index');
 });
 
 /*-------------*/
