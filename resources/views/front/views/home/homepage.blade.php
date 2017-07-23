@@ -10,6 +10,9 @@
     <link rel="stylesheet" type="text/css" href="/css/weui.css"/>
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/my.css">
     <style type="text/css">
+	    #twoclass{
+	    	position: relative;
+	    }
         a:link{
             text-decoration: none;
         }
@@ -26,6 +29,7 @@
 </head>
 <body>
 	@if($userType->type == 2)
+		@if($parentDetail->type == 1)
 		<div class="container-fluid" id="teacher" style="display: none;">
         	<div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">名师定制功能正在开发中</span>
@@ -40,6 +44,19 @@
         	<div id="twoclass">
         	</div>
     	</div>
+    	@elseif($parentDetail->type == 2)
+    	<div class="container-fluid" id="teacher" style="display: none;">
+        	<div class="weui-loadmore weui-loadmore_line">
+            	<span class="weui-loadmore__tips">名师定制功能正在开发中</span>
+        	</div>
+    	</div>
+    	@else
+    	<div class="container-fluid" id="teacher" style="display: none;">
+        	<div class="weui-loadmore weui-loadmore_line">
+            	<span class="weui-loadmore__tips">名师定制功能正在开发中</span>
+        	</div>
+    	</div>
+    	@endif
 	@elseif($userType->type == 3)
 		<div class="container-fluid" id="studytime" style="display: none;">
         	<div class="weui-loadmore weui-loadmore_line">
@@ -101,6 +118,7 @@
         
 
         @elseif($userType->type == 2)
+        	@if($parentDetail->type == 1)
 	       	<div class="row" id="my_count">
 	            <a href="/front/parent/myClassOrder">
 	            	<div class="row_count col-xs-4" id="my_count_left">
@@ -122,6 +140,8 @@
 	        	</a>
 	        </div>
 	       	<div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
+	       	@else
+	       	@endif
         @elseif($userType->type == 3)
 	        <div class="row" id="my_count">
 	            <div class="row_count col-xs-4" id="my_count_left">
@@ -141,6 +161,7 @@
         @endif
         @if($userType->type == 1)
         @elseif($userType->type == 2)
+        	@if($parentDetail->type == 1)
        		<div id="my_functions">
 	            <div class="row" class="my_function function_child">
 	                <!-- <div class="col-xs-3 my_function_type" id="user_info">
@@ -184,12 +205,15 @@
 	            </div> -->
 	        </div>
 	        <div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
+	        @else
+	        @endif
         @elseif($userType->type == 3)
         @endif
         
         @if($userType->type == 1)
         	
         @elseif($userType->type == 2)
+        	@if($parentDetail->type == '1')
        		<div class="weui-cells" id="my_option">
 	            <a class="weui-cell weui-cell_access" href="/front/setClassTime">
 	                <div class="weui-cell__hd"><img src="/images/home/option_time.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
@@ -206,35 +230,26 @@
 	                <div class="weui-cell__ft"></div>
 	            </a>
 	        </div>
+	        @elseif(!$parentDetail->type)
+	        <div class="weui-cells" id="my_option">
+	            <a class="weui-cell weui-cell_access" href="/front/user_info_parent">
+	                <div class="weui-cell__hd"><img src="/images/home/option_information.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>请尽快完善个人信息</p>
+	                </div>
+	                <div class="weui-cell__ft"></div>
+	            </a>
+	        </div>
+	        @else
+	        @endif
         @elseif($userType->type == 3)
         	<div class="weui-cells" id="my_option">
-	            <a class="weui-cell weui-cell_access" href="/front/user_info_teacher">
+	            <a class="weui-cell weui-cell_access" href="#">
 	                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
 	                <div class="weui-cell__bd">
-	                    <p>消息通知</p>
+	                    <p>暂无功能使用</p>
 	                </div>
-	                <div class="weui-cell__ft">说明文字</div>
-	            </a>
-	            <a class="weui-cell weui-cell_access" href="javascript:;">
-	                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
-	                <div class="weui-cell__bd">
-	                    <p>cell standard</p>
-	                </div>
-	                <div class="weui-cell__ft">说明文字</div>
-	            </a>
-	            <a class="weui-cell weui-cell_access" href="javascript:;">
-	                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
-	                <div class="weui-cell__bd">
-	                    <p>cell standard</p>
-	                </div>
-	                <div class="weui-cell__ft">说明文字</div>
-	            </a>
-	            <a class="weui-cell weui-cell_access" href="javascript:;">
-	                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
-	                <div class="weui-cell__bd">
-	                    <p>cell standard</p>
-	                </div>
-	                <div class="weui-cell__ft">说明文字</div>
+	                <div class="weui-cell__ft"></div>
 	            </a>
 	        </div>
         @endif
@@ -248,6 +263,7 @@
 	        </a>
 	    </div>
    	@elseif($userType->type == 2)
+   		@if($parentDetail->type == 1)
    		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
 	        <a href="javascript:void(0);" class="weui-tabbar__item" for="teacher" id="teacher1">
 	            <span style="display: inline-block;position: relative;">
@@ -270,6 +286,21 @@
 	            <p class="weui-tabbar__label">我的</p>
 	        </a>
 	    </div>
+	    @else
+	    <div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
+	        <a href="javascript:void(0);" class="weui-tabbar__item" for="teacher" id="teacher1">
+	            <span style="display: inline-block;position: relative;">
+	                <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
+	            </span>
+	            <p class="weui-tabbar__label">名师定制</p>
+	        </a>
+	        <a href="javascript:void(0);" class="weui-tabbar__item" for="my" id="my1">
+	            <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
+	            <p class="weui-tabbar__label">我的</p>
+	        </a>
+	    </div>
+	    @endif
+
    	@elseif($userType->type == 3)
    		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
 	        <a href="javascript:void(0);" class="weui-tabbar__item" for="studytime" id="studytime1">
@@ -298,8 +329,11 @@
     <script type="text/javascript" src="/js/layui/layer_only/mobile/layer.js"></script>
     <script type="text/javascript" src="/front/js_module/homepage/homepage.js"></script>
     <script type="text/javascript" src="/front/js_module/homepage/my.js"></script>
+    <script type="text/javascript" src="/js/jquery.fly.js"></script>
     <script type="text/javascript">
     	$(function(){
+    		cartArr = new Array();
+
     		var url = [];	
     		url = window.location.href.split('#');
     		if(url.length == 1){
@@ -320,7 +354,7 @@
         });
 	    var urlStyle = [];
 	    var urlScript = [];
-	    /* 加载js css */
+	    /* 加载js css*/
 		function includeLink(url,urlType) {
 			if(urlType == "css"){
 				for(var i = 0; i < urlStyle.length;i++){
@@ -358,7 +392,9 @@
 
 		}
         $('#eclass1').click(function(){
-            $('#eclass').load('/front/twoClass');
+            $('#eclass').load('/front/twoClass', function(){
+            	setCartPosition();
+            });
         	includeLink("/front/my/twoclass.js","js");
 
         	$.ajax({
@@ -372,10 +408,31 @@
         			if(data.errcode == 0) {
         				$('#eclass').attr('pid1',data.pid1);
         				$('#eclass').attr('pid2',data.pid2);
+        				setCartPosition();
         			}
         		}
         	})
         })
+
+        function setCartPosition(){
+			var bottomHeight = $('#all_bottom').height();
+			$('#myCart').css({'position':'fixed','bottom':bottomHeight+'px'});
+			if ($('#myCart').length == 0) {
+				$('#zhicheng').css({'height':bottomHeight+'px','opacity':0});
+			} else {
+				$('#zhicheng').css({'height':bottomHeight+40+'px','opacity':0});
+			}
+			var height = document.documentElement.clientHeight;
+			console.log(height);
+			$('#orderdetail').css('maxHeight', height-bottomHeight-40-$('.twoclassHead').height()+'px');
+			console.log(height);
+			$('#orderdetail').css({'bottom':bottomHeight+40+'px'});
+			$('#cartNum').html(cartArr.length);/*购物车个数显示*/
+			/*对购物车已有的三级变灰色*/
+			for (var i = 0;i < cartArr.length;i++) {
+				$('.buyCell a[pid="'+cartArr[i]+'"]').find('span').css({'background-color':'#FFF','border-color':'#FFF','background-image':"url('/images/home/cart_dark.png')"});
+			}
+		}
     </script>
 </body>
 </html>

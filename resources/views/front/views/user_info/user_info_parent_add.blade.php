@@ -59,6 +59,9 @@ $signPackage = $jssdk->GetSignPackage();
 		#page_main a:active{
 			text-decoration: none;
 		}
+		.cTwo,.cOne,.cThree{
+			cursor: pointer;
+		}
 	</style>
 </head>
 <body>
@@ -89,12 +92,12 @@ $signPackage = $jssdk->GetSignPackage();
 	                    <span style="vertical-align:middle; font-size: 17px;">{{$userDetail->name}}</span>
 	                </div>
 	            </div>
-	            <div class="weui-cell weui-cell_access row_info input_info" target="surname">
+	            <!-- <div class="weui-cell weui-cell_access row_info input_info" target="surname">
 	                <div class="weui-cell__bd">家长尊姓</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;">{{$userDetail->surname}}</span>
+	                    <span style="vertical-align:middle; font-size: 17px;">{$userDetail->surname}</span>
 	                </div>
-	            </div>
+	            </div> -->
 	            <div class="weui-cell weui-cell_access" id="cell_sex">
 	                <div class="weui-cell__bd">身份</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
@@ -126,12 +129,12 @@ $signPackage = $jssdk->GetSignPackage();
 	                    <span style="vertical-align:middle; font-size: 17px;">{{$addressStr}}</span>
 	                </div>
 	            </div>
-	            <div class="weui-cell weui-cell_access row_info input_info" target="place">
+	            <!-- <div class="weui-cell weui-cell_access row_info input_info" target="place">
 	                <div class="weui-cell__bd">栋单元楼层</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
-	                    <span style="vertical-align:middle; font-size: 17px;">{{$userDetail->place}}</span>
+	                    <span style="vertical-align:middle; font-size: 17px;">{$userDetail->place}</span>
 	                </div>
-	            </div>
+	            </div> -->
 	            <!-- <div class="weui-cell weui-cell_access">
 	                <div class="weui-cell__bd">我的优势</div>
 	                <div class="weui-cell__ft" style="color:#22AAE8;">

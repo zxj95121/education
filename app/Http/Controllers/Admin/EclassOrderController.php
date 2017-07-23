@@ -102,6 +102,7 @@ class EclassOrderController extends Controller
         require_once $_SERVER['DOCUMENT_ROOT']."/php/WxPayAPI/lib/tuikuan.php";
         if($res['result_code'] === 'SUCCESS'){
         	$flight->confirm_status = 2;
+            $flight->complete = 1;
         	$flight->pay_status = 2;
         	$flight->save();
         	$bill = new Bill();
@@ -145,6 +146,7 @@ class EclassOrderController extends Controller
         $week = $request->input('week');
         $keshi = $request->input('keshi');
         $class = $request->input('class');
+        $checkbox = $request->input('checkbox');
 
         /*获取课时\班级信息*/
         $Banji = BanJi::where('status', '1')
@@ -153,6 +155,7 @@ class EclassOrderController extends Controller
         foreach ($Banji as $value) {
             $cid = $value->id;
             $obj = OrderClassTime::where('class_id', $cid)
+                ->where('type', $checkbox)
                 ->where('ct_id', $keshi)
                 ->where('week', $week)
                 ->where('status', '1');
@@ -194,6 +197,7 @@ class EclassOrderController extends Controller
         $count = OrderClassTime::where('order_id', $id)
             ->where('week', $week)
             ->where('ct_id', $keshi)
+            ->where('type', $checkbox)
             ->where('status', '1')
             ->count();
         if($count > 0) {

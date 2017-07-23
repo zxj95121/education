@@ -11,18 +11,18 @@ class TemplateController extends Controller
     {
     	$access_token = Wechat::get_access_token();
     	$res = '{
-				"touser":"Aes29u_WuVTbyxSZPHqB5g3gzjEsx7Pj_9CSqJXLB70",
-				"template_id":"'.$openid.'",
-				"url":'.$_SERVER["SERVER_NAME"].'"/parent/myClassOrder/oauth",
+				"touser":"'.$openid.'",
+				"template_id":"Aes29u_WuVTbyxSZPHqB5g3gzjEsx7Pj_9CSqJXLB70",
+				"url": "http://'.$_SERVER["SERVER_NAME"].'/front/parent/myClassOrder/oauth",
 				"topcolor":"#FF0000",
     			"data":{
-    				"first":{"value":'.$title.'},
-    				"keyword1":{"value":'.$name.'},
-    				"keyword2":{"value":'.$type.'},
-    				"keyword3":{"value":'.$price.'},
-    				"keyword4":{"value":'.$time.'},
-    				"keyword5":{"value":'.$nickname.'},
-    				"remark":{"value":'.$remark.'}
+    				"first":{"value": "'.$title.'"},
+    				"keyword1":{"value": "'.$name.'","color":"#173177"},
+    				"keyword2":{"value": "'.$type.'","color":"#173177"},
+    				"keyword3":{"value": "'.$price.'","color":"#173177"},
+    				"keyword4":{"value": "'.$time.'","color":"#173177"},
+    				"keyword5":{"value": "'.$nickname.'","color":"#173177"},
+    				"remark":{"value": "'.$remark.'"}
     				}
     			}';
     	Wechat::curl('https://api.weixin.qq.com/cgi-bin/message/template/send?access_token='.$access_token['access_token'],$res);

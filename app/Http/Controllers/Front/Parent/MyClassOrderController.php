@@ -26,6 +26,7 @@ class MyClassOrderController extends Controller
     		->where('pay_status', 0)
     		->where('status', 1)
     		->orderBy('id', 'desc')
+            ->where('complete', '0')
     		->get()
     		->toArray();
     	foreach ($noPayObj as $key => $value) {
@@ -39,6 +40,7 @@ class MyClassOrderController extends Controller
     		->where('pay_status', '1')
     		->where('confirm_status', '0')
     		->where('status', '1')
+            ->where('complete', '0')
     		->orderBy('id', 'desc')
     		->get()
     		->toArray();
@@ -53,6 +55,7 @@ class MyClassOrderController extends Controller
     		->where('pay_status', '1')
     		->where('confirm_status', '1')
     		->where('status', '1')
+            ->where('complete', '0')
     		->orderBy('id', 'desc')
     		->get()
     		->toArray();

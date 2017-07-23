@@ -14,6 +14,7 @@ use App\Models\ParentInfo;
 use App\Models\TeacherInfo;
 use App\Models\ParentChild;
 use App\Models\EclassOrder;
+use App\Models\ParentDetail;
 class HomeController extends Controller
 {
     public function home()
@@ -21,23 +22,33 @@ class HomeController extends Controller
     	$openid = Session::get('openid');
 		$res = $this->userType($openid);
     	if (count($res['userType'])){
-    		$parentinfo = ParentInfo::where('openid',$openid)->select('id')->first();
-    		$child = ParentChild::where('pid',$parentinfo->id)->where('status',1)->select('id','sex','name')->get();
-    		$orderstatus[1] = EclassOrder::where('uid',$parentinfo->id)
-    			->where('status', '1')
-    			->count();
-    		$orderstatus[2] = EclassOrder::where('uid',$parentinfo->id)
-	    		->where('pay_status', '1')
-	    		->where('confirm_status', '1')
-	    		->where('status', '1')
-	    		->count();
-    		$orderstatus[3] = EclassOrder::where('uid',$parentinfo->id)
-    			->where('complete',1)
-				->where('status', 1)
-				->count();
-    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus]);
+    		if ($res['type'] == '1') {
+    			return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0]]);
+    		} elseif ($res['type'] == '2') {
+	    		$parentinfo = ParentInfo::where('openid',$openid)->select('id')->first();
+	    		$child = ParentChild::where('pid',$parentinfo->id)->where('status',1)->select('id','sex','name')->get();
+	    		$orderstatus[1] = EclassOrder::where('uid',$parentinfo->id)
+	    			->where('status', '1')
+	    			->count();
+	    		$orderstatus[2] = EclassOrder::where('uid',$parentinfo->id)
+		    		->where('pay_status', '1')
+		    		->where('confirm_status', '1')
+		    		->where('complete', '0')
+		    		->where('status', '1')
+		    		->count();
+	    		$orderstatus[3] = EclassOrder::where('uid',$parentinfo->id)
+	    			->where('complete',1)
+					->where('status', 1)
+					->count();
+				$parentDetail = ParentDetail::where('pid', $res['data'][0]->id)->get()[0];
+	    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus,'parentDetail'=>$parentDetail]);
+	    	} elseif ($res['type'] == '3') {
+	    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0]]);
+	    	} else {
+	    		exit;
+	    	}
     	} else {
-    		return redirect('/front/register');
+    		return redirect('/front/register/oauth');
     	}
     }
 	public function userType($openid)
@@ -51,12 +62,15 @@ class HomeController extends Controller
 		switch($res['userType'][0]->type){
 			case '1':
 				$res['data'] = AdminInfo::where('id',$res['userType'][0]->uid)->get();
+				$res['type'] = $res['userType'][0]->type;
 				break;
 			case '2':
 				$res['data'] = ParentInfo::where('id',$res['userType'][0]->uid)->get();
+				$res['type'] = $res['userType'][0]->type;
 				break;
 			case '3';
 				$res['data'] = TeacherInfo::where('id',$res['userType'][0]->uid)->get();
+				$res['type'] = $res['userType'][0]->type;
 				break;
 		}
 		return $res;

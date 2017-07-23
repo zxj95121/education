@@ -8,7 +8,7 @@
 	$input = new WxPayUnifiedOrder();
 	$input->SetBody($classname);//商品描述
 	$input->SetOut_trade_no($flight->order_no);//商户订单号
-	$input->SetTotal_fee((int)((float)$flight->price)*100);//标价金额
+	$input->SetTotal_fee((int)((float)$flight->price*100));//标价金额
 	$input->SetTime_start(date("YmdHis"));//交易起始时间
 	$input->SetNotify_url("http://".$_SERVER['SERVER_NAME']."/wxpay/notify");//通知地址
 	$input->SetTrade_type("JSAPI");//交易类型
@@ -61,13 +61,13 @@
           						<div class="item-after">{{$flight->count}}</div>
         					</div>
       					</li>
-      					<li class="item-content">
+<!--       					<li class="item-content">
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">
           						<div class="item-title">授课学生</div>
-          						<div class="item-after">{{$childName}}</div>
+          						<div class="item-after">$childName</div>
         					</div>
-      					</li>
+      					</li> -->
       					<li class="item-content">
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">

@@ -26,7 +26,7 @@ class HomeController extends Controller
 
     public function login()
     {
-         Session::put('admin_id', '1');
+         // Session::put('admin_id', '1');
     	/*访问，是否要生成二维码*/
     	$processEnd = AdminScanLogin::where('status', '3')
     		->select('id', 'scan_url')
@@ -164,6 +164,12 @@ class HomeController extends Controller
         }
     }
 
+    /*Log out*/
+    public function logout()
+    {
+        Session::forget('admin_id');
+    }
+
     /*申请管理员oauth*/
     public function applyAdmin(Request $request)
     {
@@ -220,6 +226,8 @@ class HomeController extends Controller
             return response()->json(['errcode'=>2,'reason'=>'手机号已经注册']);
         }
 
+        $phoneCode = ''.rand(0,9).rand(0,9).rand(0,9).rand(0,9);
+        
         require_once($_SERVER['DOCUMENT_ROOT'].'/php/Qcloud/Sms/SmsSenderDemo.php');
         $result = postPhoneCodeSms($phone, $phoneCode);
         

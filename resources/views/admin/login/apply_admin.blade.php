@@ -218,7 +218,7 @@ $signPackage = $jssdk->GetSignPackage();
 			$('#getPhoneCode').click(function(){
 				var phone = $('#phone').val();
 				if (/^1\d{10}$/.test(phone)) {
-					var loadIndex = window.layer.load(1);
+					var loadIndex = window.layer.load(1,{time: 5000});
 					$.ajax({
 						url: '/admin/apply/phoneCode',
 						type: 'post',

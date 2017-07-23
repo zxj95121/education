@@ -102,7 +102,7 @@
                                             <button type="submit" class="btn btn-info w-md">查询</button>
                                         </div>
                                         <div class="col-md-2">
-                                            <button onclick="window.location.href='http://blue.api/admin/eclassOrderList'" type="button" class="btn btn-default w-md">重置查询条件</button>
+                                            <button onclick="window.location.href='/admin/eclassOrderList'" type="button" class="btn btn-default w-md">重置查询条件</button>
                                         </div>
                                     </div>
                                 </form>
@@ -530,7 +530,10 @@
                                     var str = '周日下午';
                                     break;
                             }
-                            $('#timeP').append('<span class="label label-primary">'+str+'</span>　');
+                            if (str)
+                                $('#timeP').append('<span class="label label-primary">'+str+'</span>　');
+                            else
+                                $('#timeP').append('<span class="label label-primary">由加辰安排</span>　');
                         }
 
                         var oct = data.result.order_class_time;
@@ -575,6 +578,11 @@
         weekTimeChange();
         setUseMessage();
         $('#weekSelect').change(function(){
+            weekTimeChange();
+            setUseMessage();
+        })
+
+        $('#hospitalCheckBox').change(function(){
             weekTimeChange();
             setUseMessage();
         })
@@ -681,6 +689,7 @@
         var keshi = $('#keshiSelect option:selected').val();
         var clas = $('#classSelect option:selected').val();
         // var id = $('#useOrderModal').attr('oid');
+        var checkbox = $('input[name="hospital"]:checked').val()?'1':'0';
 
         $.ajax({
             url: '/admin/classOrder/useDetails',
@@ -689,7 +698,8 @@
             data: {
                 week: week,
                 keshi: keshi,
-                class: clas
+                class: clas,
+                checkbox: checkbox
             },
             success: function(data) {
                 if (data.errcode == 0) {
