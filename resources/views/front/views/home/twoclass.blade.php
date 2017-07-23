@@ -81,7 +81,7 @@
             </div>
 
             <div id="orderdetail" style="position: fixed;z-index: 99;width: 100%;overflow: scroll;">
-            	<div class="cartTop" style="position: relative;text-align: center;line-height: 39px;height:39px;background: #E50F12color:#FFF;z-index: 98;">
+            	<div class="cartTop" style="position: relative;text-align: center;line-height: 39px;height:39px;background: #E50F12;color:#FFF;z-index: 100;">
             		我的购物车
             		<div class="cartTopRight" style="height: 39px;line-height: 39px;position: absolute;right: 0px;top: 0px;">关闭</div>
             	</div>
