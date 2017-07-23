@@ -28,6 +28,7 @@ $(document).on('click','.class3',function(){
         var flyer = $('<img class="flyer-img" style="width:20px;height:20px;z-index:2000;" src="' + img + '">'); //抛物体对象   
         var thisAdd = $(this);
         var id = thisAdd.attr('pid');
+        var count = parseInt(thisAdd.attr('kcNum'));
         /*检查该购物车是否已经有*/
         var temp = 0;
         var len = cartArr.length;
@@ -53,7 +54,8 @@ $(document).on('click','.class3',function(){
 	            },
 	            onEnd: function() {
 	                this.destory(); //销毁抛物体
-	                $('#cartNum').html(cartArr.length);
+	                var prevCount = parseInt($('#cartNum').html());
+	                $('#cartNum').html(prevCount+count);
 	            }   
 	        });
 	    }
