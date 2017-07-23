@@ -86,6 +86,9 @@
             		我的购物车
             		<div class="cartTopRight" id="orderdetailClose" style="height: 39px;cursor: pointer;line-height: 39px;position: absolute;right: 10px;top: 0px;">关闭</div>
             	</div>
+            	<div class="weui-loadmore weui-loadmore_line" style="position: absolute;top:39px;left:0px;">
+	            	<span class="weui-loadmore__tips">购物车为空</span>
+	        	</div>
             	<!-- <div class="cartblock" pid="">
             		<div class="cartheader" style="width:100%;background: #EA6969;color: #FFF;padding:6px 10px;">
             			<p style="font-size:1.1em;margin: 0px 0px;">英语自然拼读</p>
