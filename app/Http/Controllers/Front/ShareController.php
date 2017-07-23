@@ -21,4 +21,5 @@ class ShareController extends Controller
 	{
 		return redirect(OauthController::getUrl(7, 0));
 	}
+	
 }
