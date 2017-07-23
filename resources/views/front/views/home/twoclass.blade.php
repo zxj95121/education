@@ -69,7 +69,7 @@
 				</a>
 			</div>
         @endforeach	
-        	<div id="hideTwo" pid="{{$pid}}" style="display: none;">{{$name}}</div>
+        	<div id="hideThree" pid="{{$pid}}" style="display: none;">{{$name}}</div>
         	<div id="zhicheng"></div>
         	<div id="myCart" style="height: 40px;background: #52525A;width: 100%;z-index: 999;">
                 <div style="width:70%;height:100%;text-align: center;float: left;z-index: 999;" id="myCartLeft">

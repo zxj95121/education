@@ -43,6 +43,28 @@ $(document).on('click','.class3',function(){
        		/*将该购物车变为不可选*/
        		var lin = $(this).find('span');
        		lin.css({'background-color':'#FFF','border-color':'#FFF','background-image':"url('/images/home/cart_dark.png')"});
+
+       		/*查找当前三级的名称*/
+       		var hideThree = new Array();
+       		hideThree[0] = $('#hideThree').attr('pid');
+       		hideThree[1] = $('#hideThree').html();
+       		/*查购物车中是否已经有这个一级*/
+       		var tttt = 0;
+       		for (var i in cartOrder) {
+       			if (i == hideThree[0]) {
+       				tttt = 1;
+       				break;
+       			}
+       		}
+       		if (tttt == 0) {
+       			cartOrder[hideThree[0]] = new Object();
+       			cartOrder[hideThree[0]].name = hideThree[1];
+       			cartOrder[hideThree[0]].val = new Object();
+       			cartOrder[hideThree[0]]['val'][id] = thisAdd.find('p').html();
+       		} else {
+       			cartOrder[i]['val'][id] = thisAdd.find('p').html();
+       		}
+       		console.log(cartOrder);
 	        flyer.fly({   
 	            start: {   
 	                left: event.pageX,//抛物体起点横坐标   
@@ -193,7 +215,7 @@ function setCartPosition(){
 		$('#zhicheng').css({'height':bottomHeight+40+'px','opacity':0});
 	}
 	var height = document.documentElement.clientHeight;
-	console.log(bottomHeight);
+
 	$('#orderdetail').css('height', height-bottomHeight-40+'px');
 	$('#orderdetail').css({'bottom':bottomHeight+40+'px'});
 

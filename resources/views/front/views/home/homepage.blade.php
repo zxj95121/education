@@ -425,7 +425,7 @@
 				$('#zhicheng').css({'height':bottomHeight+40+'px','opacity':0});
 			}
 			var height = document.documentElement.clientHeight;
-			console.log(height);
+
 			$('#orderdetail').css('height', height-bottomHeight-40+'px');
 			console.log(height);
 			$('#orderdetail').css({'bottom':bottomHeight+40+'px'});
