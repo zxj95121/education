@@ -217,6 +217,11 @@ $(document).on('click', '#orderdetailClose', function(){
 	}
 })
 
+/*去结算*/
+$(document).on('click', '#myCartRight', function(){
+	$('#cartConfirm').show();
+})
+
 function setCartPosition(){
 	var bottomHeight = $('#all_bottom').height();
 	$('#myCart').css({'position':'fixed','bottom':bottomHeight+'px'});

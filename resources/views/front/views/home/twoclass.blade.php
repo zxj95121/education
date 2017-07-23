@@ -72,11 +72,11 @@
         	<div id="hideThree" pid="{{$pid}}" style="display: none;">{{$name}}</div>
         	<div id="zhicheng"></div>
         	<div id="myCart" style="height: 40px;background: #52525A;width: 100%;z-index: 999;">
-                <div style="width:70%;height:100%;text-align: center;float: left;z-index: 999;" id="myCartLeft">
+                <div style="width:70%;height:100%;text-align: center;float: left;z-index: 999;cursor:pointer;" id="myCartLeft">
                     <span style="vertical-align: middle;line-height: 40px;color:#FFF;">我的购物车</span>
                     <span class="weui-badge" style="margin-left: 5px;background: #FFF;color:#52525A;" id="cartNum">0</span>
                 </div>
-                <div style="width:30%;height: 100%;text-align: center;background: #F90000;z-index: 999;line-height: 40px;float: right;color:#FFF;font-size:18px;">
+                <div style="width:30%;height: 100%;text-align: center;background: #F90000;z-index: 999;line-height: 40px;float: right;color:#FFF;font-size:18px;cursor:pointer;" id="myCartRight">
                 	去结算
                 </div>
             </div>
@@ -142,6 +142,21 @@
             		</div>
             	</div> -->
             </div>
+
+
+            <div class="js_dialog" id="cartConfirm" style="opacity: 1;display: none;">
+	            <div class="weui-mask"></div>
+	            <div class="weui-dialog weui-skin_android">
+	                <div class="weui-dialog__hd"><strong class="weui-dialog__title">结算提示</strong></div>
+	                <div class="weui-dialog__bd">
+	                    请确保您的购物车内容无误！
+	                </div>
+	                <div class="weui-dialog__ft">
+	                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">取消</a>
+	                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">我已确认</a>
+	                </div>
+	            </div>
+	        </div>
 	@endif
 
 </div>
