@@ -61,9 +61,9 @@ $(document).on('click','.class3',function(){
        			cartOrder[hideThree[0]].name = hideThree[1];
        			cartOrder[hideThree[0]].val = new Object();
        			
-       			cartOrder[i]['val'][id] = new Object();
-       			cartOrder[i]['val'][id].name = thisAdd.find('p').html();
-       			cartOrder[i]['val'][id].count = count;
+       			cartOrder[hideThree[0]]['val'][id] = new Object();
+       			cartOrder[hideThree[0]]['val'][id].name = thisAdd.find('p').html();
+       			cartOrder[hideThree[0]]['val'][id].count = count;
        		} else {
        			cartOrder[i]['val'][id] = new Object();
        			cartOrder[i]['val'][id].name = thisAdd.find('p').html();
