@@ -11,6 +11,7 @@ use App\Models\TeacherFour;
 use App\Models\UserType;
 use App\Models\ParentDetail;
 
+use App\Http\Controllers\Front\EclassPriceController;
 use Session;
 
 class TwoClassController extends Controller
@@ -71,14 +72,16 @@ class TwoClassController extends Controller
     		Session::put('sess', $sess);
     	}
     	$teacherthree = TeacherThree::where('status','1')->where('pid',$pid)->select('id','name')->get();
-    	return view('front.views.home.twoclass',['res'=>$teacherthree,'class'=>'class3','pid'=>$pid]);
+        $nameObj = TeacherTwo::where('id', $pid)->select('name')->get()[0];
+    	return view('front.views.home.twoclass',['res'=>$teacherthree,'class'=>'class3','pid'=>$pid,'name'=>$nameObj->name]);
     }
 
     public function threethree(){
         $sess = Session::get('sess');
         $pid = $sess['pid'];
         $teacherthree = TeacherThree::where('status','1')->where('pid',$pid)->select('id','name')->get();
-        $array = ['res'=>$teacherthree,'class'=>'class3','pid'=>$pid];
+        $nameObj = TeacherTwo::where('id', $pid)->select('name')->get()[0];
+        $array = ['res'=>$teacherthree,'class'=>'class3','pid'=>$pid,'name'=>$nameObj->name];
         return $array;
     }
 
