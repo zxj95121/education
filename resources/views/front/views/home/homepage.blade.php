@@ -396,6 +396,7 @@
         $('#eclass1').click(function(){
             $('#eclass').load('/front/twoClass', function(){
             	setCartPosition();
+            	cartInit();
             });
         	includeLink("/front/my/twoclass.js","js");
 
@@ -411,6 +412,7 @@
         				$('#eclass').attr('pid1',data.pid1);
         				$('#eclass').attr('pid2',data.pid2);
         				setCartPosition();
+        				cartInit();
         			}
         		}
         	})
@@ -435,8 +437,6 @@
 			for (var i = 0;i < cartArr.length;i++) {
 				$('.buyCell a[pid="'+cartArr[i]+'"]').find('span').css({'background-color':'#FFF','border-color':'#FFF','background-image':"url('/images/home/cart_dark.png')"});
 			}
-
-			cartInit();
 		}
 
 		$(document).on('click', '#myCartLeft', function(){
@@ -473,6 +473,8 @@
 				delete(cartOrder[id]);
 				$(this).parents('.cartblock').remove();
 			}
+
+			setCartPosition();
 		})
 
 		/*直接将购物车详情内容根据cartOrder对象重置*/

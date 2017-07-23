@@ -4,6 +4,7 @@ $(document).on('click','.class1',function(){
 	$('#eclass').attr('pid1',pid);
 	$('#eclass').load('/front/twoClasstwo?pid='+pid, function(){
 		setCartPosition();
+		cartInit();
 	});
 })
 $(document).on('click','.class2',function(){
@@ -11,6 +12,7 @@ $(document).on('click','.class2',function(){
 	$('#eclass').attr('pid2',pid);
 	$('#eclass').load('/front/twoClassthree?pid='+pid, function(){
 		setCartPosition();
+		cartInit();
 	});
 })
 $(document).on('click','.class3',function(){
@@ -19,6 +21,7 @@ $(document).on('click','.class3',function(){
 	if (e.target.tagName == 'P')
 		$('#eclass').load('/front/twoClassfour?pid='+pid, function(){
 		setCartPosition();
+		cartInit();
 	});
 	else if (e.target.tagName == 'SPAN') {
 		$('#childsheet').remove();
@@ -197,10 +200,12 @@ $(document).on('click','#houtui',function(){
 		case 'class4':
 			var pid = $('#eclass').attr('pid2');
 			setCartPosition();
+			cartInit();
 			break;
 	}
 	$('#twoclass').load('/front/twoClassback?fenlei='+twoclass+'&pid='+pid, function(){
 		setCartPosition();
+		cartInit();
 	});
 })
 
@@ -230,8 +235,6 @@ function setCartPosition(){
 	for (var i = 0;i < cartArr.length;i++) {
 		$('.buyCell a[pid="'+cartArr[i]+'"]').find('span').css({'background-color':'#FFF','border-color':'#FFF','background-image':"url('/images/home/cart_dark.png')"});
 	}
-
-	cartInit();
 }
 
 /*直接将购物车详情内容根据cartOrder对象重置*/
