@@ -465,7 +465,7 @@
 				}
 
 				$('#cartNum').html(cartTotal);
-				delete(cartOrder[id]]['val'][pid]);
+				delete(cartOrder[id]['val'][pid]);
 				$(this).parents('.cartcontent').remove();
 			}
 		})
