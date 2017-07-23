@@ -434,7 +434,7 @@
 			}
 		}
 
-		$(document).('click', '#myCartLeft', function(){
+		$(document).on('click', '#myCartLeft', function(){
 			var bottom = parseInt($('#orderdetail').css('bottom'));
 			var height = $('#orderdetail').height();
 
