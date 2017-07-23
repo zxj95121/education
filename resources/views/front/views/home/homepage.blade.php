@@ -435,6 +435,8 @@
 			for (var i = 0;i < cartArr.length;i++) {
 				$('.buyCell a[pid="'+cartArr[i]+'"]').find('span').css({'background-color':'#FFF','border-color':'#FFF','background-image':"url('/images/home/cart_dark.png')"});
 			}
+
+			cartInit();
 		}
 
 		$(document).on('click', '#myCartLeft', function(){
@@ -444,6 +446,26 @@
 				$('#orderdetail').slideUp();
 			}
 		})
+
+		/*直接将购物车详情内容根据cartOrder对象重置*/
+function cartInit(){
+	$('#orderdetail .cartblock').each(function(){
+		$(this).remove();
+	})
+	for (var i in cartOrder) {
+		$('#orderdetail').append('<div class="cartblock" pid="'+i+'"> <div class="cartheader" style="width:100%;background: #EA6969;'
+			+'color: #FFF;padding:6px 10px;"> <p style="font-size:1.1em;margin: 0px 0px;">'+cartOrder[i].name+'</p> </div> </div>');
+		var val = cartOrder[i]['val'];
+		for (var j in val) {
+			$('#orderdetail .cartblock:last').append('<div class="cartcontent" style="width: 100%;background: #FFF;" pid="'+j+'">'
+			 +'<div  class="weui-cells" style="margin:0;"> <a class="weui-cell weui-cell_title"> <div class="weui-cell__bd"'
+			  +'style="position: relative;color:#333;"> <p style="font-size:15px;">'+val[j].name+'</p> <iframe id="tmp_downloadhelper_iframe"'
+			   +'style="display: none;"></iframe> </div> <div class="weui-cell__ft"> <span>'+val[j].count+'课时</span> <span class="btn btn-danger"'
+			    +'style="background-color:#FFF;border-color:#FFF;background-image:url(\'/images/home/cart_delete.png\');'
+			    +'background-size:100% 100%;width:28px;height:28px;"> </span> </div> </a> </div> </div>');
+		}
+	}
+}
     </script>
 </body>
 </html>

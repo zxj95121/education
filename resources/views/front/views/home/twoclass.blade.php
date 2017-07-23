@@ -86,7 +86,7 @@
             		我的购物车
             		<div class="cartTopRight" id="orderdetailClose" style="height: 39px;cursor: pointer;line-height: 39px;position: absolute;right: 10px;top: 0px;">关闭</div>
             	</div>
-            	<div class="cartblock" pid="">
+            	<!-- <div class="cartblock" pid="">
             		<div class="cartheader" style="width:100%;background: #EA6969;color: #FFF;padding:6px 10px;">
             			<p style="font-size:1.1em;margin: 0px 0px;">英语自然拼读</p>
             		</div>
@@ -137,7 +137,7 @@
             		</div>
             		<div class="cartfooter" style="width:100%;height: 8px;background: #FFFFFF;">
             		</div>
-            	</div>
+            	</div> -->
             </div>
 	@endif
 
