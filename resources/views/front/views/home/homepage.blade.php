@@ -424,7 +424,7 @@
 			}
 			var height = document.documentElement.clientHeight;
 			console.log(height);
-			$('#orderdetail').css('height', height-bottomHeight-40-40+'px');
+			$('#orderdetail').css('height', height-bottomHeight-40+'px');
 			console.log(height);
 			$('#orderdetail').css({'bottom':bottomHeight+40+'px'});
 			$('#cartNum').html(cartArr.length);/*购物车个数显示*/
@@ -433,6 +433,10 @@
 				$('.buyCell a[pid="'+cartArr[i]+'"]').find('span').css({'background-color':'#FFF','border-color':'#FFF','background-image':"url('/images/home/cart_dark.png')"});
 			}
 		}
+
+		$('#myCartLeft').click(function(){
+			$('.orderdetail').slideUp();
+		})
     </script>
 </body>
 </html>

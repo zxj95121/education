@@ -71,7 +71,7 @@
         @endforeach	
         	<div id="zhicheng"></div>
         	<div id="myCart" style="height: 40px;background: #52525A;width: 100%;z-index: 999;">
-                <div style="width:70%;height:100%;text-align: center;float: left;z-index: 999;">
+                <div style="width:70%;height:100%;text-align: center;float: left;z-index: 999;" id="myCartLeft">
                     <span style="vertical-align: middle;line-height: 40px;color:#FFF;">我的购物车</span>
                     <span class="weui-badge" style="margin-left: 5px;background: #FFF;color:#52525A;" id="cartNum">0</span>
                 </div>
@@ -81,9 +81,9 @@
             </div>
 
             <div id="orderdetail" style="position: fixed;z-index: 99;width: 100%;overflow: scroll;">
-            	<div class="cartTop" style="position: relative;text-align: center;line-height: 39px;height:39px;background: #E50F12;color:#FFF;z-index: 100;">
+            	<div class="cartTop" style="position: relative;text-align: center;line-height: 39px;height:39px;background: #E50F12;color:#FFF;z-index: 100;cursor: pointer;">
             		我的购物车
-            		<div class="cartTopRight" style="height: 39px;line-height: 39px;position: absolute;right: 0px;top: 0px;">关闭</div>
+            		<div class="cartTopRight" style="height: 39px;line-height: 39px;position: absolute;right: 10px;top: 0px;">关闭</div>
             	</div>
             	<div class="cartblock">
             		<div class="cartheader" style="width:100%;background: #D8E0F7;padding:6px 10px;">
