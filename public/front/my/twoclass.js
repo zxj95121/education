@@ -219,7 +219,21 @@ $(document).on('click', '#orderdetailClose', function(){
 
 /*去结算*/
 $(document).on('click', '#myCartRight', function(){
-	$('#cartConfirm').show();
+	if (cartTotal == 0) {
+		layer.open({
+		    content: '购物车不能为空'
+		    ,skin: 'msg'
+		    ,time: 2 //2秒后自动关闭
+		 });
+	} else {
+		// $('#cartConfirm').show();
+		var loadIndex = layer.open({
+		    type: 2
+		    ,content: ''
+		});
+		$('#cartOrderForm textarea').val(JSON.stringify(cartOrder));
+		$('#cartOrderForm')[0].submit();
+	}
 })
 
 function setCartPosition(){

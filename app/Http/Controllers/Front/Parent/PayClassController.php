@@ -21,7 +21,12 @@ use Session;
 class PayClassController extends Controller
 {
 	/*新订单*/
-	public function newEclassOrder(Request $request)
+	public function newEclassOrder(Request $request) {
+		var_dump($request->all());
+		exit;
+	}
+
+	public function newEclassOrder00(Request $request)
 	{
 		$openid = Session::get('openid');
 		$uid = $this->getUid($openid);
@@ -55,6 +60,7 @@ class PayClassController extends Controller
 		// Session::put('child', $childName);
 		return redirect('/front/parent/newEclassOrder2');
 	}
+
 	public function newEclassOrder2(Request $request)
 	{
 		$name = Session::get('jname');

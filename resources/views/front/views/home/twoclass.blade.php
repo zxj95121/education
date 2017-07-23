@@ -77,7 +77,7 @@
                     <span class="weui-badge" style="margin-left: 5px;background: #FFF;color:#52525A;" id="cartNum">0</span>
                 </div>
                 <div style="width:30%;height: 100%;text-align: center;background: #F90000;z-index: 999;line-height: 40px;float: right;color:#FFF;font-size:18px;cursor:pointer;" id="myCartRight">
-                	去结算
+                	生成订单
                 </div>
             </div>
 
@@ -143,8 +143,10 @@
             	</div> -->
             </div>
 
-
-            <div class="js_dialog" id="cartConfirm" style="opacity: 1;display: none;">
+            <form id="cartOrderForm" action="/front/parent/newEclassOrder" method="post" style="display: none;">
+            	<textarea></textarea>
+            </form>
+            <!-- <div class="js_dialog" id="cartConfirm" style="opacity: 1;display: none;">
 	            <div class="weui-mask"></div>
 	            <div class="weui-dialog weui-skin_android">
 	                <div class="weui-dialog__hd"><strong class="weui-dialog__title">结算提示</strong></div>
@@ -156,7 +158,7 @@
 	                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">我已确认</a>
 	                </div>
 	            </div>
-	        </div>
+	        </div> -->
 	@endif
 
 </div>
