@@ -297,8 +297,8 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
   $router->post('/setClassTime/setAll', 'Parent\ClassTimeController@setAll');/*ajax设置所有*/
 
   
-  
-  
+  /*微信分享  */
+  $router->get('/fenxiang', 'WxShareController@index');
 });
 
 /*-------------*/
