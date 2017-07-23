@@ -55,7 +55,8 @@ $(document).on('click','.class3',function(){
 	            onEnd: function() {
 	                this.destory(); //销毁抛物体
 	                var prevCount = parseInt($('#cartNum').html());
-	                $('#cartNum').html(prevCount+count);
+	                cartTotal = prevCount+count;
+	                $('#cartNum').html(cartTotal);
 	            }   
 	        });
 	    }
@@ -196,8 +197,7 @@ function setCartPosition(){
 	$('#orderdetail').css('height', height-bottomHeight-40+'px');
 	$('#orderdetail').css({'bottom':bottomHeight+40+'px'});
 
-	var prevCount = parseInt($('#cartNum').html());
-	$('#cartNum').html(prevCount);/*购物车个数显示*/
+	$('#cartNum').html(cartTotal);/*购物车个数显示*/
 	/*对购物车已有的三级变灰色*/
 	for (var i = 0;i < cartArr.length;i++) {
 		$('.buyCell a[pid="'+cartArr[i]+'"]').find('span').css({'background-color':'#FFF','border-color':'#FFF','background-image':"url('/images/home/cart_dark.png')"});
