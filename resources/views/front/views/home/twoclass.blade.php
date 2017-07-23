@@ -86,7 +86,7 @@
             		我的购物车
             		<div class="cartTopRight" id="orderdetailClose" style="height: 39px;cursor: pointer;line-height: 39px;position: absolute;right: 10px;top: 0px;">关闭</div>
             	</div>
-            	<div class="weui-loadmore weui-loadmore_line" style="position: absolute;top:39px;left:0px;z-index: -1;">
+            	<div class="weui-loadmore weui-loadmore_line" style="position: absolute;top:39px;left:0px;z-index: -1;width: 100%;">
 	            	<span class="weui-loadmore__tips">购物车为空</span>
 	        	</div>
             	<!-- <div class="cartblock" pid="">
