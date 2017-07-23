@@ -25,8 +25,9 @@ class PayClassController extends Controller
 		// var_dump($request->all());
 		$cartTotal = $request->input('cartTotal');
 		$cartOrder = json_decode($request->input('cartOrder'), true);
-		var_dump($cartOrder);
-		exit;
+		// var_dump($cartOrder);
+		return view('front.views.parent.bigOrder');
+		// exit;
 	}
 
 	public function newEclassOrder00(Request $request)
