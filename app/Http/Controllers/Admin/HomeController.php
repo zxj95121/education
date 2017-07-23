@@ -11,6 +11,7 @@ use App\Http\Controllers\Wechat\OauthController;
 use App\Models\AdminInfo;
 use App\Models\AdminScanLogin;
 use App\Models\UserType;
+use App\Models\NewUser;
 use Session;
 use Config;
 use Wechat;
@@ -268,12 +269,23 @@ class HomeController extends Controller
         $flight->password = Hash::make($password);
         $flight->headimg = $headimgurl;
         $flight->save();
-
+        /*admin_info里面的id*/
         $uid = $flight->id;
 
         $flight = new UserType();
         $flight->openid = $openid;
         $flight->uid = $uid;
+        $flight->save();
+
+
+        /*user_type里面的id*/
+        $uid = $flight->id;
+        /*存到new_user表*/
+        $flight = new NewUser();
+        $flight->openid = $openid;
+        $flight->type = '1';
+        $flight->phone = $phone;
+        $flight->nickname = $nickname;
         $flight->save();
         
         return response()->json(['errcode'=>0]);
