@@ -12,7 +12,7 @@ class ShareController extends Controller
 	public function index(Request $request)
 	{
 		$openid = Session::get('openid');
-		$newuser = NewUser::where('openid',$openid)->select('id,type')->get();
+		$newuser = NewUser::where('openid',$openid)->get();
 		$news = array("Title" =>"加辰教育", "Description"=>"加辰教育123", "PicUrl" =>'http://'.$_SERVER['SERVER_NAME'].'/admin/img/index.png', "Url" =>"http://".$_SERVER['SERVER_NAME']."/front/home?type=".$newuser[0]->type."&&id=".$newuser[0]->id);
 		return view('share',['news'=>$news]);
 	}
