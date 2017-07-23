@@ -223,7 +223,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 	$router->get('/parent/myClassOrder/details', 'Parent\MyClassOrderController@details');
 	/*微信分享  */
 	$router->get('/share/oauth', 'ShareController@oauth');
-	$router->get('/share/', 'ShareController@index');
+	$router->get('/share', 'ShareController@index');
 });
 
 /*-------------*/
