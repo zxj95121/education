@@ -133,6 +133,58 @@
             		<div class="cartfooter" style="width:100%;height: 8px;background: #D8E0F7;">
             		</div>
             	</div>
+            	<div class="cartblock">
+            		<div class="cartheader" style="width:100%;background: #D8E0F7;padding:6px 10px;">
+            			<p style="font-size:1.1em;margin: 0px 0px;">英语自然拼读</p>
+            		</div>
+            		<div class="cartcontent" style="width: 100%;background: #FFF;">
+						<div  class="weui-cells" style="margin:0;">
+							<a class="weui-cell weui-cell_title">
+							    <div class="weui-cell__bd" style="position: relative;color:#333;">
+							        <p style="margin-bottom:0px">大幅度工人房</p>
+							    	<iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
+							    	
+							    </div>
+							    <div class="weui-cell__ft">
+							    	<span>16课时</span>
+							    	<span class="btn btn-danger" style="background-color:#FFF;border-color:#FFF;background-image:url('/images/home/cart_delete.png');background-size:100% 100%;width:28px;height:28px;"> </span>
+							    </div>
+							</a>
+						</div>
+            		</div>
+            		<div class="cartcontent" style="width: 100%;background: #FFF;">
+						<div  class="weui-cells" style="margin:0;">
+							<a class="weui-cell weui-cell_title">
+							    <div class="weui-cell__bd" style="position: relative;color:#333;">
+							        <p style="margin-bottom:0px">大幅度工人房</p>
+							    	<iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
+							    	
+							    </div>
+							    <div class="weui-cell__ft">
+							    	<span>16课时</span>
+							    	<span class="btn btn-danger" style="background-color:#FFF;border-color:#FFF;background-image:url('/images/home/cart_delete.png');background-size:100% 100%;width:28px;height:28px;"> </span>
+							    </div>
+							</a>
+						</div>
+            		</div>
+            		<div class="cartcontent" style="width: 100%;background: #FFF;">
+						<div  class="weui-cells" style="margin:0;">
+							<a class="weui-cell weui-cell_title">
+							    <div class="weui-cell__bd" style="position: relative;color:#333;">
+							        <p style="margin-bottom:0px">大幅度工人房</p>
+							    	<iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
+							    	
+							    </div>
+							    <div class="weui-cell__ft">
+							    	<span>16课时</span>
+							    	<span class="btn btn-danger" style="background-color:#FFF;border-color:#FFF;background-image:url('/images/home/cart_delete.png');background-size:100% 100%;width:28px;height:28px;"> </span>
+							    </div>
+							</a>
+						</div>
+            		</div>
+            		<div class="cartfooter" style="width:100%;height: 8px;background: #D8E0F7;">
+            		</div>
+            	</div>
             </div>
 	@endif
 
