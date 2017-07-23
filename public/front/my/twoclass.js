@@ -173,6 +173,14 @@ $(document).on('click','#houtui',function(){
 	});
 })
 
+$(document).on('click', '#orderdetailClose', function(){
+	if ($('#orderdetail').css('display') == 'none') {
+		$('#orderdetail').slideDown();
+	} else {
+		$('#orderdetail').slideUp();
+	}
+})
+
 function setCartPosition(){
 	var bottomHeight = $('#all_bottom').height();
 	$('#myCart').css({'position':'fixed','bottom':bottomHeight+'px'});

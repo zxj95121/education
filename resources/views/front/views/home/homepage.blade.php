@@ -435,10 +435,11 @@
 		}
 
 		$(document).on('click', '#myCartLeft', function(){
-			var bottom = parseInt($('#orderdetail').css('bottom'));
-			var height = $('#orderdetail').height();
-			$('#orderdetail').slideUp();
-			// $('#orderdetail').animate({'bottom':(bottom-height)+'px'}, 350);
+			if ($('#orderdetail').css('display') == 'none') {
+				$('#orderdetail').slideDown();
+			} else {
+				$('#orderdetail').slideUp();
+			}
 		})
     </script>
 </body>

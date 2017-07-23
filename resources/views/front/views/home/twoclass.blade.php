@@ -80,10 +80,10 @@
                 </div>
             </div>
 
-            <div id="orderdetail" style="position: fixed;z-index: 99;width: 100%;overflow: scroll;">
+            <div id="orderdetail" style="position: fixed;z-index: 99;width: 100%;overflow: scroll;display: none;">
             	<div class="cartTop" style="position: relative;text-align: center;line-height: 39px;height:39px;background: #E50F12;color:#FFF;z-index: 100;cursor: pointer;">
             		我的购物车
-            		<div class="cartTopRight" style="height: 39px;line-height: 39px;position: absolute;right: 10px;top: 0px;">关闭</div>
+            		<div class="cartTopRight" id="orderdetailClose" style="height: 39px;cursor: pointer;line-height: 39px;position: absolute;right: 10px;top: 0px;">关闭</div>
             	</div>
             	<div class="cartblock">
             		<div class="cartheader" style="width:100%;background: #D8E0F7;padding:6px 10px;">
