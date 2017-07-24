@@ -14,18 +14,6 @@ class ShareController extends Controller
 	public function index(Request $request)
 	{
 		$openid = Session::get('openid');
-		$newuser = NewUser::where('openid',$openid)->get()[0];
-		if($newuser->id){
-			$news = array("Title" =>"加辰教育", "Description"=>"加辰教育123", "PicUrl" =>'http://'.$_SERVER['SERVER_NAME'].'/admin/img/index.png', "Url" =>"http://".$_SERVER['SERVER_NAME']."/front/share/oauth?type=".$newuser->type."&&id=".$newuser->id);
-		}else{
-			$news = array("Title" =>"加辰教育", "Description"=>"加辰教育123", "PicUrl" =>'http://'.$_SERVER['SERVER_NAME'].'/admin/img/index.png', "Url" =>"http://".$_SERVER['SERVER_NAME']."/front/share/oauth");
-		}
-		return view('share',['news'=>$news]);
-	}
-	/*oauth*/
-	public function oauth(Request $request)
-	{
-		$openid = Session::get('openid');
 		$access_token = Wechat::get_access_token();
 		
 		/*获取用户个人详细信息*/
@@ -33,7 +21,6 @@ class ShareController extends Controller
 				$access_token['access_token'].'&openid='.
 				$openid.'&lang=zh_CN';
 		$userinfo = Wechat::curl($url);
-		dump($userinfo);
 		$subscribe = $userinfo['subscribe'];
 
 		$id = $request->input('id');
@@ -45,9 +32,23 @@ class ShareController extends Controller
 			$usershare->subscribe = $subscribe;
 			$usershare->save();
 		}
-
+		$newuser = NewUser::where('openid',$openid)->get()[0];
+		if($newuser->id){
+			$news = array("Title" =>"加辰教育", "Description"=>"加辰教育123", "PicUrl" =>'http://'.$_SERVER['SERVER_NAME'].'/admin/img/index.png', "Url" =>"http://".$_SERVER['SERVER_NAME']."/front/share/oauth?type=".$newuser->type."&&id=".$newuser->id);
+		}else{
+			$news = array("Title" =>"加辰教育", "Description"=>"加辰教育123", "PicUrl" =>'http://'.$_SERVER['SERVER_NAME'].'/admin/img/index.png', "Url" =>"http://".$_SERVER['SERVER_NAME']."/front/share/oauth");
+		}
+		return view('share',['news'=>$news]);
+	}
+	/*oauth*/
+	public function oauth(Request $request)
+	{
+		if($request->input('id')){
+			return redirect(OauthController::getUrl(7, 0), ['type' => $request->input('type'), 'id' => $request->input('id')]);
+		}else{
+			return redirect(OauthController::getUrl(7, 0));
+		}
 		
-		return redirect(OauthController::getUrl(7, 0));
 	}
 	
 }
