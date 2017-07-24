@@ -312,7 +312,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 
 
   /*class套餐前端展示*/
-  $router->get('/classPackage', 'Front\ClassPackageController@index');
+  $router->get('/classPackage', 'ClassPackageController@index');
 });
 
 /*-------------*/
