@@ -37,42 +37,28 @@
 	    	
 	  	</nav>
 	  	<div class="content">
-  			<div class="content-block-title">双师class订单</div>
+  			<!-- <div class="content-block-title">双师class订单</div> -->
 			<div class="list-block">
 				<ul>
-					<li class="item-content">
-    					<div class="item-media"><i class="icon icon-f7"></i></div>
-    					<div class="item-inner">
-      						<div class="item-title">课程</div>
-      						<div class="item-after"></div>
-    					</div>
-  					</li>
   					<li class="item-content">
     					<div class="item-media"><i class="icon icon-f7"></i></div>
     					<div class="item-inner">
       						<div class="item-title">课程名称</div>
-      						<div class="item-after"></div>
+      						<div class="item-after">{{$package->name}}</div>
     					</div>
   					</li>
   					<li class="item-content">
     					<div class="item-media"><i class="icon icon-f7"></i></div>
     					<div class="item-inner">
       						<div class="item-title">课时数量</div>
-      						<div class="item-after"></div>
+      						<div class="item-after">{{$package->number}}</div>
     					</div>
   					</li>
-<!--       					<li class="item-content">
-    					<div class="item-media"><i class="icon icon-f7"></i></div>
-    					<div class="item-inner">
-      						<div class="item-title">授课学生</div>
-      						<div class="item-after">$childName</div>
-    					</div>
-  					</li> -->
   					<li class="item-content">
     					<div class="item-media"><i class="icon icon-f7"></i></div>
     					<div class="item-inner">
-      						<div class="item-title">订单价格</div>
-      						<div class="item-after" style="font-weight: bold;">¥</div>
+      						<div class="item-title">课程价格</div>
+      						<div class="item-after">{{number_format($package->price, 2)}}</div>
     					</div>
   					</li>
   					<li class="item-content">
