@@ -33,6 +33,7 @@ class ShareController extends Controller
 				$access_token.'&openid='.
 				$openid.'&lang=zh_CN';
 		$userinfo = Wechat::curl($url);
+		dump($userinfo);
 		$subscribe = $userinfo['subscribe'];
 
 		$id = $request->input('id');
