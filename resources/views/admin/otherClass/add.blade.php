@@ -57,7 +57,7 @@
 												<tr pid="{{$value->id}}">
 													<td>{{$value->id}}</td>
 													<td>{{$value->name}}</td>
-													<td>@if($value->show) <span class="label label-success seeshow">查看详情</span> @else <span class="label label-info setShow">立即设置</span> @endif</td>
+													<td>@if($value->show) <span class="label label-success seeShow">查看详情</span> @else <span class="label label-info setShow">立即设置</span> @endif</td>
 													<td>¥ {{number_format($value->price, 2)}}</td>
 													<td><span class="label label-primary delete">删除</span></td>
 												</tr>
@@ -178,11 +178,11 @@
         })
 
 
-        $(document).on('click', '.setshow', function(){
+        $(document).on('click', '.setShow', function(){
         	var pid = $(this).parents('tr').attr('pid');
         	window.location.href = '/admin/otherClass/add/setShow?pid='+pid;
         })
-        $(document).on('click', '.seeshow', function(){
+        $(document).on('click', '.seeShow', function(){
             var pid = $(this).parents('tr').attr('pid');
             window.location.href = '/admin/otherClass/add/setShow?pid='+pid;
         })
