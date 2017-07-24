@@ -95,6 +95,7 @@
 			<?php echo $jsApiParameters; ?>,
 			function(res){
 				WeixinJSBridge.log(res.err_msg);
+				console.log(res.err_code+res.err_desc+res.err_msg);
 				if(res.err_msg == "get_brand_wcpay_request:ok"){
 					var order_no = '{{$order_no}}';
 					var cid = '{{$package->id}}';
