@@ -31,6 +31,8 @@ class ClassPackageController extends Controller
     {
     	$cid = Session::get('classPackageId');
     	var_dump(array('fa'=>$cid,'openid'=>Session::get('openid')));
+
+    	return view('front.views.classPackage.orderPay');
     }
 
     /*支付订单oauth*/

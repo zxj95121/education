@@ -20,10 +20,12 @@ class OtherClassAddController extends Controller
     {
     	$name = $request->input('name');
     	$price = $request->input('price');
+    	$number = $request->input('number');
 
     	$flight = new ClassPackage();
     	$flight->name = $name;
     	$flight->price = $price;
+    	$flight->number = $number;
     	$flight->save();
 
     	return response()->json(['errcode'=>0,'id'=>$flight->id]);

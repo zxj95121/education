@@ -47,6 +47,7 @@
 												<tr>
 													<th>ID</th>
 													<th>名称</th>
+                                                    <th>课时数量</th>
                                                     <th>课程订单数量</th>
 													<th>展示内容</th>
 													<th>价格</th>
@@ -58,6 +59,7 @@
 												<tr pid="{{$value->id}}">
 													<td>{{$value->id}}</td>
 													<td>{{$value->name}}</td>
+                                                    <td>{{$value->number}}</td>
                                                     <td>{{$value->order_count}}</td>
 													<td>@if($value->show) <span class="label label-success seeShow">查看详情</span> @else <span class="label label-info setShow">立即设置</span> @endif</td>
 													<td>¥ {{number_format($value->price, 2)}}</td>
@@ -103,6 +105,15 @@
 		                                <span class="error" id="tc_price_error"></span>
 		                            </div>
 	                        	</div>
+                                <div class="form-group row">
+                                    <div class="col-md-2" style="text-align: right;">
+                                        <label for="pg_name">课时数量</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="number" name="tcNumber" id="tcNumber" required class="form-control">
+                                        <span class="error" id="tc_number_error"></span>
+                                    </div>
+                                </div>
                         	</div>
 			      		</div>
 			      		<div class="modal-footer">
@@ -132,6 +143,7 @@
         $('#addBtn').click(function(){
         	var tcName = $('#tcName').val();
         	var tcPrice = $('#tcPrice').val();
+            var tcNumber = $('#tcNumber').val();
         	var temp = 0;
         	var reg = /^(\d{1,8})(\.\d{1,2})?$/;
         	if ( !reg.test(tcPrice) ) {
@@ -153,7 +165,8 @@
         		type: 'post',
         		data: {
         			name: tcName,
-        			price: tcPrice
+        			price: tcPrice,
+                    number: tcNumber
         		},
         		success: function(data) {
         			if (data.errcode == 0) {

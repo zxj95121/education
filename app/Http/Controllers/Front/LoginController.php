@@ -176,6 +176,7 @@ class LoginController extends Controller
         /*存到new_user表*/
         $flight = new NewUser();
         $flight->openid = $openid;
+        $flight->uid = $uid;
         $flight->type = '1';
         $flight->voucher = 188;
         $flight->phone = $phone;

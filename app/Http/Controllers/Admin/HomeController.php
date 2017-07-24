@@ -284,6 +284,7 @@ class HomeController extends Controller
         $flight = new NewUser();
         $flight->openid = $openid;
         $flight->type = '1';
+        $flight->uid = $uid;
         $flight->phone = $phone;
         $flight->nickname = $nickname;
         $flight->save();
