@@ -234,6 +234,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 
   /*class套餐前端展示*/
   $router->get('/classPackage', 'ClassPackageController@index');
+  $router->get('/classPackage/newOrder/oauth', 'ClassPackageController@newOrderOauth');
 });
 
 /*-------------*/

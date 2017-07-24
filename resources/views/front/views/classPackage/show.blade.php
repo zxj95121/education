@@ -24,7 +24,7 @@
 			  	<div class="content-block">
     				<p class="buttons-row">
     					<!-- <a href="#" class="button">Button 1</a> -->
-    					<a href="#" class="button active" style="border-radius: 5px;width: 33%;margin: 0 auto;color: #FFF;background: #D34827;border-color: #D34827;">购买课程</a>
+    					<a href="#" class="button active" style="border-radius: 5px;width: 33%;margin: 0 auto;color: #FFF;background: #D34827;border-color: #D34827;" onclick="window.location.href='/front/classPackage/newOrder/oauth?cid={{$package->id}}';">购买课程</a>
     					<!-- <a href="#" class="button">Button 3</a> -->
     				</p>
   				</div>
