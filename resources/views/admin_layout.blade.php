@@ -114,6 +114,18 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="has-submenu {!!(Request::is('admin/otherClass/add')? 'active' : '') !!}">
+                        <a href="#">
+                            <i class="zmdi zmdi-book-image"></i> 
+                            <span class="nav-label">其他class</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="list-unstyled">
+                            <li class="{!!(Request::is('admin/otherClass/add')? 'active' : '') !!}">
+                                <a href="/admin/otherClass/add">其他class列表</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="has-submenu {!!(Request::is('admin/applySchool', 'admin/applyHobby')? 'active' : '') !!}">
                         <a href="#">
                             <i class="ion-hammer"></i> 

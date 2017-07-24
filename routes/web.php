@@ -188,6 +188,13 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/classOrder/deleteKeshi', 'EclassOrderController@deleteKeshi');//给订单分配新的课时
 
 
+    /*其他class管理*/
+    $router->get('/otherClass/add', 'OtherClass\OtherClassAddController@add');
+    $router->post('/otherClass/add/addPost', 'OtherClass\OtherClassAddController@addPost');
+    $router->get('/otherClass/add/setShow', 'OtherClass\OtherClassAddController@setShow');
+    $router->post('/otherClass/add/setShowPost', 'OtherClass\OtherClassAddController@setShowPost');
+    $router->post('/otherClass/add/delete', 'OtherClass\OtherClassAddController@delete');//delete套餐
+
     /*待请求审核*/
       /*学校审核*/
     $router->get('/applySchool', 'Review\SchoolController@applySchool');
@@ -302,6 +309,10 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
   $router->post('/setClassTime/selectTime', 'Parent\ClassTimeController@selectTime');/*ajax请求选课*/
   $router->post('/setClassTime/cancleTime', 'Parent\ClassTimeController@cancleTime');/*ajax取消选择*/
   $router->post('/setClassTime/setAll', 'Parent\ClassTimeController@setAll');/*ajax设置所有*/
+
+
+  /*class套餐前端展示*/
+  $router->get('/classPackage', 'Front\ClassPackageController@index');
 });
 
 /*-------------*/
