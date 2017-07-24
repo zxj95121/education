@@ -19,6 +19,6 @@ class ClassPackageController extends Controller
 
     	$package = ClassPackage::find($id);
 
-    	return view('front.views.ClassPackage.show');
+    	return view('front.views.classPackage.show');
     }
 }
