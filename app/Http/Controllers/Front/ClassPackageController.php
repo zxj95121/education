@@ -31,7 +31,6 @@ class ClassPackageController extends Controller
     {
     	$cid = Session::get('classPackageId');
     	$openid = Session::get('openid');
-    	var_dump(array('fa'=>$cid,'openid'=>Session::get('openid')));
 
     	$packageObj = ClassPackage::find($cid);
     	return view('front.views.classPackage.orderPay', ['package'=>$packageObj,'openid'=>$openid]);
