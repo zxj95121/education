@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 
 use App\Models\ClassPackage;
 
+use App\Http\Controllers\Wechat\OauthController;
+
 use Session;
 
 class ClassPackageController extends Controller
