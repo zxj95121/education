@@ -40,6 +40,6 @@ class ClassPackageController extends Controller
     	$classPackageId = $request->input('cid');
     	Session::put('classPackageId', $classPackageId);
 
-    	 redirect(OauthController::getUrl(8, 0));
+    	return redirect(OauthController::getUrl(8, 0));
     }
 }
