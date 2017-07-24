@@ -231,6 +231,9 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 	/*微信分享  */
 	$router->get('/share/oauth', 'ShareController@oauth');
 	$router->get('/share', 'ShareController@index');
+
+  /*class套餐前端展示*/
+  $router->get('/classPackage', 'ClassPackageController@index');
 });
 
 /*-------------*/
@@ -312,7 +315,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 
 
   /*class套餐前端展示*/
-  $router->get('/classPackage', 'ClassPackageController@index');
+  $router->get('/classPackage/newOrder', 'ClassPackageController@newOrder');
 });
 
 /*-------------*/

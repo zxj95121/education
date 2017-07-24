@@ -19,12 +19,12 @@
 		    
 			<div class="content" style='background: #FFF;font-family: -apple-system-font,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;'>
 				<div class="content-block" style="margin-top: 1rem;font-weight: bold;font-size: 1.2em;margin-bottom: 0.4rem;">{{$package->name}}</div>
-				<div class="content-block" style='margin: 4px 0px 0.3rem;color: #557ECB;font-size: 0.9em;' onclick="window.location.href='https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIxNzg4MDY4Ng==&scene=124#wechat_redirect';">加辰教育定制</div>
+				<div class="content-block" style='margin: 4px 0px 0.38rem;color: #557ECB;font-size: 0.9em;' onclick="window.location.href='https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIxNzg4MDY4Ng==&scene=124#wechat_redirect';">加辰教育定制</div>
 			  	{!!$package->show!!}
 			  	<div class="content-block">
     				<p class="buttons-row">
     					<!-- <a href="#" class="button">Button 1</a> -->
-    					<a href="#" class="button active" style="border-radius: 5px;width: 33%;margin: 0 auto;color: #FFF;background: #D34827;">购买课程</a>
+    					<a href="#" class="button active" style="border-radius: 5px;width: 33%;margin: 0 auto;color: #FFF;background: #D34827;border-color: #D34827;">购买课程</a>
     					<!-- <a href="#" class="button">Button 3</a> -->
     				</p>
   				</div>

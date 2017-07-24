@@ -47,6 +47,7 @@
 												<tr>
 													<th>ID</th>
 													<th>名称</th>
+                                                    <th>课程订单数量</th>
 													<th>展示内容</th>
 													<th>价格</th>
 													<th>操作</th>
@@ -57,9 +58,10 @@
 												<tr pid="{{$value->id}}">
 													<td>{{$value->id}}</td>
 													<td>{{$value->name}}</td>
+                                                    <td>{{$value->order_count}}</td>
 													<td>@if($value->show) <span class="label label-success seeShow">查看详情</span> @else <span class="label label-info setShow">立即设置</span> @endif</td>
 													<td>¥ {{number_format($value->price, 2)}}</td>
-													<td><span class="label label-primary delete">删除</span></td>
+													<td><span class="label label-primary seeOrder">查看订单</span>&nbsp;&nbsp;&nbsp;<span class="label label-primary delete">删除</span></td>
 												</tr>
 												@endforeach
 											</tbody>
