@@ -28,7 +28,7 @@ class ClassPackageController extends Controller
     public function newOrder()
     {
     	$cid = Session::get('classPackageId');
-    	var_dump(array('fa'=>$cid,'openid'=>Session::get('openid'));
+    	var_dump(array('fa'=>$cid,'openid'=>Session::get('openid')));
     }
 
     /*支付订单oauth*/
