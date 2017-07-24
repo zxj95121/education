@@ -19,7 +19,7 @@
 		    
 			<div class="content" style="background: #FFF;">
 				<div class="content-block" style="margin-top: 1rem;font-weight: bold;font-size: 1.2em;margin-bottom: 0.4rem;">{{$package->name}}</div>
-				<div class="content-block" style="margin: 4px 0px 0.3rem;color: #557ECB;font-size: 0.9em;"></div>
+				<div class="content-block" style="margin: 4px 0px 0.3rem;color: #557ECB;font-size: 0.9em;">加辰教育定制</div>
 			  	{!!$package->show!!}
 			</div>
         </div>
