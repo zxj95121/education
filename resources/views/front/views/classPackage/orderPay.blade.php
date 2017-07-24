@@ -5,18 +5,27 @@
 	$tools = new JsApiPay();
 	$openId = $tools->GetOpenid();
 	$order_no = ''.date('YmdHis').rand(10000, 99999);
-	$price = $package->price;
+	$price = (float)$package->price;
+	$vnum = floor($price/1000);
+	$vouNum = 0;
+	for ($i = 0; $i < $vnum; $i++) {
+		if (($voucher-88)>=0) {
+			$voucher -= 88;
+			$vouNum++;
+		}
+	}
+	$price = $price-(88*$vouNum);
 	//②、统一下单
 	$input = new WxPayUnifiedOrder();
 	$input->SetBody($package->name);//商品描述
 	$input->SetOut_trade_no($order_no);//商户订单号
-	$input->SetTotal_fee((int)((float)$package->price*100));//标价金额
+	$input->SetTotal_fee((int)($price*100));//标价金额
 	$input->SetTime_start(date("YmdHis"));//交易起始时间
 	$input->SetNotify_url("http://".$_SERVER['SERVER_NAME']."/wxpay/notify/otherClass");//通知地址
 	$input->SetTrade_type("JSAPI");//交易类型
 	$input->SetOpenid($openId);//用户标识
 	$order = WxPayApi::unifiedOrder($input);
-	var_dump($order);
+	// var_dump($order);
 	$jsApiParameters = $tools->GetJsApiParameters($order); 
 ?>
 <!DOCTYPE html>
@@ -60,8 +69,15 @@
   					<li class="item-content">
     					<div class="item-media"><i class="icon icon-f7"></i></div>
     					<div class="item-inner">
+      						<div class="item-title">代金券</div>
+      						<div class="item-after">88元*{{$vouNum}}张</div>
+    					</div>
+  					</li>
+  					<li class="item-content">
+    					<div class="item-media"><i class="icon icon-f7"></i></div>
+    					<div class="item-inner">
       						<div class="item-title">课程价格</div>
-      						<div class="item-after">{{number_format($package->price, 2)}}</div>
+      						<div class="item-after">{{number_format((string)$price, 2)}}</div>
     					</div>
   					</li>
   					<li class="item-content">
@@ -95,7 +111,7 @@
 			<?php echo $jsApiParameters; ?>,
 			function(res){
 				WeixinJSBridge.log(res.err_msg);
-				alert(res.err_code+res.err_desc+res.err_msg);
+				// alert(res.err_code+res.err_desc+res.err_msg);
 				if(res.err_msg == "get_brand_wcpay_request:ok"){
 					var order_no = '{{$order_no}}';
 					var cid = '{{$package->id}}';

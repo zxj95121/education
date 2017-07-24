@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\ClassPackage;
+use App\Models\NewUser;
 
 use App\Http\Controllers\Wechat\OauthController;
 
@@ -33,7 +34,11 @@ class ClassPackageController extends Controller
     	$openid = Session::get('openid');
 
     	$packageObj = ClassPackage::find($cid);
-    	return view('front.views.classPackage.orderPay', ['package'=>$packageObj]);
+        /*查用户的代金券余额*/
+        $userObj = NewUser::where('openid', $openid)
+            ->get()[0];
+        $voucher = $userObj->voucher;
+    	return view('front.views.classPackage.orderPay', ['package'=>$packageObj,'voucher'=>$voucher]);
     }
 
     /*支付订单oauth*/
