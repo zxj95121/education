@@ -43,12 +43,7 @@ class ShareController extends Controller
 	/*oauth*/
 	public function oauth(Request $request)
 	{
-		if($request->input('id')){
-			return redirect(OauthController::getUrl(7, 0), ['type' => $request->input('type'), 'id' => $request->input('id')]);
-		}else{
-			return redirect(OauthController::getUrl(7, 0));
-		}
-		
+		return redirect(OauthController::getUrl(7, 0));
 	}
 	
 }
