@@ -16,6 +16,7 @@
 	$input->SetTrade_type("JSAPI");//交易类型
 	$input->SetOpenid($openId);//用户标识
 	$order = WxPayApi::unifiedOrder($input);
+	printf_info($order);
 	$jsApiParameters = $tools->GetJsApiParameters($order); 
 ?>
 <!DOCTYPE html>
@@ -29,7 +30,7 @@
 <body>
 	<div class="page">
 	  	<header class="bar bar-nav">
-	    	<a class="button button-link button-nav pull-left" href="@if(isset($back)) {{$back}} @else /front/home#eclass @endif" data-transition='slide-out'>
+	    	<a class="button button-link button-nav pull-left" href="/front/classPackage?id={{$package->id}}" data-transition='slide-out'>
 	      		<span class="icon icon-left"></span>
 	      		返回
 	    	</a>
