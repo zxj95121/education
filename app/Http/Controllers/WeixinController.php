@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\EclassOrder;
+use App\Models\ClassPackageOrder;
 use App\Models\Bill;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\EclassPriceController;
@@ -33,6 +34,23 @@ class WeixinController extends Controller
     		}
     	}
     	return true;
+    }
+
+
+    public function otherClassNotify(Request $request)
+    {
+        $postStr = file_get_contents('php://input');
+        if (!empty($postStr)){
+            $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
+            if($postObj->result_code == 'SUCCESS'){
+                $order_no = $postObj->out_trade_no;
+                $price = $postObj->total_fee;
+                $flight = new ClassPackageOrder();
+
+            }
+        }
+
+        return true;
     }
 
 }

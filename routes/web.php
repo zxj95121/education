@@ -26,6 +26,8 @@ Route::get('/html/{name}',function($name){
 Route::get('/html', 'HtmlController@index');
 /*微信支付回调  */
 Route::any('/wxpay/notify','WeixinController@notify');
+/*otherClass支付回调*/
+Route::any('/wxpay/notify/otherClass','WeixinController@otherClassNotify');
 
 //<!------------Wechat文件夹----------------------->
 /*微信接入主程序*/

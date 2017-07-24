@@ -1,20 +1,22 @@
 <?php
-	// require_once $_SERVER['DOCUMENT_ROOT'].'/php/WxPayAPI/lib/WxPay.Api.php';
-	// require_once $_SERVER['DOCUMENT_ROOT'].'/php/WxPayAPI/jsapi/WxPay.JsApiPay.php';
-	// //①、获取用户openid
-	// $tools = new JsApiPay();
-	// $openId = $tools->GetOpenid();
-	// //②、统一下单
-	// $input = new WxPayUnifiedOrder();
-	// $input->SetBody($classname);//商品描述
-	// $input->SetOut_trade_no($flight->order_no);//商户订单号
-	// $input->SetTotal_fee((int)((float)$flight->price*100));//标价金额
-	// $input->SetTime_start(date("YmdHis"));//交易起始时间
-	// $input->SetNotify_url("http://".$_SERVER['SERVER_NAME']."/wxpay/notify");//通知地址
-	// $input->SetTrade_type("JSAPI");//交易类型
-	// $input->SetOpenid($openId);//用户标识
-	// $order = WxPayApi::unifiedOrder($input);
-	// $jsApiParameters = $tools->GetJsApiParameters($order); 
+	require_once $_SERVER['DOCUMENT_ROOT'].'/php/WxPayAPI/lib/WxPay.Api.php';
+	require_once $_SERVER['DOCUMENT_ROOT'].'/php/WxPayAPI/jsapi/WxPay.JsApiPay.php';
+	//①、获取用户openid
+	$tools = new JsApiPay();
+	$openId = $tools->GetOpenid();
+	$order_no = 'BE'.date('YmdHis').rand(1000, 9999);
+	$price = $package->price;
+	//②、统一下单
+	$input = new WxPayUnifiedOrder();
+	$input->SetBody($package->name);//商品描述
+	$input->SetOut_trade_no($order_no);//商户订单号
+	$input->SetTotal_fee((int)((float)$package->price*100));//标价金额
+	$input->SetTime_start(date("YmdHis"));//交易起始时间
+	$input->SetNotify_url("http://".$_SERVER['SERVER_NAME']."/wxpay/notify/otherClass");//通知地址
+	$input->SetTrade_type("JSAPI");//交易类型
+	$input->SetOpenid($openid);//用户标识
+	$order = WxPayApi::unifiedOrder($input);
+	$jsApiParameters = $tools->GetJsApiParameters($order); 
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,7 +45,7 @@
   					<li class="item-content">
     					<div class="item-media"><i class="icon icon-f7"></i></div>
     					<div class="item-inner">
-      						<div class="item-title">课程名称</div>
+      						<div class="item-title">套餐名称</div>
       						<div class="item-after">{{$package->name}}</div>
     					</div>
   					</li>
@@ -51,7 +53,7 @@
     					<div class="item-media"><i class="icon icon-f7"></i></div>
     					<div class="item-inner">
       						<div class="item-title">课时数量</div>
-      						<div class="item-after">{{$package->number}}</div>
+      						<div class="item-after">{{$package->number}} 课时</div>
     					</div>
   					</li>
   					<li class="item-content">
@@ -85,22 +87,24 @@
 	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script type="text/javascript">
 	//调用微信JS api 支付
-	// function callpay()
-	// {
-	// 	WeixinJSBridge.invoke(
-	// 			'getBrandWCPayRequest',
-	// 			<?php /*echo*/ $jsApiParameters; ?>,
-	// 			function(res){
-	// 				WeixinJSBridge.log(res.err_msg);
-	// 				if(res.err_msg == "get_brand_wcpay_request:ok"){
-	// 					$('#order_pay').replaceWith('<a href="#" class="button button-big button-fill button-danger">已完成</a>');
-	// 					window.location.href="/front/parent/myClassOrder?action=2";  
-	// 				}else{
-	// 					window.location.href="http://api.zhangxianjian.com/front/home";  
-	// 				}  
-	// 			}
-	// 	);
-	// }
+	function callpay()
+	{
+		WeixinJSBridge.invoke(
+			'getBrandWCPayRequest',
+			<?php echo $jsApiParameters; ?>,
+			function(res){
+				WeixinJSBridge.log(res.err_msg);
+				if(res.err_msg == "get_brand_wcpay_request:ok"){
+					var order_no = '{{$order_no}}';
+					var cid = '{{$package->id}}';
+					$('#order_pay').replaceWith('<a href="#" class="button button-big button-fill button-danger">已完成</a>');
+					window.location.href="/front/parent/myClassOrder?action=2";  
+				}else{
+					window.location.href="http://api.zhangxianjian.com/front/home";  
+				}  
+			}
+		);
+	}
 	</script>
 </body>
 </html>
