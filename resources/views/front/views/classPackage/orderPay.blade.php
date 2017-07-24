@@ -4,7 +4,7 @@
 	//①、获取用户openid
 	$tools = new JsApiPay();
 	$openId = $tools->GetOpenid();
-	$order_no = 'BE'.date('YmdHis').rand(1000, 9999);
+	$order_no = ''.date('YmdHis').rand(10000, 99999);
 	$price = $package->price;
 	//②、统一下单
 	$input = new WxPayUnifiedOrder();
