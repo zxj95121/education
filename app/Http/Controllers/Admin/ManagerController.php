@@ -120,17 +120,13 @@ class ManagerController extends Controller
     	for($i = 0; $i < count($res); $i++){
     		
     		$arr = explode('-',$res[$i]->money);
-    		dump($arr);
-    		if(count($arr) > 0){
-    			if($arr[1] == 1){
-    				$res[$i]->money = $arr[0].'/月';
-    			}else{
-    				$res[$i]->money = $arr[0].'/'.$arr[1].'分钟';
-    			}
+    		if(isset($arr[1]) && $arr[1] == 1){
+    			$res[$i]->money = $arr[0].'/月';
+    		}else if($arr[0]){
+    			$res[$i]->money = $arr[0].'/'.$arr[1].'分钟';
     		}else{
     			$res[$i]->money = '暂未填写';
     		}
-
             if( !empty( $res[$i]->hobby ) ){
                 $arr1 = explode('-',$res[$i]->hobby);
 
