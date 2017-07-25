@@ -182,6 +182,7 @@
         				$('#tcPrice').val('');
         				$('#addModal').modal('hide');
         				$('#tcTable').show();
+                        window.location.reload();
         			} else {
         				window.layer.msg('添加失败');
         			}
