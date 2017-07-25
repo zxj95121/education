@@ -259,7 +259,7 @@
    		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
 	        <a href="javascript:void(0);" class="weui-tabbar__item" for="my">
 	            <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
-	            <p class="weui-tabbar__label">我的</p>
+	            <p class="weui-tabbar__label">我的加辰</p>
 	        </a>
 	    </div>
    	@elseif($userType->type == 2)
@@ -283,7 +283,7 @@
 	        </a>
 	        <a href="javascript:void(0);" class="weui-tabbar__item" for="my" id="my1">
 	            <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
-	            <p class="weui-tabbar__label">我的</p>
+	            <p class="weui-tabbar__label">我的加辰</p>
 	        </a>
 	    </div>
 	    @else
@@ -296,7 +296,7 @@
 	        </a>
 	        <a href="javascript:void(0);" class="weui-tabbar__item" for="my" id="my1">
 	            <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
-	            <p class="weui-tabbar__label">我的</p>
+	            <p class="weui-tabbar__label">我的加辰</p>
 	        </a>
 	    </div>
 	    @endif
