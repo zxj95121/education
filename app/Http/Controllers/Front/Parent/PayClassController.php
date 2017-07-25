@@ -79,8 +79,13 @@ class PayClassController extends Controller
 		$bid = $flight->id;
 
 		$num = 0;
+		$twoCount = count($cartOrder);
 		foreach ($cartOrder as $key => $value) {
 			// $twoObj = TeacherTwo::find($key);
+			if ($twoCount == 1) 
+				$orderName = $value['name'];
+			else 
+				$orderName = $value['name'].'等';
 			foreach ($value['val'] as $k => $v) {
 				$num++;
 				$no = $order_no.'-'.$num;/*大订单下的小订单号*/
@@ -103,6 +108,7 @@ class PayClassController extends Controller
 		DB::commit();
 
 		Session::put('bigOrder_id', $bid);
+		Session::put('orderName', $orderName);
 		// return view('front.views.parent.bigOrder');
 		return redirect('/front/parent/newEclassOrder2');
 		// exit;
@@ -114,8 +120,9 @@ class PayClassController extends Controller
 		// $childName = Session::get('child');
 		$openid = Session::get('openid');
 		$bid = Session::get('bigOrder_id');
+		$orderName = Session::get('orderName');
 		$bigOrderObj = BigOrder::find($bid);
-		return view('front.views.parent.bigOrder');
+		return view('front.views.parent.bigOrder', ['bigOrderObj'=>$bigOrderObj,'orderName'=>$orderName]);
 	}
 
 	public function newEclassOrder00(Request $request)
