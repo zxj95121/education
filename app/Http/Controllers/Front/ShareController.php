@@ -14,16 +14,10 @@ class ShareController extends Controller
 	public function index(Request $request)
 	{
 		$openid = Session::get('openid');
-		$access_token = Wechat::access_token('oauth_access_token');
-		
-		/*获取用户个人详细信息*/
-		$url = 'https://api.weixin.qq.com/sns/userinfo?access_token='.
-				$access_token.'&openid='.
-				$openid.'&lang=zh_CN';
-				$userinfo = Wechat::curl($url);
+
 		if(Session::get('share')){
 			$id = Session::get('share')['id'];
-			$usershare_count = UserShare::where('openid',$openid)->where('pid',$id)->count();
+			$usershare_count = UserShare::where('openid',$openid)->count();
 			if ($usershare_count < 1){
 				$usershare = new UserShare();
 				$usershare->openid = $openid;
@@ -48,7 +42,7 @@ class ShareController extends Controller
 			$share['id'] = $request->input('id');
 			Session::put('share',$share);
 		}
-		return redirect(OauthController::getUrl(7, 1));
+		return redirect(OauthController::getUrl(7, 0));
 	}
 	
 }
