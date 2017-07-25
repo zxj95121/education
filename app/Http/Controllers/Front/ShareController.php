@@ -24,10 +24,9 @@ class ShareController extends Controller
 			Session::forget('share');
 		}
 		$newuser = NewUser::where('openid',$openid)->get();
-		dump($newuser);
-		if($newuser[0]->id){
+		if (count($newuser) > 0) {
 			$news = array("Title" =>"加辰教育", "Description"=>"加辰教育123", "PicUrl" =>'http://'.$_SERVER['SERVER_NAME'].'/admin/img/index.png', "Url" =>"http://".$_SERVER['SERVER_NAME']."/front/share/oauth?id=".$newuser[0]->id);
-		}else{
+		} else{
 			$news = array("Title" =>"加辰教育", "Description"=>"加辰教育123", "PicUrl" =>'http://'.$_SERVER['SERVER_NAME'].'/admin/img/index.png', "Url" =>"http://".$_SERVER['SERVER_NAME']."/front/share/oauth");
 		}
 		return view('share',['news'=>$news]);
