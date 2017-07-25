@@ -15,7 +15,7 @@ class ShareController extends Controller
 	{
 		$openid = Session::get('openid');
 		$access_token = Wechat::get_access_token();
-		
+		dump($access_token);
 		/*获取用户个人详细信息*/
 		$url = 'https://api.weixin.qq.com/sns/userinfo?access_token='.
 				$access_token.'&openid='.
