@@ -13,6 +13,8 @@ use App\Models\CommunityCommunity;
 use App\Models\CommunityArea;
 use App\Models\CommunityCity;
 use App\Models\Hobby;
+use App\Models\NewUser;
+use App\Models\UserShare;
 use Session;
 
 class ManagerController extends Controller
@@ -169,5 +171,18 @@ class ManagerController extends Controller
     		$res[$i] = $address1[0]->name.$address2[0]->name.$address3[0]->name;
     	}
     	return response()->json(['code'=>200,'res'=>$res]);
+    }
+    public function share(Request $request)
+    {
+    	$Shareobj = UserShare::where('user_share.status', '1')
+    				->leftJoin('new_user', 'user_share.pid', 'new_user.id')
+    				->select('user_share.id','user_share.pid','new_user.nickname','new_user.type','new_user.phone')
+    				->groupBy('user_share.pid')
+    				->get();
+    	
+    	foreach ($Shareobj as $key => $value) {
+    		$Shareobj[$key]['count'] = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status',1)->count();
+    	}
+    	dump($Shareobj);
     }
 }
