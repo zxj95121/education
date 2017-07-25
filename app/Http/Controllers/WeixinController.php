@@ -24,7 +24,7 @@ class WeixinController extends Controller
     			$order = EclassOrder::where('order_no',$postObj->out_trade_no)->first();
     			$order->pay_status = 1;
     			$order->save();
-    			$bill = Bill::where('oid',$order->id)->get();
+    			$bill = Bill::where('oid',$order->id)->where('type', 'EC')->get();
     			if(count($bill) == 0){
     				$bill = new Bill();
     				$bill->oid = $order->id;
@@ -51,7 +51,7 @@ class WeixinController extends Controller
                 $order = ClassPackageOrder::where('order_no',$order_no)->first();
                 $order->pay_status = 1;
                 $order->save();
-                $bill = Bill::where('oid',$order->id)->get();
+                $bill = Bill::where('oid',$order->id)->where('type', 'CP')->get();
 
                 if(count($bill) == 0){
                     $bill = new Bill();
