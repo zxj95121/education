@@ -20,6 +20,7 @@ class ShareController extends Controller
 			$usershare = new UserShare();
 			$usershare->openid = $openid;
 			$usershare->subscribe = 0;
+			$usershare->pid = $id;
 			$usershare->save();
 			Session::forget('share');
 		}
