@@ -20,6 +20,7 @@ use App\Models\BigOrder;
 use App\Http\Controllers\EclassPriceController;
 
 use Session;
+use DB;
 
 class PayClassController extends Controller
 {
