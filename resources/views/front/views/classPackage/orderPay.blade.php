@@ -151,6 +151,7 @@
 							count: count
 						},
 						success: function(data){
+							alert(data);
 							if (data.errcode == 0) {
 								console.log('生成订单成功');
 								$.alert('生成订单成功');
