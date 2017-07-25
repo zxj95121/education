@@ -32,7 +32,7 @@ class WeixinController extends Controller
 
                     $bid = $order->id;
                     $eclassObj = EclassOrder::where('bid', $bid)
-                        ->status('1')
+                        ->where('status', '1')
                         ->first();
     				$parentObj = ParentInfo::find($order->uid);
     				$twoName = EclassPriceController::getName($eclassObj->tid, 3);
