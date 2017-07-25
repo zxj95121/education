@@ -317,18 +317,22 @@
 
         $('#addModal').on('show.bs.modal', function (e) {
             var pid = $('#addModal').attr('pid');
-            if ( pid != '') {
+            var len = pid.length;
+            if ( len != 0 ) {
                 $('#editBtn').css('display', 'inline-block');
                 $('#addBtn').css('display', 'none');
             } else {
-                $('#addBtn').css('display', 'none');
-                $('#editBtn').css('display', 'inline-block');
+                $('#addBtn').css('display', 'inline-block');
+                $('#editBtn').css('display', 'none');
             }
         })
 
         $('#addModal').on('hide.bs.modal', function (e) {
             $('#addModal').attr('pid', '');
             $('#addModal .modal-title').html('添加新eclass套餐');
+            $('#tcName').val('');
+            $('#tcNumber').val('');
+            $('#tcPrice').val('');
         })
 
 
