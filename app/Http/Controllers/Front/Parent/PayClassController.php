@@ -13,6 +13,9 @@ use App\Models\TeacherOne;
 use App\Models\UserType;
 use App\Models\EclassOrder;
 use App\Models\ParentChild;
+use App\Models\NewUser;
+use App\Models\BigOrder;
+
 
 use App\Http\Controllers\EclassPriceController;
 
@@ -23,11 +26,84 @@ class PayClassController extends Controller
 	/*新订单*/
 	public function newEclassOrder(Request $request) {
 		// var_dump($request->all());
+		/*
+		array(1) {
+		  [4]=>
+		  array(2) {
+		    ["name"]=>
+		    string(18) "英语自然拼读"
+		    ["val"]=>
+		    array(1) {
+		      [58]=>
+		      array(2) {
+		        ["name"]=>
+		        string(41) "Phonics Unit 8 . 自然拼读第八单元"
+		        ["count"]=>
+		        int(6)
+		      }
+		    }
+		  }
+		}
+		*/
+		$openid = Session::get('openid');
+		$userObj = NewUser::where('openid', $openid)->first();
+		$voucher = $userObj->voucher;//代金券可用金额
+
 		$cartTotal = $request->input('cartTotal');
 		$cartOrder = json_decode($request->input('cartOrder'), true);
 		var_dump($cartOrder);
+
+		$order_no = 'EC'.date('YmdHis').rand(10000,99999);
+		$bigPrice = $cartTotal*EclassPriceController::getUnitPriceByCount($cartTotal);
+
+		$vnum = floor($bigPrice/1000);
+        $vouNum = 0;
+        for ($i = 0; $i < $vnum; $i++) {
+            if (($voucher-88)>=0) {
+                $voucher -= 88;
+                $vouNum++;
+            }
+        }
+        $bigPrice = $bigPrice-(88*$vouNum);
+
+		/*开始大订单插入*/
+		DB::beginTransaction();
+		$flight = new BigOrder();
+		$flight->openid = $openid;
+		$flight->count = $cartTotal;
+		$flight->voucher_num = $vouNum;
+		$flight->price = $bigPrice;
+		$flight->save();
+		/*大订单插入结束*/
+		$bid = $flight->id;
+
+		$num = 0;
+		foreach ($cartOrder as $key => $value) {
+			// $twoObj = TeacherTwo::find($key);
+			foreach ($value['val'] as $k => $v) {
+				$num++;
+				$no = $order_no.'-'.$num;/*大订单下的小订单号*/
+				$threeObj = TeacherThree::find($k);
+				$ksNum = TeacherFour::where('status', '1')
+					->where('pid', $k)
+					->count();
+				$count = $v['count'];
+				/*小订单*/
+				$flight = new EclassOrder();
+				$flight->order_no = $no;
+				$flight->uid = $userObj->id;
+				$flight->tid = $k;
+				$flight->count = $ksNum;
+				$flight->price = 0;
+				$flight->bid = $bid;
+				$flight->save();
+			}
+		}
+		DB::commit();
+
+		Session::put('bigOrder_id', $bid);
 		// return view('front.views.parent.bigOrder');
-		// return redirect('/front/parent/newEclassOrder2');
+		return redirect('/front/parent/newEclassOrder2');
 		// exit;
 	}
 
@@ -35,6 +111,9 @@ class PayClassController extends Controller
 	{
 
 		// $childName = Session::get('child');
+		$openid = Session::get('openid');
+		$bid = Session::get('bigOrder_id');
+		$bigOrderObj = BigOrder::find($bid);
 		return view('front.views.parent.bigOrder');
 	}
 

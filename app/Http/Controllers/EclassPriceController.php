@@ -65,4 +65,36 @@ class EclassPriceController extends Controller
             $name = $oneObj->name;
         return $name;
     }
+
+
+    public static function getUnitPriceByCount($count)
+    {
+
+        $priceObj = ClassPrice::where('status', 1)
+            ->select('area', 'price')
+            ->get();
+
+        foreach ($priceObj as $key => $value) {
+            $area = $value->area;
+            $arr = explode('-', $area);
+            if (count($arr) == 1 && $key == 0) {
+                if ($count <= $arr[0]) {
+                    $unitPrice = $value->price;
+                    break;
+                }
+            } else if (count($arr) == 1 && $key != 0) {
+                if ($count >= $arr[0]) {
+                    $unitPrice = $value->price;
+                    break;
+                }
+            } else {
+                if ($count >= $arr[0] && $count <= $arr[1]) {
+                    $unitPrice = $value->price;
+                    break;
+                }
+            }
+        }
+
+        return $unitPrice;
+    }
 }
