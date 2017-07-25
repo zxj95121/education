@@ -319,6 +319,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 
   /*class套餐前端展示*/
   $router->get('/classPackage/newOrder', 'ClassPackageController@newOrder');
+  $router->get('/classPackage/newOrder2', 'ClassPackageController@newOrder2');
   $router->post('/classPackage/newOrderPost', 'ClassPackageController@newOrderPost');
   // $router->get('/classPackage/newOrder2', 'ClassPackageController@newOrder2');/*2读取session内的数据*/
 });

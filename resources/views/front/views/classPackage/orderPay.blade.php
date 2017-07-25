@@ -4,17 +4,6 @@
 	//①、获取用户openid
 	$tools = new JsApiPay();
 	$openId = $tools->GetOpenid();
-	$order_no = ''.date('YmdHis').rand(10000, 99999);
-	$price = (float)$package->price;
-	$vnum = floor($price/1000);
-	$vouNum = 0;
-	for ($i = 0; $i < $vnum; $i++) {
-		if (($voucher-88)>=0) {
-			$voucher -= 88;
-			$vouNum++;
-		}
-	}
-	$price = $price-(88*$vouNum);
 	//②、统一下单
 	$input = new WxPayUnifiedOrder();
 	$input->SetBody($package->name);//商品描述
@@ -114,52 +103,21 @@
 				WeixinJSBridge.log(res.err_msg);
 				// alert(res.err_code+res.err_desc+res.err_msg);
 				if(res.err_msg == "get_brand_wcpay_request:ok"){
-					var order_no = '{{$order_no}}';
-					var cid = '{{$package->id}}';
-					var voucher = '{{$vouNum}}';
-					var price = '{{number_format((string)$price, 2)}}';
-					var uid = '{{$userObj->id}}';
-					var count = '{{$package->number}}';
-					$('#order_pay').replaceWith('<a href="#" class="button button-big button-fill button-danger">已完成</a>');
 
-
-					$.ajax({
-						url: '/front/classPackage/newOrderPost',
-						dataType: 'json',
-						type: 'post',
-						headers: {
-				            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-				        },
-						data: {
-							order_no: order_no,
-							cid: cid,
-							voucher: voucher,
-							price: price,
-							uid: uid,
-							count: count
-						},
-						success: function(data){
-							if (data.errcode == 0) {
-								$.modal({
-							      	title:  '支付成功',
-							      	text: '',
-							      	buttons: [
-							        	{
-							          		text: '确认',
-							         		onClick: function() {
-							            		$.closeModal();
-							          		}
-							        	},
-							      	]
-							    });
-							}
-						}
-					})
-
+					$.modal({
+				      	title:  '支付成功',
+				      	text: '',
+				      	buttons: [
+				        	{
+				          		text: '确认',
+				         		onClick: function() {
+				            		$.closeModal();
+				          		}
+				        	},
+				      	]
+				    });
 
 					/*弹出框框*/
-				    
-
 
 				}else{
 					$.alert('支付失败');
