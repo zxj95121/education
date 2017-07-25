@@ -63,6 +63,8 @@ class EclassPriceController extends Controller
             $name = $twoObj->name.$sign.$threeObj->name;
         else if ($type == 0)
             $name = $oneObj->name;
+        else if ($type == 3)
+            $name = $twoObj->name;
         return $name;
     }
 

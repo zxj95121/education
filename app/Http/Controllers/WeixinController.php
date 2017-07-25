@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\EclassOrder;
+use App\Models\BigOrder;
 use App\Models\ClassPackageOrder;
 use App\Models\Bill;
 use App\Http\Controllers\TemplateController;
@@ -20,7 +21,7 @@ class WeixinController extends Controller
     	if (!empty($postStr)){
     		$postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
     		if($postObj->result_code == 'SUCCESS'){
-    			$order = EclassOrder::where('order_no',$postObj->out_trade_no)->first();
+    			$order = BigOrder::where('order_no',$postObj->out_trade_no)->first();
     			$order->pay_status = 1;
     			$order->save();
     			$bill = Bill::where('oid',$order->id)->where('type', 'EC')->get();
@@ -28,10 +29,15 @@ class WeixinController extends Controller
     				$bill = new Bill();
     				$bill->oid = $order->id;
     				$bill->save();
+
+                    $bid = $order->id;
+                    $eclassObj = EclassOrder::where('bid', $bid)
+                        ->status('1')
+                        ->first();
     				$parentObj = ParentInfo::find($order->uid);
-    				$name = EclassPriceController::getName($order->tid, 2);
+    				$twoName = EclassPriceController::getName($eclassObj->tid, 3);
     				$firstName = EclassPriceController::getName($order->tid, 0);
-    				TemplateController::send($parentObj->openid,'关于双师Class订单支付成功的通知',$firstName,$name,$order->price,$bill->created_at,$parentObj->name,'订单支付成功，请耐心等待管理员审核','http://'.$_SERVER["SERVER_NAME"].'/front/parent/myClassOrder/oauth');
+    				TemplateController::send($parentObj->openid,'关于双师Class订单支付成功的通知',$firstName,$twoName,$order->price,$bill->created_at,$parentObj->name,'订单支付成功，请耐心等待管理员审核','http://'.$_SERVER["SERVER_NAME"].'/front/parent/myClassOrder/oauth');
     			}
     		}
     	}
