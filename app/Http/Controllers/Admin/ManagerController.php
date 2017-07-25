@@ -120,6 +120,7 @@ class ManagerController extends Controller
     	for($i = 0; $i < count($res); $i++){
     		
     		$arr = explode('-',$res[$i]->money);
+    		dump($arr);
     		if(count($arr) > 0){
     			if($arr[1] == 1){
     				$res[$i]->money = $arr[0].'/月';
