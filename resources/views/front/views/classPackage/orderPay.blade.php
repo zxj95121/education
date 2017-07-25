@@ -124,7 +124,7 @@
 					var voucher = '{{$vouNum}}';
 					var price = '{{number_format((string)$price, 2)}}';
 					var uid = '{{$userObj->id}}';
-					var count = '{{$packageObj->number}}';
+					var count = '{{$package->number}}';
 					$('#order_pay').replaceWith('<a href="#" class="button button-big button-fill button-danger">已完成</a>');
 
 					/*弹出框框*/
