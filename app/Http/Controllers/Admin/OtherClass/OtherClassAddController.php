@@ -81,4 +81,12 @@ class OtherClassAddController extends Controller
 
     	return response()->json(['errcode'=>0]);
     }
+
+    /*订单*/
+    public function orderList(Request $request)
+    {
+        $cid = $request->input('cid');
+
+        return view('admin.otherClass.orderList');
+    }
 }

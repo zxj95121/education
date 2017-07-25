@@ -22,14 +22,17 @@ class ShareController extends Controller
 			/*被分享未关注  */
 			if(Session::get('share')){
 				$id = Session::get('share')['id'];
-				$usershare_count = UserShare::where('openid',$openid)->count();
-				if ($usershare_count < 1){
-					$usershare = new UserShare();
-					$usershare->openid = $openid;
-					$usershare->subscribe = 0;
-					$usershare->pid = $id;
-					$usershare->save();
-					Session::forget('share');
+				$userObj = NewUser::find($id);
+				if ($userObj->openid != $openid) {
+					$usershare_count = UserShare::where('openid',$openid)->count();
+					if ($usershare_count < 1){
+						$usershare = new UserShare();
+						$usershare->openid = $openid;
+						$usershare->subscribe = 0;
+						$usershare->pid = $id;
+						$usershare->save();
+						Session::forget('share');
+					}
 				}
 			}
 		}

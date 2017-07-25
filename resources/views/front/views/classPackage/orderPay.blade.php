@@ -17,6 +17,12 @@
 	// var_dump($order);
 	$jsApiParameters = $tools->GetJsApiParameters($order); 
 ?>
+
+<?php
+require_once $_SERVER['DOCUMENT_ROOT']."/php/jssdk/jssdk.php";
+$jssdk = new JSSDK(getenv('APPID'), getenv('APPSECRET'));
+$signPackage = $jssdk->GetSignPackage();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,6 +97,25 @@
 	<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 	<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
 	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+	<script type="text/javascript">
+		wx.config({
+		    debug: false,
+		    appId: '<?php echo $signPackage["appId"];?>',
+		    timestamp: <?php echo $signPackage["timestamp"];?>,
+		    nonceStr: '<?php echo $signPackage["nonceStr"];?>',
+		    signature: '<?php echo $signPackage["signature"];?>',
+		    jsApiList: [
+		      	// 所有要调用的 API 都要加到这个列表中
+		      	'hideAllNonBaseMenuItem',
+		      	'closeWindow'
+		    ]
+		});
+		wx.ready(function () {
+			function closeWeb(){
+				wx.closeWindow();
+			}
+		});
+	</script>
     <script type="text/javascript">
 
 	//调用微信JS api 支付
@@ -114,6 +139,7 @@
 				          		text: '确认',
 				         		onClick: function() {
 				            		$.closeModal();
+				            		closeWeb();
 				          		}
 				        	},
 				      	]

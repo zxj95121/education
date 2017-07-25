@@ -173,15 +173,22 @@ class LoginController extends Controller
 
         /*user_type的id*/
         $uid = $flight->id;
-        /*存到new_user表*/
-        $flight = new NewUser();
-        $flight->openid = $openid;
-        $flight->uid = $uid;
-        $flight->type = '1';
-        $flight->voucher = 188;
-        $flight->phone = $phone;
-        $flight->nickname = $nickname;
-        $flight->save();
+
+        $count = NewUser::where('openid', $openid)->count();
+        if ($count == 0) {
+            /*存到new_user表*/
+            $flight = new NewUser();
+            $flight->openid = $openid;
+            $flight->uid = $uid;
+            $flight->type = '1';
+            $flight->voucher = 188;
+            $flight->phone = $phone;
+            $flight->nickname = $nickname;
+            $flight->save();
+        } else {
+            NewUser::where('openid', $openid)
+                ->update(['type', '1']);
+        }
 
         Session::put('front_id', $flight->id);
         Session::forget('phoneCode');

@@ -336,7 +336,7 @@
         })
 
 
-         ZeroClipboard.config( { swfPath: 'http://{{$SERVER_NAME}}/js/clipboard/ZeroClipboard.swf' } );
+        ZeroClipboard.config( { swfPath: 'http://{{$SERVER_NAME}}/js/clipboard/ZeroClipboard.swf' } );
             
         var doms = $('.copySpan');
         var clip = new ZeroClipboard( doms );
@@ -361,6 +361,14 @@
             clip.setText($(this).attr('url'));
         })
 
+
+
+        /*查看订单*/
+        $(document).on('click', '.seeOrder', function(){
+            var pid =  $(this).parents('tr').attr('pid');
+
+            window.location.href = '/admin/otherClass/orderList?cid='+pid;
+        })
     });
 </script>
 @endsection

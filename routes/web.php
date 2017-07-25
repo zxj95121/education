@@ -192,6 +192,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
 
     /*其他class管理*/
     $router->get('/otherClass/add', 'OtherClass\OtherClassAddController@add');
+    $router->get('/otherClass/orderList', 'OtherClass\OtherClassAddController@orderList');
     $router->post('/otherClass/add/addPost', 'OtherClass\OtherClassAddController@addPost');
     $router->post('/otherClass/add/editPost', 'OtherClass\OtherClassAddController@editPost');
     $router->get('/otherClass/add/setShow', 'OtherClass\OtherClassAddController@setShow');

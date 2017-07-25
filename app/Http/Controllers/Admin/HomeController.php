@@ -280,14 +280,22 @@ class HomeController extends Controller
 
         /*user_type里面的id*/
         $uid = $flight->id;
+
         /*存到new_user表*/
-        $flight = new NewUser();
-        $flight->openid = $openid;
-        $flight->type = '1';
-        $flight->uid = $uid;
-        $flight->phone = $phone;
-        $flight->nickname = $nickname;
-        $flight->save();
+        $count = NewUser::where('openid', $openid)->count();
+        if ($count == 0) {
+            /*存到new_user表*/
+            $flight = new NewUser();
+            $flight->openid = $openid;
+            $flight->type = '1';
+            $flight->uid = $uid;
+            $flight->phone = $phone;
+            $flight->nickname = $nickname;
+            $flight->save();
+        } else {
+            NewUser::where('openid', $openid)
+                ->update(['type', '1']);
+        }
         
         return response()->json(['errcode'=>0]);
     }
