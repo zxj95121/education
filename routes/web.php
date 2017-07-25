@@ -193,6 +193,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     /*其他class管理*/
     $router->get('/otherClass/add', 'OtherClass\OtherClassAddController@add');
     $router->post('/otherClass/add/addPost', 'OtherClass\OtherClassAddController@addPost');
+    $router->post('/otherClass/add/editPost', 'OtherClass\OtherClassAddController@editPost');
     $router->get('/otherClass/add/setShow', 'OtherClass\OtherClassAddController@setShow');
     $router->post('/otherClass/add/setShowPost', 'OtherClass\OtherClassAddController@setShowPost');
     $router->post('/otherClass/add/delete', 'OtherClass\OtherClassAddController@delete');//delete套餐

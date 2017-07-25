@@ -58,12 +58,12 @@
 												@foreach($package as $value)
 												<tr pid="{{$value->id}}">
 													<td>{{$value->id}}</td>
-													<td>{{$value->name}}</td>
-                                                    <td>{{$value->number}}</td>
-                                                    <td>{{$value->order_count}}</td>
+													<td class="td_tcName">{{$value->name}}</td>
+                                                    <td class="td_tcNumber">{{$value->number}}</td>
+                                                    <td class="td_tcOrderCount">{{$value->order_count}}</td>
 													<td>@if($value->show) <span class="label label-success seeShow">查看详情</span> @else <span class="label label-info setShow">立即设置</span> @endif</td>
-													<td>¥ {{number_format($value->price, 2)}}</td>
-													<td><span class="label label-primary seeOrder">查看订单</span>&nbsp;&nbsp;&nbsp;<span class="label label-primary delete">删除</span></td>
+													<td class="td_tcPrice">¥ {{number_format($value->price, 2)}}</td>
+													<td><span class="label label-primary edit">修改</span>　　<span class="label label-primary delete">删除</span>　　<span class="label label-primary seeOrder">查看订单</span></td>
 												</tr>
 												@endforeach
 											</tbody>
@@ -78,7 +78,7 @@
 
             </div>
 
-            <div id="addModal" class="modal fade" tabindex="-1" role="dialog">
+            <div id="addModal" pid="" class="modal fade" tabindex="-1" role="dialog">
 			  	<div class="modal-dialog" role="document">
 			    	<div class="modal-content">
 			      		<div class="modal-header">
@@ -89,7 +89,7 @@
 			      			<div class="row">
 				        		<div class="form-group row" style="margin-bottom: 20px;">
 		                            <div class="col-md-2" style="text-align: right;">
-		                                <label for="pg_name">套餐名称</label>
+		                                <label for="tcName">套餐名称</label>
 		                            </div>
 		                            <div class="col-md-10">
 		                                <input type="text" name="tcName" id="tcName" class="form-control">
@@ -98,7 +98,7 @@
 	                        	</div>
 	                        	<div class="form-group row">
 		                            <div class="col-md-2" style="text-align: right;">
-		                                <label for="pg_name">套餐价格</label>
+		                                <label for="tcPrice">套餐价格</label>
 		                            </div>
 		                            <div class="col-md-10">
 		                                <input type="text" name="tcPrice" id="tcPrice" class="form-control">
@@ -107,7 +107,7 @@
 	                        	</div>
                                 <div class="form-group row">
                                     <div class="col-md-2" style="text-align: right;">
-                                        <label for="pg_name">课时数量</label>
+                                        <label for="tcNumber">课时数量</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="number" name="tcNumber" id="tcNumber" required class="form-control">
@@ -118,7 +118,8 @@
 			      		</div>
 			      		<div class="modal-footer">
 			        		<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-				        	<button type="button" class="btn btn-primary" id="addBtn">确认添加</button>
+                            <button type="button" class="btn btn-primary" id="addBtn">确认添加</button>
+				        	<button type="button" class="btn btn-primary" id="editBtn">确认修改</button>
 				      	</div>
 			    	</div><!-- /.modal-content -->
 			  	</div><!-- /.modal-dialog -->
@@ -154,7 +155,10 @@
         		$('#tc_name_error').html('名称不能为空');
         		temp = 1;
         	}
-
+            if (tcNumber == '') {
+                $('#tc_number_error').html('课时数量不能为空');
+                temp = 1;
+            }
         	if (temp == 1)
         		return;
 
@@ -184,6 +188,58 @@
         		}
         	})
         })
+
+
+        $('#editBtn').click(function(){
+            var tcName = $('#tcName').val();
+            var tcPrice = $('#tcPrice').val();
+            var tcNumber = $('#tcNumber').val();
+            var temp = 0;
+            var reg = /^(\d{1,8})(\.\d{1,2})?$/;
+            if ( !reg.test(tcPrice) ) {
+                $('#tc_price_error').html('价格格式不正确');
+                temp = 1;
+            }
+            if ( tcName == '' ) {
+                $('#tc_name_error').html('名称不能为空');
+                temp = 1;
+            }
+            if (tcNumber == '') {
+                $('#tc_number_error').html('课时数量不能为空');
+                temp = 1;
+            }
+
+            if (temp == 1)
+                return;
+
+            /*发送ajax*/
+            $.ajax({
+                url: '/admin/otherClass/add/editPost',
+                dataType: 'json',
+                type: 'post',
+                data: {
+                    name: tcName,
+                    price: tcPrice,
+                    number: tcNumber,
+                    id: $('#addModal').attr('pid')
+                },
+                success: function(data) {
+                    if (data.errcode == 0) {
+                        window.layer.msg('修改成功');
+                        $('#tcName').val('');
+                        $('#tcPrice').val('');
+                        $('#addModal').modal('hide');
+                        $('#tcTable').show();
+                    } else {
+                        window.layer.msg('修改失败');
+                    }
+                },
+                error: function(){
+                    window.layer.msg('修改失败');
+                }
+            })
+        })
+
 
         $('#tcName').focus(function(){
         	$('#tc_name_error').html('');
@@ -228,6 +284,41 @@
                     }
                 })
             });
+        });
+
+
+        $(document).on('click', '.edit', function(){
+            var cdom = $(this).parents('tr');
+            var pid = cdom.attr('pid');
+
+            var tcName = cdom.find('.td_tcName').html();
+            var tcNumber = cdom.find('.td_tcNumber').html();
+            var tcPrice = parseFloat(cdom.find('.td_tcPrice').html().split(' ')[1]);
+
+            $('#addModal').attr('pid', pid);
+
+            $('#tcName').val(tcName);
+            $('#tcNumber').val(tcNumber);
+            $('#tcPrice').val(tcPrice);
+
+            $('#addModal .modal-title').html('修改class套餐');
+            $('#addModal').modal('show');
+        })
+
+        $('#addModal').on('show.bs.modal', function (e) {
+            var pid = $('#addModal').attr('pid');
+            if ( pid != '') {
+                $('#editBtn').css('display', 'inline-block');
+                $('#addBtn').css('display', 'none');
+            } else {
+                $('#addBtn').css('display', 'none');
+                $('#editBtn').css('display', 'inline-block');
+            }
+        })
+
+        $('#addModal').on('hide.bs.modal', function (e) {
+            $('#addModal').attr('pid', '');
+            $('#addModal .modal-title').html('添加新eclass套餐');
         })
     });
 </script>

@@ -30,6 +30,23 @@ class OtherClassAddController extends Controller
 
     	return response()->json(['errcode'=>0,'id'=>$flight->id]);
     }
+
+    public function editPost(Reuqest $request)
+    {
+        $name = $request->input('name');
+        $price = $request->input('price');
+        $number = $request->input('number');
+        $id = $request->input('id');
+
+        $flight = ClassPackage::find($id);
+        $flight->name = $name;
+        $flight->price = $price;
+        $flight->number = $number;
+        $flight->save();
+
+        return response()->json(['errcode'=>0]);
+    }
+
     /*设置内容*/
     public function setShow(Request $request)
     {
