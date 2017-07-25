@@ -104,11 +104,6 @@
 	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script type="text/javascript">
 
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
 	//调用微信JS api 支付
 	function callpay()
 	{
@@ -144,6 +139,9 @@
 						url: '/front/classPackage/newOrderPost',
 						dataType: 'json',
 						type: 'post',
+						headers: {
+				            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				        },
 						data: {
 							order_no: order_no,
 							cid: cid,
