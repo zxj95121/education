@@ -84,7 +84,7 @@ $signPackage = $jssdk->GetSignPackage();
   					</li>
 			    </ul>
 			    <div class="row" style="margin-top:30px;">
-					<div class="col-100"><a href="#" class="button button-big button-fill button-success" id="order_pay" onclick="callpay()">立即支付</a></div>
+					<div class="col-100"><a href="#" class="button button-big button-fill button-success" id="order_pay">立即支付</a></div>
 				</div>
 			</div>
 			
@@ -111,48 +111,48 @@ $signPackage = $jssdk->GetSignPackage();
 		    ]
 		});
 		wx.ready(function () {
-			function closeWeb(){
-				wx.closeWindow();
-			}
+			$('#order_pay').click(function(){
+				WeixinJSBridge.invoke(
+					'getBrandWCPayRequest',
+					<?php echo $jsApiParameters; ?>,
+					function(res){
+						WeixinJSBridge.log(res.err_msg);
+						// alert(res.err_code+res.err_desc+res.err_msg);
+						if(res.err_msg == "get_brand_wcpay_request:ok"){
+
+							$('#order_pay').replaceWith('<a href="#" class="button button-big button-fill button-danger">已完成</a>');
+
+							$.modal({
+						      	title:  '支付成功',
+						      	text: '',
+						      	buttons: [
+						        	{
+						          		text: '关闭',
+						         		onClick: function() {
+						            		$.closeModal();
+						            		wx.closeWindow();
+						          		}
+						        	},
+						      	]
+						    });
+
+							/*弹出框框*/
+
+						}else{
+							$.alert('支付失败');
+						}  
+					}
+				);
+			})
 		});
 	</script>
     <script type="text/javascript">
 
-	//调用微信JS api 支付
-	function callpay()
-	{
-		WeixinJSBridge.invoke(
-			'getBrandWCPayRequest',
-			<?php echo $jsApiParameters; ?>,
-			function(res){
-				WeixinJSBridge.log(res.err_msg);
-				// alert(res.err_code+res.err_desc+res.err_msg);
-				if(res.err_msg == "get_brand_wcpay_request:ok"){
-
-					$('#order_pay').replaceWith('<a href="#" class="button button-big button-fill button-danger">已完成</a>');
-
-					$.modal({
-				      	title:  '支付成功',
-				      	text: '',
-				      	buttons: [
-				        	{
-				          		text: '确认',
-				         		onClick: function() {
-				            		$.closeModal();
-				            		closeWeb();
-				          		}
-				        	},
-				      	]
-				    });
-
-					/*弹出框框*/
-
-				}else{
-					$.alert('支付失败');
-				}  
-			}
-		);
-	}
+	// //调用微信JS api 支付
+	// function callpay()
+	// {
+		
+	// }
 	</script>
 </body>
 </html>
