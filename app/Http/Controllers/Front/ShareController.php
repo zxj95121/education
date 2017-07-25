@@ -14,15 +14,17 @@ class ShareController extends Controller
 	public function index(Request $request)
 	{
 		$openid = Session::get('openid');
-		
 		if(Session::get('share')){
 			$id = Session::get('share')['id'];
-			$usershare = new UserShare();
-			$usershare->openid = $openid;
-			$usershare->subscribe = 0;
-			$usershare->pid = $id;
-			$usershare->save();
-			Session::forget('share');
+			$usershare_count = UserShare::where('openid',$openid)->where('pid',pid)->count();
+			if ($usershare_count < 1){
+				$usershare = new UserShare();
+				$usershare->openid = $openid;
+				$usershare->subscribe = 0;
+				$usershare->pid = $id;
+				$usershare->save();
+				Session::forget('share');
+			}
 		}
 		$newuser = NewUser::where('openid',$openid)->get();
 		if (count($newuser) > 0) {
