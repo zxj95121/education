@@ -44,21 +44,21 @@
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">
           						<div class="item-title">订单编号</div>
-          						<div class="item-after">asfdsfdsa</div>
+          						<div class="item-after">{{$bigOrderObj->order_no}}</div>
         					</div>
       					</li>
       					<li class="item-content">
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">
           						<div class="item-title">课程名称</div>
-          						<div class="item-after">发的发斯蒂芬</div>
+          						<div class="item-after">{{$orderName}}</div>
         					</div>
       					</li>
       					<li class="item-content">
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">
           						<div class="item-title">课时数量</div>
-          						<div class="item-after">发的发</div>
+          						<div class="item-after">{{$bigOrderObj->count}}</div>
         					</div>
       					</li>
 <!--       					<li class="item-content">
@@ -72,7 +72,7 @@
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">
           						<div class="item-title">订单价格</div>
-          						<div class="item-after" style="font-weight: bold;">¥防守打法</div>
+          						<div class="item-after" style="font-weight: bold;">¥ {{number_format($bigOrderObj->price, 2)}}</div>
         					</div>
       					</li>
       					<li class="item-content">
