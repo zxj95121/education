@@ -8,14 +8,22 @@ use App\Models\NewUser;
 use App\Models\UserShare;
 use App\Http\Controllers\Wechat\OauthController;
 use Session;
+use Wechat;
 class ShareController extends Controller
 {
 	public function index(Request $request)
 	{
 		$openid = Session::get('openid');
+		$access_token = Wechat::get_access_token();
+		/*获取用户个人详细信息*/
+		$url = 'https://api.weixin.qq.com/sns/userinfo?access_token='.
+				$access_token['access_token'].'&openid='.
+				$openid.'&lang=zh_CN';
+		$userinfo = Wechat::curl($url);
+		dump($userinfo);
 		if(Session::get('share')){
 			$id = Session::get('share')['id'];
-			$usershare_count = UserShare::where('openid',$openid)->where('pid',$id)->count();
+			$usershare_count = UserShare::where('openid',$openid)->count();
 			if ($usershare_count < 1){
 				$usershare = new UserShare();
 				$usershare->openid = $openid;
