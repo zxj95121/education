@@ -78,6 +78,6 @@ class ClassPackageController extends Controller
         $flight->voucher = $newVou;
         $flight->save();
 
-        return response()->json('errcode'=>0);
+        return response()->json(['errcode'=>0]);
     }
 }
