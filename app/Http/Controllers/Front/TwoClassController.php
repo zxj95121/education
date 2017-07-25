@@ -77,7 +77,7 @@ class TwoClassController extends Controller
         $kcNum = array();
         foreach ($teacherthree as $value) {
             $id = $value->id;
-            $kcNum[] = TeacherFour::where('pid', $id)->count();
+            $kcNum[] = TeacherFour::where('pid', $id)->where('status',1)->count();
         }
 
         $nameObj = TeacherTwo::where('id', $pid)->select('name')->get()[0];
@@ -93,7 +93,7 @@ class TwoClassController extends Controller
         $kcNum = array();
         foreach ($teacherthree as $value) {
             $id = $value->id;
-            $kcNum[] = TeacherFour::where('pid', $id)->count();
+            $kcNum[] = TeacherFour::where('pid', $id)->where('status',1)->count();
         }
 
         $nameObj = TeacherTwo::where('id', $pid)->select('name')->get()[0];
@@ -180,7 +180,7 @@ class TwoClassController extends Controller
                 $kcNum = array();
                 foreach ($res as $value) {
                     $id = $value->id;
-                    $kcNum[] = TeacherFour::where('pid', $id)->count();
+                    $kcNum[] = TeacherFour::where('pid', $id)->where('status',1)->count();
                 }
                 return view('front.views.home.twoclass',['res'=>$res,'class'=>$fenlei,'pid'=>$pid,'name'=>$nameObj->name,'kcNum'=>$kcNum]);
     			break;
