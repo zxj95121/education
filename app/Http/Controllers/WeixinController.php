@@ -9,6 +9,9 @@ use App\Models\Bill;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\EclassPriceController;
 use App\Models\ParentInfo;
+use App\Models\ClassPackage;
+use App\Models\ClassPackageOrder;
+use App\Models\NewUser;
 
 class WeixinController extends Controller
 {
@@ -29,7 +32,7 @@ class WeixinController extends Controller
     				$parentObj = ParentInfo::find($order->uid);
     				$name = EclassPriceController::getName($order->tid, 2);
     				$firstName = EclassPriceController::getName($order->tid, 0);
-    				TemplateController::send($parentObj->openid,'关于双师Class订单支付成功的通知',$firstName,$name,$order->price,$bill->created_at,$parentObj->name,'订单支付成功，请耐心等待管理员审核');
+    				TemplateController::send($parentObj->openid,'关于双师Class订单支付成功的通知',$firstName,$name,$order->price,$bill->created_at,$parentObj->name,'订单支付成功，请耐心等待管理员审核','http://'.$_SERVER["SERVER_NAME"].'/front/parent/myClassOrder/oauth');
     			}
     		}
     	}
@@ -44,9 +47,22 @@ class WeixinController extends Controller
             $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
             if($postObj->result_code == 'SUCCESS'){
                 $order_no = $postObj->out_trade_no;
-                $price = $postObj->total_fee;
-                $flight = new ClassPackageOrder();
 
+                $order = ClassPackageOrder::where('order_no',$order_no)->first();
+                $order->pay_status = 1;
+                $order->save();
+                $bill = Bill::where('oid',$order->id)->get();
+
+                if(count($bill) == 0){
+                    $bill = new Bill();
+                    $bill->oid = $order->id;
+                    $bill->type = 'CP';
+                    $bill->save();
+                    $cpObj = ClassPackage::find($order->cid);
+                    $caseNameObj = NewUser::find($order->uid);
+                    $firstName = EclassPriceController::getName($orsder->tid, 0);
+                    TemplateController::send($caseNameObj->openid,'关于订单支付成功的通知','课程套餐',$cpObj->name,$order->price,$bill->created_at,$caseNameObj->nickname,'订单支付成功','');
+                }
             }
         }
 

@@ -41,7 +41,7 @@ class ClassPackageController extends Controller
         $voucher = $userObj->voucher;
 
 
-        $order_no = 'OP'.date('YmdHis').rand(10000, 99999);
+        $order_no = 'CP'.date('YmdHis').rand(10000, 99999);
         $price = (float)$package->price;
         $vnum = floor($price/1000);
         $vouNum = 0;

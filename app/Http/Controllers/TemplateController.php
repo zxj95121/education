@@ -7,13 +7,13 @@ use Wechat;
 
 class TemplateController extends Controller
 {
-    public static function send($openid,$title,$name,$type,$price,$time,$nickname,$remark)
+    public static function send($openid,$title,$name,$type,$price,$time,$nickname,$remark,$url)
     {
     	$access_token = Wechat::get_access_token();
     	$res = '{
 				"touser":"'.$openid.'",
 				"template_id":"Aes29u_WuVTbyxSZPHqB5g3gzjEsx7Pj_9CSqJXLB70",
-				"url": "http://'.$_SERVER["SERVER_NAME"].'/front/parent/myClassOrder/oauth",
+				"url": "'.$url.'",
 				"topcolor":"#FF0000",
     			"data":{
     				"first":{"value": "'.$title.'"},
