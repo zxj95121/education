@@ -176,13 +176,13 @@ class ManagerController extends Controller
     }
     public function share(Request $request)
     {
-    	$nickname = $request->input('nickname');
+    	$phone = $request->input('phone');
     	$Shareobj = UserShare::where('user_share.status', '1')
     				->leftJoin('new_user', 'user_share.pid', 'new_user.id');
     	$str = '';
-    	if ($nickname) {
-    		$Shareobj = $Shareobj->where('new_user.nickname', 'like', $nickname.'%');
-    		$str .= '&nickname='.$nickname;	
+    	if ($phone) {
+    		$Shareobj = $Shareobj->where('new_user.phone', 'like', $phone.'%');
+    		$str .= '&phone='.$phone;	
     	}
     	$Shareobj = $Shareobj->orderBy('user_share.created_at', 'desc')
     					->select('user_share.id','user_share.pid','new_user.nickname','new_user.type','new_user.phone')
@@ -192,7 +192,7 @@ class ManagerController extends Controller
     		//总分享数量
     		$Shareobj[$key]['count'] = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status',1)->count();
     		//更新成功关注状态
-     		$openids = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status', 1)->where('subscribe' ,0)->select('openid','id')->get();
+      		$openids = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status', 1)->where('subscribe' ,0)->select('openid','id')->get();
     		foreach ($openids as $value2) {
     			$openid = $value2->openid;
     			$access_token = Wechat::get_access_token();
@@ -203,10 +203,10 @@ class ManagerController extends Controller
     				$usershare->subscribe = 1;
     				$usershare->save();
     			}
-    		} 
+    		}  
     		//用户成功关注数量
 			$Shareobj[$key]['succeed'] = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status',1)->where('subscribe',1)->count();
     	}
-    	return view('admin.share',['res'=>$Shareobj, 'str'=>$str, 'nickname'=>$nickname]);
+    	return view('admin.share',['res'=>$Shareobj, 'str'=>$str, 'phone'=>$phone]);
     }
 }
