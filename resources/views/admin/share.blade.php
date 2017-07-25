@@ -41,9 +41,9 @@
                             		<input type="hidden" name="_token" value="8o0WCWkZVQQlILo6nNqy8G0GOC2Toii1z5HAfOjH">
                             		<div class="row m-b-15">
                             			<div class="form-group">
-                            				<label class="col-md-1 clh text-right" style="margin-top: 7px;">昵称:</label>
+                            				<label class="col-md-1 clh text-right" style="margin-top: 7px;">手机号:</label>
                             				<div class="col-md-3">
-                                                <input type="text" name="nickname" class="form-control" placeholder="根据昵称查询" value="@if($nickname) {{$nickname}} @else @endif">
+                                                <input type="text" name="phone" class="form-control" placeholder="根据手机号查询" value="@if($phone) {{$phone}} @else @endif">
                                             </div>
                                             <div class="col-md-3 ">
                                             	<button type="submit" class="btn btn-info w-md" style="margin-right: 16px;">查询</button>
@@ -76,8 +76,7 @@
                                                     <td>{{$value->count}}</td>
                                                     <td>{{$value->succeed}}</td>
                                                     <td>
-                                                        <span class="label label-info">呵呵呵</span>　
-                                                        <span class="label label-danger">哈哈哈</span>
+                                                        <span class="label label-default">暂无操作</span>　
                                                     </td>
                                                 </tr>
                                                 @endforeach
