@@ -69,7 +69,7 @@
                         </a>
                     </li>
                     
-                    <li class="has-submenu {!!(Request::is('admin/managerList','admin/managerReview','admin/parentInfo','admin/teacherInfo')? 'active' : '') !!}">
+                    <li class="has-submenu {!!(Request::is('admin/managerList','admin/managerReview','admin/parentInfo','admin/teacherInfo','admin/share')? 'active' : '') !!}">
                         <a href="#">
                             <i class="zmdi zmdi-format-underlined"></i> 
                             <span class="nav-label">用户基本管理</span>
@@ -87,6 +87,9 @@
                             </li>
                             <li class="{!!(Request::is('admin/teacherInfo')? 'active' : '') !!}">
                                 <a href="/admin/teacherInfo">教师列表</a>
+                            </li>
+                            <li class="{!!(Request::is('admin/share')? 'active' : '') !!}">
+                                <a href="/admin/share">用户分享</a>
                             </li>
                         </ul>
                     </li>
