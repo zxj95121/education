@@ -36,7 +36,7 @@ class WeixinController extends Controller
                         ->first();
     				$parentObj = ParentInfo::find($order->uid);
     				$twoName = EclassPriceController::getName($eclassObj->tid, 3);
-    				$firstName = EclassPriceController::getName($order->tid, 0);
+    				$firstName = EclassPriceController::getName($eclassObj->tid, 0);
     				TemplateController::send($parentObj->openid,'关于双师Class订单支付成功的通知',$firstName,$twoName,$order->price,$bill->created_at,$parentObj->name,'订单支付成功，请耐心等待管理员审核','http://'.$_SERVER["SERVER_NAME"].'/front/parent/myClassOrder/oauth');
     			}
     		}
