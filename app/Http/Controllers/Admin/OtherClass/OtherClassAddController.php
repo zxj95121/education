@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\ClassPackage;
+use App\Models\ClassPackageOrder;
 
 class OtherClassAddController extends Controller
 {
@@ -86,7 +87,15 @@ class OtherClassAddController extends Controller
     public function orderList(Request $request)
     {
         $cid = $request->input('cid');
+        $packageObj = ClassPackage::find($cid);
 
-        return view('admin.otherClass.orderList');
+        /*查订单*/
+        $orderObj = ClassPackageOrder::where('class_package_order.cid', $cid)
+            ->where('class_package_order.status', 1)
+            ->leftJoin('new_user as nu', 'nu.id', 'class_package_order.uid')
+            ->select('nu.nickname', 'nu.phone as phone', 'class_package_order.*')
+            ->get();
+        dd($orderObj->toArray());
+        return view('admin.otherClass.orderList', ['package'=>$packageObj]);
     }
 }

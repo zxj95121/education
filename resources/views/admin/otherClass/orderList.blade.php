@@ -27,8 +27,8 @@
 
                         <div class="portlet"><!-- /primary heading -->
                             <div class="portlet-heading">
-                                <h3 class="portlet-title text-dark text-uppercase">
-                                    特惠
+                                <h3 class="portlet-title text-dark text-uppercase" style="font-size:1.75em;">
+                                    {{$package->name}}
                                 </h3>
                                 <div class="portlet-widgets">
                                     <span class="divider"></span>
