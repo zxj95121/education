@@ -16,7 +16,7 @@ use App\Models\Hobby;
 use App\Models\NewUser;
 use App\Models\UserShare;
 use Session;
-
+use Wechat;
 class ManagerController extends Controller
 {
     public function managerList()
@@ -178,11 +178,27 @@ class ManagerController extends Controller
     				->leftJoin('new_user', 'user_share.pid', 'new_user.id')
     				->select('user_share.id','user_share.pid','new_user.nickname','new_user.type','new_user.phone')
     				->groupBy('user_share.pid')
-    				->get();
+    				->paginate(10);
     	
     	foreach ($Shareobj as $key => $value) {
+    		//总分享数量
     		$Shareobj[$key]['count'] = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status',1)->count();
+    		//更新成功关注状态
+    		$openids = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status', 1)->where('subscribe' ,0)->select('openid','id')->get();
+    		foreach ($openids as $value2) {
+    			$openid = $value2->openid;
+    			$access_token = Wechat::get_access_token();
+    			$url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token['access_token'].'&openid='.$openid.'&lang=zh_CN';
+    			$userinfo = Wechat::curl($url);
+    			if ($userinfo['subscribe'] == 1) {
+    				$usershare = UserShare::find($value2->id);
+    				$usershare->subscribe = 1;
+    				$usershare->save();
+    			}
+    		}
+    		//用户成功关注数量
+			$Shareobj[$key]['succeed'] = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status',1)->where('subscribe',1)->count();
     	}
-    	dump($Shareobj);
+    	return view('admin.share',['res'=>$Shareobj]);
     }
 }
