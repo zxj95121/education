@@ -122,19 +122,7 @@
 					var count = '{{$package->number}}';
 					$('#order_pay').replaceWith('<a href="#" class="button button-big button-fill button-danger">已完成</a>');
 
-					/*弹出框框*/
-				    $.modal({
-				      title:  '支付成功',
-				      text: '',
-				      buttons: [
-				        {
-				          text: '确认',
-				          onClick: function() {
-				            $.closeModal();
-				          }
-				        },
-				      ]
-				    });
+
 					$.ajax({
 						url: '/front/classPackage/newOrderPost',
 						dataType: 'json',
@@ -159,6 +147,22 @@
 							}
 						}
 					})
+
+					
+					/*弹出框框*/
+				    $.modal({
+				      title:  '支付成功',
+				      text: '',
+				      buttons: [
+				        {
+				          text: '确认',
+				          onClick: function() {
+				            $.closeModal();
+				          }
+				        },
+				      ]
+				    });
+
 
 				}else{
 					$.alert('支付失败');
