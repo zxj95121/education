@@ -63,7 +63,7 @@
                                                     <td class="td_tcOrderCount">{{$value->order_count}}</td>
 													<td>@if($value->show) <span class="label label-success seeShow">查看详情</span> @else <span class="label label-info setShow">立即设置</span> @endif</td>
 													<td class="td_tcPrice">¥ {{number_format($value->price, 2)}}</td>
-													<td><span class="label label-primary edit">修改</span>　　<span class="label label-primary delete">删除</span>　　<span class="label label-primary seeOrder">查看订单</span>　　<span class="label label-primary copySpan">复制网址</span></td>
+													<td><span class="label label-primary edit">修改</span>　　<span class="label label-primary delete">删除</span>　　<span class="label label-primary seeOrder">查看订单</span>　　<span class="label label-primary copySpan" url="http://{{$SERVER_NAME}}/front/classPackage?id={{$value->id}}">复制网址</span></td>
 												</tr>
 												@endforeach
 											</tbody>
@@ -130,6 +130,7 @@
 <!-- 加js代码，或引入 -->
 @section('jquery')
 <script type="text/javascript" src="/js/layui/layui.js"></script>
+<script type="text/javascript" src="/js/clipboard/ZeroClipboard.min.js"></script>
 <script type="text/javascript">
     $(function(){
 
@@ -330,15 +331,29 @@
         })
 
 
+         ZeroClipboard.config( { swfPath: 'http://{{$SERVER_NAME}}/js/clipboard/ZeroClipboard.swf' } );
+            
+        var doms = $('.copySpan');
+        var clip = new ZeroClipboard( doms );
+
+
         $(document).on('click', '.copySpan', function(){
             /*复制到剪切板*/
+            
             $(this).tooltip({'title':'已复制'});
             $(this).tooltip('show');
         })
 
         $(document).on('mouseleave', '.copySpan', function(){
             $(this).tooltip('destroy');
+            clip.off();
             // $(this).toolt$(this).tooltip({'title':'点我复制'});
+        })
+
+        $(document).on('mouseover', '.copySpan', function(){
+            doms = $(this);
+            clip = new ZeroClipboard( doms );
+            clip.setText($(this).attr('url'));
         })
 
     });

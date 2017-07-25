@@ -13,7 +13,9 @@ class OtherClassAddController extends Controller
     {
     	$packageObj = ClassPackage::where('status', '1')
     		->get();
-    	return view('admin.otherClass.add', ['package'=>$packageObj]);
+
+        $SERVER_NAME = $_SERVER['SERVER_NAME'];;
+    	return view('admin.otherClass.add', ['package'=>$packageObj,'SERVER_NAME'=>$SERVER_NAME]);
     }
 
     public function addPost(Request $request)
