@@ -70,7 +70,7 @@
     					<div class="item-media"><i class="icon icon-f7"></i></div>
     					<div class="item-inner">
       						<div class="item-title">代金券</div>
-      						<div class="item-after">88元*{{$vouNum}}张</div>
+      						<div class="item-after">@if($vouNum != 0) 88元*{{$vouNum}}张 @else 无可用 @endif</div>
     					</div>
   					</li>
   					<li class="item-content">
@@ -103,6 +103,12 @@
 	<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
 	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script type="text/javascript">
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 	//调用微信JS api 支付
 	function callpay()
 	{
@@ -115,8 +121,46 @@
 				if(res.err_msg == "get_brand_wcpay_request:ok"){
 					var order_no = '{{$order_no}}';
 					var cid = '{{$package->id}}';
+					var voucher = '{{$vouNum}}';
+					var price = '{{number_format((string)$price, 2)}}';
+					var uid = '{{$userObj->id}}';
+					var count = '{{$packageObj->number}}';
 					$('#order_pay').replaceWith('<a href="#" class="button button-big button-fill button-danger">已完成</a>');
-					window.location.href="/front/parent/myClassOrder?action=2";  
+
+					/*弹出框框*/
+				    $.modal({
+				      title:  '支付成功',
+				      text: '',
+				      buttons: [
+				        {
+				          text: '确认',
+				          onClick: function() {
+				            $.closeModal();
+				          }
+				        },
+				      ]
+				    });
+					$.ajax({
+						url: '/front/classPackage/newOrderPost',
+						dataType: 'json',
+						type: 'post',
+						data: {
+							order_no: order_no,
+							cid: cid,
+							voucher: voucher,
+							price: price,
+							uid: uid,
+							count: count
+						},
+						success: function(data){
+							if (data.errcode == 0) {
+								console.log('生成订单成功');
+								$.alert('生成订单成功');
+								// window.location.href="/front/parent/myClassOrder?action=2"; 
+							}
+						}
+					})
+
 				}else{
 					$.alert('支付失败');
 				}  
