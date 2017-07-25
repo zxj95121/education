@@ -31,7 +31,7 @@ class OtherClassAddController extends Controller
     	return response()->json(['errcode'=>0,'id'=>$flight->id]);
     }
 
-    public function editPost(Reuqest $request)
+    public function editPost(Request $request)
     {
         $name = $request->input('name');
         $price = $request->input('price');

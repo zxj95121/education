@@ -63,7 +63,7 @@
                                                     <td class="td_tcOrderCount">{{$value->order_count}}</td>
 													<td>@if($value->show) <span class="label label-success seeShow">查看详情</span> @else <span class="label label-info setShow">立即设置</span> @endif</td>
 													<td class="td_tcPrice">¥ {{number_format($value->price, 2)}}</td>
-													<td><span class="label label-primary edit">修改</span>　　<span class="label label-primary delete">删除</span>　　<span class="label label-primary seeOrder">查看订单</span></td>
+													<td><span class="label label-primary edit">修改</span>　　<span class="label label-primary delete">删除</span>　　<span class="label label-primary seeOrder">查看订单</span>　　<span class="label label-primary copySpan">复制网址</span></td>
 												</tr>
 												@endforeach
 											</tbody>
@@ -132,6 +132,8 @@
 <script type="text/javascript" src="/js/layui/layui.js"></script>
 <script type="text/javascript">
     $(function(){
+
+         $('[data-toggle="tooltip"]').tooltip();
 
         layui.use('layer', function(){
             window.layer = layui.layer;
@@ -228,6 +230,12 @@
                         window.layer.msg('修改成功');
                         $('#tcName').val('');
                         $('#tcPrice').val('');
+                        
+                        var cdom = $('#tcTable tr[pid="'+$('#addModal').attr('pid')+'"]');
+                        cdom.find('.td_tcName').html(tcName);
+                        cdom.find('.td_tcNumber').html(tcNumber);
+                        cdom.find('.td_tcPrice').html('¥ '+tcPrice);
+
                         $('#addModal').modal('hide');
                         $('#tcTable').show();
                     } else {
@@ -320,6 +328,19 @@
             $('#addModal').attr('pid', '');
             $('#addModal .modal-title').html('添加新eclass套餐');
         })
+
+
+        $(document).on('click', '.copySpan', function(){
+            /*复制到剪切板*/
+            $(this).tooltip({'title':'已复制'});
+            $(this).tooltip('show');
+        })
+
+        $(document).on('mouseleave', '.copySpan', function(){
+            $(this).tooltip('destroy');
+            // $(this).toolt$(this).tooltip({'title':'点我复制'});
+        })
+
     });
 </script>
 @endsection
