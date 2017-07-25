@@ -31,7 +31,7 @@ class PayClassController extends Controller
 		// exit;
 	}
 
-	public function newEclassOrder200(Request $request)
+	public function newEclassOrder2(Request $request)
 	{
 
 		// $childName = Session::get('child');
