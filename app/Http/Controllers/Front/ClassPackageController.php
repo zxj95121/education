@@ -62,7 +62,7 @@ class ClassPackageController extends Controller
         $flight->count = $count;
         $flight->price = $price;
         $flight->order_no = $order_no;
-        $flight->voucher = $vouNum;
+        $flight->voucher_num = $vouNum;
         $flight->save();
     	
         Session::put('package_order_no', $order_no);
@@ -102,34 +102,5 @@ class ClassPackageController extends Controller
     	Session::put('classPackageId', $classPackageId);
 
     	return redirect(OauthController::getUrl(8, 0));
-    }
-
-    public function newOrderPost(Request $request)
-    {
-        $order_no = $request->input('order_no');
-        $cid = $request->input('cid');
-        $voucher = $request->input('voucher');
-        $price = $requet->input('price');
-        $uid = $request->input('uid');
-        $count = $request->input('count');
-
-        $flight = new ClassPackageOrder();
-        $flight->cid = $cid;
-        $flight->uid = $uid;
-        $flight->count = $count;
-        $flight->price = $price;
-        $flight->order_no = $order_no;
-        $flight->voucher = $voucher;
-        $flight->save();
-
-        $userObj = NewUser::where('openid', Session::get('openid'))
-            ->select('id', 'voucher')
-            ->get()[0];
-        $newVou = $userObj->voucher-88*$vouocher;
-        $flight = NewUser::find($userObj->id);
-        $flight->voucher = $newVou;
-        $flight->save();
-
-        return response()->json(['errcode'=>0]);
     }
 }
