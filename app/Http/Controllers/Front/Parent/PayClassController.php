@@ -25,9 +25,17 @@ class PayClassController extends Controller
 		// var_dump($request->all());
 		$cartTotal = $request->input('cartTotal');
 		$cartOrder = json_decode($request->input('cartOrder'), true);
-		// var_dump($cartOrder);
-		return view('front.views.parent.bigOrder');
+		var_dump($cartOrder);
+		// return view('front.views.parent.bigOrder');
+		// return redirect('/front/parent/newEclassOrder2');
 		// exit;
+	}
+
+	public function newEclassOrder200(Request $request)
+	{
+
+		// $childName = Session::get('child');
+		return view('front.views.parent.bigOrder');
 	}
 
 	public function newEclassOrder00(Request $request)
@@ -65,7 +73,7 @@ class PayClassController extends Controller
 		return redirect('/front/parent/newEclassOrder2');
 	}
 
-	public function newEclassOrder2(Request $request)
+	public function newEclassOrder200(Request $request)
 	{
 		$name = Session::get('jname');
 		$order_id = Session::get('jorder_id');
