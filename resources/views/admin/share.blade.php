@@ -36,7 +36,24 @@
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
-                            <div id="portlet2" class="panel-collapse collapse in">
+                            <div class="row">
+                            	<form  action="/admin/share" method="get">
+                            		<input type="hidden" name="_token" value="8o0WCWkZVQQlILo6nNqy8G0GOC2Toii1z5HAfOjH">
+                            		<div class="row m-b-15">
+                            			<div class="form-group">
+                            				<label class="col-md-1 clh text-right" style="margin-top: 7px;">昵称:</label>
+                            				<div class="col-md-3">
+                                                <input type="text" name="nickname" class="form-control" placeholder="根据昵称查询" value="@if($nickname) {{$nickname}} @else @endif">
+                                            </div>
+                                            <div class="col-md-3 ">
+                                            	<button type="submit" class="btn btn-info w-md" style="margin-right: 16px;">查询</button>
+                                            	<button onclick="window.location.href='/admin/share'" type="button" class="btn btn-default w-md">重置查询条件</button>
+                                       		</div>
+                            			</div>
+                            		</div>
+                            	</form>
+                            </div>
+                            <div class="panel-collapse collapse in">
                                 <div class="portlet-body">
                                     <div class="table-responsive">
                                         <table class="table">
