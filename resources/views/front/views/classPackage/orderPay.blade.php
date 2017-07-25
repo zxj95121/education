@@ -139,29 +139,26 @@
 							count: count
 						},
 						success: function(data){
-							alert(data);
 							if (data.errcode == 0) {
-								console.log('生成订单成功');
-								$.alert('生成订单成功');
-								// window.location.href="/front/parent/myClassOrder?action=2"; 
+								$.modal({
+							      	title:  '支付成功',
+							      	text: '',
+							      	buttons: [
+							        	{
+							          		text: '确认',
+							         		onClick: function() {
+							            		$.closeModal();
+							          		}
+							        	},
+							      	]
+							    });
 							}
 						}
 					})
 
-					
+
 					/*弹出框框*/
-				    $.modal({
-				      title:  '支付成功',
-				      text: '',
-				      buttons: [
-				        {
-				          text: '确认',
-				          onClick: function() {
-				            $.closeModal();
-				          }
-				        },
-				      ]
-				    });
+				    
 
 
 				}else{
