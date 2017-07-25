@@ -41,22 +41,44 @@
                             <div id="portlet2" class="panel-collapse collapse in">
                                 <div class="portlet-body">
                                 	<div class="row">
-                                		<table class="table table-hover" id="tcTable">
-                                			<thead>
-												<tr>
-													<th>ID</th>
-													<th>名称</th>
-                                                    <th>课时数量</th>
-                                                    <th>课程订单数量</th>
-													<th>展示内容</th>
-													<th>价格</th>
-													<th>操作</th>
-												</tr>
-											</thead>
-											<tbody>
-												
-											</tbody>
-										</table>
+                                        @if(count($orderObj) == 0)
+                                            暂无订单
+                                        @else
+                                    		<table class="table table-hover" id="tcTable">
+                                    			<thead>
+    												<tr>
+    													<th>ID</th>
+    													<th>订单编号</th>
+                                                        <th>昵称</th>
+                                                        <th>手机号</th>
+    													<th>优惠金额</th>
+    													<th>实际支付价格</th>
+    													<th>操作</th>
+    												</tr>
+    											</thead>
+    											<tbody>
+    												@foreach($orderObj as $value)
+                                                    <tr>
+                                                        <td>{{$value->id}}</td>
+                                                        <td>{{$value->order_no}}</td>
+                                                        <td>{{$value->nickname}}</td>
+                                                        <td>{{$value->phone}}</td>
+                                                        <td>@if($value->voucher_name) 88元*{{$value->voucher_num}} @else <span class="label label-default">未使用优惠券</span> @endif</td>
+                                                        <td>¥ {{number_format($value->price, 2)}}</td>
+                                                        <td>暂无操作</td>
+                                                    </tr>
+                                                    @endforeach
+    											</tbody>
+    										</table>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">共 {{$orderObj->total()}}条记录</div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    {{ $orderObj->appends(['cid' => $cid])->links() }}
+                                                </div>
+                                            </div>
+                                        @endif
                                 	</div>
                                 </div>
                             </div>
