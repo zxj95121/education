@@ -8,7 +8,6 @@ use App\Models\NewUser;
 use App\Models\UserShare;
 use App\Http\Controllers\Wechat\OauthController;
 use Session;
-use Wechat;
 class ShareController extends Controller
 {
 	public function index(Request $request)
@@ -16,7 +15,7 @@ class ShareController extends Controller
 		$openid = Session::get('openid');
 		if(Session::get('share')){
 			$id = Session::get('share')['id'];
-			$usershare_count = UserShare::where('openid',$openid)->where('pid',pid)->count();
+			$usershare_count = UserShare::where('openid',$openid)->where('pid',$id)->count();
 			if ($usershare_count < 1){
 				$usershare = new UserShare();
 				$usershare->openid = $openid;
