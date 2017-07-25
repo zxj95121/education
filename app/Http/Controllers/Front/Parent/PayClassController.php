@@ -70,6 +70,7 @@ class PayClassController extends Controller
 		/*开始大订单插入*/
 		DB::beginTransaction();
 		$flight = new BigOrder();
+		$flight->order_no = $order_no;
 		$flight->openid = $openid;
 		$flight->count = $cartTotal;
 		$flight->voucher_num = $vouNum;
