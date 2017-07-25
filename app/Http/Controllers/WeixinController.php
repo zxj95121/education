@@ -60,7 +60,6 @@ class WeixinController extends Controller
                     $bill->save();
                     $cpObj = ClassPackage::find($order->cid);
                     $caseNameObj = NewUser::find($order->uid);
-                    $firstName = EclassPriceController::getName($orsder->tid, 0);
                     TemplateController::send($caseNameObj->openid,'关于订单支付成功的通知','课程套餐',$cpObj->name,$order->price,$bill->created_at,$caseNameObj->nickname,'订单支付成功','');
                 }
             }
