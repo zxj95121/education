@@ -127,7 +127,7 @@ $signPackage = $jssdk->GetSignPackage();
 						      	text: '',
 						      	buttons: [
 						        	{
-						          		text: '关闭',
+						          		text: '确认',
 						         		onClick: function() {
 						            		$.closeModal();
 						            		wx.closeWindow();
