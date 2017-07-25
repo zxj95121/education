@@ -10,7 +10,6 @@ use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\EclassPriceController;
 use App\Models\ParentInfo;
 use App\Models\ClassPackage;
-use App\Models\ClassPackageOrder;
 use App\Models\NewUser;
 
 class WeixinController extends Controller
