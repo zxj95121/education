@@ -97,12 +97,26 @@ class EclassBigOrderController extends Controller
     {
         $id = $request->input('id');
 
-        $orderDetail = EclassOrder::where('eclass_order.bid', $id)
+        $middle = EclassOrder::where('eclass_order.bid', $id)
             ->leftJoin('teacher_three as tt', 'tt.id', 'eclass_order.tid')
             ->leftJoin('teacher_two as two', 'two.id', 'tt.pid')
-            ->select('tt.name as name3', 'two.name as name2', 'two.id as id2', 'tt.id as id3', 'eclass_order.*')
+            ->where('eclass_order.status', 1);
+
+        $TwoObj = $middle->select('two.name as name2', 'two.id as id2')
             ->groupBy('two.id')
             ->get();
-        dd($orderDetail->toArray());
+
+        $Obj = array();
+
+        foreach ($TwoObj as $key => $value) {
+            $id2 = $value->id2;
+            $Obj[$key]['id'] = $id2;
+            $Obj[$key]['name'] = $value->name2; 
+            $orderDetail = $middle->where('two.id', $id2)
+                ->select('two.name as name2', 'two.id as id2', 'tt.name as name3', 'tt.id as id3', 'eclass_order.*')
+                ->get()->toArray();
+            $Obj[$key]['detail'] = $orderDetail;
+        }
+        dd($Obj);
     }
 }
