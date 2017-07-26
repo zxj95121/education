@@ -28,25 +28,30 @@ class EclassBigOrderController extends Controller
     		// ->leftJoin('teacher_one as to', 'to.id', 'tt.pid')
             // ->leftJoin('parent_child as pc', 'pc.id', 'big_order.child');
 
-    	$str = '';
+    	$arg = array();
 
     	if ($order_no) {
     		$orderList = $orderList->where('big_order.order_no', 'like', $order_no.'%');
-    		$str .= '&orderno='.$order_no;
+    		// $str .= '&orderno='.$order_no;
+            $arg['order_no'] = $order_no;
     	}
     	if ($pay_select != null) {
     		$orderList = $orderList->where('big_order.pay_status', $pay_select);
-    		$str .= '&pay_select='.$pay_select;
+    		// $str .= '&pay_select='.$pay_select;
+            $arg['pay_select'] = $pay_select;
     	}
     	if ($confirm_select != null) {
     		$orderList = $orderList->where('big_order.confirm_status', $confirm_select);
-    		$str .= '&confirm_select='.$confirm_select;
+    		// $str .= '&confirm_select='.$confirm_select;
+            $arg['confirm_select'] = $confirm_select;
     	}
     	if ($date0 && $date1) {
     		$orderList = $orderList->where('big_order.created_at', '>=', $date0)
     			->where('big_order.created_at', '<=', $date1);
     		$str .= '&date0='.$date0;
     		$str .= '&date1='.$date1;
+            $arg['date0'] = $date0;
+            $arg['date1'] = $date1;
     	}
         // if ($stuName) {
         //     $orderList = $orderList->where('pc.name', 'like', '%'.$stuName.'%');
@@ -56,7 +61,7 @@ class EclassBigOrderController extends Controller
     	$orderList = $orderList->orderBy('big_order.created_at', 'desc')
     		->select('nu.phone as phone', 'nu.nickname as nickname', 'big_order.*')
     		->paginate(5);
-    	return view('admin.eclassBigOrderList',['orderList'=>$orderList,'str'=>$str,'order_no'=>$order_no,'pay_select'=>$pay_select,'confirm_select'=>$confirm_select,'date0'=>$date0,'date1'=>$date1]);
+    	return view('admin.eclassBigOrderList',['orderList'=>$orderList,'arg'=>$arg,'order_no'=>$order_no,'pay_select'=>$pay_select,'confirm_select'=>$confirm_select,'date0'=>$date0,'date1'=>$date1]);
     }
 
 

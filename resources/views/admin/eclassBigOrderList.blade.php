@@ -192,7 +192,7 @@
                                             <div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">共 {{$orderList->total()}}条记录</div>
                                         </div>
                                         <div class="col-md-8">
-                                            {{ $orderList->links() }}
+                                            {{ $orderList->appends($arg)->links() }}
                                         </div>
                                     </div>
                                 </div>
