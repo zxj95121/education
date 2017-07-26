@@ -50,7 +50,15 @@
 								</div>
 							</div>
 							<div style="width: 64%;background: #9DA5DE;height: 100%;display: inline-block;">
-								
+								<div style="height: 45px;text-align: left;color: #000;">
+									<ol type="decimal">
+										<li>优惠券可叠加使用</li>
+										<li>任意课程均可使用</li>
+									</ol>
+								</div>
+								<div style="text-align: center;color: #FFF;text-align: right;font-size:12px;">
+									<label class="label label-success">立即使用</label>
+								</div>
 							</div>
 						</div>
 					</div>
