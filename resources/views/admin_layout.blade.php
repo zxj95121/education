@@ -117,7 +117,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="has-submenu {!!(Request::is('admin/otherClass/add')? 'active' : '') !!}">
+                    <li class="has-submenu {!!(Request::is('admin/otherClass/add', 'admin/otherClass/discount')? 'active' : '') !!}">
                         <a href="#">
                             <i class="zmdi zmdi-book-image"></i> 
                             <span class="nav-label">其他class</span>
@@ -126,6 +126,9 @@
                         <ul class="list-unstyled">
                             <li class="{!!(Request::is('admin/otherClass/add')? 'active' : '') !!}">
                                 <a href="/admin/otherClass/add">其他class列表</a>
+                            </li>
+                            <li class="{!!(Request::is('admin/otherClass/discount')? 'active' : '') !!}">
+                                <a href="/admin/otherClass/discount">class优惠抢课</a>
                             </li>
                         </ul>
                     </li>
