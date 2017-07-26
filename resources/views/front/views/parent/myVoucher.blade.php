@@ -9,6 +9,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
+    <link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.css">
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
 
@@ -23,7 +24,13 @@
 			 	<h1 class='title' style="background: #22AAE8;color: #fff;">我的优惠券</h1>
 			</header>
 			<div class="content">
-				
+				<div class="container-fluid">
+					<div class="row">
+						<p class="bg-primary">
+							我的优惠券总金额
+						</p>
+					</div>
+				</div>
 			</div>
         </div>
     </div>
