@@ -56,3 +56,5 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
+
+date_default_timezone_set('Asia/Shanghai');
