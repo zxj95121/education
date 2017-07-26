@@ -27,10 +27,10 @@
 				<div class="container-fluid" style="padding: 0px;">
 					<div class="row" style="margin: 0px;width: 96%;">
 
-						<div class="col-xs-5 bigBtn" style="height:70px;background: #22AAE8;line-height: 70px;color: #FFF;">
+						<div class="col-xs-5 bigBtn" id="bigBtn1" style="height:70px;background: #22AAE8;line-height: 70px;color: #FFF;">
 							推荐有奖
 						</div>
-						<div class="col-xs-5 col-xs-offset-2 bigBtn" style="height:70px;background: #22AAE8;line-height: 70px;color: #FFF;">
+						<div class="col-xs-5 col-xs-offset-2 bigBtn" id="bigBtn2" style="height:70px;background: #22AAE8;line-height: 70px;color: #FFF;">
 							地方开发
 						</div>
 					</div>
@@ -48,8 +48,8 @@
     	Zepto(function($){
 			var width = $('.bigBtn').width();
 			var a = parseInt(width/10);
-			$('.bigBtn:eq(0)').css({'position':'relative','left':a+'px'});
-			$('.bigBtn:eq(1)').css({'position':'relative','right':a+'px'});
+			$('#bigBtn1').css({'position':'relative','left':a+'px'});
+			$('#bigBtn2').css({'position':'relative','right':a+'px'});
 		})
     </script>
   </body>
