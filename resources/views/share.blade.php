@@ -208,7 +208,7 @@ $signPackage = $jssdk->GetSignPackage();
 		<!-- <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script> -->
 		<!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script> -->
 		<!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script> -->
-		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 		<script>
 		    wx.config({
 		        debug: false,
@@ -226,7 +226,7 @@ $signPackage = $jssdk->GetSignPackage();
 		          ]
 		    });
 		    wx.ready(function () {
-		        wx.checkJsApi({
+ 		        wx.checkJsApi({
 		            jsApiList: [
 		                'onMenuShareTimeline',
 		                'onMenuShareAppMessage',
@@ -234,9 +234,9 @@ $signPackage = $jssdk->GetSignPackage();
 		                'showMenuItems'
 		            ],
 		            success: function (res) {
-		                //$.alert(JSON.stringify(res));
+		                console.log(JSON.stringify(res));
 		            }
-		        });
+		        }); 
 		    	wx.hideAllNonBaseMenuItem();//隐藏所有非基础类
 		    	wx.showMenuItems({
 		    	    menuList: [
