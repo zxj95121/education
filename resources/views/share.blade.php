@@ -31,7 +31,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                                <section style="width:100%; text-align:center;" data-width="100%"></section>
 		                                <section style="clear:both; width:100%;" data-width="100%"></section>
 		                            </section>
-		                        </section><img data-id="89260" data-role="guide-img" title="风车分割线" src="http://rdn.135editor.com/cache/remote/aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpel9naWYvZmdua3hmR25ua1RObDVWdndQUFUxUEtrRWN3NE84STI1MFRvNzlJMnFacUR5bDFDVTM3WGdlZlppY0RGd1JOUllURTllc1M0S3RFeHFGWm91eHZTTDlnLzA/d3hfZm10PWdpZg==" style="display: inline;"/>
+		                        </section><img data-id="89260" data-role="guide-img" style="width: 100%;" title="风车分割线" src="http://rdn.135editor.com/cache/remote/aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpel9naWYvZmdua3hmR25ua1RObDVWdndQUFUxUEtrRWN3NE84STI1MFRvNzlJMnFacUR5bDFDVTM3WGdlZlppY0RGd1JOUllURTllc1M0S3RFeHFGWm91eHZTTDlnLzA/d3hfZm10PWdpZg==" style="display: inline;"/>
 		                    </section>
 		                    <section class="_135editor" data-id="t36" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
 		                        <section class="layout" style="margin-right: auto; margin-left: auto; width: 60%;">
@@ -181,7 +181,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                    <section class="_135editor" data-tools="135编辑器" data-id="90070" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
 		                        <section style="padding: 10px; box-sizing: border-box;">
 		                            <section style="width:100%;" data-width="100%">
-		                                <img style="display: block;" style="width: 100%;" src="http://image.135editor.com/files/users/262/2625290/201707/xTdEcRpO_SJEj.jpg" data-width="100%" title="微信图片_20170725222542.jpg" alt="微信图片_20170725222542.jpg"/>
+		                                <img style="display: block;width: 100%;" src="http://image.135editor.com/files/users/262/2625290/201707/xTdEcRpO_SJEj.jpg" data-width="100%" title="微信图片_20170725222542.jpg" alt="微信图片_20170725222542.jpg"/>
 		                            </section>
 		                            <section style="width:100%; text-align:center;" data-width="100%">
 		                                <section style="text-align:center;">
