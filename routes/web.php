@@ -186,6 +186,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->get('/eclassBigOrderList', 'EclassBigOrderController@list');
     $router->post('/eclassBigOrderList/confirmXX', 'EclassBigOrderController@confirmXX');/*驳回订单*/
     $router->post('/eclassBigOrderList/confirmOK', 'EclassBigOrderController@confirmOK');/*驳回订单*/
+    $router->post('/eclassBigOrderList/getOrderDetail', 'EclassBigOrderController@getOrderDetail');/*驳回订单*/
 
     /*退款*/
     $router->any('/tuikuan', 'EclassOrderController@tuikuan');

@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\BigOrder;
+use App\Models\EclassOrder;
+use App\Models\TeacherThree;
+use App\Models\TeacherTwo;
 
 class EclassBigOrderController extends Controller
 {
@@ -87,5 +90,19 @@ class EclassBigOrderController extends Controller
         }else{
             return response()->json(['errcode'=>1,'msg'=>$res['err_code_des']]);
         }
+    }
+
+    /*获取订单详情*/
+    public function getOrderDetail(Request $request)
+    {
+        $id = $request->input('id');
+
+        $orderDetail = EclassOrder::where('eclass_order.bid', $id)
+            ->leftJoin('teacher_three as tt', 'tt.id', 'eclass_order.tid')
+            ->leftJoin('teacher_two as two', 'two.id', 'tt.pid')
+            ->select('tt.name as name3', 'two.name as name2', 'two.id as id2', 'tt.id as id3', 'eclass_order.*')
+            ->groupBy('two.id')
+            ->get();
+        dd($orderDetail->toArray());
     }
 }

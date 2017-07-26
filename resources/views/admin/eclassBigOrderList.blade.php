@@ -5,10 +5,10 @@
 <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css">
 <link rel="stylesheet" type="text/css" href="/js/jeui/jedate.css">
 <style type="text/css">
-    .orderXXBtn,.orderOKBtn,.orderUseBtn{
+    .orderXXBtn,.orderOKBtn,.orderUseBtn,.orderClassDetailBtn{
         cursor: pointer;
     }
-    .orderOverBtn,.orderPayBtn,.orderSuccessBtn,.orderUseBtn{
+    .orderOverBtn,.orderPayBtn,.orderSuccessBtn,.orderUseBtn,.orderClassDetailBtn{
         user-select: none;
     }
     ::-webkit-scrollbar{  
@@ -149,7 +149,7 @@
                                                             @endif
                                                             @if($value->pay_status == 1 && $value->confirm_status == 1)
                                                                 <span class="label label-success orderSuccessBtn">订单已通过</span>
-                                                                <span class="label label-info orderUseBtn">分配该订单</span>
+                                                                <!-- <span class="label label-info orderUseBtn">分配该订单</span> -->
                                                             @else
                                                             @endif
                                                         @else
@@ -157,7 +157,7 @@
                                                         @endif
                                                         </td>
                                                         <td id="td_no">{{$value->order_no}}</td>
-                                                        <td id="td_name">{{$value->name1}}&gt;{{$value->name2}}&gt;{{$value->name3}}</td>
+                                                        <td id="td_name"><span class="label label-info orderClassDetailBtn">查看课程详情</span></td>
                                                         <td id="td_count">{{$value->count}}</td>
                                                         <td>{{$value->stuName}}</td>
                                                         <td id="td_price">{{$value->price}}</td>
@@ -203,6 +203,28 @@
             </div> 
 
 
+
+
+            <!-- Modal -->
+
+            <div id="orderDetailModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg" role="document" style="width: 60%;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel" style="font-weight: bold;font-size: 18px;font-family: '宋体';">订单ID：<span></span></h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <!-- <button type="button" class="btn btn-primary">保存</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 @endsection
             
@@ -276,6 +298,30 @@
                     }
                 });
             });
+        })
+
+        /*查看订单课程详情*/
+        $(document).on('click', '.orderClassDetailBtn', function(){
+            $('#orderDetailModal').modal('show');
+            var id = $(this).parents('tr').attr('oid');
+
+            $('#myModalLabel span').html(id);
+
+            $.ajax({
+                url: '/admin/eclassBigOrderList/getOrderDetail',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    if (data.errcode == 0) {
+                        alert('OK');
+                    } else {
+                        alert('系统错误，请联系管理员。');
+                    }
+                }
+            })
         })
     })
 </script>
