@@ -334,8 +334,9 @@
                             /*获取detail0的高度*/
                             var height1 = $('.detail1').height();
                             var height2 = $('.detail2').height();
-
-                            if (height1 < height2) {
+                            console.log(height1);
+                            console.log(height2);
+                            if (height1 <= height2) {
                                 var appendDiv = $('.detail1');
                             } else {
                                 var appendDiv = $('.detail2');
