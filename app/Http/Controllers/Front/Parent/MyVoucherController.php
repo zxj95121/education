@@ -9,6 +9,6 @@ class MyVoucherController extends Controller
 {
     public function index()
     {
-    	echo '<span style="font-size:34px;">hehehe</span>';
+    	return view('front.views.parent.myVoucher');
     }
 }
