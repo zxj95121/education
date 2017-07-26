@@ -182,6 +182,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/eclassOrderList/confirmOK', 'EclassOrderController@confirmOK');
     $router->post('/eclassOrderList/confirmXX', 'EclassOrderController@confirmXX');//驳回审核
 
+    /*双师class大订单*/
+    $router->get('/eclassBigOrderList', 'eclassBigOrderController@list');
+
     /*退款*/
     $router->any('/tuikuan', 'EclassOrderController@tuikuan');
     /*查订单用户的信息*/

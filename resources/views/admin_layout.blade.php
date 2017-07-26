@@ -93,7 +93,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="has-submenu {!!(Request::is('admin/doubleTeacher', 'admin/classPrice', 'admin/setClassTime', 'admin/eclassOrderList', 'admin/classProgress')? 'active' : '') !!}">
+                    <li class="has-submenu {!!(Request::is('admin/doubleTeacher', 'admin/classPrice', 'admin/setClassTime', 'admin/eclassOrderList', 'admin/classProgress', 'admin/eclassBigOrderList')? 'active' : '') !!}">
                         <a href="#">
                             <i class="zmdi zmdi-book"></i> 
                             <span class="nav-label">双师class</span>
@@ -102,6 +102,9 @@
                         <ul class="list-unstyled">
                             <li class="{!!(Request::is('admin/eclassOrderList')? 'active' : '') !!}">
                                 <a href="/admin/eclassOrderList">双师class订单</a>
+                            </li>
+                            <li class="{!!(Request::is('admin/eclassBigOrderList')? 'active' : '') !!}">
+                                <a href="/admin/eclassBigOrderList">双师class大订单</a>
                             </li>
                             <li class="{!!(Request::is('admin/doubleTeacher')? 'active' : '') !!}">
                                 <a href="/admin/doubleTeacher">课程内容管理</a>
