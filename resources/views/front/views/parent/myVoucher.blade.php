@@ -47,7 +47,7 @@
     <script type="text/javascript">
     	Zepto(function($){
 			var width = $('.bigBtn').width();
-			var a = parseInt(width/10);
+			var a = parseInt(0.75*(width/5));
 			$('#bigBtn1').css({'position':'relative','left':a+'px'});
 			$('#bigBtn2').css({'position':'relative','right':a+'px'});
 		})
