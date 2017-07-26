@@ -40,13 +40,13 @@
 						<div class="col-xs-5 col-xs-offset-2 bigBtn" id="bigBtn2" style="height:70px;background: #22AAE8;text-align: center;line-height: 70px;color: #FFF;">
 							地方开发
 						</div> -->
-						<div class="card-container" style="width: 100%;">
+						<div class="card-container" style="width: 100;margin-top: 18px;">
 					        <div class="card" style="margin: 0px;">
 					            <div class="card-header">张贤健，你好</div>
 					            <div class="card-content">
 					                <div class="card-content-inner">
-					                    您可用优惠总金额为: <span style="color:#22AAE8;">333</span> 元。 <br>
-					                    您最多可使用代金券： <span style="color:#22AAE8;">3</span> 张
+					                    你可用优惠总金额为:：<span style="color:#22AAE8;">333</span> 元。 <br>
+					                    最多可使用满1000减88代金券： <span style="color:#22AAE8;">3</span> 张
 					                </div>
 					            </div>
 					        </div>
