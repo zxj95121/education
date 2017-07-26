@@ -217,12 +217,12 @@
                         <div class="modal-body">
                             <div class="row" id="detailDiv">
                                 <div class="col-md-6">
-                                    <div class="row detail1 detail0">
+                                    <div class="row detail1 detail0" id="detailID0">
                                         
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="row detail2 detail0">
+                                    <div class="row detail2 detail0" id="detailID1">
                                         
                                     </div>
                                 </div>
@@ -334,8 +334,10 @@
                             /*获取detail0的高度*/
                             var height1 = $('.detail1:eq(0)').innerHeight();
                             var height2 = $('.detail2:eq(0)').innerHeight();
-                            console.log(height1);
-                            console.log(height2);
+                            console.log('ID0'+document.getElementById('detailID0').offsetHeight);
+                            console.log('ID1'+document.getElementById('detailID1').offsetHeight);
+                            // console.log(height1);
+                            // console.log(height2);
                             if (height1 <= height2) {
                                 var appendDiv = $('.detail1');
                             } else {
