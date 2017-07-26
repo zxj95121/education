@@ -226,7 +226,7 @@ $signPackage = $jssdk->GetSignPackage();
 		          ]
 		    });
 		    wx.ready(function () {
- 		        wx.checkJsApi({
+/*  		        wx.checkJsApi({
 		            jsApiList: [
 		                'onMenuShareTimeline',
 		                'onMenuShareAppMessage',
@@ -236,7 +236,7 @@ $signPackage = $jssdk->GetSignPackage();
 		            success: function (res) {
 		                console.log(JSON.stringify(res));
 		            }
-		        }); 
+		        });  */
 		    	wx.hideAllNonBaseMenuItem();//隐藏所有非基础类
 		    	wx.showMenuItems({
 		    	    menuList: [
