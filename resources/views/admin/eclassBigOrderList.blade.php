@@ -217,19 +217,13 @@
                         <div class="modal-body">
                             <div class="row" id="detailDiv">
                                 <div class="col-md-6">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title">Ordered Lists</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <ol>
-                                                <li>Lorem ipsum dolor sit amet</li>
-                                                <li>Consectetur adipiscing elit</li>
-                                                <li>Integer molestie lorem at massa</li>
-                                                <li>Facilisis in pretium nisl aliquet</li>
-                                                <li>Nulla volutpat aliquam velit</li>
-                                            </ol>
-                                        </div>
+                                    <div class="row detail1 detail0">
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row detail2 detail0">
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -322,7 +316,7 @@
             var id = $(this).parents('tr').attr('oid');
 
             $('#myModalLabel span').html(id);
-            $('#detailDiv').html('');
+            $('.detail0').html('');
             $.ajax({
                 url: '/admin/eclassBigOrderList/getOrderDetail',
                 type: 'post',
@@ -336,7 +330,18 @@
                         for (var i in obj) {
                             var id2 = obj[i]['id'];
                             var name2 = obj[i]['name'];
-                            $('#detailDiv').append('<div class="col-md-6 detailList" twoid="'+id2+'"> <div class="panel panel-default"> <div class="panel-heading"> <h3 class="panel-title">'+name2+'</h3> </div> <div class="panel-body"> <ol> </ol> </div> </div> </div>');
+
+                            /*获取detail0的高度*/
+                            var height1 = $('.detail1').height();
+                            var height2 = $('.detail2').height();
+
+                            if (height1 < height2) {
+                                var appendDiv = $('.detail1');
+                            } else {
+                                var appendDiv = $('.detail2');
+                            }
+
+                            appendDiv.append('<div class="col-md-12 detailList" twoid="'+id2+'"> <div class="panel panel-default"> <div class="panel-heading"> <h3 class="panel-title">'+name2+'</h3> </div> <div class="panel-body"> <ol> </ol> </div> </div> </div>');
                             var liObj = obj[i]['detail'];
                             for (var j in liObj) {
                                 var cdom = $('.detailList[twoid="'+id2+'"]').find('ol');
