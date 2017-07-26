@@ -61,7 +61,22 @@ class EclassBigOrderController extends Controller
     	$orderList = $orderList->orderBy('big_order.created_at', 'desc')
     		->select('nu.phone as phone', 'nu.nickname as nickname', 'big_order.*')
     		->paginate(5);
-    	return view('admin.eclassBigOrderList',['orderList'=>$orderList,'arg'=>$arg,'order_no'=>$order_no,'pay_select'=>$pay_select,'confirm_select'=>$confirm_select,'date0'=>$date0,'date1'=>$date1]);
+            // dd($orderList);
+        $child = array();
+        foreach ($orderList as $valuue) {
+            $bigOrderId = $value->id;
+            $childObj = EclassOrder::where('eclass_order.bid', $bigOrderId)
+                ->leftJoin('parent_child as pc', 'pc.id', 'eclass_order.child')
+                ->where('pc.status', '1')
+                ->select('pc.name as name', 'pc.id as id')
+                ->get();
+            $child[$bigOrderId] = array();
+            foreach($childObj as $key => $value) {
+                $child[$bigOrderId][$key]['id'] = $value->id;
+                $child[$bigOrderId][$key]['name'] = $value->name;
+            }
+        }
+    	return view('admin.eclassBigOrderList',['orderList'=>$orderList,'arg'=>$arg,'order_no'=>$order_no,'pay_select'=>$pay_select,'confirm_select'=>$confirm_select,'date0'=>$date0,'date1'=>$date1,'child'=>$child]);
     }
 
 

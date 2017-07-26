@@ -159,7 +159,7 @@
                                                         <td id="td_no">{{$value->order_no}}</td>
                                                         <td id="td_name"><span class="label label-info orderClassDetailBtn">查看课程详情</span></td>
                                                         <td id="td_count">{{$value->count}}</td>
-                                                        <td>{{$value->stuName}}</td>
+                                                        <td>@if($child[$value->id]) echo '有孩子'; @else <span class="label label-default">未添加孩子</span></td> @endif</td>
                                                         <td id="td_price">{{$value->price}}</td>
                                                         <td>
                                                             @if($value->pay_status == 1)
