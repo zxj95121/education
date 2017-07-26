@@ -228,6 +228,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    wx.ready(function () {
 		    	wx.showMenuItems({
 		    	    menuList: [
+		    	    	//要显示的菜单项
 		    	    	'menuItem:share:appMessage',
 		    	    	 "menuItem:share:timeline"
 				    ],
@@ -235,6 +236,7 @@ $signPackage = $jssdk->GetSignPackage();
 				    	//alert("隐藏");
 					}
 		    	});
+		    	wx.hideAllNonBaseMenuItem();//隐藏所有非基础类
 		        wx.checkJsApi({
 		            jsApiList: [
 		                'getLocation',
