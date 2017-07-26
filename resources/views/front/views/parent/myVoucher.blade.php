@@ -34,30 +34,42 @@
 				<div class="container-fluid" style="padding: 0px;">
 					<div class="row" style="margin: 0 auto;width: 96%;">
 
-						<div class="col-xs-5 bigBtn" id="bigBtn1" style="height:70px;background: #22AAE8;text-align: center;line-height: 70px;color: #FFF;">
+						<!-- <div class="col-xs-5 bigBtn" id="bigBtn1" style="height:70px;background: #22AAE8;text-align: center;line-height: 70px;color: #FFF;">
 							推荐有奖
 						</div>
 						<div class="col-xs-5 col-xs-offset-2 bigBtn" id="bigBtn2" style="height:70px;background: #22AAE8;text-align: center;line-height: 70px;color: #FFF;">
 							地方开发
-						</div>
-						<div class="col-xs-12" id="voucher" style="margin-top:24px;height:70px;padding: 0px;background: #FFF;">
+						</div> -->
+						 <div class="card-container">
+					        <div class="card">
+					            <div class="card-header">张贤健，你好</div>
+					            <div class="card-content">
+					                <div class="card-content-inner">
+					                    您可使用的优惠总金额为 333 元。 <br>
+					                    最多可用代金券： 3张
+					                </div>
+					            </div>
+					        </div>
+					    </div>
+
+						<div class="col-xs-12" id="voucher" style="margin-top:24px;height:100px;padding: 0px;background: #FFF;">
 							<div style="width: 36%;border-left: groove;border-color:#22AAE8;background: #22AAE8;display: inline-block;height: 100%;">
-								<div style="height: 45px;line-height: 45px; text-align: center;color: #FFF;">
-									¥ <span style="font-size:35px;">88</span>
+								<div style="height: 68px;line-height: 68px; text-align: center;color: #FFF;">
+									¥ <span style="font-size:40px;">88</span>
 								</div>
 								<div style="text-align: center;color: #FFF;font-size:12px;">
 									满1000减可用
 								</div>
 							</div>
-							<div style="width: 62%;background: #D6D6D6;height: 100%;display: inline-block;">
-								<div style="height: 45px;text-align: left;color: #000;">
+							<div style="width: 62%;background: #FFF;height: 100%;display: inline-block;">
+								<div style="height: 68px;text-align: left;color: #000;padding-top:10px;">
 									<ol type="decimal">
-										<li style="font-size:13px;">优惠券可叠加使用</li>
-										<li style="font-size:13px;">任意课程均可使用</li>
+										<li style="font-size:14px;">优惠券可叠加使用</li>
+										<li style="font-size:14px;">任意课程均可使用</li>
 									</ol>
 								</div>
 								<div style="text-align: center;color: #FFF;text-align: right;font-size:12px;">
-									<label class="label label-success">立即使用</label>
+									<label class="label label-success" style="position: relative;right: 8px;cursor: pointer;" onclick="window.location.href='/front/home#eclass';">立即使用</label>
 								</div>
 							</div>
 						</div>
