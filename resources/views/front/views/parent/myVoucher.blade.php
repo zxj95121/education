@@ -40,8 +40,8 @@
 						<div class="col-xs-5 col-xs-offset-2 bigBtn" id="bigBtn2" style="height:70px;background: #22AAE8;text-align: center;line-height: 70px;color: #FFF;">
 							地方开发
 						</div>
-						<div class="col-xs-12" id="voucher" style="height:70px;background: #22AAE8;line-height: ">
-							<div style="width: 36%;border-left: groove;background: #FFF;display: inline-block;height: 100%;">
+						<div class="col-xs-12" id="voucher" style="margin-top:24px;height:70px;background: #9DA5DE;line-height: ">
+							<div style="width: 36%;border-left: groove;border-color:#22AAE8;background: #22AAE8;display: inline-block;height: 100%;">
 								<div style="height: 45px;text-align: center;color: red;">
 									¥ <span>88</span>
 								</div>
@@ -49,7 +49,7 @@
 									满1000减可用
 								</div>
 							</div>
-							<div style="width: 64%;background: #22AAE8;height: 100%;">
+							<div style="width: 64%;background: #9DA5DE;height: 100%;display: inline-block;">
 								
 							</div>
 						</div>
