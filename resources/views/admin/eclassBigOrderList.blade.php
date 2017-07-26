@@ -332,13 +332,8 @@
                             var name2 = obj[i]['name'];
 
                             /*获取detail0的高度*/
-                            var height1 = $('.detail1:eq(0)').outerHeight();
-                            var height2 = $('.detail2:eq(0)').outerHeight();
-                            console.log('ID0'+document.getElementById('detailID0').offsetHeight);
-                            console.log('ID1'+document.getElementById('detailID1').offsetHeight);
-                            console.log(height1);
-                            console.log(height2);
-                            if (height1 <= height2) {
+                            
+                            if (i % 2 == 0) {
                                 var appendDiv = $('.detail1');
                             } else {
                                 var appendDiv = $('.detail2');
