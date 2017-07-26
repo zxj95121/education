@@ -25,10 +25,13 @@
 			</header>
 			<div class="content">
 				<div class="container-fluid" style="padding: 0px;">
-					<div class="row" style="margin: 0px;">
-						<p class="bg-primary" style="margin:0px;padding: 5px 0px;">
-							我的优惠券总金额
-						</p>
+					<div class="row" style="margin: 0px;width: 96%;">
+						<div class="col-xs-6" style="height:70px;background: #22AAE8;line-height: 70px;color: #FFF;">
+							推荐有奖
+						</div>
+						<div class="col-xs-6" style="height:70px;background: #22AAE8;line-height: 70px;color: #FFF;">
+							地方开发
+						</div>
 					</div>
 				</div>
 			</div>
