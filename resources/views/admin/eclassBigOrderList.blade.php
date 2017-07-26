@@ -216,6 +216,40 @@
         layui.use('layer', function(){
             window.layer = layui.layer;
         });   
+
+
+
+        /*确认驳回*/
+        $(document).on('click', '.orderXXBtn', function(){
+            var id = $(this).parents('tr').attr('oid');
+            window.layer.confirm('确认<b style="color:red;">驳回</b>审核吗，ID为'+id+'将自动退款!', {
+                btn: ['确认', '取消'] //可以无限个按钮
+                ,btn2: function(index, layero){
+                window.layer.close(index);
+              }
+            }, function(index, layero){
+                window.layer.close(index);
+                var loadIndex = window.layer.load(2, {time:5000});
+                $.ajax({
+                    url: '/admin/eclassBigOrderList/confirmXX',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        id: id
+                    },
+                    success: function(data) {
+                        if (data.errcode == 0) {
+                            window.layer.close(loadIndex);
+                            window.layer.msg('驳回成功！');
+                            window.location.reload();
+                        } else if (data.errcode == 1) {
+                            window.layer.close(loadIndex);
+                            window.layer.msg(data.msg);
+                        }
+                    }
+                });
+            });
+        })
     })
 </script>
 <script>

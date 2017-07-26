@@ -55,4 +55,24 @@ class EclassBigOrderController extends Controller
     		->paginate(5);
     	return view('admin.eclassBigOrderList',['orderList'=>$orderList,'str'=>$str,'order_no'=>$order_no,'pay_select'=>$pay_select,'confirm_select'=>$confirm_select,'date0'=>$date0,'date1'=>$date1]);
     }
+
+    /*驳回订单*/
+    public function confirmXX(Request $request)
+    {
+        $id = $request->input('id');
+        $flight = BigOrder::find($id);
+        require_once $_SERVER['DOCUMENT_ROOT']."/php/WxPayAPI/lib/tuikuan.php";
+        if($res['result_code'] === 'SUCCESS'){
+            $flight->confirm_status = 2;
+            $flight->pay_status = 2;
+            $flight->save();
+            $bill = new Bill();
+            $bill->type = 'EC-';
+            $bill->oid = $flight->id;
+            $bill->save();
+            return response()->json(['errcode'=>0]);
+        }else{
+            return response()->json(['errcode'=>1,'msg'=>$res['err_code_des']]);
+        }
+    }
 }

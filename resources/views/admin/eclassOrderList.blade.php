@@ -450,9 +450,9 @@
                             window.layer.close(loadIndex);
                             window.layer.msg('驳回成功！');
                             window.location.reload();
-                        } else if (date.errcode == 1) {
+                        } else if (data.errcode == 1) {
                             window.layer.close(loadIndex);
-                            window.layer.msg(date.msg);
+                            window.layer.msg(data.msg);
                         }
                     }
                 });
