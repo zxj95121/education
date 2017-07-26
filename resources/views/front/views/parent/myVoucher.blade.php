@@ -42,8 +42,8 @@
 						</div>
 						<div class="col-xs-12" id="voucher" style="margin-top:24px;height:70px;background: #9DA5DE;line-height: ">
 							<div style="width: 36%;border-left: groove;border-color:#22AAE8;background: #22AAE8;display: inline-block;height: 100%;">
-								<div style="height: 45px;text-align: center;color: red;">
-									¥ <span>88</span>
+								<div style="height: 45px;line-height: 45px; text-align: center;color: #FFF;">
+									¥ <span style="font-size:35px;">88</span>
 								</div>
 								<div>
 									满1000减可用
