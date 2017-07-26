@@ -219,34 +219,33 @@ $signPackage = $jssdk->GetSignPackage();
 		        jsApiList: [
 		            // 所有要调用的 API 都要加到这个列表中
 		            'checkJsApi',
-		            'openLocation',
-		            'getLocation',
 		            'onMenuShareTimeline',
-		            'onMenuShareAppMessage'
+		            'onMenuShareAppMessage',
+		            'hideAllNonBaseMenuItem',
+	                'showMenuItems'
 		          ]
 		    });
 		    wx.ready(function () {
-		    	wx.hideAllNonBaseMenuItem();//隐藏所有非基础类
-		    	wx.showMenuItems({
-		    	    menuList: [
-		    	    	//要显示的菜单项
-		    	    	'menuItem:share:appMessage',
-		    	    	 "menuItem:share:timeline"
-				    ],
-				    success: function (res){
-				    	//alert("隐藏");
-					}
-		    	});
 		        wx.checkJsApi({
 		            jsApiList: [
-		                'getLocation',
 		                'onMenuShareTimeline',
-		                'onMenuShareAppMessage'
+		                'onMenuShareAppMessage',
 		            ],
 		            success: function (res) {
 		                //$.alert(JSON.stringify(res));
 		            }
 		        });
+		    	wx.hideAllNonBaseMenuItem();//隐藏所有非基础类
+		    	wx.showMenuItems({
+		    	    menuList: [
+		    	    	//要显示的菜单项
+		    	    	'menuItem:share:appMessage',
+		    	    	'menuItem:share:timeline'
+				    ],
+				    success: function (res){
+				    	//alert("隐藏");
+					}
+		    	});
 		        wx.onMenuShareAppMessage({
 		            title: '<?php echo $news['Title'];?>',
 		            desc: '<?php echo $news['Description'];?>',
