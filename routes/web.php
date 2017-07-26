@@ -206,6 +206,12 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/otherClass/add/setShowPost', 'OtherClass\OtherClassAddController@setShowPost');
     $router->post('/otherClass/add/delete', 'OtherClass\OtherClassAddController@delete');//delete套餐
 
+    $router->get('/otherClass/discount', 'OtherClass\DiscountController@index');
+    $router->get('/otherClass/discount/add', 'OtherClass\DiscountController@add');
+    $router->post('/otherClass/discount/add_post', 'OtherClass\DiscountController@add_post');
+    $router->get('/otherClass/discount/edit', 'OtherClass\DiscountController@edit');
+    $router->post('/otherClass/discount/edit_post', 'OtherClass\DiscountController@edit_post');
+    $router->get('/otherClass/discount/delete', 'OtherClass\DiscountController@delete');
     /*待请求审核*/
       /*学校审核*/
     $router->get('/applySchool', 'Review\SchoolController@applySchool');
