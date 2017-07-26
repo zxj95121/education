@@ -24,7 +24,7 @@
 			 	<h1 class='title' style="background: #22AAE8;color: #fff;">我的优惠券</h1>
 			</header>
 			<div class="content">
-				<div class="container-fluid">
+				<div class="container-fluid" style="padding: 0px;">
 					<div class="row">
 						<p class="bg-primary" style="margin:0px;padding: 5px 0px;">
 							我的优惠券总金额
