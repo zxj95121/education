@@ -217,7 +217,34 @@
             window.layer = layui.layer;
         });   
 
-
+        /*确认审核订单*/
+        $(document).on('click', '.orderOKBtn', function(){
+            var id = $(this).parents('tr').attr('oid');
+            window.layer.confirm('确认审核<b style="color:green;">通过</b>吗，ID为'+id+'？', {
+                btn: ['确认', '取消'] //可以无限个按钮
+                ,btn2: function(index, layero){
+                window.layer.close(index);
+              }
+            }, function(index, layero){
+                window.layer.close(index);
+                var loadIndex = window.layer.load(2, {time:5000});
+                $.ajax({
+                    url: '/admin/eclassBigOrderList/confirmOK',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        id: id
+                    },
+                    success: function(data) {
+                        if (data.errcode == 0) {
+                            window.layer.close(loadIndex);
+                            window.layer.msg('确认成功！');
+                            window.location.reload();
+                        }
+                    }
+                });
+            });
+        })
 
         /*确认驳回*/
         $(document).on('click', '.orderXXBtn', function(){

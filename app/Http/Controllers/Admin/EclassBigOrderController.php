@@ -56,6 +56,19 @@ class EclassBigOrderController extends Controller
     	return view('admin.eclassBigOrderList',['orderList'=>$orderList,'str'=>$str,'order_no'=>$order_no,'pay_select'=>$pay_select,'confirm_select'=>$confirm_select,'date0'=>$date0,'date1'=>$date1]);
     }
 
+
+    /*确认通过该订单*/
+    public function confirmOK(Request $request)
+    {
+        $id = $request->input('id');
+
+        $flight = BigOrder::find($id);
+        $flight->confirm_status = 1;
+        $flight->save();
+
+        return response()->json(['errcode'=>0]);
+    }
+
     /*驳回订单*/
     public function confirmXX(Request $request)
     {
