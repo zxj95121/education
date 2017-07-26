@@ -330,6 +330,7 @@
                         for (var i in obj) {
                             var id2 = obj[i]['id'];
                             var name2 = obj[i]['name'];
+                            var name1 = obj[i]['name1'];
 
                             /*获取detail0的高度*/
                             
@@ -339,7 +340,7 @@
                                 var appendDiv = $('.detail2');
                             }
 
-                            appendDiv.append('<div class="col-md-12 detailList" twoid="'+id2+'"> <div class="panel panel-default"> <div class="panel-heading"> <h3 class="panel-title">'+name2+'</h3> </div> <div class="panel-body"> <ol> </ol> </div> </div> </div>');
+                            appendDiv.append('<div class="col-md-12 detailList" twoid="'+id2+'"> <div class="panel panel-default"> <div class="panel-heading"> <h3 class="panel-title">'+name1+' 》 '+name2+'</h3> </div> <div class="panel-body"> <ol> </ol> </div> </div> </div>');
                             var liObj = obj[i]['detail'];
                             for (var j in liObj) {
                                 var cdom = $('.detailList[twoid="'+id2+'"]').find('ol');
