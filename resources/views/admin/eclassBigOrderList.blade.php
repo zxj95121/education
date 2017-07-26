@@ -52,7 +52,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="row">
-                                <form id="search_form" action="/admin/eclassOrderList" method="get">
+                                <form id="search_form" action="/admin/eclassBigOrderList" method="get">
                                     <input type="hidden" name="_token" value="8o0WCWkZVQQlILo6nNqy8G0GOC2Toii1z5HAfOjH">
                                     <div class="row m-b-15">
                                         <div class="form-group">
@@ -102,7 +102,7 @@
                                             <button type="submit" class="btn btn-info w-md">查询</button>
                                         </div>
                                         <div class="col-md-2">
-                                            <button onclick="window.location.href='/admin/eclassOrderList'" type="button" class="btn btn-default w-md">重置查询条件</button>
+                                            <button onclick="window.location.href='/admin/eclassBigOrderList'" type="button" class="btn btn-default w-md">重置查询条件</button>
                                         </div>
                                     </div>
                                 </form>
