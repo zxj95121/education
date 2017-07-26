@@ -230,6 +230,8 @@ $signPackage = $jssdk->GetSignPackage();
 		            jsApiList: [
 		                'onMenuShareTimeline',
 		                'onMenuShareAppMessage',
+		                'hideAllNonBaseMenuItem',
+		                'showMenuItems'
 		            ],
 		            success: function (res) {
 		                //$.alert(JSON.stringify(res));
