@@ -16,6 +16,7 @@
     <style type="text/css">
     	.bigBtn{
     		margin-top: 18px;
+    		border-radius: 3px;
     	}
     </style>
 
@@ -33,11 +34,24 @@
 				<div class="container-fluid" style="padding: 0px;">
 					<div class="row" style="margin: 0 auto;width: 96%;">
 
-						<div class="col-xs-5 bigBtn" id="bigBtn1" style="height:70px;background: #22AAE8;line-height: 70px;color: #FFF;">
+						<div class="col-xs-5 bigBtn" id="bigBtn1" style="height:70px;background: #22AAE8;text-align: center;line-height: 70px;color: #FFF;">
 							推荐有奖
 						</div>
-						<div class="col-xs-5 col-xs-offset-2 bigBtn" id="bigBtn2" style="height:70px;background: #22AAE8;line-height: 70px;color: #FFF;">
+						<div class="col-xs-5 col-xs-offset-2 bigBtn" id="bigBtn2" style="height:70px;background: #22AAE8;text-align: center;line-height: 70px;color: #FFF;">
 							地方开发
+						</div>
+						<div class="col-xs-12" id="voucher" style="height:70px;background: #22AAE8;line-height: ">
+							<div style="width: 36%;border-left: groove;background: #FFF;display: inline-block;height: 100%;">
+								<div style="height: 45px;text-align: center;color: red;">
+									¥ <span>88</span>
+								</div>
+								<div>
+									满1000减可用
+								</div>
+							</div>
+							<div style="width: 64%;background: #22AAE8;height: 100%;">
+								
+							</div>
 						</div>
 					</div>
 				</div>
