@@ -332,8 +332,8 @@
                             var name2 = obj[i]['name'];
 
                             /*获取detail0的高度*/
-                            var height1 = $('.detail1').offsetHeight();
-                            var height2 = $('.detail2').offsetHeight();
+                            var height1 = $('.detail1').offsetHeight;
+                            var height2 = $('.detail2').offsetHeight;
                             console.log(height1);
                             console.log(height2);
                             if (height1 <= height2) {
