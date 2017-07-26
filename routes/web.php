@@ -190,6 +190,11 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/classOrder/keAdd', 'EclassOrderController@keAdd');//给订单分配新的课时
     $router->post('/classOrder/deleteKeshi', 'EclassOrderController@deleteKeshi');//给订单分配新的课时
 
+    /*双师class大订单*/
+    $router->get('/eclassBigOrderList', 'EclassBigOrderController@list');
+    $router->post('/eclassBigOrderList/confirmXX', 'EclassBigOrderController@confirmXX');/*驳回订单*/
+    $router->post('/eclassBigOrderList/confirmOK', 'EclassBigOrderController@confirmOK');/*驳回订单*/
+    $router->post('/eclassBigOrderList/getOrderDetail', 'EclassBigOrderController@getOrderDetail');/*驳回订单*/
 
     /*其他class管理*/
     $router->get('/otherClass/add', 'OtherClass\OtherClassAddController@add');
