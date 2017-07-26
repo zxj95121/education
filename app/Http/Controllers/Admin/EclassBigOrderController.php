@@ -63,7 +63,7 @@ class EclassBigOrderController extends Controller
     		->paginate(5);
             // dd($orderList);
         $child = array();
-        foreach ($orderList as $valuue) {
+        foreach ($orderList as $value) {
             $bigOrderId = $value->id;
             $childObj = EclassOrder::where('eclass_order.bid', $bigOrderId)
                 ->leftJoin('parent_child as pc', 'pc.id', 'eclass_order.child')
