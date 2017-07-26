@@ -91,10 +91,10 @@
                                                 <span class="wstxt"><b>结束日期：</b></span><input type="text" class="workinput wicon form-control" id="inpend" readonly>
                                                 <input type="hidden" name="date1" id="date1" value='{{$date1}}'>
                                             </div>
-                                            <label for="stuName" class="col-md-1 clh text-right">学生姓名：</label>
+                                            <!-- <label for="stuName" class="col-md-1 clh text-right">学生姓名：</label>
                                             <div class="col-md-2">
                                                 <input type="text" name="stuName" id="stuName" class="form-control" placeholder="根据学生姓名查询">
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                     <div class="row m-t-15">
