@@ -236,6 +236,8 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
     $router->get('/parent/myClassOrder/oauth', 'Parent\MyClassOrderController@oauth');
 
     $router->get('/parent/mySchedule/oauth', 'Parent\MyScheduleController@oauth');
+      /*myVoucher*/
+    $router->get('/parent/myVoucher/oauth', 'Parent\MyVoucherController@oauth');
 	
 	$router->get('/parent/myClassOrder/details', 'Parent\MyClassOrderController@details');
 	/*微信分享  */
@@ -314,7 +316,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
   $router->get('/parent/mySchedule/schedule/{id}', 'Parent\MyScheduleController@schedule');
   $router->post('/parent/mySchedule/getSchedule', 'Parent\MyScheduleController@getSchedule');
 
-    /*myVoucher*/
+  /*myVoucher*/
   $router->get('/parent/myVoucher', 'Parent\MyVoucherController@index');
 
       /*新订单*/

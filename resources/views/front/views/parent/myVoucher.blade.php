@@ -25,7 +25,7 @@
     <div class="page-group" style="background:#fff">
         <div class="page page-current">
 		    <header class="bar bar-nav">
-		    	<a class="button button-link button-nav pull-left" href="/front/home/oauth" data-transition="slide-out" style="color:#fff">
+		    	<a class="button button-link button-nav pull-left" onclik="window.location.href='/front/home/oauth';" data-transition="slide-out" style="color:#fff">
 	      			<span class="icon icon-left"></span>返回
 	    		</a>
 			 	<h1 class='title' style="background: #22AAE8;color: #fff;">我的优惠券</h1>
@@ -42,11 +42,11 @@
 						</div> -->
 						<div class="card-container" style="width: 100;margin-top: 18px;">
 					        <div class="card" style="margin: 0px;">
-					            <div class="card-header">张贤健，你好</div>
+					            <div class="card-header">{{$userinfo->nickname}}，你好</div>
 					            <div class="card-content">
 					                <div class="card-content-inner">
-					                    你可用优惠总金额为:：<span style="color:#22AAE8;">333</span> 元。 <br>
-					                    最多可使用满1000减88代金券： <span style="color:#22AAE8;">3</span> 张
+					                    你可用优惠总金额为：<span style="color:#22AAE8;">{{$userinfo->voucher}}</span> 元。 <br>
+					                    最多可使用满1000减88代金券： <span style="color:#22AAE8;">{{floor($userinfo->voucher/88)}}</span> 张
 					                </div>
 					            </div>
 					        </div>
