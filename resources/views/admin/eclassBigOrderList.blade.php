@@ -215,7 +215,23 @@
                             <h4 class="modal-title" id="myModalLabel" style="font-weight: bold;font-size: 18px;font-family: '宋体';">订单ID：<span></span></h4>
                         </div>
                         <div class="modal-body">
-                            <div class="row">
+                            <div class="row" id="detailDiv">
+                                <div class="col-md-6">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Ordered Lists</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ol>
+                                                <li>Lorem ipsum dolor sit amet</li>
+                                                <li>Consectetur adipiscing elit</li>
+                                                <li>Integer molestie lorem at massa</li>
+                                                <li>Facilisis in pretium nisl aliquet</li>
+                                                <li>Nulla volutpat aliquam velit</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -306,7 +322,7 @@
             var id = $(this).parents('tr').attr('oid');
 
             $('#myModalLabel span').html(id);
-
+            $('#detailDiv').html('');
             $.ajax({
                 url: '/admin/eclassBigOrderList/getOrderDetail',
                 type: 'post',
@@ -316,7 +332,17 @@
                 },
                 success: function(data) {
                     if (data.errcode == 0) {
-                        alert('OK');
+                        var obj = data.obj;
+                        for (var i in obj) {
+                            var id2 = obj[i]['id'];
+                            var name2 = obj[i]['name'];
+                            $('#detailDiv').append('<div class="col-md-6 detailList" twoid="'+id2+'"> <div class="panel panel-default"> <div class="panel-heading"> <h3 class="panel-title">'+name2+'</h3> </div> <div class="panel-body"> <ol> </ol> </div> </div> </div>');
+                            var liObj = obj[i]['detail'];
+                            for (var j in liObj) {
+                                var cdom = $('.detailList[twoid="'+id2+'"]').find('ol');
+                                cdom.append('<li>'+liObj[j]['name3']+'</li>');
+                            }
+                        }
                     } else {
                         alert('系统错误，请联系管理员。');
                     }

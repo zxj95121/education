@@ -120,6 +120,7 @@ class EclassBigOrderController extends Controller
                 ->get()->toArray();
             $Obj[$key]['detail'] = $orderDetail;
         }
-        dd($Obj);
+    
+        return response()->json(['errcode'=>0,'obj'=>$Obj]);
     }
 }
