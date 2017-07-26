@@ -26,7 +26,7 @@
 			<div class="content">
 				<div class="container-fluid">
 					<div class="row">
-						<p class="bg-primary">
+						<p class="bg-primary" style="margin:0px;padding: 5px 0px;">
 							我的优惠券总金额
 						</p>
 					</div>
