@@ -17,6 +17,11 @@ $signPackage = $jssdk->GetSignPackage();
 		<!-- <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css"> -->
 		<link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.css">
 		<!-- <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css"> -->
+		<style type="text/css">
+			img{
+				width: 100%;
+			}
+		</style>
 	</head>
 	<body>
 	<div class="container-fluid" style="padding: 0px;">
@@ -31,7 +36,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                                <section style="width:100%; text-align:center;" data-width="100%"></section>
 		                                <section style="clear:both; width:100%;" data-width="100%"></section>
 		                            </section>
-		                        </section><img data-id="89260" data-role="guide-img" style="width: 100%;" title="风车分割线" src="http://rdn.135editor.com/cache/remote/aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpel9naWYvZmdua3hmR25ua1RObDVWdndQUFUxUEtrRWN3NE84STI1MFRvNzlJMnFacUR5bDFDVTM3WGdlZlppY0RGd1JOUllURTllc1M0S3RFeHFGWm91eHZTTDlnLzA/d3hfZm10PWdpZg==" style="display: inline;"/>
+		                        </section><img data-id="89260" data-role="guide-img" style="" title="风车分割线" src="http://rdn.135editor.com/cache/remote/aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpel9naWYvZmdua3hmR25ua1RObDVWdndQUFUxUEtrRWN3NE84STI1MFRvNzlJMnFacUR5bDFDVTM3WGdlZlppY0RGd1JOUllURTllc1M0S3RFeHFGWm91eHZTTDlnLzA/d3hfZm10PWdpZg==" style="display: inline;"/>
 		                    </section>
 		                    <section class="_135editor" data-id="t36" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
 		                        <section class="layout" style="margin-right: auto; margin-left: auto; width: 60%;">
