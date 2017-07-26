@@ -229,6 +229,13 @@
 	                </div>
 	                <div class="weui-cell__ft"></div>
 	            </a>
+	            <a class="weui-cell weui-cell_access" href="/front/parent/myVoucher">
+	                <div class="weui-cell__hd"><img src="/images/home/option_voucher.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>我的优惠券</p>
+	                </div>
+	                <div class="weui-cell__ft"></div>
+	            </a>
 	        </div>
 	        @elseif(!$parentDetail->type)
 	        <div class="weui-cells" id="my_option">
