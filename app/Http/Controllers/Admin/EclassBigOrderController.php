@@ -33,7 +33,7 @@ class EclassBigOrderController extends Controller
     	if ($order_no) {
     		$orderList = $orderList->where('big_order.order_no', 'like', $order_no.'%');
     		// $str .= '&orderno='.$order_no;
-            $arg['order_no'] = $order_no;
+            $arg['orderno'] = $order_no;
     	}
     	if ($pay_select != null) {
     		$orderList = $orderList->where('big_order.pay_status', $pay_select);
