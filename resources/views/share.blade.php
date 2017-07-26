@@ -226,6 +226,15 @@ $signPackage = $jssdk->GetSignPackage();
 		          ]
 		    });
 		    wx.ready(function () {
+		    	wx.showMenuItems({
+		    	    menuList: [
+		    	    	'menuItem:share:appMessage',
+		    	    	 "menuItem:share:timeline"
+				    ],
+				    success: function (res){
+				    	//alert("隐藏");
+					}
+		    	});
 		        wx.checkJsApi({
 		            jsApiList: [
 		                'getLocation',

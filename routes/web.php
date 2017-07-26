@@ -182,12 +182,6 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/eclassOrderList/confirmOK', 'EclassOrderController@confirmOK');
     $router->post('/eclassOrderList/confirmXX', 'EclassOrderController@confirmXX');//驳回审核
 
-    /*双师class大订单*/
-    $router->get('/eclassBigOrderList', 'EclassBigOrderController@list');
-    $router->post('/eclassBigOrderList/confirmXX', 'EclassBigOrderController@confirmXX');/*驳回订单*/
-    $router->post('/eclassBigOrderList/confirmOK', 'EclassBigOrderController@confirmOK');/*驳回订单*/
-    $router->post('/eclassBigOrderList/getOrderDetail', 'EclassBigOrderController@getOrderDetail');/*驳回订单*/
-
     /*退款*/
     $router->any('/tuikuan', 'EclassOrderController@tuikuan');
     /*查订单用户的信息*/
@@ -199,7 +193,6 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
 
     /*其他class管理*/
     $router->get('/otherClass/add', 'OtherClass\OtherClassAddController@add');
-    $router->get('/otherClass/orderList', 'OtherClass\OtherClassAddController@orderList');
     $router->post('/otherClass/add/addPost', 'OtherClass\OtherClassAddController@addPost');
     $router->post('/otherClass/add/editPost', 'OtherClass\OtherClassAddController@editPost');
     $router->get('/otherClass/add/setShow', 'OtherClass\OtherClassAddController@setShow');
@@ -248,7 +241,8 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 	/*微信分享  */
 	$router->get('/share/oauth', 'ShareController@oauth');
 	$router->get('/share', 'ShareController@index');
-
+	/*抢课  */
+	
   /*class套餐前端展示*/
   $router->get('/classPackage', 'ClassPackageController@index');
   $router->get('/classPackage/newOrder/oauth', 'ClassPackageController@newOrderOauth');
@@ -319,10 +313,6 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
   $router->get('/parent/mySchedule', 'Parent\MyScheduleController@orderList');
   $router->get('/parent/mySchedule/schedule/{id}', 'Parent\MyScheduleController@schedule');
   $router->post('/parent/mySchedule/getSchedule', 'Parent\MyScheduleController@getSchedule');
-
-  /*myVoucher*/
-  $router->get('/parent/myVoucher', 'Parent\MyVoucherController@index');
-
 
       /*新订单*/
   $router->post('/parent/newEclassOrder', 'Parent\PayClassController@newEclassOrder');
