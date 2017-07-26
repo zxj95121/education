@@ -66,7 +66,9 @@ class EclassBigOrderController extends Controller
         foreach ($orderList as $value) {
             $bigOrderId = $value->id;
             $childObj = EclassOrder::where('eclass_order.bid', $bigOrderId)
-                ->leftJoin('parent_child as pc', 'pc.id', 'eclass_order.child')
+                ->leftJoin('new_user as nu', 'nu.id', 'eclass_order.uid')
+                ->leftJoin('parent_info as pi', 'pi.id', 'nu.uid')
+                ->leftJoin('parent_child as pc', 'pc.pid', 'pi.id')
                 ->where('pc.status', '1')
                 ->select('pc.name as name', 'pc.id as id')
                 ->get();
