@@ -25,7 +25,7 @@
 			</header>
 			<div class="content">
 				<div class="container-fluid" style="padding: 0px;">
-					<div class="row" style="margin: 0px;width: 96%;">
+					<div class="row" style="margin: 0 auto;width: 96%;">
 
 						<div class="col-xs-5 bigBtn" id="bigBtn1" style="height:70px;background: #22AAE8;line-height: 70px;color: #FFF;">
 							推荐有奖
