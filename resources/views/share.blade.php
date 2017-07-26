@@ -19,7 +19,7 @@ $signPackage = $jssdk->GetSignPackage();
 		<!-- <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css"> -->
 	</head>
 	<body>
-	<div class="container-fluid">
+	<div class="container-fluid" style="padding: 0px;">
 		<section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
 		    <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
 		        <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
@@ -159,7 +159,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                        <section style="border: 0px; padding: 0px; margin: 0px auto; text-align: left; white-space: normal; display: inline-block; box-sizing: border-box;">
 		                            <section style="display:inline-block;float:left;vertical-align:top">
 		                                <section style="width: 60px; text-align: center; border-radius: 100%; display: inline-block; color: rgb(255, 255, 255); vertical-align: top; box-sizing: border-box;">
-		                                    <img src="http://image.135editor.com/files/users/262/2625290/201707/2C5uGA6N_WG5f.jpg" style="border: 1px solid rgb(51, 68, 85); margin: 0px; padding: 0px; border-radius: 100%;" title="微信图片_20170725222511.jpg" data-width="100%" alt="微信图片_20170725222511.jpg"/>
+		                                    <img style="width: 100%;" src="http://image.135editor.com/files/users/262/2625290/201707/2C5uGA6N_WG5f.jpg" style="border: 1px solid rgb(51, 68, 85); margin: 0px; padding: 0px; border-radius: 100%;" title="微信图片_20170725222511.jpg" data-width="100%" alt="微信图片_20170725222511.jpg"/>
 		                                </section>
 		                            </section>
 		                            <section style="padding: 0px; margin-left: 70px; text-align: left; line-height: 25px; box-sizing: border-box;">
@@ -181,7 +181,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                    <section class="_135editor" data-tools="135编辑器" data-id="90070" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
 		                        <section style="padding: 10px; box-sizing: border-box;">
 		                            <section style="width:100%;" data-width="100%">
-		                                <img style="display: block;" src="http://image.135editor.com/files/users/262/2625290/201707/xTdEcRpO_SJEj.jpg" data-width="100%" title="微信图片_20170725222542.jpg" alt="微信图片_20170725222542.jpg"/>
+		                                <img style="display: block;" style="width: 100%;" src="http://image.135editor.com/files/users/262/2625290/201707/xTdEcRpO_SJEj.jpg" data-width="100%" title="微信图片_20170725222542.jpg" alt="微信图片_20170725222542.jpg"/>
 		                            </section>
 		                            <section style="width:100%; text-align:center;" data-width="100%">
 		                                <section style="text-align:center;">
