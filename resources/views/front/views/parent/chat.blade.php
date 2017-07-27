@@ -12,6 +12,9 @@
     <link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.css">
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="/front/lib/chat/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/front/lib/chat/css/default.css">
+    <link rel="stylesheet" type="text/css" href="/front/lib/chat/css/styles.css">
 
     <style type="text/css">
     </style>
@@ -42,7 +45,7 @@
 				          <label>Thursday 02</label>
 				             
 				            <div class="message">
-				              <img src="img/1_copy.jpg" />
+				              <img src="/front/lib/img/1_copy.jpg" />
 				                <div class="bubble">
 				                  Really cool stuff!
 				                    <div class="corner"></div>
