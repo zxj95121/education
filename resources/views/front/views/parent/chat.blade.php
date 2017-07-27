@@ -101,7 +101,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	<span>Can you share a link for the tutorial?</span>
+				                	<span>Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?</span>
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
 				                </div>
@@ -129,7 +129,15 @@
 			var h1 = $('#profile').height();
 			var h2 = $('#sendmessage').height();
 			$('#chat-messages').css('height', height-h1-h2+'px');
+
+			$('#chat-messages .message').each(function(){
+				this.css('height', this.find('.corner').height()+'px')
+			})
 		})
+
+		function autoHeight(){
+			$('#chat-messages .message').last().css('height', $('#chat-messages .message').last().find('.corner').height()+'px');
+		}
     </script>
   </body>
 </html>
