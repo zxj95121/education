@@ -44,15 +44,16 @@
 				            <p>Miro Badev</p>
 				            <!-- <span>miro@badev@gmail.com</span> -->
 				        </div>
-				        <div class="message right">
-			            	<img src="/front/lib/chat/img/2_copy.jpg">
-			                <div class="bubble" style="margin: 0px;">
-				                <img src="/front/lib/chat/img/1_copy.jpg" style="width: 100%;">
-				            </div>
-				        </div>
+				        
 				        <div id="chat-messages">
-				          <label>Thursday 02</label>
-				             
+				          	<label>Thursday 02</label>
+				          	
+				            <div class="message right">
+				            	<img src="/front/lib/chat/img/2_copy.jpg">
+				                <div class="bubble" style="margin: 0px;">
+					                <img src="/front/lib/chat/img/1_copy.jpg" style="width: 100%;">
+					            </div>
+					        </div>
 				            <div class="message">
 				              <img src="/front/lib/chat/img/1_copy.jpg" />
 				                <div class="bubble">
