@@ -147,9 +147,9 @@ body {
 }
 #profile #headimg{
 	/*margin-top: 15px;*/
-	width: 70px;
-	margin: 15px auto 0px;
-	height: 70px;
+	width: 80px;
+	margin: 10px auto 0px;
+	height: 80px;
 }
 #headimg img{
 	border-radius: 50%;
@@ -157,7 +157,7 @@ body {
 #profile  p{
 	font-weight:600;
 	font-size:15px;
-	margin:15px 0 -1px;
+	margin:10px 0 -1px;
 	opacity:1;
 	-webkit-transition: all 200ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
 	   -moz-transition: all 200ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
