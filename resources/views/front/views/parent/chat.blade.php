@@ -47,13 +47,16 @@
 				        
 				        <div id="chat-messages">
 				          	<label>Thursday 02</label>
-				          	
-				            <div class="message right">
+
+					        <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
-				                <div class="bubble" style="margin: 0px;">
-					                <img src="/front/lib/chat/img/1_copy.jpg" style="width: 100%;">
-					            </div>
-					        </div>
+				                <div class="bubble">
+				                	Can you share a link for the tutorial?
+				                	<img src="/front/lib/chat/img/1_copy.jpg" style="width: 100%;">
+				                    <div class="corner"></div>
+				                    <span>1 min</span>
+				                </div>
+				            </div>
 				            <div class="message">
 				              <img src="/front/lib/chat/img/1_copy.jpg" />
 				                <div class="bubble">
