@@ -198,8 +198,8 @@
 	            var y = e.originalEvent.changedTouches[0].pageY - state.mouseY;
 
 	/*            var bgX = x + parseInt(bg[0]);*/
-	            var bgY = y + bg;
-
+	            // var bgY = y + bg;
+	            console.log(y);
 	            state.mouseX = e.originalEvent.changedTouches[0].pageX;
 	            state.mouseY = e.originalEvent.changedTouches[0].pageY;
 	        	
@@ -209,7 +209,7 @@
 
 	    $(document).on('touchend', '#chatview', function(e){
     		state.dragable = false;
-    		console.log(bgY);
+    		// console.log(bgY);
     	})
     </script>
   </body>
