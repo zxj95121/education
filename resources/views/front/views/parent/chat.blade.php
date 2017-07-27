@@ -142,13 +142,60 @@
         </div>
     </div>
 
-    <script type='text/javascript' src='/js/zepto.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    <!-- <script type='text/javascript' src='/js/zepto.min.js' charset='utf-8'></script> -->
+    <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script> -->
+    <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script> -->
+    <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
 
 
     <script type="text/javascript">
-    	Zepto(function($){
+  //   	Zepto(function($){
+		// 	var height = $('#chatview').height();
+		// 	var h1 = $('#profile').height();
+		// 	var h2 = $('#sendmessage').height();
+		// 	$('#chat-messages').css('height', height-h1-h2+'px');
+
+
+
+		// 	var imgUrl = new Array(
+		// 		'http://file.catchon-edu.cn/chat/d/filename.jpg'
+		// 	);
+		// 	var loadImg = new Array();
+		// 	// 预加载图片
+		// 	for (var i in imgUrl) {
+		// 		loadImg[i] = new Image(); 
+		// 		loadImg[i].src = imgUrl[i];
+		// 	}
+
+		// 	$('#chat-messages .message').each(function(index){
+		// 		// var height = $(this).child()
+		// 		// console.log(index);
+		// 		if ($(this).find('.chatData').length == 1) {
+		// 			var height = $(this).find('.chatData')[0].offsetHeight;
+		// 			// console.log(height);
+		// 			if (height > 20) {
+		// 				$('#chat-messages .message').eq(index).css('padding-bottom', (height+18) +'px');
+		// 			}
+		// 			$('#chat-messages .message').eq(index).css('height', height+'px');
+		// 		} else if ($(this).find('.chatImg').length == 1) {
+		// 			var height = $(this).find('.chatImg').css('height');
+		// 			console.log(height);
+		// 		}
+		// 		// console.log(height);
+		// 		// console.log($(this).find('.chatData')[0].offsetWidth);
+		// 	})
+		// })
+
+		// function autoHeight(){
+		// 	$('.chatData').last()[0].offsetHeight;
+		// 	if (height > 20) {
+		// 		$('#chat-messages .message').last().css('padding-bottom', (height+18) +'px');
+		// 	}
+		// 	$('#chat-messages .message').last().css('height', height+'px');
+		// }
+
+
+		$(window).load(function(){
 			var height = $('#chatview').height();
 			var h1 = $('#profile').height();
 			var h2 = $('#sendmessage').height();
@@ -156,26 +203,26 @@
 
 
 
-			var imgUrl = new Array(
-				'http://file.catchon-edu.cn/chat/d/filename.jpg'
-			);
-			var loadImg = new Array();
-			// 预加载图片
-			for (var i in imgUrl) {
-				loadImg[i] = new Image(); 
-				loadImg[i].src = imgUrl[i];
-			}
+			// var imgUrl = new Array(
+			// 	'http://file.catchon-edu.cn/chat/d/filename.jpg'
+			// );
+			// var loadImg = new Array();
+			// // 预加载图片
+			// for (var i in imgUrl) {
+			// 	loadImg[i] = new Image(); 
+			// 	loadImg[i].src = imgUrl[i];
+			// }
 
-			$('#chat-messages .message').each(function(index){
+			$('#chat-messages .message').each(function(){
 				// var height = $(this).child()
 				// console.log(index);
 				if ($(this).find('.chatData').length == 1) {
 					var height = $(this).find('.chatData')[0].offsetHeight;
 					// console.log(height);
 					if (height > 20) {
-						$('#chat-messages .message').eq(index).css('padding-bottom', (height+18) +'px');
+						$(this).css('padding-bottom', (height+18) +'px');
 					}
-					$('#chat-messages .message').eq(index).css('height', height+'px');
+					$(this).css('height', height+'px');
 				} else if ($(this).find('.chatImg').length == 1) {
 					var height = $(this).find('.chatImg').css('height');
 					console.log(height);
@@ -183,15 +230,7 @@
 				// console.log(height);
 				// console.log($(this).find('.chatData')[0].offsetWidth);
 			})
-		})
-
-		function autoHeight(){
-			$('.chatData').last()[0].offsetHeight;
-			if (height > 20) {
-				$('#chat-messages .message').last().css('padding-bottom', (height+18) +'px');
-			}
-			$('#chat-messages .message').last().css('height', height+'px');
-		}
+		// })
     </script>
   </body>
 </html>
