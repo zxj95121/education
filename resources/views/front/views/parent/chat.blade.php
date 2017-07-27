@@ -93,7 +93,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	<img class="chatData" src="http://file.catchon-edu.cn/chat/d/filename.jpg" style="margin-left: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
+				                	<img class="chatData" src="http://file.catchon-edu.cn/chat/d/filename.jpg" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
 				                    <div class="corner"></div>
 				                    <span style="position: absolute;">1 min</span>
 				                </div>
@@ -117,7 +117,7 @@
 				            <div class="message">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	<img class="chatData" src="http://file.catchon-edu.cn/chat/d/filename.jpg" style="margin-left: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
+				                	<img class="chatData" src="http://file.catchon-edu.cn/chat/d/filename.jpg" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
 				                    <div class="corner"></div>
 				                    <span style="position: absolute;">1 min</span>
 				                </div>
