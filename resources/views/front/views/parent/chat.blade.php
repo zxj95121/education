@@ -48,7 +48,7 @@
 				        <div id="chat-messages">
 				          	<label>Thursday 02</label>
 
-					        <div class="message right">
+					        <!-- <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
 				                	Can you share a link for the tutorial?
@@ -56,7 +56,7 @@
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
 				                </div>
-				            </div>
+				            </div> -->
 				            <div class="message">
 				              <img src="/front/lib/chat/img/1_copy.jpg" />
 				                <div class="bubble">
