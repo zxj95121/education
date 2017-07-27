@@ -34,8 +34,9 @@
 				        <div id="profile" style="background: #22AAE8;">
 				 
 				            <div id="close">
-				                <div class="cy"></div>
-				                <div class="cx"></div>
+				                <!-- <div class="cy"></div>
+				                <div class="cx"></div> -->
+				                <img src="/images/arrow-left.png" style="width: 100%;height: 100%;">
 				            </div>
 				             
 				            <p>Miro Badev</p>
