@@ -21,16 +21,16 @@
 
   </head>
   <body>
-    <!-- <div class="page-group" style="background:#fff"> -->
-        <!-- <div class="page page-current"> -->
+    <div class="page-group" style="background:#fff">
+        <div class="page page-current">
 		    <!-- <header class="bar bar-nav">
 		    	<a class="button button-link button-nav pull-left" onclick="window.location.href='/front/home/oauth';" data-transition="slide-out" style="color:#fff">
 	      			<span class="icon icon-left"></span>返回
 	    		</a>
 			 	<h1 class='title' style="background: #22AAE8;color: #fff;">客服沟通</h1>
 			</header> -->
-			<!-- <div class="content" style="background: #D6D6D6;"> -->
-				    <div id="chatview" class="p1">      
+			<div class="content" style="background: #D6D6D6;">
+				    <div id="chatview" class="p1" style="width:100%;height:100%;">      
 				        <div id="profile">
 				 
 				            <div id="close">
@@ -59,9 +59,9 @@
 				            <button id="send"></button>
 				        </div>  
 				    </div>
-<!-- 			</div>
+			</div>
         </div>
-    </div> -->
+    </div>
 
     <script type='text/javascript' src='/js/zepto.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>

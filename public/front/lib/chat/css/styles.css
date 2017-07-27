@@ -43,7 +43,7 @@ body {
 	float:left;	
 	width: 96px;
     height: 70px;
-    background: url("../img/top-menu.png") -3px -118px no-repeat;
+    background: url("/front/lib/chat/img/top-menu.png") -3px -118px no-repeat;
 }
 #topmenu span.friends{margin-bottom:-1px;}
 #topmenu span.chats{background-position:-95px 25px; cursor:pointer;}
@@ -101,7 +101,7 @@ body {
 .friend .status.away{background:#ffce54;}
 .friend .status.inactive{background:#eaeef0;}
 #search{
-	background:#e3e9ed url("../img/search.png") -11px 0 no-repeat;
+	background:#e3e9ed url("/front/lib/chat/img/search.png") -11px 0 no-repeat;
 	height:60px;
 	width:290px;
 	position:absolute;
@@ -122,12 +122,11 @@ body {
 	 outline: 0;
 }
 #chatview{
-	width:290px;
-	height:484px;
-	position:absolute;
-	top:0;
-	left:0;	
-	display:none;
+	width:100%;
+	height:100%;
+	/*position:absolute;*/
+	/*top:0;*/
+	/*left:0;	*/
 	background:#fff;
 }
 #profile{
@@ -137,7 +136,7 @@ body {
 	color:#fff;
 }
 .p1 #profile{
-	background:#fff url("../img/timeline1.png") 0 0 no-repeat;
+	background:#fff url("/front/lib/chat/img/timeline1.png") 0 0 no-repeat;
 }
 #profile .avatar{
 	width:68px;
@@ -233,7 +232,7 @@ body {
 	border-radius:5px 5px 0px 5px ;
 }
 .bubble .corner{
-	background:url("../img/bubble-corner.png") 0 0 no-repeat;
+	background:url("/front/lib/chat/img/bubble-corner.png") 0 0 no-repeat;
 	position:absolute;
 	width:7px;
 	height:7px;
@@ -241,7 +240,7 @@ body {
 	bottom:0;
 }
 div.message.right .corner{
-	background:url("../img/bubble-cornerR.png") 0 0 no-repeat;
+	background:url("/front/lib/chat/img/bubble-cornerR.png") 0 0 no-repeat;
 	left:auto;
 	right:-5px;
 }
@@ -279,7 +278,7 @@ div.message.right .corner{
 	 outline: 0;
 }
 #sendmessage button{
-	background:#fff url("../img/send.png") 0 -41px no-repeat;
+	background:#fff url("/front/lib/chat/img/send.png") 0 -41px no-repeat;
 	width:30px;
 	height:30px;
 	position:absolute;
