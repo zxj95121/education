@@ -210,7 +210,7 @@
 	    $(document).on('touchend', '.colPicker', function(e){
     		state.dragable = false;
     		console.log(bgY);
-    	}
+    	})
     </script>
   </body>
 </html>
