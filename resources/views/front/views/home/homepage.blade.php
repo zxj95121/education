@@ -236,6 +236,13 @@
 	                </div>
 	                <div class="weui-cell__ft"></div>
 	            </a>
+	            <a class="weui-cell weui-cell_access" href="/front/parent/parentChat">
+	                <div class="weui-cell__hd"><img src="/images/home/option_chat.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>客服沟通</p>
+	                </div>
+	                <div class="weui-cell__ft"></div>
+	            </a>
 	        </div>
 	        @elseif(!$parentDetail->type)
 	        <div class="weui-cells" id="my_option">
