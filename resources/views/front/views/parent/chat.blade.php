@@ -227,9 +227,10 @@
 					var height = $(this).find('.chatImg').css('height');
 					console.log(height);
 				}
+			}
 				// console.log(height);
 				// console.log($(this).find('.chatData')[0].offsetWidth);
-			})
+		})
 		// })
     </script>
   </body>
