@@ -23,12 +23,7 @@
   <body>
     <div class="page-group" style="background:#fff">
         <div class="page page-current">
-		    <!-- <header class="bar bar-nav">
-		    	<a class="button button-link button-nav pull-left" onclick="window.location.href='/front/home/oauth';" data-transition="slide-out" style="color:#fff">
-	      			<span class="icon icon-left"></span>返回
-	    		</a>
-			 	<h1 class='title' style="background: #22AAE8;color: #fff;">客服沟通</h1>
-			</header> -->
+        
 			<div class="content" style="background: #D6D6D6;">
 				    <div id="chatview" class="p1" style="width:100%;height:100%;">      
 				        <div id="profile" style="background: #22AAE8;">
@@ -149,51 +144,6 @@
 
 
     <script type="text/javascript">
-  //   	Zepto(function($){
-		// 	var height = $('#chatview').height();
-		// 	var h1 = $('#profile').height();
-		// 	var h2 = $('#sendmessage').height();
-		// 	$('#chat-messages').css('height', height-h1-h2+'px');
-
-
-
-		// 	var imgUrl = new Array(
-		// 		'http://file.catchon-edu.cn/chat/d/filename.jpg'
-		// 	);
-		// 	var loadImg = new Array();
-		// 	// 预加载图片
-		// 	for (var i in imgUrl) {
-		// 		loadImg[i] = new Image(); 
-		// 		loadImg[i].src = imgUrl[i];
-		// 	}
-
-		// 	$('#chat-messages .message').each(function(index){
-		// 		// var height = $(this).child()
-		// 		// console.log(index);
-		// 		if ($(this).find('.chatData').length == 1) {
-		// 			var height = $(this).find('.chatData')[0].offsetHeight;
-		// 			// console.log(height);
-		// 			if (height > 20) {
-		// 				$('#chat-messages .message').eq(index).css('padding-bottom', (height+18) +'px');
-		// 			}
-		// 			$('#chat-messages .message').eq(index).css('height', height+'px');
-		// 		} else if ($(this).find('.chatImg').length == 1) {
-		// 			var height = $(this).find('.chatImg').css('height');
-		// 			console.log(height);
-		// 		}
-		// 		// console.log(height);
-		// 		// console.log($(this).find('.chatData')[0].offsetWidth);
-		// 	})
-		// })
-
-		// function autoHeight(){
-		// 	$('.chatData').last()[0].offsetHeight;
-		// 	if (height > 20) {
-		// 		$('#chat-messages .message').last().css('padding-bottom', (height+18) +'px');
-		// 	}
-		// 	$('#chat-messages .message').last().css('height', height+'px');
-		// }
-
 
 		$(window).load(function(){
 			var height = $('#chatview').height();
@@ -201,17 +151,6 @@
 			var h2 = $('#sendmessage').height();
 			$('#chat-messages').css('height', height-h1-h2+'px');
 
-
-
-			// var imgUrl = new Array(
-			// 	'http://file.catchon-edu.cn/chat/d/filename.jpg'
-			// );
-			// var loadImg = new Array();
-			// // 预加载图片
-			// for (var i in imgUrl) {
-			// 	loadImg[i] = new Image(); 
-			// 	loadImg[i].src = imgUrl[i];
-			// }
 
 			$('#chat-messages .message').each(function(){
 				// var height = $(this).child()
@@ -230,8 +169,7 @@
 					}
 					$(this).css('height', height+'px');
 				}
-				// console.log(height);
-				// console.log($(this).find('.chatData')[0].offsetWidth);
+
 			})
 		})
     </script>

@@ -176,7 +176,7 @@ body {
 }*/
 #profile  span{
 	font-weight:400;
-	font-size:11px;
+	font-size:12px;
 }
 #chat-messages{
 	opacity:1;
@@ -257,7 +257,7 @@ div.message.right .corner{
 }
 .bubble span{
 	  color: #aab8c2;
-	  font-size: 11px;
+	  font-size: 13px;
 	  /**/
 	  right: 0;
 	  bottom: -22px;
