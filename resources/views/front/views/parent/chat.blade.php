@@ -225,7 +225,10 @@
 					$(this).css('height', height+'px');
 				} else if ($(this).find('.chatImg').length == 1) {
 					var height = $(this).find('.chatImg').css('height');
-					console.log(height);
+					if (height > 20) {
+						$(this).css('padding-bottom', (height+18) +'px');
+					}
+					$(this).css('height', height+'px');
 				}
 				// console.log(height);
 				// console.log($(this).find('.chatData')[0].offsetWidth);
