@@ -253,7 +253,7 @@ div.message.right .corner{
 	  bottom: -22px;
 }
 #sendmessage{
-	height:60px;
+	height:50px;
 	border-top:1px solid #e7ebee;	
 	position:absolute;
 	bottom:0;
@@ -263,14 +263,13 @@ div.message.right .corner{
 	padding-bottm:50px;
 }
 #sendmessage input{
-	border
 }
 #sendmessage input{
 	background:#fff;
-	margin:21px 0 0 21px;
+	margin:17px 0 0 17px;
 	border:none;
 	padding:0;
-	font-size:14px;
+	font-size:15px;
 	font-family:"Open Sans", sans-serif; 
 	font-weight:400px;
 	color:#aab8c2;
@@ -280,11 +279,11 @@ div.message.right .corner{
 }
 #sendmessage button{
 	background:#fff url("/images/square-send.png") 0 -41px no-repeat;
-	width:30px;
-	height:30px;
+	width:40px;
+	height:40px;
 	position:absolute;
-	right: 15px;
-	top: 23px;
+	right: 10px;
+	top: 5px;
 	border:none;
 }
 #sendmessage button:hover{
