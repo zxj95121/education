@@ -51,7 +51,7 @@
 				            <div class="message">
 				              <img src="/front/lib/chat/img/1_copy.jpg" />
 				                <div class="bubble">
-				                  	<span>Really cool stuff!</span>
+				                  	<span class="chatData">Really cool stuff!</span>
 				                    <div class="corner"></div>
 				                    <span>3 min</span>
 				                </div>
@@ -60,7 +60,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	<span>Can you share a link for the tutorial?</span>
+				                	<span class="chatData">Can you share a link for the tutorial?</span>
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
 				                </div>
@@ -69,7 +69,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	<span>Can you share a link for the tutorial?</span>
+				                	<span class="chatData">Can you share a link for the tutorial?</span>
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
 				                </div>
@@ -77,7 +77,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	<span>Can you share a link for the tutorial?</span>
+				                	<span class="chatData">Can you share a link for the tutorial?</span>
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
 				                </div>
@@ -85,7 +85,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	<span>Can you share a link for the tutorial?</span>
+				                	<span class="chatData">Can you share a link for the tutorial?</span>
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
 				                </div>
@@ -93,7 +93,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	<span>Can you share a link for the tutorial?</span>
+				                	<span class="chatData">Can you share a link for the tutorial?</span>
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
 				                </div>
@@ -101,7 +101,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	<span>Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?</span>
+				                	<span class="chatData">Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?</span>
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
 				                </div>
@@ -109,7 +109,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	<span>Can you share a link for the tutorial?</span>
+				                	<span class="chatData">Can you share a link for the tutorial?</span>
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
 				                </div>
@@ -139,8 +139,8 @@
 			$('#chat-messages').css('height', height-h1-h2+'px');
 
 			$('#chat-messages .message').each(function(){
-				$(this).css('height', $(this).find('span').first()[0].offset('width')+'px')
-				console.log($(this).find('span').first()[0].offsetWidth);
+				$(this).css('height', $(this).find('.chatData')[0].offset('width')+'px')
+				console.log($(this).find('.chatData')[0].offsetWidth);
 			})
 		})
 
