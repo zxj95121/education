@@ -177,7 +177,7 @@
 					}
 					$('#chat-messages .message').eq(index).css('height', height+'px');
 				} else if ($(this).find('.chatImg').length == 1) {
-					var height = $(this).find('.chatImg').height();
+					var height = $(this).find('.chatImg').css('height');
 					console.log(height);
 				}
 				// console.log(height);
