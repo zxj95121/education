@@ -31,7 +31,7 @@
 			</header> -->
 			<div class="content" style="background: #D6D6D6;">
 				    <div id="chatview" class="p1" style="width:100%;height:100%;">      
-				        <div id="profile" style="background:#fff url('/front/lib/chat/img/timeline1.png') 0 0 no-repeat;">
+				        <div id="profile" style="background: #22AAE8;">
 				 
 				            <div id="close">
 				                <div class="cy"></div>
