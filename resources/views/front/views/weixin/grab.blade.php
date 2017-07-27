@@ -9,6 +9,11 @@
 		<button id="join">参加活动</button>
 		<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
 		<script>
+	        $.ajaxSetup({
+	            headers: {
+	                'X-CSRF-TOKEN': '{{csrf_token()}}'
+	            }
+	        });
 			$('#join').click(function(){
 				$.ajax({
 					url: '/front/grab/join',
