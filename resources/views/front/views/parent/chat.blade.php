@@ -224,7 +224,7 @@
 					}
 					$(this).css('height', height+'px');
 				} else if ($(this).find('.chatImg').length == 1) {
-					var height = $(this).find('.chatImg').css('height');
+					var height = $(this).find('.chatImg').height();
 					if (height > 20) {
 						$(this).css('padding-bottom', (height+18) +'px');
 					}
