@@ -157,8 +157,8 @@
 
 
 			var imgUrl = new Array(
-				'http://file.catchon-edu.cn/chat/d/filename.jpg',
-				);
+				'http://file.catchon-edu.cn/chat/d/filename.jpg'
+			);
 			var loadImg = new Array();
 			// 预加载图片
 			for (var i in imgUrl) {
