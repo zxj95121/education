@@ -247,7 +247,7 @@ body {
 	width:7px;
 	height:7px;
 	left:-5px;
-	bottom:0;
+	top:0;
 }
 div.message.right .corner{
 	background:url("/front/lib/chat/img/bubble-cornerR.png") 0 0 no-repeat;
