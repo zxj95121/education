@@ -15,7 +15,7 @@ class GrabController extends Controller
     	
     	$id = $request->input('id');
     	$discountObj = Discount::find($id);
-    	return view('front.views.weixin.grab');
+    	return view('front.views.weixin.grab', ['res'=>$discountObj]);
     }
     public function join(Request $request)
     {
