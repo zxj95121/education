@@ -8,6 +8,7 @@ use App\Http\Controllers\Wechat\OauthController;
 use App\Models\NewUser;
 use App\Models\Discount;
 use App\Models\UserDiscount;
+use Session;
 class GrabController extends Controller
 {
     public function index(Request $request)
@@ -15,7 +16,7 @@ class GrabController extends Controller
     	
     	$id = $request->input('id');
     	$discountObj = Discount::find($id);
-    	return view('front.views.weixin.grab');
+    	return view('front.views.weixin.grab', ['res'=>$discountObj]);
     }
     public function join(Request $request)
     {
