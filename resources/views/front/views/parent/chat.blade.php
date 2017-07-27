@@ -121,7 +121,12 @@
 
     <script type="text/javascript">
     	Zepto(function($){
-			
+			var height = $('#chatview').height();
+			var h1 = $('#profile').height();
+			var h2 = $('#sendmessage').height();
+			console.log(height);
+			console.log(h1);
+			console.log(h2);
 		})
     </script>
   </body>
