@@ -12,6 +12,7 @@ use App\Models\AdminInfo;
 use App\Models\AdminScanLogin;
 use App\Models\UserType;
 use App\Models\NewUser;
+use App\Models\AdminPower;
 use Session;
 use Config;
 use Wechat;
@@ -271,6 +272,10 @@ class HomeController extends Controller
         $flight->save();
         /*admin_info里面的id*/
         $uid = $flight->id;
+            /*存admin_power表*/
+            $powerObj = new AdminPower();
+            $powerObj->uid = $uid;
+            $powerObj->save();
 
         $flight = new UserType();
         $flight->openid = $openid;
