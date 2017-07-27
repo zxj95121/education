@@ -136,7 +136,8 @@ body {
 	color:#fff;
 }
 .p1 #profile{
-	background:#fff url("/front/lib/chat/img/timeline1.png") 0 0 no-repeat;
+	/*background:#fff url("/front/lib/chat/img/timeline1.png") 0 0 no-repeat;*/
+	background: 100%;
 }
 #profile .avatar{
 	width:68px;
