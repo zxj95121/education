@@ -140,6 +140,7 @@
 
 			$('#chat-messages .message').each(function(){
 				// this.css('height', this.find('.corner').height()+'px')
+				console.log(this.height());
 			})
 		})
 
