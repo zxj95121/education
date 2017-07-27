@@ -20,18 +20,42 @@
   <body>
     <div class="page-group" style="background:#fff">
         <div class="page page-current">
-		    <header class="bar bar-nav">
+		    <!-- <header class="bar bar-nav">
 		    	<a class="button button-link button-nav pull-left" onclick="window.location.href='/front/home/oauth';" data-transition="slide-out" style="color:#fff">
 	      			<span class="icon icon-left"></span>返回
 	    		</a>
 			 	<h1 class='title' style="background: #22AAE8;color: #fff;">客服沟通</h1>
-			</header>
+			</header> -->
 			<div class="content" style="background: #D6D6D6;">
-				<div class="container-fluid" style="padding: 0px;">
-					<div class="row" style="margin: 0 auto;width: 96%;">
-					发发呆时
-					</div>
-				</div>
+				    <div id="chatview" class="p1">      
+				        <div id="profile">
+				 
+				            <div id="close">
+				                <div class="cy"></div>
+				                <div class="cx"></div>
+				            </div>
+				             
+				            <p>Miro Badev</p>
+				            <span>miro@badev@gmail.com</span>
+				        </div>
+				        <div id="chat-messages">
+				          <label>Thursday 02</label>
+				             
+				            <div class="message">
+				              <img src="img/1_copy.jpg" />
+				                <div class="bubble">
+				                  Really cool stuff!
+				                    <div class="corner"></div>
+				                    <span>3 min</span>
+				                </div>
+				            </div>
+				        </div>
+				       
+				        <div id="sendmessage">
+				          <input type="text" value="Send message..." />
+				            <button id="send"></button>
+				        </div>  
+				    </div>
 			</div>
         </div>
     </div>
