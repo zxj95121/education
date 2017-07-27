@@ -62,6 +62,47 @@
 				                </div>
 				            </div>
 
+				            <div class="message right">
+				            	<img src="/front/lib/chat/img/2_copy.jpg">
+				                <div class="bubble">
+				                	Can you share a link for the tutorial?
+				                    <div class="corner"></div>
+				                    <span>1 min</span>
+				                </div>
+				            </div>
+				            <div class="message right">
+				            	<img src="/front/lib/chat/img/2_copy.jpg">
+				                <div class="bubble">
+				                	Can you share a link for the tutorial?
+				                    <div class="corner"></div>
+				                    <span>1 min</span>
+				                </div>
+				            </div>
+				            <div class="message right">
+				            	<img src="/front/lib/chat/img/2_copy.jpg">
+				                <div class="bubble">
+				                	Can you share a link for the tutorial?
+				                    <div class="corner"></div>
+				                    <span>1 min</span>
+				                </div>
+				            </div>
+				            <div class="message right">
+				            	<img src="/front/lib/chat/img/2_copy.jpg">
+				                <div class="bubble">
+				                	Can you share a link for the tutorial?
+				                    <div class="corner"></div>
+				                    <span>1 min</span>
+				                </div>
+				            </div>
+				            <div class="message right">
+				            	<img src="/front/lib/chat/img/2_copy.jpg">
+				                <div class="bubble">
+				                	Can you share a link for the tutorial?
+				                    <div class="corner"></div>
+				                    <span>1 min</span>
+				                </div>
+				            </div>
+
 				        </div>
 				       
 				        <div id="sendmessage">
