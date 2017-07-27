@@ -24,7 +24,7 @@ class GrabController extends Controller
     	Session::forget('grab');
     	$openid = Session::get('openid');
     	$newuserObj = NewUser::where('openid',$openid)->get();
-    	if (count($newuserObj) > 0) {
+    	if (isset($newuserObj[0])) {
     		//判断是否输入手机号
     		$discountObj = Discount::find($id);
     		if($discountObj->status == -1){
@@ -37,7 +37,7 @@ class GrabController extends Controller
     		if ($cha < 7 && $cha > 0) {
     			//活动正进行，进行报名参加;
     			$userdiscountObj = UserDiscount::where('uid',$newuserObj[0]->id)->where('discount_id',$discountObj->id)->get();
-    			if (count($userdiscountObj) > 0){
+    			if (isset($userdiscountObj[0])){
     				return response()->json(['code'=>4, 'msg'=>'已参加该活动']);
     			}else{
     				$userdiscountObj = new UserDiscount();
