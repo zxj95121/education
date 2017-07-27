@@ -154,6 +154,18 @@
 			var h2 = $('#sendmessage').height();
 			$('#chat-messages').css('height', height-h1-h2+'px');
 
+
+
+			var imgUrl = new Array(
+				'http://file.catchon-edu.cn/chat/d/filename.jpg',
+				);
+			var loadImg = new Array();
+			// 预加载图片
+			for (var i in imgUrl) {
+				loadImg[i] = new Image(); 
+				loadImg[i].src = imgUrl[i];
+			}
+
 			$('#chat-messages .message').each(function(index){
 				// var height = $(this).child()
 				// console.log(index);
