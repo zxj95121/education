@@ -149,12 +149,13 @@
 			$('#chat-messages .message').each(function(index){
 				// var height = $(this).child()
 				// console.log(index);
-				console.log($(this).find('.chatData').length);
+				if ($(this).find('.chatData').length == 1) {
 					var height = $(this).find('.chatData')[0].offsetHeight;
 					if (height > 20) {
 						$('#chat-messages .message').eq(index).css('padding-bottom', (height+18) +'px');
 					}
 					$('#chat-messages .message').eq(index).css('height', height+'px');
+				}
 				// console.log(height);
 				// console.log($(this).find('.chatData')[0].offsetWidth);
 			})
