@@ -109,8 +109,7 @@
 				            <div class="message">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	<span class="chatData">
-				                		<img src="/front/lib/chat/img/2_copy.jpg" style="width:100%;">
+				                	<span class="chatData" style="width:100%;background-image:url('/front/lib/chat/img/2_copy.jpg');background-size: 100%;">
 				                	</span>
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
