@@ -14,14 +14,14 @@ class GrabController extends Controller
     public function index(Request $request)
     {
     	
-    	$id = $request->input('id');
+    	$id = Session::get('grab')['id'];
     	$discountObj = Discount::find($id);
+    	Session::forget('grab');
     	return view('front.views.weixin.grab', ['res'=>$discountObj]);
     }
     public function join(Request $request)
     {
-    	$id = Session::get('grab')['id'];
-    	Session::forget('grab');
+    	$id = $request->input('id');
     	$openid = Session::get('openid');
     	$newuserObj = NewUser::where('openid',$openid)->get();
     	if (isset($newuserObj[0])) {
