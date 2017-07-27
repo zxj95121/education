@@ -109,7 +109,7 @@
 				            <div class="message">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	<img src="/front/lib/chat/img/2_copy.jpg" style="margin-left: 0px;">
+				                	<img src="/front/lib/chat/img/2_copy.jpg" style="margin-left: 0px;width: 100%;min-width: 80px;">
 				                    <div class="corner"></div>
 				                    <span style="position: absolute;">1 min</span>
 				                </div>
