@@ -141,7 +141,7 @@
 			$('#chat-messages .message').each(function(index){
 				// var height = $(this).child()
 				console.log(index);
-				var height = $('.bubble').eq(index)[0].offsetWidth;
+				var height = $('.bubble').eq(index)[0].offsetHeight;
 				console.log(height);
 				$('#chat-messages .message').eq(index).css('height', $(this).find('.chatData')[0].offsetHeight+'px');
 				// console.log(height);

@@ -209,7 +209,7 @@ body {
 	/*padding:0 0 30px 58px;*/
 	clear:both;
 	margin-bottom:45px;
-	min-height: 32px;
+	/*min-height: 32px;*/
     padding-left: 58px;
 }
 #chat-messages div.message.right{
