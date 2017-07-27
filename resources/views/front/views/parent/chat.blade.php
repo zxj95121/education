@@ -107,7 +107,7 @@
 				       
 				        <div id="sendmessage">
 				          <input type="text" value="Send message..." />
-				            <button id="send"></button>
+				            <button id="send"><img src="/images/square-send.png" style="width: 100%;height: 100%;"></button>
 				        </div>  
 				    </div>
 			</div>

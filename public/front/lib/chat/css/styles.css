@@ -278,7 +278,7 @@ div.message.right .corner{
 	 outline: 0;
 }
 #sendmessage button{
-	background:#fff url("/images/square-send.png") 0 -41px no-repeat;
+	background:#fff;
 	width:40px;
 	height:40px;
 	position:absolute;
