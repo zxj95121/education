@@ -159,6 +159,7 @@
 				// console.log(index);
 				if ($(this).find('.chatData').length == 1) {
 					var height = $(this).find('.chatData')[0].offsetHeight;
+					console.log(height);
 					if (height > 20) {
 						$('#chat-messages .message').eq(index).css('padding-bottom', (height+18) +'px');
 					}
