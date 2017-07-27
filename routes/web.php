@@ -249,7 +249,8 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 	$router->get('/share/oauth', 'Weixin\ShareController@oauth');
 	$router->get('/share', 'Weixin\ShareController@index');
 	/*抢课  */
-	$router->get('/qiangke', 'Weixin\QiangkeController@index');
+	$router->get('/grab', 'Weixin\GrabController@index');
+	$router->post('/grab/join', 'Weixin\GrabController@join');
 	
   /*class套餐前端展示*/
   $router->get('/classPackage', 'ClassPackageController@index');
