@@ -153,7 +153,7 @@
 
 			/*input*/
 			var sendmessageHeight = $('#sendmessage').width();
-			$('#textInput').css('width', sendmessageHeight-60+'px');
+			$('#textInput').css('width', sendmessageHeight-68+'px');
 
 
 			$('#chat-messages .message').each(function(){
