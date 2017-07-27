@@ -38,7 +38,9 @@
 				                <div class="cx"></div> -->
 				                <img src="/images/arrow-left.png" style="width: 100%;height: 100%;">
 				            </div>
-				             
+				             <div id="headimg">
+				             	<img src="/front/lib/chat/img/1_copy.jpg">
+				             </div>
 				            <p>Miro Badev</p>
 				            <!-- <span>miro@badev@gmail.com</span> -->
 				        </div>
