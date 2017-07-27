@@ -60,7 +60,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	<span class="chatData">Can you share a link for the tutorial?</span>
+				                	<span class="chatData">Can you sharefsadfsdf答复范德萨发fd  a link for the tutorial?</span>
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
 				                </div>
@@ -140,17 +140,23 @@
 
 			$('#chat-messages .message').each(function(index){
 				// var height = $(this).child()
-				console.log(index);
-				var height = $('.bubble').eq(index)[0].offsetHeight;
-				console.log(height);
-				$('#chat-messages .message').eq(index).css('height', $(this).find('.chatData')[0].offsetHeight+'px');
+				// console.log(index);
+				var height = $(this).find('.chatData')[0].offsetHeight;
+				if (height > 20) {
+					$('#chat-messages .message').eq(index).css('padding-bottom', (height+18) +'px');
+				}
+				$('#chat-messages .message').eq(index).css('height', height+'px');
 				// console.log(height);
 				// console.log($(this).find('.chatData')[0].offsetWidth);
 			})
 		})
 
 		function autoHeight(){
-			$('#chat-messages .message').last().css('height', $('#chat-messages .message').last().find('.corner').height()+'px');
+			$('.chatData').last()[0].offsetHeight;
+			if (height > 20) {
+				$('#chat-messages .message').last().css('padding-bottom', (height+18) +'px');
+			}
+			$('#chat-messages .message').last().css('height', height+'px');
 		}
     </script>
   </body>
