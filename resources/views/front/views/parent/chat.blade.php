@@ -60,7 +60,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	<span class="chatData">Can you share a link for the tutorial?</span>
+				                	<span class="chatData">Can you sharefsadfsdf答复范德萨发fd  a link for the tutorial?</span>
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
 				                </div>
