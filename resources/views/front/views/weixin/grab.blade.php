@@ -19,7 +19,7 @@
 					url: '/front/grab/join',
 					type: 'post',
 					data:{
-						'id':$('#join').attr('val');
+						'id':$('#join').attr('val')
 						},
 					datype: 'json',
 					success: function(data){
