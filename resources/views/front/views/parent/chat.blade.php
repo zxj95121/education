@@ -28,11 +28,11 @@
 				    <div id="chatview" class="p1" style="width:100%;height:100%;">      
 				        <div id="profile" style="background: #22AAE8;">
 				 
-				            <div id="close">
-				                <!-- <div class="cy"></div>
-				                <div class="cx"></div> -->
+				            <!-- <div id="close" onclick="window.location.href='/front/home/oauth';">
+				                <div class="cy"></div>
+				                <div class="cx"></div>
 				                <img src="/images/arrow-left.png" style="width: 100%;height: 100%;">
-				            </div>
+				            </div> -->
 				             <div id="headimg">
 				             	<img src="/front/lib/chat/img/1_copy.jpg" style="width: 100%;height: 100%;">
 				             </div>
@@ -153,7 +153,7 @@
 
 			/*input*/
 			var sendmessageHeight = $('#sendmessage').width();
-			$('#textInput').css('width', sendmessageHeight-68+'px');
+			$('#textInput').css('width', sendmessageHeight-75+'px');
 
 
 			$('#chat-messages .message').each(function(){
@@ -176,6 +176,41 @@
 
 			})
 		})
+    </script>
+
+    <script type="text/javascript">
+
+	    var state = {};
+
+	    $(document).on('touchstart', '.colPicker', function(e){
+	    	state.dragable = true;
+	        state.mouseX = e.originalEvent.changedTouches[0].pageX;
+	        state.mouseY = e.originalEvent.changedTouches[0].pageY;
+	    });
+
+
+    	$(document).on('touchmove', '#chatview', function(e){
+	    	e.preventDefault();
+
+	        if (state.dragable)
+	        {
+	            var x = e.originalEvent.changedTouches[0].pageX - state.mouseX;
+	            var y = e.originalEvent.changedTouches[0].pageY - state.mouseY;
+
+	/*            var bgX = x + parseInt(bg[0]);*/
+	            var bgY = y + bg;
+
+	            state.mouseX = e.originalEvent.changedTouches[0].pageX;
+	            state.mouseY = e.originalEvent.changedTouches[0].pageY;
+	        	
+	        }
+	    });
+
+
+	    $(document).on('touchend', '.colPicker', function(e){
+    		state.dragable = false;
+    		console.log(bgY);
+    	}
     </script>
   </body>
 </html>
