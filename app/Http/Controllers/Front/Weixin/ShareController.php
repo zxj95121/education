@@ -42,7 +42,7 @@ class ShareController extends Controller
 		} else{
 			$news = array("Title" =>"加辰教育", "Description"=>"加辰教育123", "PicUrl" =>'http://'.$_SERVER['SERVER_NAME'].'/admin/img/index.png', "Url" =>"http://".$_SERVER['SERVER_NAME']."/front/share/oauth");
 		}
-		return view('share',['news'=>$news]);
+		return view('front.views.weixin.share',['news'=>$news]);
 	}
 	/*oauth*/
 	public function oauth(Request $request)
