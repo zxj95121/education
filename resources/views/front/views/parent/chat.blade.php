@@ -131,7 +131,7 @@
 			$('#chat-messages').css('height', height-h1-h2+'px');
 
 			$('#chat-messages .message').each(function(){
-				this.css('height', this.find('.corner').height()+'px')
+				// this.css('height', this.find('.corner').height()+'px')
 			})
 		})
 
