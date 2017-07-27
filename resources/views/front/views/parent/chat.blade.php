@@ -106,6 +106,14 @@
 				                    <span>1 min</span>
 				                </div>
 				            </div>
+				            <div class="message right">
+				            	<img src="/front/lib/chat/img/2_copy.jpg">
+				                <div class="bubble">
+				                	<span>Can you share a link for the tutorial?</span>
+				                    <div class="corner"></div>
+				                    <span>1 min</span>
+				                </div>
+				            </div>
 
 				        </div>
 				       
