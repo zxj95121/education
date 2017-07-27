@@ -20,7 +20,7 @@
 					type: 'post',
 					datype: 'json',
 					success: function(data){
-						if(date.code != -1){
+						if(data.code != -1){
 							alert(data.msg);
 						}else{
 							alert('还没填写手机号');
