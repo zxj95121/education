@@ -8,6 +8,7 @@ use App\Http\Controllers\Wechat\OauthController;
 use App\Models\NewUser;
 use App\Models\Discount;
 use App\Models\UserDiscount;
+use Session;
 class GrabController extends Controller
 {
     public function index(Request $request)
