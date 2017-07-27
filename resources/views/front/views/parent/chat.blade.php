@@ -39,7 +39,7 @@
 				            </div>
 				             
 				            <p>Miro Badev</p>
-				            <span>miro@badev@gmail.com</span>
+				            <!-- <span>miro@badev@gmail.com</span> -->
 				        </div>
 				        <div id="chat-messages">
 				          <label>Thursday 02</label>
