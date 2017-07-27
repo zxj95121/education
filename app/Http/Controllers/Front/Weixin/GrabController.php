@@ -12,13 +12,15 @@ class GrabController extends Controller
 {
     public function index(Request $request)
     {
+    	
     	$id = $request->input('id');
     	$discountObj = Discount::find($id);
     	return view('front.views.weixin.grab');
     }
     public function join(Request $request)
     {
-    	$id = $reqest->input('id');
+    	$id = Session::get('grab')['id'];
+    	Session::forget('grab');
     	$openid = Session::get('openid');
     	$newuserObj = NewUser::where('openid',$openid)->get();
     	if (count($newuserObj) > 0) {
@@ -60,6 +62,10 @@ class GrabController extends Controller
     /*oauth*/
     public function oauth(Request $request)
     {
+    	if($request->input('id')){
+    		$grab['id'] = $request->input('id');
+    		Session::put('grab',$grab);
+    	}
     	return redirect(OauthController::getUrl(10, 0));
     }
 }
