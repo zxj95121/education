@@ -33,7 +33,7 @@ $(function(){
 		'/images/home/cart_delete.png',
 
 		'/images/home/option_chat.png',
-		'/images/home/option_voucher.png',
+		'/images/home/option_voucher.png'
 		);
 	var loadImg = new Array();
 	// 预加载图片
