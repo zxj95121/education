@@ -23,7 +23,7 @@
   <body>
     <div class="page-group" style="background:#fff">
         <div class="page page-current">
-        
+
 			<div class="content" style="background: #D6D6D6;">
 				    <div id="chatview" class="p1" style="width:100%;height:100%;">      
 				        <div id="profile" style="background: #22AAE8;">
@@ -129,7 +129,7 @@
 				        </div>
 				       
 				        <div id="sendmessage">
-				          <input type="text" value="Send message..." />
+				          <input type="text" id="textInput" value="Send message..." />
 				            <button id="send"><img src="/images/square-send.png" style="width: 100%;height: 100%;"></button>
 				        </div>  
 				    </div>
@@ -150,6 +150,10 @@
 			var h1 = $('#profile').height();
 			var h2 = $('#sendmessage').height();
 			$('#chat-messages').css('height', height-h1-h2+'px');
+
+			/*input*/
+			var sendmessageHeight = $('#sendmessage').height();
+			$('#textInput').css('height', sendmessageHeight-60+'px');
 
 
 			$('#chat-messages .message').each(function(){
