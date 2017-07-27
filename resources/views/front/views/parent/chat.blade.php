@@ -143,7 +143,7 @@
 				console.log(index);
 				var height = $('.bubble').eq(index)[0].offsetWidth;
 				console.log(height);
-				// $('#chat-messages .message').eq(index).css('height', $(this).find('.chatData')[0].offsetWidth+'px');
+				$('#chat-messages .message').eq(index).css('height', $(this).find('.chatData')[0].offsetHeight+'px');
 				// console.log(height);
 				// console.log($(this).find('.chatData')[0].offsetWidth);
 			})
