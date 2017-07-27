@@ -190,7 +190,7 @@
 
 
     	$(document).on('touchmove', '#chatview', function(e){
-	    	e.preventDefault();
+	    	// e.preventDefault();
 
 	        if (state.dragable)
 	        {
