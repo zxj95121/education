@@ -48,19 +48,10 @@
 				        <div id="chat-messages">
 				          	<label>Thursday 02</label>
 
-					        <!-- <div class="message right">
-				            	<img src="/front/lib/chat/img/2_copy.jpg">
-				                <div class="bubble">
-				                	Can you share a link for the tutorial?
-				                	<img src="/front/lib/chat/img/1_copy.jpg" style="width: 100%;">
-				                    <div class="corner"></div>
-				                    <span>1 min</span>
-				                </div>
-				            </div> -->
 				            <div class="message">
 				              <img src="/front/lib/chat/img/1_copy.jpg" />
 				                <div class="bubble">
-				                  Really cool stuff!
+				                  	<span>Really cool stuff!</span>
 				                    <div class="corner"></div>
 				                    <span>3 min</span>
 				                </div>
@@ -69,7 +60,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	Can you share a link for the tutorial?
+				                	<span>Can you share a link for the tutorial?</span>
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
 				                </div>
@@ -78,7 +69,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	Can you share a link for the tutorial?
+				                	<span>Can you share a link for the tutorial?</span>
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
 				                </div>
@@ -86,7 +77,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	Can you share a link for the tutorial?
+				                	<span>Can you share a link for the tutorial?</span>
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
 				                </div>
@@ -94,7 +85,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	Can you share a link for the tutorial?
+				                	<span>Can you share a link for the tutorial?</span>
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
 				                </div>
@@ -102,7 +93,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	Can you share a link for the tutorial?
+				                	<span>Can you share a link for the tutorial?</span>
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
 				                </div>
@@ -110,7 +101,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	Can you share a link for the tutorial?
+				                	<span>Can you share a link for the tutorial?</span>
 				                    <div class="corner"></div>
 				                    <span>1 min</span>
 				                </div>

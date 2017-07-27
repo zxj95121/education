@@ -220,7 +220,7 @@ body {
 	  margin-left: -38px;
 	  border-radius: 50%;
 	  width: 30px;
-	  margin-top: 12px;
+	  /*margin-top: 12px;*/
 }
 #chat-messages div.message.right img{
 	float: right;	
