@@ -93,7 +93,7 @@
 				            <div class="message right">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	<img class="chatData" src="http://file.catchon-edu.cn/chat/d/filename.jpg" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
+				                	<img class="chatImg" src="http://file.catchon-edu.cn/chat/d/filename.jpg" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
 				                    <div class="corner"></div>
 				                    <span style="position: absolute;">1 min</span>
 				                </div>
@@ -117,7 +117,7 @@
 				            <div class="message">
 				            	<img src="/front/lib/chat/img/2_copy.jpg">
 				                <div class="bubble">
-				                	<img class="chatData" src="http://file.catchon-edu.cn/chat/d/filename.jpg" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
+				                	<img class="chatImg" src="http://file.catchon-edu.cn/chat/d/filename.jpg" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
 				                    <div class="corner"></div>
 				                    <span style="position: absolute;">1 min</span>
 				                </div>
@@ -159,11 +159,14 @@
 				// console.log(index);
 				if ($(this).find('.chatData').length == 1) {
 					var height = $(this).find('.chatData')[0].offsetHeight;
-					console.log(height);
+					// console.log(height);
 					if (height > 20) {
 						$('#chat-messages .message').eq(index).css('padding-bottom', (height+18) +'px');
 					}
 					$('#chat-messages .message').eq(index).css('height', height+'px');
+				} else if ($(this).find('.chatImg').length == 1) {
+					var height = $(this).find('.chatImg').height();
+					console.log(height);
 				}
 				// console.log(height);
 				// console.log($(this).find('.chatData')[0].offsetWidth);
