@@ -139,8 +139,8 @@
 			$('#chat-messages').css('height', height-h1-h2+'px');
 
 			$('#chat-messages .message').each(function(){
-				$(this).css('height', $(this).find('.corner').offset('width')+'px')
-				console.log($(this).find('.corner')[0].offsetWidth);
+				$(this).css('height', $(this).find('span').first()[0].offset('width')+'px')
+				console.log($(this).find('span').first()[0].offsetWidth);
 			})
 		})
 
