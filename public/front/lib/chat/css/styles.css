@@ -259,9 +259,12 @@ div.message.right .corner{
 .bubble span{
 	  color: #aab8c2;
 	  font-size: 11px;
-	  /*position: absolute;*/
+	  /**/
 	  right: 0;
 	  bottom: -22px;
+}
+.bubble span:nth-of-type(2){
+	position: absolute;
 }
 #sendmessage{
 	height:50px;
