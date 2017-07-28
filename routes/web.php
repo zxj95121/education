@@ -62,6 +62,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['domai
 /*管理后台组*/
 Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin','domainAdmin']], function ($router) {
     $router->get('/dashboard','HomeController@index');
+
+    /*ajax请求权限*/
+    $router->post('/getPower', 'PowerController@getPower');
     /*登录部分*/
     $router->get('/login','HomeController@login');
     /*获取后台公共部分详情*/
@@ -219,6 +222,12 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->get('/applyHobby', 'Review\HobbyController@applyHobby');
     $router->post('/applyHobby/failed', 'Review\HobbyController@failed');/*驳回申请*/
     $router->post('/applyHobby/success', 'Review\HobbyController@success');/*驳回申请*/
+
+
+    /*用户交流反馈*/
+
+      /*用户沟通*/
+    $router->get('/chatShow', 'ChatController@chatShow');
 
     /*账单流水*/
     $router->get('/bill', 'BillController@bill');

@@ -150,6 +150,18 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="has-submenu {!!(Request::is('admin/chatShow')? 'active' : '') !!}">
+                        <a href="#">
+                            <i class="ion-chatbubble-working"></i> 
+                            <span class="nav-label">用户交流反馈</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="list-unstyled">
+                            <li class="{!!(Request::is('admin/chatShow')? 'active' : '') !!} communication" style="display: none;">
+                                <a href="/admin/chatShow">用户沟通   </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="has-submenu {!!(Request::is('admin/communityManage','admin/subjectManage','admin/schoolManage','admin/hobbyManage','admin/classSetting','admin/festivalSetting')? 'active' : '') !!}">
                         <a href="#">
                             <i class="fa fa-cog"></i> 
@@ -364,6 +376,24 @@
                             window.location.reload();
                         }
                     })
+                })
+
+                /*ajax查找权限信息*/
+                $.ajax({
+                    url: '/admin/getPower',
+                    dataType: 'json',
+                    type: 'post',
+                    data: {
+
+                    },
+                    success: function(data) {
+                        if (data.errcode == 0) {
+                            var power = data.power;
+                            if (power.chat == 1) {
+                                $('.communication').show();
+                            }
+                        }
+                    }
                 })
             });
             /* BEGIN SVG WEATHER ICON */
