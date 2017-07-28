@@ -310,7 +310,7 @@
 		        if (data.type == 'a') {
 		        	var right = ' right';
 		        	if (data.status == 'msg') {
-		        		var $str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble"> <span class="chatData">'+data.content+'</span> <div class="corner"></div> <span>'+data.time+'</span> </div> </div>';
+		        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble"> <span class="chatData">'+data.content+'</span> <div class="corner"></div> <span>'+data.time+'</span> </div> </div>';
 		        		$('#chat-messages').append(str);
 		        		dealMessageHeight();
 		        	}
