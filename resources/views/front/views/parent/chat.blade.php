@@ -204,7 +204,7 @@
     		var ws = new WebSocket("ws://122.152.200.103:23465");
 		    ws.onopen = function() {
 		        alert("连接成功");
-		        ws.send('u-{{$parentObj-->id}}');
+		        ws.send('u-{{$parentObj->id}}');
 		        // alert("给服务端发送一个字符串：tom");
 		    };
 		    var sendBtn = document.getElementById('sendBtn');  
