@@ -212,8 +212,8 @@
 	            var scrollTop = $('#chat-messages')[0].scrollTop;
 	            var top = parseInt($('#chat-messages').css('marginTop'));
 	            if (scrollTop <= 0) {
-	            	// e.preventDefault();
-	            	e.stopPropagation();
+	            	e.preventDefault();
+	            	// e.stopPropagation();
 
 	            	$('#chat-messages').css('marginTop', top+y+'px');
 	            	if ( top > 150)
