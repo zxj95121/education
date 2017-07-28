@@ -6,7 +6,7 @@ require_once __DIR__ . '/mysql-master/src/Connection.php';
 require_once __DIR__ . '/mysql-master/vendor/autoload.php';
 
 // $worker = new Worker("websocket://127.0.0.1:2346");
-$worker = new Worker("websocket://122.152.200.103:23465");
+$worker = new Worker("websocket://0.0.0.0:23465");
 
 // 每个进程最多执行1000个请求
 define('MAX_REQUEST', 4);
