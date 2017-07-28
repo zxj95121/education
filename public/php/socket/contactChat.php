@@ -116,6 +116,8 @@ $worker->onMessage = function($connection, $data)
 /*用户断开连接触发*/
 $worker->onClose = function($connection)
 {
+    global $db;
+    
     echo "connection closed\n".$connection->id;
     $str1 = $db->select('id')->from('parent_info')->where('worker_id= :worker_id')->bindValues(array('worker_id'=>$connection->id))->single();
     echo 'parent_info'.$str1;
