@@ -107,9 +107,16 @@ $worker->onMessage = function($connection, $data)
         }
 
         /*向用户端和其他管理员发送消息*/  
-            /*用户*/
+            
         if (isset($user_id)) {/*如果有这个值，说明是传消息的*/
+            /*发送给用户，只有一个*/
             $worker_uid = $db->select('worker_id')->from('parent_info')->where('id= :id')->bindValues(array('id'=>$data['uid']))->single();
+
+            $sendArr[] = $worker_uid;
+
+            /*发送给管理员，可能多个*/
+            $worker_aid = $db->select('worker_id')->from('admin_info')->where("is_chat= '1'")->query();
+            echo $worker_aid;
 
             foreach($connection->worker->connections as $con)
             {
