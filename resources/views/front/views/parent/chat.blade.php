@@ -201,7 +201,7 @@
 
     		// websocket
 
-    		var ws = new WebSocket("ws://122.152.200.103:2346");
+    		var ws = new WebSocket("ws://122.152.200.103:23465");
 		    ws.onopen = function() {
 		        alert("连接成功");
 		        ws.send('u-{{$parentObj-->id}}');
