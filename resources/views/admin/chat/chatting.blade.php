@@ -70,7 +70,7 @@
 					            </div>
 					        @elseif($value->type == 1)
 						        <div @if($value['admin_id']) class="message right" @else class="message" @endif>
-					            	<img src="{{$value->headimg}}">
+					            	<img src="{{$value['headimg']}}">
 					                <div class="bubble">
 					                	<img class="chatImg" src="{{$value['content']}}" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
 					                    <div class="corner"></div>
