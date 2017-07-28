@@ -73,6 +73,8 @@ $worker->onMessage = function($connection, $data)
             'read' => '1',
             'created_at' => $time,
             'updated_at' => $time))->query();
+
+            $user_id = $data['uid'];
         } else if ($data['status'] == 'image') {
             $time = date('Y-m-d H:i:s');
             $name = 'CC'.date('YmdHis').rand(1000,9999).'.';
@@ -99,16 +101,21 @@ $worker->onMessage = function($connection, $data)
             'type' => '1',
             'created_at' => $time,
             'updated_at' => $time))->query();
+
+            /*存储用户的ID*/
+            $user_id = $data['uid'];
         }
 
         /*向用户端和其他管理员发送消息*/  
             /*用户*/
-        $worker_uid = $db->select('worker_id')->from('parent_info')->where('id= :id')->bindValues(array('id'=>$data['uid']))->single();
+        if (isset($user_id)) {/*如果有这个值，说明是传消息的*/
+            $worker_uid = $db->select('worker_id')->from('parent_info')->where('id= :id')->bindValues(array('id'=>$data['uid']))->single();
 
-        foreach($connection->worker->connections as $con)
-        {
-            if ($con->id == $worker_uid)
-                $con->send('哈哈哈');
+            foreach($connection->worker->connections as $con)
+            {
+                if ($con->id == $worker_uid)
+                    $con->send('哈哈哈');
+            }
         }
     }
 
