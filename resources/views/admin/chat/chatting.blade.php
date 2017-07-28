@@ -59,89 +59,27 @@
 			        	
 			          	<label>Thursday 02</label>
 			          	@foreach ($content as $value)
-			            <div @if($value['admin_id']) class="message right" @else class="message" @endif>
-			              <img src="{{$value['headimg']}}" />
-			                <div class="bubble">
-			                  	<span class="chatData">{{$value['content']}}</span>
-			                    <div class="corner"></div>
-			                    <span>{{date('H:i:s', strtotime($value['created_at']))}}</span>
-			                </div>
-			            </div>
+			          		@if ($value->type == 0)
+					            <div @if($value['admin_id']) class="message right" @else class="message" @endif>
+					              <img src="{{$value['headimg']}}" />
+					                <div class="bubble">
+					                  	<span class="chatData">{{$value['content']}}</span>
+					                    <div class="corner"></div>
+					                    <span>{{date('H:i:s', strtotime($value['created_at']))}}</span>
+					                </div>
+					            </div>
+					        @elseif($value->type == 1)
+						        <div @if($value['admin_id']) class="message right" @else class="message" @endif>
+					            	<img src="{{$value->headimg}}">
+					                <div class="bubble">
+					                	<img class="chatImg" src="{{$value['content']}}" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
+					                    <div class="corner"></div>
+					                    <span style="position: absolute;">{{date('H:i:s', strtotime($value['created_at']))}}</span>
+					                </div>
+					            </div>
+					        @else
+					        @endif
 			            @endforeach
-
-			            <div class="message right">
-			            	<img src="/front/lib/chat/img/2_copy.jpg">
-			                <div class="bubble">
-			                	<span class="chatData">Can you sharefsadfsdf答复范德萨发fd  a link for the tutorial?</span>
-			                    <div class="corner"></div>
-			                    <span>1 min</span>
-			                </div>
-			            </div>
-
-			            <div class="message right">
-			            	<img src="/front/lib/chat/img/2_copy.jpg">
-			                <div class="bubble">
-			                	<span class="chatData">Can you share a link for the tutorial?</span>
-			                    <div class="corner"></div>
-			                    <span>1 min</span>
-			                </div>
-			            </div>
-			            <div class="message right">
-			            	<img src="/front/lib/chat/img/2_copy.jpg">
-			                <div class="bubble">
-			                	<span class="chatData">Can you share a link for the tutorial?</span>
-			                    <div class="corner"></div>
-			                    <span>1 min</span>
-			                </div>
-			            </div>
-			            <div class="message right">
-			            	<img src="/front/lib/chat/img/2_copy.jpg">
-			                <div class="bubble">
-			                	<span class="chatData">Can you share a link for the tutorial?</span>
-			                    <div class="corner"></div>
-			                    <span>1 min</span>
-			                </div>
-			            </div>
-			            <div class="message right">
-			            	<img src="/front/lib/chat/img/2_copy.jpg">
-			                <div class="bubble">
-			                	<img class="chatImg" src="http://file.catchon-edu.cn/chat/d/filename.jpg" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
-			                    <div class="corner"></div>
-			                    <span style="position: absolute;">1 min</span>
-			                </div>
-			            </div>
-			            <div class="message right">
-			            	<img src="/front/lib/chat/img/2_copy.jpg">
-			                <div class="bubble">
-			                	<span class="chatData">Can you share a link for the tutorial?</span>
-			                    <div class="corner"></div>
-			                    <span>1 min</span>
-			                </div>
-			            </div>
-			            <div class="message right">
-			            	<img src="/front/lib/chat/img/2_copy.jpg">
-			                <div class="bubble">
-			                	<span class="chatData">Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?Can you share a link for the tutorial?</span>
-			                    <div class="corner"></div>
-			                    <span>1 min</span>
-			                </div>
-			            </div>
-			            <div class="message">
-			            	<img src="/front/lib/chat/img/2_copy.jpg">
-			                <div class="bubble">
-			                	<img class="chatImg" src="http://file.catchon-edu.cn/chat/d/filename.jpg" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
-			                    <div class="corner"></div>
-			                    <span style="position: absolute;">1 min</span>
-			                </div>
-			            </div>
-			            <div class="message right">
-			            	<img src="/front/lib/chat/img/2_copy.jpg">
-			                <div class="bubble">
-			                	<span class="chatData">Can you share a link for the tutorial?</span>
-			                    <div class="corner"></div>
-			                    <span>1 min</span>
-			                </div>
-			            </div>
 
 			        </div>
 			       
