@@ -193,6 +193,24 @@
 
 			})
 		})
+
+		function dealMessageHeight() {
+			var cdom = $('#chat-messages .message:last');
+			if (cdom.find('.chatData').length == 1) {
+					var height = cdom.find('.chatData')[0].offsetHeight;
+					// console.log(height);
+					if (height > 20) {
+						cdom.css('padding-bottom', (height+18) +'px');
+					}
+					cdom.css('height', height+'px');
+				} else if (cdom.find('.chatImg').length == 1) {
+					var height = cdom.find('.chatImg').height();
+					if (height > 20) {
+						cdom.css('padding-bottom', (height+18) +'px');
+					}
+					cdom.css('height', height+'px');
+				}
+		}
     </script>
 
     <script type="text/javascript">
@@ -288,7 +306,15 @@
 		        // console.log("收到服务端的消息：" + e.data);
 		        var data = e.data;
 		        data = eval('('+data+')');
-		        console.log(data);
+		        
+		        if (data.type == 'a') {
+		        	var right = ' right';
+		        	if (data.status == 'msg') {
+		        		var $str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble"> <span class="chatData">'+data.content+'</span> <div class="corner"></div> <span>'+data.time+'</span> </div> </div>';
+		        		$('#chat-messages').append(str);
+		        		dealMessageHeight();
+		        	}
+		        }
 		    };
 		    ws.onclose = function (event) {
 			    window.location.reload();
