@@ -56,4 +56,21 @@ class ChatController extends Controller
 
     	return view('admin.chat.chatting', ['content'=>$contentArr,'admin_id'=>$admin_id,'user_id'=>$uid]);
     }
+
+    /*获取之前的几条数据*/
+    public function getPrevMessage(Request $request) {
+    	$time = $request->input('time');
+    	$contentArr = ContactChat::where('contact_chat.uid', $uid)
+    		->where('contact_chat.status', 1)
+    		->where('contact_chat.created_at', '<', $time)
+    		->orderBy('contact_chat.created_at', 'desc')
+    		->limit(5)
+    		->leftJoin('parent_info as pi', 'pi.id', 'contact_chat.uid')
+    		->leftJoin('admin_info as ai', 'ai.id', 'contact_chat.admin_id')
+    		->select('contact_chat.*', 'pi.headimg as uheadimg', 'ai.headimg as aheadimg')
+    		->get()
+    		->toArray();
+
+    	return response()->json(['errcode'=>0,'content'=>$contentArr]);
+    }
 }
