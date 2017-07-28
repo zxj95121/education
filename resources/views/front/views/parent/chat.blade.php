@@ -148,6 +148,7 @@
     <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script> -->
     <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script> -->
     <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/json2.js"></script>
 
 
     <script type="text/javascript">
@@ -203,17 +204,26 @@
 
     		var ws = new WebSocket("ws://122.152.200.103:23465");
 		    ws.onopen = function() {
-		        alert("连接成功");
-		        // ws.send('u-{{$parentObj->id}}');
-		        ws.send('u-2');
+		        // alert("连接成功");
+		        var msg = new Object();
+		        msg.type = 'u';
+		        msg.id = '{{$parentObj->id}}';
+		        msg.status = 'init';
+		        ws.send(JSON.stringify(msg));
 		        // alert("给服务端发送一个字符串：tom");
 		    };
 		    var sendBtn = document.getElementById('sendBtn');  
-		    sendBtn.addEventListener('click', function() {  
+		    sendBtn.addEventListener('click', function() { 
+		    	var val = $('#textInput').val();
 		        // var dd = new Date();
 		        // var val = document.getElementById('chat').value;
 		        // var content = dd.getHours()+':'+dd.getMinutes()+':'+dd.getSeconds();
-		        // ws.send(val);  
+		        var msg = new Object();
+		        msg.type = 'u';
+		        msg.id = '{{$parentObj->id}}';
+		        msg.status = 'msg';
+		        msg.content = val;
+		        ws.send(JSON.stringify(msg));
 		        // alert('发送');  
 		      
 		    });  

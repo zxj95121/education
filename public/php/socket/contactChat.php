@@ -44,12 +44,20 @@ $worker->onMessage = function($connection, $data)
 {
     global $db;
     $cid = $connection->id;
-    $firstWord = substr($data, 0, 1);
-    if ($firstWord === 'u') {
-        $uid = explode('-', $data)[1];
+    $data = json_decode($data, true);
+    if ($data['type'] == 'u') {
+        if ($data['status'] == 'init') {
+            $db->update('parent_info')->cols(array('is_chat'=>'1','worker_id'=>$cid))->where('id='.$data['id'])->query();
+        } else if ($data['status'] == 'msg') {
+            $insert_id = $db->insert('contact_chat')->cols(array(
+            'uid' => $data['id'],
+            'admin_id' => '0',
+            'content' => $data['content']
+            ))->query();
+        }
     }
 
-    $db->update('parent_info')->cols(array('is_chat'=>'1','worker_id'=>$cid))->where('id='.$uid)->query();
+    
 
 	// foreach($connection->worker->connections as $con)
  //    { 
