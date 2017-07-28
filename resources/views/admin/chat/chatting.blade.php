@@ -472,7 +472,8 @@
 	            			dataType: 'post',
 	            			type: 'post',
 	            			data: {
-	            				time: time
+	            				time: time,
+	            				uid: '{{$user_id}}'
 	            			},
 	            			success: function(data) {
 	            				if (data.errcode == 0) {

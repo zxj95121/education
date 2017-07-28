@@ -60,6 +60,7 @@ class ChatController extends Controller
     /*获取之前的几条数据*/
     public function getPrevMessage(Request $request) {
     	$time = $request->input('time');
+    	$uid = $request->input('uid');
     	$contentArr = ContactChat::where('contact_chat.uid', $uid)
     		->where('contact_chat.status', 1)
     		->where('contact_chat.created_at', '<', $time)
