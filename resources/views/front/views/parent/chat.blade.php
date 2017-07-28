@@ -228,7 +228,7 @@
 	            var top = parseInt($('#chat-messages').css('marginTop'));
 	            if (scrollTop <= 0) {
 	            	e.preventDefault();
-
+	            	temp = 2;
 	            	$('#chat-messages').css('marginTop', top+y+'px');
 
 	            	var refreshTop = parseInt($('#refresh').css('top'));
@@ -244,12 +244,16 @@
 
 	    $(document).on('touchend', '#chatview', function(e){
     		state.dragable = false;
-    		$('#chat-messages').css('marginTop', '0px');
+    		// $('#chat-messages').css('marginTop', '0px');
     		$('#refresh').css('top', '83px');
     		if (temp == 1) {
     			$('#chat-messages')[0].scrollTop = 0;
 
     			/*请求数据*/
+    		}
+
+    		if (temp == 1 || temp == 2) {
+    			$('#chat-messages').css('marginTop', '0px');
     		}
     		temp = 0;
     	})
