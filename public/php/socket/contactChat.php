@@ -9,7 +9,7 @@ require_once __DIR__ . '/mysql-master/vendor/autoload.php';
 $worker = new Worker("websocket://0.0.0.0:23465");
 
 // 每个进程最多执行1000个请求
-define('MAX_REQUEST', 4);
+define('MAX_REQUEST', 400);
 
 /*程序刚启动*/
 $worker->onWorkerStart = function($worker)
@@ -71,6 +71,27 @@ $worker->onMessage = function($connection, $data)
             'admin_id' => $data['aid'],
             'content' => $data['content'],
             'read' => '1',
+            'created_at' => $time,
+            'updated_at' => $time))->query();
+        } else if ($data['status'] == 'msg') {
+            $time = date('Y-m-d H:i:s');
+            $name = 'CC'.date('YmdHis').rand(1000,9999).'.png';
+            $address = '/var/www/html/data/chat/'.$name;
+
+            $base64 = $data['content'];
+            $base64_image = str_replace(' ', '+', $base64);
+            if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $base64_image, $result)) {
+                $img = base64_decode(str_replace($result[1], '', $base64_image));
+                
+                $size = file_put_contents($address, $img);//保存图片，返回的是字节数
+            }
+
+            $insert_id = $db->insert('contact_chat')->cols(array(
+            'uid' => $data['uid'],
+            'admin_id' => $data['aid'],
+            'content' => 'file.catchon-edu.cn/chat/'.$name,
+            'read' => '1',
+            'type' => '1',
             'created_at' => $time,
             'updated_at' => $time))->query();
         }

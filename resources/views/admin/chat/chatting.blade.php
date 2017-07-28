@@ -32,7 +32,42 @@
 
     <div id="portlet2" class="panel-collapse collapse in"  style="position: relative;width: 100%;">
     	<div class="contentW">
+
+    		<!-- 弹框 -->
+    		<div id="showSweetAlert" class="sweet-alert showSweetAlert visible" tabindex="-1" data-custom-class="" data-has-cancel-button="false" data-has-confirm-button="true" data-allow-ouside-click="false" data-has-done-function="false" data-animation="pop" data-timer="null" style="/*display: block;*/z-index: 322; margin-top: 200px;position: absolute;background: #E3E3E3;">
+    			<!-- <div class="sa-icon sa-error" style="">
+    				<span class="sa-x-mark">
+    					<span class="sa-line sa-left"></span>
+    					<span class="sa-line sa-right"></span>
+    				</span>
+    			</div> -->
+    			<!-- <div class="sa-icon sa-warning" style="display: none;"> 
+    				<span class="sa-body"></span> 
+    				<span class="sa-dot"></span>
+    			</div> 
+    			<div class="sa-icon sa-info" style="display: none;">
+    				
+    			</div> 
+    			<div class="sa-icon sa-success" style="display: none;"> 
+	    			<span class="sa-line sa-tip"></span> 
+	    			<span class="sa-line sa-long"></span> 
+	    			<div class="sa-placeholder"></div> 
+	    			<div class="sa-fix"></div> 
+    			</div>  -->
+    			<div class="" style="width: 100%; display: block;margin: 0 auto;text-align: center;">
+    				<img id="imageUpload" src="" style="max-width: 444px;">
+    			</div> 
+    			<!-- <h2>Here's a message!</h2> -->
+    			<!-- <p style="display: block;"></p> -->
+    			<button class="cancel" tabindex="2" style="display: inline-block; box-shadow: none;" onclick="hideAlert();">取消</button>
+    			<button class="cancel" tabindex="2" style="display: inline-block; background-color: rgb(49, 85, 188); box-shadow: none;" onclick="fileClick();">更换图片</button>
+    			<button class="confirm" tabindex="1" id="sendPhoto" style="display: inline-block; background-color: rgb(174, 222, 244); box-shadow: rgba(174, 222, 244, 0.8) 0px 0px 2px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px inset;">发送图片</button>
+    		</div>
+
+
+
 	        <div class="portlet-body" id="content">
+
 
 	        	<!-- 复制开始 -->
 	        	<div id="chatview" class="p1" style="width:100%;height:100%;position: relative;">
@@ -85,8 +120,9 @@
 			       
 			        <div id="sendmessage" class="">
 			          <input type="text" id="textInput" value="" placeholder="" />
+			          	<input type="file" id="fileInput" style="display: none;" name="file">
 			            <button id="sendBtn" style="display: none;"><img src="/images/square-send.png" style="width: 100%;height: 100%;"></button>
-			            <button id="imageBtn"><img src="/images/square-image.png" style="width: 100%;height: 100%;"></button>
+			            <button id="imageBtn" onclick="fileClick();"><img src="/images/square-image.png" style="width: 100%;height: 100%;"></button>
 			        </div>  
 			    </div>
 			    <!-- 复制结束 -->
@@ -95,7 +131,8 @@
 	    </div>
     </div>
 
-</div> 
+</div>
+
 
 @endsection
             
@@ -193,15 +230,32 @@
 		        // var val = document.getElementById('chat').value;
 		        // var content = dd.getHours()+':'+dd.getMinutes()+':'+dd.getSeconds();
 		        var msg = new Object();
-		        msg.type = 'u';
+		        msg.type = 'a';
+		        msg.uid = user_id;
+    			msg.aid = admin_id;
+		        msg.status = 'msg';
+		        msg.content = content;
+
+		       	ws.send(JSON.stringify(msg)); 
+		    }); 
+
+		    /*发送图片*/
+		    $('#sendPhoto').click(function(){
+		    	var image = $('#imageUpload').attr('src');
+		    	if (image == '') {
+		    		return false;
+		    	}
+
+		    	var msg = new Object();
+		        msg.type = 'a';
 		        msg.uid = user_id;
 		        msg.aid = admin_id;
-		        msg.status = 'msg';
-		        msg.content = val;
-		        // ws.send(JSON.stringify(msg));
-		        // alert('发送');  
-		      
-		    }); 
+		        msg.status = 'image';
+		        msg.content = image;
+
+		        ws.send(JSON.stringify(msg)); 
+		    })
+
 		    /*enter发送消息*/ 
 		    document.onkeydown = function(e){ 
 			    var ev = document.all ? window.event : e;
@@ -228,9 +282,37 @@
 		        console.log("收到服务端的消息：" + e.data);
 		    };
 		    ws.onclose = function (event) {
-			    console.log('已关闭');
+			    console.log('请重新打开网页');
 			}
+
+
+			$('#fileInput').change(function(){
+				// alert('你确认');
+				$('#showSweetAlert').show();
+				showPreview();
+			});
+
+
     	})
+
+    	function hideAlert(){
+    		$('#showSweetAlert').hide();
+    	}
+
+    	function fileClick() {
+			return $('#fileInput').click();
+		}
+
+		function showPreview(source) {  
+            var file = document.getElementById('fileInput').files[0];  
+            if(window.FileReader) {  
+                var fr = new FileReader();  
+                fr.onloadend = function(e) {  
+                    document.getElementById("imageUpload").src = e.target.result;  
+                };  
+                fr.readAsDataURL(file);
+            }  
+        }  
     </script>
 
     <script type="text/javascript">
@@ -292,45 +374,5 @@
             }
 	    }
 
-
-    	// $('#chatview').bind('touchmove', function(e){
-	    // 	// e.preventDefault();
-
-	    //     if (state.dragable)
-	    //     {
-	    //         var x = e.originalEvent.changedTouches[0].pageX - state.mouseX;
-	    //         var y = e.originalEvent.changedTouches[0].pageY - state.mouseY;
-
-
-	    //         state.mouseX = e.originalEvent.changedTouches[0].pageX;
-	    //         state.mouseY = e.originalEvent.changedTouches[0].pageY;
-
-	    //         var scrollTop = $('#chat-messages')[0].scrollTop;
-	    //         var top = parseInt($('#chat-messages').css('marginTop'));
-	    //         if (scrollTop <= 0) {
-	    //         	// e.preventDefault();
-	    //         	if ((top+y) > 0) {
-	    //         		e.preventDefault();
-	    //         		$('#chat-messages').css('marginTop', top+y+'px');
-	    //         		var refreshTop = parseInt($('#refresh').css('top'));
-		   //          	if (refreshTop < 140)
-		   //          		$('#refresh').css('top', refreshTop+(0.7*y)+'px');
-	    //         	}
-	    //         }
-	    //     }
-	    // });
-
-
-	    // $(document).on('touchend', '#chatview', function(e){
-    	// 	state.dragable = false;
-    	// 	// $('#chat-messages').css('marginTop', '0px');
-    	// 	$('#refresh').css('top', '83px');
-    	// 	 var top = parseInt($('#chat-messages').css('marginTop'));
-    	// 	 if (top > 0) {
-    	// 	 	// $('#chat-messages')[0].scrollTop = 0;
-    	// 	 	$('#chat-messages').css('marginTop', '0px');
-    	// 	 	$('#refresh').css('top', '83px');
-    	// 	 }
-    	// })
     </script>
 @endsection
