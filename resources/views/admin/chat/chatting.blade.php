@@ -234,7 +234,7 @@
 		        msg.uid = user_id;
     			msg.aid = admin_id;
 		        msg.status = 'msg';
-		        msg.content = content;
+		        msg.content = val;
 
 		       	ws.send(JSON.stringify(msg)); 
 		    }); 

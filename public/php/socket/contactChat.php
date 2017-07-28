@@ -73,7 +73,7 @@ $worker->onMessage = function($connection, $data)
             'read' => '1',
             'created_at' => $time,
             'updated_at' => $time))->query();
-        } else if ($data['status'] == 'msg') {
+        } else if ($data['status'] == 'phone') {
             $time = date('Y-m-d H:i:s');
             $name = 'CC'.date('YmdHis').rand(1000,9999).'.png';
             $address = '/var/www/html/data/chat/'.$name;
