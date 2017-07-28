@@ -196,7 +196,32 @@
     				$('#imageBtn').hide();
     				$('#sendBtn').show();
     			}
-    		})
+    		});
+
+
+    		// websocket
+
+    		var ws = new WebSocket("ws://122.152.200.103:2346");
+		    ws.onopen = function() {
+		        alert("连接成功");
+		        ws.send('u-{{$parentObj-->id}}');
+		        // alert("给服务端发送一个字符串：tom");
+		    };
+		    var sendBtn = document.getElementById('sendBtn');  
+		    sendBtn.addEventListener('click', function() {  
+		        // var dd = new Date();
+		        // var val = document.getElementById('chat').value;
+		        // var content = dd.getHours()+':'+dd.getMinutes()+':'+dd.getSeconds();
+		        // ws.send(val);  
+		        // alert('发送');  
+		      
+		    });  
+		    ws.onmessage = function(e) {
+		        console.log("收到服务端的消息：" + e.data);
+		    };
+		    ws.onclose = function (event) {
+			    console.log('已关闭');
+			}
     	})
     </script>
 
