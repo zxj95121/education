@@ -49,7 +49,7 @@ $worker->onMessage = function($connection, $data)
         $uid = explode('-', $data)[1];
     }
 
-    $db->update('parent_info')->cols(array('ischat'=>'1','worker_id'=>$cid))->where('id='.$uid)->query();
+    $db->update('parent_info')->cols(array('is_chat'=>'1','worker_id'=>$cid))->where('id='.$uid)->query();
 
 	// foreach($connection->worker->connections as $con)
  //    { 
