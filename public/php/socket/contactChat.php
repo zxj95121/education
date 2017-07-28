@@ -49,11 +49,14 @@ $worker->onMessage = function($connection, $data)
         if ($data['status'] == 'init') {
             $db->update('parent_info')->cols(array('is_chat'=>'1','worker_id'=>$cid))->where('id='.$data['id'])->query();
         } else if ($data['status'] == 'msg') {
+            $time = date('Y-m-d H:i:s');
             $insert_id = $db->insert('contact_chat')->cols(array(
             'uid' => $data['id'],
             'admin_id' => '0',
             'content' => $data['content'],
-            'read' => '0'))->query();
+            'read' => '0',
+            'created_at' => $time,
+            'updated_at' => $time))->query();
         }
     }
 
