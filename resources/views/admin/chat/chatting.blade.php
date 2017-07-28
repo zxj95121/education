@@ -484,20 +484,20 @@
 
 			            					if (content.admin_id != '0') {
 									        	var right = ' right';
-									        	var headimg = data.aheadimg;
+									        	var headimg = content.aheadimg;
 									        	
 									        } else {
 									        	var right = '';
-												var headimg = data.uheadimg;
+												var headimg = content.uheadimg;
 									        }
 
-									        if (data.type == '0') {
-								        		var str = '<div  class="message'+right+'" > <img  src="'+headimg+'" /> <div class="bubble"> <span class="chatData">'+data.content+'</span> <div class="corner"></div> <span>'+data.time.substr(11)+'</span> </div> </div>';
+									        if (content.type == '0') {
+								        		var str = '<div  class="message'+right+'" > <img  src="'+headimg+'" /> <div class="bubble"> <span class="chatData">'+content.content+'</span> <div class="corner"></div> <span>'+content.time.substr(11)+'</span> </div> </div>';
 								        		$('#chat-messages').prepend(str);
 
 								        		dealMessageHeight();
-								        	} else if (data.type == 1) {
-								        		var str = '<div  class="message'+right+'" > <img  src="'+headimg+'" /> <div class="bubble"> <img class="chatImg" src="'+data.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span style="position: absolute;">'+data.time.substr(11)+'</span> </div> </div>';
+								        	} else if (content.type == 1) {
+								        		var str = '<div  class="message'+right+'" > <img  src="'+headimg+'" /> <div class="bubble"> <img class="chatImg" src="'+content.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span style="position: absolute;">'+content.time.substr(11)+'</span> </div> </div>';
 								        		$('#chat-messages').prepend(str);
 
 								        		var img = new Image();
