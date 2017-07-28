@@ -105,7 +105,11 @@ $worker->onMessage = function($connection, $data)
             /*用户*/
         $worker_uid = $db->select('worker_id')->from('parent_info')->where('id= :id')->bindValues(array('id'=>$data['uid']))->single();
 
-        $connection->worker->connections[$worker_uid]->send('哈哈哈');
+        foreach($connection->worker->connections as $con)
+        {
+            if ($con->id == $worker_uid)
+                $con->send('哈哈哈');
+        }
     }
 
     
