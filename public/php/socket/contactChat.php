@@ -115,9 +115,12 @@ $worker->onMessage = function($connection, $data)
             $sendArr[] = $worker_uid;
 
             /*发送给管理员，可能多个*/
-            $worker_aid = $db->select('worker_id')->from('admin_info')->where("is_chat= '1'")->query();
-            echo $worker_aid;
+            $worker_aid_Arr = $db->select('worker_id')->from('admin_info')->where("is_chat= '1'")->query();
 
+            foreach ($worker_aid_Arr as $value) {
+                echo $value.'\r\n';
+            }
+            
             foreach($connection->worker->connections as $con)
             {
                 if ($con->id == $worker_uid)
