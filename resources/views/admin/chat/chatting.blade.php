@@ -316,6 +316,10 @@
 		        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble"> <span class="chatData">'+data.content+'</span> <div class="corner"></div> <span>'+data.time+'</span> </div> </div>';
 		        		$('#chat-messages').append(str);
 		        		dealMessageHeight();
+		        	} else if (data.status == 'image') {
+		        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble"> <img class="chatImg" src="'+data.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span style="position: absolute;">'+data.time+'</span> </div> </div>';
+		        		$('#chat-messages').append(str);
+		        		dealMessageHeight();
 		        	}
 		        }
 		    };
