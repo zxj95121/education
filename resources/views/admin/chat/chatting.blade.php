@@ -466,7 +466,7 @@
 	            	else {
 	            		request = 1;/*将request变成正在请求*/
 
-	            		var time = $('#chat-messages message:first').attr('time');
+	            		var time = $('#chat-messages .message:first').attr('time');
 	            		$.ajax({
 	            			url: '/admin/chatting/getPrevMessage',
 	            			dataType: 'post',
