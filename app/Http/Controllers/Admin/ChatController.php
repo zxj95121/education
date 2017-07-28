@@ -46,12 +46,12 @@ class ChatController extends Controller
     		->get()
     		->toArray();
 
-    	$content = array();
-    	$num = count($contentArr)-1;
-    	foreach ($contentArr as $value) {
-    		$content[$num--] = $value;
-    	}
+    	// $content = array();
+    	// $num = count($contentArr)-1;
+    	// foreach ($contentArr as $value) {
+    	// 	$content[$num--] = $value;
+    	// }
 
-    	return view('admin.chat.chatting', ['content'=>$content,'admin_id'=>$admin_id,'user_id'=>$uid]);
+    	return view('admin.chat.chatting', ['content'=>$contentArr,'admin_id'=>$admin_id,'user_id'=>$uid]);
     }
 }
