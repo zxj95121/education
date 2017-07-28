@@ -233,7 +233,7 @@
 	            		$('#chat-messages').css('marginTop', top+y+'px');
 	            		var refreshTop = parseInt($('#refresh').css('top'));
 		            	if (refreshTop < 140)
-		            		$('#refresh').css('top', refreshTop+(0.6*y)+'px');
+		            		$('#refresh').css('top', refreshTop+(0.75*y)+'px');
 	            	}
 	            }
 	        }
