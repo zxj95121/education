@@ -236,7 +236,9 @@
 		        msg.status = 'msg';
 		        msg.content = val;
 
-		       	ws.send(JSON.stringify(msg)); 
+		       	ws.send(JSON.stringify(msg));
+
+		       	sendMessage();
 		    }); 
 
 		    /*发送图片*/
@@ -276,6 +278,8 @@
 					        msg.content = content;
 
 					       	ws.send(JSON.stringify(msg));
+
+					       	sendMessage();
 			    		}
 			    	}
 			    }
@@ -284,7 +288,7 @@
 		        console.log("收到服务端的消息：" + e.data);
 		    };
 		    ws.onclose = function (event) {
-			    console.log('请重新打开网页');
+			    window.location.reload();
 			}
 
 
@@ -295,7 +299,11 @@
 
     	})
 
-    	function hideAlert(){
+    	function sendMessage() {
+    		$('#textInput').val('');
+    	}
+
+    	function hideAlert() {
     		$('#showSweetAlert').hide(250);
     	}
 
@@ -304,13 +312,20 @@
 		}
 
 		function showPreview(source) {  
-            var file = document.getElementById('fileInput').files[0];  
+            var file = document.getElementById('fileInput').files[0];
+            var size = file.size;
+            if (size > 2097152) {
+            	window.layer.msg('您选择的文件过大！');
+            	return false;
+            }
+
             if(window.FileReader) {  
                 var fr = new FileReader();  
                 fr.onloadend = function(e) {  
                 	var src = e.target.result; 
                 	if (src.substr(5,5) != 'image') {
                 		window.layer.msg('您选择的不是图片');
+                		return false;
                 	} else {
                 		$('#showSweetAlert').show();
                     	document.getElementById("imageUpload").src = e.target.result; 

@@ -117,6 +117,10 @@ $worker->onMessage = function($connection, $data)
 $worker->onClose = function($connection)
 {
     echo "connection closed\n".$connection->id;
+    $str1 = $db->select('id')->from('parent_info')->where('worker_id= :worker_id')->bindValues(array('worker_id'=>$connection->id))->single();
+    echo 'parent_info'.$str1;
+    $db->select('id')->from('admin_info')->where('worker_id= :worker_id')->bindValues(array('worker_id'=>$connection->id))->single();
+    echo 'admin_info'.$str2;
 };
 // 运行worker
 Worker::runAll();
