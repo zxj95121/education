@@ -40,7 +40,10 @@
 				            <!-- <span>miro@badev@gmail.com</span> -->
 				        </div>
 				        
-				        <div id="chat-messages">
+				        <div id="chat-messages" style="position: relative;">
+				        	<div class="refresh" style="position: absolute;width: 100%;height:40px;top:-50px;">
+				        		<div class="img" style="margin: 0 auto;width: 40px;height: 100%;">发射点犯得上</div>
+				        	</div>
 				          	<label>Thursday 02</label>
 
 				            <div class="message">
@@ -181,6 +184,7 @@
     <script type="text/javascript">
 
 	    var state = {};
+	    var temp = 0;
 
 	    $(document).on('touchstart', '#chatview', function(e){
 	    	state.dragable = true;
@@ -197,11 +201,31 @@
 	            var x = e.originalEvent.changedTouches[0].pageX - state.mouseX;
 	            var y = e.originalEvent.changedTouches[0].pageY - state.mouseY;
 
+
+	            state.mouseX = e.originalEvent.changedTouches[0].pageX;
+	            state.mouseY = e.originalEvent.changedTouches[0].pageY;
+
 	/*            var bgX = x + parseInt(bg[0]);*/
 	            // var bgY = y + bg;
 	            console.log(y);
-	            state.mouseX = e.originalEvent.changedTouches[0].pageX;
-	            state.mouseY = e.originalEvent.changedTouches[0].pageY;
+	            // var scrollHeight = $('#chat-messages')[0].scrollHeight;
+	            var scrollTop = $('#chat-messages')[0].scrollTop;
+	            var top = parseInt($('#chat-messages').css('marginTop'));
+	            if (scrollTop <= 0) {
+	            	// e.preventDefault();
+	            	e.stopPropagation();
+
+	            	$('#chat-messages').css('marginTop', top+y+'px');
+	            	if ( top > 150)
+	            		temp = 1;
+
+	            }
+	            if (temp == 1) {
+	            	$('#chat-messages').css('marginTop', '0px');
+	            }
+	            console.log(scrollTop);
+
+	            
 	        	
 	        }
 	    });
@@ -209,6 +233,9 @@
 
 	    $(document).on('touchend', '#chatview', function(e){
     		state.dragable = false;
+    		$('#chat-messages').css('marginTop', '0px');
+
+    		temp = 0;
     		// console.log(bgY);
     	})
     </script>

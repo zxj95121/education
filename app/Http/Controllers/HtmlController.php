@@ -14,6 +14,9 @@ class HtmlController extends Controller
     	$views = $this->$res();
     	return view($views);
     }
+    private function chat(){
+        return 'front.views.parent.chat';
+    }
 
     private function register(){
     	return 'front.views.index';
