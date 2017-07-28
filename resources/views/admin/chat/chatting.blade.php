@@ -255,7 +255,7 @@
 
 		        ws.send(JSON.stringify(msg));
 
-		        $('#showSweetAlert').hide(500);
+		        $('#showSweetAlert').hide(300);
 		    })
 
 		    /*enter发送消息*/ 
@@ -288,9 +288,7 @@
 			}
 
 
-			$('#fileInput').change(function(){
-				// alert('你确认');
-				$('#showSweetAlert').show();
+			$('#fileInput').change(function(){				
 				showPreview();
 			});
 
@@ -298,7 +296,7 @@
     	})
 
     	function hideAlert(){
-    		$('#showSweetAlert').hide();
+    		$('#showSweetAlert').hide(250);
     	}
 
     	function fileClick() {
@@ -310,7 +308,13 @@
             if(window.FileReader) {  
                 var fr = new FileReader();  
                 fr.onloadend = function(e) {  
-                    document.getElementById("imageUpload").src = e.target.result;  
+                	var src = e.target.result; 
+                	if (src.substr(5,5) != 'image') {
+                		window.layer.msg('您选择的不是图片');
+                	} else {
+                		$('#showSweetAlert').show();
+                    	document.getElementById("imageUpload").src = e.target.result; 
+                    }
                 };  
                 fr.readAsDataURL(file);
             }  
