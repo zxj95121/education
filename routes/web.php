@@ -228,6 +228,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
 
       /*用户沟通*/
     $router->get('/chatShow', 'ChatController@chatShow');
+    $router->get('/chatting', 'ChatController@chatting');
 
     /*账单流水*/
     $router->get('/bill', 'BillController@bill');

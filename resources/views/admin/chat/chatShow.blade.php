@@ -4,6 +4,15 @@
 @section('style')
 <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css">
 <style type="text/css">
+    .badge{
+        background: #D9534F;
+    }
+    table th,td{
+        text-align: center;
+    }
+    label{
+        cursor: pointer;
+    }
 </style>
 @endsection
 
@@ -65,25 +74,26 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                @foreach($chatUser as $key => $value)
+                                                    <tr uid="{{$value['id']}}">
+                                                        <td>{{$value['id']}}</td>
+                                                        <td>{{$value['nickname']}}</td>
+                                                        <td>{{$value['name']}}</td>
+                                                        <td>{{$value['phone']}}</td>
+                                                        <td><span class="badge">{{$numArr[$key]}}</span></td>
+                                                        <td><label class="label label-info communication">继续沟通</label></td>
                                                     </tr>
+                                                @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">共 条记录</div>
+                                            <div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">共 {{$chatUser->total()}} 条记录</div>
                                         </div>
                                         <div class="col-md-8">
-                                            
+                                            {{$chatUser->links()}}
                                         </div>
                                     </div>
                                 </div>
@@ -104,6 +114,12 @@
         layui.use('layer', function(){
             window.layer = layui.layer;
         });   
+
+
+        $('.communication').click(function(){
+            var uid = $(this).parents('tr').attr('uid');
+            window.location.href = '/admin/chatting?uid='+uid;
+        })
     })
 </script>
 @endsection

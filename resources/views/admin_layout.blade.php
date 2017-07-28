@@ -47,7 +47,7 @@
     <body>
 
         <!-- Aside Start-->
-        <aside class="left-panel">
+        <aside class="left-panel" id="leftAside">
 
             <!-- brand -->
             <div class="logo">
@@ -157,7 +157,7 @@
                             <span class="menu-arrow"></span>
                         </a>
                         <ul class="list-unstyled">
-                            <li class="{!!(Request::is('admin/chatShow')? 'active' : '') !!} communication" style="display: none;">
+                            <li class="{!!(Request::is('admin/chatShow')? 'active' : '') !!} communication">
                                 <a href="/admin/chatShow">用户沟通   </a>
                             </li>
                         </ul>
@@ -389,8 +389,8 @@
                     success: function(data) {
                         if (data.errcode == 0) {
                             var power = data.power;
-                            if (power.chat == 1) {
-                                $('.communication').show();
+                            if (power.chat == 0) {
+                                $('.communication').hide();
                             }
                         }
                     }
