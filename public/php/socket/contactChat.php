@@ -119,10 +119,14 @@ $worker->onClose = function($connection)
     global $db;
 
     echo "connection closed\n".$connection->id;
-    $str1 = $db->select('id')->from('parent_info')->where('worker_id= :worker_id')->bindValues(array('worker_id'=>$connection->id))->single();
-    echo 'parent_info'.$str1;
-    $str2 = $db->select('id')->from('admin_info')->where('worker_id= :worker_id')->bindValues(array('worker_id'=>$connection->id))->single();
-    echo 'admin_info'.$str2;
+    $pid = $db->select('id')->from('parent_info')->where('worker_id= :worker_id')->bindValues(array('worker_id'=>$connection->id))->single();
+    if ($pid) {
+        $row_count = $db->update('parent_info')->cols(array('is_chat'=>'0', 'worker_id'=>'0'))->where('id='.$pid)->query();
+    }
+    $aid = $db->select('id')->from('admin_info')->where('worker_id= :worker_id')->bindValues(array('worker_id'=>$connection->id))->single();
+    if ($aid) {
+        $row_count = $db->update('admin_info')->cols(array('is_chat'=>'0', 'worker_id'=>'0'))->where('id='.$aid)->query();
+    }
 };
 // 运行worker
 Worker::runAll();
