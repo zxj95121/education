@@ -212,7 +212,7 @@
 	    });
 
 
-    	$('#chatview').touchmove(function(e){
+    	$('#chatview').bind('touchmove', function(e){
 	    	// e.preventDefault();
 
 	        if (state.dragable)
