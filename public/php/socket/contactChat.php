@@ -118,7 +118,7 @@ $worker->onMessage = function($connection, $data)
             $worker_aid_Arr = $db->select('worker_id')->from('admin_info')->where("is_chat= '1'")->query();
 
             foreach ($worker_aid_Arr as $value) {
-                echo $value->worker_id."\r\n";
+                echo $value['worker_id']."\r\n";
             }
             
             foreach($connection->worker->connections as $con)
