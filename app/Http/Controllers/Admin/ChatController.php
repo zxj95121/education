@@ -51,6 +51,7 @@ class ChatController extends Controller
     	// foreach ($contentArr as $value) {
     	// 	$content[$num--] = $value;
     	// }
+    	$contentArr = krsort($contentArr);
 
     	return view('admin.chat.chatting', ['content'=>$contentArr,'admin_id'=>$admin_id,'user_id'=>$uid]);
     }
