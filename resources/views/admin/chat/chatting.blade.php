@@ -197,19 +197,22 @@
 		function dealMessageHeight() {
 			var cdom = $('#chat-messages .message:last');
 			if (cdom.find('.chatData').length == 1) {
-					var height = cdom.find('.chatData')[0].offsetHeight;
-					// console.log(height);
-					if (height > 20) {
-						cdom.css('padding-bottom', (height+18) +'px');
-					}
-					cdom.css('height', height+'px');
-				} else if (cdom.find('.chatImg').length == 1) {
-					var height = cdom.find('.chatImg').height();
-					if (height > 20) {
-						cdom.css('padding-bottom', (height+18) +'px');
-					}
-					cdom.css('height', height+'px');
+				var height = cdom.find('.chatData')[0].offsetHeight;
+				// console.log(height);
+				if (height > 20) {
+					cdom.css('padding-bottom', (height+18) +'px');
 				}
+				cdom.css('height', height+'px');
+			} else if (cdom.find('.chatImg').length == 1) {
+				var height = cdom.find('.chatImg').height();
+				if (height > 20) {
+					cdom.css('padding-bottom', (height+18) +'px');
+				}
+				cdom.css('height', height+'px');
+			}
+
+			var scrollHeight = $('#chat-messages')[0].scrollHeight;
+			$('#chat-messages')[0].scrollTop = scrollHeight;
 		}
     </script>
 
