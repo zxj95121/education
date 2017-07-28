@@ -253,7 +253,9 @@
 		        msg.status = 'image';
 		        msg.content = image;
 
-		        ws.send(JSON.stringify(msg)); 
+		        ws.send(JSON.stringify(msg));
+
+		        $('#showSweetAlert').hide(500);
 		    })
 
 		    /*enter发送消息*/ 
