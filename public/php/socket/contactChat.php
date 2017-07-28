@@ -53,7 +53,7 @@ $worker->onMessage = function($connection, $data)
             'uid' => $data['id'],
             'admin_id' => '0',
             'content' => $data['content']
-            ))->query();
+            'read' => '0'))->query();
         }
     }
 
