@@ -285,7 +285,9 @@
 			    }
 			}
 		    ws.onmessage = function(e) {
-		        console.log("收到服务端的消息：" + e.data);
+		        // console.log("收到服务端的消息：" + e.data);
+		        var data = e.data.parseJSON();
+		        console.log(data);
 		    };
 		    ws.onclose = function (event) {
 			    window.location.reload();
