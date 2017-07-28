@@ -112,19 +112,21 @@ $worker->onMessage = function($connection, $data)
             /*发送给用户，只有一个*/
             $worker_uid = $db->select('worker_id')->from('parent_info')->where('id= :id')->bindValues(array('id'=>$data['uid']))->single();
 
-            $sendArr[] = $worker_uid;
+            $sendArr[$worker_uid] = 1;
 
             /*发送给管理员，可能多个*/
             $worker_aid_Arr = $db->select('worker_id')->from('admin_info')->where("is_chat= '1'")->query();
 
             foreach ($worker_aid_Arr as $value) {
-                echo $value['worker_id']."\r\n";
+                $sendArr[$value['worker_id']] = 1;
             }
             
             foreach($connection->worker->connections as $con)
             {
-                if ($con->id == $worker_uid)
-                    $con->send('哈哈哈');
+                if (array_key_exists($con->id, $sendArr)) {
+                    $con->send($data['content']);
+                    unset($sendArr[$con->id]);
+                }
             }
         }
     }
