@@ -25,7 +25,12 @@
         <div class="page page-current">
 
 			<div class="content" style="background: #D6D6D6;">
-				    <div id="chatview" class="p1" style="width:100%;height:100%;">      
+				    <div id="chatview" class="p1" style="width:100%;height:100%;position: relative;">
+				    	<div id="refresh" style="position: absolute;width: 100%;height:40px;top:83px;">
+			        		<div class="img" style="margin: 0 auto;width: 40px;height: 100%;">
+			        			<img src="/images/loading.gif" style="width: 25px;height: 25px;">
+			        		</div>
+			        	</div>   
 				        <div id="profile" style="background: #22AAE8;">
 				 
 				            <!-- <div id="close" onclick="window.location.href='/front/home/oauth';">
@@ -41,9 +46,7 @@
 				        </div>
 				        
 				        <div id="chat-messages" style="position: relative;">
-				        	<div class="refresh" style="position: absolute;width: 100%;height:40px;top:-50px;">
-				        		<div class="img" style="margin: 0 auto;width: 40px;height: 100%;">发射点犯得上</div>
-				        	</div>
+				        	
 				          	<label>Thursday 02</label>
 
 				            <div class="message">
@@ -132,8 +135,9 @@
 				        </div>
 				       
 				        <div id="sendmessage">
-				          <input type="text" id="textInput" value="Send message..." />
-				            <button id="send"><img src="/images/square-send.png" style="width: 100%;height: 100%;"></button>
+				          <input type="text" id="textInput" value="" placeholder="" />
+				            <button id="sendBtn" style="display: none;"><img src="/images/square-send.png" style="width: 100%;height: 100%;"></button>
+				            <button id="imageBtn"><img src="/images/square-image.png" style="width: 100%;height: 100%;"></button>
 				        </div>  
 				    </div>
 			</div>
@@ -182,6 +186,21 @@
     </script>
 
     <script type="text/javascript">
+    	$(function(){
+    		$('#textInput').keyup(function(){
+    			var val  = $(this).val();
+    			if (val == '') {
+    				$('#imageBtn').show();
+    				$('#sendBtn').hide();
+    			} else {
+    				$('#imageBtn').hide();
+    				$('#sendBtn').show();
+    			}
+    		})
+    	})
+    </script>
+
+    <script type="text/javascript">
 
 	    var state = {};
 	    var temp = 0;
@@ -205,28 +224,20 @@
 	            state.mouseX = e.originalEvent.changedTouches[0].pageX;
 	            state.mouseY = e.originalEvent.changedTouches[0].pageY;
 
-	/*            var bgX = x + parseInt(bg[0]);*/
-	            // var bgY = y + bg;
-	            console.log(y);
-	            // var scrollHeight = $('#chat-messages')[0].scrollHeight;
 	            var scrollTop = $('#chat-messages')[0].scrollTop;
 	            var top = parseInt($('#chat-messages').css('marginTop'));
 	            if (scrollTop <= 0) {
 	            	e.preventDefault();
-	            	// e.stopPropagation();
 
 	            	$('#chat-messages').css('marginTop', top+y+'px');
-	            	if ( top > 150)
+
+	            	var refreshTop = parseInt($('#refresh').css('top'));
+	            	if (refreshTop < 140)
+	            		$('#refresh').css('top', refreshTop+y+'px');
+	            	if ( top > 0)
 	            		temp = 1;
 
 	            }
-	            if (temp == 1) {
-	            	$('#chat-messages').css('marginTop', '0px');
-	            }
-	            console.log(scrollTop);
-
-	            
-	        	
 	        }
 	    });
 
@@ -234,9 +245,13 @@
 	    $(document).on('touchend', '#chatview', function(e){
     		state.dragable = false;
     		$('#chat-messages').css('marginTop', '0px');
+    		$('#refresh').css('top', '83px');
+    		if (temp == 1) {
+    			$('#chat-messages')[0].scrollTop = 0;
 
+    			/*请求数据*/
+    		}
     		temp = 0;
-    		// console.log(bgY);
     	})
     </script>
   </body>
