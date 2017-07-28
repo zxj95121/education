@@ -93,10 +93,13 @@ $worker->onMessage = function($connection, $data)
                 
             }
 
+
+            $data['content'] = 'http://file.catchon-edu.cn/chat/'.$name.$str;
+
             $insert_id = $db->insert('contact_chat')->cols(array(
             'uid' => $data['uid'],
             'admin_id' => $data['aid'],
-            'content' => 'http://file.catchon-edu.cn/chat/'.$name.$str,
+            'content' => $data['content'],
             'read' => '1',
             'type' => '1',
             'created_at' => $time,
@@ -121,10 +124,25 @@ $worker->onMessage = function($connection, $data)
                 $sendArr[$value['worker_id']] = 1;
             }
             
+            /*开始传送数据*/
+            $msg = array();
+            $msg['content'] = $data['content'];
+            $msg['type'] = 'a';
+            $msg['status'] = $data['status'];
+            /*根据$data['aid']查他的头像地址*/
+            $headimg = $db->select('headimg')->from('admin_info')->where('id= :id')->bindValues(array('id'=>$data['aid']))->single();
+            $msg['headimg'] = $headimg;
+            /*根据$insert_id查时间*/
+            $sendTime = substr($time, 11);
+            $msg['time'] = $sendTime;
+
+            $msg = json_encode($msg);
+
             foreach($connection->worker->connections as $con)
             {
                 if (array_key_exists($con->id, $sendArr)) {
-                    $con->send($data['content']);
+
+                    $con->send($msg);
                     unset($sendArr[$con->id]);
                 }
             }
