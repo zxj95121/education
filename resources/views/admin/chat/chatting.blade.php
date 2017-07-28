@@ -59,7 +59,7 @@
 			        	
 			          	<label>Thursday 02</label>
 			          	@foreach ($content as $value)
-			          		@if ($value->type == 0)
+			          		@if ($value['type'] == 0)
 					            <div @if($value['admin_id']) class="message right" @else class="message" @endif>
 					              <img src="{{$value['headimg']}}" />
 					                <div class="bubble">
@@ -68,7 +68,7 @@
 					                    <span>{{date('H:i:s', strtotime($value['created_at']))}}</span>
 					                </div>
 					            </div>
-					        @elseif($value->type == 1)
+					        @elseif($value['type'] == 1)
 						        <div @if($value['admin_id']) class="message right" @else class="message" @endif>
 					            	<img src="{{$value['headimg']}}">
 					                <div class="bubble">
