@@ -45,6 +45,7 @@ $worker->onMessage = function($connection, $data)
     global $db;
     $cid = $connection->id;
     $data = json_decode($data, true);
+
     if ($data['type'] == 'u') {
         /*用户端*/
         if ($data['status'] == 'init') {
@@ -62,7 +63,7 @@ $worker->onMessage = function($connection, $data)
     } elseif ($data['type'] == 'a') {
         /*管理员端*/
         if ($data['status'] == 'init') {
-            $db->update('admin_info')->cols(array('is_chat'=>'1','worker_id'=>$cid))->where('id='.$data['id'])->query();
+            $db->update('admin_info')->cols(array('is_chat'=>'1','worker_id'=>$cid))->where('id='.$data['aid'])->query();
         } else if ($data['status'] == 'msg') {
             $time = date('Y-m-d H:i:s');
             $insert_id = $db->insert('contact_chat')->cols(array(
