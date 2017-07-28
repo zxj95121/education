@@ -203,7 +203,7 @@
     <script type="text/javascript">
 
 	    var state = {};
-	    var temp = 0;
+	    // var temp = 0;
 
 	    $(document).on('touchstart', '#chatview', function(e){
 	    	state.dragable = true;
@@ -227,16 +227,14 @@
 	            var scrollTop = $('#chat-messages')[0].scrollTop;
 	            var top = parseInt($('#chat-messages').css('marginTop'));
 	            if (scrollTop <= 0) {
-	            	e.preventDefault();
-	            	temp = 2;
-	            	$('#chat-messages').css('marginTop', top+y+'px');
-
-	            	var refreshTop = parseInt($('#refresh').css('top'));
-	            	if (refreshTop < 140)
-	            		$('#refresh').css('top', refreshTop+(0.6*y)+'px');
-	            	if ( top > 0)
-	            		temp = 1;
-
+	            	// e.preventDefault();
+	            	if ((top+y) > 0) {
+	            		e.preventDefault();
+	            		$('#chat-messages').css('marginTop', top+y+'px');
+	            		var refreshTop = parseInt($('#refresh').css('top'));
+		            	if (refreshTop < 140)
+		            		$('#refresh').css('top', refreshTop+(0.6*y)+'px');
+	            	}
 	            }
 	        }
 	    });
@@ -246,16 +244,12 @@
     		state.dragable = false;
     		// $('#chat-messages').css('marginTop', '0px');
     		$('#refresh').css('top', '83px');
-    		if (temp == 1) {
-    			$('#chat-messages')[0].scrollTop = 0;
-
-    			/*请求数据*/
-    		}
-
-    		if (temp == 1 || temp == 2) {
-    			$('#chat-messages').css('marginTop', '0px');
-    		}
-    		temp = 0;
+    		 var top = parseInt($('#chat-messages').css('marginTop'));
+    		 if (top > 0) {
+    		 	// $('#chat-messages')[0].scrollTop = 0;
+    		 	$('#chat-messages').css('marginTop', '0px');
+    		 	$('#refresh').css('top', '83px');
+    		 }
     	})
     </script>
   </body>
