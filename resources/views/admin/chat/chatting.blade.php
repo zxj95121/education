@@ -464,54 +464,57 @@
 	            		$('#chat-messages').css('marginTop', top+(1.6*y)+'px');
 	            	}
 	            	else {
-	            		request = 1;/*将request变成正在请求*/
+	            		if (request == 0) {
+		            		request = 1;/*将request变成正在请求*/
 
-	            		var time = $('#chat-messages .message:first').attr('time');
-	            		$.ajax({
-	            			url: '/admin/chatting/getPrevMessage',
-	            			dataType: 'post',
-	            			type: 'post',
-	            			data: {
-	            				time: time,
-	            				uid: '{{$user_id}}'
-	            			},
-	            			success: function(data) {
-	            				if (data.errcode == 0) {
-	            					var obj = data.content;
-	            					for (var i in obj) {
-	            						var content = obj[i];
+		            		var time = $('#chat-messages .message:first').attr('time');
+		            		$.ajax({
+		            			url: '/admin/chatting/getPrevMessage',
+		            			dataType: 'post',
+		            			type: 'post',
+		            			data: {
+		            				time: time,
+		            				uid: '{{$user_id}}'
+		            			},
+		            			success: function(data) {
+		            				if (data.errcode == 0) {
+		            					var obj = data.content;
+		            					for (var i in obj) {
+		            						var content = obj[i];
 
-		            					if (content.admin_id != '0') {
-								        	var right = ' right';
-								        	var headimg = data.aheadimg;
-								        	
-								        } else {
-								        	var right = '';
-											var headimg = data.uheadimg;
+			            					if (content.admin_id != '0') {
+									        	var right = ' right';
+									        	var headimg = data.aheadimg;
+									        	
+									        } else {
+									        	var right = '';
+												var headimg = data.uheadimg;
+									        }
+
+									        if (data.type == '0') {
+								        		var str = '<div  class="message'+right+'" > <img  src="'+headimg+'" /> <div class="bubble"> <span class="chatData">'+data.content+'</span> <div class="corner"></div> <span>'+data.time.substr(11)+'</span> </div> </div>';
+								        		$('#chat-messages').prepend(str);
+
+								        		dealMessageHeight();
+								        	} else if (data.type == 1) {
+								        		var str = '<div  class="message'+right+'" > <img  src="'+headimg+'" /> <div class="bubble"> <img class="chatImg" src="'+data.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span style="position: absolute;">'+data.time.substr(11)+'</span> </div> </div>';
+								        		$('#chat-messages').prepend(str);
+
+								        		var img = new Image();
+								        		img.src = data.content; 
+												img.onload = function () { //图片下载完毕时异步调用callback函数。 
+													dealMessageHeight();
+												}; 
+								        	}
 								        }
-
-								        if (data.type == '0') {
-							        		var str = '<div  class="message'+right+'" > <img  src="'+headimg+'" /> <div class="bubble"> <span class="chatData">'+data.content+'</span> <div class="corner"></div> <span>'+data.time.substr(11)+'</span> </div> </div>';
-							        		$('#chat-messages').append(str);
-
-							        		dealMessageHeight();
-							        	} else if (data.type == 1) {
-							        		var str = '<div  class="message'+right+'" > <img  src="'+headimg+'" /> <div class="bubble"> <img class="chatImg" src="'+data.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span style="position: absolute;">'+data.time.substr(11)+'</span> </div> </div>';
-							        		$('#chat-messages').append(str);
-
-							        		var img = new Image();
-							        		img.src = data.content; 
-											img.onload = function () { //图片下载完毕时异步调用callback函数。 
-												dealMessageHeight();
-											}; 
-							        	}
-							        }
-	            					request = 0;
-	            				}
-	            			}
-	            		})
-	            		// $('#refresh').css('top', '83px');
-	            		// $('#chat-messages').css('marginTop', '0px');
+								        $('#refresh').css('top', '83px');
+	            						$('#chat-messages').css('marginTop', '0px');
+		            					request = 0;
+		            				}
+		            			}
+		            		})
+		            	}
+	            		
             		}
 	            }
             }
