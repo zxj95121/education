@@ -70,7 +70,7 @@ $worker->onMessage = function($connection, $data)
             'uid' => $data['uid'],
             'admin_id' => $data['aid'],
             'content' => $data['content'],
-            'read' => '0',
+            'read' => '1',
             'created_at' => $time,
             'updated_at' => $time))->query();
         }

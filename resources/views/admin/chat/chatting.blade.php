@@ -59,7 +59,7 @@
 			        	
 			          	<label>Thursday 02</label>
 			          	@foreach ($content as $value)
-			            <div @if($value['admin_id']) class"message right" @else class="message" @endif>
+			            <div @if($value['admin_id']) class="message right" @else class="message" @endif>
 			              <img src="{{$value['headimg']}}" />
 			                <div class="bubble">
 			                  	<span class="chatData">{{$value['content']}}</span>
