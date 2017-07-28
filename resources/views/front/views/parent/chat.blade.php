@@ -31,7 +31,7 @@
 			        			<img src="/images/loading.gif" style="width: 25px;height: 25px;">
 			        		</div>
 			        	</div>   
-				        <div id="profile" style="background: #22AAE8;">
+				        <div id="profile" style="background: #22AAE8;position: relative;z-index: 9999;">
 				 
 				            <!-- <div id="close" onclick="window.location.href='/front/home/oauth';">
 				                <div class="cy"></div>
@@ -233,7 +233,7 @@
 
 	            	var refreshTop = parseInt($('#refresh').css('top'));
 	            	if (refreshTop < 140)
-	            		$('#refresh').css('top', refreshTop+y+'px');
+	            		$('#refresh').css('top', refreshTop+(0.6*y)+'px');
 	            	if ( top > 0)
 	            		temp = 1;
 
