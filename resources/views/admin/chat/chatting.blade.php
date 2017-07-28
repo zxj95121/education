@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="/front/lib/chat/css/normalize.css">
 <link rel="stylesheet" type="text/css" href="/front/lib/chat/css/default.css">
 <link rel="stylesheet" type="text/css" href="/front/lib/chat/css/styles.css">
+<meta name="csrf-token" content="{{csrf_token()}}">
 <style type="text/css">
 	.contentW{
 		max-width: 800px;
@@ -144,6 +145,12 @@
     $(function(){
         layui.use('layer', function(){
             window.layer = layui.layer;
+        });
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
 
         $('#computer_footer').hide();
@@ -472,7 +479,7 @@
 	            					var obj = data.content;
 	            					for (var i in obj) {
 	            						var content = obj[i];
-	            						
+
 		            					if (content.admin_id != '0') {
 								        	var right = ' right';
 								        	var headimg = data.aheadimg;
