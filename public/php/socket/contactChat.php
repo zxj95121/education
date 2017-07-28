@@ -40,7 +40,7 @@ $worker->onConnect = function($connection)
 };
 
 /*用户发送消息到服务器*/
-$worker->onMessage = function($connection, $data)
+$worker->onMessage = function($connection, $data, $worker)
 {
     global $db;
     $cid = $connection->id;
@@ -100,6 +100,12 @@ $worker->onMessage = function($connection, $data)
             'created_at' => $time,
             'updated_at' => $time))->query();
         }
+
+        /*向用户端和其他管理员发送消息*/  
+            /*用户*/
+        $worker_uid = $db->select('worker_id')->from('parent_info')->where('id= :id')->bindValues(array('id'=>$data['uid']))->single();
+
+        $worker->connections[$worker_uid]->send('...');
     }
 
     
