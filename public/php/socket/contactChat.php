@@ -52,7 +52,7 @@ $worker->onMessage = function($connection, $data)
             $insert_id = $db->insert('contact_chat')->cols(array(
             'uid' => $data['id'],
             'admin_id' => '0',
-            'content' => $data['content']
+            'content' => $data['content'],
             'read' => '0'))->query();
         }
     }
