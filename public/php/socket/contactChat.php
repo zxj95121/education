@@ -40,7 +40,7 @@ $worker->onConnect = function($connection)
 };
 
 /*用户发送消息到服务器*/
-$worker->onMessage = function($connection, $data, $worker)
+$worker->onMessage = function($connection, $data)
 {
     global $db;
     $cid = $connection->id;
@@ -105,7 +105,7 @@ $worker->onMessage = function($connection, $data, $worker)
             /*用户*/
         $worker_uid = $db->select('worker_id')->from('parent_info')->where('id= :id')->bindValues(array('id'=>$data['uid']))->single();
 
-        $worker->connections[$worker_uid]->send('...');
+        $connection->worker->connections[$worker_uid]->send('哈哈哈');
     }
 
     
