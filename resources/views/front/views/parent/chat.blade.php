@@ -180,7 +180,7 @@
 		    };
 		    var sendBtn = document.getElementById('sendBtn');  
 		    sendBtn.addEventListener('click', function() { 
-		    	var val = $('#textInput').val();
+		    	var val = $('#textInput').val().trim();
 		    	if (val == '')
 		    		return false;
 
