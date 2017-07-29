@@ -237,7 +237,7 @@ body {
 	color:#8495a3;
 	position:relative;
 	float:left;
-	min-width: 80px;
+	min-width: 100px;
 }
 #chat-messages div.message.right .bubble{
 	float:right;
