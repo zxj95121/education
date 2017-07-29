@@ -373,7 +373,7 @@
         			type: 'post',
         			data: {
         				time: time,
-        				uid: '{{$user_id}}'
+        				uid: '{{$uid}}'
         			},
         			success: function(data) {
         				if (data.errcode == 0) {
