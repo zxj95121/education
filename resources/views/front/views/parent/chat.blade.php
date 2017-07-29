@@ -102,10 +102,10 @@
 			        </div>
 			       
 			        <div id="sendmessage">
-			        	<input type="text" id="textInput" value="" placeholder="" />
+			        	<input type="text" id="textInput" style="line-height: 20px;margin-top: 14px;" value="" placeholder="" />
 			          	<input type="file" id="fileInput" style="display: none;" name="file" accept="image/*">
-			            <button id="sendBtn" style="display: none;"><img src="/images/square-send.png" style="width: 100%;height: 100%;"></button>
-			            <button id="imageBtn" onclick="fileClick();"><img src="/images/square-image.png" style="width: 100%;height: 100%;"></button>
+			            <button id="sendBtn" style="display: none;"><img src="/images/square-send.png" style="width: 100%;height: 100%;cursor: pointer;"></button>
+			            <button id="imageBtn" onclick="fileClick();"><img src="/images/square-image.png" style="width: 100%;height: 100%;cursor: pointer;"></button>
 			        </div>  
 			    </div>
 

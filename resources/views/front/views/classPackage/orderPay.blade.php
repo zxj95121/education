@@ -34,7 +34,7 @@ $signPackage = $jssdk->GetSignPackage();
 <body>
 	<div class="page">
 	  	<header class="bar bar-nav">
-	    	<a class="button button-link button-nav pull-left" onclick="window.location.href='/front/classPackage?id={{$package->id}}';" data-transition='slide-out'>
+	    	<a class="button button-link button-nav pull-left" style="cursor: pointer;" onclick="window.location.href='/front/classPackage?id={{$package->id}}';" data-transition='slide-out'>
 	      		<span class="icon icon-left"></span>
 	      		返回
 	    	</a>
@@ -58,7 +58,7 @@ $signPackage = $jssdk->GetSignPackage();
     					<div class="item-media"><i class="icon icon-f7"></i></div>
     					<div class="item-inner">
       						<div class="item-title">课时数量</div>
-      						<div class="item-after">{{$package->number}} 课时</div>
+      						<div class="item-after">{{$package->number}} 次课</div>
     					</div>
   					</li>
   					<li class="item-content">
