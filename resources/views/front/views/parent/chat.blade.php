@@ -25,59 +25,93 @@
         <div class="page page-current">
 
 			<div class="content" style="background: #D6D6D6;">
-				    <div id="chatview" class="p1" style="width:100%;height:100%;position: relative;">
-				    	<div id="refresh" style="position: absolute;width: 100%;height:40px;top:83px;">
-			        		<div class="img" style="margin: 0 auto;width: 40px;height: 100%;">
-			        			<img src="/images/loading.gif" style="width: 25px;height: 25px;">
-			        		</div>
-			        	</div>   
-				        <div id="profile" style="background: #22AAE8;position: relative;z-index: 9999;">
-				 
-				            <!-- <div id="close" onclick="window.location.href='/front/home/oauth';">
-				                <div class="cy"></div>
-				                <div class="cx"></div>
-				                <img src="/images/arrow-left.png" style="width: 100%;height: 100%;">
-				            </div> -->
-				             <div id="headimg">
-				             	<img src="/front/lib/chat/img/1_copy.jpg" style="width: 100%;height: 100%;">
-				             </div>
-				            <p>Miro Badev</p>
-				            <!-- <span>miro@badev@gmail.com</span> -->
-				        </div>
-				        
-				        <div id="chat-messages" style="position: relative;">
-				        	
-				        @foreach ($content as $value)
-			          		@if ($value['type'] == 0)
-					            <div @if($value['admin_id']) class="message" @else class="message right" @endif time="{{$value['created_at']}}">
-					              <img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
-					                <div class="bubble">
-					                  	<span class="chatData">{{$value['content']}}</span>
-					                    <div class="corner"></div>
-					                    <span>{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
-					                </div>
-					            </div>
-					        @elseif($value['type'] == 1)
-						        <div @if($value['admin_id']) class="message" @else class="message right" @endif time="{{$value['created_at']}}">
-					            	<img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
-					                <div class="bubble">
-					                	<img class="chatImg" src="{{$value['content']}}" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
-					                    <div class="corner"></div>
-					                    <span style="position: absolute;">{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
-					                </div>
-					            </div>
-					        @else
-					        @endif
-			            @endforeach
 
-				        </div>
-				       
-				        <div id="sendmessage">
-				          	<input type="file" id="fileInput" style="display: none;" name="file">
-				            <button id="sendBtn" style="display: none;"><img src="/images/square-send.png" style="width: 100%;height: 100%;"></button>
-				            <button id="imageBtn" onclick="fileClick();"><img src="/images/square-image.png" style="width: 100%;height: 100%;"></button>
-				        </div>  
-				    </div>
+				<!-- 弹框 -->
+	    		<div id="showSweetAlert" class="sweet-alert showSweetAlert visible" tabindex="-1" data-custom-class="" data-has-cancel-button="false" data-has-confirm-button="true" data-allow-ouside-click="false" data-has-done-function="false" data-animation="pop" data-timer="null" style="/*display: block;*/z-index: 322; margin-top: 200px;position: absolute;background: #E3E3E3;">
+	    			<!-- <div class="sa-icon sa-error" style="">
+	    				<span class="sa-x-mark">
+	    					<span class="sa-line sa-left"></span>
+	    					<span class="sa-line sa-right"></span>
+	    				</span>
+	    			</div> -->
+	    			<!-- <div class="sa-icon sa-warning" style="display: none;"> 
+	    				<span class="sa-body"></span> 
+	    				<span class="sa-dot"></span>
+	    			</div> 
+	    			<div class="sa-icon sa-info" style="display: none;">
+	    				
+	    			</div> 
+	    			<div class="sa-icon sa-success" style="display: none;"> 
+		    			<span class="sa-line sa-tip"></span> 
+		    			<span class="sa-line sa-long"></span> 
+		    			<div class="sa-placeholder"></div> 
+		    			<div class="sa-fix"></div> 
+	    			</div>  -->
+	    			<div class="" style="width: 100%; display: block;margin: 0 auto;text-align: center;">
+	    				<img id="imageUpload" src="" style="max-width: 444px;">
+	    			</div> 
+	    			<!-- <h2>Here's a message!</h2> -->
+	    			<!-- <p style="display: block;"></p> -->
+	    			<button class="cancel" tabindex="2" style="display: inline-block; box-shadow: none;" onclick="hideAlert();">取消</button>
+	    			<button class="cancel" tabindex="2" style="display: inline-block; background-color: rgb(49, 85, 188); box-shadow: none;" onclick="fileClick();">更换图片</button>
+	    			<button class="confirm" tabindex="1" id="sendPhoto" style="display: inline-block; background-color: rgb(174, 222, 244); box-shadow: rgba(174, 222, 244, 0.8) 0px 0px 2px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px inset;">发送图片</button>
+	    		</div>
+
+
+			    <div id="chatview" class="p1" style="width:100%;height:100%;position: relative;">
+			    	<div id="refresh" style="position: absolute;width: 100%;height:40px;top:83px;">
+		        		<div class="img" style="margin: 0 auto;width: 40px;height: 100%;">
+		        			<img src="/images/loading.gif" style="width: 25px;height: 25px;">
+		        		</div>
+		        	</div>   
+			        <div id="profile" style="background: #22AAE8;position: relative;z-index: 9999;">
+			 
+			            <!-- <div id="close" onclick="window.location.href='/front/home/oauth';">
+			                <div class="cy"></div>
+			                <div class="cx"></div>
+			                <img src="/images/arrow-left.png" style="width: 100%;height: 100%;">
+			            </div> -->
+			             <div id="headimg">
+			             	<img src="/front/lib/chat/img/1_copy.jpg" style="width: 100%;height: 100%;">
+			             </div>
+			            <p>Miro Badev</p>
+			            <!-- <span>miro@badev@gmail.com</span> -->
+			        </div>
+			        
+			        <div id="chat-messages" style="position: relative;">
+			        	
+			        @foreach ($content as $value)
+		          		@if ($value['type'] == 0)
+				            <div @if($value['admin_id']) class="message" @else class="message right" @endif time="{{$value['created_at']}}">
+				              <img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
+				                <div class="bubble">
+				                  	<span class="chatData">{{$value['content']}}</span>
+				                    <div class="corner"></div>
+				                    <span>{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
+				                </div>
+				            </div>
+				        @elseif($value['type'] == 1)
+					        <div @if($value['admin_id']) class="message" @else class="message right" @endif time="{{$value['created_at']}}">
+				            	<img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
+				                <div class="bubble">
+				                	<img class="chatImg" src="{{$value['content']}}" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
+				                    <div class="corner"></div>
+				                    <span style="position: absolute;">{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
+				                </div>
+				            </div>
+				        @else
+				        @endif
+		            @endforeach
+
+			        </div>
+			       
+			        <div id="sendmessage">
+			          	<input type="file" id="fileInput" style="display: none;" name="file">
+			            <button id="sendBtn" style="display: none;"><img src="/images/square-send.png" style="width: 100%;height: 100%;"></button>
+			            <button id="imageBtn" onclick="fileClick();"><img src="/images/square-image.png" style="width: 100%;height: 100%;"></button>
+			        </div>  
+			    </div>
+
 			</div>
         </div>
     </div>
