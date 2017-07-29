@@ -31,6 +31,12 @@
   <body>
     <div class="page-group" style="background:#fff">
         <div class="page page-current">
+        
+        	<img src="" id="img0" style="display: none;">
+        	<img src="" id="img1" style="display: none;">
+        	<img src="" id="img2" style="display: none;">
+        	<img src="" id="img3" style="display: none;">
+        	<img src="" id="img4" style="display: none;">
 
 			<div class="content" style="background: #D6D6D6;">
 
