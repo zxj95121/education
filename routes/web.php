@@ -343,6 +343,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 
   /*parent客服沟通模块*/
   $router->get('/parent/parentChat', 'Parent\ChatController@home');
+  $router->post('/chatting/getPrevMessage', 'Parent\ChatController@getPrevMessage');
 
       /*新订单*/
   $router->post('/parent/newEclassOrder', 'Parent\PayClassController@newEclassOrder');
