@@ -84,7 +84,7 @@
 
                                                         @else
                                                         @endif
-                                                        @if($value->set_power == '1')
+                                                        @if($power->set_power == '1')
                                                         <span class="label label-info setPowerLabel">设置管理权限</span>
                                                         @else
                                                         @endif
