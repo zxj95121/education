@@ -62,6 +62,8 @@ class GrabController extends Controller
     					$num = $gailv;
     				}
     				$userdiscountArray = UserDiscount::where('discount_id',$id)->where('status',1)->get()->toArray();
+    				dump($usercount);
+    				dump($discountObj->$discountObj->probability);
     				dump($gailv);
     				dump($userdiscountArray);
     				$newArray = array_flip(array_rand($userdiscountArray,$num));
