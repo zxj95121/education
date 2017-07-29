@@ -164,7 +164,7 @@ class GrabController extends Controller
     	} else {
     		Session::push('newtime',1501402562);
     		$newtime = 1501402562;
-    		echo 2222222;
+    		dump(Session::has('newtime'));
     	}	
    		//$newtime = time();
     	$id = $request->input('id');
