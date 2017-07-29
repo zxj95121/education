@@ -27,7 +27,7 @@ class GrabController extends Controller
     		$downtime = time() - strtotime($discountObj->start_time);
     		if ($downtime < $usercount){
     			//未完全显示，需要发送ajax
-    			$lucky = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)
+    			$lucky = UserDiscount::where('discount_id',$id)->where('discount_id.type',1)->where('discount_id.status',1)
     						->leftJoin('new_user','user_discount.uid','new_user.id')
     						->leftJoin('discount','user_discount.discount_id','discount.id')
     						->leftJoin('class_package','discount.pid','class_package.id')
@@ -36,7 +36,7 @@ class GrabController extends Controller
     						->get();
     			$code = 233;
     		} else {
-    			$lucky = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)
+    			$lucky = UserDiscount::where('discount_id',$id)->where('discount_id.type',1)->where('discount_id.status',1)
     					->leftJoin('new_user','user_discount.uid','new_user.id')
     					->leftJoin('discount','user_discount.discount_id','discount.id')
     					->leftJoin('class_package','discount.pid','class_package.id')
@@ -78,7 +78,7 @@ class GrabController extends Controller
     			$downtime = time() - strtotime($discountObj->start_time);
     			if ($downtime < $usercount){
     				//未完全显示，需要发送ajax
-    				$lucky = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)
+    				$lucky = UserDiscount::where('discount_id',$id)->where('discount_id.type',1)->where('discount_id.status',1)
     				->leftJoin('new_user','user_discount.uid','new_user.id')
     				->leftJoin('discount','user_discount.discount_id','discount.id')
     				->leftJoin('class_package','discount.pid','class_package.id')
@@ -87,7 +87,7 @@ class GrabController extends Controller
     				->get();
     				$code = 233;
     			} else {
-    				$lucky = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)
+    				$lucky = UserDiscount::where('discount_id',$id)->where('discount_id.type',1)->where('discount_id.status',1)
     				->leftJoin('new_user','user_discount.uid','new_user.id')
     				->leftJoin('discount','user_discount.discount_id','discount.id')
     				->leftJoin('class_package','discount.pid','class_package.id')
