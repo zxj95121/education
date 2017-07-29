@@ -494,12 +494,12 @@
 									        }
 
 									        if (content.type == '0') {
-								        		var str = '<div  class="message'+right+'" > <img  src="'+headimg+'" /> <div class="bubble"> <span class="chatData">'+content.content+'</span> <div class="corner"></div> <span>'+content.time.substr(11)+'</span> </div> </div>';
+								        		var str = '<div  class="message'+right+'" > <img  src="'+headimg+'" /> <div class="bubble"> <span class="chatData">'+content.content+'</span> <div class="corner"></div> <span>'+content.time.slice(11)+'</span> </div> </div>';
 								        		$('#chat-messages').prepend(str);
 
 								        		dealMessageHeight();
 								        	} else if (content.type == 1) {
-								        		var str = '<div  class="message'+right+'" > <img  src="'+headimg+'" /> <div class="bubble"> <img class="chatImg" src="'+content.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span style="position: absolute;">'+content.time.substr(11)+'</span> </div> </div>';
+								        		var str = '<div  class="message'+right+'" > <img  src="'+headimg+'" /> <div class="bubble"> <img class="chatImg" src="'+content.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span style="position: absolute;">'+content.time.slice(11)+'</span> </div> </div>';
 								        		$('#chat-messages').prepend(str);
 
 								        		var img = new Image();
