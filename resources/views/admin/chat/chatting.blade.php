@@ -512,7 +512,7 @@
 								        		// var img = new Image();
 								        		// img.src = data.content;
 								        		var img = document.getElementById('img'+i);   
-											    img.setAttribute('src',data.content); 
+											    img.setAttribute('src', content.content); 
 												img.onload = function () { //图片下载完毕时异步调用callback函数。
 													imageArr[i] = 1;
 													
