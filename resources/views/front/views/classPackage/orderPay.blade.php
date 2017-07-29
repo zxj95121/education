@@ -34,7 +34,7 @@ $signPackage = $jssdk->GetSignPackage();
 <body>
 	<div class="page">
 	  	<header class="bar bar-nav">
-	    	<a class="button button-link button-nav pull-left" href="/front/classPackage?id={{$package->id}}" data-transition='slide-out'>
+	    	<a class="button button-link button-nav pull-left" onclick="window.location.href='/front/classPackage?id={{$package->id}}';" data-transition='slide-out'>
 	      		<span class="icon icon-left"></span>
 	      		返回
 	    	</a>
