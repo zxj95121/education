@@ -190,10 +190,10 @@ $worker->onMessage = function($connection, $data)
         $msg['type'] = $user_type;
         $msg['status'] = $data['status'];
         /*根据$data['aid']查他的头像地址*/
-        if (isset($data['aid']))
+        if (array_key_exists('aid', $data))
             $headimg = $db->select('headimg')->from('admin_info')->where('id= :id')->bindValues(array('id'=>$data['aid']))->single();
         else
-            $headimg = $db->select('headimg')->from('admin_info')->where('id= :id')->bindValues(array('id'=>$data['uid']))->single();
+            $headimg = $db->select('headimg')->from('parent_info')->where('id= :id')->bindValues(array('id'=>$data['uid']))->single();
         $msg['headimg'] = $headimg;
         /*根据$insert_id查时间*/
         $sendTime = substr($time, 5);
