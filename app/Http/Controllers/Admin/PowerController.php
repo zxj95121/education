@@ -15,7 +15,9 @@ class PowerController extends Controller
     {
     	$admin_id = Session::get('admin_id');
 
-    	$powerObj = AdminPower::find($admin_id);
+    	$powerObj = AdminPower::where('uid', $admin_id)
+    		->where('status', '1')
+    		->first();
 
     	return response()->json(['errcode'=>0,'power'=>$powerObj]);
     }
