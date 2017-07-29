@@ -199,7 +199,7 @@
 		    	}
 
 		    	var msg = new Object();
-		        msg.type = 'a';
+		        msg.type = 'u';
 		        msg.uid = user_id;
 		        msg.status = 'image';
 		        msg.content = image;
