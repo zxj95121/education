@@ -11,7 +11,10 @@
 
     <link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.css">
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
-    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+    <link href="/admin/assets/sweet-alert/sweet-alert.min.css" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css"> -->
     <link rel="stylesheet" type="text/css" href="/front/lib/chat/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="/front/lib/chat/css/default.css">
     <link rel="stylesheet" type="text/css" href="/front/lib/chat/css/styles.css">
@@ -28,25 +31,7 @@
 
 				<!-- 弹框 -->
 	    		<div id="showSweetAlert" class="sweet-alert showSweetAlert visible" tabindex="-1" data-custom-class="" data-has-cancel-button="false" data-has-confirm-button="true" data-allow-ouside-click="false" data-has-done-function="false" data-animation="pop" data-timer="null" style="/*display: block;*/z-index: 322; margin-top: 200px;position: absolute;background: #E3E3E3;">
-	    			<!-- <div class="sa-icon sa-error" style="">
-	    				<span class="sa-x-mark">
-	    					<span class="sa-line sa-left"></span>
-	    					<span class="sa-line sa-right"></span>
-	    				</span>
-	    			</div> -->
-	    			<!-- <div class="sa-icon sa-warning" style="display: none;"> 
-	    				<span class="sa-body"></span> 
-	    				<span class="sa-dot"></span>
-	    			</div> 
-	    			<div class="sa-icon sa-info" style="display: none;">
-	    				
-	    			</div> 
-	    			<div class="sa-icon sa-success" style="display: none;"> 
-		    			<span class="sa-line sa-tip"></span> 
-		    			<span class="sa-line sa-long"></span> 
-		    			<div class="sa-placeholder"></div> 
-		    			<div class="sa-fix"></div> 
-	    			</div>  -->
+
 	    			<div class="" style="width: 100%; display: block;margin: 0 auto;text-align: center;">
 	    				<img id="imageUpload" src="" style="max-width: 444px;">
 	    			</div> 
@@ -119,6 +104,9 @@
     <!-- <script type='text/javascript' src='/js/zepto.min.js' charset='utf-8'></script> -->
     <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script> -->
     <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script> -->
+    <script src="/admin/assets/sweet-alert/sweet-alert.min.js"></script>
+    <script src="/admin/assets/sweet-alert/sweet-alert.init.js"></script>
+
     <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="/js/json2.js"></script>
 
