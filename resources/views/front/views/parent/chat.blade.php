@@ -30,9 +30,9 @@
 			<div class="content" style="background: #D6D6D6;">
 
 				<!-- 弹框 -->
-	    		<div id="showSweetAlert" class="sweet-alert showSweetAlert visible" tabindex="-1" data-custom-class="" data-has-cancel-button="false" data-has-confirm-button="true" data-allow-ouside-click="false" data-has-done-function="false" data-animation="pop" data-timer="null" style="/*display: block;*/z-index: 3220; margin-top: 0px;top: 120px;position: absolute;background: #E3E3E3;">
+	    		<div id="showSweetAlert" class="sweet-alert showSweetAlert visible" tabindex="-1" data-custom-class="" data-has-cancel-button="false" data-has-confirm-button="true" data-allow-ouside-click="false" data-has-done-function="false" data-animation="pop" data-timer="null" style="/*display: block;*/z-index: 32200; margin-top: 0px;top: 100px;position: absolute;background: #E3E3E3;">
 
-	    			<div class="" style="width: 100%; display: block;margin: 0 auto;text-align: center;max-height: 320px;overflow: scroll;">
+	    			<div class="" id="imageSee" style="width: 100%; display: block;margin: 0 auto;text-align: center;max-height: 320px;overflow: scroll;">
 	    				<img id="imageUpload" src="" style="max-width: 280px;">
 	    			</div> 
 	    			<!-- <h2>Here's a message!</h2> -->
@@ -321,6 +321,10 @@
 	            }
 	        }
 	    });
+
+	    $('#imageSee').bind('touchmove', function(e) {
+	    	e.preventDefault();
+	    })
 
 
 	    $(document).on('touchend', '#chatview', function(e){
