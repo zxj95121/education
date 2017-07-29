@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\ParentInfo;
+use App\Models\ContactChat;
+use App\Models\ParentDetail;
 
 use Session;
 
