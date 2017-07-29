@@ -483,9 +483,11 @@
 		            			},
 		            			success: function(data) {
 		            				if (data.errcode == 0) {
+		            					var imageArr = new Array();
 		            					var obj = data.content;
 
 		            					var imageArr = new Array();
+
 		            					for (var i in obj) {
 		            						var content = obj[i];
 		            						console.log(content);
@@ -509,6 +511,7 @@
 								        		var str = '<div  class="message'+right+'"  time="'+content.created_at+'" > <img  src="'+headimg+'" /> <div class="bubble"> <img class="chatImg" src="'+content.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span style="position: absolute;">'+content.created_at.slice(11)+'</span> </div> </div>';
 								        		$('#chat-messages').prepend(str);
 
+								        		imageArr[i] = 1;
 								        		// var img = new Image();
 								        		// img.src = data.content;
 								        		var img = document.getElementById('img'+i);   
@@ -524,17 +527,18 @@
 						            						height += parseInt($(this).height());
 						            					})
 
-						            					console.log('height');
-
-						            					$('#chat-messages')[0].scrollTop = height;
-
 						            					request = 0;
-						            					imageArr = [];
+						            					$('#chat-messages')[0].scrollTop = height;
+						            					// imageArr = [];
 													}
 
 
 												}; 
 								        	}
+								        }
+
+								        if (imageArr.length < 1) {
+								        	request = 0;
 								        }
 								        $('#refresh').css('top', '83px');
 	            						$('#chat-messages').css('marginTop', '0px');
