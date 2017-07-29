@@ -265,6 +265,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 	$router->get('/grab/oauth', 'Weixin\GrabController@oauth');
 	$router->get('/grab', 'Weixin\GrabController@index');
 	$router->post('/grab/join', 'Weixin\GrabController@join');
+	$router->post('/grab/countdown', 'Weixin\GrabController@countdown');
 	
   /*class套餐前端展示*/
   $router->get('/classPackage', 'ClassPackageController@index');
