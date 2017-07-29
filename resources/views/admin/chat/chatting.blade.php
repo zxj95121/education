@@ -470,17 +470,16 @@
 		            		var time = $('#chat-messages .message:first').attr('time');
 		            		$.ajax({
 		            			url: '/admin/chatting/getPrevMessage',
-		            			dataType: 'post',
+		            			dataType: 'json',
 		            			type: 'post',
 		            			data: {
 		            				time: time,
 		            				uid: '{{$user_id}}'
 		            			},
 		            			success: function(data) {
-		            				console.log(11);
 		            				if (data.errcode == 0) {
 		            					var obj = data.content;
-		            					console.log(22);
+
 		            					for (var i in obj) {
 		            						var content = obj[i];
 		            						console.log(content);
