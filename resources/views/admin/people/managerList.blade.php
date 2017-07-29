@@ -264,9 +264,9 @@
             var power = $(this).attr('power');
             var detail = $(this).find('.toggle-slide').hasClass('active');
             if (detail)
-                data[power] = '1';
+                data[power] = 1;
             else
-                data[power] = '0';
+                data[power] = 0;
         })
 
         $.ajax({
