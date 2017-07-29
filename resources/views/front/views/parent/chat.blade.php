@@ -38,7 +38,7 @@
 	    			<!-- <h2>Here's a message!</h2> -->
 	    			<!-- <p style="display: block;"></p> -->
 	    			<button class="cancel" tabindex="2" style="display: inline-block; box-shadow: none;" onclick="hideAlert();">取消</button>
-	    			<button class="cancel" tabindex="2" style="display: inline-block; background-color: rgb(49, 85, 188); box-shadow: none;" onclick="fileClick();">更换图片</button>
+	    			<!-- <button class="cancel" tabindex="2" style="display: inline-block; background-color: rgb(49, 85, 188); box-shadow: none;" onclick="fileClick();">更换图片</button> -->
 	    			<button class="confirm" tabindex="1" id="sendPhoto" style="display: inline-block; background-color: rgb(174, 222, 244); box-shadow: rgba(174, 222, 244, 0.8) 0px 0px 2px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px inset;">发送图片</button>
 	    		</div>
 
@@ -105,7 +105,7 @@
     <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script> -->
     <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script> -->
     <script src="/admin/assets/sweet-alert/sweet-alert.min.js"></script>
-    <script src="/admin/assets/sweet-alert/sweet-alert.init.js"></script>
+    <!-- <script src="/admin/assets/sweet-alert/sweet-alert.init.js"></script> -->
 
     <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="/js/json2.js"></script>
@@ -254,9 +254,9 @@
     		$('#showSweetAlert').hide(250);
     	}
 
-    	function fileClick() {
-			return $('#fileInput').click();
-		}
+  //   	function fileClick() {
+		// 	return $('#fileInput').click();
+		// }
 
 		function showPreview(source) {  
             var file = document.getElementById('fileInput').files[0];
