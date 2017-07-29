@@ -97,7 +97,6 @@
 			        
 			        <div id="chat-messages" style="position: relative;">
 			        	
-			          	<label>Thursday 02</label>
 			          	@foreach ($content as $value)
 			          		@if ($value['type'] == 0)
 					            <div @if($value['admin_id']) class="message right" @else class="message" @endif time="{{$value['created_at']}}">

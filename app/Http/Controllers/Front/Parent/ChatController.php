@@ -19,6 +19,22 @@ class ChatController extends Controller
     		return redirect('/front/error_403');
     	}
     	$parentObj = ParentInfo::where('openid', $openid)->first();
-    	return view('front.views.parent.chat', ['parentObj'=>$parentObj]);
+
+    	$uid = $parentObj->id;
+
+    	$contentArr = ContactChat::where('contact_chat.uid', $uid)
+    		->where('contact_chat.status', 1)
+    		->orderBy('contact_chat.created_at', 'desc')
+    		->limit(10)
+    		->leftJoin('parent_info as pi', 'pi.id', 'contact_chat.uid')
+    		->leftJoin('admin_info as ai', 'ai.id', 'contact_chat.admin_id')
+    		->select('contact_chat.*', 'pi.headimg as uheadimg', 'ai.headimg as aheadimg')
+    		->get()
+    		->toArray();
+
+    	krsort($contentArr);
+
+    	/*查聊天记录*/
+    	return view('front.views.parent.chat', ['parentObj'=>$parentObj,'content'=>$contentArr]);
     }
 }
