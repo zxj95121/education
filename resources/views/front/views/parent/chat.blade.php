@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
 
     <link href="/admin/assets/sweet-alert/sweet-alert.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css"> -->
 
     <!-- <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css"> -->
     <link rel="stylesheet" type="text/css" href="/front/lib/chat/css/normalize.css">
@@ -117,7 +117,7 @@
     <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script> -->
     <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script> -->
     <script src="/admin/assets/sweet-alert/sweet-alert.min.js"></script>
-    <script type="text/javascript" src="/js/layui/layui.js"></script>
+    <script type="text/javascript" src="/js/layui/layer_only/mobile/layer.js"></script>
     <!-- <script src="/admin/assets/sweet-alert/sweet-alert.init.js"></script> -->
 
     <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
@@ -332,7 +332,11 @@
             var size = file.size;
             // if (size > 1048576) {
             if (size > 102) {
-            	window.layer.msg('您选择的文件过大！');
+            	layer.open({
+					content:'图片过大',
+					skin:'msg',
+					time:2
+				});
             	return false;
             }
 
@@ -341,7 +345,11 @@
                 fr.onloadend = function(e) {  
                 	var src = e.target.result; 
                 	if (src.substr(5,5) != 'image') {
-                		window.layer.msg('您选择的不是图片');
+                		layer.open({
+							content:'您选择的不是图片...',
+							skin:'msg',
+							time:2
+						});
                 		return false;
                 	} else {
                 		$('#showSweetAlert').show();
