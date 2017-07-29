@@ -164,6 +164,7 @@ class GrabController extends Controller
     	$newtime++;
     	$downtime = $newtime - strtotime($discountObj->start_time);
     	echo $downtime.'------'.$usercount;
+    	die;
     	if ($downtime < $usercount){
     		$lucky = UserDiscount::where('discount_id',$id)->where('user_discount.type',1)->where('user_discount.status',1)
 			    		->leftJoin('new_user','user_discount.uid','new_user.id')
