@@ -184,6 +184,10 @@
     			}
     		});
 
+    		$('#textInput').focus(function(){
+    			$('#textInput')[0].scrollIntoView(true);  
+    		})
+
 
     		// websocket
 
