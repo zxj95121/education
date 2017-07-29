@@ -292,6 +292,28 @@
 			$('#chat-messages')[0].scrollTop = scrollHeight;
 		}
 
+		function dealMessageHeightTop() {
+			$('#chat-messages .message:lt(5)').each(function(){
+				if ($(this).find('.chatData').length == 1) {
+					var height = $(this).find('.chatData')[0].offsetHeight;
+					// console.log(height);
+					if (height > 20) {
+						$(this).css('padding-bottom', (height+18) +'px');
+					}
+					$(this).css('height', height+'px');
+				} else if ($(this).find('.chatImg').length == 1) {
+					var height = $(this).find('.chatImg').height();
+					if (height > 20) {
+						$(this).css('padding-bottom', (height+18) +'px');
+					}
+					$(this).css('height', height+'px');
+				}
+			})
+
+			var scrollHeight = $('#chat-messages')[0].scrollHeight;
+			$('#chat-messages')[0].scrollTop = scrollHeight;
+		}
+
 		function sendMessage() {
     		$('#textInput').val('');
     	}
