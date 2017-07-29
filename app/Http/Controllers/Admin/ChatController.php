@@ -39,6 +39,12 @@ class ChatController extends Controller
     	$uid = $request->input('uid');
     	$admin_id = Session::get('admin_id');
 
+    	/*将所有未读消息清空*/
+    	ContactChat::where('status', '1')
+    		->where('uid', $uid)
+    		->where('read', '0')
+    		->update(['read'=>'1']);
+
     	$contentArr = ContactChat::where('contact_chat.uid', $uid)
     		->where('contact_chat.status', 1)
     		->orderBy('contact_chat.created_at', 'desc')
