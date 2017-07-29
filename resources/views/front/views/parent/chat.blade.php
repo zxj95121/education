@@ -469,7 +469,7 @@
 			            					})
 
 			            					request = 0;
-			            					$('#chat-messages')[0].scrollTop = height;
+			            					$('#chat-messages').scrollTop(height);
 			            					// imageArr = [];
 										}
 
