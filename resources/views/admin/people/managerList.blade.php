@@ -3,6 +3,7 @@
 <!-- 在这里写style样式，或者在这里外加link -->
 @section('style')
 <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css">
+<link href="/admin/assets/toggles/toggles.css" rel="stylesheet" />
 <style type="text/css">
     .operate span{
         cursor: pointer;
@@ -47,21 +48,18 @@
                                                     <th>手机号</th>
                                                     <th>状态</th>
                                                     <th>登录次数</th>
-                                                    @if($manageInfo->identity == 1)
                                                     <th>操作</th>
-                                                    @else
-                                                    @endif
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach($adminInfo as $value)
                                                 <tr>
-                                                    <td>{{$value->id}}</td>
+                                                    <td>{{$value->aid}}</td>
                                                     <td>{{$value->nickname}}</td>
                                                     <td>{{$value->name}}</td>
                                                     <td>{{$value->phone}}</td>
                                                     <td>
-                                                        @if($value->status == 1)
+                                                        @if($value->aStatus == 1)
 
                                                             <span class="label label-success status">可用</span>
                                                         @else
@@ -75,16 +73,23 @@
                                                         @endif
                                                     </td>
                                                     <td>{{$value->count}}</td>
-                                                    @if($manageInfo->identity == 1)
+                                                    
                                                     <td class="operate">
-                                                        @if($value->status == 1)
-                                                            <span class="label label-info delete">禁用</span>
+                                                        @if($manageInfo->identity == 1)
+                                                            @if($value->aStatus == 1)
+                                                                <span class="label label-info delete">禁用</span>
+                                                            @else
+                                                                <span class="label label-info open">启用</span>
+                                                            @endif
+
                                                         @else
-                                                            <span class="label label-info open">启用</span>
+                                                        @endif
+                                                        @if($value->set_power == '1')
+                                                        <span class="label label-info setPowerLabel">设置管理权限</span>
+                                                        @else
                                                         @endif
                                                     </td>
-                                                    @else
-                                                    @endif
+                                                    
                                                 </tr>
                                                 @endforeach
                                             </tbody>
@@ -106,14 +111,84 @@
                 </div> <!-- end row -->
 
             </div>
+
+
+            <div id="setModal" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">设置管理员权限</h4>
+                        </div>
+                        <div class="modal-body" style="min-height: 150px;">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-6 control-label">设置权限的权限</label>
+                                        <div class="col-sm-6 control-label">
+                                            <div class="toggle toggle-success toggle_power" power="set_power" style="height: 20px; width: 50px;">
+                                                <div class="toggle-slide">
+                                                    <div class="toggle-inner" style="width: 80px; margin-left: 0px;">
+                                                        <div class="toggle-on" style="height: 20px; width: 40px; text-align: center; text-indent: -10px; line-height: 20px;">
+                                                            ON
+                                                        </div>
+                                                        <div class="toggle-blob" style="height: 20px; width: 20px; margin-left: -10px;">
+                                                            
+                                                        </div>
+                                                        <div class="toggle-off" style="height: 20px; width: 40px; margin-left: -10px; text-align: center; text-indent: 10px; line-height: 20px;">
+                                                            OFF
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-6 control-label">用户沟通权限</label>
+                                        <div class="col-sm-6 control-label">
+                                            <div class="toggle toggle-success toggle_power" power="chat" style="height: 20px; width: 50px;">
+                                                <div class="toggle-slide">
+                                                    <div class="toggle-inner" style="width: 80px; margin-left: 0px;">
+                                                        <div class="toggle-on" style="height: 20px; width: 40px; text-align: center; text-indent: -10px; line-height: 20px;">
+                                                            ON
+                                                        </div>
+                                                        <div class="toggle-blob" style="height: 20px; width: 20px; margin-left: -10px;">
+                                                            
+                                                        </div>
+                                                        <div class="toggle-off" style="height: 20px; width: 40px; margin-left: -10px; text-align: center; text-indent: 10px; line-height: 20px;">
+                                                            OFF
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                            <button type="button" class="btn btn-primary" onclick="ajaxPower();">保存设置</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
 @endsection
             
 
 <!-- 加js代码，或引入 -->
 @section('jquery')
 <script type="text/javascript" src="/js/layui/layui.js"></script>
+<script type="text/javascript" src="/admin/assets/toggles/toggles.min.js"></script>
 <script type="text/javascript">
+    // jQuery('.toggle').toggles({on: false});
+
     $(function(){
+        power = eval('({!!$power!!})');
+        // console.log(power);
 
         layui.use('layer', function(){
             window.layer = layui.layer;
@@ -162,6 +237,49 @@
                 }
             })
         })
+
+        $(document).on('click', '.setPowerLabel', function() {
+            $('#setModal').modal('show');
+            var id = $(this).parents('tr').find('td:eq(0)').html();
+
+            var obj = power[id];
+            for (var i in obj) {
+                if (obj[i]) {
+                    jQuery('.toggle_power[power="'+i+'"]').toggles({on: true});
+                } else {
+                    jQuery('.toggle_power[power="'+i+'"]').toggles({on: false});
+                }
+            }
+        })
+
     })
+
+    function ajaxPower() {
+        var data = new Object();
+        $('.toggle_power').each(function() {
+            var power = $(this).attr('power');
+            var detail = $(this).find('.toggle-slide').hasClass('active');
+            if (detail)
+                data[power] = '1';
+            else
+                data[power] = '0';
+        })
+
+        $.ajax({
+            url: '/admin/manage/setPower',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                power: data
+            },
+            success: function(data) {
+                if (data.errcode == 0) {
+                    window.layer.msg('设置成功');
+                    $('#setModal').modal('hide');
+                    window.location.reload();
+                }
+            }
+        })
+    }
 </script>
 @endsection

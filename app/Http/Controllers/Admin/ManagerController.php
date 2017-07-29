@@ -15,19 +15,29 @@ use App\Models\CommunityCity;
 use App\Models\Hobby;
 use App\Models\NewUser;
 use App\Models\UserShare;
+use App\Models\AdminPower;
+
 use Session;
 use Wechat;
 class ManagerController extends Controller
 {
     public function managerList()
     {
-    	$adminInfo = AdminInfo::where('status', '=', '1')
-    		->orwhere('status', '-1')
+    	$adminInfo = AdminInfo::where('admin_info.status', '=', '1')
+    		->orwhere('admin_info.status', '-1')
+            ->leftJoin('admin_power as ap', 'ap.uid', 'admin_info.id')
     		->orderby('status', 'desc')
+            ->select('admin_info.nickname', 'admin_info.id as aid', 'admin_info.name', 'admin_info.phone', 'admin_info.identity', 'admin_info.status as aStatus', 'admin_info.count', 'ap.*')
     		->paginate(10);
 
+        $power = array();
+        foreach($adminInfo as $value) {
+            $power[$value->aid]['set_power'] = $value->set_power;
+            $power[$value->aid]['chat'] = $value->chat;
+        }
+        $power = json_encode($power);
     	$manageInfo = AdminInfo::find(Session::get('admin_id'));
-    	return view('admin.people.managerList',['adminInfo'=>$adminInfo,'manageInfo'=>$manageInfo]);
+    	return view('admin.people.managerList',['adminInfo'=>$adminInfo,'manageInfo'=>$manageInfo, 'power'=>$power]);
     }
 
     /*待审核管理员*/
@@ -35,7 +45,7 @@ class ManagerController extends Controller
     {
     	$adminInfo = AdminInfo::where('status', '0')
     		->paginate(10);
-    	return view('admin.people.managerReview',['adminInfo'=>$adminInfo]);
+    	return view('admin.people.managerReview', ['adminInfo'=>$adminInfo]);
     }
 
     /*待审核的管理员的相关操作*/
@@ -208,5 +218,17 @@ class ManagerController extends Controller
 			$Shareobj[$key]['succeed'] = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status',1)->where('subscribe',1)->count();
     	}
     	return view('admin.share',['res'=>$Shareobj, 'str'=>$str, 'phone'=>$phone]);
+    }
+
+
+    public function setPower(Request $request) {
+        $admin_id = Session::get('admin_id');
+        $power = $request->input('power');
+
+        AdminPower::where('uid', $admin_id)
+            ->where('status', '1')
+            ->update($power);
+
+        return response()->json(['errcode'=>0]);
     }
 }
