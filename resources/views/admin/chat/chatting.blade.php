@@ -521,7 +521,7 @@
 		            						height += parseInt($(this).height());
 		            					})
 
-		            					$('#chat-messages')[0].scrollTop = height+'px';
+		            					$('#chat-messages')[0].scrollTop = height;
 
 		            					request = 0;
 		            				}
