@@ -488,6 +488,10 @@
 
 		            					var imageArr = new Array();
 
+		            					if (obj.length == 0) {
+		            						window.layer.msg('没有更多消息');
+		            					}
+
 		            					for (var i in obj) {
 		            						var content = obj[i];
 		            						console.log(content);
