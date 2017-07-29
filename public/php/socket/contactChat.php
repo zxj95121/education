@@ -170,7 +170,10 @@ $worker->onMessage = function($connection, $data)
         $msg['type'] = 'a';
         $msg['status'] = $data['status'];
         /*根据$data['aid']查他的头像地址*/
-        $headimg = $db->select('headimg')->from('admin_info')->where('id= :id')->bindValues(array('id'=>$data['aid']))->single();
+        if (isset($data['aid']))
+            $headimg = $db->select('headimg')->from('admin_info')->where('id= :id')->bindValues(array('id'=>$data['aid']))->single();
+        else
+            $headimg = $db->select('headimg')->from('admin_info')->where('id= :id')->bindValues(array('id'=>$data['uid']))->single();
         $msg['headimg'] = $headimg;
         /*根据$insert_id查时间*/
         $sendTime = substr($time, 5);
