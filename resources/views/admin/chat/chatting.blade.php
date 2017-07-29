@@ -202,6 +202,9 @@
 				}
 
 			})
+
+			var scrollHeight = $('#chat-messages')[0].scrollHeight;
+			$('#chat-messages')[0].scrollTop = scrollHeight;
 		})
 
 		function dealMessageHeight() {
