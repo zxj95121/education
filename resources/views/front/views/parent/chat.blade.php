@@ -8,11 +8,13 @@
 <!--     <link rel="shortcut icon" href="/favicon.ico"> -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="csrf-token" content="{{csrf_token()}}">
 
     <link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.css">
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
 
     <link href="/admin/assets/sweet-alert/sweet-alert.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css">
 
     <!-- <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css"> -->
     <link rel="stylesheet" type="text/css" href="/front/lib/chat/css/normalize.css">
@@ -109,6 +111,7 @@
     <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script> -->
     <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script> -->
     <script src="/admin/assets/sweet-alert/sweet-alert.min.js"></script>
+    <script type="text/javascript" src="/js/layui/layui.js"></script>
     <!-- <script src="/admin/assets/sweet-alert/sweet-alert.init.js"></script> -->
 
     <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
@@ -118,6 +121,13 @@
     <script type="text/javascript">
 
 		$(window).load(function(){
+
+			$.ajaxSetup({
+	            headers: {
+	                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	            }
+	        });
+
 			var height = $('#chatview').height();
 			var h1 = $('#profile').height();
 			var h2 = $('#sendmessage').height();
