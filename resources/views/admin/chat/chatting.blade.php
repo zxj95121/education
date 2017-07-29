@@ -529,7 +529,7 @@
 						            					$('#chat-messages')[0].scrollTop = height;
 
 						            					request = 0;
-						            					imageArr = null;
+						            					imageArr = [];
 													}
 
 
