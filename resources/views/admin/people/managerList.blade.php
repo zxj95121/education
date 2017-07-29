@@ -281,7 +281,9 @@
                 if (data.errcode == 0) {
                     window.layer.msg('设置成功');
                     $('#setModal').modal('hide');
-                    window.location.reload();
+                    power[id] = data;
+                    console.log(power);
+                    // window.location.reload();
                 }
             }
         })
