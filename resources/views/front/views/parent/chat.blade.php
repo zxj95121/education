@@ -103,7 +103,7 @@
 			       
 			        <div id="sendmessage">
 			        	<input type="text" id="textInput" value="" placeholder="" />
-			          	<input type="file" id="fileInput" style="display: none;" name="file" accept="image/*" capture=camera>
+			          	<input type="file" id="fileInput" style="display: none;" name="file" accept="image/*">
 			            <button id="sendBtn" style="display: none;"><img src="/images/square-send.png" style="width: 100%;height: 100%;"></button>
 			            <button id="imageBtn" onclick="fileClick();"><img src="/images/square-image.png" style="width: 100%;height: 100%;"></button>
 			        </div>  
@@ -330,7 +330,7 @@
 		function showPreview(source) {  
             var file = document.getElementById('fileInput').files[0];
             var size = file.size;
-            if (size > 2097152) {
+            if (size > 1048576) {
             	window.layer.msg('您选择的文件过大！');
             	return false;
             }
