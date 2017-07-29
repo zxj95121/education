@@ -1,7 +1,8 @@
 * { margin: 0px; padding: 0px; }
 body {
-	background: #f0f1f2;
-	font:12px "Open Sans", sans-serif; 
+	background: #1A1A1A;
+	font-size: 12px; 
+	font-family: '宋体';
 }
 #view-code{
   color:#89a2b5;    
