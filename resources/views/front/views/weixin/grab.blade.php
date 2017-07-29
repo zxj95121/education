@@ -12,8 +12,8 @@
 				<th>开始时间</th>
 			</tr>
 			<tr>
-				<td>{{$res[0]->name}}</td>
-				<td>{{$res[0]->start_time}}</td>
+				<td>{{$res->name}}</td>
+				<td>{{$res->start_time}}</td>
 			</tr>
 		</table>
 		<table id="t2">
@@ -53,7 +53,7 @@
 					$.ajax({
 						url:'/front/grab/countdown',
 						data:{
-							id:{{$res[0]->id}}
+							id:{{$res->id}}
 						},
 						type:'post',
 						datatype:'json',
