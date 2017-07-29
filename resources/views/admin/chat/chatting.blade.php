@@ -69,7 +69,11 @@
 
 	        <div class="portlet-body" id="content">
 
-
+	        	<img src="" id="img0" style="display: none;">
+	        	<img src="" id="img1" style="display: none;">
+	        	<img src="" id="img2" style="display: none;">
+	        	<img src="" id="img3" style="display: none;">
+	        	<img src="" id="img4" style="display: none;">
 	        	<!-- 复制开始 -->
 	        	<div id="chatview" class="p1" style="width:100%;height:100%;position: relative;">
 			    	<div id="refresh" style="position: absolute;width: 100%;height:40px;top:83px;">
@@ -505,10 +509,13 @@
 								        		var str = '<div  class="message'+right+'"  time="'+content.created_at+'" > <img  src="'+headimg+'" /> <div class="bubble"> <img class="chatImg" src="'+content.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span style="position: absolute;">'+content.created_at.slice(11)+'</span> </div> </div>';
 								        		$('#chat-messages').prepend(str);
 
-								        		var img = new Image();
-								        		img.src = data.content;
+								        		// var img = new Image();
+								        		// img.src = data.content;
+								        		var img = document.getElementById('img'+i);   
+											    img.setAttribute('src',data.content); 
 												img.onload = function () { //图片下载完毕时异步调用callback函数。
 													imageArr[i] = 1;
+													
 													console.log(imageArr.length);
 													if (imageArr.length >= 5) {
 														dealMessageHeightTop();
