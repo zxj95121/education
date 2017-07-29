@@ -166,12 +166,59 @@
 		      
 		    });  
 		    ws.onmessage = function(e) {
-		        console.log("收到服务端的消息：" + e.data);
+		        // console.log("收到服务端的消息：" + e.data);
+		        var data = e.data;
+		        data = eval('('+data+')');
+		        
+		        if (data.type == 'a') {
+		        	var right = ' right';
+		        	
+		        } else if (data.type == 'u') {
+		        	var right = '';
+		
+		        }
+
+		        if (data.status == 'msg') {
+	        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble"> <span class="chatData">'+data.content+'</span> <div class="corner"></div> <span>'+data.time+'</span> </div> </div>';
+	        		$('#chat-messages').append(str);
+
+	        		dealMessageHeight();
+	        	} else if (data.status == 'image') {
+	        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble"> <img class="chatImg" src="'+data.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span style="position: absolute;">'+data.time+'</span> </div> </div>';
+	        		$('#chat-messages').append(str);
+
+	        		var img = new Image();
+	        		img.src = data.content; 
+					img.onload = function () { //图片下载完毕时异步调用callback函数。 
+						dealMessageHeight();
+					}; 
+	        	}
 		    };
 		    ws.onclose = function (event) {
 			    console.log('已关闭');
 			}
     	})
+
+    	function dealMessageHeight() {
+			var cdom = $('#chat-messages .message:last');
+			if (cdom.find('.chatData').length == 1) {
+				var height = cdom.find('.chatData')[0].offsetHeight;
+				// console.log(height);
+				if (height > 20) {
+					cdom.css('padding-bottom', (height+18) +'px');
+				}
+				cdom.css('height', height+'px');
+			} else if (cdom.find('.chatImg').length == 1) {
+				var height = cdom.find('.chatImg').height();
+				if (height > 20) {
+					cdom.css('padding-bottom', (height+18) +'px');
+				}
+				cdom.css('height', height+'px');
+			}
+
+			var scrollHeight = $('#chat-messages')[0].scrollHeight;
+			$('#chat-messages')[0].scrollTop = scrollHeight;
+		}
     </script>
 
     <script type="text/javascript">
