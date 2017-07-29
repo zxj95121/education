@@ -30,7 +30,7 @@
 			<div class="content" style="background: #D6D6D6;">
 
 				<!-- 弹框 -->
-	    		<div id="showSweetAlert" class="sweet-alert showSweetAlert visible" tabindex="-1" data-custom-class="" data-has-cancel-button="false" data-has-confirm-button="true" data-allow-ouside-click="false" data-has-done-function="false" data-animation="pop" data-timer="null" style="/*display: block;*/z-index: 322; margin-top: 0px;top: 150px;position: absolute;background: #E3E3E3;">
+	    		<div id="showSweetAlert" class="sweet-alert showSweetAlert visible" tabindex="-1" data-custom-class="" data-has-cancel-button="false" data-has-confirm-button="true" data-allow-ouside-click="false" data-has-done-function="false" data-animation="pop" data-timer="null" style="/*display: block;*/z-index: 3220; margin-top: 0px;top: 120px;position: absolute;background: #E3E3E3;">
 
 	    			<div class="" style="width: 100%; display: block;margin: 0 auto;text-align: center;max-height: 320px;overflow: scroll;">
 	    				<img id="imageUpload" src="" style="max-width: 280px;">
@@ -39,7 +39,7 @@
 	    			<!-- <p style="display: block;"></p> -->
 	    			<button class="cancel" tabindex="2" style="display: inline-block; box-shadow: none;" onclick="hideAlert();">取消</button>
 	    			<!-- <button class="cancel" tabindex="2" style="display: inline-block; background-color: rgb(49, 85, 188); box-shadow: none;" onclick="fileClick();">更换图片</button> -->
-	    			<button class="confirm" tabindex="1" id="sendPhoto" style="display: inline-block; background-color: rgb(174, 222, 244); box-shadow: rgba(174, 222, 244, 0.8) 0px 0px 2px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px inset;">发送图片</button>
+	    			<button class="confirm" tabindex="1" id="sendPhoto" style="display: inline-block; background-color: rgb(52,199,59); box-shadow: rgba(174, 222, 244, 0.8) 0px 0px 2px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px inset;">发送图片</button>
 	    		</div>
 
 
