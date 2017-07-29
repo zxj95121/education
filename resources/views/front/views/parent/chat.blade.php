@@ -20,6 +20,9 @@
     <link rel="stylesheet" type="text/css" href="/front/lib/chat/css/styles.css">
 
     <style type="text/css">
+	    .chatImg{
+			max-width: 210px;
+		}
     </style>
 
   </head>
@@ -240,6 +243,8 @@
 					}; 
 	        	}
 	        	$('#textInput').val('');
+	        	$('#imageBtn').show();
+    			$('#sendBtn').hide();
 		    };
 		    ws.onclose = function (event) {
 			    console.log('已关闭');
