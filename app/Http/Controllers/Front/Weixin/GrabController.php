@@ -45,7 +45,8 @@ class GrabController extends Controller
     			$code = 200;
     		}
     	} else {
-    		if (time() >= strtotime($discountObj->start_time)) {
+    		$newtime = strtotime('2017-07-30 16:16:01');
+    		if ($newtime >= strtotime($discountObj->start_time)) {
     			//活动已经开始，进行抽奖
     			$usercount = UserDiscount::where('discount_id',$id)->where('status',1)->count();
     			if($usercount == 1){
@@ -75,7 +76,7 @@ class GrabController extends Controller
     			}
     			//已经进行过抽奖,公布名单
     			$usercount = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)->count();
-    			$downtime = time() - strtotime($discountObj->start_time);
+    			$downtime = $newtime - strtotime($discountObj->start_time);
     			if ($downtime < $usercount){
     				//未完全显示，需要发送ajax
     				$lucky = UserDiscount::where('discount_id',$id)->where('user_discount.type',1)->where('user_discount.status',1)
