@@ -207,6 +207,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/otherClass/add/setShowPost', 'OtherClass\OtherClassAddController@setShowPost');
     $router->post('/otherClass/add/delete', 'OtherClass\OtherClassAddController@delete');//delete套餐
 
+    $router->post('/otherClass/orderList', 'OtherClass\OtherClassAddController@orderList');//
+
     $router->get('/otherClass/discount', 'OtherClass\DiscountController@index');
     $router->get('/otherClass/discount/add', 'OtherClass\DiscountController@add');
     $router->post('/otherClass/discount/add_post', 'OtherClass\DiscountController@add_post');
