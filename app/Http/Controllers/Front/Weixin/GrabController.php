@@ -17,7 +17,7 @@ class GrabController extends Controller
     	$id = Session::get('grab')['id'];
     	$discountObj = Discount::where('discount.id',$id)
     					->leftJoin('class_package','discount.pid','class_package.id')
-    					->select('discount.id','class_package.name','discount.start_time')
+    					->select('discount.id','class_package.name','discount.start_time','discount.probability')
     					->get()[0];
     	Session::forget('grab');
     	$discountType = UserDiscount::where('discount_id',$id)->where('status',1)->where('type','!=','0')->count();
@@ -62,10 +62,6 @@ class GrabController extends Controller
     					$num = $gailv;
     				}
     				$userdiscountArray = UserDiscount::where('discount_id',$id)->where('status',1)->get()->toArray();
-    				dump($usercount);
-    				dump($discountObj->probability);
-    				dump($gailv);
-    				dump($userdiscountArray);
     				$newArray = array_flip(array_rand($userdiscountArray,$num));
     				foreach($userdiscountArray as $key=>$value){
     					if (array_key_exists($key,$newArray)){
