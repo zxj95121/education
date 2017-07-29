@@ -436,7 +436,11 @@
         					var imageArr = new Array();
 
         					if (obj.length == 0) {
-        						window.layer.msg('没有更多消息');
+        						layer.open({
+									content:'没有更多消息',
+									skin:'msg',
+									time:2
+								});
         					}
 
         					for (var i in obj) {
