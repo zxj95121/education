@@ -73,9 +73,9 @@
 				        </div>
 				       
 				        <div id="sendmessage">
-				          <input type="text" id="textInput" value="" placeholder="" />
+				          	<input type="file" id="fileInput" style="display: none;" name="file">
 				            <button id="sendBtn" style="display: none;"><img src="/images/square-send.png" style="width: 100%;height: 100%;"></button>
-				            <button id="imageBtn"><img src="/images/square-image.png" style="width: 100%;height: 100%;"></button>
+				            <button id="imageBtn" onclick="fileClick();"><img src="/images/square-image.png" style="width: 100%;height: 100%;"></button>
 				        </div>  
 				    </div>
 			</div>
@@ -197,6 +197,10 @@
 		    ws.onclose = function (event) {
 			    console.log('已关闭');
 			}
+
+			$('#fileInput').change(function(){				
+				showPreview();
+			});
     	})
 
     	function dealMessageHeight() {
@@ -219,6 +223,42 @@
 			var scrollHeight = $('#chat-messages')[0].scrollHeight;
 			$('#chat-messages')[0].scrollTop = scrollHeight;
 		}
+
+		function sendMessage() {
+    		$('#textInput').val('');
+    	}
+
+    	function hideAlert() {
+    		$('#showSweetAlert').hide(250);
+    	}
+
+    	function fileClick() {
+			return $('#fileInput').click();
+		}
+
+		function showPreview(source) {  
+            var file = document.getElementById('fileInput').files[0];
+            var size = file.size;
+            if (size > 2097152) {
+            	window.layer.msg('您选择的文件过大！');
+            	return false;
+            }
+
+            if(window.FileReader) {  
+                var fr = new FileReader();  
+                fr.onloadend = function(e) {  
+                	var src = e.target.result; 
+                	if (src.substr(5,5) != 'image') {
+                		window.layer.msg('您选择的不是图片');
+                		return false;
+                	} else {
+                		$('#showSweetAlert').show();
+                    	document.getElementById("imageUpload").src = e.target.result; 
+                    }
+                };  
+                fr.readAsDataURL(file);
+            }  
+        }  
     </script>
 
     <script type="text/javascript">
