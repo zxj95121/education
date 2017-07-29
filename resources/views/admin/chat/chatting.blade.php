@@ -477,9 +477,10 @@
 		            				uid: '{{$user_id}}'
 		            			},
 		            			success: function(data) {
+		            				console.log(11);
 		            				if (data.errcode == 0) {
 		            					var obj = data.content;
-
+		            					console.log(22);
 		            					for (var i in obj) {
 		            						var content = obj[i];
 		            						console.log(content);
