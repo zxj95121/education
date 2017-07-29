@@ -55,12 +55,15 @@ class GrabController extends Controller
     				$userdiscountObj->save();
     			}else{
     				$gailv = intval($usercount * $discountObj->probability * 0.01);
+    				
     				if ($gailv < 1) {
     					$num = 1;
     				} else {
     					$num = $gailv;
     				}
     				$userdiscountArray = UserDiscount::where('discount_id',$id)->where('status',1)->get()->toArray();
+    				dump($gailv);
+    				dump($userdiscountArray);
     				$newArray = array_flip(array_rand($userdiscountArray,$num));
     				foreach($userdiscountArray as $key=>$value){
     					if (array_key_exists($key,$newArray)){
