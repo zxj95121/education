@@ -330,7 +330,8 @@
 		function showPreview(source) {  
             var file = document.getElementById('fileInput').files[0];
             var size = file.size;
-            if (size > 1048576) {
+            // if (size > 1048576) {
+            if (size > 102) {
             	window.layer.msg('您选择的文件过大！');
             	return false;
             }
