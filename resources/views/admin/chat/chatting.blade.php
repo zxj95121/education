@@ -512,7 +512,7 @@
 								        	}
 								        }
 								        $('#refresh').css('top', '83px');
-	            						// $('#chat-messages').css('marginTop', '0px');
+	            						$('#chat-messages').css('marginTop', '0px');
 		            					
 
 
