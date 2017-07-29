@@ -53,7 +53,7 @@
                                         <div class="col-md-7" style="">
                                             <script id="container" name="content" type="text/plain">{!!$package->show!!}</script>
                                         </div>
-                                        <div class="col-md-5" style="padding: 0px;max-width: 400px;min-height: 300px;max-height:500px;overflow-y: scroll;border: 1px solid #F0F;" id="showResult">{!!$package->show!!}</div>
+                                        <div class="col-md-5" style="padding: 0px;max-width: 400px;min-height: 300px;max-height: 800px;overflow-y: scroll;border: 1px solid #F0F;" id="showResult">{!!$package->show!!}</div>
                                     </div>
                                 </div>
                             </div>
@@ -96,10 +96,13 @@
 <script type="text/javascript" src="/js/ueditor/ueditor.all.js"></script>
 <!-- 实例化编辑器 -->
 <script type="text/javascript">
-    var ue = UE.getEditor('container');
-    ue.ready(function(){
-        ue.setHeight(450);
-    })
+    var ue = UE.getEditor('container', {
+        initialFrameHeight:450,//设置编辑器高度
+        scaleEnabled:true//设置不自动调整高度
+    });
+    // ue.ready(function(){
+    //     ue.setHeight(450);
+    // })
 
     $('#seeResult').click(function(){
         $('#showResult').html(ue.getContent());
