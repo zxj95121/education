@@ -157,7 +157,7 @@ class GrabController extends Controller
     }
     //倒计时
     public function countdown(Request $request){
-    	static $newtime = strtotime('2017-07-30 16:16:01');
+    	static $newtime = 1501402561;
     	$id = $request->input('id');
     	$discountObj = Discount::find($id);
     	$usercount = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)->count();
