@@ -18,7 +18,7 @@ class GrabController extends Controller
     	$discountObj = Discount::where('discount.id',$id)
     					->leftJoin('class_package','discount.pid','class_package.id')
     					->select('discount.id','class_package.name','discount.start_time')
-    					->get();
+    					->get()[0];
     	Session::forget('grab');
     	$discountType = UserDiscount::where('discount_id',$id)->where('status',1)->where('type','!=','0')->count();
     	if ($discountType > 0) {
