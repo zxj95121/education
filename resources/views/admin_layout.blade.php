@@ -158,7 +158,7 @@
                         </a>
                         <ul class="list-unstyled">
                             <li class="{!!(Request::is('admin/chatShow')? 'active' : '') !!} communication">
-                                <a href="/admin/chatShow">用户沟通   </a>
+                                <a href="/admin/chatShow?read=1">用户沟通   </a>
                             </li>
                         </ul>
                     </li>
