@@ -47,6 +47,7 @@
 				                        <th>求职状态</th>
 				                        <th>期望薪资</th>
 				                        <th>期望教学社区</th>
+				                        <th>操作</th>
 				                    </tr>
 				                </thead>
 				                <tbody>
@@ -83,6 +84,7 @@
 				                        </td>
 				                        <td>{{$value->money}}</td>
 				                        <td><span class="label label-info identity" tid="{{$value->id}}">查看</span></td>
+				                        <td><span class="label label-primary" onclick="deleteTeacher({{$value->id}});">删除用户</span></td>
 				                    </tr>
 				                    @endforeach
 				                </tbody>
@@ -163,6 +165,20 @@
 		})
 		
 	})
+
+	function deleteTeacher(id) {
+		$.ajax({
+			url: '/admin/manage/deleteTeacher',
+			type: 'post',
+			dataType: 'json',
+			data: {
+				id: id
+			},
+			success: function(data){
+				console.log(data);
+			}
+		})
+	}
 </script>
 
 @endsection

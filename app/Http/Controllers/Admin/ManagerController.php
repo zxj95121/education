@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AdminInfo;
 use App\Models\UserType;
 use App\Models\TeacherDetail;
+use App\Models\TeacherInfo;
 use App\Models\ParentDetail;
 use App\Models\CommunityCommunity;
 use App\Models\CommunityArea;
@@ -16,9 +17,16 @@ use App\Models\Hobby;
 use App\Models\NewUser;
 use App\Models\UserShare;
 use App\Models\AdminPower;
+use App\Models\BigOrder;
+use App\Models\EclassOrder;
+use App\Models\Bill;
+use App\Models\SchoolApply;
+use App\Models\HobbyApply;
 
 use Session;
 use Wechat;
+use DB;
+
 class ManagerController extends Controller
 {
     public function managerList()
@@ -126,11 +134,9 @@ class ManagerController extends Controller
     {
     	$res = TeacherDetail::where('teacher_detail.status','1')
     		->leftJoin('teacher_info','teacher_detail.tid','teacher_info.id')
-    		->select('teacher_info.name as nickname','teacher_detail.id','teacher_detail.name','phone','sex','type','project','find_status','address','money','hobby','subject')
+    		->select('teacher_info.name as nickname','teacher_info.id','teacher_detail.name','phone','sex','type','project','find_status','address','money','hobby','subject')
     		->paginate(10);
-    	if(isset($res->hobby)){
-    		
-    	}
+
     	for($i = 0; $i < count($res); $i++){
     		
     		$arr = explode('-',$res[$i]->money);
@@ -150,7 +156,7 @@ class ManagerController extends Controller
                     $hobbyObj = Hobby::find($arr1[$j]);
                     $hobby = $hobby.'、'.$hobbyObj->name;
                 }
-                $res[$i]->aihao = substr($hobby,3,strlen($hobby));
+                $res[$i]->aihao = substr($hobby,3);
             }else{
                  $res[$i]->aihao = '';
             }
@@ -235,6 +241,44 @@ class ManagerController extends Controller
             ->where('status', '1')
             ->update($power);
 
+        return response()->json(['errcode'=>0]);
+    }
+
+    public function deleteTeacher(Request $request)
+    {
+        $id = $request->input('id');
+        $flight = TeacherInfo::find($id);
+        $openid = $flight->openid;
+
+        // $userInfo = UserType::where('uid', $id)
+        //     ->where('type', 3)
+        //     ->select('openid', 'id')
+        //     ->first();
+        // $user_id = $userInfo->id;
+
+        /*查出所有的big_order*/
+        $BigOrder = BigOrder::where('openid', $openid)
+            ->select('id')
+            ->get();
+
+        DB::beginTransaction();
+        /*删除订单表和交易表*/
+        foreach ($BigOrder as $value) {
+            $bid = $value->bid;
+            EclassOrder::where('bid', $bid)->delete();
+            Bill::where('oid', $bid)->delete();
+            BigOrder::where('id', $bid)->delete();
+        }
+
+        HobbyApply::where('openid', $openid)->delete();
+        SchoolApply::where('openid', $openid)->delete();
+        UserShare::where('openid', $openid)->delete();
+        TeacherInfo::where('openid', $openid)->delete();
+        TeacherDetail::where('tid', $id)->delete();
+        UserType::where('openid', $openid)->delete();
+        NewUser::where('openid', $openid)->delete();
+
+        DB::commit();
         return response()->json(['errcode'=>0]);
     }
 }

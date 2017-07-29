@@ -75,8 +75,10 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->get('/managerReview', 'ManagerController@managerReview');
     $router->post('/reviewOperate', 'ManagerController@reviewOperate');
     $router->post('/managerRemove', 'ManagerController@managerRemove');
-    $router->post('/manage/setPower', 'ManagerController@setPower');
+    $router->post('/manage/setPower', 'ManagerController@setPower');/*设置管理权限*/
     $router->post('/managerOpen', 'ManagerController@managerOpen');
+
+    $router->post('/manage/deleteTeacher', 'ManagerController@deleteTeacher');
 
     $router->get('/parentInfo', 'ManagerController@parentInfo');
     $router->get('/teacherInfo', 'ManagerController@teacherInfo');
