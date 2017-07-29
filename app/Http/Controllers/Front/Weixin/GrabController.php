@@ -164,8 +164,8 @@ class GrabController extends Controller
     	$newtime++;
     	$downtime = $newtime - strtotime($discountObj->start_time);
     	echo $downtime.'------'.$usercount;
-    	die;
-    	if ($downtime < $usercount){
+    	die('hhhhh');
+/*     	if ($downtime < $usercount){
     		$lucky = UserDiscount::where('discount_id',$id)->where('user_discount.type',1)->where('user_discount.status',1)
 			    		->leftJoin('new_user','user_discount.uid','new_user.id')
 			    		->leftJoin('discount','user_discount.discount_id','discount.id')
@@ -182,7 +182,7 @@ class GrabController extends Controller
 	    		->select('user_discount.id','nickname','class_package.name')
 	    		->get();
     		$code = 200;
-    	}
+    	} */
     	return response()->json(['lucky' => $lucky, 'code' => $code]);
     }
 }
