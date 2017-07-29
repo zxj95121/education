@@ -242,6 +242,8 @@
             $('#setModal').modal('show');
             var id = $(this).parents('tr').find('td:eq(0)').html();
 
+            $('#setModal').attr('uid', id);
+
             var obj = power[id];
             for (var i in obj) {
                 if (obj[i]) {
@@ -255,6 +257,8 @@
     })
 
     function ajaxPower() {
+        var id = $('#setModal').attr('uid');
+
         var data = new Object();
         $('.toggle_power').each(function() {
             var power = $(this).attr('power');
@@ -270,7 +274,8 @@
             type: 'post',
             dataType: 'json',
             data: {
-                power: data
+                power: data,
+                id: id
             },
             success: function(data) {
                 if (data.errcode == 0) {

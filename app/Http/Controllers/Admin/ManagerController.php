@@ -226,10 +226,12 @@ class ManagerController extends Controller
 
 
     public function setPower(Request $request) {
-        $admin_id = Session::get('admin_id');
+        // $admin_id = Session::get('admin_id');
+        $id = $request->input('id');
+
         $power = $request->input('power');
 
-        AdminPower::where('uid', $admin_id)
+        AdminPower::where('uid', $id)
             ->where('status', '1')
             ->update($power);
 
