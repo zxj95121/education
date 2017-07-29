@@ -133,7 +133,7 @@ $worker->onMessage = function($connection, $data)
             $headimg = $db->select('headimg')->from('admin_info')->where('id= :id')->bindValues(array('id'=>$data['aid']))->single();
             $msg['headimg'] = $headimg;
             /*根据$insert_id查时间*/
-            $sendTime = substr($time, 11);
+            $sendTime = substr($time, 5);
             $msg['time'] = $sendTime;
 
             $msg = json_encode($msg);

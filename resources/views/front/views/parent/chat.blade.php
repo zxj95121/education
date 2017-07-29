@@ -54,7 +54,7 @@
 					                <div class="bubble">
 					                  	<span class="chatData">{{$value['content']}}</span>
 					                    <div class="corner"></div>
-					                    <span>{{date('H:i:s', strtotime($value['created_at']))}}</span>
+					                    <span>{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
 					                </div>
 					            </div>
 					        @elseif($value['type'] == 1)
@@ -63,7 +63,7 @@
 					                <div class="bubble">
 					                	<img class="chatImg" src="{{$value['content']}}" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
 					                    <div class="corner"></div>
-					                    <span style="position: absolute;">{{date('H:i:s', strtotime($value['created_at']))}}</span>
+					                    <span style="position: absolute;">{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
 					                </div>
 					            </div>
 					        @else
