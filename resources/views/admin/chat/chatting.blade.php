@@ -223,21 +223,22 @@
 		}
 
 		function dealMessageHeightTop() {
-			var cdom = $('#chat-messages .message:first');
-			if (cdom.find('.chatData').length == 1) {
-				var height = cdom.find('.chatData')[0].offsetHeight;
-				// console.log(height);
-				if (height > 20) {
-					cdom.css('padding-bottom', (height+18) +'px');
+			$('#chat-messages .message:lt(5)').each(function(){
+				if ($(this).find('.chatData').length == 1) {
+					var height = $(this).find('.chatData')[0].offsetHeight;
+					// console.log(height);
+					if (height > 20) {
+						$(this).css('padding-bottom', (height+18) +'px');
+					}
+					$(this).css('height', height+'px');
+				} else if ($(this).find('.chatImg').length == 1) {
+					var height = $(this).find('.chatImg').height();
+					if (height > 20) {
+						$(this).css('padding-bottom', (height+18) +'px');
+					}
+					$(this).css('height', height+'px');
 				}
-				cdom.css('height', height+'px');
-			} else if (cdom.find('.chatImg').length == 1) {
-				var height = cdom.find('.chatImg').height();
-				if (height > 20) {
-					cdom.css('padding-bottom', (height+18) +'px');
-				}
-				cdom.css('height', height+'px');
-			}
+			})
 
 			var scrollHeight = $('#chat-messages')[0].scrollHeight;
 			$('#chat-messages')[0].scrollTop = scrollHeight;
@@ -480,6 +481,7 @@
 		            				if (data.errcode == 0) {
 		            					var obj = data.content;
 
+		            					var imageArr = new Array();
 		            					for (var i in obj) {
 		            						var content = obj[i];
 		            						console.log(content);
@@ -499,15 +501,16 @@
 								        		var str = '<div  class="message'+right+'" time="'+content.created_at+'" > <img  src="'+headimg+'" /> <div class="bubble"> <span class="chatData">'+content.content+'</span> <div class="corner"></div> <span>'+content.created_at.slice(11)+'</span> </div> </div>';
 								        		$('#chat-messages').prepend(str);
 
-								        		dealMessageHeight();
 								        	} else if (content.type == 1) {
 								        		var str = '<div  class="message'+right+'"  time="'+content.created_at+'" > <img  src="'+headimg+'" /> <div class="bubble"> <img class="chatImg" src="'+content.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span style="position: absolute;">'+content.created_at.slice(11)+'</span> </div> </div>';
 								        		$('#chat-messages').prepend(str);
 
 								        		var img = new Image();
-								        		img.src = data.content; 
-												img.onload = function () { //图片下载完毕时异步调用callback函数。 
-													dealMessageHeight();
+								        		img.src = data.content;
+												img.onload = function () { //图片下载完毕时异步调用callback函数。
+													imageArr[i] = 1;
+													if (imageArr.length == 5)
+														dealMessageHeightTop();
 												}; 
 								        	}
 								        }

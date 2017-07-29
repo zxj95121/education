@@ -40,7 +40,7 @@ class ChatController extends Controller
     	$contentArr = ContactChat::where('contact_chat.uid', $uid)
     		->where('contact_chat.status', 1)
     		->orderBy('contact_chat.created_at', 'desc')
-    		->limit(5)
+    		->limit(10)
     		->leftJoin('parent_info as pi', 'pi.id', 'contact_chat.uid')
     		->leftJoin('admin_info as ai', 'ai.id', 'contact_chat.admin_id')
     		->select('contact_chat.*', 'pi.headimg as uheadimg', 'ai.headimg as aheadimg')
