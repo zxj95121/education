@@ -40,20 +40,21 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="row">
-                                <form id="search_form" action="/admin/eclassOrderList" method="get" style="display: none;">
+                                <form id="search_form" action="/admin/chatShow" method="get">
                                     <div class="row m-b-15">
                                         <div class="form-group">
-                                            <label class="col-md-1 clh text-right">订单编号:</label>
+                                            <label class="col-md-1 clh text-right">消息阅读:</label>
                                             <div class="col-md-3">
+                                                <select id="readSelect" class="form-control" name="read">
+                                                    <option value="0" @if($read) @else selected="selected" @endif>未读</option>
+                                                    <option value="1" @if($read) selected="selected" @else @endif>全部</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row m-t-15">
                                         <div class="col-md-2 col-md-offset-1">
                                             <button type="submit" class="btn btn-info w-md">查询</button>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <button onclick="window.location.href='/admin/eclassOrderList'" type="button" class="btn btn-default w-md">重置查询条件</button>
                                         </div>
                                     </div>
                                 </form>
@@ -93,7 +94,7 @@
                                             <div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">共 {{$chatUser->total()}} 条记录</div>
                                         </div>
                                         <div class="col-md-8">
-                                            {{$chatUser->links()}}
+                                            {{$chatUser->appends(['read' => $read])->links()}}
                                         </div>
                                     </div>
                                 </div>

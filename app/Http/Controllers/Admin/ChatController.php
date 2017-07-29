@@ -15,10 +15,19 @@ class ChatController extends Controller
 {
     public function chatShow(Request $request)
     {
+    	$read = $request->input('read');
+
     	$chatUser = ContactChat::where('contact_chat.status', '1')
     		->leftJoin('parent_info as pi', 'pi.id', 'contact_chat.uid')
-    		->leftJoin('parent_detail as pd', 'pd.pid', 'pi.id')
-    		->select('pi.id', 'pi.phone', 'pi.name as nickname', 'pd.name as name')
+    		->leftJoin('parent_detail as pd', 'pd.pid', 'pi.id');
+
+    	if ($read != '1') {
+    		$chatUser = $chatUser->where('contact_chat.read', '0');
+    	} else {
+    		$read = '1';
+    	}
+
+    	$chatUser = $chatUser->select('pi.id', 'pi.phone', 'pi.name as nickname', 'pd.name as name')
     		->groupBy('uid')
     		->paginate(15);
 
@@ -31,7 +40,7 @@ class ChatController extends Controller
     		$numArr[$key]= $unRead;
     	}
     	// dd($chatUser->toArray());
-    	return view('admin.chat.chatShow', ['chatUser'=>$chatUser,'numArr'=>$numArr]);
+    	return view('admin.chat.chatShow', ['chatUser'=>$chatUser,'numArr'=>$numArr,'read'=>$read]);
     }
 
     public function chatting(Request $request)
