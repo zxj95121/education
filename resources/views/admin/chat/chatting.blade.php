@@ -509,24 +509,25 @@
 								        		img.src = data.content;
 												img.onload = function () { //图片下载完毕时异步调用callback函数。
 													imageArr[i] = 1;
-													if (imageArr.length == 5)
+													if (imageArr.length == 5) {
 														dealMessageHeightTop();
+														var height = 0;
+						            					$('#chat-messages .message:lt(5)').each(function(){
+						            						height += parseInt($(this).height());
+						            					})
+
+						            					console.log('height');
+
+						            					$('#chat-messages')[0].scrollTop = height;
+
+						            					request = 0;
+													}
 												}; 
 								        	}
 								        }
 								        $('#refresh').css('top', '83px');
 	            						$('#chat-messages').css('marginTop', '0px');
 		            					
-
-
-		            					var height = 0;
-		            					$('#chat-messages .message:lt(5)').each(function(){
-		            						height += parseInt($(this).height());
-		            					})
-
-		            					$('#chat-messages')[0].scrollTop = height;
-
-		            					request = 0;
 		            				}
 		            			}
 		            		})
