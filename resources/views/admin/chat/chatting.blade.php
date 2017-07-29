@@ -479,8 +479,10 @@
 		            			success: function(data) {
 		            				if (data.errcode == 0) {
 		            					var obj = data.content;
+
 		            					for (var i in obj) {
 		            						var content = obj[i];
+		            						console.log(content);
 
 			            					if (content.admin_id != '0') {
 									        	var right = ' right';
