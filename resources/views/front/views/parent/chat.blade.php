@@ -201,7 +201,6 @@
 		    	var msg = new Object();
 		        msg.type = 'a';
 		        msg.uid = user_id;
-		        msg.aid = admin_id;
 		        msg.status = 'image';
 		        msg.content = image;
 
