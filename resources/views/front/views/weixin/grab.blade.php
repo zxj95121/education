@@ -12,16 +12,18 @@
 				<th>开始时间</th>
 			</tr>
 			<tr>
-				<td>{{$res[0]->name}}</td>
-				<td>{{$res[0]->start_time}}</td>
+				<td>{{$res->name}}</td>
+				<td>{{$res->start_time}}</td>
 			</tr>
 		</table>
-		<table id="t2">
-			<tr><th>中奖名单</th></tr>
-			@foreach($lucky as $value)
-			<tr><td>{{$value->nickname}}</td></tr>
-			@endforeach
-		</table>
+		@if($lucky != '')
+			<table id="t2">
+				<tr><th>中奖名单</th></tr>
+				@foreach($lucky as $value)
+				<tr><td>{{$value->nickname}}</td></tr>
+				@endforeach
+			</table>
+		@endif
 		<button id="join" val="{{$res->id}}">参加活动</button>
 		<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
 		<script>
@@ -53,7 +55,7 @@
 					$.ajax({
 						url:'/front/grab/countdown',
 						data:{
-							id:{{$res[0]->id}}
+							id:{{$res->id}}
 						},
 						type:'post',
 						datatype:'json',

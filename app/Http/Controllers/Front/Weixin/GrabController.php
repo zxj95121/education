@@ -69,7 +69,7 @@ class GrabController extends Controller
     			}
     		}
     	}
-    	if(isset($lucky)){
+    	if(!isset($lucky)){
     		$lucky = '';
     		$code = 200;
     	}
