@@ -59,7 +59,7 @@ class ChatController extends Controller
     	/*查用户姓名*/
     	$userInfo = ParentInfo::where('parent_info.id', $uid)
     		->leftJoin('parent_detail as pd', 'pd.pid', 'parent_info.id')
-    		->select('pd.name as name', 'pi.headimg as headimg')
+    		->select('pd.name as name', 'parent_info.headimg as headimg')
     		->get()[0];
 
     	return view('admin.chat.chatting', ['content'=>$contentArr,'admin_id'=>$admin_id,'user_id'=>$uid,'userInfo'=>$userInfo]);
