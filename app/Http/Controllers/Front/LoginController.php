@@ -19,6 +19,7 @@ use Wechat;
 use Hash;
 use Config;
 use Identity;
+use DB;
 
 class LoginController extends Controller
 {
@@ -133,6 +134,8 @@ class LoginController extends Controller
             return response()->json(['errcode'=>3,'reason'=>'手机号错误。']);
         }
 
+        DB::beginTransaction();
+
         if ($role == 1) {
             $flight = new ParentInfo();
             $flightDetail = new ParentDetail();
@@ -144,6 +147,8 @@ class LoginController extends Controller
         $flight->openid = $openid;
         $flight->phone = $phone;
         $flight->name = $nickname;
+        /*默认为学生教师*/
+        $flight->type = 1;
         $flight->headimg = $headimgurl;
         $flight->save();
 
@@ -189,7 +194,7 @@ class LoginController extends Controller
             NewUser::where('openid', $openid)
                 ->update(['type', '1']);
         }
-
+        DB::commit();
         Session::put('front_id', $flight->id);
         Session::forget('phoneCode');
         Session::forget('phone');
