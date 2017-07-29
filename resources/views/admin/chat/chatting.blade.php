@@ -89,9 +89,9 @@
 			                <img src="/images/arrow-left.png" style="width: 100%;height: 100%;">
 			            </div> -->
 			             <div id="headimg">
-			             	<img src="/front/lib/chat/img/1_copy.jpg" style="width: 100%;height: 100%;">
+			             	<img src="{{$userInfo->headimg}}" style="width: 100%;height: 100%;">
 			             </div>
-			            <p>Miro Badev</p>
+			            <p>{{$userInfo->name}}</p>
 			            <!-- <span>miro@badev@gmail.com</span> -->
 			        </div>
 			        
@@ -494,7 +494,7 @@
 
 		            					for (var i in obj) {
 		            						var content = obj[i];
-		            						console.log(content);
+		            						// console.log(content);
 
 			            					if (content.admin_id != '0') {
 									        	var right = ' right';
@@ -523,7 +523,7 @@
 												img.onload = function () { //图片下载完毕时异步调用callback函数。
 													imageArr[i] = 1;
 													
-													console.log(imageArr.length);
+													// console.log(imageArr.length);
 													if (imageArr.length >= 5) {
 														dealMessageHeightTop();
 														var height = 0;

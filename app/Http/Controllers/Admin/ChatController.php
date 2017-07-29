@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\ContactChat;
+use App\Models\ParentInfo;
+use App\Models\ParentDetail;
 
 use Session;
 
@@ -54,7 +56,13 @@ class ChatController extends Controller
     	// }
     	krsort($contentArr);
 
-    	return view('admin.chat.chatting', ['content'=>$contentArr,'admin_id'=>$admin_id,'user_id'=>$uid]);
+    	/*查用户姓名*/
+    	$userInfo = ParentInfo::where('parent_info.id', $uid)
+    		->leftJoin('parent_detail as pd', 'pd.pid', 'parent_info.id')
+    		->select('pd.name as name', 'pi.headimg as headimg')
+    		->get()[0];
+
+    	return view('admin.chat.chatting', ['content'=>$contentArr,'admin_id'=>$admin_id,'user_id'=>$uid,'userInfo'=>$userInfo]);
     }
 
     /*获取之前的几条数据*/
