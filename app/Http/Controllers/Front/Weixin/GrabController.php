@@ -159,10 +159,10 @@ class GrabController extends Controller
     public function countdown(Request $request){
     	if(Session::has('newtime')){
     		$newtime = Session::get('newtime') + 1;
-    		Session::put('newtime',$newtime);
+    		Session::push('newtime',$newtime);
     		echo 333333;
     	}else{
-    		Session::put('newtime',1501402562);
+    		Session::push('newtime',1501402562);
     		$newtime = 1501402562;
     		echo 2222222;
     	}
