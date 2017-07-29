@@ -78,7 +78,7 @@
 	        	<img src="" id="img3" style="display: none;">
 	        	<img src="" id="img4" style="display: none;">
 	        	<!-- 复制开始 -->
-	        	<div id="chatview" class="p1" style="width:100%;height:100%;position: relative;">
+	        	<div id="chatview" class="p1" style="width:100%;height:100%;position: relative;padding-top: 12px;">
 			    	<div id="refresh" style="position: absolute;width: 100%;height:40px;top:83px;">
 		        		<div class="img" style="margin: 0 auto;width: 40px;height: 100%;">
 		        			<img src="/images/loading.gif" style="width: 25px;height: 25px;">
