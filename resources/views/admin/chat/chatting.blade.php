@@ -512,8 +512,8 @@
 								        	}
 								        }
 								        $('#refresh').css('top', '83px');
-	            						$('#chat-messages').css('marginTop', '0px');
-		            					request = 0;
+	            						// $('#chat-messages').css('marginTop', '0px');
+		            					
 
 
 		            					var height = 0;
@@ -522,6 +522,8 @@
 		            					})
 
 		            					$('#chat-messages')[0].scrollTop = height+'px';
+
+		            					request = 0;
 		            				}
 		            			}
 		            		})
