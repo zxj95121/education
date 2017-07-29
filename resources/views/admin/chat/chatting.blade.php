@@ -509,7 +509,8 @@
 								        		img.src = data.content;
 												img.onload = function () { //图片下载完毕时异步调用callback函数。
 													imageArr[i] = 1;
-													if (imageArr.length == 5) {
+													console.log(imageArr.length);
+													if (imageArr.length >= 5) {
 														dealMessageHeightTop();
 														var height = 0;
 						            					$('#chat-messages .message:lt(5)').each(function(){
