@@ -162,7 +162,7 @@ class GrabController extends Controller
     	$usercount = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)->count();
     	$downtime = time() - strtotime($discountObj->start_time);
     	if ($downtime < $usercount){
-    		$lucky = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)
+    		$lucky = UserDiscount::where('discount_id',$id)->where('user_discount.type',1)->where('user_discount.status',1)
 			    		->leftJoin('new_user','user_discount.uid','new_user.id')
 			    		->leftJoin('discount','user_discount.discount_id','discount.id')
 			    		->leftJoin('class_package','discount.pid','class_package.id')
@@ -171,7 +171,7 @@ class GrabController extends Controller
 			    		->get();
     		$code = 233;
     	} else {
-    		$lucky = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)
+    		$lucky = UserDiscount::where('discount_id',$id)->where('user_discount.type',1)->where('user_discount.status',1)
 	    		->leftJoin('new_user','user_discount.uid','new_user.id')
 	    		->leftJoin('discount','user_discount.discount_id','discount.id')
 	    		->leftJoin('class_package','discount.pid','class_package.id')
@@ -179,7 +179,6 @@ class GrabController extends Controller
 	    		->get();
     		$code = 200;
     	}
-    	return response()->json(['
-    			' => $lucky, 'code' => $code]);
+    	return response()->json(['lucky' => $lucky, 'code' => $code]);
     }
 }
