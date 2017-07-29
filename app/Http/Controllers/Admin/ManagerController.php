@@ -26,7 +26,8 @@ class ManagerController extends Controller
     	$adminInfo = AdminInfo::where('admin_info.status', '=', '1')
     		->orwhere('admin_info.status', '-1')
             ->leftJoin('admin_power as ap', 'ap.uid', 'admin_info.id')
-    		->orderby('status', 'desc')
+    		->orderby('admin_info.status', 'desc')
+            ->orderby('admin_info.id')
             ->select('admin_info.nickname', 'admin_info.id as aid', 'admin_info.name', 'admin_info.phone', 'admin_info.identity', 'admin_info.status as aStatus', 'admin_info.count', 'ap.*')
     		->paginate(10);
 
