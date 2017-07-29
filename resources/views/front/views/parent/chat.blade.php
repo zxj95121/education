@@ -161,8 +161,10 @@
 					}
 					$(this).css('height', height+'px');
 				}
-
 			})
+
+			var scrollHeight = $('#chat-messages')[0].scrollHeight;
+			$('#chat-messages')[0].scrollTop = scrollHeight;
 		})
     </script>
 
