@@ -383,7 +383,7 @@
 			if (request == 1) {
 				var time = $('#chat-messages .message:first').attr('time');
         		$.ajax({
-        			url: '/admin/chatting/getPrevMessage',
+        			url: '/front/chatting/getPrevMessage',
         			dataType: 'json',
         			type: 'post',
         			data: {
