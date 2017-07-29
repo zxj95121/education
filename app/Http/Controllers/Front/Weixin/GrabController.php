@@ -48,24 +48,52 @@ class GrabController extends Controller
     		if (time() >= strtotime($discountObj->start_time)) {
     			//活动已经开始，进行抽奖
     			$usercount = UserDiscount::where('discount_id',$id)->where('status',1)->count();
-    			$gailv = intval($usercount * $discountObj->probability * 0.01);
-    			if ($gailv < 1) {
-    				$num = 1;
-    			} else {
-    				$num = $gailv;
-    			}
-    			$userdiscountArray = UserDiscount::where('discount_id',$id)->where('status',1)->get()->toArray();
-    			$newArray = array_flip(array_rand($userdiscountArray,$num));
-    			foreach($userdiscountArray as $key=>$value){
-    				if (array_key_exists($key,$newArray)){
-    					$type = 1;
-    					/* 已中奖 发布通知  */
-    				}else{
-    					$type = -1;
-    				}
-    				$userdiscountObj = UserDiscount::find($userdiscountArray[$key]['id']);
-    				$userdiscountObj->type = $type;
+    			if($usercount == 1){
+    				$userdiscountObj = UserDiscount::where('discount_id',$id)->where('status',1)->first();
+    				$userdiscountObj->type = 1;
     				$userdiscountObj->save();
+    			}else{
+    				$gailv = intval($usercount * $discountObj->probability * 0.01);
+    				if ($gailv < 1) {
+    					$num = 1;
+    				} else {
+    					$num = $gailv;
+    				}
+    				$userdiscountArray = UserDiscount::where('discount_id',$id)->where('status',1)->get()->toArray();
+    				$newArray = array_flip(array_rand($userdiscountArray,$num));
+    				foreach($userdiscountArray as $key=>$value){
+    					if (array_key_exists($key,$newArray)){
+    						$type = 1;
+    						/* 已中奖 发布通知  */
+    					}else{
+    						$type = -1;
+    					}
+    					$userdiscountObj = UserDiscount::find($userdiscountArray[$key]['id']);
+    					$userdiscountObj->type = $type;
+    					$userdiscountObj->save();
+    				}
+    			}
+    			//已经进行过抽奖,公布名单
+    			$usercount = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)->count();
+    			$downtime = time() - strtotime($discountObj->start_time);
+    			if ($downtime < $usercount){
+    				//未完全显示，需要发送ajax
+    				$lucky = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)
+    				->leftJoin('new_user','user_discount.uid','new_user.id')
+    				->leftJoin('discount','user_discount.discount_id','discount.id')
+    				->leftJoin('class_package','discount.pid','class_package.id')
+    				->select('user_discount.id','nickname','class_package.name')
+    				->limit($downtime)
+    				->get();
+    				$code = 233;
+    			} else {
+    				$lucky = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)
+    				->leftJoin('new_user','user_discount.uid','new_user.id')
+    				->leftJoin('discount','user_discount.discount_id','discount.id')
+    				->leftJoin('class_package','discount.pid','class_package.id')
+    				->select('user_discount.id','nickname','class_package.name')
+    				->get();
+    				$code = 200;
     			}
     		}
     	}
