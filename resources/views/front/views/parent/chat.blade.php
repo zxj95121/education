@@ -150,6 +150,8 @@
     <script type="text/javascript">
     	$(function(){
     		user_id = '{{$uid}}';
+    		request = 0;
+
     		$('#textInput').keyup(function(){
     			var val  = $(this).val();
     			if (val == '') {
@@ -186,7 +188,6 @@
 		        msg.content = val;
 		        ws.send(JSON.stringify(msg));
 		        // alert('发送'); 
-		        $('#textInput').val('');
 		      
 		    });  
 
@@ -238,6 +239,7 @@
 						dealMessageHeight();
 					}; 
 	        	}
+	        	$('#textInput').val('');
 		    };
 		    ws.onclose = function (event) {
 			    console.log('已关闭');
@@ -341,6 +343,8 @@
 	            		var refreshTop = parseInt($('#refresh').css('top'));
 		            	if (refreshTop < 140)
 		            		$('#refresh').css('top', refreshTop+(0.7*y)+'px');
+		            	else
+		            		request = 1;
 	            	}
 	            }
 	        }
@@ -355,12 +359,90 @@
     		state.dragable = false;
     		// $('#chat-messages').css('marginTop', '0px');
     		$('#refresh').css('top', '83px');
-    		 var top = parseInt($('#chat-messages').css('marginTop'));
-    		 if (top > 0) {
-    		 	// $('#chat-messages')[0].scrollTop = 0;
-    		 	$('#chat-messages').css('marginTop', '0px');
-    		 	$('#refresh').css('top', '83px');
-    		 }
+			var top = parseInt($('#chat-messages').css('marginTop'));
+			if (top > 0) {
+			 	// $('#chat-messages')[0].scrollTop = 0;
+			 	$('#chat-messages').css('marginTop', '0px');
+			}
+
+			if (request == 1) {
+				var time = $('#chat-messages .message:first').attr('time');
+        		$.ajax({
+        			url: '/admin/chatting/getPrevMessage',
+        			dataType: 'json',
+        			type: 'post',
+        			data: {
+        				time: time,
+        				uid: '{{$user_id}}'
+        			},
+        			success: function(data) {
+        				if (data.errcode == 0) {
+        					var imageArr = new Array();
+        					var obj = data.content;
+
+        					var imageArr = new Array();
+
+        					if (obj.length == 0) {
+        						window.layer.msg('没有更多消息');
+        					}
+
+        					for (var i in obj) {
+        						var content = obj[i];
+        						// console.log(content);
+
+            					if (content.admin_id != '0') {
+						        	var right = ' right';
+						        	var headimg = content.aheadimg;
+						        	
+						        } else {
+						        	var right = '';
+									var headimg = content.uheadimg;
+						        }
+
+						       	// var timeStr = content.time;
+
+						        if (content.type == '0') {
+					        		var str = '<div  class="message'+right+'" time="'+content.created_at+'" > <img  src="'+headimg+'" /> <div class="bubble"> <span class="chatData">'+content.content+'</span> <div class="corner"></div> <span>'+content.created_at.slice(11)+'</span> </div> </div>';
+					        		$('#chat-messages').prepend(str);
+
+					        	} else if (content.type == 1) {
+					        		var str = '<div  class="message'+right+'"  time="'+content.created_at+'" > <img  src="'+headimg+'" /> <div class="bubble"> <img class="chatImg" src="'+content.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span style="position: absolute;">'+content.created_at.slice(11)+'</span> </div> </div>';
+					        		$('#chat-messages').prepend(str);
+
+					        		imageArr[i] = 1;
+					        		// var img = new Image();
+					        		// img.src = data.content;
+					        		var img = document.getElementById('img'+i);   
+								    img.setAttribute('src', content.content); 
+									img.onload = function () { //图片下载完毕时异步调用callback函数。
+										imageArr[i] = 1;
+										
+										// console.log(imageArr.length);
+										if (imageArr.length >= 5) {
+											dealMessageHeightTop();
+											var height = 0;
+			            					$('#chat-messages .message:lt(5)').each(function(){
+			            						height += parseInt($(this).height());
+			            					})
+
+			            					request = 0;
+			            					$('#chat-messages')[0].scrollTop = height;
+			            					// imageArr = [];
+										}
+
+
+									}; 
+					        	}
+					        }
+
+					        if (imageArr.length < 1) {
+					        	request = 0;
+					        }
+        					
+        				}
+        			}
+        		})
+			}
     	})
     </script>
   </body>
