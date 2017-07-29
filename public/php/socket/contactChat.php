@@ -47,6 +47,7 @@ $worker->onMessage = function($connection, $data)
     $data = json_decode($data, true);
 
     if ($data['type'] == 'u') {
+        $user_type = 'u';
         /*用户端*/
         if ($data['status'] == 'init') {
             $db->update('parent_info')->cols(array('is_chat'=>'1','worker_id'=>$cid))->where('id='.$data['uid'])->query();
@@ -117,6 +118,7 @@ $worker->onMessage = function($connection, $data)
 
 
     } elseif ($data['type'] == 'a') {
+        $user_type = 'a';
         /*管理员端*/
         if ($data['status'] == 'init') {
             $db->update('admin_info')->cols(array('is_chat'=>'1','worker_id'=>$cid,'chat_user'=>$data['uid']))->where('id='.$data['aid'])->query();
@@ -185,7 +187,7 @@ $worker->onMessage = function($connection, $data)
         /*开始传送数据*/
         $msg = array();
         $msg['content'] = $data['content'];
-        $msg['type'] = 'a';
+        $msg['type'] = $user_type;
         $msg['status'] = $data['status'];
         /*根据$data['aid']查他的头像地址*/
         if (isset($data['aid']))

@@ -26,7 +26,7 @@
 	    box-shadow: inset 2px 2px 2px rgba(245,188,18,0.9);
 	}
 	.chatImg{
-		max-width: 500px;
+		max-width: 450px;
 	}
 </style>
 @endsection
