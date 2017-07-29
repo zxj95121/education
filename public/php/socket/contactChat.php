@@ -97,7 +97,7 @@ $worker->onMessage = function($connection, $data)
             $user_id = $data['uid'];
         }
 
-        
+
     } elseif ($data['type'] == 'a') {
         /*管理员端*/
         if ($data['status'] == 'init') {
@@ -147,42 +147,43 @@ $worker->onMessage = function($connection, $data)
             $user_id = $data['uid'];
         }
 
-        /*向用户端和其他管理员发送消息*/  
+    }
+
+    /*向用户端和其他管理员发送消息*/  
             
-        if (isset($user_id)) {/*如果有这个值，说明是传消息的*/
-            /*发送给用户，只有一个*/
-            $worker_uid = $db->select('worker_id')->from('parent_info')->where('id= :id')->bindValues(array('id'=>$data['uid']))->single();
+    if (isset($user_id)) {/*如果有这个值，说明是传消息的*/
+        /*发送给用户，只有一个*/
+        $worker_uid = $db->select('worker_id')->from('parent_info')->where('id= :id')->bindValues(array('id'=>$data['uid']))->single();
 
-            $sendArr[$worker_uid] = 1;
+        $sendArr[$worker_uid] = 1;
 
-            /*发送给管理员，可能多个*/
-            $worker_aid_Arr = $db->select('worker_id')->from('admin_info')->where("is_chat= '1'")->query();
+        /*发送给管理员，可能多个*/
+        $worker_aid_Arr = $db->select('worker_id')->from('admin_info')->where("is_chat= '1'")->query();
 
-            foreach ($worker_aid_Arr as $value) {
-                $sendArr[$value['worker_id']] = 1;
-            }
-            
-            /*开始传送数据*/
-            $msg = array();
-            $msg['content'] = $data['content'];
-            $msg['type'] = 'a';
-            $msg['status'] = $data['status'];
-            /*根据$data['aid']查他的头像地址*/
-            $headimg = $db->select('headimg')->from('admin_info')->where('id= :id')->bindValues(array('id'=>$data['aid']))->single();
-            $msg['headimg'] = $headimg;
-            /*根据$insert_id查时间*/
-            $sendTime = substr($time, 5);
-            $msg['time'] = $sendTime;
+        foreach ($worker_aid_Arr as $value) {
+            $sendArr[$value['worker_id']] = 1;
+        }
+        
+        /*开始传送数据*/
+        $msg = array();
+        $msg['content'] = $data['content'];
+        $msg['type'] = 'a';
+        $msg['status'] = $data['status'];
+        /*根据$data['aid']查他的头像地址*/
+        $headimg = $db->select('headimg')->from('admin_info')->where('id= :id')->bindValues(array('id'=>$data['aid']))->single();
+        $msg['headimg'] = $headimg;
+        /*根据$insert_id查时间*/
+        $sendTime = substr($time, 5);
+        $msg['time'] = $sendTime;
 
-            $msg = json_encode($msg);
+        $msg = json_encode($msg);
 
-            foreach($connection->worker->connections as $con)
-            {
-                if (array_key_exists($con->id, $sendArr)) {
+        foreach($connection->worker->connections as $con)
+        {
+            if (array_key_exists($con->id, $sendArr)) {
 
-                    $con->send($msg);
-                    unset($sendArr[$con->id]);
-                }
+                $con->send($msg);
+                unset($sendArr[$con->id]);
             }
         }
     }
