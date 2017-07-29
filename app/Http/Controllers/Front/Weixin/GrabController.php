@@ -42,6 +42,7 @@ class GrabController extends Controller
     					->leftJoin('class_package','discount.pid','class_package.id')
     					->select('user_discount.id','nickname','class_package.name')
     					->get();
+    			$code = 200;
     		}
     	} else {
     		if (time() >= strtotime($discountObj->start_time)) {
@@ -67,6 +68,10 @@ class GrabController extends Controller
     				$userdiscountObj->save();
     			}
     		}
+    	}
+    	if(isset($lucky)){
+    		$lucky = '';
+    		$code = 200;
     	}
     	return view('front.views.weixin.grab', ['res'=>$discountObj,'lucky'=>$lucky,'code'=>$code]);
     }
