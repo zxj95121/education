@@ -149,6 +149,7 @@
 
     <script type="text/javascript">
     	$(function(){
+    		user_id = '{{$uid}}';
     		$('#textInput').keyup(function(){
     			var val  = $(this).val();
     			if (val == '') {
@@ -168,20 +169,19 @@
 		        // alert("连接成功");
 		        var msg = new Object();
 		        msg.type = 'u';
-		        msg.id = '{{$parentObj->id}}';
+		        msg.uid = user_id;
 		        msg.status = 'init';
 		        ws.send(JSON.stringify(msg));
-		        // alert("给服务端发送一个字符串：tom");
 		    };
 		    var sendBtn = document.getElementById('sendBtn');  
 		    sendBtn.addEventListener('click', function() { 
 		    	var val = $('#textInput').val();
-		        // var dd = new Date();
-		        // var val = document.getElementById('chat').value;
-		        // var content = dd.getHours()+':'+dd.getMinutes()+':'+dd.getSeconds();
+		    	if (val == '')
+		    		return false;
+
 		        var msg = new Object();
 		        msg.type = 'u';
-		        msg.id = '{{$parentObj->id}}';
+		        msg.uid = user_id;
 		        msg.status = 'msg';
 		        msg.content = val;
 		        ws.send(JSON.stringify(msg));
@@ -253,6 +253,7 @@
 
     	function hideAlert() {
     		$('#showSweetAlert').slideUp(200);
+    		$('#textInput')[0].focus();
     	}
 
     	function fileClick() {

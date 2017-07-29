@@ -37,6 +37,6 @@ class ChatController extends Controller
     	krsort($contentArr);
 
     	/*查聊天记录*/
-    	return view('front.views.parent.chat', ['parentObj'=>$parentObj,'content'=>$contentArr]);
+    	return view('front.views.parent.chat', ['parentObj'=>$parentObj,'content'=>$contentArr,'uid'=>$uid]);
     }
 }

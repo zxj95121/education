@@ -49,17 +49,55 @@ $worker->onMessage = function($connection, $data)
     if ($data['type'] == 'u') {
         /*用户端*/
         if ($data['status'] == 'init') {
-            $db->update('parent_info')->cols(array('is_chat'=>'1','worker_id'=>$cid))->where('id='.$data['id'])->query();
+            $db->update('parent_info')->cols(array('is_chat'=>'1','worker_id'=>$cid))->where('id='.$data['uid'])->query();
         } else if ($data['status'] == 'msg') {
+            /*用户发送文字消息*/
             $time = date('Y-m-d H:i:s');
             $insert_id = $db->insert('contact_chat')->cols(array(
-            'uid' => $data['id'],
+            'uid' => $data['uid'],
             'admin_id' => '0',
             'content' => $data['content'],
             'read' => '0',
             'created_at' => $time,
             'updated_at' => $time))->query();
+
+            /*存储用户的ID*/
+            $user_id = $data['uid'];
+
+        } else if ($data['status'] == 'image') {
+            $time = date('Y-m-d H:i:s');
+            $name = 'CU'.date('YmdHis').rand(1000,9999).'.';
+            $address = '/var/www/html/data/chat/'.$name;
+
+            $base64 = $data['content'];
+            $base64_image = str_replace(' ', '+', $base64);
+            if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $base64_image, $result)) {
+                $img = base64_decode(str_replace($result[1], '', $base64_image));
+
+                $str1 = explode(';', $result[0])[0];
+                $str = explode('/', $str1)[1];
+                
+                $size = file_put_contents($address.$str, $img);//保存图片，返回的是字节数
+
+            }
+
+
+            $data['content'] = 'http://file.catchon-edu.cn/chat/'.$name.$str;
+
+            $insert_id = $db->insert('contact_chat')->cols(array(
+            'uid' => $data['uid'],
+            'admin_id' => '0',
+            'content' => $data['content'],
+            'read' => '0',
+            'type' => '1',
+            'created_at' => $time,
+            'updated_at' => $time))->query();
+
+            /*存储用户的ID*/
+            $user_id = $data['uid'];
         }
+
+        
     } elseif ($data['type'] == 'a') {
         /*管理员端*/
         if ($data['status'] == 'init') {
