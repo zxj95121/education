@@ -157,11 +157,18 @@ class GrabController extends Controller
     }
     //倒计时
     public function countdown(Request $request){
-    	static $newtime = 1501402561;
+    	if(Session::has('newtime')){
+    		$newtime = Session::get('newtime') + 1;
+    		Session::put('newtime',$newtime);
+    	}else{
+    		Session::put('newtime',1501402562);
+    		
+    	}
+    		
+   		//$newtime = time();
     	$id = $request->input('id');
     	$discountObj = Discount::find($id);
     	$usercount = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)->count();
-    	$newtime++;
     	$downtime = $newtime - strtotime($discountObj->start_time);
     	echo $downtime.'------'.$usercount;
     	die('hhhhh');
