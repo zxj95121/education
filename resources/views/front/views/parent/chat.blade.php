@@ -30,7 +30,7 @@
 			<div class="content" style="background: #D6D6D6;">
 
 				<!-- 弹框 -->
-	    		<div id="showSweetAlert" class="sweet-alert showSweetAlert visible" tabindex="-1" data-custom-class="" data-has-cancel-button="false" data-has-confirm-button="true" data-allow-ouside-click="false" data-has-done-function="false" data-animation="pop" data-timer="null" style="/*display: block;*/z-index: 322; margin-top: 200px;position: absolute;background: #E3E3E3;">
+	    		<div id="showSweetAlert" class="sweet-alert showSweetAlert visible" tabindex="-1" data-custom-class="" data-has-cancel-button="false" data-has-confirm-button="true" data-allow-ouside-click="false" data-has-done-function="false" data-animation="pop" data-timer="null" style="/*display: block;*/z-index: 322; margin-top: 0px;position: absolute;background: #E3E3E3;">
 
 	    			<div class="" style="width: 100%; display: block;margin: 0 auto;text-align: center;">
 	    				<img id="imageUpload" src="" style="max-width: 444px;">
