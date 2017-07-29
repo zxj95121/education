@@ -15,9 +15,60 @@ class GrabController extends Controller
     {
     	
     	$id = Session::get('grab')['id'];
-    	$discountObj = Discount::find($id);
+    	$discountObj = Discount::where('discount.id',$id)
+    					->leftJoin('class_package','discount.pid','class_package.id')
+    					->select('discount.id','class_package.name','discount.start_time')
+    					->get();
     	Session::forget('grab');
-    	return view('front.views.weixin.grab', ['res'=>$discountObj]);
+    	$discountType = UserDiscount::where('discount_id',$id)->where('status',1)->where('type',0)->count();
+    	if ($discountType < 1) {
+    		//已经进行过抽奖,公布名单
+    		$usercount = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)->count();
+    		$downtime = time() - strtotime($discountObj->start_time);
+    		if ($downtime < $usercount){
+    			//未完全显示，需要发送ajax
+    			$lucky = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)
+    						->leftJoin('new_user','user_discount.uid','new_user.id')
+    						->leftJoin('discount','user_discount.discount_id','discount.id')
+    						->leftJoin('class_package','discount.pid','class_package.id')
+    						->select('user_discount.id','nickname','class_package.name')
+    						->limit($downtime)
+    						->get();
+    			$code = 233;
+    		} else {
+    			$lucky = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)
+    					->leftJoin('new_user','user_discount.uid','new_user.id')
+    					->leftJoin('discount','user_discount.discount_id','discount.id')
+    					->leftJoin('class_package','discount.pid','class_package.id')
+    					->select('user_discount.id','nickname','class_package.name')
+    					->get();
+    		}
+    	} else {
+    		if (time() >= strtotime($discountObj->start_time)) {
+    			//活动已经开始，进行抽奖
+    			$usercount = UserDiscount::where('discount_id',$id)->where('status',1)->count();
+    			$gailv = intval($usercount * $discountObj->probability * 0.01);
+    			if ($gailv < 1) {
+    				$num = 1;
+    			} else {
+    				$num = $gailv;
+    			}
+    			$userdiscountArray = UserDiscount::where('discount_id',$id)->where('status',1)->get()->toArray();
+    			$newArray = array_flip(array_rand($userdiscountArray,$num));
+    			foreach($userdiscountArray as $key=>$value){
+    				if (array_key_exists($key,$newArray)){
+    					$type = 1;
+    					/* 已中奖 发布通知  */
+    				}else{
+    					$type = -1;
+    				}
+    				$userdiscountObj = UserDiscount::find($userdiscountArray[$key]['id']);
+    				$userdiscountObj->type = $type;
+    				$userdiscountObj->save();
+    			}
+    		}
+    	}
+    	return view('front.views.weixin.grab', ['res'=>$discountObj,'lucky'=>$lucky,'code'=>$code]);
     }
     public function join(Request $request)
     {
@@ -29,7 +80,7 @@ class GrabController extends Controller
     		$discountObj = Discount::find($id);
     		if($discountObj->status == -1){
     			//活动已结束
-    			return response()->json(['code'=>2]);
+    			return response()->json(['code'=>2, 'msg'=>'活动已经结束，感谢您的参与']);
     		}	
     		$time1 = time();
     		$time2 = strtotime($discountObj->start_time);
@@ -68,5 +119,31 @@ class GrabController extends Controller
     		Session::put('grab',$grab);
     	}
     	return redirect(OauthController::getUrl(10, 0));
+    }
+    //倒计时
+    public function countdown(Request $request){
+    	$id = $request->input('id');
+    	$discountObj = Discount::find($id);
+    	$usercount = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)->count();
+    	$downtime = time() - strtotime($discountObj->start_time);
+    	if ($downtime < $usercount){
+    		$lucky = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)
+			    		->leftJoin('new_user','user_discount.uid','new_user.id')
+			    		->leftJoin('discount','user_discount.discount_id','discount.id')
+			    		->leftJoin('class_package','discount.pid','class_package.id')
+			    		->select('user_discount.id','nickname','class_package.name')
+			    		->limit($downtime)
+			    		->get();
+    		$code = 233;
+    	} else {
+    		$lucky = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)
+	    		->leftJoin('new_user','user_discount.uid','new_user.id')
+	    		->leftJoin('discount','user_discount.discount_id','discount.id')
+	    		->leftJoin('class_package','discount.pid','class_package.id')
+	    		->select('user_discount.id','nickname','class_package.name')
+	    		->get();
+    		$code = 200;
+    	}
+    	return response()->json(['lucky' => $lucky, 'code' => $code]);
     }
 }
