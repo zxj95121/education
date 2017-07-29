@@ -20,8 +20,8 @@ class GrabController extends Controller
     					->select('discount.id','class_package.name','discount.start_time')
     					->get();
     	Session::forget('grab');
-    	$discountType = UserDiscount::where('discount_id',$id)->where('status',1)->where('type',0)->count();
-    	if ($discountType < 1) {
+    	$discountType = UserDiscount::where('discount_id',$id)->where('status',1)->where('type','!=','0')->count();
+    	if ($discountType > 0) {
     		//已经进行过抽奖,公布名单
     		$usercount = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)->count();
     		$downtime = time() - strtotime($discountObj->start_time);
@@ -144,6 +144,7 @@ class GrabController extends Controller
 	    		->get();
     		$code = 200;
     	}
-    	return response()->json(['lucky' => $lucky, 'code' => $code]);
+    	return response()->json(['
+    			' => $lucky, 'code' => $code]);
     }
 }
