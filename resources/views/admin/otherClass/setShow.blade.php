@@ -53,7 +53,7 @@
                                         <div class="col-md-7" style="">
                                             <script id="container" name="content" type="text/plain">{!!$package->show!!}</script>
                                         </div>
-                                        <div class="col-md-5" style="padding: 0px;max-width: 400px;min-height: 300px;border: 1px solid #F0F;" id="showResult">{!!$package->show!!}</div>
+                                        <div class="col-md-5" style="padding: 0px;max-width: 400px;min-height: 300px;max-height:500px;overflow-y: scroll;border: 1px solid #F0F;" id="showResult">{!!$package->show!!}</div>
                                     </div>
                                 </div>
                             </div>
