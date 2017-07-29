@@ -49,7 +49,7 @@
 				        	
 				        @foreach ($content as $value)
 			          		@if ($value['type'] == 0)
-					            <div @if($value['admin_id']) @else class="message right" class="message" @endif time="{{$value['created_at']}}">
+					            <div @if($value['admin_id']) class="message" @else class="message right" @endif time="{{$value['created_at']}}">
 					              <img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
 					                <div class="bubble">
 					                  	<span class="chatData">{{$value['content']}}</span>
@@ -58,7 +58,7 @@
 					                </div>
 					            </div>
 					        @elseif($value['type'] == 1)
-						        <div @if($value['admin_id']) @else class="message right" class="message" @endif time="{{$value['created_at']}}">
+						        <div @if($value['admin_id']) class="message" @else class="message right" @endif time="{{$value['created_at']}}">
 					            	<img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
 					                <div class="bubble">
 					                	<img class="chatImg" src="{{$value['content']}}" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
