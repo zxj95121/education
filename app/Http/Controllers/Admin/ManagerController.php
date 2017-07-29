@@ -30,21 +30,17 @@ class ManagerController extends Controller
             ->select('admin_info.nickname', 'admin_info.id as aid', 'admin_info.name', 'admin_info.phone', 'admin_info.identity', 'admin_info.status as aStatus', 'admin_info.count', 'ap.*')
     		->paginate(10);
 
-        
-        
+        $power = array();
+        foreach($adminInfo as $value) {
+            $power[$value->aid]['set_power'] = $value->set_power;
+            $power[$value->aid]['chat'] = $value->chat;
+        }
+        $power = json_encode($power);
     	$manageInfo = AdminInfo::find(Session::get('admin_id'));
-
         $powerInfo = AdminPower::where('uid', Session::get('admin_id'))
             ->where('status', '1')
             ->first();
-            
-        $power = array();
-        $power['set_power'] = $powerInfo->set_power;
-        $power['chat'] = $powerInfo->chat;
-
-        $power = json_encode($power);
-
-    	return view('admin.people.managerList',['adminInfo'=>$adminInfo,'manageInfo'=>$manageInfo, 'power'=>$power]);
+    	return view('admin.people.managerList',['adminInfo'=>$adminInfo,'manageInfo'=>$manageInfo, 'power'=>$power,'powerInfo'=>$powerInfo]);
     }
 
     /*待审核管理员*/
