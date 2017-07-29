@@ -469,6 +469,7 @@
 			            					})
 
 			            					request = 0;
+			            					console.log(height);
 			            					$('#chat-messages').scrollTop(height);
 			            					// imageArr = [];
 										}
