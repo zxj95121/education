@@ -277,8 +277,8 @@
                 power: data,
                 id: id
             },
-            success: function(data) {
-                if (data.errcode == 0) {
+            success: function(res) {
+                if (res.errcode == 0) {
                     window.layer.msg('设置成功');
                     $('#setModal').modal('hide');
                     power[id] = data;
