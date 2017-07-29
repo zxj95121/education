@@ -254,9 +254,9 @@
     		$('#showSweetAlert').hide(250);
     	}
 
-  //   	function fileClick() {
-		// 	return $('#fileInput').click();
-		// }
+    	function fileClick() {
+			return $('#fileInput').click();
+		}
 
 		function showPreview(source) {  
             var file = document.getElementById('fileInput').files[0];
