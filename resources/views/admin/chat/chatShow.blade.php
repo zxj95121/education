@@ -80,7 +80,7 @@
                                                         <td>{{$value['nickname']}}</td>
                                                         <td>{{$value['name']}}</td>
                                                         <td>{{$value['phone']}}</td>
-                                                        <td><span class="badge">{{$numArr[$key]}}</span></td>
+                                                        <td>@if($numArr[$key])<span class="badge">{{$numArr[$key]}}</span>@else 0 @endif</td>
                                                         <td><label class="label label-info communication">继续沟通</label></td>
                                                     </tr>
                                                 @endforeach
