@@ -52,12 +52,22 @@ $worker->onMessage = function($connection, $data)
             $db->update('parent_info')->cols(array('is_chat'=>'1','worker_id'=>$cid))->where('id='.$data['uid'])->query();
         } else if ($data['status'] == 'msg') {
             /*用户发送文字消息*/
+
+                /*看当前有没有管理员再跟用户聊天*/
+            $count = $db->select('count(*) as count')->from('admin_info')->where("is_chat= '1' and chat_user = '".$data['uid']."' ")->single();
+            if ($count > 0) {
+                $read = '1';
+            } else {
+                $read = '0';
+            }
+
+
             $time = date('Y-m-d H:i:s');
             $insert_id = $db->insert('contact_chat')->cols(array(
             'uid' => $data['uid'],
             'admin_id' => '0',
             'content' => $data['content'],
-            'read' => '0',
+            'read' => $read,
             'created_at' => $time,
             'updated_at' => $time))->query();
 
@@ -84,11 +94,19 @@ $worker->onMessage = function($connection, $data)
 
             $data['content'] = 'http://file.catchon-edu.cn/chat/'.$name.$str;
 
+            /*看当前有没有管理员再跟用户聊天*/
+            $count = $db->select('count(*) as count')->from('admin_info')->where("is_chat= '1' and chat_user = '".$data['uid']."' ")->single();
+            if ($count > 0) {
+                $read = '1';
+            } else {
+                $read = '0';
+            }
+
             $insert_id = $db->insert('contact_chat')->cols(array(
             'uid' => $data['uid'],
             'admin_id' => '0',
             'content' => $data['content'],
-            'read' => '0',
+            'read' => $read,
             'type' => '1',
             'created_at' => $time,
             'updated_at' => $time))->query();
@@ -101,7 +119,7 @@ $worker->onMessage = function($connection, $data)
     } elseif ($data['type'] == 'a') {
         /*管理员端*/
         if ($data['status'] == 'init') {
-            $db->update('admin_info')->cols(array('is_chat'=>'1','worker_id'=>$cid))->where('id='.$data['aid'])->query();
+            $db->update('admin_info')->cols(array('is_chat'=>'1','worker_id'=>$cid,'chat_user'=>$data['uid']))->where('id='.$data['aid'])->query();
         } else if ($data['status'] == 'msg') {
             $time = date('Y-m-d H:i:s');
             $insert_id = $db->insert('contact_chat')->cols(array(

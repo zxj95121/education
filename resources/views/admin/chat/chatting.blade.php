@@ -275,6 +275,7 @@
 		        var msg = new Object();
 		        msg.type = 'a';
 		        msg.aid = admin_id;
+		        msg.uid = user_id;
 		        msg.status = 'init';
 		        ws.send(JSON.stringify(msg));
 		        // alert("给服务端发送一个字符串：tom");

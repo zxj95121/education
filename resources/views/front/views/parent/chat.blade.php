@@ -185,9 +185,32 @@
 		        msg.status = 'msg';
 		        msg.content = val;
 		        ws.send(JSON.stringify(msg));
-		        // alert('发送');  
+		        // alert('发送'); 
+		        $('#textInput').val('');
 		      
 		    });  
+
+
+		    /*发送图片*/
+		    $('#sendPhoto').click(function(){
+		    	var image = $('#imageUpload').attr('src');
+		    	if (image == '') {
+		    		return false;
+		    	}
+
+		    	var msg = new Object();
+		        msg.type = 'a';
+		        msg.uid = user_id;
+		        msg.aid = admin_id;
+		        msg.status = 'image';
+		        msg.content = image;
+
+		        ws.send(JSON.stringify(msg));
+
+		        $('#showSweetAlert').slideUp(250);
+		    })
+
+
 		    ws.onmessage = function(e) {
 		        // console.log("收到服务端的消息：" + e.data);
 		        var data = e.data;
