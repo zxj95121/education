@@ -162,7 +162,7 @@ class GrabController extends Controller
     		Session::put('newtime',$newtime);
     	}else{
     		Session::put('newtime',1501402562);
-    		
+    		$newtime = 1501402562;
     	}
     		
    		//$newtime = time();
