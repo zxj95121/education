@@ -465,7 +465,7 @@
 											dealMessageHeightTop();
 											var height = 0;
 			            					$('#chat-messages .message:lt(5)').each(function(){
-			            						height += parseInt($(this).height());
+			            						height += parseInt($(this).css('height'))+45;
 			            					})
 
 			            					request = 0;
