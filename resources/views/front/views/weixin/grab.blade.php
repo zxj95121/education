@@ -62,6 +62,8 @@
 						success:function(data){
 							var text = '';
 							text += '<tr><th>中奖名单</th></tr>';
+							console.log(data.length);
+							console.log(data[0].name);
 							for(var i = 0; i < data.length; i++){
 								text += "<tr><td>"+data[i].name+"</td></tr>";
 							}
