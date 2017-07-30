@@ -524,6 +524,13 @@ function cartInit(){
 }
     </script>
     <script type="text/javascript">
+    	closeStatus =0;
+    	window.onpopstate = function(event) {
+    		if(closeStatus == 1)
+		      	wx.closeWindow();
+		    else
+		    	setTimeout(function(){wx.closeWindow();},800);
+		}
 		wx.config({
 		    debug: false,
 		    appId: '<?php echo $signPackage["appId"];?>',
@@ -537,13 +544,11 @@ function cartInit(){
 		    ]
 		});
 		wx.ready(function () {
+			closeStatus = 1;
 			// 在这里调用 API
 			wx.hideAllNonBaseMenuItem();
 			/*无误进行发送ajax*/
 
-			window.onpopstate = function(event) {
-		      	wx.closeWindow();
-		    }
 		});
 	</script>
 </body>
