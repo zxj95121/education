@@ -66,7 +66,7 @@
 								text += "<tr><td>"+data.lucky[i].name+"</td></tr>";
 							}
 							$('#t2').html(text);
-							if(data.code = 200){
+							if(data.code == 200){
 								clearInterval(timer);
 							}
 						}
