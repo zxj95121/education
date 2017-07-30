@@ -99,9 +99,32 @@ $signPackage = $jssdk->GetSignPackage();
 	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 	<script type="text/javascript">
 
-		window.onpopstate = function(event) {
-    		window.navigate("/front/home#eclass");
+		closeStatus =0;
+    	window.onpopstate = function(event) {
+    		if(closeStatus == 1)
+		      	redirectAjax();
+		    else {
+		    	setTimeout(function(){redirectAjax();},100);
+		    	setTimeout(function(){redirectAjax();},200);
+		    	setTimeout(function(){redirectAjax();},400);
+		    	setTimeout(function(){redirectAjax();},800);
+		    }
 		}
+
+		function redirectAjax(){
+			$.ajax({
+				url: '/front/classPackage/status',
+				type: 'post',
+				dataType: 'json',
+				data: {
+
+				},
+				success: function(data) {
+
+				}
+			})
+		}
+
 
 		wx.config({
 		    debug: false,
@@ -116,6 +139,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    ]
 		});
 		wx.ready(function () {
+			closeStatus =0;
 			$('#order_pay').click(function(){
 				WeixinJSBridge.invoke(
 					'getBrandWCPayRequest',
