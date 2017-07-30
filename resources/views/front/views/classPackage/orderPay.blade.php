@@ -101,8 +101,6 @@ $signPackage = $jssdk->GetSignPackage();
 
 		window.onpopstate = function(event) {
     		window.location.href='/front/classPackage?id={{$package->id}}';
-    		history.back(-100);
-    		return false;
 		}
 
 		wx.config({

@@ -184,6 +184,17 @@
     			}
     		});
 
+    		$('#textInput').change(function(){
+    			var val  = $(this).val();
+    			if (val == '') {
+    				$('#imageBtn').show();
+    				$('#sendBtn').hide();
+    			} else {
+    				$('#imageBtn').hide();
+    				$('#sendBtn').show();
+    			}
+    		});
+
     		$('#textInput').focus(function(){
     			$('#textInput')[0].scrollIntoView(true);  
     		})

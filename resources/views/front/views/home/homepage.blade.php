@@ -524,19 +524,19 @@ function cartInit(){
 }
     </script>
     <script type="text/javascript">
-    	closeStatus =0;
-    	window.onpopstate = function(event) {
-    		if(closeStatus == 1)
-		      	wx.closeWindow();
-		    else {
-		    	setTimeout(function(){wx.closeWindow();},100);
-		    	setTimeout(function(){wx.closeWindow();},200);
-		    	setTimeout(function(){wx.closeWindow();},400);
-		    	setTimeout(function(){wx.closeWindow();},600);
-		    	setTimeout(function(){wx.closeWindow();},800);
-		    	setTimeout(function(){wx.closeWindow();},1000);
-		    }
-		}
+  //   	closeStatus =0;
+  //   	window.onpopstate = function(event) {
+  //   		if(closeStatus == 1)
+		//       	wx.closeWindow();
+		//     else {
+		//     	setTimeout(function(){wx.closeWindow();},100);
+		//     	setTimeout(function(){wx.closeWindow();},200);
+		//     	setTimeout(function(){wx.closeWindow();},400);
+		//     	setTimeout(function(){wx.closeWindow();},600);
+		//     	setTimeout(function(){wx.closeWindow();},800);
+		//     	setTimeout(function(){wx.closeWindow();},1000);
+		//     }
+		// }
 
 		wx.config({
 		    debug: false,
@@ -551,7 +551,7 @@ function cartInit(){
 		    ]
 		});
 		wx.ready(function () {
-			closeStatus = 1;
+			// closeStatus = 1;
 			// 在这里调用 API
 			wx.hideAllNonBaseMenuItem();
 			/*无误进行发送ajax*/
