@@ -51,7 +51,7 @@
 			})
 			$code = {{$code}};
 			if($code == 233){
-				$timer = setInterval(function(){
+				var timer = setInterval(function(){
 					$.ajax({
 						url:'/front/grab/countdown',
 						data:{
@@ -60,8 +60,12 @@
 						type:'post',
 						datatype:'json',
 						success:function(data){
-							var html = '';
-							html += '<tr><th>中奖名单</th></tr>';
+							var text = '';
+							text += '<tr><th>中奖名单</th></tr>';
+							for(var i = 0; i < data.length; i++){
+								text += "<tr><td>"+data[i].name+"</td></tr>";
+							}
+							$('#t2').html(text);
 							console.log(data.lucky);
 							if(data.code = 200){
 								clearInterval(timer);
