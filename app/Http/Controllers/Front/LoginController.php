@@ -147,8 +147,6 @@ class LoginController extends Controller
         $flight->openid = $openid;
         $flight->phone = $phone;
         $flight->name = $nickname;
-        /*默认为学生教师*/
-        $flight->type = 1;
         $flight->headimg = $headimgurl;
         $flight->save();
 
@@ -158,6 +156,8 @@ class LoginController extends Controller
 
         if ($role == 1) {
             $flightDetail->pid = $fid;
+            /*默认为学生教师*/
+            $flightDetail->type = 1;
             $flightDetail->save();
 
             $flight = new UserType();
