@@ -100,7 +100,8 @@ $signPackage = $jssdk->GetSignPackage();
 	<script type="text/javascript">
 
 		window.onpopstate = function(event) {
-    		window.location.href = "/front/home#eclass";
+    		window.location.href='/front/classPackage?id={{$package->id}}';
+    		return false;
 		}
 
 		wx.config({
