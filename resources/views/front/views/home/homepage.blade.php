@@ -1,3 +1,8 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT']."/php/jssdk/jssdk.php";
+$jssdk = new JSSDK(getenv('APPID'), getenv('APPSECRET'));
+$signPackage = $jssdk->GetSignPackage();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -347,12 +352,6 @@
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
     <script type="text/javascript">
     	$(function(){
-    		window.onpopstate = function(event) {
-		      	// if (event.state.page === 'state1') {
-		       //  	WeixinJSBridge.call('closeWindow');
-		      	// }
-		      	alert('1');
-		    }
     		cartArr = new Array();
     		cartTotal = 0;
     		cartOrder = new Object();
@@ -523,5 +522,28 @@ function cartInit(){
 	}
 }
     </script>
+    <script type="text/javascript">
+		wx.config({
+		    debug: false,
+		    appId: '<?php echo $signPackage["appId"];?>',
+		    timestamp: <?php echo $signPackage["timestamp"];?>,
+		    nonceStr: '<?php echo $signPackage["nonceStr"];?>',
+		    signature: '<?php echo $signPackage["signature"];?>',
+		    jsApiList: [
+		      	// 所有要调用的 API 都要加到这个列表中
+		      	'hideAllNonBaseMenuItem',
+		      	'closeWindow'
+		    ]
+		});
+		wx.ready(function () {
+			// 在这里调用 API
+			wx.hideAllNonBaseMenuItem();
+			/*无误进行发送ajax*/
+
+			window.onpopstate = function(event) {
+		      	wx.closeWindow();
+		    }
+		});
+	</script>
 </body>
 </html>
