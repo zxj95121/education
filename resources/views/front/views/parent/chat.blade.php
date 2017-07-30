@@ -172,6 +172,7 @@
     	$(function(){
     		user_id = '{{$uid}}';
     		request = 0;
+    		interval = 0;
 
     		$('#textInput').keyup(function(){
     			var val  = $(this).val();
@@ -196,7 +197,10 @@
     		});
 
     		$('#textInput').focus(function(){
-    			$('#textInput')[0].scrollIntoView(true);  
+    			interval = setInterval(function(){$('#textInput')[0].scrollIntoView(true);},200);  
+    		})
+    		$('#textInput').blur(function(){
+    			clearInterval(interval);
     		})
 
 
