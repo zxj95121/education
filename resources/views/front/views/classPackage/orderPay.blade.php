@@ -98,6 +98,8 @@ $signPackage = $jssdk->GetSignPackage();
 	<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
 	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 	<script type="text/javascript">
+		history.pushState(null, null, '/front/home#eclass');
+
 		wx.config({
 		    debug: false,
 		    appId: '<?php echo $signPackage["appId"];?>',
