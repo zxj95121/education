@@ -81,7 +81,7 @@ $signPackage = $jssdk->GetSignPackage();
 	@endif
     <div class="container-fluid" id="my" style="display:none">
         <!-- header start -->
-        <div class="row" id="my_header">
+        <div class="row" id="my_header" style="position: relative;">
             <div class="col-xs-2" id="my_header_img">
                 <img src="{{$res->headimg}}">
             </div>
@@ -105,14 +105,14 @@ $signPackage = $jssdk->GetSignPackage();
             </div>
             @if($userType->type == 2)
             <a href="/front/user_info_parent">
-                <div class="col-xs-5" id="my_header_add_content">
-                    <p style="font-size: 19px;height: 35px;line-height: 35px;">个人信息<i class="glyphicon glyphicon-chevron-right"></i></p>
+                <div class="col-xs-5" id="my_header_add_content" style="position: absolute;bottom: 0px;right: 0px;">
+                    <p style="font-size: 18px;height: 35px;line-height: 35px;">个人信息<i class="glyphicon glyphicon-chevron-right"></i></p>
                 </div>
             </a>
             @elseif($userType->type == 3)
             <a href="/front/user_info_teacher">
-                <div class="col-xs-5" id="my_header_add_content">
-                    <p>个人信息<i class="glyphicon glyphicon-chevron-right"></i></p>
+                <div class="col-xs-5" id="my_header_add_content" style="position: absolute;bottom: 0px;right: 0px;">
+                    <p style="font-size: 18px;height: 35px;line-height: 35px;">个人信息<i class="glyphicon glyphicon-chevron-right"></i></p>
                 </div>
             </a>
             @else
