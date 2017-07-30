@@ -35,14 +35,14 @@
   			</button>
   			@else
   				<button class="button button-link button-nav pull-right">
-    			<a href="" style="color:red;">
+    			<a href="" style="color: #3E15FF;">
     				已设置
     			</a>
   			</button>
   			@endif
         </header>
 		<div class="content">
-		    <p style="color: red;padding-left: 12px;">注意：上课时间设置只有一次机会。</p>
+		    <p style="color: #3E15FF;padding-left: 12px;">提示：上课频次设置成功后，如需修改请联系客服。</p>
 			<div class="list-block top" hide="false" style="margin:8px 0;">
 			    <ul>
 			    	<li class="item-content">

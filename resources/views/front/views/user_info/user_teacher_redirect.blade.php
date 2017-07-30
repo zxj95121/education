@@ -15,7 +15,7 @@
 <body>
 	<div class="container" style="width:95%;max-width: 500px;margin:0 auto;padding: 0px;position: relative;text-align: center;">
 		<article class="weui-article">
-            <h1 style="text-align: left;">请选择您的身份 <span style="font-size:13px;">(一旦选择，不许更改)</span></h1>
+            <h1 style="text-align: left;">请选择您的身份 <span style="font-size:13px;">(设置成功后,如需修改请联系客服。)</span></h1>
         </article>
 		<a href="javascript:;" class="ha weui-btn weui-btn-mini weui-btn_default" type="1">大学生教师</a>
 		<a type="2" href="javascript:;" class="ha weui-btn weui-btn-mini weui-btn_default">职业教师</a>
