@@ -259,7 +259,7 @@ div.message.right .corner{
 }
 .bubble span{
 	  color: #1A1A1A;
-	  font-size: 13px;
+	  font-size: 15px;
 	  /**/
 	  right: 0;
 	  bottom: -22px;
@@ -285,7 +285,7 @@ div.message.right .corner{
 	width: 100%;
 	border:none;
 	padding:0;
-	font-size:15px;
+	font-size:16px;
 	font-family:"Open Sans", sans-serif; 
 	font-weight:400px;
 	color:#aab8c2;
