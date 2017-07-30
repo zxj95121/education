@@ -4,6 +4,9 @@
 @section('style')
 <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css">
 <style type="text/css">
+	.label-primary{
+		cursor: pointer;
+	}
 </style>
 @endsection
 
@@ -34,7 +37,7 @@
 								<div class="panel-collapse collapse in">
 								<div class="portlet-body">
 								    <div class="table-responsive">
-								        <table class="table">
+								        <table class="table" id="parentDetail">
 								            <thead>
 								                <tr>
 								                    <th>昵称</th>
@@ -44,11 +47,12 @@
 								                    <th>类别</th>
 								                    <th>住宅小区</th>
 								                    <th>单元楼层</th>
+								                    <th>操作</th>
 								                </tr>
 								            </thead>
 								            <tbody>
 								                @foreach($res as $value)
-								                <tr>
+								                <tr pid="{{$value->id}}">
 								                    <td>{{$value->nickname}}</td>
 								                    <td>{{$value->name}}</td>
 								                    <td>{{$value->phone}}</td>
@@ -68,6 +72,7 @@
 								                    </td>
 								                    <td>{{$value->address}}</td>
 								                    <td>{{$value->place}}</td>
+								                    <td><span class="label label-primary" onclick="deleteParent({{$value->id}});">删除用户</span></td>
 								                </tr>
 								                @endforeach
 								            </tbody>
@@ -96,4 +101,35 @@
 <!-- 加js代码，或引入 -->
 @section('jquery')
 <script type="text/javascript" src="/js/layui/layui.js"></script>
+<script type="text/javascript">
+	$(function(){
+	    layui.use('layer', function(){
+	        window.layer = layui.layer;
+	    });
+	})
+
+	function deleteParent(id) {
+		window.layer.confirm('确认<b style="color:green;">删除</b>吗，ID为'+id+'？', {
+            btn: ['确认', '取消'] //可以无限个按钮
+            ,btn2: function(index, layero){
+            window.layer.close(index);
+          }
+        }, function(index, layero){
+			$.ajax({
+				url: '/admin/manage/deleteParent',
+				type: 'post',
+				dataType: 'json',
+				data: {
+					id: id
+				},
+				success: function(data){
+					if (data.errcode == 0) {
+						window.layer.msg('删除成功');
+						$('#parentDetail tr[pid="'+id+'"]').remove();
+					}
+				}
+			})
+		})
+	}
+</script>
 @endsection

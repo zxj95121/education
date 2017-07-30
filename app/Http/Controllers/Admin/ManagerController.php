@@ -10,6 +10,7 @@ use App\Models\UserType;
 use App\Models\TeacherDetail;
 use App\Models\TeacherInfo;
 use App\Models\ParentDetail;
+use App\Models\ParentInfo;
 use App\Models\CommunityCommunity;
 use App\Models\CommunityArea;
 use App\Models\CommunityCity;
@@ -110,7 +111,7 @@ class ManagerController extends Controller
     {
     	$res = ParentDetail::where('parent_detail.status','1')
     	->leftJoin('parent_info','parent_detail.pid','=','parent_info.id')
-    	->select('parent_info.name as nickname','parent_detail.id','parent_detail.name','parent_info.phone','sex','type','address','place')
+    	->select('parent_info.name as nickname','parent_info.id','parent_detail.name','parent_info.phone','sex','type','address','place')
     	->paginate(10);
     	for($i = 0; $i < count($res); $i++){
     		if(isset($res[$i]->address)){ 
@@ -277,6 +278,40 @@ class ManagerController extends Controller
         TeacherDetail::where('tid', $id)->delete();
         UserType::where('openid', $openid)->delete();
         NewUser::where('openid', $openid)->delete();
+        AdminInfo::where('openid', $openid)->delete();
+
+        DB::commit();
+        return response()->json(['errcode'=>0]);
+    }
+
+    public function deleteParent(Request $request)
+    {
+        $id = $request->input('id');
+        $flight = ParentInfo::find($id);
+        $openid = $flight->openid;
+
+        /*查出所有的big_order*/
+        $BigOrder = BigOrder::where('openid', $openid)
+            ->select('id')
+            ->get();
+
+        DB::beginTransaction();
+        /*删除订单表和交易表*/
+        foreach ($BigOrder as $value) {
+            $bid = $value->bid;
+            EclassOrder::where('bid', $bid)->delete();
+            Bill::where('oid', $bid)->delete();
+            BigOrder::where('id', $bid)->delete();
+        }
+
+        HobbyApply::where('openid', $openid)->delete();
+        SchoolApply::where('openid', $openid)->delete();
+        UserShare::where('openid', $openid)->delete();
+        ParentInfo::where('openid', $openid)->delete();
+        ParentDetail::where('pid', $id)->delete();
+        UserType::where('openid', $openid)->delete();
+        NewUser::where('openid', $openid)->delete();
+        AdminInfo::where('openid', $openid)->delete();
 
         DB::commit();
         return response()->json(['errcode'=>0]);

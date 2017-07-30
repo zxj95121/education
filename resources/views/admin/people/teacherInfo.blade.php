@@ -36,7 +36,7 @@
             	<div class="panel-collapse collapse in">
 				    <div class="portlet-body">
 				        <div class="table-responsive">
-				            <table class="table">
+				            <table class="table" id="teacherDetail">
 				                <thead>
 				                    <tr>
 				                        <th>昵称</th>
@@ -55,7 +55,7 @@
 				                </thead>
 				                <tbody>
 				                    @foreach($res as $value)
-				                    <tr>
+				                    <tr tid="{{$value->id}}">
 				                        <td>{{$value->nickname}}</td>
 				                        <td class="tname">{{$value->name}}</td>
 				                        <td>{{$value->phone}}</td>
@@ -186,6 +186,7 @@
 				success: function(data){
 					if (data.errcode == 0) {
 						window.layer.msg('删除成功');
+						$('#teacherDetail tr[tid="'+id+'"]').remove();
 					}
 				}
 			})

@@ -79,6 +79,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/managerOpen', 'ManagerController@managerOpen');
 
     $router->post('/manage/deleteTeacher', 'ManagerController@deleteTeacher');
+    $router->post('/manage/deleteParent', 'ManagerController@deleteParent');
 
     $router->get('/parentInfo', 'ManagerController@parentInfo');
     $router->get('/teacherInfo', 'ManagerController@teacherInfo');
