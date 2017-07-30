@@ -18,9 +18,9 @@
 		</table>
 		@if($lucky != '')
 			<table id="t2">
-				<tr><th>中奖名单</th></tr>
+				<tr><th colspan="2">中奖名单</th></tr>
 				@foreach($lucky as $value)
-				<tr><td>{{$value->nickname}}</td></tr>
+				<tr><td >{{$value->nickname}}</td><td>{{$value->name}}</td></tr>
 				@endforeach
 			</table>
 		@endif
@@ -61,9 +61,9 @@
 						datatype:'json',
 						success:function(data){
 							var text = '';
-							text += '<tr><th>中奖名单</th></tr>';
+							text += '<tr><th colspan="2">中奖名单</th></tr>';
 							for(var i = 0; i < data.lucky.length; i++){
-								text += "<tr><td>"+data.lucky[i].name+"</td></tr>";
+								text += "<tr><td>"+data.lucky[i].nickname+"</td><td>"+data.lucky[i].name+"</td></tr>";
 							}
 							$('#t2').html(text);
 							if(data.code == 200){
