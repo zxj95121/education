@@ -265,7 +265,7 @@ div.message.right .corner{
 	  bottom: -22px;
 }
 .bubble .chatData{
-	font-size: 18px;
+	font-size: 16px;
 }
 .bubble span:nth-of-type(2){
 	position: absolute;
@@ -288,7 +288,7 @@ div.message.right .corner{
 	width: 100%;
 	border:none;
 	padding:0;
-	font-size:22px;
+	font-size:18px;
 	font-family:"Open Sans", sans-serif; 
 	/*font-weight:400px;*/
 	color:#aab8c2;
