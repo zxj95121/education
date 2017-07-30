@@ -63,7 +63,7 @@
 							var text = '';
 							text += '<tr><th>中奖名单</th></tr>';
 							for(var i = 0; i < data.lucky.length; i++){
-								text += "<tr><td>"+data[i].name+"</td></tr>";
+								text += "<tr><td>"+data.i.name+"</td></tr>";
 							}
 							$('#t2').html(text);
 							console.log(data.lucky);
