@@ -106,7 +106,7 @@ $signPackage = $jssdk->GetSignPackage();
             @if($userType->type == 2)
             <a href="/front/user_info_parent">
                 <div class="col-xs-5" id="my_header_add_content">
-                    <p>个人信息<i class="glyphicon glyphicon-chevron-right"></i></p>
+                    <p style="font-size: 19px;height: 35px;line-height: 35px;">个人信息<i class="glyphicon glyphicon-chevron-right"></i></p>
                 </div>
             </a>
             @elseif($userType->type == 3)
