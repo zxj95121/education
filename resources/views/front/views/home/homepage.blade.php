@@ -30,6 +30,9 @@ $signPackage = $jssdk->GetSignPackage();
          a:active{
             text-decoration: none;
         }
+       	#all_bottom .weui-tabbar__label{
+       		font-size: 14px;
+       	}
     </style>
 </head>
 <body>
@@ -128,13 +131,13 @@ $signPackage = $jssdk->GetSignPackage();
 	            <a href="/front/parent/myClassOrder">
 	            	<div class="row_count col-xs-4" id="my_count_left">
 	                	<div class="colXS">{{$orderstatus[1]}}</div>
-	                	<div class="colXS">class订单</div>
+	                	<div class="colXS">课程总次数</div>
 	            	</div>
 	            </a>
 	            <a href="/front/parent/myClassOrder?action=3">
 		            <div class="row_count col-xs-4" id="my_count_center">
 		                <div class="colXS">{{$orderstatus[2]}}</div>
-		                <div class="colXS">进行中</div>
+		                <div class="colXS">待学习</div>
 		            </div>
 	            </a>
 	            <a href="/front/parent/myClassOrder?action=4">
