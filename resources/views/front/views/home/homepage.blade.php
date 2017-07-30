@@ -88,7 +88,7 @@ $signPackage = $jssdk->GetSignPackage();
             <div class="col-xs-5" id="my_header_basic">
                 <div class="col-xs-10">
                 	@if($userType->type == 1)
-                		<span style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: inline-block;width: 100%;">{{$res->nickname}}</span><br>
+                		<span style="font-size: 22px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: inline-block;width: 100%;">{{$res->nickname}}</span><br>
                 	@else
                 		<span style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: inline-block;width: 100%;">{{$res->name}}</span><br>
                 	@endif
