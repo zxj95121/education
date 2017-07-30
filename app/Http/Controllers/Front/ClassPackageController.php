@@ -74,10 +74,6 @@ class ClassPackageController extends Controller
 
     public function newOrder2()
     {
-        if (Session::get('redirectStatus') == 1) {
-            Session::get('redirectStatus', 0);
-            return redirect('/front/home#eclass');
-        }
         $order_no = Session::get('package_order_no');
         $price = Session::get('package_order_price');
         $vouNum = Session::get('package_order_vouNum');
@@ -106,10 +102,5 @@ class ClassPackageController extends Controller
     	Session::put('classPackageId', $classPackageId);
 
     	return redirect(OauthController::getUrl(8, 0));
-    }
-
-    public function status(Request $request)
-    {
-        Session::put('redirectStatus', 1);
     }
 }
