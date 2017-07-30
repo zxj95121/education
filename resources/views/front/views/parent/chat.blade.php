@@ -194,7 +194,10 @@
 			var article = document.querySelector('#textInput');
 
 			var options = {
-			    'childList': true
+			    'childList': true,
+			    'attributes': true, 
+			    'childList': true, 
+			    'characterData': true
 			};
 
 			observer.observe(article, options);
