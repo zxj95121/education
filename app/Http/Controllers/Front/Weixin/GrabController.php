@@ -161,10 +161,10 @@ class GrabController extends Controller
     	dump(Session::all());
     	if (Session::has('newtime')) {
     		$newtime = Session::get('newtime') + 1;
-    		Session::push('newtime',$newtime);
+    		Session::put('newtime',$newtime);
     		echo 333333;
     	} else {
-    		Session::push('newtime',1501402562);
+    		Session::put('newtime',1501402562);
     		$newtime = 1501402562;
     		dump(Session::all());
     		
