@@ -528,9 +528,16 @@ function cartInit(){
     	window.onpopstate = function(event) {
     		if(closeStatus == 1)
 		      	wx.closeWindow();
-		    else
+		    else {
+		    	setTimeout(function(){wx.closeWindow();},100);
+		    	setTimeout(function(){wx.closeWindow();},200);
+		    	setTimeout(function(){wx.closeWindow();},400);
+		    	setTimeout(function(){wx.closeWindow();},600);
 		    	setTimeout(function(){wx.closeWindow();},800);
+		    	setTimeout(function(){wx.closeWindow();},1000);
+		    }
 		}
+
 		wx.config({
 		    debug: false,
 		    appId: '<?php echo $signPackage["appId"];?>',
