@@ -347,6 +347,10 @@
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
     <script type="text/javascript">
     	$(function(){
+    		$(window).unload(function(){
+		        //响应事件
+		        alert("获取到了页面要关闭的事件了！"); 
+		    }); 
     		cartArr = new Array();
     		cartTotal = 0;
     		cartOrder = new Object();

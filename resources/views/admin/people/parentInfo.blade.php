@@ -106,6 +106,7 @@
 	    layui.use('layer', function(){
 	        window.layer = layui.layer;
 	    });
+
 	})
 
 	function deleteParent(id) {
