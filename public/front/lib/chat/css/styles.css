@@ -264,6 +264,9 @@ div.message.right .corner{
 	  right: 0;
 	  bottom: -22px;
 }
+.bubble .chatData{
+	font-size: 15px;
+}
 .bubble span:nth-of-type(2){
 	position: absolute;
 }
