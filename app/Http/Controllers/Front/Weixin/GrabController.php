@@ -67,6 +67,9 @@ class GrabController extends Controller
     					if (array_key_exists($key,$newArray)){
     						$type = 1;
     						/* 已中奖 发布通知  */
+    						
+    						
+    						
     					}else{
     						$type = -1;
     					}
@@ -120,6 +123,9 @@ class GrabController extends Controller
     		$time1 = time();
     		$time2 = strtotime($discountObj->start_time);
     		$cha = ceil(($time2-$time1)/86400);////60s*60min*24h    
+    		dump($time1);
+    		dump($time2);
+    		dump($cha);
     		if ($cha < 7 && $cha > 0) {
     			//活动正进行，进行报名参加;
     			$userdiscountObj = UserDiscount::where('uid',$newuserObj[0]->id)->where('discount_id',$discountObj->id)->get();
