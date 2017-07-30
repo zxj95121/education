@@ -7,6 +7,9 @@
 	.identity:hover{
     	cursor:pointer;
     }
+    .label-primary{
+    	cursor: pointer;
+    }
 </style>
 @endsection
 
@@ -167,16 +170,25 @@
 	})
 
 	function deleteTeacher(id) {
-		$.ajax({
-			url: '/admin/manage/deleteTeacher',
-			type: 'post',
-			dataType: 'json',
-			data: {
-				id: id
-			},
-			success: function(data){
-				console.log(data);
-			}
+		window.layer.confirm('确认<b style="color:green;">删除</b>吗，ID为'+id+'？', {
+            btn: ['确认', '取消'] //可以无限个按钮
+            ,btn2: function(index, layero){
+            window.layer.close(index);
+          }
+        }, function(index, layero){
+			$.ajax({
+				url: '/admin/manage/deleteTeacher',
+				type: 'post',
+				dataType: 'json',
+				data: {
+					id: id
+				},
+				success: function(data){
+					if (data.errcode == 0) {
+						window.layer.msg('删除成功');
+					}
+				}
+			})
 		})
 	}
 </script>
