@@ -90,7 +90,7 @@ $signPackage = $jssdk->GetSignPackage();
                 	@if($userType->type == 1)
                 		<span style="font-size: 22px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: inline-block;width: 100%;">{{$res->nickname}}</span><br>
                 	@else
-                		<span style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: inline-block;width: 100%;">{{$res->name}}</span><br>
+                		<span style="font-size: 22px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: inline-block;width: 100%;">{{$res->name}}</span><br>
                 	@endif
                     <span>
                         @if($userType->type == 1)
