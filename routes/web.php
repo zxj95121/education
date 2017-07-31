@@ -244,14 +244,6 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
 
 /*----------------------------------------------------------------*/
 
-
-  /*聊天*/
-  Route::get('/front/parent/parentChat/oauth', 'Front\Parent\ChatController@oauth');
-    /*parent客服沟通模块*/
-  Route::get('/front/parent/parentChat', 'Front\Parent\ChatController@home');
-  Route::post('/front/chatting/getPrevMessage', 'Front\Parent\ChatController@getPrevMessage');
-
-
 /*-----------------------------------------------------------------*/
 
 
@@ -278,6 +270,13 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 	/*微信分享  */
 	$router->get('/share/oauth', 'Weixin\ShareController@oauth');
 	$router->get('/share', 'Weixin\ShareController@index');
+
+
+  $router->get('/parent/parentChat/oauth', 'Parent\ChatController@oauth');
+    /*parent客服沟通模块*/
+  $router->get('/parent/parentChat', 'Parent\ChatController@home');
+  $router->post('/chatting/getPrevMessage', 'Parent\ChatController@getPrevMessage');
+
 	/*抢课  */
 	$router->get('/grab/oauth', 'Weixin\GrabController@oauth');
 	$router->get('/grab', 'Weixin\GrabController@index');
