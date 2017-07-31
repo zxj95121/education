@@ -207,9 +207,6 @@ function emoji_decode($str){
 			var article = document.getElementById('textInput');
 
 			var options = {
-			    'childList': true,
-			    'attributes': true, 
-			    'childList': true, 
 			    'characterData': true
 			};
 
