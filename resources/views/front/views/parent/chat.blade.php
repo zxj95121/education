@@ -111,8 +111,8 @@ function emoji_decode($str){
 			        </div>
 			       
 			        <div id="sendmessage">
-			        	<!-- <input type="text" id="textInput" style="line-height: 25px;margin-top: 12px;color: #000;" value="" placeholder="" /> -->
-			        	<textarea id="textInput" style="height: 25px;margin-top: 12px;color: #000;line-height: 20px;">fda</textarea>
+			        	<input type="text" id="textInput" style="line-height: 25px;margin-top: 12px;color: #000;" value="" placeholder="" />
+			        	<!-- <textarea id="textInput" style="height: 25px;margin-top: 12px;color: #000;line-height: 20px;">fda</textarea> -->
 			          	<input type="file" id="fileInput" style="display: none;" name="file" accept="image/*">
 			            <button id="sendBtn" style="display: none;"><img src="/images/square-send.png" style="width: 100%;height: 100%;cursor: pointer;"></button>
 			            <button id="imageBtn" onclick="fileClick();"><img src="/images/square-image.png" style="width: 100%;height: 100%;cursor: pointer;"></button>
@@ -213,27 +213,27 @@ function emoji_decode($str){
 
 			observer.observe(article, options);
 
-    		// $('#textInput').keyup(function(){
-    		// 	var val  = $(this).val();
-    		// 	if (val == '') {
-    		// 		$('#imageBtn').show();
-    		// 		$('#sendBtn').hide();
-    		// 	} else {
-    		// 		$('#imageBtn').hide();
-    		// 		$('#sendBtn').show();
-    		// 	}
-    		// });
+    		$('#textInput').keyup(function(){
+    			var val  = $(this).val();
+    			if (val == '') {
+    				$('#imageBtn').show();
+    				$('#sendBtn').hide();
+    			} else {
+    				$('#imageBtn').hide();
+    				$('#sendBtn').show();
+    			}
+    		});
 
-    		// $('#textInput').change(function(){
-    		// 	var val  = $(this).val();
-    		// 	if (val == '') {
-    		// 		$('#imageBtn').show();
-    		// 		$('#sendBtn').hide();
-    		// 	} else {
-    		// 		$('#imageBtn').hide();
-    		// 		$('#sendBtn').show();
-    		// 	}
-    		// });
+    		$('#textInput').change(function(){
+    			var val  = $(this).val();
+    			if (val == '') {
+    				$('#imageBtn').show();
+    				$('#sendBtn').hide();
+    			} else {
+    				$('#imageBtn').hide();
+    				$('#sendBtn').show();
+    			}
+    		});
 
 
     		var u = navigator.userAgent;
@@ -241,10 +241,29 @@ function emoji_decode($str){
 		    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 
     		$('#textInput').focus(function(){
-    			if (isiOS)
-    				interval = setInterval(function(){$('#textInput')[0].scrollIntoView(true);},50);  
+    			if (isiOS) {
+    				interval = setInterval(function(){$('#textInput')[0].scrollIntoView(true);},50);
+    				var val  = $('#textInput').val();
+	    			if (val == '') {
+	    				$('#imageBtn').show();
+	    				$('#sendBtn').hide();
+	    			} else {
+	    				$('#imageBtn').hide();
+	    				$('#sendBtn').show();
+	    			}
+    			}
     		})
     		$('#textInput').blur(function(){
+    			if (isiOS) {
+    				var val  = $('#textInput').val();
+	    			if (val == '') {
+	    				$('#imageBtn').show();
+	    				$('#sendBtn').hide();
+	    			} else {
+	    				$('#imageBtn').hide();
+	    				$('#sendBtn').show();
+	    			}
+    			}
     			clearInterval(interval);
     		})
 
