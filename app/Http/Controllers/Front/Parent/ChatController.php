@@ -38,8 +38,10 @@ class ChatController extends Controller
     	krsort($contentArr);
 
         foreach ($contentArr as $key => $value) {
-            $kk = $value['admin_id'];
-            $contentArr[$key]['aheadimg'] = NewUser::find($kk)->headimg;
+            if ($value['admin_id'] != 0) {
+                $kk = $value['admin_id'];
+                $contentArr[$key]['aheadimg'] = NewUser::find($kk)->headimg;
+            }
         }
 
     	/*查聊天记录*/
