@@ -43,6 +43,9 @@ function emoji_decode($str){
 	.bubble span:last-child{
 		font-weight: normal;
 	}
+	.content{
+		background: #F1F4F5;
+	}
 </style>
 @endsection
 
@@ -193,7 +196,6 @@ function emoji_decode($str){
 		$(window).load(function(){
 
 			$('.content').css('height', $('#leftAside').css('height'));
-			$('.content').css('background', '#F1F4F5');
 
 			var height = $('#chatview').height();
 			var h1 = $('#profile').height();

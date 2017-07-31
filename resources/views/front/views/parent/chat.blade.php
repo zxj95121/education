@@ -184,35 +184,6 @@ function emoji_decode($str){
     		request = 0;
     		interval = 0;
 
-
-    		var MutationObserver = window.MutationObserver ||
-		    window.WebKitMutationObserver ||
-		    window.MozMutationObserver;
-
-			var callback = function(records) {
-				records.map(function(record) {
-			        console.log('Mutation type: ' + record.type);
-			        console.log('Mutation target: ' + record.target);
-			    });
-			    var val  = $('#textInput').val();
-    			if (val == '') {
-    				$('#imageBtn').show();
-    				$('#sendBtn').hide();
-    			} else {
-    				$('#imageBtn').hide();
-    				$('#sendBtn').show();
-    			}
-			};
-			var observer = new MutationObserver(callback);
-
-			var article = document.getElementById('textInput');
-
-			var options = {
-			    'characterData': true
-			};
-
-			observer.observe(article, options);
-
     		$('#textInput').keyup(function(){
     			var val  = $(this).val();
     			if (val == '') {
