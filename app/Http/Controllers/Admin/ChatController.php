@@ -103,7 +103,7 @@ class ChatController extends Controller
     		->toArray();
 
             foreach ($contentArr as $key => $value) {
-                $contentArr[$key]['content'] = emoji_decode($value['content']);
+                $contentArr[$key]['content'] = $this->emoji_decode($value['content']);
             }
 
     	return response()->json(['errcode'=>0,'content'=>$contentArr]);
