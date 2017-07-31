@@ -426,7 +426,7 @@ function emoji_decode($str){
             var file = document.getElementById('fileInput').files[0];
             var size = file.size;
             // if (size > 2097152) {
-            if (size > 6291456) {
+            if (size > 8291456) {
             	window.layer.msg('您选择的图片过大！');
             	return false;
             }
