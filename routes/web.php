@@ -15,19 +15,6 @@ Route::get('/', function () {
     return redirect('/admin/dashboard');
 });
 
-Route::get('/resizeImage/{$path}', function($path){
-    $img = Image::make($path);
-    $size = $img->filesize();
-    if ($size > 648576) {
-        $img->resize(300, null, function ($constraint) {
-            $constraint->aspectRatio();
-        });
-    }
-    /*图片保存*/
-    $img->save($path);
-    return true;
-});
-
 /*前台错误指向地址*/
 Route::get('/front/error_403',function(){
 	 return view('error403');
