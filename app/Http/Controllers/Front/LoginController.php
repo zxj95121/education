@@ -186,6 +186,7 @@ class LoginController extends Controller
             $flight->openid = $openid;
             $flight->uid = $uid;
             $flight->type = '1';
+            $flight->headimg = $headimgurl;
             $flight->voucher = 188;
             $flight->phone = $phone;
             $flight->nickname = $nickname;

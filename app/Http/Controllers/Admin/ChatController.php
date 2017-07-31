@@ -74,10 +74,12 @@ class ChatController extends Controller
     	krsort($contentArr);
 
     	/*查用户姓名*/
-    	$userInfo = ParentInfo::where('parent_info.id', $uid)
-    		->leftJoin('parent_detail as pd', 'pd.pid', 'parent_info.id')
-    		->select('pd.name as name', 'parent_info.headimg as headimg')
-    		->get()[0];
+    	// $userInfo = ParentInfo::where('parent_info.id', $uid)
+    	// 	->leftJoin('parent_detail as pd', 'pd.pid', 'parent_info.id')
+    	// 	->select('pd.name as name', 'parent_info.headimg as headimg')
+    	// 	->get()[0];
+        // $userInfo = NewUser::where('id', $uid)
+        //     ->select('nickname', 'type', 'headimg',)
 
     	return view('admin.chat.chatting', ['content'=>$contentArr,'admin_id'=>$admin_id,'user_id'=>$uid,'userInfo'=>$userInfo]);
     }
@@ -115,8 +117,8 @@ class ChatController extends Controller
 
 
     /*根据user_type的ID查用户的信息*/
-//     private getUserBasicInfo($id)
-//     {
-//         NewUser
-//     }
+    // private getUserBasicInfo($id)
+    // {
+    //     // NewUser::find($id);
+    // }
 }
