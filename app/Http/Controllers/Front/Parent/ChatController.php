@@ -67,7 +67,9 @@ class ChatController extends Controller
 
             foreach ($contentArr as $key => $value) {
                 $kk = $value['admin_id'];
-                $contentArr[$key]['aheadimg'] = NewUser::find($kk)->headimg;
+                if ($kk) {
+                    $contentArr[$key]['aheadimg'] = NewUser::find($kk)->headimg;
+                }
                 $contentArr[$key]['content'] = $this->emoji_decode($value['content']);
             }
 
