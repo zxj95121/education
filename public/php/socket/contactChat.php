@@ -203,9 +203,9 @@ $worker->onMessage = function($connection, $data)
         $msg['status'] = $data['status'];
         /*根据$data['aid']查他的头像地址*/
         if (array_key_exists('aid', $data))
-            $headimg = $db->select('headimg')->from('admin_info')->where('id= :id')->bindValues(array('id'=>$data['aid']))->single();
+            $headimg = $db->select('headimg')->from('new_user')->where('id= :id')->bindValues(array('id'=>$data['aid']))->single();
         else
-            $headimg = $db->select('headimg')->from('parent_info')->where('id= :id')->bindValues(array('id'=>$data['uid']))->single();
+            $headimg = $db->select('headimg')->from('new_user')->where('id= :id')->bindValues(array('id'=>$data['uid']))->single();
         $msg['headimg'] = $headimg;
         /*根据$insert_id查时间*/
         $sendTime = substr($time, 5);
@@ -240,13 +240,13 @@ $worker->onClose = function($connection)
     global $db;
 
     echo "connection closed\n".$connection->id;
-    $pid = $db->select('id')->from('parent_info')->where('worker_id= :worker_id')->bindValues(array('worker_id'=>$connection->id))->single();
+    $pid = $db->select('id')->from('new_user')->where('worker_id= :worker_id')->bindValues(array('worker_id'=>$connection->id))->single();
     if ($pid) {
-        $row_count = $db->update('parent_info')->cols(array('is_chat'=>'0', 'worker_id'=>'0'))->where('id='.$pid)->query();
+        $row_count = $db->update('new_user')->cols(array('is_chat'=>'0', 'worker_id'=>'0'))->where('id='.$pid)->query();
     }
-    $aid = $db->select('id')->from('admin_info')->where('worker_id= :worker_id')->bindValues(array('worker_id'=>$connection->id))->single();
+    $aid = $db->select('id')->from('new_user')->where('worker_id= :worker_id')->bindValues(array('worker_id'=>$connection->id))->single();
     if ($aid) {
-        $row_count = $db->update('admin_info')->cols(array('is_chat'=>'0', 'worker_id'=>'0'))->where('id='.$aid)->query();
+        $row_count = $db->update('new_user')->cols(array('is_chat'=>'0', 'worker_id'=>'0'))->where('id='.$aid)->query();
     }
 };
 // 运行worker
