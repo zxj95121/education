@@ -283,6 +283,7 @@ function resize($path)
     // header("Content-type: image/jpeg");  
     $file = $path;  
     $filesize = filesize($path);
+    echo $filesize;
     if ($filesize > 648576) {
 
         // $percent = 0.4;  //图片压缩比  
