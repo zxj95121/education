@@ -246,10 +246,10 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
 
 
   /*聊天*/
-  $router->get('/front/parent/parentChat/oauth', 'Front\Parent\ChatController@oauth');
+  Route::get('/front/parent/parentChat/oauth', 'Front\Parent\ChatController@oauth');
     /*parent客服沟通模块*/
-  $router->get('/front/parent/parentChat', 'Front\Parent\ChatController@home');
-  $router->post('/front/chatting/getPrevMessage', 'Front\Parent\ChatController@getPrevMessage');
+  Route::get('/front/parent/parentChat', 'Front\Parent\ChatController@home');
+  Route::post('/front/chatting/getPrevMessage', 'Front\Parent\ChatController@getPrevMessage');
 
 
 /*-----------------------------------------------------------------*/
