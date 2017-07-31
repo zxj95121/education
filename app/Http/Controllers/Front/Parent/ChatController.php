@@ -16,11 +16,11 @@ class ChatController extends Controller
     public function home()
     {
     	$openid = Session::get('openid');
-    	$count = ParentInfo::where('openid', $openid)->count();
+    	$count = NewUser::where('openid', $openid)->count();
     	if ($count == 0) {
     		return redirect('/front/error_403');
     	}
-    	$parentObj = ParentInfo::where('openid', $openid)->first();
+    	$parentObj = NewUser::where('openid', $openid)->first();
 
     	$uid = $parentObj->id;
 
@@ -28,13 +28,18 @@ class ChatController extends Controller
     		->where('contact_chat.status', 1)
     		->orderBy('contact_chat.created_at', 'desc')
     		->limit(10)
-    		->leftJoin('parent_info as pi', 'pi.id', 'contact_chat.uid')
-    		->leftJoin('admin_info as ai', 'ai.id', 'contact_chat.admin_id')
-    		->select('contact_chat.*', 'pi.headimg as uheadimg', 'ai.headimg as aheadimg')
+    		->leftJoin('new_user as nu', 'nu.id', 'contact_chat.uid')
+    		// ->leftJoin('admin_info as ai', 'ai.id', 'contact_chat.admin_id')
+    		->select('contact_chat.*', 'nu.headimg as uheadimg')
     		->get()
     		->toArray();
 
     	krsort($contentArr);
+
+        foreach ($contentArr as $key => $value) {
+            $kk = $value['admin_id'];
+            $contentArr[$key]['aheadimg'] = NewUser::find($kk)->headimg;
+        }
 
     	/*查聊天记录*/
     	return view('front.views.parent.chat', ['parentObj'=>$parentObj,'content'=>$contentArr,'uid'=>$uid]);
@@ -51,12 +56,15 @@ class ChatController extends Controller
             ->limit(5)
             ->leftJoin('new_user as nu', 'nu.id', 'contact_chat.uid')
             // ->leftJoin('parent_info as pi', 'pi.id', 'contact_chat.uid')
-            ->leftJoin('admin_info as ai', 'ai.id', 'contact_chat.admin_id')
-            ->select('contact_chat.*', 'nu.headimg as uheadimg', 'ai.headimg as aheadimg')
+            // ->leftJoin('admin_info as ai', 'ai.id', 'contact_chat.admin_id')
+            // ->select('contact_chat.*', 'nu.headimg as uheadimg', 'ai.headimg as aheadimg')
+            ->select('contact_chat.*', 'nu.headimg as uheadimg')
             ->get()
             ->toArray();
 
             foreach ($contentArr as $key => $value) {
+                $kk = $value['admin_id'];
+                $contentArr[$key]['aheadimg'] = NewUser::find($kk)->headimg;
                 $contentArr[$key]['content'] = $this->emoji_decode($value['content']);
             }
 

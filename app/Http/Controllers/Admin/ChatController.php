@@ -65,8 +65,8 @@ class ChatController extends Controller
     		->limit(10)
             ->leftJoin('new_user as nu', 'nu.id', 'contact_chat.uid')
     		// ->leftJoin('parent_info as pi', 'pi.id', 'contact_chat.uid')
-    		->leftJoin('admin_info as ai', 'ai.id', 'contact_chat.admin_id')
-    		->select('contact_chat.*', 'nu.headimg as uheadimg', 'ai.headimg as aheadimg')
+    		// ->leftJoin('admin_info as ai', 'ai.id', 'contact_chat.admin_id')
+    		->select('contact_chat.*', 'nu.headimg as uheadimg')
     		->get()
     		->toArray();
 
@@ -76,6 +76,11 @@ class ChatController extends Controller
     	// 	$content[$num--] = $value;
     	// }
     	krsort($contentArr);
+
+        foreach ($contentArr as $key => $value) {
+            $kk = $value['admin_id'];
+            $contentArr[$key]['aheadimg'] = NewUser::find($kk)->headimg;
+        }
 
     	/*查用户姓名*/
     	// $userInfo = ParentInfo::where('parent_info.id', $uid)
@@ -105,12 +110,15 @@ class ChatController extends Controller
     		->limit(5)
             ->leftJoin('new_user as nu', 'nu.id', 'contact_chat.uid')
     		// ->leftJoin('parent_info as pi', 'pi.id', 'contact_chat.uid')
-    		->leftJoin('admin_info as ai', 'ai.id', 'contact_chat.admin_id')
-    		->select('contact_chat.*', 'nu.headimg as uheadimg', 'ai.headimg as aheadimg')
+    		// ->leftJoin('admin_info as ai', 'ai.id', 'contact_chat.admin_id')
+            // ->select('contact_chat.*', 'nu.headimg as uheadimg', 'ai.headimg as aheadimg')
+    		->select('contact_chat.*', 'nu.headimg as uheadimg')
     		->get()
     		->toArray();
 
             foreach ($contentArr as $key => $value) {
+                $kk = $value['admin_id'];
+                $contentArr[$key]['aheadimg'] = NewUser::find($kk)->headimg;
                 $contentArr[$key]['content'] = $this->emoji_decode($value['content']);
             }
 
