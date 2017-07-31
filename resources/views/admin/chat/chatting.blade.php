@@ -45,6 +45,7 @@ function emoji_decode($str){
 	}
 	.content{
 		background: #F1F4F5;
+		height: 1080px;
 	}
 </style>
 @endsection
