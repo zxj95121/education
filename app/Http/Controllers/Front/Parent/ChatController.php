@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ParentInfo;
 use App\Models\ContactChat;
 use App\Models\ParentDetail;
+use App\Models\NewUser;
 
 use Session;
 
