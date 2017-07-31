@@ -155,11 +155,12 @@ $worker->onMessage = function($connection, $data)
                 
                 $size = file_put_contents($address.$str, $img);//保存图片，返回的是字节数
 
-                
             }
 
 
             $data['content'] = 'http://file.catchon-edu.cn/chat/'.$name.$str;
+
+            resize($data['content']);
 
             $insert_id = $db->insert('contact_chat')->cols(array(
             'uid' => $data['uid'],
@@ -269,10 +270,22 @@ function emoji_encode($str){
     return $strEncode;
 }
 
-function emoji_decode($str){
+function emoji_decode($str) {
     $strDecode = preg_replace_callback('|\[\[EMOJI:(.*?)\]\]|', function($matches){  
         return rawurldecode($matches[1]);
     }, $str);
 
     return $strDecode;
+}
+
+function resize($path) {
+    $img = Image::make($path);
+        $size = $img->filesize();
+        if ($size > 648576) {
+            $img->resize(300, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+        }
+    /*图片保存*/
+    $img->save($path);
 }

@@ -386,9 +386,9 @@ function emoji_decode($str){
 		function showPreview(source) {  
             var file = document.getElementById('fileInput').files[0];
             var size = file.size;
-            if (size > 1048576) {
+            if (size > 2097152) {
             	layer.open({
-					content:'图片大于1M',
+					content:'图片大于2M',
 					skin:'msg',
 					time:2
 				});
