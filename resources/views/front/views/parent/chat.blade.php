@@ -204,12 +204,12 @@ function emoji_decode($str){
 			};
 			var observer = new MutationObserver(callback);
 
-			var article = document.querySelector('#textInput');
+			var article = document.getElementById('textInput');
 
 			var options = {
-			    // 'childList': true,
-			    // 'attributes': true, 
-			    // 'childList': true, 
+			    'childList': true,
+			    'attributes': true, 
+			    'childList': true, 
 			    'characterData': true
 			};
 
