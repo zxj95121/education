@@ -191,7 +191,7 @@ $worker->onMessage = function($connection, $data)
         $worker_aid_Arr = $db->select('new_user.worker_id')->from('new_user')
             ->innerJoin('user_type','user_type.uid = new_user.id')
             ->where("user_type.type= '1'")
-            ->where("new_user.is_chat= '1'")->query();
+            ->where("new_user.is_chat= '1' and new_user.chat_user= '".$data['uid']."'")->query();
 
         foreach ($worker_aid_Arr as $value) {
             $sendArr[$value['worker_id']] = 1;
