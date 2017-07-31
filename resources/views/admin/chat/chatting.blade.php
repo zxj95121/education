@@ -149,7 +149,7 @@ function emoji_decode($str){
 			       
 			        <div id="sendmessage" class="">
 			          	<input type="text" id="textInput" value="" placeholder="" />
-			          	<input type="file" id="fileInput" style="display: none;" name="file" accept="image/*">
+			          	<input type="file" id="fileInput" style="display: none;" name="file" accept="image/jpg,image/jpeg,image/png,image/gif">
 			            <button id="sendBtn" style="display: none;"><img src="/images/square-send.png" style="width: 100%;height: 100%;"></button>
 			            <button id="imageBtn" onclick="fileClick();"><img src="/images/square-image.png" style="width: 100%;height: 100%;"></button>
 			        </div>  
