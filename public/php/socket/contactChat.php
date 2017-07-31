@@ -280,7 +280,7 @@ function emoji_decode($str) {
 
 function resize($path)
 {
-    header("Content-type: image/jpeg");  
+    // header("Content-type: image/jpeg");  
     $file = $path;  
     $filesize = filesize($path);
     if ($filesize > 648576) {
@@ -297,7 +297,7 @@ function resize($path)
         $src_im = imagecreatefromjpeg($file);  
         $dst_im = imagecreatetruecolor($newwidth, $newheight);  
         imagecopyresized($dst_im, $src_im, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);  
-        imagejpeg($dst_im); //输出压缩后的图片  
+        imagejpeg($dst_im, $path); //输出压缩后的图片  
         imagedestroy($dst_im);  
         imagedestroy($src_im);
     }
