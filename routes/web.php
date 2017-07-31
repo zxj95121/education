@@ -38,10 +38,6 @@ Route::any('/weixin/notify','HtmlController@notify');
 /*微信网页授权*/
 Route::get('/oauth/getCode', 'Wechat\OauthController@getCode');
 
-/*<!--------------------chat用户沟通------------------------------------------*/
-  /*聊天*/
-$router->get('/front/parent/parentChat/oauth', 'Front\Parent\ChatController@oauth');
-
 
 /*----------------------------------------------------------------*/
 
@@ -267,6 +263,11 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 	
 	$router->get('/parent/myClassOrder/details', 'Parent\MyClassOrderController@details');
 
+  /*聊天*/
+  $router->get('/parent/parentChat/oauth', 'Parent\ChatController@oauth');
+    /*parent客服沟通模块*/
+  $router->get('/parent/parentChat', 'Parent\ChatController@home');
+  $router->post('/chatting/getPrevMessage', 'Parent\ChatController@getPrevMessage');
 
 	/*微信分享  */
 	$router->get('/share/oauth', 'Weixin\ShareController@oauth');
@@ -350,10 +351,6 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 
   /*myVoucher*/
   $router->get('/parent/myVoucher', 'Parent\MyVoucherController@index');
-
-  /*parent客服沟通模块*/
-  $router->get('/parent/parentChat', 'Parent\ChatController@home');
-  $router->post('/chatting/getPrevMessage', 'Parent\ChatController@getPrevMessage');
 
       /*新订单*/
   $router->post('/parent/newEclassOrder', 'Parent\PayClassController@newEclassOrder');
