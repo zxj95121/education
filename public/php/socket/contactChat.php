@@ -173,6 +173,8 @@ $worker->onMessage = function($connection, $data)
     /*向用户端和其他管理员发送消息*/  
             
     if (isset($user_id)) {/*如果有这个值，说明是传消息的*/
+        $data['content'] = emoji_decode($data['content']);
+
         /*发送给用户，只有一个*/
         $worker_uid = $db->select('worker_id')->from('parent_info')->where('id= :id')->bindValues(array('id'=>$data['uid']))->single();
 
@@ -256,4 +258,12 @@ function emoji_encode($str){
     }
 
     return $strEncode;
+}
+
+function emoji_decode($str){
+    $strDecode = preg_replace_callback('|\[\[EMOJI:(.*?)\]\]|', function($matches){  
+        return rawurldecode($matches[1]);
+    }, $str);
+
+    return $strDecode;
 }
