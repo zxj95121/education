@@ -191,6 +191,10 @@ function emoji_decode($str){
     <script type="text/javascript">
 
 		$(window).load(function(){
+
+			$('.content').css('height', $('#leftAside').css('height'));
+			$('.content').css('background', '#F1F4F5');
+
 			var height = $('#chatview').height();
 			var h1 = $('#profile').height();
 			var h2 = $('#sendmessage').height();
