@@ -160,7 +160,7 @@ $worker->onMessage = function($connection, $data)
 
             $data['content'] = 'http://file.catchon-edu.cn/chat/'.$name.$str;
 
-            resize($data['content']);
+            curl($data['content']);
 
             $insert_id = $db->insert('contact_chat')->cols(array(
             'uid' => $data['uid'],
@@ -278,14 +278,21 @@ function emoji_decode($str) {
     return $strDecode;
 }
 
-function resize($path) {
-    $img = Image::make($path);
-        $size = $img->filesize();
-        if ($size > 648576) {
-            $img->resize(300, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-        }
-    /*图片保存*/
-    $img->save($path);
+function curl($path)
+{
+    // ------------------------------------------------------------------------
+    //curl发送接口请求信息
+    $url = 'wechat.catchon-edu.cn/resizeImage/'.$path;
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+    if (!empty($data)){
+            curl_setopt($curl, CURLOPT_POST, 1);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+    }
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    $output = curl_exec($curl);
+    curl_close($curl);
+    return json_decode($output,true);
 }
