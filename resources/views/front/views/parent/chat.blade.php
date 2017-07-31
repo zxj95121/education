@@ -184,35 +184,12 @@ function emoji_decode($str){
     		interval = 0;
 
 
-   //  		var MutationObserver = window.MutationObserver ||
-		 //    window.WebKitMutationObserver ||
-		 //    window.MozMutationObserver;
+    		var MutationObserver = window.MutationObserver ||
+		    window.WebKitMutationObserver ||
+		    window.MozMutationObserver;
 
-			// var callback = function(records) {
-			//     var val  = $('#textInput').val();
-   //  			if (val == '') {
-   //  				$('#imageBtn').show();
-   //  				$('#sendBtn').hide();
-   //  			} else {
-   //  				$('#imageBtn').hide();
-   //  				$('#sendBtn').show();
-   //  			}
-			// };
-			// var observer = new MutationObserver(callback);
-
-			// var article = document.querySelector('#textInput');
-
-			// var options = {
-			//     'childList': true,
-			//     'attributes': true, 
-			//     'childList': true, 
-			//     'characterData': true
-			// };
-
-			// observer.observe(article, options);
-
-    		$('#textInput').keyup(function(){
-    			var val  = $(this).val();
+			var callback = function(records) {
+			    var val  = $('#textInput').val();
     			if (val == '') {
     				$('#imageBtn').show();
     				$('#sendBtn').hide();
@@ -220,18 +197,41 @@ function emoji_decode($str){
     				$('#imageBtn').hide();
     				$('#sendBtn').show();
     			}
-    		});
+			};
+			var observer = new MutationObserver(callback);
 
-    		$('#textInput').change(function(){
-    			var val  = $(this).val();
-    			if (val == '') {
-    				$('#imageBtn').show();
-    				$('#sendBtn').hide();
-    			} else {
-    				$('#imageBtn').hide();
-    				$('#sendBtn').show();
-    			}
-    		});
+			var article = document.querySelector('#textInput');
+
+			var options = {
+			    // 'childList': true,
+			    // 'attributes': true, 
+			    // 'childList': true, 
+			    'characterData': true
+			};
+
+			observer.observe(article, options);
+
+    		// $('#textInput').keyup(function(){
+    		// 	var val  = $(this).val();
+    		// 	if (val == '') {
+    		// 		$('#imageBtn').show();
+    		// 		$('#sendBtn').hide();
+    		// 	} else {
+    		// 		$('#imageBtn').hide();
+    		// 		$('#sendBtn').show();
+    		// 	}
+    		// });
+
+    		// $('#textInput').change(function(){
+    		// 	var val  = $(this).val();
+    		// 	if (val == '') {
+    		// 		$('#imageBtn').show();
+    		// 		$('#sendBtn').hide();
+    		// 	} else {
+    		// 		$('#imageBtn').hide();
+    		// 		$('#sendBtn').show();
+    		// 	}
+    		// });
 
 
     		var u = navigator.userAgent;
