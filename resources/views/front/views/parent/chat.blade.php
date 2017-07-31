@@ -189,6 +189,10 @@ function emoji_decode($str){
 		    window.MozMutationObserver;
 
 			var callback = function(records) {
+				records.map(function(record) {
+			        console.log('Mutation type: ' + record.type);
+			        console.log('Mutation target: ' + record.target);
+			    });
 			    var val  = $('#textInput').val();
     			if (val == '') {
     				$('#imageBtn').show();
