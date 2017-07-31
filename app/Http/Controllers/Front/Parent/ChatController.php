@@ -84,4 +84,13 @@ class ChatController extends Controller
 
         return $strDecode;
     }
+
+    public function oauth()
+    {
+        if (Session::has('openid')) {
+            return redirect('/front/parent/parentChat');
+        } else {
+            return redirect(OauthController::getUrl(11, 1));
+        }
+    }
 }

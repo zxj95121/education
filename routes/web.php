@@ -262,6 +262,10 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
     $router->get('/parent/myVoucher/oauth', 'Parent\MyVoucherController@oauth');
 	
 	$router->get('/parent/myClassOrder/details', 'Parent\MyClassOrderController@details');
+
+  /*聊天*/
+  $router->get('/parent/parentChat/oauth', 'Parent\ChatController@oauth');
+
 	/*微信分享  */
 	$router->get('/share/oauth', 'Weixin\ShareController@oauth');
 	$router->get('/share', 'Weixin\ShareController@index');
