@@ -38,6 +38,10 @@ Route::any('/weixin/notify','HtmlController@notify');
 /*微信网页授权*/
 Route::get('/oauth/getCode', 'Wechat\OauthController@getCode');
 
+/*<!--------------------chat用户沟通------------------------------------------*/
+  /*聊天*/
+$router->get('/front/parent/parentChat/oauth', 'Front\Parent\ChatController@oauth');
+
 
 /*----------------------------------------------------------------*/
 
@@ -263,8 +267,6 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 	
 	$router->get('/parent/myClassOrder/details', 'Parent\MyClassOrderController@details');
 
-  /*聊天*/
-  $router->get('/parent/parentChat/oauth', 'Parent\ChatController@oauth');
 
 	/*微信分享  */
 	$router->get('/share/oauth', 'Weixin\ShareController@oauth');
