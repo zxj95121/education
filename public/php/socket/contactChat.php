@@ -290,11 +290,11 @@ function resize($path, $type)
 
         // $bi = 600/$width;
         // $newwidth = 600;
-        $newheight = $height*$bi;
+        // $newheight = $height*$bi;
 
         //缩放尺寸  
-        // $newwidth = $width * $percent;  
-        // $newheight = $height * $percent;  
+        $newwidth = $width * $percent;  
+        $newheight = $height * $percent;  
 
         $function0 = 'imagecreatefrom'.$type;
         $function1 = 'image'.$type;
