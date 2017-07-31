@@ -160,7 +160,7 @@ $worker->onMessage = function($connection, $data)
 
             $data['content'] = 'http://file.catchon-edu.cn/chat/'.$name.$str;
 
-            resize($data['content']);
+            resize($address.$str);
 
             $insert_id = $db->insert('contact_chat')->cols(array(
             'uid' => $data['uid'],
