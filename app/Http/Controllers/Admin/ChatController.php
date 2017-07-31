@@ -30,7 +30,8 @@ class ChatController extends Controller
     		$read = '1';
     	}
 
-    	$chatUser = $chatUser->select('nu.id', 'nu.phone', 'nu.nickname as nickname','nu.type')
+    	$chatUser = $chatUser->where('nu.id', '!=', '')
+            ->select('nu.id', 'nu.phone', 'nu.nickname as nickname','nu.type')
     		->groupBy('contact_chat.uid')
     		->paginate(15);
 
