@@ -55,6 +55,19 @@ class ChatController extends Controller
     		->get()
     		->toArray();
 
+            foreach ($contentArr as $key => $value) {
+                $contentArr[$key]['content'] = emoji_decode($value['content']);
+            }
+
     	return response()->json(['errcode'=>0,'content'=>$contentArr]);
+    }
+
+    private function emoji_decode($str)
+    {   
+        $strDecode = preg_replace_callback('|\[\[EMOJI:(.*?)\]\]|', function($matches){  
+            return rawurldecode($matches[1]);
+        }, $str);
+
+        return $strDecode;
     }
 }

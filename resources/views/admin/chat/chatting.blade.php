@@ -1,3 +1,12 @@
+<?php 
+function emoji_decode($str){
+    $strDecode = preg_replace_callback('|\[\[EMOJI:(.*?)\]\]|', function($matches){  
+        return rawurldecode($matches[1]);
+    }, $str);
+
+    return $strDecode;
+} 
+?>
 @extends('admin_layout')
 
 <!-- 在这里写style样式，或者在这里外加link -->
@@ -105,7 +114,7 @@
 					            <div @if($value['admin_id']) class="message right" @else class="message" @endif time="{{$value['created_at']}}">
 					              <img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
 					                <div class="bubble">
-					                  	<span class="chatData">{{$value['content']}}</span>
+					                  	<span class="chatData">{{emoji_decode($value['content'])}}</span>
 					                    <div class="corner"></div>
 					                    <span>{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
 					                </div>
