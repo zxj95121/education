@@ -37,6 +37,9 @@ function emoji_decode($str){
 	.chatImg{
 		max-width: 450px;
 	}
+	.chatData{
+		font-weight: normal;
+	}
 </style>
 @endsection
 
