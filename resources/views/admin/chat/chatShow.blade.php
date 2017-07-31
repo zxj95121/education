@@ -67,8 +67,8 @@
                                                 <thead>
                                                     <tr>
                                                         <th>ID</th><!-- parent_info -->
+                                                        <th>身份</th>
                                                         <th>昵称</th>
-                                                        <th>姓名</th>
                                                         <th>手机号</th>
                                                         <th>未读消息</th>
                                                         <th>操作</th>
@@ -76,14 +76,17 @@
                                                 </thead>
                                                 <tbody>
                                                 @foreach($chatUser as $key => $value)
+                                                    @if($value['id'])
                                                     <tr uid="{{$value['id']}}">
                                                         <td>{{$value['id']}}</td>
+                                                        <td>@if($value['type']) <span class="label label-success">系统用户</span>@else <span class="label label-info">未注册用户</span> @endif</td>
                                                         <td>{{$value['nickname']}}</td>
-                                                        <td>{{$value['name']}}</td>
                                                         <td>{{$value['phone']}}</td>
                                                         <td>@if($numArr[$key])<span class="badge">{{$numArr[$key]}}</span>@else 0 @endif</td>
                                                         <td><label class="label label-info communication">继续沟通</label></td>
                                                     </tr>
+                                                    @else
+                                                    @endif
                                                 @endforeach
                                                 </tbody>
                                             </table>

@@ -23,6 +23,7 @@ use App\Models\EclassOrder;
 use App\Models\Bill;
 use App\Models\SchoolApply;
 use App\Models\HobbyApply;
+use App\Models\ContactChat;
 
 use Session;
 use Wechat;
@@ -271,6 +272,10 @@ class ManagerController extends Controller
             BigOrder::where('id', $bid)->delete();
         }
 
+        $nid = NewUser::where('openid', $openid)->first();
+
+        ContactChat::where('uid', $nid)->delete();
+
         HobbyApply::where('openid', $openid)->delete();
         SchoolApply::where('openid', $openid)->delete();
         UserShare::where('openid', $openid)->delete();
@@ -303,6 +308,10 @@ class ManagerController extends Controller
             Bill::where('oid', $bid)->delete();
             BigOrder::where('id', $bid)->delete();
         }
+
+        $nid = NewUser::where('openid', $openid)->first();
+
+        ContactChat::where('uid', $nid)->delete();
 
         HobbyApply::where('openid', $openid)->delete();
         SchoolApply::where('openid', $openid)->delete();

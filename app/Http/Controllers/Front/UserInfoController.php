@@ -19,6 +19,7 @@ use App\Models\CommunityCity;
 use App\Models\CommunityCommunity;
 use App\Models\Hobby;
 use App\Models\HobbyApply;
+use App\Models\NewUser;
 
 use Session;
 
@@ -328,6 +329,10 @@ class UserInfoController extends Controller
     	$flight = $this->returnUserFlight($openid);
     	$flight->name = $value;
     	$flight->save();
+
+        /*new_user表*/
+        NewUser::where('openid', $openid)
+            ->update(['nickname'=>$value]);
 
     	return response()->json(['errcode'=>0]);
     }

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ContactChat;
 use App\Models\ParentInfo;
 use App\Models\ParentDetail;
+use App\Models\NewUser;
 
 use Session;
 
@@ -18,8 +19,9 @@ class ChatController extends Controller
     	$read = $request->input('read');
 
     	$chatUser = ContactChat::where('contact_chat.status', '1')
-    		->leftJoin('parent_info as pi', 'pi.id', 'contact_chat.uid')
-    		->leftJoin('parent_detail as pd', 'pd.pid', 'pi.id');
+    		// ->leftJoin('parent_info as pi', 'pi.id', 'contact_chat.uid')
+    		// ->leftJoin('parent_detail as pd', 'pd.pid', 'pi.id');
+            ->leftJoin('new_user as nu', 'nu.id', 'contact_chat.uid');
 
     	if ($read != '1') {
     		$chatUser = $chatUser->where('contact_chat.read', '0');
@@ -27,8 +29,8 @@ class ChatController extends Controller
     		$read = '1';
     	}
 
-    	$chatUser = $chatUser->select('pi.id', 'pi.phone', 'pi.name as nickname', 'pd.name as name')
-    		->groupBy('uid')
+    	$chatUser = $chatUser->select('nu.id', 'nu.phone', 'nu.nickname as nickname','nu.type')
+    		->groupBy('contact_chat.uid')
     		->paginate(15);
 
     	$numArr = array();
@@ -110,4 +112,11 @@ class ChatController extends Controller
 
         return $strDecode;
     }
+
+
+    /*根据user_type的ID查用户的信息*/
+//     private getUserBasicInfo($id)
+//     {
+//         NewUser
+//     }
 }
