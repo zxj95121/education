@@ -160,7 +160,7 @@ $worker->onMessage = function($connection, $data)
 
             $data['content'] = 'http://file.catchon-edu.cn/chat/'.$name.$str;
 
-            resize($address.$str);
+            resize($address.$str, $str);
 
             $insert_id = $db->insert('contact_chat')->cols(array(
             'uid' => $data['uid'],
@@ -278,29 +278,31 @@ function emoji_decode($str) {
     return $strDecode;
 }
 
-function resize($path)
+function resize($path, $type)
 {
     // header("Content-type: image/jpeg");  
     $file = $path;  
     $filesize = filesize($path);
-    echo $filesize;
     if ($filesize > 648576) {
 
-        // $percent = 0.4;  //图片压缩比  
+        $percent = 0.3;  //图片压缩比  
         list($width, $height) = getimagesize($file); //获取原图尺寸  
 
-        $bi = 300/$width;
-        $newwidth = 300;
+        // $bi = 600/$width;
+        // $newwidth = 600;
         $newheight = $height*$bi;
 
-        echo $width;
         //缩放尺寸  
         // $newwidth = $width * $percent;  
         // $newheight = $height * $percent;  
-        $src_im = imagecreatefromjpeg($file);  
+
+        $function0 = 'imagecreatefrom'.$type;
+        $function1 = 'image'.$type;
+        
+        $src_im = $function0($file);
         $dst_im = imagecreatetruecolor($newwidth, $newheight);  
         imagecopyresized($dst_im, $src_im, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);  
-        imagejpeg($dst_im, $path); //输出压缩后的图片  
+        $function1($dst_im, $path); //输出压缩后的图片  
         imagedestroy($dst_im);  
         imagedestroy($src_im);
     }
