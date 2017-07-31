@@ -89,7 +89,7 @@ class ChatController extends Controller
 
         $admin_id = NewUser::where('openid', $admin_openid)
             ->select('id')
-            ->get[0];
+            ->get()[0];
 
     	return view('admin.chat.chatting', ['content'=>$contentArr,'admin_id'=>$admin_id->id,'user_id'=>$uid,'userInfo'=>$userInfo]);
     }
