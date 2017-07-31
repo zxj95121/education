@@ -245,6 +245,16 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
 /*----------------------------------------------------------------*/
 
 
+  /*聊天*/
+  $router->get('/parent/parentChat/oauth', 'Parent\ChatController@oauth');
+    /*parent客服沟通模块*/
+  $router->get('/parent/parentChat', 'Parent\ChatController@home');
+  $router->post('/chatting/getPrevMessage', 'Parent\ChatController@getPrevMessage');
+
+
+/*-----------------------------------------------------------------*/
+
+
 /*用户端不需要微信身份的路由放这*/
 Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domainAdmin']], function ($router) {
     /*验证码GD*/
@@ -263,11 +273,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 	
 	$router->get('/parent/myClassOrder/details', 'Parent\MyClassOrderController@details');
 
-  /*聊天*/
-  $router->get('/parent/parentChat/oauth', 'Parent\ChatController@oauth');
-    /*parent客服沟通模块*/
-  $router->get('/parent/parentChat', 'Parent\ChatController@home');
-  $router->post('/chatting/getPrevMessage', 'Parent\ChatController@getPrevMessage');
+
 
 	/*微信分享  */
 	$router->get('/share/oauth', 'Weixin\ShareController@oauth');
