@@ -40,6 +40,9 @@ function emoji_decode($str){
 	.chatData{
 		font-weight: normal;
 	}
+	.bubble span:last-child{
+		font-weight: normal;
+	}
 </style>
 @endsection
 
