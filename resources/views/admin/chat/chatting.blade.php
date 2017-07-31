@@ -110,10 +110,13 @@ function emoji_decode($str){
 			                <div class="cx"></div>
 			                <img src="/images/arrow-left.png" style="width: 100%;height: 100%;">
 			            </div> -->
-			             <div id="headimg">
-			             	<img src="{{$userInfo->headimg}}" style="width: 100%;height: 100%;">
-			             </div>
-			            <p>{{$userInfo->name}}</p>
+			            <div class="usertype" style="position: absolute;top:15px;left:10px;height:30px;line-height: 30px;color:#FFF;">
+			            	@if($userInfo->type) 系统用户 @else 未注册 @endif
+			            </div>
+			            <div id="headimg">
+			            	<img src="{{$userInfo->headimg}}" style="width: 100%;height: 100%;">
+			            </div>
+			            <p>{{$userInfo->nickname}}</p>
 			            <!-- <span>miro@badev@gmail.com</span> -->
 			        </div>
 			        
