@@ -50,12 +50,15 @@ $worker->onMessage = function($connection, $data)
         $user_type = 'u';
         /*用户端*/
         if ($data['status'] == 'init') {
-            $db->update('parent_info')->cols(array('is_chat'=>'1','worker_id'=>$cid))->where('id='.$data['uid'])->query();
+            $db->update('new_user')->cols(array('is_chat'=>'1','worker_id'=>$cid))->where('id='.$data['uid'])->query();
         } else if ($data['status'] == 'msg') {
             /*用户发送文字消息*/
             $data['content'] = emoji_encode($data['content']);
                 /*看当前有没有管理员再跟用户聊天*/
-            $count = $db->select('count(*) as count')->from('admin_info')->where("is_chat= '1' and chat_user = '".$data['uid']."' ")->single();
+            $count = $db->select('count(*) as count')->from('new_user')
+                ->innerJoin('user_type','user_type.uid = new_user.id')
+                ->where("user_type.type= '1'")
+                ->where("new_user.is_chat= '1' and new_user.chat_user = '".$data['uid']."' ")->single();
             if ($count > 0) {
                 $read = '1';
             } else {
@@ -96,7 +99,10 @@ $worker->onMessage = function($connection, $data)
             $data['content'] = 'http://file.catchon-edu.cn/chat/'.$name.$str;
 
             /*看当前有没有管理员再跟用户聊天*/
-            $count = $db->select('count(*) as count')->from('admin_info')->where("is_chat= '1' and chat_user = '".$data['uid']."' ")->single();
+            $count = $db->select('count(*) as count')->from('new_user')
+                ->innerJoin('user_type','user_type.uid = new_user.id')
+                ->where("user_type.type= '1'")
+                ->where("new_user.is_chat= '1' and new_user.chat_user = '".$data['uid']."' ")->single();
             if ($count > 0) {
                 $read = '1';
             } else {
@@ -121,7 +127,7 @@ $worker->onMessage = function($connection, $data)
         $user_type = 'a';
         /*管理员端*/
         if ($data['status'] == 'init') {
-            $db->update('admin_info')->cols(array('is_chat'=>'1','worker_id'=>$cid,'chat_user'=>$data['uid']))->where('id='.$data['aid'])->query();
+            $db->update('new_user')->cols(array('is_chat'=>'1','worker_id'=>$cid,'chat_user'=>$data['uid']))->where('id='.$data['aid'])->query();
         } else if ($data['status'] == 'msg') {
             $data['content'] = emoji_encode($data['content']);
             $time = date('Y-m-d H:i:s');
@@ -176,12 +182,15 @@ $worker->onMessage = function($connection, $data)
         $data['content'] = emoji_decode($data['content']);
 
         /*发送给用户，只有一个*/
-        $worker_uid = $db->select('worker_id')->from('parent_info')->where('id= :id')->bindValues(array('id'=>$data['uid']))->single();
+        $worker_uid = $db->select('worker_id')->from('new_user')->where('id= :id')->bindValues(array('id'=>$data['uid']))->single();
 
         $sendArr[$worker_uid] = 1;
 
         /*发送给管理员，可能多个*/
-        $worker_aid_Arr = $db->select('worker_id')->from('admin_info')->where("is_chat= '1'")->query();
+        $worker_aid_Arr = $db->select('new_user.worker_id')->from('new_user')
+            ->innerJoin('user_type','user_type.uid = new_user.id')
+            ->where("user_type.type= '1'")
+            ->where("new_user.is_chat= '1'")->query();
 
         foreach ($worker_aid_Arr as $value) {
             $sendArr[$value['worker_id']] = 1;

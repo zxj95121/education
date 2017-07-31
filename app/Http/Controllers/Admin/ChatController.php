@@ -9,6 +9,7 @@ use App\Models\ContactChat;
 use App\Models\ParentInfo;
 use App\Models\ParentDetail;
 use App\Models\NewUser;
+use App\Models\AdminInfo;
 
 use Session;
 
@@ -49,6 +50,8 @@ class ChatController extends Controller
     {
     	$uid = $request->input('uid');
     	$admin_id = Session::get('admin_id');
+        
+        $admin_openid = AdminInfo::find($admin_id)->openid;
 
     	/*将所有未读消息清空*/
     	ContactChat::where('status', '1')
@@ -83,7 +86,12 @@ class ChatController extends Controller
             ->select('nickname', 'type', 'headimg')
             ->get()[0];
 
-    	return view('admin.chat.chatting', ['content'=>$contentArr,'admin_id'=>$admin_id,'user_id'=>$uid,'userInfo'=>$userInfo]);
+
+        $admin_id = NewUser::where('openid', $admin_openid)
+            ->select('id')
+            ->get[0];
+
+    	return view('admin.chat.chatting', ['content'=>$contentArr,'admin_id'=>$admin_id->id,'user_id'=>$uid,'userInfo'=>$userInfo]);
     }
 
     /*获取之前的几条数据*/

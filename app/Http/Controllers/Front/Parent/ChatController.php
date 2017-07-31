@@ -42,24 +42,25 @@ class ChatController extends Controller
 
     /*获取之前的几条数据*/
     public function getPrevMessage(Request $request) {
-    	$time = $request->input('time');
-    	$uid = $request->input('uid');
-    	$contentArr = ContactChat::where('contact_chat.uid', $uid)
-    		->where('contact_chat.status', 1)
-    		->where('contact_chat.created_at', '<', $time)
-    		->orderBy('contact_chat.created_at', 'desc')
-    		->limit(5)
-    		->leftJoin('parent_info as pi', 'pi.id', 'contact_chat.uid')
-    		->leftJoin('admin_info as ai', 'ai.id', 'contact_chat.admin_id')
-    		->select('contact_chat.*', 'pi.headimg as uheadimg', 'ai.headimg as aheadimg')
-    		->get()
-    		->toArray();
+        $time = $request->input('time');
+        $uid = $request->input('uid');
+        $contentArr = ContactChat::where('contact_chat.uid', $uid)
+            ->where('contact_chat.status', 1)
+            ->where('contact_chat.created_at', '<', $time)
+            ->orderBy('contact_chat.created_at', 'desc')
+            ->limit(5)
+            ->leftJoin('new_user as nu', 'nu.id', 'contact_chat.uid')
+            // ->leftJoin('parent_info as pi', 'pi.id', 'contact_chat.uid')
+            ->leftJoin('admin_info as ai', 'ai.id', 'contact_chat.admin_id')
+            ->select('contact_chat.*', 'nu.headimg as uheadimg', 'ai.headimg as aheadimg')
+            ->get()
+            ->toArray();
 
             foreach ($contentArr as $key => $value) {
                 $contentArr[$key]['content'] = $this->emoji_decode($value['content']);
             }
 
-    	return response()->json(['errcode'=>0,'content'=>$contentArr]);
+        return response()->json(['errcode'=>0,'content'=>$contentArr]);
     }
 
     private function emoji_decode($str)
