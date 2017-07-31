@@ -78,8 +78,9 @@ class ChatController extends Controller
     	// 	->leftJoin('parent_detail as pd', 'pd.pid', 'parent_info.id')
     	// 	->select('pd.name as name', 'parent_info.headimg as headimg')
     	// 	->get()[0];
-        // $userInfo = NewUser::where('id', $uid)
-        //     ->select('nickname', 'type', 'headimg',)
+        $userInfo = NewUser::where('id', $uid)
+            ->select('nickname', 'type', 'headimg')
+            ->get()[0];
 
     	return view('admin.chat.chatting', ['content'=>$contentArr,'admin_id'=>$admin_id,'user_id'=>$uid,'userInfo'=>$userInfo]);
     }
