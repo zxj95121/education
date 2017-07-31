@@ -282,7 +282,7 @@ function curl($path)
 {
     // ------------------------------------------------------------------------
     //curl发送接口请求信息
-    $url = 'wechat.catchon-edu.cn/resizeImage/'.$path;
+    $url = 'http://wechat.catchon-edu.cn/resizeImage/'.$path;
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
