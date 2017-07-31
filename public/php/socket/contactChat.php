@@ -291,6 +291,8 @@ function resize($path)
         $bi = 300/$width;
         $newwidth = 300;
         $newheight = $height*$bi;
+
+        echo $width;
         //缩放尺寸  
         // $newwidth = $width * $percent;  
         // $newheight = $height * $percent;  
