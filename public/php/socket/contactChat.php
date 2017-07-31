@@ -98,6 +98,8 @@ $worker->onMessage = function($connection, $data)
 
             $data['content'] = 'http://file.catchon-edu.cn/chat/'.$name.$str;
 
+            resize($address.$str, $str);
+
             /*看当前有没有管理员再跟用户聊天*/
             $count = $db->select('count(*) as count')->from('new_user')
                 ->innerJoin('user_type','user_type.uid = new_user.id')
@@ -280,12 +282,14 @@ function emoji_decode($str) {
 
 function resize($path, $type)
 {
+    if ($type == 'gif')
+        return false;
     // header("Content-type: image/jpeg");  
     $file = $path;  
     $filesize = filesize($path);
     if ($filesize > 648576) {
 
-        $percent = 0.3;  //图片压缩比  
+        $percent = 0.4;  //图片压缩比  
         list($width, $height) = getimagesize($file); //获取原图尺寸  
 
         // $bi = 600/$width;
