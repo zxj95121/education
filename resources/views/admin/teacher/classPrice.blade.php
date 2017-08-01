@@ -42,37 +42,55 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <div class="table-responsive">
-                                            <table class="table table-hover" id="showPrice" style="max-width: 800px;">
-                                                <thead>
-                                                    <tr>
-                                                        <th><font><font>序号</font></font></th>
-                                                        <th><font><font>课程数区间</font></font></th>
-                                                        <th><font><font>单价</font></font></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @php $priceObjLength = count($priceObj); @endphp
-                                                	@foreach($priceObj as $key => $value)
-                                                    <tr>
-                                                        <td>{{$key+1}}</td>
-                                                        <td>
-                                                            @if($key == 0)
-                                                                <={{$value->area}}
-                                                            @elseif($key == $priceObjLength-1)
-                                                                >={{$value->area}}
-                                                            @else
-                                                                {{$value->area}}
-                                                            @endif
-                                                        </td>
-                                                        <td>{{number_format((float)$value->price, 2)}}</td>
-                                                    </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">一级课程</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                @foreach($teacherOne as $key => $value)
+                                                    @if($key == 0)
+                                                        <button type="button" tid="{{$value->id}}" class="btn btn-block btn--md btn-primary teacherBtn">{{$value->name}}</button>
+                                                    @else
+                                                        <button type="button" tid="{{$value->id}}" class="btn btn-block btn--md btn-default teacherBtn">{{$value->name}}</button>
+                                                    @endif
+                                                @endforeach
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                        <div class="col-md-8 col-sm-8 col-xs-8">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover" id="showPrice" style="max-width: 800px;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th><font><font>序号</font></font></th>
+                                                            <th><font><font>课程数区间</font></font></th>
+                                                            <th><font><font>单价</font></font></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @php $priceObjLength = count($priceObj); @endphp
+                                                    	@foreach($priceObj as $key => $value)
+                                                        <tr>
+                                                            <td>{{$key+1}}</td>
+                                                            <td>
+                                                                @if($key == 0)
+                                                                    <={{$value->area}}
+                                                                @elseif($key == $priceObjLength-1)
+                                                                    >={{$value->area}}
+                                                                @else
+                                                                    {{$value->area}}
+                                                                @endif
+                                                            </td>
+                                                            <td>{{number_format((float)$value->price, 2)}}</td>
+                                                        </tr>
+                                                        @endforeach
+
+                                                        @if($priceObjLength == 0) <tr><td>未设置价格</td></tr> @else @endif
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -91,6 +109,20 @@
 			        	<h4 class="modal-title" id="myModalLabel">设置新的课程价格</h4>
 			      	</div>
 			      	<div class="modal-body">
+                        <div class="row" style="margin-bottom: 12px;">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">请选择eclass课程</label>
+                                    <div class="col-sm-10">
+                                        <select id="classSelect" class="form-control">
+                                            @foreach($teacherOne as $value)
+                                                <option value="{{$value->id}}">{{$value->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 			        	<form class="form-horizontal" role="form" id="firstStep">
 	                        <div class="form-group">
 	                            <label class="col-sm-2 control-label">请输入间隔的数字</label>
@@ -172,6 +204,8 @@
                     data[k]['price'] = price;
                     data[k++]['area'] = area;
                 })
+            } else {
+                return false;
             }
             
             // data = JSON.stringify(data);
@@ -182,7 +216,8 @@
                 dataType: 'json',
                 type: 'post',
                 data: {
-                    data: data
+                    data: data,
+                    id: $('#classSelect option:selected').val()
                 },
                 success: function (data) {
                     if (data.errcode == 0) {
@@ -272,5 +307,31 @@
             }
         }
 	})
+</script>
+
+<script type="text/javascript">
+    /*二改js*/
+    $(function(){
+        $('.teacherBtn').click(function(){
+            $(this).parent().find('.btn-primary').removeClass('btn-primary').addClass('btn-default');
+            $(this).addClass('btn-primary');
+
+            $.ajax({
+                url: '/admin/classPrice/getTeacherPrice',
+                dataType: 'json',
+                type: 'post',
+                data: {
+                    id: $(this).attr('tid')
+                },
+                success: function(data) {
+                    if (data.errcode == 0) {
+                        if (data.str == '')
+                            data.str = '<tr><td>未设置价格</td></tr>';
+                        $('#showPrice tbody').html(data.str);
+                    }
+                }
+            })
+        })
+    })
 </script>
 @endsection

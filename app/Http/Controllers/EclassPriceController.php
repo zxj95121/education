@@ -69,10 +69,11 @@ class EclassPriceController extends Controller
     }
 
 
-    public static function getUnitPriceByCount($count)
+    public static function getUnitPriceByCount($tid, $count)
     {
 
         $priceObj = ClassPrice::where('status', 1)
+            ->where('tid', $tid)
             ->select('area', 'price')
             ->get();
 

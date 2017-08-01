@@ -53,6 +53,7 @@ class PayClassController extends Controller
 		$cartTotal = $request->input('cartTotal');
 		$cartOrder = json_decode($request->input('cartOrder'), true);
 		var_dump($cartOrder);
+		dd(1);
 
 		$order_no = 'EC'.date('YmdHis').rand(10000,99999);
 		$bigPrice = $cartTotal*EclassPriceController::getUnitPriceByCount($cartTotal);

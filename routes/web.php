@@ -171,6 +171,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     /*双师class价格课程设置*/
     $router->get('/classPrice', 'Teacher\ClassPriceController@classPrice');
     $router->post('/classPrice/newPrice', 'Teacher\ClassPriceController@newPrice');
+    $router->post('/classPrice/getTeacherPrice', 'Teacher\ClassPriceController@getTeacherPrice');
 
     /*双师class课程设置*/
     $router->get('/setClassTime', 'Teacher\ClassTimeController@setClassTime');
