@@ -60,7 +60,7 @@ class PayClassController extends Controller
 		foreach ($cartOrder as $key => $value) {
 			$count = 0;
 			foreach ($value['val'] as $v) {
-				$count　+= $v['count'];
+				$count += (int)$v['count'];
 			}
 
 			$twoPid = TeacherTwo::find($key)->pid;
