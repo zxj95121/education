@@ -64,8 +64,9 @@ class PayClassController extends Controller
 			}
 
 			$twoPid = TeacherTwo::find($key)->pid;
-			$price += $cartTotal*EclassPriceController::getUnitPriceByCount($twoPid, $count);
+			$price += $count*EclassPriceController::getUnitPriceByCount($twoPid, $count);
 			echo $price.'<br />';
+			// 140 110 30 50 30
 		}
 dd(1);
 		$vnum = floor($bigPrice/1000);
