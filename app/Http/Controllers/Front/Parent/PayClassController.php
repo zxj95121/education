@@ -53,11 +53,21 @@ class PayClassController extends Controller
 		$cartTotal = $request->input('cartTotal');
 		$cartOrder = json_decode($request->input('cartOrder'), true);
 		var_dump($cartOrder);
-		dd(1);
+		// dd(1);
 
 		$order_no = 'EC'.date('YmdHis').rand(10000,99999);
-		$bigPrice = $cartTotal*EclassPriceController::getUnitPriceByCount($cartTotal);
+		$price = 0;
+		foreach ($cartOrder as $key => $value) {
+			$count = 0;
+			foreach ($value['val'] as $v) {
+				$count　+= $v['count'];
+			}
 
+			$twoPid = TeacherTwo::find($key)->pid;
+			$price += $cartTotal*EclassPriceController::getUnitPriceByCount($twoPid, $count);
+			echo $price.'<br />';
+		}
+dd(1);
 		$vnum = floor($bigPrice/1000);
         $vouNum = 0;
         for ($i = 0; $i < $vnum; $i++) {
