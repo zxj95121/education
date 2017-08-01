@@ -45,7 +45,7 @@ class GrabController extends Controller
     			$code = 200;
     		}
     	} else {
-    		$newtime = strtotime('2017-07-30 16:16:01');
+    		$newtime = time();
     		if ($newtime >= strtotime($discountObj->start_time)) {
     			//活动已经开始，进行抽奖
     			$usercount = UserDiscount::where('discount_id',$id)->where('status',1)->count();
@@ -123,9 +123,6 @@ class GrabController extends Controller
     		$time1 = time();
     		$time2 = strtotime($discountObj->start_time);
     		$cha = ceil(($time2-$time1)/86400);////60s*60min*24h    
-    		dump($time1);
-    		dump($time2);
-    		dump($cha);
     		if ($cha < 7 && $cha > 0) {
     			//活动正进行，进行报名参加;
     			$userdiscountObj = UserDiscount::where('uid',$newuserObj[0]->id)->where('discount_id',$discountObj->id)->get();
@@ -163,15 +160,15 @@ class GrabController extends Controller
     }
     //倒计时
     public function countdown(Request $request){
-    	if (Session::has('newtime')) {
+/*     	if (Session::has('newtime')) {
     		$newtime = Session::get('newtime');
     		$newtime++;
     		Session::put('newtime',$newtime);
     	} else {
     		$newtime = '1501402562';
     		Session::put('newtime',$newtime);
-    	}  
-   		//$newtime = time();
+    	}   */
+   		$newtime = time();
     	$id = $request->input('id');
     	$discountObj = Discount::find($id);
     	$usercount = UserDiscount::where('discount_id',$id)->where('type',1)->where('status',1)->count();
