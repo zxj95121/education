@@ -108,6 +108,7 @@ class ClassPackageController extends Controller
     {
     	/*cid表示class_package的ID*/
     	$classPackageId = $request->input('cid');
+        Session::put('hasOrder', '0');
     	Session::put('classPackageId', $classPackageId);
 
     	return redirect(OauthController::getUrl(8, 0));
