@@ -31,7 +31,13 @@ class ClassPackageController extends Controller
     /*支付订单*/
     public function newOrder()
     {
-    	$cid = Session::get('classPackageId');
+        $cid = Session::get('classPackageId');
+        $hasOrder = Session::get('hasOrder');
+        if ($hasOrder == '1') {
+            Session::put('hasOrder', '0');
+            return redirect('/front/classPackage?id='.$cid);
+        }
+    	
     	$openid = Session::get('openid');
 
         $package = ClassPackage::find($cid);
@@ -68,12 +74,15 @@ class ClassPackageController extends Controller
         Session::put('package_order_no', $order_no);
         Session::put('package_order_price', $price);
         Session::put('package_order_vouNum', $vouNum);
+
+        Session::put('hasOrder', '0');
     	
         return redirect('/front/classPackage/newOrder2');
     }
 
     public function newOrder2()
     {
+        Session::put('hasOrder', '1');
         $order_no = Session::get('package_order_no');
         $price = Session::get('package_order_price');
         $vouNum = Session::get('package_order_vouNum');
