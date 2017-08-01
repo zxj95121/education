@@ -66,6 +66,7 @@ class PayClassController extends Controller
 			$price += $count*EclassPriceController::getUnitPriceByCount($twoPid, $count);
 		}
 
+		$bigPrice = $price;
 		$vnum = floor($bigPrice/1000);
         $vouNum = 0;
         for ($i = 0; $i < $vnum; $i++) {
