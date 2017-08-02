@@ -13,7 +13,7 @@ class DoubleTeacherController extends Controller
 {
 	public function doubleTeacher(Request $request)
 	{
-		$teacherone = TeacherOne::where('status','!=','0')->select('id','status','name')->get();
+		$teacherone = TeacherOne::where('status','!=','0')->select('id','status','name', 'half_buy')->get();
 		return view('admin.teacher.doubleTeacher',['res'=>$teacherone]);
 	}
     public function oneAdd(Request $request)
@@ -287,5 +287,23 @@ class DoubleTeacherController extends Controller
 		$teacherfour->status = 0 - $teacherfour->status;
 		$teacherfour->save();
 		return redirect('admin/teacherfour?pid='.$teacherfour->pid);
+	}
+
+	/*halfBuy*/
+	public function halfBuy(Request $request)
+	{
+		$id = $request->input('id');
+		$flight = TeacherOne::find($id);
+		$flight->half_buy = $flight->half_buy ? '0' : '1';
+
+		TeacherOne::where('status', '!=', 0)
+			->where('half_buy', '1')
+			->update(['half_buy'=>0]);
+
+		
+		
+		$flight->save();
+
+		return response()->json(['errcode'=>0,'half'=>$flight->half_buy]);
 	}
 }

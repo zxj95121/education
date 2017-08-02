@@ -39,7 +39,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="table-responsive">
-                                            <table class="table table-hover">
+                                            <table class="table table-hover" id="teacherOneTable">
                                                 <thead>
                                                     <tr>
                                                         <th><font><font>名称</font></font></th>
@@ -52,17 +52,28 @@
                                                     <tr>
                                                         <td><font><font class="otitle">{{$value->name}}</font></font></td>
                                                         @if($value->status!=1)
-                                                        	<td><font><font class=""><span class="label label-danger">隐藏</span></font></font></td>
+                                                        	<td class="halfTd"><font><font class=""><span class="label label-danger">隐藏</span></font></font>
+                                                            @if($value->half_buy == 1)
+                                                                <span class="label label-success halfspan">半价购</span>
+                                                            @else
+                                                            @endif
+                                                            </td>
                                                         	<td class="caozuo">
                                                         		<a href="/admin/teacherone/hide?id={{$value->id}}"><span class="label label-success" tid="{{$value->id}}" style="margin-right: 4px;">显示</span></a>
                                                         @else
-                                                        	<td><font><font class=""><span class="label label-success">显示</span></font></font></td>
+                                                        	<td class="halfTd"><font><font class=""><span class="label label-success">显示</span></font></font>
+                                                            @if($value->half_buy == 1)
+                                                                <span class="label label-success halfspan">半价购</span>
+                                                            @else
+                                                            @endif
+                                                            </td>
                                                         	<td class="caozuo">
                                                         		<a href="/admin/teacherone/hide?id={{$value->id}}"><span class="label label-danger" tid="{{$value->id}}" style="margin-right: 4px;">隐藏</span></a>
                                                         @endif
                                                         	<a href="/admin/teachertwo?pid={{$value->id}}"><span class="label label-info" tid="{{$value->id}}" style="margin-right: 4px;">设置</span></a>
                                                         	<a href="/admin/teacherone/edit?id={{$value->id}}"><span class="label label-primary" tid="{{$value->id}}" style="margin-right: 4px;">修改</span></a>
                                                         	<a class="delete"><span class="label label-default" tid="{{$value->id}}" style="margin-right: 4px;">删除</span></a>
+                                                            　　<a class="setHalf"><span tid="{{$value->id}}" class="label label-info">半价购课设置</span></a>
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -103,6 +114,30 @@
 			},function(){
 			})
 			return false;
+        })
+
+        $('.setHalf').click(function(){
+            var tid = $(this).find('span').attr('tid');
+            var cdom = $(this).parents('tr').find('.halfTd');
+            $.ajax({
+                url: '/admin/teacherone/halfBuy',
+                dataType: 'json',
+                type: 'post',
+                data: {
+                    id: tid
+                },
+                success: function(data) {
+                    if (data.errcode == 0) {
+                        $('#teacherOneTable').find('.halfspan').remove();
+
+                        if (data.half == 1) {
+                            cdom.append('<span class="label label-success halfspan">半价购</span>');
+                        }/* else {
+                            cdom.find('.halfspan').remove();
+                        }*/
+                    }
+                }
+            })
         })
 	})
 </script>

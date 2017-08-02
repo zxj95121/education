@@ -136,7 +136,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
   	$router->get('/teacherone/edit','Teacher\DoubleTeacherController@oneEdit');//修改
   	$router->post('/teacherone/edit_post','Teacher\DoubleTeacherController@oneEdit_post');
   	$router->get('/teacherone/delete','Teacher\DoubleTeacherController@oneDelete');
-  	$router->get('/teacherone/hide','Teacher\DoubleTeacherController@oneHide');
+    $router->get('/teacherone/hide','Teacher\DoubleTeacherController@oneHide');
+  	$router->post('/teacherone/halfBuy','Teacher\DoubleTeacherController@halfBuy');/*设置半价课*/
   	/**
   	 * 双师classTwo  
   	 * */
