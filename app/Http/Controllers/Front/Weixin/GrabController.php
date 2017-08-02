@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front\Weixin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Wechat\OauthController;
+use App\Http\Controllers\Front\TestingPhoneController;
 use App\Models\NewUser;
 use App\Models\Discount;
 use App\Models\UserDiscount;
@@ -13,7 +14,6 @@ class GrabController extends Controller
 {
     public function index(Request $request)
     {
-    	
     	$id = Session::get('grab')['id'];
     	$discountObj = Discount::where('discount.id',$id)
     					->leftJoin('class_package','discount.pid','class_package.id')
@@ -113,7 +113,7 @@ class GrabController extends Controller
     	$id = $request->input('id');
     	$openid = Session::get('openid');
     	$newuserObj = NewUser::where('openid',$openid)->get();
-    	if (isset($newuserObj[0])) {
+    	if (TestingPhoneController::is_phone()) {
     		//判断是否输入手机号
     		$discountObj = Discount::find($id);
     		if($discountObj->status == -1){
