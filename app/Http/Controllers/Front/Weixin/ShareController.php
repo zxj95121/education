@@ -140,7 +140,7 @@ class ShareController extends Controller
 			$flight->headimgurl = $userinfo['headimgurl'];
 			$flight->worker_id = 0;
 			$flight->save();
-
+ 
 			$uid = $flight->id;
 		} else {
 			$uid = NewUser::where('openid', $openid)
