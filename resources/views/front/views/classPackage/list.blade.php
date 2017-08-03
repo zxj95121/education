@@ -23,21 +23,19 @@
 			  	<!-- <div style="width: 96%;margin: 0 auto;">
                   
                 </div> -->
-                <div class="list-block contacts-block">
-                    <div class="list-group">
-                        <ul>
-                            @foreach($obj as $value)
-                            <li onclick="wndow.location.href='/front/classPackage?id={{$value->id}}';">
-                                <div class="item-content">
-                                    <div class="item-inner">
-                                        <div class="item-title">{{$value->name}}</div>
-                                    </div>
-                                </div>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
+                <div class="list-block">
+                    <ul>
+                        @foreach($obj as $value)
+                        <li class="item-content" onclick="wndow.location.href='/front/classPackage?id={{$value->id}}';">
+                            <div class="item-inner">
+                                <div class="item-title">{{$value->name}}</div>
+                                <div class="item-after">¥ {{number_format($value->price, 2)}}</div>
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
                 </div>
+
 			</div>
         </div>
     </div>
