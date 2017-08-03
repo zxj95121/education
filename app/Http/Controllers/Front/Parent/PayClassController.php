@@ -65,10 +65,10 @@ class PayClassController extends Controller
 			}
 
 			$twoPid = TeacherTwo::find($key)->pid;
-			if (array_key_exists($twoid, $onePrice)) {
-				$onePrice[$twoid] += $count;
+			if (array_key_exists($twoPid, $onePrice)) {
+				$onePrice[$twoPid] += $count;
 			} else {
-				$onePrice[$twoid] = $count;
+				$onePrice[$twoPid] = $count;
 			}
 			
 		}
