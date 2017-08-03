@@ -167,7 +167,7 @@
 						headers:{
 						'X-CSRF-TOKEN': '{{csrf_token()}}'
 						},	
-						url:'/front/sendCode',
+						url:'/front/phoneCode',
 						data:{
 							phone:phone
 						},
@@ -201,15 +201,16 @@
 						},	
 						url:'/front/savePhone',
 						data:{
-							phone:phone
+							phone:phone,
+							phoneCode:phoneCode
 						},
 						type:'post',
 						datatype:'json',
 						success:function(data){
-							if(data.errcode == 0){
-								$.toast("发送成功");
-							}else{
+							if(data.errcode != 1){
 								$.toast(data.reason);
+							}else{
+								$.toast("添加成功");
 							}
 						},
 					})
