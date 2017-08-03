@@ -26,7 +26,7 @@
                 <div class="list-block">
                     <ul>
                         @foreach($obj as $value)
-                        <li class="item-content" onclick="wndow.location.href='/front/classPackage?id={{$value->id}}';">
+                        <li class="item-content" onclick="window.location.href='/front/classPackage?id={{$value->id}}';">
                             <div class="item-inner">
                                 <div class="item-title">{{$value->name}}</div>
                                 <div class="item-after">¥ {{number_format($value->price, 2)}}</div>
