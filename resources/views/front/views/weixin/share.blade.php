@@ -283,7 +283,7 @@ $signPackage = $jssdk->GetSignPackage();
 		font-size: 16px;
 		">
 		                                                                    <p>
-		                                                                        <span style="color: rgb(12, 12, 12); font-size: 18px;"><span style="color: rgb(12, 12, 12); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, 微软雅黑, Tahoma, Arial, sans-serif;">初中一至三年级英语</span></span>
+		                                                                        <span style="color: rgb(12, 12, 12); font-size: 18px;"><span style="color: rgb(12, 12, 12); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, 微软雅黑, Tahoma, Arial, sans-serif;">{{$halfClassObj->name}}</span></span>
 		                                                                    </p>
 		                                                                </section>
 		                                                            </section>
@@ -389,7 +389,7 @@ $signPackage = $jssdk->GetSignPackage();
 		font-size: 16px;
 		">
 		                                                                    <p>
-		                                                                        <span style="color: rgb(12, 12, 12); font-size: 18px;"><span style="color: rgb(12, 12, 12); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, 微软雅黑, Tahoma, Arial, sans-serif;">您已购买此课程数 0 次</span></span>
+		                                                                        <span style="color: rgb(12, 12, 12); font-size: 18px;"><span style="color: rgb(12, 12, 12); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, 微软雅黑, Tahoma, Arial, sans-serif;">您已购买此课程数 {{$buyCount}} 次</span></span>
 		                                                                    </p>
 		                                                                </section>
 		                                                            </section>

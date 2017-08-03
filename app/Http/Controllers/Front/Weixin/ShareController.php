@@ -8,6 +8,7 @@ use App\Models\NewUser;
 use App\Models\UserShare;
 use App\Models\HalfBuyInfo;
 use App\Models\HalfBuyRecord;
+use App\Models\TeacherOne;
 
 use App\Http\Controllers\Wechat\OauthController;
 use Session;
@@ -46,13 +47,22 @@ class ShareController extends Controller
 		$halfObj = HalfBuyInfo::where('uid', $uid)
 			->get()[0];
 
+		$halfClassObj = TeacherOne::where('half_buy', 1)
+			->select('id', 'name')
+			->get()[0];
+
+		$buyCount = HalfBuyRecord::where('uid', $uid)
+			->where('status', 1)
+			->select('count(record_num) as num')
+			->get()[0]->num;
+
 		$newuser = NewUser::where('openid',$openid)->get();
 		if (count($newuser) > 0) {
 			$news = array("Title" =>"加辰教育", "Description"=>"加辰教育123", "PicUrl" =>'http://'.$_SERVER['SERVER_NAME'].'/admin/img/index.png', "Url" =>"http://".$_SERVER['SERVER_NAME']."/front/share/oauth?id=".$newuser[0]->id);
 		} else{
 			$news = array("Title" =>"加辰教育", "Description"=>"加辰教育123", "PicUrl" =>'http://'.$_SERVER['SERVER_NAME'].'/admin/img/index.png', "Url" =>"http://".$_SERVER['SERVER_NAME']."/front/share/oauth");
 		}
-		return view('front.views.weixin.share',['news'=>$news,'halfObj'=>$halfObj]);
+		return view('front.views.weixin.share',['news'=>$news,'halfObj'=>$halfObj,'halfClassObj'=>$halfClassObj,'buyCount'=>$buyCount]);
 	}
 	/*oauth*/
 	public function oauth(Request $request)
