@@ -16,11 +16,6 @@
 	<body>
 		<div class="page-group" style="background:#fff">
 			<div class="page page-current">
-				<div class="content native-scroll">
-				    <div class="content-block">
-				    	<p><a href="#" data-popup=".popup-about" class="open-popup" id="disp" style="display:none"> hehehe</a></p>			      
-				    </div> 
-				</div> 
 				<table>
 					<tr>
 						<th>活动名称</th>
@@ -103,8 +98,9 @@
 						if(data.code != -1){
 							alert(data.msg);
 						}else{
-							console.log('为什么不执行呢');
-							$("#disp").trigger("click");
+							//console.log('为什么不执行呢');
+							//$("#disp").trigger("click");
+							$.popup('.popup-about');
 							return false;
 							//alert('还没填写手机号');
 						}						
@@ -211,6 +207,7 @@
 								$.toast(data.reason);
 							}else{
 								$(".close-popup").trigger("click");
+								$.closeModal(popup)
 								$.toast("添加成功");
 							}
 						},
