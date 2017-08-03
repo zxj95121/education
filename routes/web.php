@@ -191,6 +191,10 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/eclassOrderList/confirmOK', 'EclassOrderController@confirmOK');
     $router->post('/eclassOrderList/confirmXX', 'EclassOrderController@confirmXX');//驳回审核
 
+
+    // halfBuy半价购课
+    $router->get('/halfBuy', 'HalfBuyController@halfBuy');
+
     /*退款*/
     $router->any('/tuikuan', 'EclassOrderController@tuikuan');
     /*查订单用户的信息*/
@@ -267,6 +271,11 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 
     /*立即使用中途调整*/
     $router->get('/use_right_away', 'Parent\MyVoucherController@use');
+
+    /*半价购课路由哦*/
+    $router->get('/halfBuy', 'HalfBuyController@halfBuy');
+
+    /*-------------------------------------*/
 	
 	$router->get('/parent/myClassOrder/details', 'Parent\MyClassOrderController@details');
 
