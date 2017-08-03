@@ -229,14 +229,14 @@ $signPackage = $jssdk->GetSignPackage();
 		                                                                        </p>
 		                                                                    </section>
 		                                                                    <p style="text-align: center; letter-spacing: 1px;">
-		                                                                        <span style="color: #7F7F7F; line-height: 22.4px; font-size: 20px;">之半价购课</span><span style="color: #595959; font-size: 15px; line-height: inherit;">&nbsp;</span>
+		                                                                        <span style="color: #7F7F7F; line-height: 22.4px; font-size: 20px;">之半价购课</span><!-- <span style="color: #595959; font-size: 15px; line-height: inherit;">&nbsp;</span> -->
 		                                                                    </p>
 		                                                                </section>
 		                                                            </section>
 		                                                        </section>
-		                                                        <p style="font-size: 16px;">
+<!-- 		                                                        <p style="font-size: 16px;">
 		                                                            <br/>
-		                                                        </p>
+		                                                        </p> -->
 		                                                        <section label="Copyright © 2015 playhudong All Rights Reserved." style="font-size: 16px; border: none; overflow: hidden; margin: 1em auto; width: 268px; text-align: center;" id="shifu_tea_005" donone="shifuMouseDownTeacher(&#39;shifu_tea_005&#39;)">
 		                                                            <section style="
 		    width: 268px;
