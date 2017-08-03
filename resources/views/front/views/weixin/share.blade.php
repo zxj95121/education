@@ -25,6 +25,9 @@ $signPackage = $jssdk->GetSignPackage();
 	</head>
 	<body>
 	<div class="container-fluid" style="padding: 0px;">
+		<div id="shareDiv" style="display:none;z-index: 9999;width: 100%;height: 100%;opacity: 0.35;background-color: #646767;background-image: url('/images/share.png');background-size: 100% auto;">
+			
+		</div>
 		<div style="width: 96%;margin: 0 auto;">
 		<!-- <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
 		    <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
@@ -324,7 +327,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                                                                </section>
 		                                                            </section>
 		                                                            <section style="font-size: 16px; text-align: center; color: rgb(87, 110, 181); margin-left: 3.5em;">
-		                                                                <button type="button" class="btn btn-success btn-lg">分享得券</button>
+		                                                                <button id="shareBtn" type="button" class="btn btn-success btn-lg">分享得券</button>
 		                                                            </section>
 		                                                            <section style="font-size: 16px; padding-top: 1em; padding-left: 1em;">
 		                                                                <section style="width:5em;
@@ -444,6 +447,7 @@ $signPackage = $jssdk->GetSignPackage();
 		<!-- <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script> -->
 		<!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script> -->
 		<!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script> -->
+		<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
 		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 		<script>
 		    wx.config({
@@ -522,5 +526,20 @@ $signPackage = $jssdk->GetSignPackage();
 		            }
 		          });
 			});
+		</script>
+
+
+		<script type="text/javascript">
+			/*半价购课js*/
+			$(function(){
+				$('#shareBtn').click(function(){
+					$('#shareDiv').show();
+				})
+
+
+				$('#shareDiv').click(function(){
+					$(this).hide();
+				})
+			})
 		</script>
 	</body>
