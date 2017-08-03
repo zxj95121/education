@@ -18,7 +18,7 @@ class ShareController extends Controller
 	{
 		$openid = Session::get('openid');
 		
-		$userinfo = $this->select();
+		$userinfo = $this->select($openid);
 
 		if($userinfo['subscribe'] == 0){
 			/*被分享未关注  */
