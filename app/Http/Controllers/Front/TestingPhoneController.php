@@ -82,8 +82,8 @@ class TestingPhoneController extends Controller
 			$newObj->openid = $openid;
 			$newObj->type = 0;
 			$newObj->phone = $phone;
-			$newObj->nickname = $userinfo['nickname'];
-			$newObj->headimg = $userinfo['headimg'];
+			$newObj->nickname = $userinfo['nickname']; 
+			$newObj->headimg = $userinfo['headimgurl'];
 			$newObj->uid = 0;
 			$newObj->save();
 		}else if(empty($newuserObj[0]->phone)){
