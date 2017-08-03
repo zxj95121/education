@@ -74,7 +74,7 @@ class PayClassController extends Controller
 		}
 
 		var_dump($onePrice);
-
+		dd(23);
 		foreach ($onePrice as $key => $value) {
 			$price += $value*EclassPriceController::getUnitPriceByCount($key, $value);
 		}
