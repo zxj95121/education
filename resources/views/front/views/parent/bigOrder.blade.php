@@ -23,6 +23,8 @@
 	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
 	<meta name="csrf-token" content="{{csrf_token()}}">
 	<link rel="stylesheet" type="text/css" href="/css/sm.min.css">
+	<style type="text/css">
+	</style>
 </head>
 <body>
 	<div class="page">
@@ -88,26 +90,27 @@
 					</div>
 				</div>
 
-
-				<div class="list-group">
-			      	<ul>
-			        	<li class="list-group-title">购课福利</li>
-			        	<li>
-			          		<div class="item-content">
-			            		<div class="item-inner">
-			              			<div class="item-title">1、每购买课程1000元，即返积分100加辰币。</div>
-			            		</div>
-			          		</div>
-			        	</li>
-			        	<li>
-			          		<div class="item-content">
-			            		<div class="item-inner">
-			              			<div class="item-title">2、每购买课程3000元，赠送价值188元的英语主题party一次。</div>
-			            		</div>
-			          		</div>
-			        	</li>
-			        </ul>
-			    </div>
+				<div class="list-block contacts-block">
+					<div class="list-group">
+				      	<ul style="list-style-type: decimal;">
+				        	<li class="list-group-title" style="font-weight: bold;color: #000;">购课福利</li>
+				        	<li>
+				          		<div class="item-content">
+				            		<div class="item-inner">
+				              			<div class="item-title" style="white-space: normal;text-overflow: normal;">每购买课程1000元，即返积分100加辰币。</div>
+				            		</div>
+				          		</div>
+				        	</li>
+				        	<li>
+				          		<div class="item-content">
+				            		<div class="item-inner">
+				              			<div class="item-title" style="white-space: normal;text-overflow: normal;">每购买课程3000元，赠送价值188元的英语主题party一次。</div>
+				            		</div>
+				          		</div>
+				        	</li>
+				        </ul>
+				    </div>
+				</div>
 			</div>
 			
 	  	</div>
