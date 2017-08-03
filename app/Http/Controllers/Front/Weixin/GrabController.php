@@ -53,7 +53,7 @@ class GrabController extends Controller
     				$userdiscountObj = UserDiscount::where('discount_id',$id)->where('status',1)->first();
     				$userdiscountObj->type = 1;
     				$userdiscountObj->save();
-    			}else{
+    			}else if($usercount > 1) {
     				$gailv = intval($usercount * $discountObj->probability * 0.01);
     				
     				if ($gailv < 1) {
