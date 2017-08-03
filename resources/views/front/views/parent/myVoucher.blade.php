@@ -68,8 +68,8 @@
 										<li style="font-size:14px;">任意课程均可使用</li>
 									</ol>
 								</div>
-								<div style="text-align: center;color: #FFF;text-align: right;font-size:12px;">
-									<button class="button button-big button-success" style="position: relative;right: 8px;cursor: pointer;" onclick="window.location.href='/front/home#eclass';">立即使用</button>
+								<div style="text-align: center;color: #FFF;text-align: right;font-size:12px;height: 32px;">
+									<label class="label label-success" style="position: relative;height: 100%;font-size:20px;right: 8px;cursor: pointer;" onclick="window.location.href='/front/home#eclass';">立即使用</label>
 								</div>
 							</div>
 						</div>
