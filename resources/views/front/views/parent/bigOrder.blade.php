@@ -98,17 +98,17 @@
 					<div class="list-group">
 				      	<ul style="list-style: decimal;">
 				        	<li class="list-group-title" style="font-weight: bold;color: #000;">购课福利</li>
-				        	<li class="itemTitle">
+				        	<li>
 				          		<div class="item-content">
 				            		<div class="item-inner">
-				              			<div class="item-title">每购买课程1000元，即返积分100加辰币。</div>
+				              			<div class="item-title itemTitle">每购买课程1000元，即返积分100加辰币。</div>
 				            		</div>
 				          		</div>
 				        	</li>
-				        	<li class="itemTitle">
+				        	<li>
 				          		<div class="item-content">
 				            		<div class="item-inner">
-				              			<div class="item-title">每购买课程3000元，赠送价值188元的英语主题party一次。</div>
+				              			<div class="item-title itemTitle">每购买课程3000元，赠送价值188元的英语主题party一次。</div>
 				            		</div>
 				          		</div>
 				        	</li>
