@@ -47,6 +47,12 @@ class ShareController extends Controller
 		$halfObj = HalfBuyInfo::where('uid', $uid)
 			->get()[0];
 
+		$halfClassCount = TeacherOne::where('half_buy', 1)->count();
+		if ($halfClassCount == 0) {
+			/*没有半价课*/
+			exit;
+		}
+
 		$halfClassObj = TeacherOne::where('half_buy', 1)
 			->select('id', 'name')
 			->get()[0];
@@ -59,6 +65,39 @@ class ShareController extends Controller
 		} else {
 			$buyCount = 0;
 		}
+
+		/*查用户推荐个数*/
+			/*未关注*/
+			// $ShareCount = UserShare::where('pid',$uid)->where('status',1)->count();
+    		//更新成功关注状态
+      		$openids = UserShare::where('pid',$uid)
+      			->where('status', 1)
+      			->where('subscribe' ,0)
+      			->select('openid','id')
+      			->get();
+
+    		foreach ($openids as $value2) {
+    			$openid0 = $value2->openid0;
+    			$access_token = Wechat::get_access_token();
+    			$url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token['access_token'].'&openid0='.$openid0.'&lang=zh_CN';
+    			$userinfo = Wechat::curl($url);
+    			if ($userinfo['subscribe'] == 1) {
+    				$usershare = UserShare::find($value2->id);
+    				$usershare->subscribe = 1;
+    				$usershare->save();
+    			}
+    		} 
+
+    		/*更新完之后查总个数，并进行更新*/
+    		$shareCount = UserShare::where('pid', $uid)
+    			->where('status', '1')
+    			->where('subscribe', '1')
+    			->count();
+
+    		/*更新用户半价券*/
+    		HalfBuyInfo::where('uid', $uid)
+    			->update(['ticket_num'=>$shareCount]);
+
 
 		$newuser = NewUser::where('openid',$openid)->get();
 		if (count($newuser) > 0) {
