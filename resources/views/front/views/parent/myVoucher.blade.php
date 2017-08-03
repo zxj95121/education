@@ -69,7 +69,7 @@
 									</ol>
 								</div>
 								<div style="text-align: center;color: #FFF;text-align: right;font-size:12px;">
-									<label class="label label-success" style="position: relative;right: 8px;cursor: pointer;" onclick="window.location.href='/front/home#eclass';">立即使用</label>
+									<button class="button button-big button-success" style="position: relative;right: 8px;cursor: pointer;" onclick="window.location.href='/front/home#eclass';">立即使用</button>
 								</div>
 							</div>
 						</div>
