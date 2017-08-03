@@ -103,7 +103,7 @@
 						if(data.code != -1){
 							alert(data.msg);
 						}else{
-							console.log(123);
+							console.log('还没填写手机号');
 							$('#dis').trigger("click");
 							return false;
 							//alert('还没填写手机号');
