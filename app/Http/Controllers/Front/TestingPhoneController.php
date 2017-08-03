@@ -55,8 +55,6 @@ class TestingPhoneController extends Controller
 		} else {
 			return response()->json(['errcode'=>3,'reason'=>'验证码发送失败，请重试']);
 		}
-	
-			
 		/**
 		 * 返回true，发送验证码成功，否则发送失败
 		 */
