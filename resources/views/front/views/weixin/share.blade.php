@@ -25,6 +25,7 @@ $signPackage = $jssdk->GetSignPackage();
 	</head>
 	<body>
 	<div class="container-fluid" style="padding: 0px;">
+		<div style="width: 96%;margin: 0 auto;">
 		<!-- <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
 		    <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
 		        <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
@@ -207,188 +208,189 @@ $signPackage = $jssdk->GetSignPackage();
 
 
 		<section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
-    <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
-        <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
-            <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
-                <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
-                    <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
-                        <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
-                            <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
-                                <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
-                                    <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
-                                        <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
-                                            <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
-                                                <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
-                                                    <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
-                                                        <section class="_135editor" data-tools="135编辑器" data-id="85679" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
-                                                            <section style="text-align:center;margin:10px auto;">
-                                                                <section data-bcless="spin" data-bclessp="90" style="width: 0px; height: 0px; color: rgb(254, 254, 254); text-align: center; border-top-width: 200px; border-top-style: solid; border-color: rgb(225, 235, 229) transparent; border-left-width: 120px; border-left-style: solid; border-right-width: 120px; border-right-style: solid; display: inline-block; box-sizing: border-box;"></section>
-                                                                <section style="margin-top: -160px;margin-bottom: 80px;">
-                                                                    <section style="opacity: 0.75; border-width: 1px 0px; border-style: solid; border-color: rgb(198, 198, 198); padding: 5px; display: inline-block; box-sizing: border-box;">
-                                                                        <p style="color: inherit; text-align: center;line-height: 3em;">
-                                                                            <span style="color: #7B7752; vertical-align: middle; font-size: 36px;">加辰教育定制</span>
-                                                                        </p>
-                                                                    </section>
-                                                                    <p style="text-align: center; letter-spacing: 1px;">
-                                                                        <span style="color: #7F7F7F; line-height: 22.4px; font-size: 20px;">之推荐有奖</span><span style="color: #595959; font-size: 15px; line-height: inherit;">&nbsp; </span>
-                                                                    </p>
-                                                                    <p style="letter-spacing: 1px;">
-                                                                        <br/>
-                                                                    </p>
-                                                                    <p style="letter-spacing: 1px;">
-                                                                        <br/>
-                                                                    </p>
-                                                                </section>
-                                                            </section>
-                                                        </section>
-                                                        <section class="_135editor" data-tools="135编辑器" data-id="7237" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
-                                                            <section class="_135editor" data-tools="135编辑器" data-id="86322" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
-                                                                <section style="margin: 0px auto;" class="layout">
-                                                                    <section style="margin-top: 2em; box-sizing:border-box;padding-top: 0.5em; padding-bottom: 0.5em; font-family: inherit; font-size: 1em; font-weight: inherit; white-space: normal; line-height: 22.4px; border-style: solid none none; border-top-width: 1px; border-color: rgb(204, 204, 204) rgb(198, 198, 199) rgb(198, 198, 199); text-decoration: inherit; color: rgb(70, 70, 72);">
-                                                                        <section style="margin-top: -1.9em; text-align: center; line-height: 1.4;">
-                                                                            <section style="font-size: 20px; text-align: center; display: inline-block; border: 1px solid rgb(198, 198, 199); color: inherit; box-sizing: border-box; background-color: rgb(254, 254, 254);">
-                                                                                <section style="margin-top: 10px; margin-bottom: 10px; margin-left: -3px; background-color: rgb(254, 254, 254); box-sizing:border-box;padding:0px 12px;color(198,198,199);font-size:14px;text-align:center; max-width: 104% !important;width:104%;" class="135brush" data-brushtype="text" data-width="104%">
-                                                                                    <span style="font-size: 20px;">关于加辰教育</span>
-                                                                                </section>
-                                                                            </section>
-                                                                        </section>
-                                                                    </section>
-                                                                </section>
-                                                            </section>
-                                                            <section class="_135editor" data-tools="135编辑器" data-id="88611" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
-                                                                <section style="vertical-align: top;margin-left: 1em;">
-                                                                    <section style="border-left-width: 1px; border-left-style: solid; border-left-color: rgb(108, 124, 156); height: 1.2em; box-sizing: border-box;"></section>
-                                                                    <section style="border-radius: 100%; margin-left: -1em; display: inline-block; width: 2em; height: 2em; box-sizing: border-box;">
-                                                                        <img style="height: 100%; vertical-align: middle; border-radius: 50%; width: 100%; margin: 0px;" src="http://image2.135editor.com/cache/remote/aHR0cDovL21tYml6LnFwaWMuY24vbW1iaXovRHl4STRIRkZrZHZpY0NpYTJwUWljZndFOTRSSnFGa0Rzb2VwcmtkMzNhNmJBdWRiWUtUSWM4MmljcjFrR2RzYjU2N3J1OEZ0SmZQbHNNdzdNMGFDR2hGdmNBLzY0MD93eF9mbXQ9anBlZw==" width="100%" height="100%" border="0" opacity="" mapurl="" title="" alt="" data-width="100%"/>
-                                                                    </section>
-                                                                    <section style="border-left-width: 1px; border-left-style: solid; border-color: rgb(108, 124, 156); margin-top: -2.5em; padding-bottom: 0.5em; box-sizing: border-box;">
-                                                                        <section style="vertical-align: middle; padding-top: 10px; padding-left: 25px; box-sizing: border-box;">
-                                                                            <section>
-                                                                                <section style="position: static;">
-                                                                                    <section style="padding-bottom: 8px; text-align: right; box-sizing: border-box;">
-                                                                                        <p style="text-align: left;">
-                                                                                            <strong><span style="color: #6C7C9C; font-size: 18px;" class="135brush" data-brushtype="text">四大特色课程</span></strong>
-                                                                                        </p>
-                                                                                        <p style="text-align: justify;">
-                                                                                            <strong><span style="white-space: pre-wrap; color: #595959; font-size: 17px;">加辰教育双师Class课程</span></strong><span style="white-space: pre-wrap; font-size: 14px; color: #595959;">：<span style="white-space: pre-wrap; color: #595959; font-size: 15px;">1.外教一对一教学 &nbsp;2.英语课程顾问一对六辅导学习 &nbsp;3.英语活动班课程。</span></span>
-                                                                                        </p>
-                                                                                        <p style="text-align: justify;">
-                                                                                            <span style="font-size: 17px;"><strong><span style="white-space: pre-wrap; line-height: inherit; color: #595959;">加辰教育双师体验课程</span></strong></span><span style="white-space: pre-wrap; line-height: inherit; font-size: 14px; color: #595959;">：<span style="white-space: pre-wrap; line-height: inherit; color: #595959; font-size: 15px;">1.外教一对一教学 &nbsp;2. &nbsp;英语课程顾问在线辅导 &nbsp;3. &nbsp;培养学习的计划性和自主性。</span></span>
-                                                                                        </p>
-                                                                                        <p style="text-align: justify;">
-                                                                                            <span style="font-size: 17px;"><strong><span style="white-space: pre-wrap; line-height: inherit; color: #595959;">加辰教育家长亲子课程</span></strong></span><span style="white-space: pre-wrap; line-height: inherit; font-size: 14px; color: #595959;">：<span style="white-space: pre-wrap; line-height: inherit; color: #595959; font-size: 15px;">1.外教一对一教学 &nbsp;2. 英语课程顾问在线辅导 &nbsp;3.家长陪伴孩子共同学习。</span></span>
-                                                                                        </p>
-                                                                                        <p style="text-align: justify;">
-                                                                                            <strong><span style="white-space: pre-wrap; line-height: inherit; color: #595959; font-size: 17px;">加辰教育外教辅导课程</span></strong><span style="white-space: pre-wrap; line-height: inherit; font-size: 14px; color: #595959;">：<span style="white-space: pre-wrap; line-height: inherit; color: #595959; font-size: 15px;">1. 外教一对一教学 2.英语课程顾问一对六辅导 3 .语数双师作业辅导。</span></span>
-                                                                                        </p>
-                                                                                        <p style="text-align: left;">
-                                                                                            <br/>
-                                                                                        </p>
-                                                                                    </section>
-                                                                                </section>
-                                                                            </section>
-                                                                        </section>
-                                                                    </section>
-                                                                </section>
-                                                            </section>
-                                                            <p>
-                                                                <img src="http://image.135editor.com/files/users/262/2625290/201708/jkdy6U7O_s7IC.jpg?imageView2/2/w/200" alt="" title="undefined"/>
-                                                            </p>
-                                                        </section>
-                                                        <section class="_135editor" data-tools="135编辑器" data-id="90174" style="border: 0px none; padding: 0px; box-sizing: border-box; position: relative;">
-                                                            <section data-id="us524665" class="_135editor" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
-                                                                <section style="padding: 10px; box-sizing: border-box;">
-                                                                    <section style="width:100%; text-align:center;">
-                                                                        <br/>
-                                                                    </section>
-                                                                </section>
-                                                                <section style="clear:both; width:100%;"></section>
-                                                            </section>
-                                                            <section data-id="us524688" class="_135editor" style="border: 0px none; padding: 0px; box-sizing: border-box; position: relative;">
-                                                                <section style="width:100%; text-align:center;">
-                                                                    <img style="width:50px;" src="http://rdn.135editor.com/cache/remote/aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpel9wbmcvZmdua3hmR25ua1MyRTExdzMzT0t5aWJCQUw3N0JKckNLbWVOYlJpY2tuaHFObHVWd2U1VHVZTVVEbzJlZ1BHNWlhd3pOOUNtdDVMZXJyeUVZQXJ4dDF5VUEvMD93eF9mbXQ9cG5n"/>
-                                                                </section>
-                                                                <section style="clear:both; width:100%;"></section>
-                                                            </section>
-                                                            <section class="_135editor" data-tools="135编辑器" data-id="90174" style="border: 0px none; padding: 0px; box-sizing: border-box;">
-                                                                <section data-id="us585647" class="_135editor" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
-                                                                    <section style="margin:0 auto;padding:0;box-sizing:border-box">
-                                                                        <section style="border-style: solid; -webkit-border-image: url(&quot;http://image2.135editor.com/cache/remote/aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpel9naWYvZmdua3hmR25ua1JSMkswbUxobXg5WlNjc2psNW40TFphdm1Gd255M0o4SDJaeXJYTDdLSnp4Z3F3anJuUkpNWHJBWmNXeVA3aGZlT21VenRMNGpiZGcvMD93eF9mbXQ9Z2lm&quot;) 60 fill; border-width: 30px 25px; padding: 5px; box-sizing: border-box;">
-                                                                            <section style="width: 100%; vertical-align: top; padding: 0px; font-size: 14px; margin: 0px; color: rgb(51, 51, 51); line-height: 30px; box-sizing: border-box;" class="135brush" data-width="100%">
-                                                                                <p style="text-indent: 2em;">
-                                                                                    加辰教育采用外教一对一双师Class课程教学模式，将外教一对一课程与英语活动班课程相结合，实现语言学习的场景切换和多重语境体验，培养学生开口说英语的自信心，同时注重从孩子的学习兴趣出发，引导孩子自觉自愿的学习英语。
-                                                                                </p>
-                                                                                <p>
-                                                                                    &nbsp; &nbsp; &nbsp; &nbsp;在外教一对一教学过程中，学生跟着外教学习体验英语交流，掌握英语发音方式，熟悉英语基本表达，在日常会话中自主自发的运用英语语言思维，让学生敢于开口说英语，提升学生的口语能力。英语活动班课程，以生动有趣的绘本教学为例，让学生们在绘本学习中潜移默化的听懂英语、掌握英语单词和语音语感，激发学习英语的兴趣和意愿。
-                                                                                </p>
-                                                                                <p>
-                                                                                    &nbsp; &nbsp; &nbsp; &nbsp;特别地，加辰教育鼓励家长亲子学英语，支持家长陪伴孩子共同学习英语，共同进步。这样的共同学习，家长不仅能成为孩子的良好学习榜样，还能通过学习英语陪伴孩子一起成长，增进与孩子之间的情感，甚至于还能为家长职业发展加分。此外，我们还有贴心的专业英语课程顾问，辅导支持家长和孩子共同学习英语。
-                                                                                </p>
-                                                                            </section>
-                                                                        </section>
-                                                                    </section>
-                                                                </section>
-                                                            </section>
-                                                            <p style="text-indent: 2em; text-align: justify;">
-                                                                <br/>
-                                                            </p>
-                                                        </section>
-                                                        <p>
-                                                            <span style="color: #595959; font-size: 15px;"></span><span style="color: #3F3F3F;">这样的英语课程教学模式，这样的家长亲子学英语课程，还有专业的英语课程顾问提供学习辅导支持，您喜欢吗？不喜欢，请告诉我们，我们将为您而改进！喜欢，请推荐给您的好友，我们将为你们提供更好的服务！<span style="font-size: 15px;"></span></span>
-                                                        </p>
-                                                        <p>
-                                                            <br/>
-                                                        </p>
-                                                        <p style="text-align: center;">
-                                                            <span style="color: #FF0000;"><strong><span style="font-size: 16px; color: #FF0000;">推荐有奖！</span></strong></span>
-                                                        </p>
-                                                        <p style="text-align: center;">
-                                                            <span style="color: #FF0000;"><strong><span style="font-size: 16px; color: #FF0000;">推荐有奖！</span></strong></span>
-                                                        </p>
-                                                        <p style="text-align: center;">
-                                                            <span style="color: #FF0000;"><strong><span style="font-size: 16px; color: #FF0000;">推荐有奖！</span></strong></span>
-                                                        </p>
-                                                        <p style="text-align: center;">
-                                                            <span style="font-size: 14px; color: #3F3F3F;">重要的事情说<span style="color: #3F3F3F; font-size: 20px;">3</span>遍~</span>
-                                                        </p>
-                                                        <p style="text-align:center">
-                                                            <span style="font-size: 14px;"><img src="http://img.baidu.com/hi/tsj/t_0003.gif"/></span>
-                                                        </p>
-                                                        <p>
-                                                            <br/>
-                                                        </p>
-                                                        <p>
-                                                            <br/>
-                                                        </p>
-                                                        <section class="_135editor" data-tools="135编辑器" data-id="89927" style="border: 0px none; padding: 0px; box-sizing: border-box;"></section>
-                                                        <p>
-                                                            <span style="font-size: 17px;"><strong><span style="color: #FF0000;">推荐有奖活动详情规则</span></strong></span><span style="font-size: 15px; color: #3F3F3F;">：<span style="color: #3F3F3F; font-size: 16px;">用户每成功推荐<span style="color: #3F3F3F; font-size: 18px;">一位</span>好友关注“加辰教育定制”，即可获得一张<span style="color: #3F3F3F; font-size: 19px;">半价购课券</span>，凭此券，用户可半价购买一次指定的加辰教育双师Class课程。半价购课券有效期90天，可叠加使用。</span></span>
-                                                        </p>
-                                                        <p>
-                                                            <img src="http://image.135editor.com/files/users/262/2625290/201708/JCUcSMP7_BIrO.jpg" alt="微信图片_20170731204053_meitu_3.jpg"/>
-                                                        </p>
-                                                        <section class="_135editor" data-tools="135编辑器" data-id="105" style="border: 0px none; padding: 0px; box-sizing: border-box;">
-                                                            <p style="text-align:center;">
-                                                                <img data-id="105" data-role="guide-img" title="猫抓毛线球引导分享" src="http://image3.135editor.com/cache/remote/aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpei9jWlYyaFJwdUFQak9qSUVBMU9qU2ljWEhjaWE5TWo5UlFqc09RVTh4R1hpYVlYWWZpYm9Nb0FKbXJyVHpPSjRtWDgxOXZqaGpYaG9EZ0lzZXBBdEs2S3k2OEEvMA==" style="display: inline;"/>
-                                                            </p>
-                                                        </section>
-                                                        <p>
-                                                            <br/>
-                                                        </p>
-                                                    </section>
-                                                </section>
-                                            </section>
-                                        </section>
-                                    </section>
-                                </section>
-                            </section>
-                        </section>
-                    </section>
-                </section>
-            </section>
-        </section>
-    </section>
-</section>
+		    <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
+		        <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
+		            <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
+		                <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
+		                    <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
+		                        <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
+		                            <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
+		                                <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
+		                                    <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
+		                                        <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
+		                                            <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
+		                                                <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
+		                                                    <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
+		                                                        <section class="_135editor" data-tools="135编辑器" data-id="85679" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
+		                                                            <section style="text-align:center;margin:10px auto;">
+		                                                                <section data-bcless="spin" data-bclessp="90" style="width: 0px; height: 0px; color: rgb(254, 254, 254); text-align: center; border-top-width: 200px; border-top-style: solid; border-color: rgb(225, 235, 229) transparent; border-left-width: 120px; border-left-style: solid; border-right-width: 120px; border-right-style: solid; display: inline-block; box-sizing: border-box;"></section>
+		                                                                <section style="margin-top: -160px;margin-bottom: 80px;">
+		                                                                    <section style="opacity: 0.75; border-width: 1px 0px; border-style: solid; border-color: rgb(198, 198, 198); padding: 5px; display: inline-block; box-sizing: border-box;">
+		                                                                        <p style="color: inherit; text-align: center;line-height: 3em;">
+		                                                                            <span style="color: #7B7752; vertical-align: middle; font-size: 36px;">加辰教育定制</span>
+		                                                                        </p>
+		                                                                    </section>
+		                                                                    <p style="text-align: center; letter-spacing: 1px;">
+		                                                                        <span style="color: #7F7F7F; line-height: 22.4px; font-size: 20px;">之推荐有奖</span><span style="color: #595959; font-size: 15px; line-height: inherit;">&nbsp; </span>
+		                                                                    </p>
+		                                                                    <p style="letter-spacing: 1px;">
+		                                                                        <br/>
+		                                                                    </p>
+		                                                                    <p style="letter-spacing: 1px;">
+		                                                                        <br/>
+		                                                                    </p>
+		                                                                </section>
+		                                                            </section>
+		                                                        </section>
+		                                                        <section class="_135editor" data-tools="135编辑器" data-id="7237" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
+		                                                            <section class="_135editor" data-tools="135编辑器" data-id="86322" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
+		                                                                <section style="margin: 0px auto;" class="layout">
+		                                                                    <section style="margin-top: 2em; box-sizing:border-box;padding-top: 0.5em; padding-bottom: 0.5em; font-family: inherit; font-size: 1em; font-weight: inherit; white-space: normal; line-height: 22.4px; border-style: solid none none; border-top-width: 1px; border-color: rgb(204, 204, 204) rgb(198, 198, 199) rgb(198, 198, 199); text-decoration: inherit; color: rgb(70, 70, 72);">
+		                                                                        <section style="margin-top: -1.9em; text-align: center; line-height: 1.4;">
+		                                                                            <section style="font-size: 20px; text-align: center; display: inline-block; border: 1px solid rgb(198, 198, 199); color: inherit; box-sizing: border-box; background-color: rgb(254, 254, 254);">
+		                                                                                <section style="margin-top: 10px; margin-bottom: 10px; margin-left: -3px; background-color: rgb(254, 254, 254); box-sizing:border-box;padding:0px 12px;color(198,198,199);font-size:14px;text-align:center; max-width: 104% !important;width:104%;" class="135brush" data-brushtype="text" data-width="104%">
+		                                                                                    <span style="font-size: 20px;">关于加辰教育</span>
+		                                                                                </section>
+		                                                                            </section>
+		                                                                        </section>
+		                                                                    </section>
+		                                                                </section>
+		                                                            </section>
+		                                                            <section class="_135editor" data-tools="135编辑器" data-id="88611" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
+		                                                                <section style="vertical-align: top;margin-left: 1em;">
+		                                                                    <section style="border-left-width: 1px; border-left-style: solid; border-left-color: rgb(108, 124, 156); height: 1.2em; box-sizing: border-box;"></section>
+		                                                                    <section style="border-radius: 100%; margin-left: -1em; display: inline-block; width: 2em; height: 2em; box-sizing: border-box;">
+		                                                                        <img style="height: 100%; vertical-align: middle; border-radius: 50%; width: 100%; margin: 0px;" src="http://image2.135editor.com/cache/remote/aHR0cDovL21tYml6LnFwaWMuY24vbW1iaXovRHl4STRIRkZrZHZpY0NpYTJwUWljZndFOTRSSnFGa0Rzb2VwcmtkMzNhNmJBdWRiWUtUSWM4MmljcjFrR2RzYjU2N3J1OEZ0SmZQbHNNdzdNMGFDR2hGdmNBLzY0MD93eF9mbXQ9anBlZw==" width="100%" height="100%" border="0" opacity="" mapurl="" title="" alt="" data-width="100%"/>
+		                                                                    </section>
+		                                                                    <section style="border-left-width: 1px; border-left-style: solid; border-color: rgb(108, 124, 156); margin-top: -2.5em; padding-bottom: 0.5em; box-sizing: border-box;">
+		                                                                        <section style="vertical-align: middle; padding-top: 10px; padding-left: 25px; box-sizing: border-box;">
+		                                                                            <section>
+		                                                                                <section style="position: static;">
+		                                                                                    <section style="padding-bottom: 8px; text-align: right; box-sizing: border-box;">
+		                                                                                        <p style="text-align: left;">
+		                                                                                            <strong><span style="color: #6C7C9C; font-size: 18px;" class="135brush" data-brushtype="text">四大特色课程</span></strong>
+		                                                                                        </p>
+		                                                                                        <p style="text-align: justify;">
+		                                                                                            <strong><span style="white-space: pre-wrap; color: #595959; font-size: 17px;">加辰教育双师Class课程</span></strong><span style="white-space: pre-wrap; font-size: 14px; color: #595959;">：<span style="white-space: pre-wrap; color: #595959; font-size: 15px;">1.外教一对一教学 &nbsp;2.英语课程顾问一对六辅导学习 &nbsp;3.英语活动班课程。</span></span>
+		                                                                                        </p>
+		                                                                                        <p style="text-align: justify;">
+		                                                                                            <span style="font-size: 17px;"><strong><span style="white-space: pre-wrap; line-height: inherit; color: #595959;">加辰教育双师体验课程</span></strong></span><span style="white-space: pre-wrap; line-height: inherit; font-size: 14px; color: #595959;">：<span style="white-space: pre-wrap; line-height: inherit; color: #595959; font-size: 15px;">1.外教一对一教学 &nbsp;2. &nbsp;英语课程顾问在线辅导 &nbsp;3. &nbsp;培养学习的计划性和自主性。</span></span>
+		                                                                                        </p>
+		                                                                                        <p style="text-align: justify;">
+		                                                                                            <span style="font-size: 17px;"><strong><span style="white-space: pre-wrap; line-height: inherit; color: #595959;">加辰教育家长亲子课程</span></strong></span><span style="white-space: pre-wrap; line-height: inherit; font-size: 14px; color: #595959;">：<span style="white-space: pre-wrap; line-height: inherit; color: #595959; font-size: 15px;">1.外教一对一教学 &nbsp;2. 英语课程顾问在线辅导 &nbsp;3.家长陪伴孩子共同学习。</span></span>
+		                                                                                        </p>
+		                                                                                        <p style="text-align: justify;">
+		                                                                                            <strong><span style="white-space: pre-wrap; line-height: inherit; color: #595959; font-size: 17px;">加辰教育外教辅导课程</span></strong><span style="white-space: pre-wrap; line-height: inherit; font-size: 14px; color: #595959;">：<span style="white-space: pre-wrap; line-height: inherit; color: #595959; font-size: 15px;">1. 外教一对一教学 2.英语课程顾问一对六辅导 3 .语数双师作业辅导。</span></span>
+		                                                                                        </p>
+		                                                                                        <p style="text-align: left;">
+		                                                                                            <br/>
+		                                                                                        </p>
+		                                                                                    </section>
+		                                                                                </section>
+		                                                                            </section>
+		                                                                        </section>
+		                                                                    </section>
+		                                                                </section>
+		                                                            </section>
+		                                                            <p>
+		                                                                <img src="http://image.135editor.com/files/users/262/2625290/201708/jkdy6U7O_s7IC.jpg?imageView2/2/w/200" alt="" title="undefined"/>
+		                                                            </p>
+		                                                        </section>
+		                                                        <section class="_135editor" data-tools="135编辑器" data-id="90174" style="border: 0px none; padding: 0px; box-sizing: border-box; position: relative;">
+		                                                            <section data-id="us524665" class="_135editor" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
+		                                                                <section style="padding: 10px; box-sizing: border-box;">
+		                                                                    <section style="width:100%; text-align:center;">
+		                                                                        <br/>
+		                                                                    </section>
+		                                                                </section>
+		                                                                <section style="clear:both; width:100%;"></section>
+		                                                            </section>
+		                                                            <section data-id="us524688" class="_135editor" style="border: 0px none; padding: 0px; box-sizing: border-box; position: relative;">
+		                                                                <section style="width:100%; text-align:center;">
+		                                                                    <img style="width:50px;" src="http://rdn.135editor.com/cache/remote/aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpel9wbmcvZmdua3hmR25ua1MyRTExdzMzT0t5aWJCQUw3N0JKckNLbWVOYlJpY2tuaHFObHVWd2U1VHVZTVVEbzJlZ1BHNWlhd3pOOUNtdDVMZXJyeUVZQXJ4dDF5VUEvMD93eF9mbXQ9cG5n"/>
+		                                                                </section>
+		                                                                <section style="clear:both; width:100%;"></section>
+		                                                            </section>
+		                                                            <section class="_135editor" data-tools="135编辑器" data-id="90174" style="border: 0px none; padding: 0px; box-sizing: border-box;">
+		                                                                <section data-id="us585647" class="_135editor" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
+		                                                                    <section style="margin:0 auto;padding:0;box-sizing:border-box">
+		                                                                        <section style="border-style: solid; -webkit-border-image: url(&quot;http://image2.135editor.com/cache/remote/aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpel9naWYvZmdua3hmR25ua1JSMkswbUxobXg5WlNjc2psNW40TFphdm1Gd255M0o4SDJaeXJYTDdLSnp4Z3F3anJuUkpNWHJBWmNXeVA3aGZlT21VenRMNGpiZGcvMD93eF9mbXQ9Z2lm&quot;) 60 fill; border-width: 30px 25px; padding: 5px; box-sizing: border-box;">
+		                                                                            <section style="width: 100%; vertical-align: top; padding: 0px; font-size: 14px; margin: 0px; color: rgb(51, 51, 51); line-height: 30px; box-sizing: border-box;" class="135brush" data-width="100%">
+		                                                                                <p style="text-indent: 2em;">
+		                                                                                    加辰教育采用外教一对一双师Class课程教学模式，将外教一对一课程与英语活动班课程相结合，实现语言学习的场景切换和多重语境体验，培养学生开口说英语的自信心，同时注重从孩子的学习兴趣出发，引导孩子自觉自愿的学习英语。
+		                                                                                </p>
+		                                                                                <p>
+		                                                                                    &nbsp; &nbsp; &nbsp; &nbsp;在外教一对一教学过程中，学生跟着外教学习体验英语交流，掌握英语发音方式，熟悉英语基本表达，在日常会话中自主自发的运用英语语言思维，让学生敢于开口说英语，提升学生的口语能力。英语活动班课程，以生动有趣的绘本教学为例，让学生们在绘本学习中潜移默化的听懂英语、掌握英语单词和语音语感，激发学习英语的兴趣和意愿。
+		                                                                                </p>
+		                                                                                <p>
+		                                                                                    &nbsp; &nbsp; &nbsp; &nbsp;特别地，加辰教育鼓励家长亲子学英语，支持家长陪伴孩子共同学习英语，共同进步。这样的共同学习，家长不仅能成为孩子的良好学习榜样，还能通过学习英语陪伴孩子一起成长，增进与孩子之间的情感，甚至于还能为家长职业发展加分。此外，我们还有贴心的专业英语课程顾问，辅导支持家长和孩子共同学习英语。
+		                                                                                </p>
+		                                                                            </section>
+		                                                                        </section>
+		                                                                    </section>
+		                                                                </section>
+		                                                            </section>
+		                                                            <p style="text-indent: 2em; text-align: justify;">
+		                                                                <br/>
+		                                                            </p>
+		                                                        </section>
+		                                                        <p>
+		                                                            <span style="color: #595959; font-size: 15px;"></span><span style="color: #3F3F3F;">这样的英语课程教学模式，这样的家长亲子学英语课程，还有专业的英语课程顾问提供学习辅导支持，您喜欢吗？不喜欢，请告诉我们，我们将为您而改进！喜欢，请推荐给您的好友，我们将为你们提供更好的服务！<span style="font-size: 15px;"></span></span>
+		                                                        </p>
+		                                                        <p>
+		                                                            <br/>
+		                                                        </p>
+		                                                        <p style="text-align: center;">
+		                                                            <span style="color: #FF0000;"><strong><span style="font-size: 16px; color: #FF0000;">推荐有奖！</span></strong></span>
+		                                                        </p>
+		                                                        <p style="text-align: center;">
+		                                                            <span style="color: #FF0000;"><strong><span style="font-size: 16px; color: #FF0000;">推荐有奖！</span></strong></span>
+		                                                        </p>
+		                                                        <p style="text-align: center;">
+		                                                            <span style="color: #FF0000;"><strong><span style="font-size: 16px; color: #FF0000;">推荐有奖！</span></strong></span>
+		                                                        </p>
+		                                                        <p style="text-align: center;">
+		                                                            <span style="font-size: 14px; color: #3F3F3F;">重要的事情说<span style="color: #3F3F3F; font-size: 20px;">3</span>遍~</span>
+		                                                        </p>
+		                                                        <p style="text-align:center">
+		                                                            <span style="font-size: 14px;"><img src="http://img.baidu.com/hi/tsj/t_0003.gif"/></span>
+		                                                        </p>
+		                                                        <p>
+		                                                            <br/>
+		                                                        </p>
+		                                                        <p>
+		                                                            <br/>
+		                                                        </p>
+		                                                        <section class="_135editor" data-tools="135编辑器" data-id="89927" style="border: 0px none; padding: 0px; box-sizing: border-box;"></section>
+		                                                        <p>
+		                                                            <span style="font-size: 17px;"><strong><span style="color: #FF0000;">推荐有奖活动详情规则</span></strong></span><span style="font-size: 15px; color: #3F3F3F;">：<span style="color: #3F3F3F; font-size: 16px;">用户每成功推荐<span style="color: #3F3F3F; font-size: 18px;">一位</span>好友关注“加辰教育定制”，即可获得一张<span style="color: #3F3F3F; font-size: 19px;">半价购课券</span>，凭此券，用户可半价购买一次指定的加辰教育双师Class课程。半价购课券有效期90天，可叠加使用。</span></span>
+		                                                        </p>
+		                                                        <p>
+		                                                            <img src="http://image.135editor.com/files/users/262/2625290/201708/JCUcSMP7_BIrO.jpg" alt="微信图片_20170731204053_meitu_3.jpg"/>
+		                                                        </p>
+		                                                        <section class="_135editor" data-tools="135编辑器" data-id="105" style="border: 0px none; padding: 0px; box-sizing: border-box;">
+		                                                            <p style="text-align:center;">
+		                                                                <img data-id="105" data-role="guide-img" title="猫抓毛线球引导分享" src="http://image3.135editor.com/cache/remote/aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpei9jWlYyaFJwdUFQak9qSUVBMU9qU2ljWEhjaWE5TWo5UlFqc09RVTh4R1hpYVlYWWZpYm9Nb0FKbXJyVHpPSjRtWDgxOXZqaGpYaG9EZ0lzZXBBdEs2S3k2OEEvMA==" style="display: inline;"/>
+		                                                            </p>
+		                                                        </section>
+		                                                        <p>
+		                                                            <br/>
+		                                                        </p>
+		                                                    </section>
+		                                                </section>
+		                                            </section>
+		                                        </section>
+		                                    </section>
+		                                </section>
+		                            </section>
+		                        </section>
+		                    </section>
+		                </section>
+		            </section>
+		        </section>
+		    </section>
+		</section>
+		</div>
 	</div>
 
 		<!-- <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script> -->
