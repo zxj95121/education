@@ -73,7 +73,7 @@
 								<div class="content-block" style="margin-top:20px">
 									<div class="row">
 										<div class="col-50"><a href="#" class="button  button-fill button-danger close-popup">取消</a></div>
-			      					<div class="col-50"><a href="#" class="button  button-fill  button-success">提交</a></div>
+			      						<div class="col-50"><a href="#" class="button  button-fill  button-success" id="send">提交</a></div>
 									</div>
 								</div>
 							</div>
@@ -167,7 +167,7 @@
 						headers:{
 						'X-CSRF-TOKEN': '{{csrf_token()}}'
 						},	
-						url:'',
+						url:'/front/sendCode',
 						data:{
 							phone:phone
 						},
@@ -183,7 +183,7 @@
 					})
 				}	
 			})
-			$(document).on('click','#getPhoneCode',function(){
+			$(document).on('click','#send',function(){
 				var phone = $('input[name="phone"]').val();
 				var phoneCode = $('input[name="phoneCode"]').val();
 				var reg = /^1\d{10}$/;
@@ -199,7 +199,7 @@
 						headers:{
 						'X-CSRF-TOKEN': '{{csrf_token()}}'
 						},	
-						url:'',
+						url:'/front/savePhone',
 						data:{
 							phone:phone
 						},
