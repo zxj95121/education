@@ -18,7 +18,7 @@
 			<div class="page page-current">
 				<div class="content native-scroll">
 				    <div class="content-block">
-				    	<p><a href="#" data-popup=".popup-about" class="open-popup" id="dis" style="display:none"> hehehe</a></p>			      
+				    	<p><a href="#" data-popup=".popup-about" class="open-popup" id="disp" style="display:none"> hehehe</a></p>			      
 				    </div> 
 				</div> 
 				<table>
@@ -103,9 +103,8 @@
 						if(data.code != -1){
 							alert(data.msg);
 						}else{
-							console.log('还没填写手机号');
-							$('#dis').trigger("click");
-							console.log(123);
+							console.log('为什么不执行呢');
+							$("#disp").trigger("click");
 							return false;
 							//alert('还没填写手机号');
 						}						
