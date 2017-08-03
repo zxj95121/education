@@ -256,7 +256,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                                                        </section>
 		                                                        <section style="padding-top: 2em; padding-bottom: 1em;">
 		                                                            <section style="font-size: 16px; border-bottom: 2px dotted rgb(87, 110, 181); margin-top: 0em;"></section>
-		                                                            <section style="font-size: 16px; padding-top: 1em; padding-left: 2em;">
+		                                                            <section style="font-size: 16px; padding-top: 1em; padding-left: 1em;">
 		                                                                <section style="width:5em;
 		height:5em;
 		padding:0.5em 0;
@@ -287,12 +287,12 @@ $signPackage = $jssdk->GetSignPackage();
 		                                                                    </p>
 		                                                                </section>
 		                                                            </section>
-		                                                            <section style="font-size: 16px; text-align: center; color: rgb(87, 110, 181); margin-top: 2em;">
+		                                                            <section style="font-size: 16px; text-align: center; color: rgb(87, 110, 181); margin-left: 3.5em;">
 		                                                                <p>
 		                                                                    （半价课程不定期更新）
 		                                                                </p>
 		                                                            </section>
-		                                                            <section style="font-size: 16px; padding-top: 1em; padding-left: 2em;">
+		                                                            <section style="font-size: 16px; padding-top: 1em; padding-left: 1em;">
 		                                                                <section style="width:5em;
 		height:5em;
 		padding:0.5em 0;
@@ -323,10 +323,10 @@ $signPackage = $jssdk->GetSignPackage();
 		                                                                    </p>
 		                                                                </section>
 		                                                            </section>
-		                                                            <section style="font-size: 16px; text-align: center; color: rgb(87, 110, 181); margin-top: 2em;">
+		                                                            <section style="font-size: 16px; text-align: center; color: rgb(87, 110, 181); margin-left: 3.5em;">
 		                                                                <button type="button" class="btn btn-success btn-lg">分享得券</button>
 		                                                            </section>
-		                                                            <section style="font-size: 16px; padding-top: 1em; padding-left: 2em;">
+		                                                            <section style="font-size: 16px; padding-top: 1em; padding-left: 1em;">
 		                                                                <section style="width:5em;
 		height:5em;
 		padding:0.5em 0;
@@ -354,12 +354,12 @@ $signPackage = $jssdk->GetSignPackage();
 		                                                                    </p>
 		                                                                </section>
 		                                                            </section>
-		                                                            <section style="font-size: 16px; text-align: center; color: rgb(87, 110, 181); margin-top: 2em;">
+		                                                            <section style="font-size: 16px; text-align: center; color: rgb(87, 110, 181); margin-left: 3.5em;">
 		                                                                <p>
 		                                                                    
 		                                                                </p>
 		                                                            </section>
-		                                                            <section style="font-size: 16px; padding-top: 1em; padding-left: 2em;">
+		                                                            <section style="font-size: 16px; padding-top: 1em; padding-left: 1em;">
 		                                                                <section style="width:5em;
 		height:5em;
 		padding:0.5em 0;
@@ -390,7 +390,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                                                                    </p>
 		                                                                </section>
 		                                                            </section>
-		                                                            <section style="font-size: 16px; text-align: center; color: rgb(87, 110, 181); margin-top: 2em;">
+		                                                            <section style="font-size: 16px; text-align: center; color: rgb(87, 110, 181); margin-left: 3.5em;">
 		                                                                <p>
 		                                                                    aaaaaaa
 		                                                                </p>
