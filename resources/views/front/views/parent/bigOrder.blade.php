@@ -24,10 +24,6 @@
 	<meta name="csrf-token" content="{{csrf_token()}}">
 	<link rel="stylesheet" type="text/css" href="/css/sm.min.css">
 	<style type="text/css">
-		.itemTitle{
-			text-overflow: normal;
-			white-space: normal; 
-		}
 	</style>
 </head>
 <body>
@@ -101,14 +97,14 @@
 				        	<li>
 				          		<div class="item-content">
 				            		<div class="item-inner">
-				              			<div class="item-title itemTitle">每购买课程1000元，即返积分100加辰币。</div>
+				              			<div class="item-title" style="white-space: normal;text-overflow: normal;">每购买课程1000元，即返积分100加辰币。</div>
 				            		</div>
 				          		</div>
 				        	</li>
 				        	<li>
 				          		<div class="item-content">
 				            		<div class="item-inner">
-				              			<div class="item-title itemTitle">每购买课程3000元，赠送价值188元的英语主题party一次。</div>
+				              			<div class="item-title" style="white-space: normal;text-overflow: normal;">每购买课程3000元，赠送价值188元的英语主题party一次。</div>
 				            		</div>
 				          		</div>
 				        	</li>
