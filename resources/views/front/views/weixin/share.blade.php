@@ -319,7 +319,7 @@ $signPackage = $jssdk->GetSignPackage();
 		font-size: 16px;
 		">
 		                                                                    <p>
-		                                                                        <span style="font-size: 18px;">您当前拥有半价券 0 张</span>
+		                                                                        <span style="color: rgb(12, 12, 12); font-size: 18px;"><span style="color: rgb(12, 12, 12); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, 微软雅黑, Tahoma, Arial, sans-serif;">您当前拥有半价券 0 张</span></span>
 		                                                                    </p>
 		                                                                </section>
 		                                                            </section>
@@ -347,10 +347,13 @@ $signPackage = $jssdk->GetSignPackage();
 		                                                                    </section>
 		                                                                </section>
 		                                                            </section>
-		                                                            <section style="margin-top: -4.5em; margin-left: 8em;">
-		                                                                <section>
+		                                                            <section style="font-size: 16px; margin-top: -4.5em; margin-left: 8em;">
+		                                                                <section style="
+		padding-top: -2em;
+		font-size: 16px;
+		">
 		                                                                    <p>
-		                                                                        <span style="font-size: 18px;">您的分享指数为 0 人</span>
+		                                                                        <span style="color: rgb(12, 12, 12); font-size: 18px;"><span style="color: rgb(12, 12, 12); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, 微软雅黑, Tahoma, Arial, sans-serif;">您的分享指数为 0 人</span></span>
 		                                                                    </p>
 		                                                                </section>
 		                                                            </section>
@@ -386,7 +389,7 @@ $signPackage = $jssdk->GetSignPackage();
 		font-size: 16px;
 		">
 		                                                                    <p>
-		                                                                        您已购买此课程次数 0 次
+		                                                                        <span style="color: rgb(12, 12, 12); font-size: 18px;"><span style="color: rgb(12, 12, 12); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, 微软雅黑, Tahoma, Arial, sans-serif;">您已购买此课程数 0 次</span></span>
 		                                                                    </p>
 		                                                                </section>
 		                                                            </section>
