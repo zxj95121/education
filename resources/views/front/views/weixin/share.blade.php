@@ -354,11 +354,11 @@ $signPackage = $jssdk->GetSignPackage();
 		                                                                    </p>
 		                                                                </section>
 		                                                            </section>
-		                                                            <!-- <section style="font-size: 16px; text-align: center; color: rgb(87, 110, 181); margin-top: 2em;">
+		                                                            <section style="font-size: 16px; text-align: center; color: rgb(87, 110, 181); margin-top: 2em;">
 		                                                                <p>
-		                                                                    aaaaaaa
+		                                                                    
 		                                                                </p>
-		                                                            </section> -->
+		                                                            </section>
 		                                                            <section style="font-size: 16px; padding-top: 1em; padding-left: 2em;">
 		                                                                <section style="width:5em;
 		height:5em;
