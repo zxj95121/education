@@ -49,7 +49,7 @@ class TestingPhoneController extends Controller
 			$newObj->phone = $phone;
 			$newObj->save();
 		}
-		return response()->json(['code'=>123]);
+		return response()->json(['code'=>1]);
 	}
 	/*进行发送手机验证码*/
 	public function phoneCode(Request $request)
