@@ -56,6 +56,8 @@ class PayClassController extends Controller
 
 		$order_no = 'EC'.date('YmdHis').rand(10000,99999);
 		$price = 0;
+
+		$onePrice = array();
 		foreach ($cartOrder as $key => $value) {
 			$count = 0;
 			foreach ($value['val'] as $v) {
@@ -63,7 +65,16 @@ class PayClassController extends Controller
 			}
 
 			$twoPid = TeacherTwo::find($key)->pid;
-			$price += $count*EclassPriceController::getUnitPriceByCount($twoPid, $count);
+			if (array_key_exists($twoid, $onePrice)) {
+				$onePrice[$twoid] += $count;
+			} else {
+				$onePrice[$twoid] = $count;
+			}
+			
+		}
+
+		foreach ($onePrice as $key => $value) {
+			$price += $value*EclassPriceController::getUnitPriceByCount($key, $value);
 		}
 
 		$bigPrice = $price;
