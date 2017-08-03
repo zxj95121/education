@@ -39,7 +39,8 @@
 						@endforeach
 					</table>
 				@endif
-				<button id="join" val="{{$res->id}}">参加活动</button>
+				<p><a href="#" id="join" val="{{$res->id}}" class="button">参加活动</a></p>
+<!-- 				<button id="join" val="{{$res->id}}">参加活动</button> -->
 				<!-- About Popup -->
 				<div class="popup popup-about">
 					<div class="content-block">
