@@ -51,7 +51,7 @@ class ShareController extends Controller
 			->select('id', 'name')
 			->get()[0];
 
-		if (HalfBuyRecord::where('uid', $uid)->count > 0) {
+		if (HalfBuyRecord::where('uid', $uid)->count() > 0) {
 			$buyCount = HalfBuyRecord::where('uid', $uid)
 				->where('status', 1)
 				->select('count(record_num) as num')
