@@ -77,6 +77,7 @@ class PayClassController extends Controller
         }
         $bigPrice = $bigPrice-(88*$vouNum);
 
+        Session::put('vouNum', $vouNum);
 		/*开始大订单插入*/
 		DB::beginTransaction();
 		$flight = new BigOrder();
@@ -133,7 +134,8 @@ class PayClassController extends Controller
 		$bid = Session::get('bigOrder_id');
 		$orderName = Session::get('orderName');
 		$bigOrderObj = BigOrder::find($bid);
-		return view('front.views.parent.bigOrder', ['bigOrderObj'=>$bigOrderObj,'orderName'=>$orderName]);
+		$vouNum = Session::get('vouNum');
+		return view('front.views.parent.bigOrder', ['bigOrderObj'=>$bigOrderObj,'orderName'=>$orderName,'vouNum'=>$vouNum]);
 	}
 
 	public function newEclassOrder00(Request $request)
