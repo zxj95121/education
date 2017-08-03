@@ -355,8 +355,8 @@ $signPackage = $jssdk->GetSignPackage();
 		                                                                </section>
 		                                                            </section>
 		                                                            <section style="font-size: 16px; text-align: center; color: rgb(87, 110, 181); margin-left: 3.5em;">
-		                                                                <p>
-		                                                                    
+		                                                                <p style="opacity: 0;">
+		                                                                    d
 		                                                                </p>
 		                                                            </section>
 		                                                            <section style="font-size: 16px; padding-top: 1em; padding-left: 1em;">
@@ -391,7 +391,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                                                                </section>
 		                                                            </section>
 		                                                            <section style="font-size: 16px; text-align: center; color: rgb(87, 110, 181); margin-left: 3.5em;">
-		                                                                <p>
+		                                                                <p style="opacity: 0;">
 		                                                                    aaaaaaa
 		                                                                </p>
 		                                                            </section>
