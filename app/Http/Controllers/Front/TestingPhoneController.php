@@ -91,7 +91,7 @@ class TestingPhoneController extends Controller
 			$newObj->phone = $phone;
 			$newObj->save();
 		}
-		return response()->json(['code'=>1]);
+		return response()->json(['errcode'=>1]);
 	}
 
 }
