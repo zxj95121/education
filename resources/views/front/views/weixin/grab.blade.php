@@ -72,7 +72,7 @@
 								</div>
 								<div class="content-block" style="margin-top:20px">
 									<div class="row">
-										<div class="col-50"><a href="#" class="button  button-fill button-danger close-popup">取消</a></div>
+										<div class="col-50"><a href="#" class="button  button-fill button-danger close-popup" >取消</a></div>
 			      						<div class="col-50"><a href="#" class="button  button-fill  button-success" id="send">提交</a></div>
 									</div>
 								</div>
@@ -210,6 +210,7 @@
 							if(data.errcode != 1){
 								$.toast(data.reason);
 							}else{
+								$(".close-popup").trigger("click");
 								$.toast("添加成功");
 							}
 						},
