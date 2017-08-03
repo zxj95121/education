@@ -113,4 +113,15 @@ class ClassPackageController extends Controller
 
     	return redirect(OauthController::getUrl(8, 0));
     }
+
+
+    /*classPackage列表页*/
+    public function list()
+    {
+        $obj = ClassPackage::where('status', 1)
+            ->select('id', 'name', 'price')
+            ->get();
+
+        return view('front.views.classPackage.list');
+    }
 }

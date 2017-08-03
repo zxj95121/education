@@ -264,6 +264,9 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
     $router->get('/parent/mySchedule/oauth', 'Parent\MyScheduleController@oauth');
       /*myVoucher*/
     $router->get('/parent/myVoucher/oauth', 'Parent\MyVoucherController@oauth');
+
+    /*立即使用中途调整*/
+    $router->post('/use_right_away', 'Parent\MyVoucherController@use');
 	
 	$router->get('/parent/myClassOrder/details', 'Parent\MyClassOrderController@details');
 
@@ -377,6 +380,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
   /*class套餐前端展示*/
   $router->get('/classPackage/newOrder', 'ClassPackageController@newOrder');
   $router->get('/classPackage/newOrder2', 'ClassPackageController@newOrder2');
+  $router->get('/classPackage/list', 'ClassPackageController@list');
   // $router->post('/classPackage/newOrderPost', 'ClassPackageController@newOrderPost');
   // $router->get('/classPackage/newOrder2', 'ClassPackageController@newOrder2');/*2读取session内的数据*/
 });

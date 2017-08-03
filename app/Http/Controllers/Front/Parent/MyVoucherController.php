@@ -30,4 +30,16 @@ class MyVoucherController extends Controller
     		return redirect(OauthController::getUrl(9, 1));
     	}
     }
+
+    /*立即使用中间判断*/
+    public function use()
+    {
+        if (Session::has('openid')) {
+            $str = '/front/home#eclass';
+        } else {
+            $str = '/front/classPackage/list';
+        }
+
+        return redirect($str);
+    }
 }
