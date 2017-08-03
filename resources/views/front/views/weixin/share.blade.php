@@ -533,7 +533,8 @@ $signPackage = $jssdk->GetSignPackage();
 			/*半价购课js*/
 			$(function(){
 				$('#shareBtn').click(function(){
-					$('#shareDiv').show();
+					var height = $('.container-fluid').height();
+					$('#shareDiv').css('height', height).show();
 				})
 
 
