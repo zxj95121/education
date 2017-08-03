@@ -122,6 +122,6 @@ class ClassPackageController extends Controller
             ->select('id', 'name', 'price')
             ->get();
 
-        return view('front.views.classPackage.list');
+        return view('front.views.classPackage.list', ['obj'=>$obj]);
     }
 }
