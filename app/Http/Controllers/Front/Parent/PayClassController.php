@@ -72,14 +72,11 @@ class PayClassController extends Controller
 			}
 			
 		}
-
-		var_dump($onePrice);
 		
 		foreach ($onePrice as $key => $value) {
 			$price += $value*EclassPriceController::getUnitPriceByCount($key, $value);
-			var_dump($price);
 		}
-		dd(23);
+		// dd(23);
 
 		$bigPrice = $price;
 		$vnum = floor($bigPrice/1000);
@@ -91,7 +88,8 @@ class PayClassController extends Controller
             }
         }
         $bigPrice = $bigPrice-(88*$vouNum);
-
+        var_dump($bigPrice);
+        dd(3);
         Session::put('vouNum', $vouNum);
 		/*开始大订单插入*/
 		DB::beginTransaction();
