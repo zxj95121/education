@@ -92,7 +92,7 @@
 
 				<div class="list-block contacts-block">
 					<div class="list-group">
-				      	<ul style="list-style: decimal;">
+				      	<ul style="list-style-type: decimal;">
 				        	<li class="list-group-title" style="font-weight: bold;color: #000;">购课福利</li>
 				        	<li>
 				          		<div class="item-content">
