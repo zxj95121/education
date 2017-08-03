@@ -49,6 +49,7 @@ class GrabController extends Controller
     		if ($newtime >= strtotime($discountObj->start_time)) {
     			//活动已经开始，进行抽奖
     			$usercount = UserDiscount::where('discount_id',$id)->where('status',1)->count();
+    			dump($usercount);
     			if($usercount == 1){
     				$userdiscountObj = UserDiscount::where('discount_id',$id)->where('status',1)->first();
     				$userdiscountObj->type = 1;
@@ -67,9 +68,6 @@ class GrabController extends Controller
     					if (array_key_exists($key,$newArray)){
     						$type = 1;
     						/* 已中奖 发布通知  */
-    						
-    						
-    						
     					}else{
     						$type = -1;
     					}
