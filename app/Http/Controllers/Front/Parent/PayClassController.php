@@ -88,8 +88,7 @@ class PayClassController extends Controller
             }
         }
         $bigPrice = $bigPrice-(88*$vouNum);
-        var_dump($bigPrice);
-        dd(3);
+
         Session::put('vouNum', $vouNum);
 		/*开始大订单插入*/
 		DB::beginTransaction();
@@ -131,6 +130,8 @@ class PayClassController extends Controller
 			}
 		}
 		DB::commit();
+
+		dd(2);
 
 		Session::put('bigOrder_id', $bid);
 		Session::put('orderName', $orderName);
