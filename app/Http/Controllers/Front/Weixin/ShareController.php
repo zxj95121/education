@@ -18,7 +18,10 @@ class ShareController extends Controller
 	{
 		$openid = Session::get('openid');
 		
-		$userinfo = $this->select($openid);
+		$data = $this->select($openid);
+
+		$userinfo = $data['userinfo'];
+		$uid = $data['uid'];
 
 		if($userinfo['subscribe'] == 0){
 			/*被分享未关注  */
@@ -40,7 +43,7 @@ class ShareController extends Controller
 		}
 
 		/*用户半价信息*/
-		$halfObj = HalfBuyInfo::where('openid', $openid)
+		$halfObj = HalfBuyInfo::where('uid', $uid)
 			->get()[0];
 
 		$newuser = NewUser::where('openid',$openid)->get();
@@ -104,7 +107,9 @@ class ShareController extends Controller
 			$flight->save();
 		}
 
-		return $userinfo;
+		$data['userinfo'] = $userinfo;
+		$data['uid'] = $uid;
+		return $data;
 	}
 	
 }
