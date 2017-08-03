@@ -35,13 +35,11 @@
 					</table>
 				@endif
 				<p><a href="#" id="join" val="{{$res->id}}" class="button">参加活动</a></p>
-<!-- 				<button id="join" val="{{$res->id}}">参加活动</button> -->
-				<!-- About Popup -->
 				<div class="popup popup-about">
 					<div class="content-block">
 					    <header class="bar bar-nav">
-					    	<a class="button button-link button-nav pull-left" href="/front/home" data-transition="slide-out" style="color:#fff">
-				      			<span class="icon icon-left"></span>返回
+					    	<a class="button button-link button-nav pull-right close-popup"  data-transition="slide-out" style="color:#fff; padding-right:10px" >
+				      			关闭
 				    		</a>
 						 	<h1 class='title' style="background: #22AAE8;color: #fff;">添加手机号</h1>
 						</header>
