@@ -131,7 +131,6 @@ class PayClassController extends Controller
 		}
 		DB::commit();
 
-		dd(2);
 
 		Session::put('bigOrder_id', $bid);
 		Session::put('orderName', $orderName);
