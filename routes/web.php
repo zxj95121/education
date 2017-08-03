@@ -289,7 +289,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
   $router->get('/classPackage', 'ClassPackageController@index');
   $router->get('/classPackage/newOrder/oauth', 'ClassPackageController@newOrderOauth');
 	/*修改手机号  */
-  $router->post('/sendCode', 'TestingPhoneController@phoneCode');
+  $router->post('/phoneCode', 'TestingPhoneController@phoneCode');
   $router->post('/savePhone', 'TestingPhoneController@save_phone');
 });
 
