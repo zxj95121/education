@@ -105,6 +105,7 @@
 						}else{
 							console.log('还没填写手机号');
 							$('#dis').trigger("click");
+							console.log(123);
 							return false;
 							//alert('还没填写手机号');
 						}						
