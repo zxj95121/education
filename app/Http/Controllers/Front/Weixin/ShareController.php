@@ -9,6 +9,7 @@ use App\Models\UserShare;
 use App\Models\HalfBuyInfo;
 use App\Models\HalfBuyRecord;
 use App\Models\TeacherOne;
+use App\Models\ClassPrice;
 
 use App\Http\Controllers\Wechat\OauthController;
 use Session;
@@ -130,7 +131,24 @@ class ShareController extends Controller
 		$halfClassObj = TeacherOne::where('half_buy', 1)
 			->select('id', 'name')
 			->get()[0];
-		return view('front.views.weixin.halfBuyOrder', ['halfClassObj'=>$halfClassObj]);
+
+
+		$price = ClassPrice::where('tid', $halfClassObj->id)
+			->where('status', '1')
+			->orderBy('id')
+			->select('price')
+			->get()[0];
+
+
+
+		/*/*用户半价信息*-/*/
+		$uid = NewUser::where('openid', Session::get('openid'))
+			->select('id')
+			->get()[0]->id;
+		$halfObj = HalfBuyInfo::where('uid', $uid)
+			->get()[0];
+
+		return view('front.views.weixin.halfBuyOrder', ['halfClassObj'=>$halfClassObj, 'halfObj'=>$halfObj,'price'=>$price]);
 	}
 
 	/*用户判断，new_user表以及half_buy_info表*/

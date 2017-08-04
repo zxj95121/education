@@ -38,9 +38,46 @@
                             <div class="item-content">
                                 <div class="item-media"><i class="icon icon-form-name"></i></div>
                                 <div class="item-inner">
-                                    <div class="item-title label">课程名称</div>
+                                    <div class="item-title label" style="font-size: 1em;color: #000;font-weight: normal;">课程名称</div>
                                     <div class="item-input">
                                         <input type="text" readonly placeholder="" value="{{$halfClassObj->name}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                <div class="item-inner">
+                                    <div class="item-title label" style="font-size: 1em;color: #000;font-weight: normal;">购买次数</div>
+                                    <div class="item-input">
+                                        <input id="kcNumber" type="number" placeholder="请输入购买次数" max="{{$halfObj->ticket_num}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                <div class="item-inner">
+                                    <div class="item-title label" style="font-size: 1em;color: #000;font-weight: normal;">课程单价</div>
+                                    <div class="item-input">
+                                        <input type="text" readonly value="¥ {{$price}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                <div class="item-inner">
+                                    <div class="item-title label" style="font-size: 1em;color: #000;font-weight: normal;">课程单价</div>
+                                    <div class="item-input">
+                                        <input id="totalPrice" type="text" style="font-weight: bold;" value="" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -63,7 +100,13 @@
 
     <script type="text/javascript">
     	Zepto(function($){
+            $(document).on('change', '#kcNumber', function(){
+                var number = parseInt($(this).val());
+                var price = parseInt('{{$price}}');
 
+                var totalPrice = '¥ '+(number*price);
+                $('#totalPrice').val(totalPrice);
+            })
 		})
     </script>
   </body>

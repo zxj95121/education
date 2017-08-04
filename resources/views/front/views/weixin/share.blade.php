@@ -406,7 +406,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                                                        <section class="_135editor" data-tools="135编辑器" data-id="90174" style="font-size: 16px; border: 0px none; padding: 0px; box-sizing: border-box; position: relative;">
 		                                                            <section data-id="us524665" class="_135editor" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
 		                                                                <section style="padding: 10px; box-sizing: border-box;">
-		                                                                    <section style="width: 100%; text-align: left;">
+		                                                                    <section style="width: 100%; text-align: center;">
 		                                                                        <br/>
 		                                                                        <button id="buyBtn" type="button" class="btn btn-success btn-lg">立即购买</button>
 		                                                                    </section>
