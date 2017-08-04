@@ -31,7 +31,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    	添加手机号
 			 	<div class="closeclose" style="position: absolute;right: 10px;line-height: 40px;height: 40px;font-size:16px;top: 0px;color: #636262;" onclick="document.getElementById('phoneDiv').style.display ='none';">关闭</div>
 			</header>
-			<div class="content" style="width: 96%;">
+			<div class="content" style="width: 96%;margin: 0 auto;">
 				<div class="row" style="margin-top: 15px;">
 					<div class="form-group">
 						<div class="col-xs-3" style="text-align: right;">
@@ -40,10 +40,10 @@ $signPackage = $jssdk->GetSignPackage();
 						<div class="col-xs-9" style="position: relative;">
 			                <div class="input-groupf">
 			                    <input type="number" id="phoneInput" name="phone" class="form-control" placeholder="手机号">
+			                    <span class="" style="position: absolute;right: 0px;height: 100%;top: 0px;">
+			                    	<button type="button" class="btn btn-effect-ripple btn-info" id="getPhoneCode">发送验证码</button>
+			                    </span>
 			                </div>
-			                <span class="" style="position: absolute;right: 0px;height: 100%;top: 0px;">
-		                    	<button type="button" class="btn btn-effect-ripple btn-info" id="getPhoneCode">发送验证码</button>
-		                    </span>
 			            </div>
 			        </div>
 
