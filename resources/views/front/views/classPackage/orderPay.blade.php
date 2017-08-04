@@ -8,7 +8,7 @@
 	$input = new WxPayUnifiedOrder();
 	$input->SetBody($package->name);//商品描述
 	$input->SetOut_trade_no($order_no);//商户订单号
-	$input->SetTotal_fee((int)($price*100));//标价金额
+	$input->SetTotal_fee((int)((float)$price*100));//标价金额
 	$input->SetTime_start(date("YmdHis"));//交易起始时间
 	$input->SetNotify_url("http://".$_SERVER['SERVER_NAME']."/wxpay/notifyOtherClass");//通知地址
 	$input->SetTrade_type("JSAPI");//交易类型
