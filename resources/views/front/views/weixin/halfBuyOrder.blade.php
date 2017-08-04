@@ -64,7 +64,7 @@
                                 <div class="item-inner">
                                     <div class="item-title label" style="font-size: 1em;color: #000;font-weight: normal;">课程单价</div>
                                     <div class="item-input">
-                                        <input type="text" readonly value="¥ {{$price}}">
+                                        <input type="text" readonly value="¥ {{$price->price}}">
                                     </div>
                                 </div>
                             </div>
@@ -102,7 +102,7 @@
     	Zepto(function($){
             $(document).on('change', '#kcNumber', function(){
                 var number = parseInt($(this).val());
-                var price = parseInt('{{$price}}');
+                var price = parseInt('{{$price->price}}');
 
                 var totalPrice = '¥ '+(number*price);
                 $('#totalPrice').val(totalPrice);
