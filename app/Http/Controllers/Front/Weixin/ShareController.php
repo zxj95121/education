@@ -96,8 +96,13 @@ class ShareController extends Controller
     			->count();
 
     		/*更新用户半价券*/
+    		$halfBuyInfo = HalfBuyInfo::where('uid', $uid)
+    			->where('status', 1)
+    			->first();
+    		$used_num = $halfBuyInfo->used_num;
+    		$ticket_num = $shareCount - $used_num;
     		HalfBuyInfo::where('uid', $uid)
-    			->update(['ticket_num'=>$shareCount]);
+    			->update(['ticket_num'=>$ticket_num]);
 
 
 		$newuser = NewUser::where('openid',$openid)->get();
@@ -106,7 +111,7 @@ class ShareController extends Controller
 		} else{
 			$news = array("Title" =>"加辰教育", "Description"=>"加辰教育123", "PicUrl" =>'http://'.$_SERVER['SERVER_NAME'].'/admin/img/index.png', "Url" =>"http://".$_SERVER['SERVER_NAME']."/front/share/oauth");
 		}
-		return view('front.views.weixin.share',['news'=>$news,'halfObj'=>$halfObj,'halfClassObj'=>$halfClassObj,'buyCount'=>$buyCount]);
+		return view('front.views.weixin.share',['news'=>$news,'halfObj'=>$halfObj,'halfClassObj'=>$halfClassObj,'buyCount'=>$buyCount, 'shareCount'=>$shareCount]);
 	}
 	/*oauth*/
 	public function oauth(Request $request)
