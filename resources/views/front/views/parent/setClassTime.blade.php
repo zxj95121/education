@@ -536,6 +536,12 @@
 				})
 
 			})
+
+
+
+			$('#request').focus(function(){
+				$('#request')[0].scrollIntoView(true);
+			})
 		})
 	</script>
 </body>

@@ -238,8 +238,32 @@ class ManagerController extends Controller
             $halfBuyInfo = HalfBuyInfo::where('uid', $uid)
                 ->first();
             $Shareobj[$key]['ticket'] = $halfBuyInfo;
+            /*半价券购买订单状态*/
+            $halfBuyRecordStatus = HalfBuyRecord::where('uid', $uid)
+                ->where('status', 1)
+                ->where('pay_status', 1)
+                ->where('confirm_status', 0)
+                ->count();
+            $Shareobj[$key]['confirm'] = $halfBuyRecordStatus;
     	}
+
     	return view('admin.share',['res'=>$Shareobj, 'str'=>$str, 'phone'=>$phone]);
+    }
+
+
+    /*ajax getRecords*/
+    public function getRecords(Request $request)
+    {
+        $uid = $request->input('uid');
+        $records = HalfBuyRecord::where('half_buy_record.uid', $uid)
+            ->where('half_buy_record.status', '1')
+            ->where('half_buy_record.pay_status', 1)
+            ->leftJoin('teacher_one as to', 'to.id', 'half_buy_record.tid')
+            ->orderBy('half_buy_record.confirm_status')
+            ->select('half_buy_record.*', 'to.name')
+            ->get();
+
+        return response()->json(['errcode'=>0,'record'=>$records]);
     }
 
 

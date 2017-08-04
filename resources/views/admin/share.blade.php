@@ -69,12 +69,13 @@
                                                     <th>已关注</th>
                                                     <th>剩余半价券</th>
                                                     <th>已购买次数</th>
+                                                    <th>新纪录</th>
                                                     <th>操作</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach($res as $value)
-                                                <tr>
+                                                <tr uid="{{$value->pid}}">
                                                     <td>{{$value->id}}</td>
                                                     <td>{{$value->nickname}}</td>
                                                     <td>{{$value->phone}}</td>
@@ -82,6 +83,7 @@
                                                     <td>{{$value->succeed}}</td>
                                                     <td>{{$value->ticket->ticket_num}}</td>
                                                     <td>{{$value->ticket->used_num}}次</td>
+                                                    <td>@if($value->confirm) <span class="label label-success">新纪录</span> @else @endif</td>
                                                     <td>
                                                         <span class="label label-primary seeOrder">查看订单</span>　
                                                     </td>
@@ -106,6 +108,27 @@
                 </div> <!-- end row -->
 
             </div>
+
+
+            <div id="recordModal" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">订单详情</h4>
+                        </div>
+                        <div class="modal-body" style="min-height: 250px;">
+                            <table class="table">
+                                
+                            </table>
+                        </div>
+                        <!-- <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Sa</button>
+                        </div> -->
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
 @endsection
             
 
@@ -113,6 +136,27 @@
 @section('jquery')
 <script type="text/javascript" src="/js/layui/layui.js"></script>
 <script type="text/javascript">
+    $(function(){
+        $('.seeOrder').click(function(){
+            var uid = $(this).parents('tr').attr('uid');
+            $('#recordModal').modal('show');
+            $('#recordModal').attr('uid', uid);
 
+
+            $.ajax({
+                url: '/admin/share/getRecords',
+                dataType: 'json',
+                type: 'post',
+                data: {
+                    uid: uid
+                },
+                success: function(data) {
+                    if (data.errcode == 0) {
+                        console.log(data.record);
+                    }
+                }
+            })
+        })
+    })
 </script>
 @endsection
