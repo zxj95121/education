@@ -25,7 +25,7 @@ $signPackage = $jssdk->GetSignPackage();
 	</head>
 	<body>
 	<div class="container-fluid" style="padding: 0px;">
-		<div id="shareDiv" style="display:none;z-index: 9999;width: 100%;height: 100%;opacity: 0.35;">
+		<div id="shareDiv" style="display:none;z-index: 9999;width: 100%;height: 100%;opacity: 0.35;position: fixed;top: 0px;left: 0px;">
 			<img src="/images/share.png" style="width: 100%;">
 		</div>
 		<div style="width: 96%;margin: 0 auto;">
