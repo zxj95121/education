@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Front\Weixin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Wechat\OauthController;
+use App\Http\Controllers\Front\TestingPhoneController;
 use App\Models\ClassFree;
-use Session;
 
 class ClassFreeController extends Controller
 {
