@@ -621,8 +621,7 @@ $signPackage = $jssdk->GetSignPackage();
 									window.location.href = '/front/share/halfBuyOrder';
 								}
 							} else {
-								// $('#phoneDiv').css('display', 'block');
-								$('#phoneDiv').slideUp();
+								$('#phoneDiv').css('display', 'block');
 								return false;
 							}						
 						}
