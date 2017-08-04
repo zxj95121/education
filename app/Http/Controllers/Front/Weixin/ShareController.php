@@ -170,7 +170,7 @@ class ShareController extends Controller
 			->get()[0]->id;
 
 		$flight = new HalfBuyRecord();
-		$flight->order_no = 'HB'.date('Y-m-d H:i:s').rand(10000,99999);
+		$flight->order_no = 'HB'.date('YmdHis').rand(10000,99999);
 		$flight->uid = $uid;
 		$flight->tid = $halfClassObj->id;
 		$flight->record_num = $num;
@@ -203,7 +203,7 @@ class ShareController extends Controller
 			->leftJoin('teacher_one as to', 'to.id', 'half_buy_record.tid')
 			->select('to.name', 'half_buy_record.*')
 			->get()[0];
-		dd($orderObj->toArray());
+		// dd($orderObj->toArray());
 		return view('front.views.weixin.payOrder', ['orderObj'=>$orderObj]);
 	}
 
