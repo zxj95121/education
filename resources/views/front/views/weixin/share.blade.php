@@ -592,7 +592,7 @@ $signPackage = $jssdk->GetSignPackage();
 					$(this).hide();
 				})
 
-				$.ajaxSetUp({
+				$.ajaxSetup({
 					headers: {
 						'X-CSRF-TOKEN': '{{csrf_token()}}'
 					}
