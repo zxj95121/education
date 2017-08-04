@@ -46,7 +46,7 @@ class ShareController extends Controller
 
 		/*用户半价信息*/
 		$halfObj = HalfBuyInfo::where('uid', $uid)
-			->get()[0];
+			->first();
 
 		$halfClassCount = TeacherOne::where('half_buy', 1)->count();
 		if ($halfClassCount == 0) {
@@ -179,15 +179,15 @@ class ShareController extends Controller
 
 		$oid = $flight->id;
 		/*更新剩余,更新已使用*/
-		$ticket = HalfBuyInfo::where('uid', $uid)
-			->select('ticket_num', 'used_num')
-			->get()[0];
+		// $ticket = HalfBuyInfo::where('uid', $uid)
+		// 	->select('ticket_num', 'used_num')
+		// 	->get()[0];
 
-		$ticket_num = (int)($ticket->ticket_num) - $num;
-		$used_num = (int)($ticket->used_num) + $num;
+		// $ticket_num = (int)($ticket->ticket_num) - $num;
+		// $used_num = (int)($ticket->used_num) + $num;
 
-		HalfBuyInfo::where('uid', $uid)
-			->update(['ticket_num'=>$ticket_num, 'used_num'=>$used_num]);
+		// HalfBuyInfo::where('uid', $uid)
+		// 	->update(['ticket_num'=>$ticket_num, 'used_num'=>$used_num]);
 
 		return response()->json(['errcode'=>0,'oid'=>$oid]);
 
@@ -203,7 +203,7 @@ class ShareController extends Controller
 			->leftJoin('teacher_one as to', 'to.id', 'half_buy_record.tid')
 			->select('to.name', 'half_buy_record.*')
 			->get()[0];
-		return view('front.views.weixin.payOrder', ['orderobj'=>$orderObj]);
+		return view('front.views.weixin.payOrder', ['orderObj'=>$orderObj]);
 	}
 
 	/*用户判断，new_user表以及half_buy_info表*/
