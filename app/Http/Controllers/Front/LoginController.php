@@ -193,7 +193,7 @@ class LoginController extends Controller
             $flight->save();
         } else {
             NewUser::where('openid', $openid)
-                ->update(['type', '1']);
+                ->update(['type'=>'1', 'uid'=>$uid, 'voucher'=>188]);
         }
         DB::commit();
         Session::put('front_id', $flight->id);
