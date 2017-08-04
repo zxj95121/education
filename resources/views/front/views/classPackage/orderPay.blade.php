@@ -94,10 +94,7 @@ $signPackage = $jssdk->GetSignPackage();
 				<div class="popup popup-about">
 					<div class="content-block">
 					    <header class="bar bar-nav">
-					    	<a class="button button-link button-nav pull-right close-popup"  data-transition="slide-out" style="color:#fff; padding-right:10px" >
-				      			关闭
-				    		</a>
-						 	<h1 class='title' style="background: #22AAE8;color: #fff;">添加手机号</h1>
+						 	<h1 class='title' style="background: #22AAE8;color: #fff;">请输入手机号</h1>
 						</header>
 						<div class="content">
 							<div class="list-block" style="margin-top:0px">
@@ -121,8 +118,8 @@ $signPackage = $jssdk->GetSignPackage();
 								</div>
 								<div class="content-block" style="margin-top:20px">
 									<div class="row">
-										<div class="col-50"><a href="#" class="button  button-fill button-danger close-popup" >取消</a></div>
-			      						<div class="col-50"><a href="#" class="button  button-fill  button-success" id="send">提交</a></div>
+										<div class="col-50"><a href="#" class="button  button-big button-fill button-danger close-popup" >取消</a></div>
+			      						<div class="col-50"><a href="#" class="button  button-big button-fill  button-success" id="send">提交</a></div>
 									</div>
 								</div>
 							</div>
@@ -268,7 +265,7 @@ $signPackage = $jssdk->GetSignPackage();
 			}
 			$.ajax({
 					headers:{
-					'X-CSRF-TOKEN': '{{csrf_token()}}'
+						'X-CSRF-TOKEN': '{{csrf_token()}}'
 					},	
 					url:'/front/savePhone',
 					data:{
@@ -282,7 +279,7 @@ $signPackage = $jssdk->GetSignPackage();
 							$.toast(data.reason);
 						}else{
 							$(".close-popup").trigger("click");
-							$.closeModal('.popup-about')
+							$.closeModal('.popup-about');
 							$.toast("添加成功");
 						}
 					},
