@@ -16,6 +16,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 		<!-- <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css"> -->
 		<link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.css">
+
 		<!-- <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css"> -->
 		<style type="text/css">
 			img{
@@ -25,8 +26,8 @@ $signPackage = $jssdk->GetSignPackage();
 	</head>
 	<body>
 	<div class="container-fluid" style="padding: 0px;">
-		<div id="shareDiv" style="display:none;z-index: 9999;width: 100%;height: 100%;opacity: 0.35;position: fixed;top: 0px;left: 0px;">
-			<img src="/images/share2.png" style="width: 100%;height: 100%;"> 
+		<div id="shareDiv" style="display:none;z-index: 9999;width: 100%;height: 100%;opacity: 1;position: fixed;top: 0px;left: 0px;">
+			<img src="/images/share2.png" style="width: 100%;"> 
 		</div>
 		<div style="width: 96%;margin: 0 auto;">
 		<!-- <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
@@ -407,6 +408,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                                                                <section style="padding: 10px; box-sizing: border-box;">
 		                                                                    <section style="width: 100%; text-align: left;">
 		                                                                        <br/>
+		                                                                        <button id="buyBtn" type="button" class="btn btn-success btn-lg">立即购买</button>
 		                                                                    </section>
 		                                                                </section>
 		                                                            </section>
@@ -448,6 +450,7 @@ $signPackage = $jssdk->GetSignPackage();
 		<!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script> -->
 		<!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script> -->
 		<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="/js/layui/layer_only/mobile/layer.js"></script>
 		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 		<script>
 		    wx.config({
@@ -540,6 +543,20 @@ $signPackage = $jssdk->GetSignPackage();
 
 				$('#shareDiv').click(function(){
 					$(this).hide();
+				})
+
+
+				$('#buyBtn').click(function(){
+					var ticket = parseInt('{{$halfObj->ticket_num}}');
+					if (ticket <= 0) {
+						layer.open({
+							content:'您剩余的半价券为0...',
+							skin:'msg',
+							time:2
+						});
+					} else {
+						window.location.href = '/front/share/halfBuyOrder';
+					}
 				})
 			})
 		</script>

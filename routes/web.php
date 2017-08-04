@@ -283,7 +283,8 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 
 	/*微信分享  */
 	$router->get('/share/oauth', 'Weixin\ShareController@oauth');
-	$router->get('/share', 'Weixin\ShareController@index');
+  $router->get('/share', 'Weixin\ShareController@index');
+	$router->get('/share/halfBuyOrder', 'Weixin\ShareController@halfBuyOrder');
 
 
   $router->get('/parent/parentChat/oauth', 'Parent\ChatController@oauth');

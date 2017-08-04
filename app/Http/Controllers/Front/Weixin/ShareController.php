@@ -117,6 +117,12 @@ class ShareController extends Controller
 		return redirect(OauthController::getUrl(7, 0));
 	}
 
+	/*halfBuyOrder用户进行购买*/
+
+	public function halfBuyOrder(Request $request)
+	{
+		return view('front.views.weixin.halfBuyOrder');
+	}
 
 	/*用户判断，new_user表以及half_buy_info表*/
 
