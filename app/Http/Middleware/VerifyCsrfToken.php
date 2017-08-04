@@ -12,6 +12,6 @@ class VerifyCsrfToken extends BaseVerifier
      * @var array
      */
     protected $except = [
-        'wechatIndex','wechatIndexCatchon','wxpay/notify','wxpay/notifyOtherClass','admin/tuikuan'
+        'wechatIndex','wechatIndexCatchon','wxpay/notify','wxpay/notifyOtherClass','/wxpay/notifyHalfBuy','admin/tuikuan'
     ];
 }

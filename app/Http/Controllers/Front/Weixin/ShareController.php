@@ -73,7 +73,7 @@ class ShareController extends Controller
     		//更新成功关注状态
       		$openids = UserShare::where('pid',$uid)
       			->where('status', 1)
-      			->where('subscribe' ,0)
+      			->where('subscribe', 0)
       			->select('openid','id')
       			->get();
 
@@ -149,6 +149,62 @@ class ShareController extends Controller
 			->get()[0];
 
 		return view('front.views.weixin.halfBuyOrder', ['halfClassObj'=>$halfClassObj, 'halfObj'=>$halfObj,'price'=>$price]);
+	}
+
+	public function makeOrder(Request $request)
+	{
+		$num = (int)$request->input('num');
+
+		$halfClassObj = TeacherOne::where('half_buy', 1)
+			->select('id', 'name')
+			->get()[0];
+
+
+		$price = ClassPrice::where('tid', $halfClassObj->id)
+			->where('status', '1')
+			->orderBy('id')
+			->select('price')
+			->get()[0];
+
+		$uid = NewUser::where('openid', Session::get('openid'))
+			->select('id')
+			->get()[0]->id;
+
+		$flight = new HalfBuyRecord();
+		$flight->order_no = 'HB'.date('Y-m-d H:i:s').rand(10000,99999);
+		$flight->uid = $uid;
+		$flight->tid = $halfClassObj->id;
+		$flight->record_num = $num;
+		$flight->price = $num*((int)number_format(0.5*$price->price), 2);
+		$flight->save();
+
+		$oid = $flight->id;
+		/*更新剩余,更新已使用*/
+		$ticket = HalfBuyInfo::where('uid', $uid)
+			->select('ticket_num', 'used_num')
+			->get()[0];
+
+		$ticket_num = (int)($ticket->ticket_num) - $num;
+		$used_num = (int)($ticket->used_num) + $num;
+
+		HalfBuyInfo::where('uid', $uid)
+			->update(['ticket_num'=>$ticket_num, 'used_num'=>$used_num]);
+
+		return response()->json(['errcode'=>0,'oid'=>$oid]);
+
+	}
+
+	/*支付order订单*/
+
+	public function payOrder(Request $request)
+	{
+		$id = $request->input('id');
+
+		$orderObj = HalfBuyRecord::where('half_buy_record.id', $id)
+			->leftJoin('teacher_on as to', 'to.id', 'half_buy_record.tid')
+			->select('to.name', 'half_buy_record.*')
+			->get()[0];
+		return view('front.views.weixin.payOrder', ['orderobj'=>$orderObj]);
 	}
 
 	/*用户判断，new_user表以及half_buy_info表*/

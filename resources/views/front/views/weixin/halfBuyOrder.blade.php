@@ -64,7 +64,7 @@
                                 <div class="item-inner">
                                     <div class="item-title label" style="font-size: 1em;color: #000;font-weight: normal;">课程单价</div>
                                     <div class="item-input">
-                                        <input type="text" readonly value="¥ {{$price->price}}">
+                                        <input type="text" readonly value="¥ {{number_format(0.5*$price->price, 2)}}">
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                             <div class="item-content">
                                 <div class="item-media"><i class="icon icon-form-name"></i></div>
                                 <div class="item-inner">
-                                    <div class="item-title label" style="font-size: 1em;color: #000;font-weight: normal;">课程单价</div>
+                                    <div class="item-title label" style="font-size: 1em;color: #000;font-weight: normal;">课程总价</div>
                                     <div class="item-input">
                                         <input id="totalPrice" type="text" style="font-weight: bold;" value="" readonly>
                                     </div>
@@ -86,7 +86,7 @@
                 </div>
 			</div>
 			<nav class="bar bar-tab">
-		      	<a class="tab-item external active" href="#" style="background: #3879D9;color: #FFF;">
+		      	<a class="tab-item external active" id="makeOrder" href="#" style="background: #3879D9;color: #FFF;">
 		  		生成订单
 				</a>
 		  </nav>
@@ -102,10 +102,36 @@
     	Zepto(function($){
             $(document).on('change', '#kcNumber', function(){
                 var number = parseInt($(this).val());
-                var price = parseInt('{{$price->price}}');
+                var price = parseInt('{{number_format(0.5*$price->price, 2)}}');
+
+                var max = parseInt('{{$halfObj->ticket_num}}');
+                if (number > $max) {
+                    number = max;
+                    $('this').val(number);
+                }
 
                 var totalPrice = '¥ '+(number*price);
                 $('#totalPrice').val(totalPrice);
+            })
+
+
+            $(document).on('click', '#makeOrder', function(){
+                $.ajax({
+                    url: '/front/share/makeOrder',
+                    dataType: 'json',
+                    type: 'post',
+                    headers:{
+                        'X-CSRF-TOKEN': '{{csrf_token()}}'
+                    },
+                    data: {
+                        num: $('#kcNumber').val()
+                    },
+                    success: function(data) {
+                        if (data.errcode == 0) {
+                            window.location.href = '/front/share/payOrder?id='+data.oid;
+                        }
+                    }
+                })
             })
 		})
     </script>

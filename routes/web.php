@@ -28,6 +28,8 @@ Route::get('/html', 'HtmlController@index');
 Route::any('/wxpay/notify','WeixinController@notify');
 /*otherClass支付回调*/
 Route::any('/wxpay/notifyOtherClass','WeixinController@otherClassNotify');
+/*半价购课支付回调*/
+Route::any('/wxpay/notifyHalfBuy','WeixinController@notifyHalfBuy');
 
 //<!------------Wechat文件夹----------------------->
 /*微信接入主程序*/
@@ -284,7 +286,9 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 	/*微信分享  */
 	$router->get('/share/oauth', 'Weixin\ShareController@oauth');
   $router->get('/share', 'Weixin\ShareController@index');
-	$router->get('/share/halfBuyOrder', 'Weixin\ShareController@halfBuyOrder');
+  $router->get('/share/halfBuyOrder', 'Weixin\ShareController@halfBuyOrder');
+  $router->post('/share/makeOrder', 'Weixin\ShareController@makeOrder');
+	$router->get('/share/payOrder', 'Weixin\ShareController@payOrder');
 
 
   $router->get('/parent/parentChat/oauth', 'Parent\ChatController@oauth');

@@ -12,6 +12,7 @@ use App\Http\Controllers\EclassPriceController;
 use App\Models\ParentInfo;
 use App\Models\ClassPackage;
 use App\Models\NewUser;
+use App\Models\HalfBuyRecord;
 
 class WeixinController extends Controller
 {
@@ -73,4 +74,31 @@ class WeixinController extends Controller
         return true;
     }
 
+    public function notifyHalfBuy(Request $request)
+    {
+        $postStr = file_get_contents('php://input');
+        if (!empty($postStr)){
+            $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
+            if($postObj->result_code == 'SUCCESS'){
+                $order_no = $postObj->out_trade_no;
+
+                $order = HalfBuyRecord::where('order_no',$order_no)->first();
+                $order->pay_status = 1;
+                $order->save();
+                $bill = Bill::where('oid',$order->id)->where('type', 'HB')->get();
+
+                if(count($bill) == 0){
+                    $bill = new Bill();
+                    $bill->oid = $order->id;
+                    $bill->type = 'HB';
+                    $bill->save();
+                    $cpObj = TeacherOne::find($order->tid);
+                    $caseNameObj = NewUser::find($order->uid);
+                    TemplateController::send($caseNameObj->openid,'关于订单支付成功的通知','半价课程',$cpObj->name,$order->price,$bill->created_at,$caseNameObj->nickname,'订单支付成功','');
+                }
+            }
+        }
+
+        return true;
+    }
 }
