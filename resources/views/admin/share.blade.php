@@ -7,6 +7,9 @@
     .operate span{
         cursor: pointer;
     }
+    .label{
+        cursor: pointer;
+    }
 </style>
 @endsection
 
@@ -15,7 +18,7 @@
 
             <div class="wraper container-fluid">
                 <div class="page-title"> 
-                    <h3 class="title">用户分享</h3> 
+                    <h3 class="title">半价购课&用户分享</h3> 
                 </div>
 
                 <div class="row">
@@ -25,7 +28,7 @@
                         <div class="portlet"><!-- /primary heading -->
                             <div class="portlet-heading">
                                 <h3 class="portlet-title text-dark text-uppercase">
-                                   用户分享
+                                   半价购课&用户分享
                                 </h3>
                                 <div class="portlet-widgets">
                                     <!-- <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a> -->
@@ -64,6 +67,8 @@
                                                     <th>手机号</th>
                                                     <th>总分享数</th>
                                                     <th>已关注</th>
+                                                    <th>剩余半价券</th>
+                                                    <th>已购买次数</th>
                                                     <th>操作</th>
                                                 </tr>
                                             </thead>
@@ -75,8 +80,10 @@
                                                     <td>{{$value->phone}}</td>
                                                     <td>{{$value->count}}</td>
                                                     <td>{{$value->succeed}}</td>
+                                                    <td>{{$value->ticket->ticket_num}}</td>
+                                                    <td>{{$value->ticket->used_num}}次</td>
                                                     <td>
-                                                        <span class="label label-default">暂无操作</span>　
+                                                        <span class="label label-primary seeOrder">查看订单</span>　
                                                     </td>
                                                 </tr>
                                                 @endforeach

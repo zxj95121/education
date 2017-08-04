@@ -24,6 +24,8 @@ use App\Models\Bill;
 use App\Models\SchoolApply;
 use App\Models\HobbyApply;
 use App\Models\ContactChat;
+use App\Models\HalfBuyInfo;
+use App\Models\HalfBuyRecord;
 
 use Session;
 use Wechat;
@@ -229,6 +231,13 @@ class ManagerController extends Controller
     		}  
     		//用户成功关注数量
 			$Shareobj[$key]['succeed'] = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status',1)->where('subscribe',1)->count();
+
+            /*用户的半价券*/
+            $uid = $Shareobj[$key]['pid'];
+            /*在别人的代码上改*/
+            $halfBuyInfo = HalfBuyInfo::where('uid', $uid)
+                ->first();
+            $Shareobj[$key]['ticket'] = $halfBuyInfo;
     	}
     	return view('admin.share',['res'=>$Shareobj, 'str'=>$str, 'phone'=>$phone]);
     }

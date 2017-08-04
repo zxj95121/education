@@ -52,12 +52,12 @@ class ShareController extends Controller
 		$halfClassCount = TeacherOne::where('half_buy', 1)->count();
 		if ($halfClassCount == 0) {
 			/*没有半价课*/
-			exit;
+			$halfClassObj = '';
+		} else {
+			$halfClassObj = TeacherOne::where('half_buy', 1)
+				->select('id', 'name')
+				->get()[0];
 		}
-
-		$halfClassObj = TeacherOne::where('half_buy', 1)
-			->select('id', 'name')
-			->get()[0];
 
 		if (HalfBuyRecord::where('uid', $uid)->count() > 0) {
 			$buyCount = HalfBuyRecord::where('uid', $uid)
@@ -111,7 +111,13 @@ class ShareController extends Controller
 		} else{
 			$news = array("Title" =>"加辰教育", "Description"=>"加辰教育123", "PicUrl" =>'http://'.$_SERVER['SERVER_NAME'].'/admin/img/index.png', "Url" =>"http://".$_SERVER['SERVER_NAME']."/front/share/oauth");
 		}
-		return view('front.views.weixin.share',['news'=>$news,'halfObj'=>$halfObj,'halfClassObj'=>$halfClassObj,'buyCount'=>$buyCount, 'shareCount'=>$shareCount]);
+
+
+		if ($halfClassObj) {
+			return view('front.views.weixin.share',['news'=>$news,'halfObj'=>$halfObj,'halfClassObj'=>$halfClassObj,'buyCount'=>$buyCount, 'shareCount'=>$shareCount]);
+		} else {
+			return view('front.views.weixin.share_noTicket',['news'=>$news,'halfObj'=>$halfObj,'halfClassObj'=>$halfClassObj,'buyCount'=>$buyCount, 'shareCount'=>$shareCount]);
+		}
 	}
 	/*oauth*/
 	public function oauth(Request $request)
