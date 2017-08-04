@@ -93,7 +93,6 @@ $signPackage = $jssdk->GetSignPackage();
 	<script type="text/javascript">
 
 		window.onpopstate = function(event) {
-    		// window.location.href='/front/classPackage?id={{$package->id}}';
     		history.back(-1);
 		}
 
