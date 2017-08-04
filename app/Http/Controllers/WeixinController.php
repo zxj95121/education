@@ -13,6 +13,7 @@ use App\Models\ParentInfo;
 use App\Models\ClassPackage;
 use App\Models\NewUser;
 use App\Models\HalfBuyRecord;
+use App\Models\TeacherOne;
 
 class WeixinController extends Controller
 {
@@ -92,9 +93,9 @@ class WeixinController extends Controller
                     $bill->oid = $order->id;
                     $bill->type = 'HB';
                     $bill->save();
-                    $cpObj = TeacherOne::find($order->tid);
+                    $classObj = TeacherOne::find($order->tid);
                     $caseNameObj = NewUser::find($order->uid);
-                    TemplateController::send($caseNameObj->openid,'关于订单支付成功的通知','半价课程',$cpObj->name,$order->price,$bill->created_at,$caseNameObj->nickname,'订单支付成功','');
+                    TemplateController::send($caseNameObj->openid,'关于订单支付成功的通知','半价购课',$classObj->name,$order->price,$bill->created_at,$caseNameObj->nickname,'订单支付成功','');
                 }
             }
         }
