@@ -189,7 +189,7 @@
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
     <script>
-		$('document').on('click','#free',function(){
+		$(document).on('click','#free',function(){
 			$.ajax({
 				headers:{
 					'X-CSRF-TOKEN': '{{csrf_token()}}'
@@ -200,6 +200,7 @@
 				success:function(data){
 					if(data.code != -1){
 						$.toast(data.msg);
+						return false;
 					}else{
 						$.popup('.popup-about');
 						return false;
