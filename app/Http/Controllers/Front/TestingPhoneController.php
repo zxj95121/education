@@ -25,9 +25,9 @@ class TestingPhoneController extends Controller
 		$openid = Session::get('openid');
 		$newuserObj = NewUser::where('openid',$openid)->get();
 		if (isset($newuserObj[0]) && !empty($newuserObj[0]->phone)) {
-			return response()->json['errcode'=>0];
+			return response()->json(['errcode'=>0]);
 		}else{
-			return response()->json['errcode'=>1];
+			return response()->json(['errcode'=>1]);
 		}
 	}
 	/*进行发送手机验证码*/
