@@ -20,10 +20,11 @@ class ShareController extends Controller
 	{
 		$openid = Session::get('openid');
 		
-		$data = $this->select($openid);
+		$userinfo = $this->select($openid);
 
-		$userinfo = $data['userinfo'];
-		$uid = $data['uid'];
+		// $userinfo = $data['userinfo'];
+		$uid = NewUser::where('openid', $openid)
+			->first()->id;
 
 		if($userinfo['subscribe'] == 0){
 			/*被分享未关注  */
@@ -252,9 +253,7 @@ class ShareController extends Controller
 			$flight->save();
 		}
 
-		$data['userinfo'] = $userinfo;
-		$data['uid'] = $uid;
-		return $data;
+		return $userinfo;
 	}
 	
 }
