@@ -29,7 +29,7 @@ $signPackage = $jssdk->GetSignPackage();
 		<div id="phoneDiv" style="display:none;z-index: 9999;width: 100%;height: 100%;opacity: 1;position: fixed;top: 0px;left: 0px;background: #FFF;">
 		    <header style="height: 40px;text-align: center;position: relative;font-size: 19px;line-height: 40px;color: #FFF;background: #22AAE8;">
 		    	添加手机号
-			 	<div class="closeclose" style="position: absolute;right: 10px;line-height: 40px;height: 40px;font-size:16px;top: 0px;color: #636262;" onclick="document.getElementById('phoneDiv').style.display ='none';">关闭</div>
+			 	<div class="closeclose" style="position: absolute;right: 10px;line-height: 40px;height: 40px;font-size:16px;top: 0px;color: #fff;" onclick="document.getElementById('phoneDiv').style.display ='none';">关闭</div>
 			</header>
 			<div class="content" style="width: 96%;margin: 0 auto;">
 				<div class="row" style="margin-top: 15px;">
@@ -61,25 +61,18 @@ $signPackage = $jssdk->GetSignPackage();
 			            </div>
 			        </div>
 				</div>
-			</div>
-			
-<!-- 			 		<div class="item-content">
-						<div class="item-inner" style="padding-right:0px">
-							<div class="item-title label" style="width:63px">验证码:</div>
-							<div class="item-input">
-								<input type="text" placeholder="验证码" name="phoneCode">
-							</div>
-						</div>
-					</div>
-					<div class="content-block" style="margin-top:20px">
-						<div class="row">
-							<div class="col-50"><a href="#" class="button  button-fill button-danger close-popup" >取消</a></div>
-      						<div class="col-50"><a href="#" class="button  button-fill  button-success" id="send">提交</a></div>
+
+				<div class="row" style="margin-top: 15px">
+					<div class="form-group">
+						<div class="col-xs-8 col-xs-offset-2">
+							<button id="send" class="btn btn-success" style="width: 100%;">提交</button>
 						</div>
 					</div>
 				</div>
-			</div> -->
+			</div>
 		</div>
+
+		
 		<div id="shareDiv" style="display:none;z-index: 9999;width: 100%;height: 100%;opacity: 1;position: fixed;top: 0px;left: 0px;">
 			<img src="/images/share2.png" style="width: 100%;"> 
 		</div>
