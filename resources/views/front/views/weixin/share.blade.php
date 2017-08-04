@@ -32,9 +32,9 @@ $signPackage = $jssdk->GetSignPackage();
 			 	<div class="closeclose" style="position: absolute;right: 10px;line-height: 40px;height: 40px;font-size:16px;top: 0px;color: #636262;" onclick="document.getElementById('phoneDiv').style.display ='none';">关闭</div>
 			</header>
 			<div class="row" style="margin-top: 15px;">
-				<!-- <div class="form-group"> -->
+				<div class="form-group">
 					<div class="col-xs-3" style="text-align: right;">
-						<label for="#phoneInput">手机号</label>
+						手机号
 					</div>
 					<div class="col-xs-9">
 		                <div class="input-groupf m-t-10">
@@ -44,14 +44,14 @@ $signPackage = $jssdk->GetSignPackage();
 		                    </span>
 		                </div>
 		            </div>
-		        <!-- </div> -->
+		        </div>
 
 			</div>
 
 			<div class="row">
 				<div class="form-group">
 					<div class="col-xs-3" style="text-align: right;">
-						<label for="#phoneCode">手机号</label>
+						验证码
 					</div>
 					<div class="col-xs-9">
 		                <div class="input-groupf m-t-10">
