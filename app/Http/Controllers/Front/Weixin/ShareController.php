@@ -201,7 +201,7 @@ class ShareController extends Controller
 		$id = $request->input('id');
 
 		$orderObj = HalfBuyRecord::where('half_buy_record.id', $id)
-			->leftJoin('teacher_on as to', 'to.id', 'half_buy_record.tid')
+			->leftJoin('teacher_one as to', 'to.id', 'half_buy_record.tid')
 			->select('to.name', 'half_buy_record.*')
 			->get()[0];
 		return view('front.views.weixin.payOrder', ['orderobj'=>$orderObj]);
