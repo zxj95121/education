@@ -266,6 +266,19 @@ class ManagerController extends Controller
         return response()->json(['errcode'=>0,'record'=>$records]);
     }
 
+    /*ajax confirmRecord*/
+    public function confirmRecord(Request $request)
+    {
+        $rid = $request->input('rid');
+
+        $flight = HalfBuyRecord::find($rid);
+        $flight->confirm_status = 1;
+        $flight->save();
+
+        return response()->json(['errcode'=>0]);
+    }
+
+
 
     public function setPower(Request $request) {
         // $admin_id = Session::get('admin_id');

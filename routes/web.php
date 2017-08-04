@@ -89,6 +89,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     
     $router->get('/share', 'ManagerController@share');
     $router->post('/share/getRecords', 'ManagerController@getRecords');
+    $router->post('/share/confirmRecord', 'ManagerController@confirmRecord');/*确认某个半价购课订单*/
     
     /* 系统参数设置  */
     $router->get('/communityManage', 'Setting\CommunityController@communityManage'); //社区管理

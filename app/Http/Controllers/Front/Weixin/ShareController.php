@@ -19,6 +19,9 @@ class ShareController extends Controller
 	public function index(Request $request)
 	{
 		$openid = Session::get('openid');
+
+		if (!$openid)
+			return redirect('/front/share/oauth');
 		
 		$userinfo = $this->select($openid);
 

@@ -4,11 +4,11 @@
 @section('style')
 <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css">
 <style type="text/css">
-    .operate span{
-        cursor: pointer;
-    }
     .label{
         cursor: pointer;
+    }
+    tbody .label{
+
     }
 </style>
 @endsection
@@ -59,7 +59,7 @@
                             <div class="panel-collapse collapse in">
                                 <div class="portlet-body">
                                     <div class="table-responsive">
-                                        <table class="table">
+                                        <table class="table" id="userTable">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
@@ -83,7 +83,7 @@
                                                     <td>{{$value->succeed}}</td>
                                                     <td>{{$value->ticket->ticket_num}}</td>
                                                     <td>{{$value->ticket->used_num}}次</td>
-                                                    <td>@if($value->confirm) <span class="label label-success">新纪录</span> @else @endif</td>
+                                                    <td>@if($value->confirm) <span class="label label-success label-newRecord">新纪录</span> @else @endif</td>
                                                     <td>
                                                         <span class="label label-primary seeOrder">查看订单</span>　
                                                     </td>
@@ -118,8 +118,17 @@
                             <h4 class="modal-title">订单详情</h4>
                         </div>
                         <div class="modal-body" style="min-height: 250px;">
-                            <table class="table">
-                                
+                            <table class="table table-hover" id="orderDetailTable">
+                                <thead>
+                                    <tr>
+                                        <th>课程名称</th>
+                                        <th>购买次数</th>
+                                        <th>课程价格</th>
+                                        <th>订单状态</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
                             </table>
                         </div>
                         <!-- <div class="modal-footer">
@@ -142,6 +151,7 @@
             $('#recordModal').modal('show');
             $('#recordModal').attr('uid', uid);
 
+            $('#orderDetailTable tbody').html('');
 
             $.ajax({
                 url: '/admin/share/getRecords',
@@ -152,7 +162,45 @@
                 },
                 success: function(data) {
                     if (data.errcode == 0) {
-                        console.log(data.record);
+                        if (data.record.length == 0) {
+                            $('#orderDetailTable tbody').html('<tr> <td colspan="4">暂无订单</td></tr>')
+                            return false;
+                        }
+                        for (var i in data.record) {
+                            if (data.record[i].confirm_status) 
+                                var status = '<span class="label" style="background: #17D812;">已确认</span>';
+                            else
+                                var status = '<span class="label label-confirm" style="background: #3664E5;">点我确认</span>';
+
+                            $('#orderDetailTable tbody').append('<tr rid="'+data.record[i].id+'"> <td>'+data.record[i].name+'</td> <td>'+data.record[i].record_num+'</td> <td>'+data.record[i].price+'</td> <td>'+status+'</td> </tr>');
+                        }
+                    }
+                }
+            })
+        })
+
+
+        $(document).on('click', '.label-confirm', function(){
+            var rid = $(this).parents('tr').attr('rid');/*record的ID*/
+            $.ajax({
+                url: '/admin/share/confirmRecord',
+                dataType: 'json',
+                type: 'post',
+                data: {
+                    rid: rid
+                },
+                success: function(data) {
+                    if (data.errcode == 0) {
+                        $('#orderDetailTable tr[rid="'+rid+'"]').find('.label-confirm').replaceWith('<span class="label" style="background: #17D812;">已确认</span>');
+
+
+                        /*找剩余的个数，为0，则外面的表消除新纪录*/
+
+                        var len = $('#orderDetailTable tbody').find('.label-confirm').length;
+                        if (len == 0) {
+                            var uid = $('#recordModal').attr('uid');
+                            $('#userTable tr[uid="'+uid+'"]').find('.label-newRecord').remove();
+                        }
                     }
                 }
             })
