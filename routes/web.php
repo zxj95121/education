@@ -310,6 +310,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 	/*修改手机号  */
   $router->post('/phoneCode', 'TestingPhoneController@phoneCode');
   $router->post('/savePhone', 'TestingPhoneController@save_phone');
+  $router->post('/phoneCheck', 'TestingPhoneController@phoneCheck');
 });
 
 /*-------------*/

@@ -14,7 +14,7 @@ $signPackage = $jssdk->GetSignPackage();
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
 
-		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<!-- <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css"> -->
 		<link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.css">
 
 		<!-- <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css"> -->
@@ -27,11 +27,9 @@ $signPackage = $jssdk->GetSignPackage();
 	<body>
 	<div class="container-fluid" style="padding: 0px;">
 		<div id="phoneDiv" style="display:none;z-index: 9999;width: 100%;height: 100%;opacity: 1;position: fixed;top: 0px;left: 0px;">
-		    <header class="bar bar-nav">
-		    	<a class="button button-link button-nav pull-right close-popup"  data-transition="slide-out" style="color:#fff; padding-right:10px" >
-	      			关闭
-	    		</a>
-			 	<h1 class='title' style="background: #22AAE8;color: #fff;">添加手机号</h1>
+		    <header style="height: 40px;text-align: center;position: relative;font-size: 19px;line-height: 40px;color: #22AAE8;">
+		    	添加手机号
+			 	<div class="close" style="position: absolute;right: 10px;line-height: 40px;height: 40px;font-size:16px;" onclick="document.getElementById('phoneDiv').style.display ='none';">关闭</div>
 			</header>
 			<div class="content">
 				<div class="list-block" style="margin-top:0px">
@@ -591,34 +589,108 @@ $signPackage = $jssdk->GetSignPackage();
 							time:2
 						});
 					} else {
-						window.location.href = '/front/share/halfBuyOrder';
+						$.ajax({
+							headers:{
+								'X-CSRF-TOKEN': '{{csrf_token()}}'
+							},	
+							url: '/front/phoneCheck',
+							dataType: 'json',
+							type: 'post',
+							data:{
+							},
+							datatype: 'json',
+							success: function(data){
+								if(data.errcode == 0){
+									window.location.href = '/front/share/halfBuyOrder';
+								} else {
+									$('#phoneDiv').css('display', 'block');
+									return false;
+								}						
+							}
+						})
+						
 					}
 				})
 
 
-				$('#buyBtn').click(function(){
-					$.ajax({
-						headers:{
-							'X-CSRF-TOKEN': '{{csrf_token()}}'
-						},	
-						url: '/front/grab/join',
-						type: 'post',
-						data:{
-							'id':$('#join').attr('val')
-							},
-						datatype: 'json',
-						success: function(data){
-							if(data.code != -1){
-								alert(data.msg);
-							}else{
-								//console.log('为什么不执行呢');
-								//$("#disp").trigger("click");
-								$('#phoneDiv').css('display', 'block');
+				$(document).on('click','#getPhoneCode',function(){
+					if($('#getPhoneCode').attr('disabled') == 'true'){
+						return false;
+					}
+					var phone = $('input[name="phone"]').val();
+					var reg = /^1\d{10}$/;
+					if(!reg.test(phone)){
+						$.toast("手机号输入不正确");
+						return false;
+					}else{
+						var time = 60;
+						$('#getPhoneCode').html(time);
+						$('#getPhoneCode').addClass('button-light button-fill');
+						$('#getPhoneCode').attr('disabled','true');
+						var timer = setInterval(function(){
+							if(time == 1){
+								clearInterval(timer);
+								$('#getPhoneCode').attr('disabled','false');
+								$('#getPhoneCode').removeClass('button-light button-fill');
+								$('#getPhoneCode').html('重新发送验证码');
 								return false;
-								//alert('还没填写手机号');
-							}						
-						}
-					})
+							}
+							time--;
+							$('#getPhoneCode').html(time);
+						},1000);
+						$.ajax({
+							headers:{
+							'X-CSRF-TOKEN': '{{csrf_token()}}'
+							},	
+							url:'/front/phoneCode',
+							data:{
+								phone:phone
+							},
+							type:'post',
+							datatype:'json',
+							success:function(data){
+								if(data.errcode == 0){
+									$.toast("发送成功");
+								}else{
+									$.toast(data.reason);
+								}
+							},
+						})
+					}	
+				})
+				$(document).on('click','#send',function(){
+					var phone = $('input[name="phone"]').val();
+					var phoneCode = $('input[name="phoneCode"]').val();
+					var reg = /^1\d{10}$/;
+					if(!reg.test(phone)){
+						$.toast("手机号输入不正确");
+						return false;
+					}
+					if(phoneCode == ''){
+						$.toast('验证码未填写');
+						return false;
+					}
+					$.ajax({
+							headers:{
+							'X-CSRF-TOKEN': '{{csrf_token()}}'
+							},	
+							url:'/front/savePhone',
+							data:{
+								phone:phone,
+								phoneCode:phoneCode
+							},
+							type:'post',
+							datatype:'json',
+							success:function(data){
+								if(data.errcode != 1){
+									$.toast(data.reason);
+								}else{
+									$(".close-popup").trigger("click");
+									$.closeModal(popup)
+									$.toast("添加成功");
+								}
+							},
+						})
 				})
 			})
 		</script>

@@ -19,6 +19,17 @@ class TestingPhoneController extends Controller
 			return false;
 		}
 	}
+
+	public function phoneCheck()
+	{
+		$openid = Session::get('openid');
+		$newuserObj = NewUser::where('openid',$openid)->get();
+		if (isset($newuserObj[0]) && !empty($newuserObj[0]->phone)) {
+			return response()->json['errcode'=>0];
+		}else{
+			return response()->json['errcode'=>1];
+		}
+	}
 	/*进行发送手机验证码*/
 	public function phoneCode(Request $request)
 	{
