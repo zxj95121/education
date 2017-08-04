@@ -26,24 +26,24 @@ $signPackage = $jssdk->GetSignPackage();
 	</head>
 	<body>
 	<div class="container-fluid" style="padding: 0px;">
-		<div id="phoneDiv" style="display:none;z-index: 9999;width: 100%;height: 100%;opacity: 1;position: fixed;top: 0px;left: 0px;">
+		<div id="phoneDiv" style="display:none;z-index: 9999;width: 100%;height: 100%;opacity: 1;position: fixed;top: 0px;left: 0px;background: #FFF;">
 		    <header style="height: 40px;text-align: center;position: relative;font-size: 19px;line-height: 40px;color: #22AAE8;">
 		    	添加手机号
-			 	<div class="close" style="position: absolute;right: 10px;line-height: 40px;height: 40px;font-size:16px;" onclick="document.getElementById('phoneDiv').style.display ='none';">关闭</div>
+			 	<div class="closeclose" style="position: absolute;right: 10px;line-height: 40px;height: 40px;font-size:16px;top: 0px;color: #636262;" onclick="document.getElementById('phoneDiv').style.display ='none';">关闭</div>
 			</header>
-			<div class="content">
-				<div class="list-block" style="margin-top:0px">
-					<div class="item-content">
-						<div class="item-inner" style="padding-right:0px">
-							<div class="item-title label" style="width:63px">手机号:</div>
-							<div class="item-input">
-								<input type="text" placeholder="手机号" name="phone">
-							</div>
-							<a href="#" disabled="false" class="button button-round" id="getPhoneCode">发送验证码</a>
-						</div>
-						
-					</div>
-			 		<div class="item-content">
+			<div class="row">
+				<div class="col-xs-4">手机号</div>
+				<div class="col-xs-8">
+	                <div class="input-group m-t-10">
+	                    <input type="number" name="phone" class="form-control" placeholder="手机号">
+	                    <span class="input-group-btn">
+	                    <button type="button" class="btn btn-effect-ripple btn-primary" id="getPhoneCode">发送验证码</button>
+	                    </span>
+	                </div>
+	            </div>
+			</div>
+			
+<!-- 			 		<div class="item-content">
 						<div class="item-inner" style="padding-right:0px">
 							<div class="item-title label" style="width:63px">验证码:</div>
 							<div class="item-input">
@@ -58,7 +58,7 @@ $signPackage = $jssdk->GetSignPackage();
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 		<div id="shareDiv" style="display:none;z-index: 9999;width: 100%;height: 100%;opacity: 1;position: fixed;top: 0px;left: 0px;">
 			<img src="/images/share2.png" style="width: 100%;"> 
