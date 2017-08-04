@@ -31,33 +31,36 @@ $signPackage = $jssdk->GetSignPackage();
 		    	添加手机号
 			 	<div class="closeclose" style="position: absolute;right: 10px;line-height: 40px;height: 40px;font-size:16px;top: 0px;color: #636262;" onclick="document.getElementById('phoneDiv').style.display ='none';">关闭</div>
 			</header>
-			<div class="row" style="margin-top: 15px;">
-
-					<div class="col-xs-3" style="text-align: right;">
-						手机号
-					</div>
-					<div class="col-xs-9">
-		                <div class="input-groupf">
-		                    <input type="number" id="phoneInput" name="phone" class="form-control" placeholder="手机号">
-		                    <span class="input-group-btn">
-		                    <button type="button" class="btn btn-effect-ripple btn-info" id="getPhoneCode">发送验证码</button>
+			<div class="content" style="width: 96%;">
+				<div class="row" style="margin-top: 15px;">
+					<div class="form-group">
+						<div class="col-xs-3" style="text-align: right;">
+							<label for="phoneInput">手机号</label>
+						</div>
+						<div class="col-xs-9" style="position: relative;">
+			                <div class="input-groupf">
+			                    <input type="number" id="phoneInput" name="phone" class="form-control" placeholder="手机号">
+			                </div>
+			                <span class="" style="position: absolute;right: 0px;height: 100%;top: 0px;">
+		                    	<button type="button" class="btn btn-effect-ripple btn-info" id="getPhoneCode">发送验证码</button>
 		                    </span>
-		                </div>
-		            </div>
+			            </div>
+			        </div>
 
-			</div>
+				</div>
 
-			<div class="row">
-				<div class="form-group">
-					<div class="col-xs-3" style="text-align: right;">
-						验证码
-					</div>
-					<div class="col-xs-9">
-		                <div class="input-groupf m-t-10">
-		                    <input type="number" id="phoneCode" name="phoneCode" class="form-control" placeholder="请输入验证码">
-		                </div>
-		            </div>
-		        </div>
+				<div class="row">
+					<div class="form-group">
+						<div class="col-xs-3" style="text-align: right;">
+							<label>验证码</label>
+						</div>
+						<div class="col-xs-9">
+			                <div class="input-groupf m-t-10">
+			                    <input type="number" id="phoneCode" name="phoneCode" class="form-control" placeholder="请输入验证码">
+			                </div>
+			            </div>
+			        </div>
+				</div>
 			</div>
 			
 <!-- 			 		<div class="item-content">
