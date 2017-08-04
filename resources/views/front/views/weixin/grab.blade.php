@@ -205,7 +205,7 @@
 								$.toast(data.reason);
 							}else{
 								$(".close-popup").trigger("click");
-								$.closeModal(popup)
+								$.closeModal('.popup-about')
 								$.toast("添加成功");
 							}
 						},
