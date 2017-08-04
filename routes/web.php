@@ -316,6 +316,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
   /*免费试听课  */
   $router->get('/classFree', 'Weixin\ClassFreeController@index');
   $router->get('/classFree/oauth', 'Weixin\ClassFreeController@oauth');
+  $router->post('/classFree/add_post', 'Weixin\ClassFreeController@add_post');
 });
 
 /*-------------*/

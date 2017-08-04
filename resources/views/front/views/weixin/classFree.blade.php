@@ -194,7 +194,7 @@
 				headers:{
 					'X-CSRF-TOKEN': '{{csrf_token()}}'
 				},	
-				url:'',
+				url:'/front/classFree/add_post',
 				type:'post',
 				datatype:'json',
 				success:function(data){
