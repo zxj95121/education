@@ -102,7 +102,7 @@
     	Zepto(function($){
             $(document).on('change', '#kcNumber', function(){
                 var number = parseInt($(this).val());
-                var price = parseInt('{{number_format(0.5*$price->price, 2)}}');
+                var price = parseFloat('{{number_format(0.5*$price->price, 2)}}');
 
                 var max = parseInt('{{$halfObj->ticket_num}}');
                 if (number > max) {
@@ -110,7 +110,7 @@
                     $(this).val(number);
                 }
 
-                var totalPrice = '¥ '+(number*price);
+                var totalPrice = '¥ '+(twoxs(number*price));
                 $('#totalPrice').val(totalPrice);
             })
 
@@ -134,6 +134,19 @@
                 })
             })
 		})
+
+        /*转成2位小数*/
+        function twoxs(a){
+            if((a+'').indexOf('.')>=0)
+                a=a+'0000';
+            else
+                a=a+'.0000';
+            var sp=a.split('.');
+            if(sp[1].substring(2,3)=='5')
+                a=sp[0]+'.'+sp[1].substring(0,2)+'6';
+            a=parseFloat(a);
+            return a.toFixed(2);
+        }
     </script>
   </body>
 </html>

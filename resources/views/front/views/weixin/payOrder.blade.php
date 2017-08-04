@@ -14,7 +14,7 @@
 	$input->SetTrade_type("JSAPI");//交易类型
 	$input->SetOpenid($openId);//用户标识
 	$order = WxPayApi::unifiedOrder($input);
-	var_dump($order);
+	// var_dump($order);
 	$jsApiParameters = $tools->GetJsApiParameters($order); 
 ?>
 
@@ -50,7 +50,7 @@ $signPackage = $jssdk->GetSignPackage();
   					<li class="item-content">
     					<div class="item-media"><i class="icon icon-f7"></i></div>
     					<div class="item-inner">
-      						<div class="item-title">套餐名称</div>
+      						<div class="item-title">课程名称</div>
       						<div class="item-after">{{$orderObj->name}}</div>
     					</div>
   					</li>
