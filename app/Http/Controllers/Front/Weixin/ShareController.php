@@ -244,7 +244,7 @@ class ShareController extends Controller
 			$flight->type = 0;
 			$flight->voucher = 0;
 			$flight->nickname = $userinfo['nickname'];
-			$flight->headimgurl = $userinfo['headimgurl'];
+			$flight->headimg = $userinfo['headimgurl'];
 			$flight->worker_id = 0;
 			$flight->save();
  
