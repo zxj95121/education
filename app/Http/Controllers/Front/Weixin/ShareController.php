@@ -175,7 +175,7 @@ class ShareController extends Controller
 		$flight->uid = $uid;
 		$flight->tid = $halfClassObj->id;
 		$flight->record_num = $num;
-		$flight->price = $num*((int)number_format(0.5*$price->price, 2));
+		$flight->price = round($num*(round(0.5*$price->price, 2)));
 		if ($flight->price == 0) {
 			$flight->price = '0.01';
 		}
