@@ -44,7 +44,7 @@ class Wechat extends ServiceProvider
         } else {
             $time = strtotime(date('Y-m-d H:i:s'));
             $oldTime = strtotime($flight->updated_at);
-            if ($time-$oldTime >= 3600) {
+            if ($time-$oldTime >= 50) {
                 $temp = 2;
             }
         }
