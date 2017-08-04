@@ -199,6 +199,7 @@
 				datatype:'json',
 				success:function(data){
 					if(data.code != -1){
+						console.log(data.msg);
 						$.toast(data.msg);
 						return false;
 					}else{
