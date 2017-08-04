@@ -40,7 +40,7 @@ $signPackage = $jssdk->GetSignPackage();
 						<div class="col-xs-9" style="position: relative;">
 			                <div class="input-groupf">
 			                    <input type="number" id="phoneInput" name="phone" class="form-control" placeholder="手机号">
-			                    <span class="" style="position: absolute;right: 4%;height: 100%;top: 0px;">
+			                    <span class="" style="position: absolute;right: 15px;height: 100%;top: 0px;">
 			                    	<button type="button" class="btn btn-effect-ripple btn-info" id="getPhoneCode">发送验证码</button>
 			                    </span>
 			                </div>
@@ -646,21 +646,6 @@ $signPackage = $jssdk->GetSignPackage();
 						});
 						return false;
 					}else{
-						var time = 60;
-						$('#getPhoneCode').html(time);
-						$('#getPhoneCode').addClass('button-light button-fill');
-						$('#getPhoneCode').attr('disabled','true');
-						var timer = setInterval(function(){
-							if(time == 1){
-								clearInterval(timer);
-								$('#getPhoneCode').attr('disabled','false');
-								$('#getPhoneCode').removeClass('button-light button-fill');
-								$('#getPhoneCode').html('重新发送验证码');
-								return false;
-							}
-							time--;
-							$('#getPhoneCode').html(time);
-						},1000);
 
 						$.ajax({
 							url:'/front/phoneCode',
@@ -676,6 +661,21 @@ $signPackage = $jssdk->GetSignPackage();
 										skin:'msg',
 										time:2
 									});
+									var time = 60;
+									$('#getPhoneCode').html(time);
+									$('#getPhoneCode').addClass('button-light button-fill');
+									$('#getPhoneCode').attr('disabled','true');
+									var timer = setInterval(function(){
+										if(time == 1){
+											clearInterval(timer);
+											$('#getPhoneCode').attr('disabled','false');
+											$('#getPhoneCode').removeClass('button-light button-fill');
+											$('#getPhoneCode').html('发送验证码');
+											return false;
+										}
+										time--;
+										$('#getPhoneCode').html(time);
+									},1000);
 								}else{
 									layer.open({
 										content: data.reason,
