@@ -177,7 +177,7 @@ class ShareController extends Controller
 		$flight->price = $num*((int)number_format(0.5*$price->price, 2));
 		$flight->save();
 
-		$oid = $flight->id;
+		Session::put('halfOid', $flight->id);
 		/*更新剩余,更新已使用*/
 		// $ticket = HalfBuyInfo::where('uid', $uid)
 		// 	->select('ticket_num', 'used_num')
@@ -189,7 +189,7 @@ class ShareController extends Controller
 		// HalfBuyInfo::where('uid', $uid)
 		// 	->update(['ticket_num'=>$ticket_num, 'used_num'=>$used_num]);
 
-		return response()->json(['errcode'=>0,'oid'=>$oid]);
+		return response()->json(['errcode'=>0]);
 
 	}
 
@@ -197,7 +197,7 @@ class ShareController extends Controller
 
 	public function payOrder(Request $request)
 	{
-		$id = $request->input('id');
+		$id = Session::get('halfOid');
 
 		$orderObj = HalfBuyRecord::where('half_buy_record.id', $id)
 			->leftJoin('teacher_one as to', 'to.id', 'half_buy_record.tid')

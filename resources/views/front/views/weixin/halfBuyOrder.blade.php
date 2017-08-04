@@ -128,7 +128,7 @@
                     },
                     success: function(data) {
                         if (data.errcode == 0) {
-                            window.location.href = '/front/share/payOrder?id='+data.oid;
+                            window.location.href = '/front/share/payOrder';
                         }
                     }
                 })
