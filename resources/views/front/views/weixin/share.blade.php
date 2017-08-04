@@ -621,7 +621,8 @@ $signPackage = $jssdk->GetSignPackage();
 									window.location.href = '/front/share/halfBuyOrder';
 								}
 							} else {
-								$('#phoneDiv').css('display', 'block');
+								// $('#phoneDiv').css('display', 'block');
+								$('#phoneDiv').slideUp();
 								return false;
 							}						
 						}
@@ -717,7 +718,11 @@ $signPackage = $jssdk->GetSignPackage();
 						datatype:'json',
 						success:function(data){
 							if(data.errcode != 1){
-								$.toast(data.reason);
+								layer.open({
+									content: data.reason,
+									skin:'msg',
+									time:2
+								});
 							}else{
 								$('#phoneDiv').css('display', 'none');
 								layer.open({
