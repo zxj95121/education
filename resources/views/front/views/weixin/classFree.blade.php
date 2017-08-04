@@ -218,21 +218,6 @@
 					$.toast("手机号输入不正确");
 					return false;
 				}else{
-					var time = 60;
-					$('#getPhoneCode').html(time);
-					$('#getPhoneCode').addClass('button-light button-fill');
-					$('#getPhoneCode').attr('disabled','true');
-					var timer = setInterval(function(){
-						if(time == 1){
-							clearInterval(timer);
-							$('#getPhoneCode').attr('disabled','false');
-							$('#getPhoneCode').removeClass('button-light button-fill');
-							$('#getPhoneCode').html('重新发送验证码');
-							return false;
-						}
-						time--;
-						$('#getPhoneCode').html(time);
-					},1000);
 					$.ajax({
 						headers:{
 						'X-CSRF-TOKEN': '{{csrf_token()}}'
@@ -246,6 +231,21 @@
 						success:function(data){
 							if(data.errcode == 0){
 								$.toast("发送成功");
+								var time = 60;
+								$('#getPhoneCode').html(time);
+								$('#getPhoneCode').addClass('button-light button-fill');
+								$('#getPhoneCode').attr('disabled','true');
+								var timer = setInterval(function(){
+									if(time == 1){
+										clearInterval(timer);
+										$('#getPhoneCode').attr('disabled','false');
+										$('#getPhoneCode').removeClass('button-light button-fill');
+										$('#getPhoneCode').html('重新发送验证码');
+										return false;
+									}
+									time--;
+									$('#getPhoneCode').html(time);
+								},1000);
 							}else{
 								$.toast(data.reason);
 							}
