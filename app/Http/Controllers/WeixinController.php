@@ -101,7 +101,7 @@ class WeixinController extends Controller
                     $ticket = HalfBuyInfo::where('uid', $order->uid)
                         ->select('ticket_num', 'used_num')
                         ->first();
-                    $num = $order->record_num;
+                    $num = (int)$order->record_num;
 
                     $ticket_num = (int)($ticket->ticket_num) - $num;
                     $used_num = (int)($ticket->used_num) + $num;
