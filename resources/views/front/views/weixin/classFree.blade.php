@@ -56,7 +56,7 @@
 					                                            <section class="layout" style="padding: 7%; box-shadow: rgb(204, 204, 204) 0.3em 0.3em 0.3em; width: 90%; margin-right: auto; margin-left: auto; box-sizing: border-box; background-color: rgb(239, 239, 239);" data-width="90%">
 					                                                <section class="135brush">
 					                                                    <p style="text-align: left; text-indent: 2em;">
-					                                                        语言最重要的功能是为了不同文化、不同地域的人们能更好的交流，我们中小学生跟随外教学习英语，就是要从学习英语之初，就尝试运用最简单、最基本的英语进行会话交流，这才是我们英语学习的基本目标。所以，让孩子们从小就跟着外教体验英语交流过程，掌握英语发音方式，熟悉英语基本表达，在日常会话中自主自发的运用英语语言思维，不受中文思维习惯的约束，和外国人在一起时，自然就会信心满满的脱口而出了。<img src="http://image.135editor.com/files/users/262/2625290/201708/OhMKA6zg_AnQv.jpg" alt="微信图片_20170801151754.jpg" title="微信图片_20170801151754.jpg"/>
+					                                                        语言最重要的功能是为了不同文化、不同地域的人们能更好的交流，我们中小学生跟随外教学习英语，就是要从学习英语之初，就尝试运用最简单、最基本的英语进行会话交流，这才是我们英语学习的基本目标。所以，让孩子们从小就跟着外教体验英语交流过程，掌握英语发音方式，熟悉英语基本表达，在日常会话中自主自发的运用英语语言思维，不受中文思维习惯的约束，和外国人在一起时，自然就会信心满满的脱口而出了。<img style="width:100%; height:100%" src="http://image.135editor.com/files/users/262/2625290/201708/OhMKA6zg_AnQv.jpg" alt="微信图片_20170801151754.jpg" title="微信图片_20170801151754.jpg"/>
 					                                                    </p>
 					                                                </section>
 					                                            </section>
@@ -106,7 +106,7 @@
 					                                            <section style="width:100%;" data-width="100%">
 					                                                <section class="135brush" style="font-size:14px;width:80%; margin:0 auto;" data-width="80%">
 					                                                    <p>
-					                                                        <img src="http://image.135editor.com/files/users/262/2625290/201708/JCUcSMP7_BIrO.jpg?imageView2/2/w/200" alt="" title="undefined"/>不要担心，外教合不合适，孩子体验了才会知道。敬请点击****，加辰教育中小学生外教一对一双师class免费试听课, 诚邀您的孩子和外教一起快乐学习、体验英语交流的乐趣。
+					                                                        <img style="width: 100%; height: 100%" src="http://image.135editor.com/files/users/262/2625290/201708/JCUcSMP7_BIrO.jpg?imageView2/2/w/200" alt="" title="undefined"/>不要担心，外教合不合适，孩子体验了才会知道。敬请点击****，加辰教育中小学生外教一对一双师class免费试听课, 诚邀您的孩子和外教一起快乐学习、体验英语交流的乐趣。
 					                                                    </p>
 					                                                </section>
 					                                                <p style="text-align:center;">
@@ -118,7 +118,7 @@
 					                                            </section>
 					                                        </section>
 					                                    </section>
-					                                    <p>
+					                                    <p style="text-align: center">
 					                                        立即注册，免费领课试听！
 					                                    </p>
 					                                    <section data-role="paragraph" class="_135editor" style="border: 0px none; padding: 0px; box-sizing: border-box;">
