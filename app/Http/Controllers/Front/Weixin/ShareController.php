@@ -176,7 +176,7 @@ class ShareController extends Controller
 		$flight->record_num = $num;
 		$flight->price = $num*((int)number_format(0.5*$price->price, 2));
 		if ($flight->price == 0) {
-			$price = '0.01';
+			$flight->price = '0.01';
 		}
 		$flight->save();
 
