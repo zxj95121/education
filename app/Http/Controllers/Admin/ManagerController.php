@@ -207,6 +207,7 @@ class ManagerController extends Controller
     		$str .= '&phone='.$phone;	
     	}
     	$Shareobj = $Shareobj->orderBy('user_share.created_at', 'desc')
+                        ->where('new_user.id', '!=', '')
     					->select('user_share.id','user_share.pid','new_user.nickname','new_user.type','new_user.phone')
     					->groupBy('user_share.pid')
     					->paginate(10);
