@@ -89,6 +89,47 @@ $signPackage = $jssdk->GetSignPackage();
 			</div>
 			
 	  	</div>
+
+	  				<!-- About Popup -->
+				<div class="popup popup-about">
+					<div class="content-block">
+					    <header class="bar bar-nav">
+					    	<a class="button button-link button-nav pull-right close-popup"  data-transition="slide-out" style="color:#fff; padding-right:10px" >
+				      			关闭
+				    		</a>
+						 	<h1 class='title' style="background: #22AAE8;color: #fff;">添加手机号</h1>
+						</header>
+						<div class="content">
+							<div class="list-block" style="margin-top:0px">
+								<div class="item-content">
+									<div class="item-inner" style="padding-right:0px">
+										<div class="item-title label" style="width:63px">手机号:</div>
+										<div class="item-input">
+											<input type="text" placeholder="手机号" name="phone">
+										</div>
+										<a href="#" disabled="false" class="button button-round" id="getPhoneCode">发送验证码</a>
+									</div>
+									
+								</div>
+						 		<div class="item-content">
+									<div class="item-inner" style="padding-right:0px">
+										<div class="item-title label" style="width:63px">验证码:</div>
+										<div class="item-input">
+											<input type="text" placeholder="验证码" name="phoneCode">
+										</div>
+									</div>
+								</div>
+								<div class="content-block" style="margin-top:20px">
+									<div class="row">
+										<div class="col-50"><a href="#" class="button  button-fill button-danger close-popup" >取消</a></div>
+			      						<div class="col-50"><a href="#" class="button  button-fill  button-success" id="send">提交</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			 <div class="popup-overlay"></div>
 	</div>
 
 	
@@ -160,5 +201,93 @@ $signPackage = $jssdk->GetSignPackage();
 		
 	// }
 	</script>
+
+
+	    <script>
+		@if(!$phone)
+			$.popup('.popup-about');
+		@else
+		@endif
+		
+		$(document).on('click','#getPhoneCode',function(){
+			if($('#getPhoneCode').attr('disabled') == 'true'){
+				return false;
+			}
+			var phone = $('input[name="phone"]').val();
+			var reg = /^1\d{10}$/;
+			if(!reg.test(phone)){
+				$.toast("手机号输入不正确");
+				return false;
+			}else{
+				$.ajax({
+					headers:{
+					'X-CSRF-TOKEN': '{{csrf_token()}}'
+					},	
+					url:'/front/phoneCode',
+					data:{
+						phone:phone
+					},
+					type:'post',
+					datatype:'json',
+					success:function(data){
+						if(data.errcode == 0){
+							$.toast("发送成功");
+							var time = 60;
+							$('#getPhoneCode').html(time);
+							$('#getPhoneCode').addClass('button-light button-fill');
+							$('#getPhoneCode').attr('disabled','true');
+							var timer = setInterval(function(){
+								if(time == 1){
+									clearInterval(timer);
+									$('#getPhoneCode').attr('disabled','false');
+									$('#getPhoneCode').removeClass('button-light button-fill');
+									$('#getPhoneCode').html('重新发送验证码');
+									return false;
+								}
+								time--;
+								$('#getPhoneCode').html(time);
+							},1000);
+						}else{
+							$.toast(data.reason);
+						}
+					},
+				})
+			}	
+		})
+		$(document).on('click','#send',function(){
+			var phone = $('input[name="phone"]').val();
+			var phoneCode = $('input[name="phoneCode"]').val();
+			var reg = /^1\d{10}$/;
+			if(!reg.test(phone)){
+				$.toast("手机号输入不正确");
+				return false;
+			}
+			if(phoneCode == ''){
+				$.toast('验证码未填写');
+				return false;
+			}
+			$.ajax({
+					headers:{
+					'X-CSRF-TOKEN': '{{csrf_token()}}'
+					},	
+					url:'/front/savePhone',
+					data:{
+						phone:phone,
+						phoneCode:phoneCode
+					},
+					type:'post',
+					datatype:'json',
+					success:function(data){
+						if(data.errcode != 1){
+							$.toast(data.reason);
+						}else{
+							$(".close-popup").trigger("click");
+							$.closeModal('.popup-about')
+							$.toast("添加成功");
+						}
+					},
+				})
+		})
+    </script>
 </body>
 </html>

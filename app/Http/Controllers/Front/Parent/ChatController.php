@@ -11,6 +11,7 @@ use App\Models\ParentDetail;
 use App\Models\NewUser;
 
 use Session;
+use Wechat;
 
 class ChatController extends Controller
 {
@@ -19,8 +20,22 @@ class ChatController extends Controller
     	$openid = Session::get('openid');
     	$count = NewUser::where('openid', $openid)->count();
     	if ($count == 0) {
-    		return redirect('/front/error_403');
+    		/*将这个数据存入new_user表*/
+            $access_token = Wechat::get_access_token();
+            /*获取用户个人详细信息*/
+            $url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token['access_token'].'&openid='.$openid.'&lang=zh_CN';
+            $userinfo = Wechat::curl($url);
+
+            $flight = new NewUser();
+            $flight->openid = $openid;
+            $flight->type = 0;
+            $flight->voucher = 0;
+            $flight->nickname = $userinfo['nickname'];
+            $flight->headimg = $userinfo['headimgurl'];
+            $flight->worker_id = 0;
+            $flight->save();
     	}
+
     	$parentObj = NewUser::where('openid', $openid)->first();
 
     	$uid = $parentObj->id;

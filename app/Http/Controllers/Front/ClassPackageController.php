@@ -12,6 +12,7 @@ use App\Models\ClassPackageOrder;
 use App\Http\Controllers\Wechat\OauthController;
 
 use Session;
+use Wechat;
 
 class ClassPackageController extends Controller
 {
@@ -39,6 +40,26 @@ class ClassPackageController extends Controller
         }
     	
     	$openid = Session::get('openid');
+
+        /*判断new_user表有没有*/
+        $newUserCount = NewUser::where('openid', $openid)
+            ->count();
+        if ($newUserCount == 0) {
+            /*将这个数据存入new_user表*/
+            $access_token = Wechat::get_access_token();
+            /*获取用户个人详细信息*/
+            $url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token['access_token'].'&openid='.$openid.'&lang=zh_CN';
+            $userinfo = Wechat::curl($url);
+
+            $flight = new NewUser();
+            $flight->openid = $openid;
+            $flight->type = 0;
+            $flight->voucher = 0;
+            $flight->nickname = $userinfo['nickname'];
+            $flight->headimg = $userinfo['headimgurl'];
+            $flight->worker_id = 0;
+            $flight->save();
+        }
 
         $package = ClassPackage::find($cid);
         /*查用户的代金券余额*/
@@ -100,7 +121,12 @@ class ClassPackageController extends Controller
             ->get()[0];
         $voucher = $userObj->voucher;
         // return view('front.views.classPackage.orderPay', ['package'=>$packageObj,'voucher'=>$voucher,'userObj'=>$userObj]);
-        return view('front.views.classPackage.orderPay', ['package'=>$packageObj,'voucher'=>$voucher,'userObj'=>$userObj,'price'=>$price,'vouNum'=>$vouNum,'order_no'=>$order_no]);
+
+        /*查这个用户有没有输入手机号*/
+        $phone = NewUser::where('openid', $openid)
+            ->first()
+            ->phone;
+        return view('front.views.classPackage.orderPay', ['package'=>$packageObj,'voucher'=>$voucher,'userObj'=>$userObj,'price'=>$price,'vouNum'=>$vouNum,'order_no'=>$order_no,'phone'=>$phone]);
     }
 
     /*支付订单oauth*/
