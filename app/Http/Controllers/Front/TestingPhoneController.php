@@ -14,7 +14,7 @@ class TestingPhoneController extends Controller
 		$openid = Session::get('openid');
 		$newuserObj = NewUser::where('openid',$openid)->get();
 		if (isset($newuserObj[0]) && !empty($newuserObj[0]->phone)) {
-			return true;
+			return $newuserObj[0]->id;
 		}else{
 			return false;
 		}
