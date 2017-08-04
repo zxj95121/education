@@ -85,7 +85,7 @@
                     </ul>
                 </div>
 			</div>
-			<nav class="bar bar-tab">
+			<nav class="bar bar-tab" style="z-index:99999;">
 		      	<a class="tab-item external active" id="makeOrder" href="#" style="background: #3879D9;color: #FFF;">
 		  		生成订单
 				</a>

@@ -96,6 +96,19 @@ class WeixinController extends Controller
                     $classObj = TeacherOne::find($order->tid);
                     $caseNameObj = NewUser::find($order->uid);
                     TemplateController::send($caseNameObj->openid,'关于订单支付成功的通知','半价购课',$classObj->name,$order->price,$bill->created_at,$caseNameObj->nickname,'订单支付成功','');
+
+                    /*支付成功，进行数据变动*/
+                    $ticket = HalfBuyInfo::where('uid', $order->uid)
+                        ->select('ticket_num', 'used_num')
+                        ->first();
+                    $num = $order->record_num;
+
+                    $ticket_num = (int)($ticket->ticket_num) - $num;
+                    $used_num = (int)($ticket->used_num) + $num;
+
+                    HalfBuyInfo::where('uid', $order->uid)
+                        ->update(['ticket_num'=>$ticket_num, 'used_num'=>$used_num]);
+                        /*更新结束*/
                 }
             }
         }
