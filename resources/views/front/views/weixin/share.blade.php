@@ -582,34 +582,37 @@ $signPackage = $jssdk->GetSignPackage();
 
 				$('#buyBtn').click(function(){
 					var ticket = parseInt('{{$halfObj->ticket_num}}');
-					if (ticket <= 0) {
-						layer.open({
-							content:'您剩余的半价券为0...',
-							skin:'msg',
-							time:2
-						});
-					} else {
-						$.ajax({
-							headers:{
-								'X-CSRF-TOKEN': '{{csrf_token()}}'
-							},	
-							url: '/front/phoneCheck',
-							dataType: 'json',
-							type: 'post',
-							data:{
-							},
-							datatype: 'json',
-							success: function(data){
-								if(data.errcode == 0){
-									window.location.href = '/front/share/halfBuyOrder';
+
+					$.ajax({
+						headers:{
+							'X-CSRF-TOKEN': '{{csrf_token()}}'
+						},	
+						url: '/front/phoneCheck',
+						dataType: 'json',
+						type: 'post',
+						data:{
+						},
+						datatype: 'json',
+						success: function(data){
+							if(data.errcode == 0){
+								if (ticket <= 0) {
+									layer.open({
+										content:'您剩余的半价券为0...',
+										skin:'msg',
+										time:2
+									});
 								} else {
-									$('#phoneDiv').css('display', 'block');
-									return false;
-								}						
-							}
-						})
-						
-					}
+									window.location.href = '/front/share/halfBuyOrder';
+								}
+							} else {
+								$('#phoneDiv').css('display', 'block');
+								return false;
+							}						
+						}
+					})
+
+
+					
 				})
 
 
