@@ -197,7 +197,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
 
 
     // halfBuy半价购课
-    $router->get('/halfBuy', 'HalfBuyController@halfBuy');
+    // $router->get('/halfBuy', 'HalfBuyController@halfBuy');
 
     /*退款*/
     $router->any('/tuikuan', 'EclassOrderController@tuikuan');
