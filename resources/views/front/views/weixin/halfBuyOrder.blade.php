@@ -107,7 +107,7 @@
                 var max = parseInt('{{$halfObj->ticket_num}}');
                 if (number > max) {
                     number = max;
-                    $('this').val(number);
+                    $(this).val(number);
                 }
 
                 var totalPrice = '¥ '+(number*price);
