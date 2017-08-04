@@ -163,7 +163,7 @@ class ShareController extends Controller
 			->where('status', '1')
 			->orderBy('id')
 			->select('price')
-			->get()[0];
+			->first();
 
 		$uid = NewUser::where('openid', Session::get('openid'))
 			->select('id')
@@ -175,6 +175,9 @@ class ShareController extends Controller
 		$flight->tid = $halfClassObj->id;
 		$flight->record_num = $num;
 		$flight->price = $num*((int)number_format(0.5*$price->price, 2));
+		if ($flight->price == 0) {
+			$price = '0.01';
+		}
 		$flight->save();
 
 		Session::put('halfOid', $flight->id);
