@@ -592,14 +592,17 @@ $signPackage = $jssdk->GetSignPackage();
 					$(this).hide();
 				})
 
+				$.ajaxSetUp({
+					headers: {
+						'X-CSRF-TOKEN': '{{csrf_token()}}'
+					}
+				});
+
 
 				$('#buyBtn').click(function(){
 					var ticket = parseInt('{{$halfObj->ticket_num}}');
 
 					$.ajax({
-						headers:{
-							'X-CSRF-TOKEN': '{{csrf_token()}}'
-						},	
 						url: '/front/phoneCheck',
 						dataType: 'json',
 						type: 'post',
@@ -636,7 +639,11 @@ $signPackage = $jssdk->GetSignPackage();
 					var phone = $('input[name="phone"]').val();
 					var reg = /^1\d{10}$/;
 					if(!reg.test(phone)){
-						$.toast("手机号输入不正确");
+						layer.open({
+							content:'手机号输入不正确',
+							skin:'msg',
+							time:2
+						});
 						return false;
 					}else{
 						var time = 60;
@@ -654,10 +661,8 @@ $signPackage = $jssdk->GetSignPackage();
 							time--;
 							$('#getPhoneCode').html(time);
 						},1000);
+
 						$.ajax({
-							headers:{
-							'X-CSRF-TOKEN': '{{csrf_token()}}'
-							},	
 							url:'/front/phoneCode',
 							data:{
 								phone:phone
@@ -666,9 +671,17 @@ $signPackage = $jssdk->GetSignPackage();
 							datatype:'json',
 							success:function(data){
 								if(data.errcode == 0){
-									$.toast("发送成功");
+									layer.open({
+										content:'发送成功',
+										skin:'msg',
+										time:2
+									});
 								}else{
-									$.toast(data.reason);
+									layer.open({
+										content: data.reason,
+										skin:'msg',
+										time:2
+									});
 								}
 							},
 						})
@@ -679,34 +692,42 @@ $signPackage = $jssdk->GetSignPackage();
 					var phoneCode = $('input[name="phoneCode"]').val();
 					var reg = /^1\d{10}$/;
 					if(!reg.test(phone)){
-						$.toast("手机号输入不正确");
+						layer.open({
+							content:'手机号输入不正确',
+							skin:'msg',
+							time:2
+						});
 						return false;
 					}
 					if(phoneCode == ''){
-						$.toast('验证码未填写');
+						layer.open({
+							content:'验证码未填写',
+							skin:'msg',
+							time:2
+						});
 						return false;
 					}
 					$.ajax({
-							headers:{
-							'X-CSRF-TOKEN': '{{csrf_token()}}'
-							},	
-							url:'/front/savePhone',
-							data:{
-								phone:phone,
-								phoneCode:phoneCode
-							},
-							type:'post',
-							datatype:'json',
-							success:function(data){
-								if(data.errcode != 1){
-									$.toast(data.reason);
-								}else{
-									$(".close-popup").trigger("click");
-									$.closeModal(popup)
-									$.toast("添加成功");
-								}
-							},
-						})
+						url:'/front/savePhone',
+						data:{
+							phone:phone,
+							phoneCode:phoneCode
+						},
+						type:'post',
+						datatype:'json',
+						success:function(data){
+							if(data.errcode != 1){
+								$.toast(data.reason);
+							}else{
+								$('#phoneDiv').css('display', 'none');
+								layer.open({
+									content:'添加成功',
+									skin:'msg',
+									time:2
+								});
+							}
+						},
+					})
 				})
 			})
 		</script>
