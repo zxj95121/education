@@ -13,6 +13,7 @@ use App\Models\ParentInfo;
 use App\Models\ClassPackage;
 use App\Models\NewUser;
 use App\Models\HalfBuyRecord;
+use App\Models\HalfBuyInfo;
 use App\Models\TeacherOne;
 
 class WeixinController extends Controller
