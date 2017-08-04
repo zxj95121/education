@@ -79,7 +79,7 @@ class ShareController extends Controller
     		foreach ($openids as $value2) {
     			$openid0 = $value2->openid0;
     			$access_token = Wechat::get_access_token();
-    			$url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token['access_token'].'&openid0='.$openid0.'&lang=zh_CN';
+    			$url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token['access_token'].'&openid='.$openid0.'&lang=zh_CN';
     			$userinfo = Wechat::curl($url);
     			if ($userinfo['subscribe'] == 1) {
     				$usershare = UserShare::find($value2->id);
