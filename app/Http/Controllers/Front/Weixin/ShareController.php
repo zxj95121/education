@@ -203,6 +203,7 @@ class ShareController extends Controller
 			->leftJoin('teacher_one as to', 'to.id', 'half_buy_record.tid')
 			->select('to.name', 'half_buy_record.*')
 			->get()[0];
+		dd($orderObj->toArray());
 		return view('front.views.weixin.payOrder', ['orderObj'=>$orderObj]);
 	}
 
