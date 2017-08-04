@@ -105,7 +105,7 @@
                 var price = parseInt('{{number_format(0.5*$price->price, 2)}}');
 
                 var max = parseInt('{{$halfObj->ticket_num}}');
-                if (number > $max) {
+                if (number > max) {
                     number = max;
                     $('this').val(number);
                 }
