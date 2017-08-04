@@ -121,7 +121,16 @@ class ShareController extends Controller
 
 	public function halfBuyOrder(Request $request)
 	{
-		return view('front.views.weixin.halfBuyOrder');
+		$halfClassCount = TeacherOne::where('half_buy', 1)->count();
+		if ($halfClassCount == 0) {
+			/*没有半价课*/
+			exit;
+		}
+
+		$halfClassObj = TeacherOne::where('half_buy', 1)
+			->select('id', 'name')
+			->get()[0];
+		return view('front.views.weixin.halfBuyOrder', ['halfClassObj'=>$halfClassObj]);
 	}
 
 	/*用户判断，new_user表以及half_buy_info表*/

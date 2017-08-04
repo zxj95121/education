@@ -31,10 +31,25 @@
 			 	<h1 class='title' style="background: #22AAE8;color: #fff;">半价购课订单</h1>
 			</header>
 			<div class="content" style="background: #D6D6D6;">
-				
+				<div class="list-block">
+                    <ul>
+                        <!-- Text inputs -->
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                <div class="item-inner">
+                                    <div class="item-title label">课程名称</div>
+                                    <div class="item-input">
+                                        <input type="text" readonly placeholder="" value="{{$halfClassObj->name}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
 			</div>
 			<nav class="bar bar-tab">
-		      	<a class="tab-item external active" href="#" style="background: #03DE1A;color: #FFF;">
+		      	<a class="tab-item external active" href="#" style="background: #3879D9;color: #FFF;">
 		  		生成订单
 				</a>
 		  </nav>
