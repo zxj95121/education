@@ -12,10 +12,7 @@ class TestingPhoneController extends Controller
 	public static function is_phone()
 	{
 		$openid = Session::get('openid');
-		dump($openid);
 		$newuserObj = NewUser::where('openid',$openid)->get();
-		dump(isset($newuserObj[0]));
-		dump(!empty($newuserObj[0]->phone));
 		if (isset($newuserObj[0]) && !empty($newuserObj[0]->phone)) {
 			return $newuserObj[0]->id;
 		}else{

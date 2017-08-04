@@ -21,7 +21,6 @@ class ClassFreeController extends Controller
    	public function add_post()
    	{
    		$new_user_id = TestingPhoneController::is_phone();
-   		dump($new_user_id);
    		if ($new_user_id) {
    			$freeObj = ClassFree::where('uid',$new_user_id)->first();
    			if(isset($freeObj->id)){
