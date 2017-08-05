@@ -324,6 +324,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
   $router->get('/classFree', 'Weixin\ClassFreeController@index');
   $router->get('/classFree/oauth', 'Weixin\ClassFreeController@oauth');
   $router->post('/classFree/add_post', 'Weixin\ClassFreeController@add_post');
+  $router->post('/classFree/add_time', 'Weixin\ClassFreeController@add_time');
 });
 
 /*-------------*/

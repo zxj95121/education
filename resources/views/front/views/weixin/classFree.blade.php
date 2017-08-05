@@ -181,6 +181,35 @@
 						</div>
 					</div>
 				</div>
+				<div class="popup popup-services">
+					<div class="content-block">
+					    <header class="bar bar-nav">
+					    	<a class="button button-link button-nav pull-right close-popup"  data-transition="slide-out" style="color:#fff; padding-right:10px" >
+				      			关闭
+				    		</a>
+						 	<h1 class='title' style="background: #22AAE8;color: #fff;">预约时间设置</h1>
+						</header>
+						<div class="content">
+							<div class="list-block" style="margin-top:0px">
+								<div class="item-content">
+									<div class="item-inner" style="padding-right:0px">
+										<div class="item-title label" style="width:63px">预约时间:</div>
+										<div class="item-input">
+											<input type="date" placeholder="预约时间" name="time" id="mytime">
+										</div>
+									</div>
+									
+								</div>
+								<div class="content-block" style="margin-top:20px">
+									<div class="row">
+										<div class="col-50"><a href="#" class="button  button-fill button-danger close-services" >取消</a></div>
+			      						<div class="col-50"><a href="#" class="button  button-fill  button-success" id="sendtime">提交</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			 <div class="popup-overlay"></div>
 			 <!-- End About Popup -->
         </div>
@@ -189,26 +218,59 @@
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
     <script>
-		$(document).on('click','#free',function(){
-			$.ajax({
-				headers:{
-					'X-CSRF-TOKEN': '{{csrf_token()}}'
-				},	
-				url:'/front/classFree/add_post',
-				type:'post',
-				datatype:'json',
-				success:function(data){
-					if(data.code != -1){
-						console.log(data.msg);
-						$.toast(data.msg);
-						return false;
-					}else{
-						$.popup('.popup-about');
-						return false;
-					}
-				}
+    	$(function(){
+        	var id = '';
+    		$("#mytime").calendar({
+    			inputReadOnly:true,
+    			minDate:{{$freeTime->start_time}},
+    			maxDate:{{$freeTime->end_time}},
+    			onChange:function(p, values, displayValues){
+    				console.log(displayValues);
+    				$.ajax({
+    					headers:{
+    						'X-CSRF-TOKEN': '{{csrf_token()}}'
+    					},
+    					url:'/front/classFree/add_time',
+    					data:{
+							active_time:displayValues,
+							id:id
+            			},
+            			type:'post',
+            			datatype:'json',
+            			success:function(data){
+							if(data.code == 1){
+								$.closeModal('.popup-services')
+								$.toast("预约时间成功");
+							}else{
+								$.toast('此日期已满员，请重新选择日期，谢谢');
+							}
+                    	}	
+            		})
+    			},
 			})
-		})
+			$(document).on('click','#free',function(){
+				$.ajax({
+					headers:{
+						'X-CSRF-TOKEN': '{{csrf_token()}}'
+					},	
+					url:'/front/classFree/add_post',
+					type:'post',
+					datatype:'json',
+					success:function(data){
+						if(data.code == 1){
+							$.toast(data.msg);
+							$.popup('.popup-services');
+							id = data.id;
+						}else if (data.code == -1){
+							$.popup('.popup-about');
+							return false;
+						}else {
+							$.toast(data.msg);
+							return false;
+						}
+					}
+				})
+			})
 			$(document).on('click','#getPhoneCode',function(){
 				if($('#getPhoneCode').attr('disabled') == 'true'){
 					return false;
@@ -267,27 +329,29 @@
 					return false;
 				}
 				$.ajax({
-						headers:{
-						'X-CSRF-TOKEN': '{{csrf_token()}}'
-						},	
-						url:'/front/savePhone',
-						data:{
-							phone:phone,
-							phoneCode:phoneCode
-						},
-						type:'post',
-						datatype:'json',
-						success:function(data){
-							if(data.errcode != 1){
-								$.toast(data.reason);
-							}else{
-								$(".close-popup").trigger("click");
-								$.closeModal('.popup-about')
-								$.toast("添加成功");
-							}
-						},
-					})
+					headers:{
+					'X-CSRF-TOKEN': '{{csrf_token()}}'
+					},	
+					url:'/front/savePhone',
+					data:{
+						phone:phone,
+						phoneCode:phoneCode
+					},
+					type:'post',
+					datatype:'json',
+					success:function(data){
+						if(data.errcode != 1){
+							$.toast(data.reason);
+						}else{
+							$(".close-popup").trigger("click");
+							$.closeModal('.popup-about')
+							$.toast("添加成功");
+						}
+					},
+				})
 			})
+       	})
+
     </script>
   </body>
 </html> 

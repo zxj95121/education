@@ -7,12 +7,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Wechat\OauthController;
 use App\Http\Controllers\Front\TestingPhoneController;
 use App\Models\ClassFree;
-
+use App\Models\ClassFreeActiveTime;
 class ClassFreeController extends Controller
 {
    	public function index(Request $request)
    	{
-   		return view('front.views.weixin.classFree'); 
+   		$timeObj = ClassFreeActiveTime::find(1);
+   		return view('front.views.weixin.classFree',['freeTime'=>$timeObj]); 
    	}
    	public function oauth()
    	{
@@ -29,10 +30,24 @@ class ClassFreeController extends Controller
    				$freeObj = new ClassFree();
    				$freeObj->uid = $new_user_id;
    				$freeObj->save();
-   				return response()->json(['code'=>1,'msg'=>'已经领取成功']);
+   				return response()->json(['code'=>1,'msg'=>'已经领取成功','id'=>$freeObj->id]);
    			}
    		} else {
    			return response()->json(['code'=>-1]);
+   		}
+   	}
+   	public function add_time(Request $request)
+   	{
+   		$active_time = $request->input('active_time');
+   		$id = $request->input('id');
+   		$timeCount = ClassFree::where('active_time',$active_time)->count();
+   		if ($timeCount >= 12) {
+   			return response()->json(['code'=>-1]);
+   		} else {
+   			$freeObj =  ClassFree::find($id);
+   			$freeObj->active = $active_time;
+   			$freeObj->save();
+   			return response()->json(['code'=>1]);
    		}
    	}
 }
