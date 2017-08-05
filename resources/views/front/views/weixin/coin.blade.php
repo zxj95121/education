@@ -22,6 +22,14 @@ $signPackage = $jssdk->GetSignPackage();
 			img{
 				width: 100%;
 			}
+			.header{
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
+				font-size: 20px;
+				color: #FFF;
+				background: #22AAE8;
+			}
 		</style>
 	</head>
 	<body>
@@ -30,9 +38,11 @@ $signPackage = $jssdk->GetSignPackage();
 			<img src="/images/share2.png" style="width: 100%;"> 
 		</div> -->
 		<div style="width: 96%;margin: 0 auto;">
-			<header >
-				
+			<header class="header">
+				我的加辰币 
 			</header>
+			<section style="border: 0px none; padding: 0px;"><section style="margin: 5px 2px -40px; text-align: center;"><section class="ImbWord ImbBgColor" data-bglessp="-90" style="display: inline-block; width: 50%; padding: 10px; border: 1px solid rgb(214, 214, 214); border-radius: 2px; font-size: 15px; margin-top: 3px; color: rgb(255, 255, 255); line-height: 1.5em; background-color: rgb(192, 168, 60);" data-width="50%"><span style="font-size:14px">赞一个</span></section><section class="ImbWord ImbBgColor" style="display: inline-block; width: 50%; padding: 10px; border: 1px solid rgb(214, 214, 214); border-radius: 2px; margin-top: 3px; color: rgb(255, 255, 255); line-height: 1.5em; background-color: rgb(14, 206, 255); font-size: 14px;" data-width="50%"><strong><span style="">踩一脚</span></strong></section></section><section style="margin: -15px 2px 2px; text-align: center; font-weight:bold;"><span style=";;color:#FF0000;background-color:#FEFEFE; border-bottom-left-radius:50%; border-bottom-right-radius:50%; border-top-left-radius:50%; border-top-right-radius:50%; display:inline-block; height:35px !important; line-height:35px; width:35px">PK</span></section>
+			</section>
 		</div>
 	</div>
 
