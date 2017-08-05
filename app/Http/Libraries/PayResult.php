@@ -23,6 +23,7 @@ class PayResult extends ServiceProvider
 
 
         $coin = $price*100;
+        $coin = 5;
 
         $sql = "update new_user set coin = coin + {$coin} where openid = ? ";
         // NewUser::where('openid', Session::get('openid'))
