@@ -12,7 +12,7 @@ use App\Models\ClassPackageOrder;
 use App\Http\Controllers\Wechat\OauthController;
 
 use Session;
-use Wechat;
+use Wechat; 
 
 class ClassPackageController extends Controller
 {
