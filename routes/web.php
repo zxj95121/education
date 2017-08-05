@@ -199,6 +199,10 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     // halfBuy半价购课
     // $router->get('/halfBuy', 'HalfBuyController@halfBuy');
 
+    /*免费试听课  */
+    $router->get('/classFree', 'ClassFreeController@index');
+    $router->get('/classFree/setActiveTime', 'ClassFreeController@setActiveTime');
+    $router->post('/classFree/setActiveTime/post', 'ClassFreeController@setActiveTimePost');
     /*退款*/
     $router->any('/tuikuan', 'EclassOrderController@tuikuan');
     /*查订单用户的信息*/
