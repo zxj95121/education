@@ -25,7 +25,11 @@ class ClassFreeController extends Controller
    		if ($new_user_id) {
    			$freeObj = ClassFree::where('uid',$new_user_id)->first();
    			if(isset($freeObj->id)){
-   				return  response()->json(['code'=>2,'msg'=>'请勿重复领取']);
+   				if(empty($freeObj->active_time)){
+   					return response()->json(['code'=>3,'msg'=>'未填写预约时间','id'=>$freeObj->id]);
+   				}else{
+   					return  response()->json(['code'=>2,'msg'=>'请勿重复领取']);
+   				}
    			}else{
    				$freeObj = new ClassFree();
    				$freeObj->uid = $new_user_id;

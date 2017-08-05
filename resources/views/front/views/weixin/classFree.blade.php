@@ -257,7 +257,7 @@
 					type:'post',
 					datatype:'json',
 					success:function(data){
-						if(data.code == 1){
+						if(data.code == 1 || data.code == 3){
 							$.toast(data.msg);
 							$.popup('.popup-services');
 							id = data.id;
