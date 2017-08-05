@@ -41,7 +41,7 @@ $signPackage = $jssdk->GetSignPackage();
 		<header class="header">
 			我的加辰币
 		</header>
-		<!-- <div style="width: 96%;margin: 0 auto;"> -->
+		<div style="width: 100%;margin: 0 auto;">
 			
 			<section style="border: 0px none; padding: 0px;">
 				<section style="margin: 5px 2px -40px; text-align: center;">
@@ -58,7 +58,7 @@ $signPackage = $jssdk->GetSignPackage();
 					</span>
 				</section>
 			</section>
-		<!-- </div> -->
+		</div>
 	</div>
 
 		<!-- <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script> -->
