@@ -21,7 +21,7 @@ class ClassPackageController extends Controller
     	$id = $request->input('id', '');
     	if (!$id) {
     		/*没有带id参数*/
-    		return redirect('/front/error403');
+    		return redirect('/front/error_403');
     	}
 
         /*查package是否可用*/
@@ -31,7 +31,7 @@ class ClassPackageController extends Controller
         if ($package->status == 1) {
         	return view('front.views.classPackage.show', ['package'=>$package]);
         } else {
-            return redirect('/front/error403');
+            return redirect('/front/error_403');
         }
     }
 
