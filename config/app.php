@@ -179,6 +179,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
         App\Http\Libraries\Wechat::class,
+        App\Http\Libraries\PayResult::class,
 
     ],
 
@@ -230,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'Wechat' => App\Http\Libraries\Wechat::class,
+        'PayResult' => App\Http\Libraries\PayResult::class,
         'Image' => Intervention\Image\Facades\Image::class,
     ],
 

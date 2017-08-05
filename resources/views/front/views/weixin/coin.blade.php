@@ -1,7 +1,7 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT']."/php/jssdk/jssdk.php";
-$jssdk = new JSSDK(getenv('APPID'), getenv('APPSECRET'));
-$signPackage = $jssdk->GetSignPackage();
+// require_once $_SERVER['DOCUMENT_ROOT']."/php/jssdk/jssdk.php";
+// $jssdk = new JSSDK(getenv('APPID'), getenv('APPSECRET'));
+// $signPackage = $jssdk->GetSignPackage();
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,6 +16,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 		<!-- <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css"> -->
 		<link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/js/frozen/css/frozen.css">
 
 		<!-- <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css"> -->
 		<style type="text/css">
@@ -24,12 +25,15 @@ $signPackage = $jssdk->GetSignPackage();
 			}
 			.header{
 				width: 100%;
-				height: 40px;
-				line-height: 40px;
+				height: 45px;
+				line-height: 45px;
 				font-size: 20px;
 				color: #FFF;
 				background: #22AAE8;
 				text-align: center;
+			}
+			.ui-grid-trisect > li {
+				width: 50%;
 			}
 		</style>
 	</head>
@@ -41,24 +45,64 @@ $signPackage = $jssdk->GetSignPackage();
 		<header class="header">
 			我的加辰币
 		</header>
-		<div style="width: 100%;margin: 0 auto;">
+		<!-- <div style="width: 100%;margin: 0 auto;">
 			
-			<section style="border: 0px none; padding: 0px;">
-				<section style="margin: 5px 2px -40px; text-align: center;">
-					<section class="ImbWord ImbBgColor" data-bglessp="-90" style="display: inline-block; width: 50%; padding: 10px; border: 1px solid rgb(214, 214, 214); border-radius: 2px; font-size: 15px; margin-top: 3px; color: rgb(255, 255, 255); line-height: 1.5em; background-color: rgb(192, 168, 60);" data-width="50%">
-						<span style="font-size:14px">可用</span>
-					</section>
-					<section class="ImbWord ImbBgColor" style="display: inline-block; width: 50%; padding: 10px; border: 1px solid rgb(214, 214, 214); border-radius: 2px; margin-top: 3px; color: rgb(255, 255, 255); line-height: 1.5em; background-color: rgb(14, 206, 255); font-size: 14px;" data-width="50%">
-						<strong><span style="">不可用</span></strong>
-					</section>
-				</section>
-				<section style="margin: -15px 2px 2px; text-align: center; font-weight:bold;">
-					<span style=";;color:#FF0000;background-color:#FEFEFE; border-bottom-left-radius:50%; border-bottom-right-radius:50%; border-top-left-radius:50%; border-top-right-radius:50%; display:inline-block; height:35px !important; line-height:35px; width:35px">
-						-
-					</span>
-				</section>
-			</section>
-		</div>
+		</div> -->
+		<section class="ui-container">
+            <section id="tab">
+            	<div class="demo-item">
+            		<!-- <p class="demo-desc">标签栏</p> -->
+            		<div class="demo-block">
+            			<div class="ui-tab">
+            			    <ul class="ui-tab-nav ui-border-b">
+            			        <li class="current">币额</li>
+            			        <li>兑换券</li>
+            			        <li>说明</li>
+            			    </ul>
+            			    <ul class="ui-tab-content" style="width:300%">
+            			        <li>
+            			        	<section class="ui-panel">
+									    <!-- <h2 class="ui-arrowlink">加辰币使用说明<span class="ui-panel-subtitle"></span></h2> -->
+									    <h2 style="opacity: 0;">呵呵</h2>
+									    <ul class="ui-grid-trisect">
+									        <li>
+									            <div class="ui-border">
+									                <div class="ui-tips ui-tips-success">
+													    <i></i><span>可用币额</span>
+													</div>
+									                <div style="text-align: center;width: 100%;font-size: 3em;color: #22AAE8;">
+									                    888
+									                </div>
+									            </div>
+									        </li>
+									        <li>
+									            <div class="ui-border">
+									                <div class="ui-tips ui-tips-default">
+													    <i></i><span>暂不可用币额</span>
+													</div>
+									                <div style="text-align: center;width: 100%;font-size: 3em;color: #797979;">
+									                    55
+									                </div>
+									            </div>
+									        </li>
+									    </ul>
+									</section>
+            			        </li>
+            			        <li>内容2</li>
+            			        <li>内容3</li>
+            			    </ul>
+            			</div>
+            		</div>
+            		<script class="demo-script">
+            		
+                    </script>
+            	</div>
+            </section>
+        </section>
+
+
+        
+        
 	</div>
 
 		<!-- <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script> -->
@@ -66,25 +110,22 @@ $signPackage = $jssdk->GetSignPackage();
 		<!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script> -->
 		<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="/js/layui/layer_only/mobile/layer.js"></script>
+		<script src="/js/frozen/js/lib/zeptojs/zepto.min.js"></script>
+        <script src="/js/frozen/js/frozen.js"></script>
 		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-		<script>
-		    wx.config({
-		        debug: false,
-		        appId: '<?php echo $signPackage["appId"];?>',
-		        timestamp: <?php echo $signPackage["timestamp"];?>,
-		        nonceStr: '<?php echo $signPackage["nonceStr"];?>',
-		        signature: '<?php echo $signPackage["signature"];?>',
-		        jsApiList: [
-		            // 所有要调用的 API 都要加到这个列表中
-		            'checkJsApi',
-		            'onMenuShareTimeline',
-		            'onMenuShareAppMessage',
-		            'hideAllNonBaseMenuItem',
-	                'showMenuItems'
-		          ]
-		    });
-		    wx.ready(function () {
-			});
-		</script>
 
+
+		<script>
+        (function (){
+            var tab = new fz.Scroll('.ui-tab', {
+                role: 'tab',
+                autoplay: false,
+                interval: 3000
+            });
+            /* 滑动开始前 */
+            tab.on('beforeScrollStart', function(fromIndex, toIndex) {
+                console.log(fromIndex,toIndex);// from 为当前页，to 为下一页
+            })
+        })();
+        </script>
 	</body>

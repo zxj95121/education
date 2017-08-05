@@ -58,4 +58,9 @@ class HtmlController extends Controller
     {
         return 'front.views.parent.myClassOrder';
     }
+
+    private function coin()
+    {
+        return 'front.views.weixin.coin';
+    }
 }

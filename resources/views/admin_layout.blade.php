@@ -156,12 +156,15 @@
                     <li class="has-submenu {!!(Request::is('admin/chatShow')? 'active' : '') !!}">
                         <a href="#">
                             <i class="ion-chatbubble-working"></i> 
-                            <span class="nav-label">用户交流反馈</span>
+                            <span class="nav-label">用户信息、交流</span>
                             <span class="menu-arrow"></span>
                         </a>
                         <ul class="list-unstyled">
                             <li class="{!!(Request::is('admin/chatShow')? 'active' : '') !!} communication">
-                                <a href="/admin/chatShow?read=1">用户沟通   </a>
+                                <a href="/admin/chatShow?read=1">用户沟通</a>
+                            </li>
+                            <li class="{!!(Request::is('admin/chatShow')? 'active' : '') !!}">
+                                <a href="/admin/coin">用户加辰币</a>
                             </li>
                         </ul>
                     </li>
