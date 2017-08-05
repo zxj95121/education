@@ -31,6 +31,10 @@ class WeixinController extends Controller
     			$order->save();
     			$bill = Bill::where('oid',$order->id)->where('type', 'EC')->get();
     			if(count($bill) == 0){
+
+                    /*加辰比存取*/
+                    PayResult::give($order->price);
+
     				$bill = new Bill();
     				$bill->oid = $order->id;
     				$bill->save();
