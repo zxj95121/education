@@ -93,7 +93,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="has-submenu {!!(Request::is('admin/doubleTeacher', 'admin/classPrice', 'admin/setClassTime', 'admin/eclassOrderList', 'admin/classProgress', 'admin/eclassBigOrderList', 'admin/halfBuy')? 'active' : '') !!}">
+                    <li class="has-submenu {!!(Request::is('admin/doubleTeacher', 'admin/classPrice', 'admin/setClassTime', 'admin/eclassOrderList', 'admin/classProgress', 'admin/eclassBigOrderList', 'admin/halfBuy','admin/classFree/setActiveTime', 'admin/classFree')? 'active' : '') !!}">
                         <a href="#">
                             <i class="zmdi zmdi-book"></i> 
                             <span class="nav-label">双师class</span>
@@ -121,6 +121,13 @@
                             <li class="{!!(Request::is('admin/halfBuy')? 'active' : '') !!}">
                                 <a href="/admin/halfBuy">半价购课</a>
                             </li>
+                            <li class="{!!(Request::is('admin/classFree/setActiveTime')? 'active' : '') !!}">
+                                <a href="/admin/classFree/setActiveTime">免费试听课时间设置</a>
+                            </li>
+                            <li class="{!!(Request::is('admin/classFree')? 'active' : '') !!}">
+                                <a href="/admin/classFree">免费试听课</a>
+                            </li>
+
                         </ul>
                     </li>
                     <li class="has-submenu {!!(Request::is('admin/otherClass/add', 'admin/otherClass/discount')? 'active' : '') !!}">
