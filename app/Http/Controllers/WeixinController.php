@@ -16,6 +16,8 @@ use App\Models\HalfBuyRecord;
 use App\Models\HalfBuyInfo;
 use App\Models\TeacherOne;
 
+use PayResult;
+
 class WeixinController extends Controller
 {
     public function notify(Request $request)
@@ -62,6 +64,10 @@ class WeixinController extends Controller
                 $bill = Bill::where('oid',$order->id)->where('type', 'CP')->get();
 
                 if(count($bill) == 0){
+
+                    /*加辰比存取*/
+                    PayResult::give($order->price);
+
                     $bill = new Bill();
                     $bill->oid = $order->id;
                     $bill->type = 'CP';
