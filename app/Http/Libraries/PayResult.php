@@ -25,9 +25,12 @@ class PayResult extends ServiceProvider
         $coin = $price*100;
         $coin = 5;
 
-        $sql = "update new_user set coin = coin + {$coin} where openid = ? ";
-        // NewUser::where('openid', Session::get('openid'))
-        DB::update($sql, [Session::get('openid')]);
+        $pre_coin = NewUser::where('openid', Session::get('openid'))
+            ->first()
+            ->coin;
+        $coin += (int)$pre_coin;
+        NewUser::where('openid', Session::get('openid'))
+            ->update(['coin'=>$coin]);
         /*2、满3000送188元英语主题party一次*/
 
     }
