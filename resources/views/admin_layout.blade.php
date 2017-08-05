@@ -153,7 +153,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="has-submenu {!!(Request::is('admin/chatShow')? 'active' : '') !!}">
+                    <li class="has-submenu {!!(Request::is('admin/chatShow', 'admin/coin')? 'active' : '') !!}">
                         <a href="#">
                             <i class="ion-chatbubble-working"></i> 
                             <span class="nav-label">用户信息、交流</span>
@@ -163,7 +163,7 @@
                             <li class="{!!(Request::is('admin/chatShow')? 'active' : '') !!} communication">
                                 <a href="/admin/chatShow?read=1">用户沟通</a>
                             </li>
-                            <li class="{!!(Request::is('admin/chatShow')? 'active' : '') !!}">
+                            <li class="{!!(Request::is('admin/coin')? 'active' : '') !!}">
                                 <a href="/admin/coin">用户加辰币</a>
                             </li>
                         </ul>

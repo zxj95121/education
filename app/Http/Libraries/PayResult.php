@@ -22,7 +22,6 @@ class PayResult extends ServiceProvider
 
 
         $coin = $price*100;
-        $coin = 5;
 
         $pre_coin = NewUser::where('openid', $openid)
             ->get()[0]

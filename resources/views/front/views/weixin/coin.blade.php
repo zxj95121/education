@@ -33,7 +33,7 @@
 				text-align: center;
 			}
 			.ui-grid-trisect > li {
-				width: 50%;
+				width: 100%;
 			}
 		</style>
 	</head>
@@ -56,11 +56,11 @@
             			<div class="ui-tab">
             			    <ul class="ui-tab-nav ui-border-b">
             			        <li class="current">币额</li>
-            			        <li>兑换券</li>
-            			        <li>说明</li>
+            			        <li>兑换优惠券</li>
+            			        <li>精品小店</li>
             			    </ul>
             			    <ul class="ui-tab-content" style="width:300%">
-            			        <li>
+            			        <li class="li0">
             			        	<section class="ui-panel">
 									    <!-- <h2 class="ui-arrowlink">加辰币使用说明<span class="ui-panel-subtitle"></span></h2> -->
 									    <h2 style="opacity: 0;">呵呵</h2>
@@ -68,28 +68,34 @@
 									        <li>
 									            <div class="ui-border">
 									                <div class="ui-tips ui-tips-success">
-													    <i></i><span>可用币额</span>
+													    <i></i><span>加辰币余额</span>
 													</div>
 									                <div style="text-align: center;width: 100%;font-size: 3em;color: #22AAE8;">
 									                    888
 									                </div>
 									            </div>
 									        </li>
-									        <li>
-									            <div class="ui-border">
-									                <div class="ui-tips ui-tips-default">
-													    <i></i><span>暂不可用币额</span>
-													</div>
-									                <div style="text-align: center;width: 100%;font-size: 3em;color: #797979;">
-									                    55
-									                </div>
-									            </div>
-									        </li>
 									    </ul>
 									</section>
             			        </li>
-            			        <li>内容2</li>
-            			        <li>内容3</li>
+            			        <li class="li1">
+            			        	<div class="ui-form ui-border-t">
+									    <form action="#">
+									        <div class="ui-form-item ui-form-item-r ui-border-b">
+									            <input type="text" placeholder="兑换个数" readonly="readonly">
+									            
+									            <!-- 若按钮不可点击则添加 disabled 类 -->
+									            <button type="button" class="ui-border-l">增加</button>
+<!-- 									            <a href="#" class="ui-icon-close"></a> -->
+									        </div>
+									    </form>
+									</div>
+            			        </li>
+            			        <li class="li2" style="min-height: 150px;">
+            			        	<div class="ui-poptips ui-poptips-warn" style="position: relative;top: 60px;">
+									    <div class="ui-poptips-cnt"><i></i>加辰精品小店正在精心“装修”和开发中</div>
+									</div>
+            			        </li>
             			    </ul>
             			</div>
             		</div>
