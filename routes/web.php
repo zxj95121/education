@@ -283,6 +283,9 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
 	
 	$router->get('/parent/myClassOrder/details', 'Parent\MyClassOrderController@details');
 
+  /*我的加辰币*/
+  $router->get('/coin', 'Weixin\CoinController@coin');
+  $router->get('/coin/oauth', 'Weixin\CoinController@oauth');/*我的加辰币网页授权*/
 
 
 	/*微信分享  */
