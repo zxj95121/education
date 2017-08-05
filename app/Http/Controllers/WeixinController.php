@@ -33,7 +33,7 @@ class WeixinController extends Controller
     			if(count($bill) == 0){
 
                     /*加辰比存取*/
-                    PayResult::give($order->price);
+                    PayResult::give($order->price, $postObj->openid);
 
     				$bill = new Bill();
     				$bill->oid = $order->id;
@@ -70,7 +70,7 @@ class WeixinController extends Controller
                 if(count($bill) == 0){
 
                     /*加辰比存取*/
-                    PayResult::give($order->price);
+                    PayResult::give($order->price, $postObj->openid);
 
                     $bill = new Bill();
                     $bill->oid = $order->id;

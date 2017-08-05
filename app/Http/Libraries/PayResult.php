@@ -3,7 +3,6 @@ namespace App\Http\Libraries;
 
 use Illuminate\Support\ServiceProvider;
 use Session;
-use DB;
 use App\Models\NewUser;
 
 class PayResult extends ServiceProvider
@@ -13,7 +12,7 @@ class PayResult extends ServiceProvider
 	* @function give
 	* @program $price
 	*/
-	public static function give($price)
+	public static function give($price, $openid)
 	{
 		// ------------------------------------------------------------------------
         //满减等活动
@@ -25,11 +24,11 @@ class PayResult extends ServiceProvider
         $coin = $price*100;
         $coin = 5;
 
-        $pre_coin = NewUser::where('openid', Session::get('openid'))
-            ->first()
+        $pre_coin = NewUser::where('openid', $openid)
+            ->get()[0]
             ->coin;
         $coin += (int)$pre_coin;
-        NewUser::where('openid', Session::get('openid'))
+        NewUser::where('openid', $openid)
             ->update(['coin'=>$coin]);
         /*2、满3000送188元英语主题party一次*/
 
