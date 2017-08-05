@@ -24,9 +24,15 @@ class ClassPackageController extends Controller
     		return redirect('/front/error403');
     	}
 
+        /*查package是否可用*/
+
     	$package = ClassPackage::find($id);
 
-    	return view('front.views.classPackage.show', ['package'=>$package]);
+        if ($package->status == 1) {
+        	return view('front.views.classPackage.show', ['package'=>$package]);
+        } else {
+            return redirect('/front/error403');
+        }
     }
 
     /*支付订单*/
