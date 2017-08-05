@@ -195,7 +195,7 @@
 									<div class="item-inner" style="padding-right:0px">
 										<div class="item-title label" style="width:63px">预约时间:</div>
 										<div class="item-input">
-											<input type="date" placeholder="预约时间" name="time" id="mytime">
+											<input type="text" placeholder="预约时间" name="time" id="mytime">
 										</div>
 									</div>
 									
