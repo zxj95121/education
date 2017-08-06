@@ -582,6 +582,15 @@ function emoji_decode($str){
     		// console.log(document.getElementById("textInput").value.indexOf("\n"));
     		var value = document.getElementById("textInput").value;
     		var hang = 0;
+
+    		if (value.length <= 0) {
+    			$('#imageBtn').show();
+    			$('#sendBtn').hide();
+    		} else {
+    			$('#imageBtn').hide();
+    			$('#sendBtn').show();
+    		}
+
     		for (var i = 0,j = 0; i < value.length+1; i++) {
     			var str = value.substring(j, i);
     			$('#textInputSpan').html(str);
@@ -600,11 +609,11 @@ function emoji_decode($str){
 
     		hang++;
 
-    		height = hang*19;
+    		height = hang*19+3;
     		if (hang >6) {
-	    		height = 19*6;
+	    		height = 19*6+3;
 	    	} else if (hang <= 2){
-				height = 19*2;
+				height = 19*2+3;
 	    	}
 	    	var outHeight = height+9;
     		$('#sendmessage').css('height', outHeight+'px');
