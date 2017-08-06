@@ -74,7 +74,7 @@
 									                <div class="ui-tips ui-tips-success">
 													    <i></i><span>加辰币余额</span>
 													</div>
-									                <div style="text-align: center;width: 100%;font-size: 3em;color: #22AAE8;">
+									                <div style="text-align: center;width: 100%;font-size: 3em;color: #22AAE8;" id="restCoin">
 									                    {{$userObj->coin}}
 									                </div>
 									            </div>
@@ -101,14 +101,14 @@
 													</ol>
 												</div>
 												<div style="text-align: center;color: #FFF;text-align: right;font-size:12px;height: 32px;">
-													<label class="label label-success" style="position: relative;height: 100%;font-size:14px;right: 8px;cursor: pointer;">剩余{{floor($userObj->voucher/88)}}张</label>
+													<label class="label label-success" style="position: relative;height: 100%;font-size:14px;right: 8px;cursor: pointer;">剩余<span id="restTicket">{{floor($userObj->voucher/88)}}</span>张</label>
 												</div>
 											</div>
 										</div>
             			        	</div>
             			        	<div class="ui-tips ui-tips-info">
             			        		@php $changeNumber = floor($userObj->coin/100); @endphp
-									    <i></i><span>您的币额最多可兑换{{$changeNumber}}张券</span>
+									    <i></i><span>您的币额最多可兑换<span id="maxNotice">{{$changeNumber}}</span>张券</span>
 									</div>
             			        	<div class="ui-form ui-border-t">
 									    <form action="#">
@@ -116,7 +116,7 @@
 									            <a href="#">兑换优惠券（满1000减88）</a>
 									        </div>
 									        <div class="ui-form-item ui-form-item-r ui-border-b">
-									            <input type="number" id="changeInput" max="{{$changeNumber}}" placeholder="" value="0" style="padding-left: 15px;">
+									            <input type="number" id="changeInput" max="{{$changeNumber}}" placeholder="请输入数字" style="padding-left: 15px;">
 									            
 									            <!-- 若按钮不可点击则添加 disabled 类 -->
 									            <button type="button" class="ui-border-l" id="change">确认兑换</button>
@@ -252,6 +252,16 @@
 
         					console.log(data.data);
         					/*进行兑换成功后的页面改变*/
+        					var voucher = data.data.voucher;
+        					var vouNum = Math.floor(voucher/88);
+
+        					var coin = data.data.coin;
+        					var coinNum = Math.floor(coin/100);
+
+        					$('#changeInput').val('');
+        					$('#restCoin').html(coin);
+        					$('#maxNotice').html(coinNum);
+        					$('#restTicket').html(vouNum);
 
 
         					setTimeout(function(){
