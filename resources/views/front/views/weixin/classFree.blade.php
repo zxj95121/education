@@ -221,9 +221,8 @@
     	$(function(){
         	var id = '';
     		$("#mytime").calendar({
-    			inputReadOnly:true,
-    			minDate:{{$freeTime->start_time}},
-    			maxDate:{{$freeTime->end_time}},
+    			minDate:'{{$freeTime->start_time}}',
+    			maxDate:'{{$freeTime->end_time}}',
     			onChange:function(p, values, displayValues){
     				console.log(displayValues);
     				$.ajax({
