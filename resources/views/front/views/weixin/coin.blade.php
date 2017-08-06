@@ -200,11 +200,6 @@
         	// 	// num ++;
         	// 	$(this).prev().val(++num);
         	// })
-        	$.ajaxSetup({
-            	'headers': {
-            		'X-CSRF-TOKEN': '{{csrf_token()}}'
-            	}
-            });
 
 
         	$('#change').click(function(){
@@ -241,6 +236,9 @@
         		var el = $.loading({content:'兑换中...'});
         		setTimeout(function(){$('.ui-loading-block').remove();}, 8000);
         		$.ajax({
+        			headers: {
+	            		'X-CSRF-TOKEN': '{{csrf_token()}}'
+	            	},
         			url :'/front/coin/convert',
         			dataType: 'json',
         			type: 'post',
