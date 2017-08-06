@@ -584,12 +584,12 @@ function emoji_decode($str){
 
 	    $('#textInput').bind('touchmove', function(e){
 	    	if (state2.dragable) {
-	    		var x = e.originalEvent.changedTouches[0].pageX - state.mouseX;
-	            var y = e.originalEvent.changedTouches[0].pageY - state.mouseY;
+	    		var x = e.originalEvent.changedTouches[0].pageX - state2.mouseX;
+	            var y = e.originalEvent.changedTouches[0].pageY - state2.mouseY;
 
 
-	            state.mouseX = e.originalEvent.changedTouches[0].pageX;
-	            state.mouseY = e.originalEvent.changedTouches[0].pageY;
+	            state2.mouseX = e.originalEvent.changedTouches[0].pageX;
+	            state2.mouseY = e.originalEvent.changedTouches[0].pageY;
 
 		    	var top = $('#textInput')[0].scrollTop;
 		    	// console.log(top);
