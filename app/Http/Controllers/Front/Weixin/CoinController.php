@@ -59,6 +59,6 @@ class CoinController extends Controller
     	$flight->save();
 
 
-    	return response()->json(['errcode'=>0])
+    	return response()->json(['errcode'=>0]);
     }
 }
