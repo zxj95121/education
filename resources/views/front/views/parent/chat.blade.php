@@ -573,12 +573,27 @@ function emoji_decode($str){
 	    	clearInterval(inter2);
 	    })
 
+	    $(document).on('touchstart', '#textInput', function(e){
+	    	state2.dragable = true;
+	        state2.mouseX = e.originalEvent.changedTouches[0].pageX;
+	        state2.mouseY = e.originalEvent.changedTouches[0].pageY;
+	    });
+
 	    $('#textInput').bind('touchmove', function(e){
-	    	var top = $('#textInput')[0].scrollTop;
-	    	console.log(top);
-	    	if (top <= 0) {
-	    		e.preventDefault();
-	    	}
+	    	if (state2.dragable) {
+	    		var x = e.originalEvent.changedTouches[0].pageX - state.mouseX;
+	            var y = e.originalEvent.changedTouches[0].pageY - state.mouseY;
+
+
+	            state.mouseX = e.originalEvent.changedTouches[0].pageX;
+	            state.mouseY = e.originalEvent.changedTouches[0].pageY;
+
+		    	var top = $('#textInput')[0].scrollTop;
+		    	// console.log(top);
+		    	if (top <= 0 && y < 0) {
+		    		e.preventDefault();
+		    	}
+		    }
 	    })
 
     	function changeTextArea() {
