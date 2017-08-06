@@ -109,30 +109,6 @@ class ManagerController extends Controller
     	return response()->json(['errcode'=>0]);
     }
 
-    /*家长信息*/
-    public function parentInfo(Request $request)
-    {
-    	$res = ParentDetail::where('parent_detail.status','1')
-    	->leftJoin('parent_info','parent_detail.pid','=','parent_info.id')
-    	->select('parent_info.name as nickname','parent_info.id','parent_detail.name','parent_info.phone','sex','type','address','place')
-    	->paginate(10);
-    	for($i = 0; $i < count($res); $i++){
-    		if(isset($res[$i]->address)){ 
-    			$address3 = CommunityCommunity::where('id',$res[$i]->address)
-    			->select('aid','name')
-    			->get();
-    			$address2 = CommunityArea::where('id',$address3[0]->aid)
-    			->select('cid','name')
-    			->get();
-    			$address1 = CommunityCity::where('id',$address2[0]->cid)
-    			->select('name')
-    			->get();
-    			$res[$i]->address = $address1[0]->name.$address2[0]->name.$address3[0]->name;
-    		}
-    	}
-    	return view('admin.people.parentInfo',['res'=>$res]);
-    }
-
     /*教师信息*/
     public function teacherInfo(Request $request)
     {

@@ -83,7 +83,10 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/manage/deleteTeacher', 'ManagerController@deleteTeacher');
     $router->post('/manage/deleteParent', 'ManagerController@deleteParent');
 
-    $router->get('/parentInfo', 'ManagerController@parentInfo');
+    $router->get('/parentInfo', 'ParentManageController@parentInfo');/*parentManage控制器*/
+    $router->post('/parent/addTicket', 'ParentManageController@addTicket');/*parentManage控制器*/
+
+
     $router->get('/teacherInfo', 'ManagerController@teacherInfo');
     $router->post('/expect','ManagerController@expect');//教学社区
     
