@@ -254,6 +254,9 @@
 					return false;
 				}
 				$.ajax({
+					headers:{
+						'X-CSRF-TOKEN': '{{csrf_token()}}'
+					},
 					url:'/front/classFree/add_time_post',
 					data:{
 						id:id,
