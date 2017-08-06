@@ -112,7 +112,7 @@ function emoji_decode($str){
 			       
 			        <div id="sendmessage">
 			        	<!-- <input type="text" id="textInput" style="line-height: 25px;margin-top: 12px;color: #000;" value="" placeholder="" /> -->
-			        	<textarea id="textInput" style="height: 30px;margin-top: 8px;color: #000;line-height: 30px;resize: none;border: 0px solid transparent;font-size: 18px;">fda</textarea>
+			        	<textarea id="textInput" style="height: 19px;margin-top: 12px;padding-left: 0.3em;px;color: #000;line-height: 19px;resize: none;border: 0px solid transparent;font-size: 19px;">fda</textarea>
 			          	<input type="file" id="fileInput" style="display: none;" name="file" accept="image/*">
 			            <button id="sendBtn" style="display: none;"><img src="/images/square-send.png" style="width: 100%;height: 100%;cursor: pointer;"></button>
 			            <button id="imageBtn" onclick="fileClick();"><img src="/images/square-image.png" style="width: 100%;height: 100%;cursor: pointer;"></button>
