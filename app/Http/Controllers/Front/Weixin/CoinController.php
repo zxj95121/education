@@ -16,8 +16,13 @@ class CoinController extends Controller
     	if (!$openid) {
     		return redirect('/front/coin/oauth');
     	}
+
+    	/*查询加辰币*/
+    	$userObj = NewUser::where('openid', $openid)
+    		->get()
+    		->first();
     	
-    	return view('front.views.weixin.coin');
+    	return view('front.views.weixin.coin', ['userObj'=>$userObj]);
     }
 
     public function oauth()
