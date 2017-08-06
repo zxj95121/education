@@ -557,6 +557,45 @@ function emoji_decode($str){
         		})
 			}
     	})
+
+	    var MutationObserver = window.MutationObserver ||
+	    window.WebKitMutationObserver ||
+	    window.MozMutationObserver;
+
+		var callback = function(records) {
+			records.map(function(record) {
+		        console.log('Mutation type: ' + record.type);
+		        console.log('Mutation target: ' + record.target);
+		    });
+			changeTextArea();
+		};
+		var observer = new MutationObserver(callback);
+
+		var article = document.getElementById('textInput');
+
+		var options = {
+		    // 'characterData': true
+		    // childList：设置为true表示监听指定元素的子元素的变动;
+
+			'attributes': true/*设置为true表示监听指定元素的属性的变动；*/
+
+			// characterData：设置为true表示监听指定元素的data变动;
+
+			// subtree:设置为true表示不紧监听目标元素也同时监听其子元素变动；
+
+			// attributeOldValue：在attributes属性已经设为true的前提下,如果需要将发生变化的属性节点之前的属性值记录下来(记录到下面MutationRecord对象的oldValue属性中),则设置为true；
+
+			// characterDataOldValue：在characterData属性已经设为true的前提下,如果需要将发生变化的characterData节点之前的文本内容记录下来(记录到下面MutationRecord对象的oldValue属性中),则设置为true.
+
+			// attributeFilter：一个属性名数组(不需要指定命名空间),只有该数组中包含的属性名发生变化时才会被观察到,其他名称的属性发生变化后会被忽略.
+		};
+
+		observer.observe(article, options);
+
+    	function changeTextArea() {
+    		var row = $('#textInput').val().split('\n').length;
+    		console.log(row);
+    	}
     </script>
   </body>
 </html>
