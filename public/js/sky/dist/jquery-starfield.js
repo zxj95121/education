@@ -203,7 +203,7 @@
 
 				// clear canvas
 				ctx.clearRect(0, 0, width, height);
-				ctx.fillStyle = "black";
+				ctx.fillStyle = "#4B89EA";
 				ctx.fillRect(0, 0, width, height);
 
 				// iterate stars and draw them
