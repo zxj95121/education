@@ -49,7 +49,7 @@ class ClassFreeController extends Controller
    			return response()->json(['code'=>-1]);
    		} else {
    			$freeObj =  ClassFree::find($id);
-   			$freeObj->active_time = $active_time;
+   			$freeObj->active_time = $active_time[0];
    			$freeObj->save();
    			return response()->json(['code'=>1]);
    		}
