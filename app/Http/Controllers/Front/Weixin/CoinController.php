@@ -48,7 +48,7 @@ class CoinController extends Controller
     	$coin -= $num*100;
 
     	if ($coin < 0) {
-    		return response()->json('errcode'=>1,'reason'=>'请求兑换数量太多');
+    		return response()->json(['errcode'=>1,'reason'=>'请求兑换数量太多']);
     	}
 
     	$voucher = $userObj->voucher + $num;
