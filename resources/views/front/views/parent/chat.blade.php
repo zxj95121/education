@@ -575,7 +575,7 @@ function emoji_decode($str){
 
 		var options = {
 		    'characterData': true,
-		    // childList：设置为true表示监听指定元素的子元素的变动;
+		    'childList': true,/*设置为true表示监听指定元素的子元素的变动*/;
 
 			'attributes': true/*设置为true表示监听指定元素的属性的变动；*/
 
