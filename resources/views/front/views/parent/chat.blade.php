@@ -120,8 +120,12 @@ function emoji_decode($str){
 			    </div>
 
 			</div>
+
+			<span id="textInputSpan" style="opacity: 0;" style="font-size: 19px;"></span>
+
         </div>
     </div>
+
 
     <!-- <script type='text/javascript' src='/js/zepto.min.js' charset='utf-8'></script> -->
     <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script> -->
@@ -570,9 +574,24 @@ function emoji_decode($str){
 
     	function changeTextArea() {
     		var height = $('#textInput')[0].scrollHeight;
+    		var width = $('#textInput').width();
     		var row = (height-3)/19;
     		
     		console.log(document.getElementById("textInput").value.indexOf("\n"));
+    		var value = document.getElementById("textInput").value;
+    		var hang = 0;
+    		for (var i = 0;j = 0; i < value.length; i++) {
+    			var str = value.substring(j, i);
+    			$('#textInputSpan').html(str);
+    			var ww = $('#textInputSpan')[0].clientWidth;
+    			
+    			if (ww > width) {
+    				j = i-1;
+    				hang ++;
+    			}
+    		}
+
+    		console.log(hang);
 
     		if (row <= 6) {
 	    		var outHeight = height+9;
