@@ -572,6 +572,8 @@ function emoji_decode($str){
     		var height = $('#textInput')[0].scrollHeight;
     		var row = (height-3)/19;
     		
+    		console.log(document.getElementById("textInput").value.indexOf("\n"));
+
     		if (row <= 6) {
 	    		var outHeight = height+9;
 	    		$('#sendmessage').css('height', outHeight+'px');
