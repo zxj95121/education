@@ -28,7 +28,7 @@ class ClassFreeController extends Controller
    				if(empty($freeObj->active_time)){
    					return response()->json(['code'=>3,'msg'=>'未填写预约时间','id'=>$freeObj->id]);
    				}else{
-   					return  response()->json(['code'=>2,'msg'=>'请勿重复领取']);
+   					return  response()->json(['code'=>2,'msg'=>'您已预约，预约的时间是'.$freeObj->active_time]);
    				}
    			}else{
    				$freeObj = new ClassFree();
@@ -47,11 +47,17 @@ class ClassFreeController extends Controller
    		$timeCount = ClassFree::where('active_time',$active_time)->count();
    		if ($timeCount >= 12) {
    			return response()->json(['code'=>-1]);
-   		} else {
-   			$freeObj =  ClassFree::find($id);
-   			$freeObj->active_time = $active_time[0];
-   			$freeObj->save();
+   		}else {
    			return response()->json(['code'=>1]);
    		}
+   	}
+   	public function add_time_post(Request $request)
+   	{
+   		$id = $request->input('id');
+   		$active_time = $request->input('active_time');
+   		$freeObj =  ClassFree::find($id);
+   		$freeObj->active_time = $active_time[0];
+   		$freeObj->save();
+   		return response()->json(['code'=>1]);
    	}
 }

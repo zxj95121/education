@@ -220,6 +220,7 @@
     <script>
     	$(function(){
         	var id = '';
+        	var active_time = '';
     		$("#mytime").calendar({
     			minDate:'{{$freeTime->start_time}}',
     			maxDate:'{{$freeTime->end_time}}',
@@ -237,15 +238,34 @@
             			type:'post',
             			datatype:'json',
             			success:function(data){
-							if(data.code == 1){
-								$.closeModal('.popup-services')
-								$.toast("预约时间成功");
-							}else{
+							if(data.code == -1){
 								$.toast('此日期已满员，请重新选择日期，谢谢');
+								$('#mytime').val('');
+							}else{
+								active_time = displayValues;
 							}
                     	}	
             		})
     			},
+			})
+			$(document).on('click','#sendtime',function(){
+				if(active_time == ''){
+					$.toast('您还没有选择预约时间');
+					return false;
+				}
+				$.ajax({
+					url:'/front/classFree/add_time_post',
+					data:{
+						id:id,
+						active_time:active_time
+					},
+					success:function(data){
+						if(data.code == 1){
+							$.closeModal('.popup-services')
+							$.toast("预约时间成功");
+						}
+					}
+				})
 			})
 			$(document).on('click','#free',function(){
 				$.ajax({
