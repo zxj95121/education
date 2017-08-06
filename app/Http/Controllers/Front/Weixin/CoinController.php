@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Http\Controllers\Wechat\OauthController;
+
+use App\Models\NewUser;
+
 use Session;
 
 class CoinController extends Controller
