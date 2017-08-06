@@ -65,6 +65,7 @@ $worker->onMessage = function($connection, $data)
                 $read = '0';
             }
 
+            $data['content'] = str_replace('\n', '<br />', $data['content']);
 
             $time = date('Y-m-d H:i:s');
             $insert_id = $db->insert('contact_chat')->cols(array(
@@ -132,6 +133,9 @@ $worker->onMessage = function($connection, $data)
             $db->update('new_user')->cols(array('is_chat'=>'1','worker_id'=>$cid,'chat_user'=>$data['uid']))->where('id='.$data['aid'])->query();
         } else if ($data['status'] == 'msg') {
             $data['content'] = emoji_encode($data['content']);
+
+            $data['content'] = str_replace('\n', '<br />', $data['content']);
+            
             $time = date('Y-m-d H:i:s');
             $insert_id = $db->insert('contact_chat')->cols(array(
             'uid' => $data['uid'],
