@@ -558,8 +558,14 @@ function emoji_decode($str){
 			}
     	})
 
-	    $('#textInput').change(function(){
-	    	changeTextArea();
+	    $('#textInput').focus(function(){
+	    	inter2 = setInterval(function(){
+	    		changeTextArea();
+	    	}, 30);
+	    })
+
+	    $('#textInput').blur(function(){
+	    	clearInterval(inter2);
 	    })
 
     	function changeTextArea() {
