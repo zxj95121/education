@@ -569,7 +569,7 @@ function emoji_decode($str){
 	    })
 
     	function changeTextArea() {
-    		var row = $('#textInput').val().split('\n').length;
+    		var row = $('#textInput')[0].scrollHeight;
     		console.log(row);
     	}
     </script>
