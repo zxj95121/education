@@ -573,6 +573,9 @@ function emoji_decode($str){
 	    	clearInterval(inter2);
 	    })
 
+	    var state2 = {};
+
+
 	    $(document).on('touchstart', '#textInput', function(e){
 	    	state2.dragable = true;
 	        state2.mouseX = e.originalEvent.changedTouches[0].pageX;
