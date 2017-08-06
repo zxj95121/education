@@ -591,6 +591,12 @@ function emoji_decode($str){
     				j = i-1;
     				hang ++;
     			}
+
+    			if (value[i] == '\n') {
+    				console.log('1');
+    			} else if (value[i] == '\r\n') {
+    				console.log('fsdaf');
+    			}
     		}
 
     		hang++;
