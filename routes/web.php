@@ -251,6 +251,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->get('/chatting', 'ChatController@chatting');
     $router->post('/chatting/getPrevMessage', 'ChatController@getPrevMessage');
 
+    /*用户加辰币*/
+    $router->get('/coin', 'CoinController@coin');/*加辰币首页*/
+
     /*账单流水*/
     $router->get('/bill', 'BillController@bill');
 });
