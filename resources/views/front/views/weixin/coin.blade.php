@@ -189,6 +189,16 @@
             tab.on('beforeScrollStart', function(fromIndex, toIndex) {
                 console.log(fromIndex,toIndex);// from 为当前页，to 为下一页
             })
+
+
+
+
+            $.ajaxSetup({
+            	'headers': {
+            		'X-CSRF-TOKEN': '{{csrf_token()}}'
+            	}
+            });
+            
         })();
 
 
