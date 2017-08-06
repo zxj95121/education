@@ -151,7 +151,7 @@ function emoji_decode($str){
 
 			/*input*/
 			var sendmessageHeight = $('#sendmessage').width();
-			$('#textInput').css('width', sendmessageHeight-75+'px');
+			$('#textInput').css('width', sendmessageHeight-70+'px');
 
 
 			$('#chat-messages .message').each(function(){
