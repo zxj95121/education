@@ -112,7 +112,7 @@ function emoji_decode($str){
 			       
 			        <div id="sendmessage">
 			        	<!-- <input type="text" id="textInput" style="line-height: 25px;margin-top: 12px;color: #000;" value="" placeholder="" /> -->
-			        	<textarea id="textInput" wrap="hard" style="height: 41px;padding-top:3px;margin-top: 4px;padding-left: 0.3em;px;color: #000;line-height: 19px;resize: none;border: 0px solid transparent;font-size: 19px;"></textarea>
+			        	<textarea id="textInput" wrap="hard" style="height: 41px;padding-top:3px;margin-top: 4px;padding-left: 8px;color: #000;line-height: 19px;resize: none;border: 0px solid transparent;font-size: 19px;"></textarea>
 			          	<input type="file" id="fileInput" style="display: none;" name="file" accept="image/*">
 			            <button id="sendBtn" style="display: none;"><img src="/images/square-send.png" style="width: 100%;height: 100%;cursor: pointer;"></button>
 			            <button id="imageBtn" onclick="fileClick();"><img src="/images/square-image.png" style="width: 100%;height: 100%;cursor: pointer;"></button>
@@ -121,7 +121,7 @@ function emoji_decode($str){
 
 			</div>
 
-			<span id="textInputSpan" style="opacity: 0;" style="font-size: 19px;"></span>
+			<span id="textInputSpan" style="opacity: 0;" style="font-size: 19px;padding-left: 8px;"></span>
 
         </div>
     </div>
@@ -575,6 +575,7 @@ function emoji_decode($str){
     	function changeTextArea() {
     		var height = $('#textInput')[0].scrollHeight;
     		var width = $('#textInput').width();
+    		console.log(width);
     		var row = (height-3)/19;
     		
     		// console.log(document.getElementById("textInput").value.indexOf("\n"));
