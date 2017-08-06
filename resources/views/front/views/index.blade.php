@@ -73,6 +73,7 @@
         $(function(){
             var width=parseInt(document.body.clientWidth);
             var height=parseInt(window.innerHeight);
+            $('body').css('height', height+'px');
             $('#big').css('top',0.03*height+'px');
             $('#big').css('height',0.97*height+'px');
             $('#title').css('height',0.15*height+'px');
@@ -222,7 +223,7 @@
     </script>
     <script src="/js/sky/dist/jquery-starfield.js"></script>
     <script>
-        $('#big').starfield({
+        $('body').starfield({
             starDensity: 2.0,
             mouseScale: 0.5,
             seedMovement: true
