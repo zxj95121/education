@@ -249,8 +249,15 @@
         				if (data.errcode == 0) {
         					$('.ui-loading-block').remove();
         					$('#changeSuccess').show(0);
-        					setTimeout(function(){$('#changeSuccess').animate({'Top': '2000px'}, 2000)},2000);
-        					setTimeout(function(){$('#changeSuccess').hide();}, 2000);
+        					setTimeout(function(){
+        						$('#changeSuccess').animate({
+	        						top: '2000px', 
+	        						complete: function(){
+	        							$('#changeSuccess').hide();
+	        						}
+	        					}, 2000);
+	        				},2000);
+        				// 	setTimeout(function(){$('#changeSuccess').hide();}, 2000);
         				} else {
         					alert(data.reason);
         					/*攻击预防*/
