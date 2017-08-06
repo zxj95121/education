@@ -318,6 +318,7 @@ function emoji_decode($str){
 					}; 
 	        	}
 	        	$('#textInput').val('');
+	        	changeTextArea();
 	        	$('#imageBtn').show();
     			$('#sendBtn').hide();
 		    };
@@ -375,6 +376,7 @@ function emoji_decode($str){
 
 		function sendMessage() {
     		$('#textInput').val('');
+    		changeTextArea();
     	}
 
     	function hideAlert() {
