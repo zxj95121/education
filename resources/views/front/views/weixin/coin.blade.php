@@ -194,7 +194,7 @@
         })();
 
 
-        $(function(){
+        Zepto(function($){
         	// $('.addNum').click(function(){
         	// 	var num = parseInt($(this).prev().val());
         	// 	// num ++;
