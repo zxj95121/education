@@ -572,10 +572,10 @@ function emoji_decode($str){
 	    })
 
     	function changeTextArea() {
-    		var height = $('#textInput')[0].scrollHeight;
+    		// var height = $('#textInput')[0].scrollHeight;
     		var width = $('#textInput').width();
-    		console.log(width);
-    		var row = (height-3)/19;
+    		// console.log(width);
+    		// var row = (height-3)/19;
     		
     		// console.log(document.getElementById("textInput").value.indexOf("\n"));
     		var value = document.getElementById("textInput").value;
@@ -591,13 +591,17 @@ function emoji_decode($str){
     			}
     		}
 
-    		console.log(hang);
+    		hang++;
 
-    		if (row <= 6) {
-	    		var outHeight = height+9;
-	    		$('#sendmessage').css('height', outHeight+'px');
-	    		$('#textInput').css('height', height+'px');
+    		height = hang*19;
+    		if (hang >6) {
+	    		height = 19*6;
+	    	} else if (hang <= 2){
+				height = 19*2;
 	    	}
+	    	var outHeight = height+9;
+    		$('#sendmessage').css('height', outHeight+'px');
+    		$('#textInput').css('height', height+'px');
     	}
     </script>
   </body>
