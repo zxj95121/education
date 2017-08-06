@@ -26,6 +26,7 @@ use App\Models\HobbyApply;
 use App\Models\ContactChat;
 use App\Models\HalfBuyInfo;
 use App\Models\HalfBuyRecord;
+use App\Models\ParentChild;
 
 use Session;
 use Wechat;
@@ -333,6 +334,11 @@ class ManagerController extends Controller
         }
 
         $nid = NewUser::where('openid', $openid)->first();
+
+        $pid = ParentInfo::where('openid', $openid)->first()->id;
+
+        ParentChild::where('pid', $pid)
+            ->delete();
 
         ContactChat::where('uid', $nid)->delete();
 
