@@ -303,7 +303,7 @@ div.message.right .corner{
 	z-index: 2;
 	position:absolute;
 	right: 10px;
-	top: 5px;
+	bottom: 5px;
 	border:none;
 }
 #sendmessage button:hover{
