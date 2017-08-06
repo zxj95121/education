@@ -249,7 +249,7 @@
         				if (data.errcode == 0) {
         					$('.ui-loading-block').remove();
         					$('#changeSuccess').show(0);
-        					setTimeout(function(){$('#changeSuccess').animate({'marginTop': '1000px'}, 2000)},2000);
+        					setTimeout(function(){$('#changeSuccess').animate({'Top': '2000px'}, 2000)},2000);
         					setTimeout(function(){$('#changeSuccess').hide();}, 2000);
         				} else {
         					alert(data.reason);
