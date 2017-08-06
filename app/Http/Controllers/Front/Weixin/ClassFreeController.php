@@ -13,6 +13,8 @@ class ClassFreeController extends Controller
    	public function index(Request $request)
    	{
    		$timeObj = ClassFreeActiveTime::find(1);
+   		dump($timeObj->start_time);
+   		dump($timeObj->end_time);
    		return view('front.views.weixin.classFree',['freeTime'=>$timeObj]); 
    	}
    	public function oauth()
