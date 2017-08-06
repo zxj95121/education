@@ -262,6 +262,7 @@
         					$('#restCoin').html(coin);
         					$('#maxNotice').html(coinNum);
         					$('#restTicket').html(vouNum);
+        					$('#changeInput').attr('max', $coinNum);
 
 
         					setTimeout(function(){
