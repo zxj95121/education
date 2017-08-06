@@ -184,27 +184,27 @@ function emoji_decode($str){
     		request = 0;
     		interval = 0;
 
-    		$('#textInput').keyup(function(){
-    			var val  = $(this).val();
-    			if (val == '') {
-    				$('#imageBtn').show();
-    				$('#sendBtn').hide();
-    			} else {
-    				$('#imageBtn').hide();
-    				$('#sendBtn').show();
-    			}
-    		});
+    		// $('#textInput').keyup(function(){
+    		// 	var val  = $(this).val();
+    		// 	if (val == '') {
+    		// 		$('#imageBtn').show();
+    		// 		$('#sendBtn').hide();
+    		// 	} else {
+    		// 		$('#imageBtn').hide();
+    		// 		$('#sendBtn').show();
+    		// 	}
+    		// });
 
-    		$('#textInput').change(function(){
-    			var val  = $(this).val();
-    			if (val == '') {
-    				$('#imageBtn').show();
-    				$('#sendBtn').hide();
-    			} else {
-    				$('#imageBtn').hide();
-    				$('#sendBtn').show();
-    			}
-    		});
+    		// $('#textInput').change(function(){
+    		// 	var val  = $(this).val();
+    		// 	if (val == '') {
+    		// 		$('#imageBtn').show();
+    		// 		$('#sendBtn').hide();
+    		// 	} else {
+    		// 		$('#imageBtn').hide();
+    		// 		$('#sendBtn').show();
+    		// 	}
+    		// });
 
 
     		var u = navigator.userAgent;
@@ -558,14 +558,18 @@ function emoji_decode($str){
 			}
     	})
 
-	    $('#textInput').focus(function(){
-	    	inter2 = setInterval(function(){
-	    		changeTextArea();
-	    	}, 30);
-	    })
+	    // $('#textInput').focus(function(){
+	    // 	inter2 = setInterval(function(){
+	    // 		changeTextArea();
+	    // 	}, 30);
+	    // })
 
-	    $('#textInput').blur(function(){
-	    	clearInterval(inter2);
+	    // $('#textInput').blur(function(){
+	    // 	clearInterval(inter2);
+	    // })
+
+	    $('#textInput').change(function(){
+	    	changeTextArea();
 	    })
 
     	function changeTextArea() {
