@@ -590,7 +590,7 @@ function emoji_decode($str){
 
 		    	var top = $('#textInput')[0].scrollTop;
 		    	// console.log(top);
-		    	if (top <= 0 && y < 0) {
+		    	if (top <= 0 && y > 0) {
 		    		e.preventDefault();
 		    	}
 		    }
