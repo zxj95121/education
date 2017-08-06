@@ -149,7 +149,7 @@
 
 		$this = $(this);
 
-		var width = $this.width();
+		var width = $this.width(); 
 		var height = $this.height();
 
 		var totalPixels = width * height;
