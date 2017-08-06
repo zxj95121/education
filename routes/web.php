@@ -290,6 +290,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
   /*我的加辰币*/
   $router->get('/coin', 'Weixin\CoinController@coin');
   $router->get('/coin/oauth', 'Weixin\CoinController@oauth');/*我的加辰币网页授权*/
+  $router->post('/coin/convert', 'Weixin\CoinController@convert');
 
 
 	/*微信分享  */

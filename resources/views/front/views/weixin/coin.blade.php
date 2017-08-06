@@ -116,19 +116,19 @@
 									            <a href="#">兑换优惠券（满1000减88）</a>
 									        </div>
 									        <div class="ui-form-item ui-form-item-r ui-border-b">
-									            <input type="number" max="{{$changeNumber}}" placeholder="" value="0" style="padding-left: 15px;" readonly="readonly">
+									            <input type="number" id="changeInput" max="{{$changeNumber}}" placeholder="" value="0" style="padding-left: 15px;">
 									            
 									            <!-- 若按钮不可点击则添加 disabled 类 -->
-									            <button type="button" class="ui-border-l addNum">增加</button>
+									            <button type="button" class="ui-border-l" id="change">确认兑换</button>
 	<!-- 									            <a href="#" class="ui-icon-close"></a> -->
 									        </div>
-									        <div class="ui-form-item" style="text-align: center;background: #48C23D;color: #FFF;border-radius: 3px;margin-top: 15px;" id="change">
+									        <!-- <div class="ui-form-item" style="text-align: center;background: #48C23D;color: #FFF;border-radius: 3px;margin-top: 15px;" >
 									            确认兑换
-									        </div>
+									        </div> -->
 									    </form>
 									</div>
 
-									<div class="ui-tips ui-tips-success" id="changeSuccess">
+									<div class="ui-tips ui-tips-success" id="changeSuccess" style="display: none;">
 									    <i></i><span>兑换成功！</span>
 									</div>
             			        </li>
@@ -193,24 +193,25 @@
 
 
         $(function(){
-        	$('.addNum').click(function(){
-        		var num = parseInt($(this).prev().val());
-        		// num ++;
-        		$(this).prev().val(++num);
-        	})
+        	// $('.addNum').click(function(){
+        	// 	var num = parseInt($(this).prev().val());
+        	// 	// num ++;
+        	// 	$(this).prev().val(++num);
+        	// })
 
 
         	$('#change').click(function(){
-				var num = $('.addNum').prev().val();
+				var num = $('#changeInput').val();
+				var max = {{$changeNumber}};
 				if (num <= 0) {
 					layer.open({
 						content:'数量不能为0',
 						skin:'msg',
 						time:2
 					});
-				} else if (num > {{$changeNumber}}) {
+				} else if (num > max) {
 					layer.open({
-						content: '超过最大兑换数亮',
+						content: '最大兑换数量'+max+'个',
 						skin:'msg',
 						time:2
 					});
@@ -231,7 +232,27 @@
         	$('#qrdh').click(function(){
         		$(".ui-dialog1").dialog("hide");
         		var el = $.loading({content:'兑换中...'});
-        		$('.ui-loading-block').remove();
+        		setTimeout(function(){$('.ui-loading-block').remove();}, 8000);
+        		$.ajax({
+        			url :'/front/coin/convert',
+        			dataType: 'json',
+        			type: 'post',
+        			data: {
+        				num: $('#changeInput').val()
+        			},
+        			success: function(data) {
+        				if (data.errcode == 0) {
+        					$('.ui-loading-block').remove();
+        					$('#changeSuccess').show(0);
+        					setTimeout(function(){$('#changeSuccess').animate({'marginTop': '1000px'}, 2000)},2000);
+        					setTimeout(function(){$('#changeSuccess').hide();}, 2000);
+        				} else {
+        					alert(data.reason);
+        					/*攻击预防*/
+        				}
+        			}
+        		})
+        		
         	})
         })
         </script>

@@ -32,4 +32,33 @@ class CoinController extends Controller
     {
     	return redirect(OauthController::getUrl(13, 0));
     }
+
+    public function convert(Request $request)
+    {
+    	$num = $request->input('num');
+    	$openid = Session::get('openid');
+
+    	$userObj = NewUser::where('openid')
+    		->select('id', 'voucher', 'coin')
+    		->get()
+    		->first();
+
+    	$coin = $userObj->coin;
+
+    	$coin -= $num*100;
+
+    	if ($coin < 0) {
+    		return response()->json('errcode'=>1,'reason'=>'请求兑换数量太多');
+    	}
+
+    	$voucher = $userObj->voucher + $num;
+
+    	$flight = NewUser::find($userObj->id);
+    	$flight->voucher = $voucher;
+    	$flight->coin = $coin;
+    	$flight->save();
+
+
+    	return response()->json(['errcode'=>0])
+    }
 }
