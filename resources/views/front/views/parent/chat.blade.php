@@ -121,8 +121,7 @@ function emoji_decode($str){
 
 			</div>
 
-			<span id="textInputSpan" style="opacity: 0;" style="font-size: 19px;padding-left: 8px;"></span>
-
+			<span id="textInputSpan" style="opacity: 0;font-size: 19px;padding-left: 8px;"></span>
         </div>
     </div>
 
@@ -581,7 +580,7 @@ function emoji_decode($str){
     		// console.log(document.getElementById("textInput").value.indexOf("\n"));
     		var value = document.getElementById("textInput").value;
     		var hang = 0;
-    		for (var i = 0,j = 0; i < value.length; i++) {
+    		for (var i = 0,j = 0; i < value.length+1; i++) {
     			var str = value.substring(j, i);
     			$('#textInputSpan').html(str);
     			var ww = $('#textInputSpan').width();
