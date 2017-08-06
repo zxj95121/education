@@ -423,7 +423,10 @@ function emoji_decode($str){
     </script>
 
     <script type="text/javascript">
-
+		document.querySelector('body').addEventListener('touchstart', function (ev) {
+		    event.preventDefault();
+		});
+		
 	    var state = {};
 	    // var temp = 0;
 
