@@ -259,6 +259,8 @@
 						id:id,
 						active_time:active_time
 					},
+					type:'post',
+					datatype:'json',
 					success:function(data){
 						if(data.code == 1){
 							$.closeModal('.popup-services')
