@@ -35,6 +35,10 @@
 			.ui-grid-trisect > li {
 				width: 100%;
 			}
+			.ui-loading-cnt{
+				margin: 0 auto;
+				margin-top: 45%;
+			}
 		</style>
 	</head>
 	<body>
@@ -71,7 +75,7 @@
 													    <i></i><span>加辰币余额</span>
 													</div>
 									                <div style="text-align: center;width: 100%;font-size: 3em;color: #22AAE8;">
-									                    888
+									                    {{$userObj->coin}}
 									                </div>
 									            </div>
 									        </li>
@@ -79,16 +83,53 @@
 									</section>
             			        </li>
             			        <li class="li1">
+            			        	<div style="height: 124px;margin: 0 auto 20px;width: 96%;">
+            			        		<div class="col-xs-12" id="voucher" style="margin-top:24px;height:100px;padding: 0px;background: #FFF;">
+											<div style="width: 36%;border-left: groove;border-color:#22AAE8;background: #22AAE8;display: inline-block;height: 100%;">
+												<div style="height: 68px;line-height: 68px; text-align: center;color: #FFF;">
+													¥ <span style="font-size:40px;">88</span>
+												</div>
+												<div style="text-align: center;color: #FFF;font-size:12px;">
+													满1000减可用
+												</div>
+											</div>
+											<div style="width: 62%;background: #FFF;height: 100%;display: inline-block;">
+												<div style="height: 68px;text-align: left;color: #000;padding-top:10px;">
+													<ol type="decimal">
+														<li style="font-size:14px;">优惠券可叠加使用</li>
+														<li style="font-size:14px;">除半价课程均可使用</li>
+													</ol>
+												</div>
+												<div style="text-align: center;color: #FFF;text-align: right;font-size:12px;height: 32px;">
+													<label class="label label-success" style="position: relative;height: 100%;font-size:14px;right: 8px;cursor: pointer;">剩余{{floor($userObj->voucher/88)}}张</label>
+												</div>
+											</div>
+										</div>
+            			        	</div>
+            			        	<div class="ui-tips ui-tips-info">
+            			        		@php $changeNumber = floor($userObj->coin/100); @endphp
+									    <i></i><span>您的币额最多可兑换{{$changeNumber}}张券</span>
+									</div>
             			        	<div class="ui-form ui-border-t">
 									    <form action="#">
+										    <div class="ui-form-item ui-form-item-order ui-border-b">
+									            <a href="#">兑换优惠券（满1000减88）</a>
+									        </div>
 									        <div class="ui-form-item ui-form-item-r ui-border-b">
-									            <input type="text" placeholder="兑换个数" readonly="readonly">
+									            <input type="number" max="{{$changeNumber}}" placeholder="" value="0" style="padding-left: 15px;" readonly="readonly">
 									            
 									            <!-- 若按钮不可点击则添加 disabled 类 -->
-									            <button type="button" class="ui-border-l">增加</button>
-<!-- 									            <a href="#" class="ui-icon-close"></a> -->
+									            <button type="button" class="ui-border-l addNum">增加</button>
+	<!-- 									            <a href="#" class="ui-icon-close"></a> -->
+									        </div>
+									        <div class="ui-form-item" style="text-align: center;background: #48C23D;color: #FFF;border-radius: 3px;margin-top: 15px;" id="change">
+									            确认兑换
 									        </div>
 									    </form>
+									</div>
+
+									<div class="ui-tips ui-tips-success" id="changeSuccess">
+									    <i></i><span>兑换成功！</span>
 									</div>
             			        </li>
             			        <li class="li2" style="min-height: 150px;">
@@ -107,14 +148,30 @@
         </section>
 
 
-        
+        <div class="ui-dialog ui-dialog1">
+		    <div class="ui-dialog-cnt" style="margin: 0 auto;margin-top: 35%;">
+		      <header class="ui-dialog-hd ui-border-b">
+		                  <h3 style="line-height: 48px;">兑换提醒</h3>
+		                  <i class="ui-dialog-close" data-role="button"></i>
+		              </header>
+		        <div class="ui-dialog-bd">
+		            <!-- <h4>兑换操作无法撤回</h4> -->
+		            <div>您将兑换<span id="changeNum">4</span>张优惠券，且优惠券无法兑换加辰币。</div>
+		        </div>
+		        <div class="ui-dialog-ft">
+		            <button type="button" data-role="button" id="qxdh">取消</button>
+		            <button type="button" data-role="button" id="qrdh">兑换</button>
+		        </div>
+		    </div>        
+		</div>
+
         
 	</div>
 
 		<!-- <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script> -->
 		<!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script> -->
 		<!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script> -->
-		<script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
+		<!-- <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script> -->
 		<script type="text/javascript" src="/js/layui/layer_only/mobile/layer.js"></script>
 		<script src="/js/frozen/js/lib/zeptojs/zepto.min.js"></script>
         <script src="/js/frozen/js/frozen.js"></script>
@@ -133,5 +190,49 @@
                 console.log(fromIndex,toIndex);// from 为当前页，to 为下一页
             })
         })();
+
+
+        $(function(){
+        	$('.addNum').click(function(){
+        		var num = parseInt($(this).prev().val());
+        		// num ++;
+        		$(this).prev().val(++num);
+        	})
+
+
+        	$('#change').click(function(){
+				var num = $('.addNum').prev().val();
+				if (num <= 0) {
+					layer.open({
+						content:'数量不能为0',
+						skin:'msg',
+						time:2
+					});
+				} else if (num > {{$changeNumber}}) {
+					layer.open({
+						content: '超过最大兑换数亮',
+						skin:'msg',
+						time:2
+					});
+				} else {
+        			$('#changeNum').html(num);
+        			$(".ui-dialog1").dialog("show");
+        		}
+        	})
+
+        	$('i.ui-dialog-close').click(function(){
+        		$(".ui-dialog1").dialog("hide");
+        	})
+
+        	$('#qxdh').click(function(){
+        		$(".ui-dialog1").dialog("hide");
+        	})
+
+        	$('#qrdh').click(function(){
+        		$(".ui-dialog1").dialog("hide");
+        		var el = $.loading({content:'兑换中...'});
+        		$('.ui-loading-block').remove();
+        	})
+        })
         </script>
 	</body>

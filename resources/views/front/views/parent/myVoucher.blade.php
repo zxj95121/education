@@ -65,7 +65,7 @@
 								<div style="height: 68px;text-align: left;color: #000;padding-top:10px;">
 									<ol type="decimal">
 										<li style="font-size:14px;">优惠券可叠加使用</li>
-										<li style="font-size:14px;">任意课程均可使用</li>
+										<li style="font-size:14px;">除半价课程均可使用</li>
 									</ol>
 								</div>
 								<div style="text-align: center;color: #FFF;text-align: right;font-size:12px;height: 32px;">
