@@ -249,13 +249,18 @@
         				if (data.errcode == 0) {
         					$('.ui-loading-block').remove();
         					$('#changeSuccess').show(0);
+
+        					console.log(data.data);
+        					/*进行兑换成功后的页面改变*/
+
+
         					setTimeout(function(){
-        						$('#changeSuccess').animate({
-	        						top: '2000px', 
-	        						complete: function(){
-	        							$('#changeSuccess').hide();
-	        						}
-	        					}, 2000);
+        						// $('#changeSuccess').animate({
+	        					// 	top: '2000px', 
+	        					// 	complete: function(){
+	        					$('#changeSuccess').hide();
+	        					// 	}
+	        					// }, 2000);
 	        				},2000);
         				// 	setTimeout(function(){$('#changeSuccess').hide();}, 2000);
         				} else {

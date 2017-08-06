@@ -51,7 +51,7 @@ class CoinController extends Controller
     		return response()->json(['errcode'=>1,'reason'=>'请求兑换数量太多']);
     	}
 
-    	$voucher = $userObj->voucher + $num;
+    	$voucher = $userObj->voucher + $num*88;
 
     	$flight = NewUser::find($userObj->id);
     	$flight->voucher = $voucher;
@@ -59,6 +59,6 @@ class CoinController extends Controller
     	$flight->save();
 
 
-    	return response()->json(['errcode'=>0]);
+    	return response()->json(['errcode'=>0,'data'=>$flight]);
     }
 }
