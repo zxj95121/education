@@ -35,7 +35,7 @@ class CoinController extends Controller
 
     public function convert(Request $request)
     {
-    	$num = $request->input('num');
+    	$num = (int)$request->input('num');
     	$openid = Session::get('openid');
 
     	$userObj = NewUser::where('openid')

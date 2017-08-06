@@ -211,7 +211,7 @@
 
 
         	$('#change').click(function(){
-				var num = $('#changeInput').val();
+				var num = parseInt($('#changeInput').val());
 				var max = {{$changeNumber}};
 				if (num <= 0) {
 					layer.open({
