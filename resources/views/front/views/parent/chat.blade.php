@@ -575,10 +575,11 @@ function emoji_decode($str){
 
 	    $('#textInput').bind('touchmove', function(e){
 	    	var top = $('#textInput')[0].scrollTop;
+	    	console.log(top);
 	    	if (top <= 0) {
 	    		e.preventDefault();
 	    	}
-	    }
+	    })
 
     	function changeTextArea() {
     		// var height = $('#textInput')[0].scrollHeight;
