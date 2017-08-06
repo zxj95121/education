@@ -423,9 +423,6 @@ function emoji_decode($str){
     </script>
 
     <script type="text/javascript">
-		document.querySelector('body').addEventListener('touchstart', function (ev) {
-		    event.preventDefault();
-		});
 		
 	    var state = {};
 	    // var temp = 0;
@@ -575,6 +572,13 @@ function emoji_decode($str){
 	    $('#textInput').blur(function(){
 	    	clearInterval(inter2);
 	    })
+
+	    $('#textInput').bind('touchmove', function(e){
+	    	var top = $('#textInput')[0].scrollTop;
+	    	if (top <= 0) {
+	    		e.preventDefault();
+	    	}
+	    }
 
     	function changeTextArea() {
     		// var height = $('#textInput')[0].scrollHeight;
