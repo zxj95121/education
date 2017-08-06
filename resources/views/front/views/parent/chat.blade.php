@@ -577,13 +577,13 @@ function emoji_decode($str){
     		var width = $('#textInput').width();
     		var row = (height-3)/19;
     		
-    		console.log(document.getElementById("textInput").value.indexOf("\n"));
+    		// console.log(document.getElementById("textInput").value.indexOf("\n"));
     		var value = document.getElementById("textInput").value;
     		var hang = 0;
     		for (var i = 0,j = 0; i < value.length; i++) {
     			var str = value.substring(j, i);
     			$('#textInputSpan').html(str);
-    			var ww = $('#textInputSpan')[0].clientWidth;
+    			var ww = $('#textInputSpan').width();
     			
     			if (ww > width) {
     				j = i-1;
