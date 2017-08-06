@@ -38,7 +38,7 @@ class CoinController extends Controller
     	$num = (int)$request->input('num');
     	$openid = Session::get('openid');
 
-    	$userObj = NewUser::where('openid')
+    	$userObj = NewUser::where('openid', $openid)
     		->select('id', 'voucher', 'coin')
     		->get()
     		->first();
