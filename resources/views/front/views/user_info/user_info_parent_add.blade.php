@@ -425,6 +425,9 @@ $signPackage = $jssdk->GetSignPackage();
 	        		for (var i in communityInfo) {
 	        			$('#community .col:eq(0)').append('<div class="row row_community cOne" number="'+i+'" cid = "'+communityInfo[i].id+'">'+communityInfo[i].name+'</div>');
 	        		}
+
+	        		$('.cOne')[0].click();
+	        		setTimeout(function(){$('.cOne')[0].click();}, 300);
 	        	}
 	        })
 
