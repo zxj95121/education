@@ -8,6 +8,9 @@
     .operate span{
         cursor: pointer;
     }
+    .abc a{
+		margin-right:10px;   			
+   	}
 </style>
 @endsection
 
@@ -40,11 +43,11 @@
                                 <div class="portlet-body">
                                 	<div class="row">
 	                                    <div class="table-responsive">
+                                        	<div class="abc" style="padding-left:10px;margin-top:5px;margin-bottom:5px;">
+                                            	<a href="#"  class="label label-info"  onclick="allyes()">全选</a><a href="#" class="label label-inverse" onclick="allno()">取消</a><a href="#" onclick="settime()" id="piliang" class="label label-primary">批量设置时间</a></td>
+                                            </div>
 	                                        <table class="table">
 	                                            <thead>
-	                                            	<tr>
-	                                            		<th><a href="#" onclick="allyes()">全选</a><a href="#" onclick="allno()">取消</a><a href="#" onclick="settime()" id="piliang">批量设置时间</a></th>
-	                                            	</tr>
 	                                                <tr>
 	                                                    <th>ID</th>
 	                                                    <th>用户昵称</th>
@@ -184,7 +187,7 @@ $.jeDate('#inputstart',start);
     	
     }
 	$('#add').click(function(){
-		if($('hiddenDate').val() == ''){
+		if($('#hiddenDate').val() == ''){
 			layer.msg('还未选择日期');
 			return false;
 		}
@@ -205,14 +208,14 @@ $.jeDate('#inputstart',start);
 				success:function(data){
 					if(data.code == 1){
 						$('#exampleModal').modal('hide');
-						$('#inputstart').val('');
-						$('#hiddenDate').val('');
-						$('#sum').val(12);
+
 						layer.msg('分配时间成功，请进行通知');
 						setTimeout(function(){
 							window.location.href="/admin/classFree/setActiveTime";
 						},2000)
-						
+						$('#inputstart').val('');
+						$('#hiddenDate').val('');
+						$('#sum').val(12);
 					}else{
 						$('#exampleModal').modal('hide');
 						layer.msg('分配时间失败');
