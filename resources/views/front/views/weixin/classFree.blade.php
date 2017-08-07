@@ -202,7 +202,7 @@
 							$.popup('.popup-about');
 							return false;
 						}else{
-							$.toast(data.msg);
+							$.alert(data.msg);
 							return false;
 						}
 					}
