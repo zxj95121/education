@@ -60,7 +60,7 @@ class EclassBigOrderController extends Controller
 
     	$orderList = $orderList->orderBy('big_order.created_at', 'desc')
     		->select('nu.phone as phone', 'nu.nickname as nickname', 'big_order.*')
-    		->paginate(5);
+    		->paginate(10);
             // dd($orderList);
         $child = array();
         foreach ($orderList as $value) {
