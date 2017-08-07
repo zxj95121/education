@@ -165,40 +165,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                                                                    （半价课程不定期更新）
 		                                                                </p>
 		                                                            </section>
-		                                                            <section style="font-size: 16px; padding-top: 1em; padding-left: 1em;">
-		                                                                <section style="width:5em;
-		height:5em;
-		padding:0.5em 0;
-		background:#576eb5;
-		text-align:center;
-		color:#fff;
-		overflow:hidden;
-		border-radius:50%;
-		box-sizing:border-box;">
-		                                                                    <section style="width:1.2em;
-		font-size:1em;
-		line-height:1.4em;
-		display:inline-block;
-		overflow:hidden;">
-		                                                                        <p style="margin:0">
-		                                                                            半价券
-		                                                                        </p>
-		                                                                    </section>
-		                                                                </section>
-		                                                            </section>
-		                                                            <section style="font-size: 16px; margin-top: -4.5em; margin-left: 8em;">
-		                                                                <section style="
-		padding-top: -2em;
-		font-size: 16px;
-		">
-		                                                                    <p>
-		                                                                        <span style="color: rgb(12, 12, 12); font-size: 18px;"><span style="color: rgb(12, 12, 12); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, 微软雅黑, Tahoma, Arial, sans-serif;">您当前拥有半价券 {{$halfObj->ticket_num}} 张</span></span>
-		                                                                    </p>
-		                                                                </section>
-		                                                            </section>
-		                                                            <section style="font-size: 16px; text-align: center; color: rgb(87, 110, 181); margin-left: 3.5em;">
-		                                                                <button id="shareBtn" type="button" class="btn btn-success btn-lg">分享得券</button>
-		                                                            </section>
+
 		                                                            <section style="font-size: 16px; padding-top: 1em; padding-left: 1em;">
 		                                                                <section style="width:5em;
 		height:5em;
@@ -235,6 +202,42 @@ $signPackage = $jssdk->GetSignPackage();
 		                                                                    d
 		                                                                </p>
 		                                                            </section>
+		                                                            
+		                                                            <section style="font-size: 16px; padding-top: 1em; padding-left: 1em;">
+		                                                                <section style="width:5em;
+		height:5em;
+		padding:0.5em 0;
+		background:#576eb5;
+		text-align:center;
+		color:#fff;
+		overflow:hidden;
+		border-radius:50%;
+		box-sizing:border-box;">
+		                                                                    <section style="width:1.2em;
+		font-size:1em;
+		line-height:1.4em;
+		display:inline-block;
+		overflow:hidden;">
+		                                                                        <p style="margin:0">
+		                                                                            半价券
+		                                                                        </p>
+		                                                                    </section>
+		                                                                </section>
+		                                                            </section>
+		                                                            <section style="font-size: 16px; margin-top: -4.5em; margin-left: 8em;">
+		                                                                <section style="
+		padding-top: -2em;
+		font-size: 16px;
+		">
+		                                                                    <p>
+		                                                                        <span style="color: rgb(12, 12, 12); font-size: 18px;"><span style="color: rgb(12, 12, 12); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, 微软雅黑, Tahoma, Arial, sans-serif;">您当前拥有半价券 {{$halfObj->ticket_num}} 张</span></span>
+		                                                                    </p>
+		                                                                </section>
+		                                                            </section>
+		                                                            <section style="font-size: 16px; text-align: center; color: rgb(87, 110, 181); margin-left: 3.5em;">
+		                                                                <button id="shareBtn" type="button" class="btn btn-success btn-lg">分享得券</button>
+		                                                            </section>
+		                                                            
 		                                                            <section style="font-size: 16px; padding-top: 1em; padding-left: 1em;">
 		                                                                <section style="width:5em;
 		height:5em;
