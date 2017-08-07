@@ -250,9 +250,10 @@
     <script type="text/javascript">
         // button切换
         $(function(){
-            $('.iBtn').click(function(){
-                var index = $(this).index();
+            $('.iBtn').click(function(e){
+                var index = $(this).index('.iBtn');
                 var other = (index+1)%2;
+
                 if ($(this).hasClass('roleActive')) {
                     $(this).removeClass('roleActive');
                     $('.iBtn:eq('+other+')').addClass('roleActive');
@@ -260,6 +261,9 @@
                     $(this).addClass('roleActive');
                     $('.iBtn:eq('+other+')').removeClass('roleActive');
                 }
+
+                e.stopPropagation();
+
             })
         })
     </script>
