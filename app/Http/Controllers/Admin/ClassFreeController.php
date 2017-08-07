@@ -59,7 +59,7 @@ class ClassFreeController extends Controller
 	    	->paginate(10);
     	return view('admin.classFree.notice',['res'=>$freeObj]);
     }
-    public function noticePost()
+    public function noticePost(Request $reqeust)
     {
     	$ids = $request->input('ids');
     	for($i = 0; $i < count($ids); $i++){
