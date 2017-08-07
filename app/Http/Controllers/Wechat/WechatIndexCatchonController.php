@@ -91,9 +91,9 @@ class wechatIndexCatchonController extends Controller
         switch(strtolower($object->Event))
         {
             case "subscribe":
-                $openid = $object->FromUserName;
-                $subscribe = new SubscribeController();
-                $subscribe->subscribe($openid);
+                // $openid = $object->FromUserName;
+                // $subscribe = new SubscribeController();
+                // $subscribe->subscribe($openid);
 //             $content[] = array("Title"=>"【1】分组  笑话  信步校园  天气查询  星座
 // 【2】答题  宿管投票  微访谈  游戏 
 // 【3】备注  天气查询  历史上的今天
@@ -105,7 +105,7 @@ class wechatIndexCatchonController extends Controller
 //                                "PicUrl"=>"",
 //                                "Url" =>""
 //                               );
-            $result = $this->transmitText($object, '终于等到你，还好我没放弃');
+                $result = $this->transmitText($object, '终于等到你，还好我没放弃');
             break;
             case "unsubscribe":
             break;
