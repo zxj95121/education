@@ -21,6 +21,7 @@ use App\Models\Hobby;
 use App\Models\HobbyApply;
 use App\Models\NewUser;
 
+use DB;
 use Session;
 
 class UserInfoController extends Controller
