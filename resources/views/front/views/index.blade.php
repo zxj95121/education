@@ -254,7 +254,7 @@
             'background-color': '#48C23D',
             'color': '#FFF'
         };
-        var obj1 = {
+        var obj2 = {
             'border-color': '#e6e6e6',
             'background-color': '#e6e6e6',
             'color': '#333'
