@@ -617,7 +617,7 @@ class UserInfoController extends Controller
                 $communityThree = DB::table('community_community')
                     ->where('status', 1)
                     ->where('aid', $v->id)
-                    ->orderBy(DB::raw('CONVERT( name USING gbk ) COLLATE gbk_chinese_ci ASC'))
+                    ->orderBy(DB::raw('CONVERT(name USING gbk)'))
                     ->select('id', 'name', 'aid')
                     ->get();
 
