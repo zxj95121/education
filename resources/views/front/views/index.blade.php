@@ -51,9 +51,9 @@
                     </div>
                 </div>
             </div> -->
-            <div class="identity" style="height: 60px;padding: 10px auto;">
-                <div class="iBtn btn btn-default radius">我是家长</div>
-                <div class="iBtn btn btn-default radius">我是名师</div>
+            <div class="identity" style="height: 60px;padding: 20px 0px 10px;text-align: center;box-sizing: border-box;">
+                <div class="iBtn btn btn-default radius" style="margin-right: 10px;">我是家长</div>
+                <div class="iBtn btn btn-default radius" style="margin-left: 10px;">我是名师</div>
             </div>
             <p id="tishi">让你看不到，哈哈哈</p>
 
