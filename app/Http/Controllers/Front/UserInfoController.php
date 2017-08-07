@@ -609,6 +609,7 @@ class UserInfoController extends Controller
 
                 $communityThree = CommunityCommunity::where('status', 1)
                     ->where('aid', $v->id)
+                    ->orderBy('name')
                     ->select('id', 'name', 'aid')
                     ->get();
 
