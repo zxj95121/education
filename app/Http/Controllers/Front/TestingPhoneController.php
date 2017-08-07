@@ -72,7 +72,6 @@ class TestingPhoneController extends Controller
 	}
 	public function save_phone(Request $request)
 	{
-		dump(Session::get('phoneCode'));
 		$phone = $request->input('phone');
 		$phoneCode = $request->input('phoneCode');
 		if ($phoneCode != Session::get('phoneCode')) {
