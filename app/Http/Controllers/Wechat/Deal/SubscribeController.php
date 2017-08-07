@@ -13,7 +13,9 @@ class SubscribeController extends Controller
     public function subscribe($openid)
     {
     	/*关注的时候，判断是不是被别人分享关注的*/
-    	$this->share($openid);
+    	// $this->share($openid);
+    	UserShare::where('openid', $openid)
+    		->update(['subscribe', '1']);
     }
 
 	private function share($openid)
