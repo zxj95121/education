@@ -617,7 +617,7 @@ class UserInfoController extends Controller
                 $communityThree = DB::table('community_community')
                     ->where('status', 1)
                     ->where('aid', $v->id)
-                    ->orderBy(DB::raw('nlssort(name, \'NLS_SORT=SCHINESE_PINYIN_M\'))')
+                    ->orderBy(DB::raw('nlssort(name, \'NLS_SORT=SCHINESE_PINYIN_M\')'))
                     ->select('id', 'name', 'aid')
                     ->get();
 
