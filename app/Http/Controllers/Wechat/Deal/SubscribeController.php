@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Wechat\Deal;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Models\NewUser;
-use App\Models\UserShare;
+// use App\Models\NewUser;
+// use App\Models\UserShare;
 
 class SubscribeController extends Controller
 {
