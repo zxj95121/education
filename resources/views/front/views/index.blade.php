@@ -18,6 +18,11 @@
         .iBtn{
             display: inline-block;
         }
+        .roleActive{
+            background-color: #48C23D;
+            border-color: #48C23D;
+            color: #FFF;
+        }
     </style>
 </head>
 
@@ -52,8 +57,8 @@
                 </div>
             </div> -->
             <div class="identity" style="height: 60px;padding: 20px 0px 10px;text-align: center;box-sizing: border-box;">
-                <div class="iBtn btn btn-default radius" style="margin-right: 10px;">我是家长</div>
-                <div class="iBtn btn btn-default radius" style="margin-left: 10px;">我是名师</div>
+                <div class="iBtn btn btn-default radius" style="margin-right: 10px;" val="1">我是家长</div>
+                <div class="iBtn btn btn-default radius" style="margin-left: 10px;" val="2">我是名师</div>
             </div>
             <p id="tishi">让你看不到，哈哈哈</p>
 
@@ -168,7 +173,10 @@
             })
 
             $('#login_btn').click(function(){
-                var role = $('input[type="radio"]:checked').val();
+                // var role = $('input[type="radio"]:checked').val();
+                var role = $('.roleActive').attr('val');
+                console.log(role);
+                return false;
                 if (!role) {
                     $('#tishi').html('请选择身份！');
                     $('#tishi').css('opacity',1);
@@ -237,6 +245,24 @@
             seedMovement: true
         });
     </script> -->
+
+
+    <script type="text/javascript">
+        // button切换
+        $(function(){
+            $('.iBtn').click(function(){
+                var index = $(this).index();
+                var other = (index+1)%2;
+                if ($(this).hasClass('roleActive')) {
+                    $(this).removeClass('roleActive');
+                    $('.iBtn:eq('+other+')').addClass('roleActive');
+                } else {
+                    $(this).addClass('roleActive');
+                    $('.iBtn:eq('+other+')').removeClass('roleActive');
+                }
+            })
+        })
+    </script>
 
 </body>
 </html>
