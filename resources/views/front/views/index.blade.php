@@ -60,7 +60,7 @@
                 <div class="iBtn btn btn-default radius" style="margin-right: 10px;" val="1">我是家长</div>
                 <div class="iBtn btn btn-default radius" style="margin-left: 10px;" val="2">我是名师</div>
             </div>
-            <p id="tishi">让你看不到，哈哈哈</p>
+            <p id="tishi" style="color: #0af39e;">让你看不到，哈哈哈</p>
 
             <button id="login_btn" type="submit">确认绑定</button>
         </div>
