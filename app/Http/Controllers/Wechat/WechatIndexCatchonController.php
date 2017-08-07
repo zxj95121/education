@@ -90,18 +90,18 @@ class wechatIndexCatchonController extends Controller
         switch(strtolower($object->Event))
         {
             case "subscribe":
-            $content[] = array("Title"=>"【1】分组  笑话  信步校园  天气查询  星座
-【2】答题  宿管投票  微访谈  游戏 
-【3】备注  天气查询  历史上的今天
+//             $content[] = array("Title"=>"【1】分组  笑话  信步校园  天气查询  星座
+// 【2】答题  宿管投票  微访谈  游戏 
+// 【3】备注  天气查询  历史上的今天
 
- 快快邀请身边同学关注，一起走进微师大吧！
- 回复对应数字查看使用方法
- 发送 0 返回本菜单", 
-                               "Description"=>"",
-                               "PicUrl"=>"",
-                               "Url" =>""
-                              );
-            $result = $this->transmitNews($object, $content);
+//  快快邀请身边同学关注，一起走进微师大吧！
+//  回复对应数字查看使用方法
+//  发送 0 返回本菜单", 
+//                                "Description"=>"",
+//                                "PicUrl"=>"",
+//                                "Url" =>""
+//                               );
+            $result = $this->transmitText($object, '终于等到你，还好我没放弃');
             break;
             case "unsubscribe":
             break;
@@ -127,7 +127,7 @@ class wechatIndexCatchonController extends Controller
             $result = $this->transmitText($object, $content); 
         }
         else
-            $result = $this->transmitText($object, 'SB');
+            $result = $this->transmitText($object, $keyword);
         return $result;
     }
     
