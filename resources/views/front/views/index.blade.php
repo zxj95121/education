@@ -6,8 +6,8 @@
     <link rel="stylesheet" type="text/css" href="/css/weui.css">
     <link rel="stylesheet" href="/front/css_module/bind.css"/>
     <link rel="stylesheet" type="text/css" href="/js/h-ui/static/h-ui/css/H-ui.min.css">
-    <link rel="stylesheet" type="text/css" href="/js/sky/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/js/sky/css/default.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/js/sky/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/js/sky/css/default.css"> -->
     <style type="text/css">
         #head{
             background-image:url('{{$headimgurl}}');
@@ -221,14 +221,14 @@
             })
         })
     </script>
-    <script src="/js/sky/dist/jquery-starfield.js"></script>
+    <!-- <script src="/js/sky/dist/jquery-starfield.js"></script>
     <script>
         $('body').starfield({
             starDensity: 2.0,
             mouseScale: 0.5,
             seedMovement: true
         });
-    </script>
+    </script> -->
 
 </body>
 </html>

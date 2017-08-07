@@ -1,5 +1,5 @@
 <?php
-function postPhoneCodeSms($phone,$code)
+function postPhoneCodeSms($phone,$code,$templId=23619)
 {
     require_once "SmsSender.php";
     try {
@@ -7,7 +7,7 @@ function postPhoneCodeSms($phone,$code)
         $appid = 1400033207;
         $appkey = "731c695823783fb9fb78a77f0be26efd";
         $phoneNumber1 = $phone;
-        $templId = 23619;
+        // $templId = 23619;
 
         $singleSender = new SmsSingleSender($appid, $appkey);
 
