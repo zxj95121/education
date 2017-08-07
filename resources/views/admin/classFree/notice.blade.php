@@ -16,7 +16,7 @@
 
             <div class="wraper container-fluid">
                 <div class="page-title"> 
-                    <h3 class="title">免费试听课设置时间</h3> 
+                    <h3 class="title">免费试听课发送通知</h3> 
                 </div>
 
                 <div class="row">
@@ -26,7 +26,7 @@
                         <div class="portlet"><!-- /primary heading -->
                             <div class="portlet-heading">
                                 <h3 class="portlet-title text-dark text-uppercase">
-                                    免费试听课设置时间
+                                    免费试听课发送通知
                                 </h3>
                                 <div class="portlet-widgets">
                                     <span class="divider"></span>
@@ -43,7 +43,7 @@
 	                                        <table class="table">
 	                                            <thead>
 	                                            	<tr>
-	                                            		<th><a href="#" onclick="allyes()">全选</a><a href="#" onclick="allno()">取消</a><a href="#" onclick="settime()" id="piliang">批量设置时间</a></th>
+	                                            		<th><a href="#" onclick="allyes()">全选</a><a href="#" onclick="allno()">取消</a><a href="#" onclick="settime()" id="piliang">批量设置时间</a><a href="#" onclick="notice()">批量发送通知</a></th>
 	                                            	</tr>
 	                                                <tr>
 	                                                    <th>ID</th>
@@ -210,7 +210,7 @@ $.jeDate('#inputstart',start);
 						$('#sum').val(12);
 						layer.msg('分配时间成功，请进行通知');
 						setTimeout(function(){
-							window.location.href="/admin/classFree/setActiveTime";
+							window.location.href="/admin/classFree/notice";
 						},2000)
 						
 					}else{
@@ -221,5 +221,31 @@ $.jeDate('#inputstart',start);
 			})
 		}
 	})
+	function notice(){
+    	ids = [];
+    	$('input[name="ids"]:checked').each(function(){ 
+    		ids.push($(this).val()); 
+    	}); 
+    	if(ids.length == 0){
+			layer.msg('未进行选择');
+			return false;
+	    }
+	    $.ajax({
+			url:'/admin/classFree/notice_post',
+			data:{
+				ids:ids
+			},
+			type:'post',
+			datatype:'json',
+			success:function(data){
+				if(data.code == 1){
+					layer.msg('发送通知成功');
+					setTimeout(function(){
+						window.location.href="/admin/classFree/notice";
+					},2000)
+				}
+			}
+		})
+	}
 </script>
 @endsection

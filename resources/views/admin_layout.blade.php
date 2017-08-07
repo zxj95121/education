@@ -117,13 +117,9 @@
                             <li class="{!!(Request::is('admin/classProgress')? 'active' : '') !!}">
                                 <a href="/admin/classProgress">学生课程进度管理</a>
                             </li>
-
-
-
-
                         </ul>
                     </li>
-                    <li class="has-submenu {!!(Request::is('admin/otherClass/add', 'admin/otherClass/discount', 'admin/share', 'admin/classFree/setActiveTime', 'admin/classFree')? 'active' : '') !!}">
+                    <li class="has-submenu {!!(Request::is('admin/otherClass/add', 'admin/otherClass/discount', 'admin/share', 'admin/classFree/setActiveTime', 'admin/classFree/notice', 'admin/classFree/list')? 'active' : '') !!}">
                         <a href="#">
                             <i class="zmdi zmdi-book-image"></i> 
                             <span class="nav-label">其他class</span>
@@ -142,8 +138,11 @@
                             <li class="{!!(Request::is('admin/classFree/setActiveTime')? 'active' : '') !!}">
                                 <a href="/admin/classFree/setActiveTime">免费试听课时间设置</a>
                             </li>
-                            <li class="{!!(Request::is('admin/classFree')? 'active' : '') !!}">
-                                <a href="/admin/classFree">免费试听课</a>
+                            <li class="{!!(Request::is('admin/classFree/notice')? 'active' : '') !!}">
+                                <a href="/admin/classFree/notice">免费试听课发送通知</a>
+                            </li>
+                            <li class="{!!(Request::is('admin/classFree/list')? 'active' : '') !!}">
+                                <a href="/admin/classFree/list">免费试听课列表</a>
                             </li>
                         </ul>
                     </li>
