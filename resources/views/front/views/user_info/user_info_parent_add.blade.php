@@ -265,6 +265,10 @@ $signPackage = $jssdk->GetSignPackage();
 		            <div class="weui-actionsheet__menu">
 		                <div class="weui-actionsheet__cell sex_actionsheet" val="1">爸爸</div>
 		                <div class="weui-actionsheet__cell sex_actionsheet" val="0">妈妈</div>
+		                <div class="weui-actionsheet__cell sex_actionsheet" val="0">爷爷</div>
+		                <div class="weui-actionsheet__cell sex_actionsheet" val="0">奶奶</div>
+		                <div class="weui-actionsheet__cell sex_actionsheet" val="0">外公</div>
+		                <div class="weui-actionsheet__cell sex_actionsheet" val="0">外婆</div>
 		            </div>
 		            <div class="weui-actionsheet__action">
 		                <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
@@ -664,7 +668,7 @@ $signPackage = $jssdk->GetSignPackage();
 		    $('.input_set').keyup(function(){
 		    	var index = $(this).index('.input_set');
 		    	var value = $(this).val();
-		    	var arr = new Array(5,4,10);
+		    	var arr = new Array(10,4,10);
 		    	if (value.length <= arr[index]) {
 		    		$(this).parents('.div_detail').find('span').html(value.length);
 		    	} else {
