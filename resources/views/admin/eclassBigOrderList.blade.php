@@ -327,6 +327,7 @@
                 success: function(data) {
                     if (data.errcode == 0) {
                         var obj = data.obj;
+
                         for (var i in obj) {
                             var id2 = obj[i]['id'];
                             var name2 = obj[i]['name'];
@@ -344,7 +345,7 @@
                             var liObj = obj[i]['detail'];
                             for (var j in liObj) {
                                 var cdom = $('.detailList[twoid="'+id2+'"]').find('ol');
-                                cdom.append('<li>'+liObj[j]['name3']+'</li>');
+                                cdom.append('<li>'+liObj[j]['name3']+'<span style="display: inline-block;margin-left:8px;">'+liObj[j]['count']+'</span>'+'</li>');
                             }
                         }
                     } else {
