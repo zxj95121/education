@@ -102,12 +102,12 @@ $signPackage = $jssdk->GetSignPackage();
 	                <div class="weui-cell__bd">身份</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;">
-	                    	@if($userDetail->sex == 1) 妈妈
-	                    	@elseif ($userDetail->sex == 0) 爸爸
-	                    	@elseif ($userDetail->sex == 3) 奶奶
+	                    	@if($userDetail->sex == 0) 爸爸
+	                    	@elseif ($userDetail->sex == 1) 妈妈
 	                    	@elseif ($userDetail->sex == 2) 爷爷
-	                    	@elseif ($userDetail->sex == 5) 外婆
+	                    	@elseif ($userDetail->sex == 3) 奶奶
 	                    	@elseif ($userDetail->sex == 4) 外公
+	                    	@elseif ($userDetail->sex == 5) 外婆
 	                    	@endif
 	                    </span>
 	                </div>
@@ -267,12 +267,12 @@ $signPackage = $jssdk->GetSignPackage();
 		                <p class="weui-actionsheet__title-text">选择身份</p>
 		            </div>
 		            <div class="weui-actionsheet__menu">
+		            	<div class="weui-actionsheet__cell sex_actionsheet" val="1">妈妈</div>
 		                <div class="weui-actionsheet__cell sex_actionsheet" val="0">爸爸</div>
-		                <div class="weui-actionsheet__cell sex_actionsheet" val="1">妈妈</div>
-		                <div class="weui-actionsheet__cell sex_actionsheet" val="2">爷爷</div>
 		                <div class="weui-actionsheet__cell sex_actionsheet" val="3">奶奶</div>
-		                <div class="weui-actionsheet__cell sex_actionsheet" val='4'>外公</div>
+		                <div class="weui-actionsheet__cell sex_actionsheet" val="2">爷爷</div>
 		                <div class="weui-actionsheet__cell sex_actionsheet" val="5">外婆</div>
+		                <div class="weui-actionsheet__cell sex_actionsheet" val='4'>外公</div>
 		            </div>
 		            <div class="weui-actionsheet__action">
 		                <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
