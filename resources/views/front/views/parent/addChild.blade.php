@@ -65,6 +65,8 @@
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
   	<script>
+  		var ajax =false;
+
 	    $(document).on('click','.button-success',function(){
 			var name = $('input[name=name]').val();
 			var sex = $('select[name=sex]').val();
@@ -80,27 +82,39 @@
 				$.toast('名字格式输入不正确');
 				return false;
 			}
-			$.ajax({
-				headers:{
-					'X-CSRF-TOKEN': '{{csrf_token()}}'
-				},	
-				type:'post',
-				url:'/front/child/post',
-				data:{
-					name:name,
-					sex:sex
-				},
-				success:function(date){
-					if(date.code == 200){
-						$.toast('添加成功');
-						$('.button-success').replaceWith('<a href="#" class="button button-big button-fill button-danger">已完成</a>')
-						setTimeout(function(){
-							window.location.href="/front/home";
-						},1000);
+			if (!ajax) {
+				ajax = true;
+
+				$.ajax({
+					headers:{
+						'X-CSRF-TOKEN': '{{csrf_token()}}'
+					},	
+					type:'post',
+					url:'/front/child/post',
+					data:{
+						name:name,
+						sex:sex
+					},
+					success:function(date){
+						if(date.code == 200){
+							$.toast('添加成功');
+							$('.button-success').replaceWith('<a href="#" class="button button-big button-fill button-danger">已完成</a>')
+							setTimeout(function(){
+								window.location.href="/front/home";
+							},500);
+
+							ajax = false;
+						} else {
+							ajax = false;
+						}
+					},
+					error: function(data) {
+						ajax = false;
 					}
-				}
-			})		
+				})
+			}
 		})
+		
 		$(document).on('click','.button-danger',function(){
 			window.location.href = '/front/home	';
 		})
