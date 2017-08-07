@@ -181,6 +181,8 @@
 						</div>
 					</div>
 				</div>
+				<div class="popup-overlay"></div>
+			 <!-- End About Popup -->
         </div>
     </div>
     <script type='text/javascript' src='/js/zepto.min.js' charset='utf-8'></script>
