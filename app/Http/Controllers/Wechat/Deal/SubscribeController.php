@@ -10,12 +10,10 @@ use App\Models\UserShare;
 
 class SubscribeController extends Controller
 {
-    public static function subscribe($openid)
+    public function subscribe($openid)
     {
     	/*关注的时候，判断是不是被别人分享关注的*/
-    	// $this->share($openid);
-    	UserShare::where('openid', $openid)
-    		->update(['subscribe', '1']);
+    	$this->share($openid);
     }
 
 	private function share($openid)
@@ -25,7 +23,7 @@ class SubscribeController extends Controller
 
     	if ($count > 0) {
     		UserShare::where('openid', $openid)
-    			->update(['subscribe', '1']);
+    			->update(['subscribe'=>'1']);
     	}
 	}
 }

@@ -92,7 +92,8 @@ class wechatIndexCatchonController extends Controller
         {
             case "subscribe":
                 $openid = $object->FromUserName;
-                SubscribeController::subscribe($openid);
+                $subscribe = new SubscribeController();
+                $subscribe->subscribe($openid);
 //             $content[] = array("Title"=>"【1】分组  笑话  信步校园  天气查询  星座
 // 【2】答题  宿管投票  微访谈  游戏 
 // 【3】备注  天气查询  历史上的今天
