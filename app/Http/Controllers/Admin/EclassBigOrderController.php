@@ -129,7 +129,7 @@ class EclassBigOrderController extends Controller
             ->get();
 
         $Obj = array();
-
+        dd($TwoObj);
         foreach ($TwoObj as $key => $value) {
             $id2 = $value->id2;
             $Obj[$key]['id'] = $id2;

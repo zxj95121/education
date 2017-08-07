@@ -30,7 +30,7 @@
 	    		</a>
 			 	<h1 class='title' style="background: #22AAE8;color: #fff;">我的优惠券</h1>
 			</header>
-			<div class="content" style="background: #D6D6D6;">
+			<div class="content" style="background: #eaeaea;">
 				<div class="container-fluid" style="padding: 0px;">
 					<div class="row" style="margin: 0 auto;width: 96%;">
 
