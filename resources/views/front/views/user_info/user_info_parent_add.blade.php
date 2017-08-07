@@ -108,6 +108,7 @@ $signPackage = $jssdk->GetSignPackage();
 	                    	@elseif ($userDetail->sex == 3) 奶奶
 	                    	@elseif ($userDetail->sex == 4) 外公
 	                    	@elseif ($userDetail->sex == 5) 外婆
+	                    	@elseif ($userDetail->sex == 6) 学员
 	                    	@endif
 	                    </span>
 	                </div>
@@ -273,6 +274,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                <div class="weui-actionsheet__cell sex_actionsheet" val="2">爷爷</div>
 		                <div class="weui-actionsheet__cell sex_actionsheet" val="5">外婆</div>
 		                <div class="weui-actionsheet__cell sex_actionsheet" val='4'>外公</div>
+		                <div class="weui-actionsheet__cell sex_actionsheet" val='6'>学员</div>
 		            </div>
 		            <div class="weui-actionsheet__action">
 		                <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>

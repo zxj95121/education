@@ -96,6 +96,7 @@
 								                       	@elseif ($value->sex == 3)	奶奶
 								                       	@elseif ($value->sex == 4)	外公
 								                       	@elseif ($value->sex == 5)	外婆
+								                       	@elseif ($value->sex == 6)	学员
 								                       	@endif
 								                    </td>
 								                    <td>
