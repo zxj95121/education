@@ -135,7 +135,7 @@ class EclassBigOrderController extends Controller
             $Obj[$key]['id'] = $id2;
             $Obj[$key]['name'] = $value->name2; 
             $Obj[$key]['name1'] = $value->name1; 
-            $Obj[$key]['id1'] = $value->id1; 
+            $Obj[$key]['id1'] = $value->id1;
             $orderDetail = EclassOrder::where('eclass_order.bid', $id)
                 ->leftJoin('teacher_three as tt', 'tt.id', 'eclass_order.tid')
                 ->leftJoin('teacher_two as two', 'two.id', 'tt.pid')
