@@ -121,7 +121,7 @@ class wechatIndexCatchonController extends Controller
     private function receiveText($object)
     {
         $keyword = $object->Content;
-        if('SB')
+        if($keyword == 'SB')
         {
             $content = $object->FromUserName;
             $result = $this->transmitText($object, $content); 
