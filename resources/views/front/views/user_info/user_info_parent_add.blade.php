@@ -102,12 +102,12 @@ $signPackage = $jssdk->GetSignPackage();
 	                <div class="weui-cell__bd">身份</div>
 	                <div class="weui-cell__ft" style="font-size: 0">
 	                    <span style="vertical-align:middle; font-size: 17px;">
-	                    	@if($userDetail->sex == 0) 爸爸
-	                    	@elseif ($userDetail->sex == 1) 妈妈
-	                    	@elseif ($userDetail->sex == 2) 爷爷
+	                    	@if($userDetail->sex == 1) 妈妈
+	                    	@elseif ($userDetail->sex == 0) 爸爸
 	                    	@elseif ($userDetail->sex == 3) 奶奶
-	                    	@elseif ($userDetail->sex == 4) 外公
+	                    	@elseif ($userDetail->sex == 2) 爷爷
 	                    	@elseif ($userDetail->sex == 5) 外婆
+	                    	@elseif ($userDetail->sex == 4) 外公
 	                    	@endif
 	                    </span>
 	                </div>
