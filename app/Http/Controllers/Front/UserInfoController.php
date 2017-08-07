@@ -349,7 +349,7 @@ class UserInfoController extends Controller
     	return response()->json(['errcode'=>0]);
     }
 
-    public function t_sex(Request $request) 
+    public function t_sex(Request $request)
     {
         $openid = Session::get('openid');
         $sex = $request->input('sex');

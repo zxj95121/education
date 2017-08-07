@@ -75,7 +75,7 @@
 								                    <th>昵称</th>
 								                    <th>姓名</th>
 								                    <th>手机号</th>
-								                    <th>性别</th>
+								                    <th>身份</th>
 								                    <th>类别</th>
 								                    <th>优惠券余额</th>
 								                    <th>住宅小区</th>
@@ -90,15 +90,17 @@
 								                    <td>{{$value->name}}</td>
 								                    <td>{{$value->phone}}</td>
 								                    <td>
-								                        @if($value->sex)
-								                       	父亲
-								                       	@else
-								                       	母亲
+								                        @if($value->sex == 0) 母亲
+								                       	@elseif ($value->sex == 1)	父亲
+								                       	@elseif ($value->sex == 2)	爷爷
+								                       	@elseif ($value->sex == 3)	奶奶
+								                       	@elseif ($value->sex == 4)	外公
+								                       	@elseif ($value->sex == 5)	外婆
 								                       	@endif
 								                    </td>
 								                    <td>
 								                    	@if($value->type == 1)
-								                    	家长类别
+								                    	学生家长
 								                    	@else
 								                    	辅导机构
 								                    	@endif
