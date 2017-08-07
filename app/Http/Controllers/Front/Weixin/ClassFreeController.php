@@ -8,6 +8,9 @@ use App\Http\Controllers\Wechat\OauthController;
 use App\Http\Controllers\Front\TestingPhoneController;
 use App\Models\ClassFree;
 use App\Models\ClassFreeActiveTime;
+
+use Session;
+
 class ClassFreeController extends Controller
 {
    	public function index(Request $request)
