@@ -15,6 +15,9 @@
         .radio-box{
             color: #FFF;
         }
+        .iBtn{
+            display: inline-block;
+        }
     </style>
 </head>
 
@@ -22,7 +25,7 @@
     <div id="big">
         <div id="title">
             <h3>加辰教育定制</h3>
-            <p>请绑定手机号</p>
+            <!-- <p>请绑定手机号</p> -->
         </div>
         <div id="head">
         </div>
@@ -36,7 +39,7 @@
                 <lable>验证码：</lable>
                 <input type="text" id="phoneCode" name="phoneCode" placeholder="请输入验证码" isok=0 required/>
             </div>
-            <div class="skin-minimal">
+            <!-- <div class="skin-minimal">
                 <div class="mt-20 skin-minimal">
                     <div class="radio-box">
                         <input type="radio" id="role1" name="role" value="1">
@@ -47,6 +50,11 @@
                         <label for="role2">我是名师</label>
                     </div>
                 </div>
+            </div> -->
+            <div class="identity" style="height: 60px;padding: 10px auto;">
+                <div class="iBtn btn btn-default radius">我是家长</div>
+                <div class="iBtn btn btn-default radius">我是名师</div>
+            </div>
             <p id="tishi">让你看不到，哈哈哈</p>
 
             <button id="login_btn" type="submit">确认绑定</button>
