@@ -249,6 +249,16 @@
 
     <script type="text/javascript">
         // button切换
+        var obj1 = {
+            'border-color': '#48C23D',
+            'background-color': '#48C23D',
+            'color': '#FFF'
+        };
+        var obj1 = {
+            'border-color': '#e6e6e6',
+            'background-color': '#e6e6e6',
+            'color': '#333'
+        };
         $(function(){
             $('.iBtn').click(function(e){
                 var index = $(this).index('.iBtn');
@@ -257,8 +267,9 @@
                 $(this).addClass('roleActive');
                 $('.iBtn:eq('+other+')').removeClass('roleActive');
 
-                $('#tishi')[0].click();
-                e.stopPropagation();
+                
+                $(this).css(obj1);
+                $('.iBtn:eq('+other+')').css(obj2);
 
             })
         })
