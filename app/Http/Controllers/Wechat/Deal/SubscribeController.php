@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 
 class SubscribeController extends Controller
 {
-    public function subscribe($openid)
+    public static function subscribe($openid)
     {
     	/*关注的时候，判断是不是被别人分享关注的*/
     	// $this->share($openid);
