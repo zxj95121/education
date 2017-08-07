@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ClassFree;
-use App\Models\ClassFreeActiveTime;
+use App\Models\NewUser;
 class ClassFreeController extends Controller
 {
     public function setActiveTime()
@@ -64,9 +64,17 @@ class ClassFreeController extends Controller
     	$ids = $request->input('ids');
     	for($i = 0; $i < count($ids); $i++){
     		$freeObj = ClassFree::find($ids[$i]);
-    		$freeObj->type = 1;
-    		$freeObj->save();
     		/*发送用户通知  */
+    		$userObj = NewUser::find($ids[$i]);
+    		$phone = $userObj->phone;
+    		$code[] = $userObj->nickname;
+    		$code[] = $freeObj->active_time.''.'';
+    		require_once($_SERVER['DOCUMENT_ROOT'].'/php/Qcloud/Sms/SmsSenderDemo.php');
+    		$result = postPhoneCodeSms($phone, $code, 32502);
+    		if ($result['result'] == '') {
+    			$freeObj->type = 1;
+    			$freeObj->save();
+    		}
     	}
     	return response()->json(['code' => '1']);
     }

@@ -20,7 +20,7 @@ function postPhoneCodeSms($phone,$code,$templId=23619)
 
         // 指定模板单发
         // 假设模板内容为：测试短信，{1}，{2}，{3}，上学。
-        $params = array($code);
+        $params = $code;
         $result = $singleSender->sendWithParam("86", $phoneNumber1, $templId, $params, "", "", "");
         $rsp = json_decode($result, true);
         return $rsp;
