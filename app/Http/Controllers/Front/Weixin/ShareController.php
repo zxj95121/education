@@ -74,23 +74,23 @@ class ShareController extends Controller
 			/*未关注*/
 			// $ShareCount = UserShare::where('pid',$uid)->where('status',1)->count();
     		//更新成功关注状态
-      		$openids = UserShare::where('pid',$uid)
-      			->where('status', 1)
-      			->where('subscribe', 0)
-      			->select('openid','id')
-      			->get();
+      // 		$openids = UserShare::where('pid',$uid)
+      // 			->where('status', 1)
+      // 			->where('subscribe', 0)
+      // 			->select('openid','id')
+      // 			->get();
 
-    		foreach ($openids as $value2) {
-    			$openid0 = $value2->openid0;
-    			$access_token = Wechat::get_access_token();
-    			$url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token['access_token'].'&openid='.$openid0.'&lang=zh_CN';
-    			$userinfo = Wechat::curl($url);
-    			if ($userinfo['subscribe'] == 1) {
-    				$usershare = UserShare::find($value2->id);
-    				$usershare->subscribe = 1;
-    				$usershare->save();
-    			}
-    		} 
+    		// foreach ($openids as $value2) {
+    		// 	$openid0 = $value2->openid0;
+    		// 	$access_token = Wechat::get_access_token();
+    		// 	$url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token['access_token'].'&openid='.$openid0.'&lang=zh_CN';
+    		// 	$userinfo = Wechat::curl($url);
+    		// 	if ($userinfo['subscribe'] == 1) {
+    		// 		$usershare = UserShare::find($value2->id);
+    		// 		$usershare->subscribe = 1;
+    		// 		$usershare->save();
+    		// 	}
+    		// } 
 
     		/*更新完之后查总个数，并进行更新*/
     		$shareCount = UserShare::where('pid', $uid)
