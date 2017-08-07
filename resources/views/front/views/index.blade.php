@@ -254,14 +254,10 @@
                 var index = $(this).index('.iBtn');
                 var other = (index+1)%2;
 
-                if ($(this).hasClass('roleActive')) {
-                    $(this).removeClass('roleActive');
-                    $('.iBtn:eq('+other+')').addClass('roleActive');
-                } else {
-                    $(this).addClass('roleActive');
-                    $('.iBtn:eq('+other+')').removeClass('roleActive');
-                }
+                $(this).addClass('roleActive');
+                $('.iBtn:eq('+other+')').removeClass('roleActive');
 
+                $(this)[0].click();
                 e.stopPropagation();
 
             })
