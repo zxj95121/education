@@ -287,7 +287,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                                                            <span style="font-size: 17px;"><strong><span style="color: #FF0000;">半价购课推荐有奖活动详情规则</span></strong></span><span style="font-size: 15px; color: #3F3F3F;">：<span style="color: #3F3F3F; font-size: 16px;">用户每成功推荐<span style="color: #3F3F3F; font-size: 18px;">一位</span>好友关注“加辰教育定制”，即可获得一张<span style="color: #3F3F3F; font-size: 19px;">半价购课券</span>，凭此券，用户可半价购买一次指定的加辰教育双师Class课程。半价购课券有效期90天，可叠加使用。</span></span>
 		                                                        </p>
 		                                                        <p style="font-size: 16px; text-align: center;">
-		                                                            <img src="/front/images/getqrcode.jpg"/>
+		                                                            <img src="/images/getqrcode.jpg"/>
 		                                                        </p>
 		                                                        <section class="_135editor" data-tools="135编辑器" data-id="105" style="font-size: 16px; border: 0px none; padding: 0px; box-sizing: border-box;">
 		                                                            <p style="text-align:center;">
