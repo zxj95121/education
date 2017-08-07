@@ -194,7 +194,7 @@ class ManagerController extends Controller
     		//总分享数量
     		$Shareobj[$key]['count'] = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status',1)->count();
     		//更新成功关注状态
-      		$openids = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status', 1)->where('subscribe' ,0)->select('openid','id')->get();
+      		// $openids = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status', 1)->where('subscribe' ,0)->select('openid','id')->get();
 /*     		foreach ($openids as $value2) {
     			$openid = $value2->openid;
     			$access_token = Wechat::get_access_token();
@@ -207,8 +207,10 @@ class ManagerController extends Controller
     			}
     		}   */
     		//用户成功关注数量
-			$Shareobj[$key]['succeed'] = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status',1)->where('subscribe',1)->count();
-
+			// $Shareobj[$key]['succeed'] = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status',1)->where('subscribe',1)->count();
+            $midTicket = HalfBuyInfo::where('uid', $Shareobj[$key]['pid'])
+                ->first();
+            $Shareobj[$key]['succeed'] = $midTicket->ticket_num + $midTicket->used_num;
             /*用户的半价券*/
             $uid = $Shareobj[$key]['pid'];
             /*在别人的代码上改*/
