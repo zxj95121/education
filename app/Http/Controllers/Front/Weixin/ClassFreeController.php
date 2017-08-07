@@ -14,6 +14,7 @@ class ClassFreeController extends Controller
    	{
          if (!Session::has('openid')) {
             return redirect('/front/classFree/oauth');
+         }
    		$timeObj = ClassFreeActiveTime::find(1);
    		return view('front.views.weixin.classFree',['freeTime'=>$timeObj]); 
    	}
