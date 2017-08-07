@@ -127,7 +127,8 @@ class wechatIndexCatchonController extends Controller
             $result = $this->transmitText($object, $content); 
         }
         else
-            $result = $this->transmitText($object, $keyword);
+            return '';
+            // $result = $this->transmitText($object, $keyword);
         return $result;
     }
     
