@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\NewUser;
 use App\Models\UserShare;
+use App\Models\HalfBuyInfo;
 
 class SubscribeController extends Controller
 {
@@ -24,6 +25,17 @@ class SubscribeController extends Controller
     	if ($count > 0) {
     		UserShare::where('openid', $openid)
     			->update(['subscribe'=>'1']);
+
+
+    		$uid = UserShare::where('openid', $openid)
+    			->select('pid')
+    			->get()[0]
+    			->pid;
+    		$msg = HalfBuyInfo::where('uid', $uid)
+    			->first();
+    		$ticket = $msg->ticket_num + 1;
+    		HalfBuyInfo::where('uid', $uid)
+    			->update(['ticket'=>$ticket]);
     	}
 	}
 }
