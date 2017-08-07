@@ -20,6 +20,8 @@ class ChatController extends Controller
     public function home()
     {
     	$openid = Session::get('openid');
+        if (!Session::has('openid')) {
+            return redirect('/front/parent/parentChat/oauth');
     	$count = NewUser::where('openid', $openid)->count();
     	if ($count == 0) {
     		/*将这个数据存入new_user表*/

@@ -12,12 +12,14 @@ class ClassFreeController extends Controller
 {
    	public function index(Request $request)
    	{
+         if (!Session::has('openid')) {
+            return redirect('/front/classFree/oauth');
    		$timeObj = ClassFreeActiveTime::find(1);
    		return view('front.views.weixin.classFree',['freeTime'=>$timeObj]); 
    	}
    	public function oauth()
    	{
-   		return redirect(OauthController::getUrl(12, 0));
+         return redirect(OauthController::getUrl(12, 0));
    	}
    	public function add_post()
    	{
