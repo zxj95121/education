@@ -138,7 +138,7 @@
                 </div>
 			  	<div class="content-block">
     				<p class="buttons-row">
-    					<a id="free" href="#" class="button button-big button-fill button-success active" style="border-radius: 5px;width: 60%;margin: 0 auto;color: #FFF;background: #34C73B;border-color: #34C73B;font-size:22px;">免费领取</a>
+    					<a id="free" href="#" class="button button-big button-fill button-success active" style="border-radius: 5px;width: 60%;margin: 0 auto;color: #FFF;background: #34C73B;border-color: #34C73B;font-size:22px;">{{$mmsg}}</a>
     				</p>
   				</div>
 			</div>
@@ -205,6 +205,9 @@
 							return false;
 						}else{
 							$.alert(data.msg);
+							if(data.code == 1){
+								$('#free').html('已领取');
+							}
 							return false;
 						}
 					}
@@ -282,9 +285,7 @@
 						if(data.errcode != 1){
 							$.toast(data.reason);
 						}else{
-							$(".close-popup").trigger("click");
 							$.closeModal('.popup-about')
-							$.toast("添加成功");
 						}
 					},
 				})

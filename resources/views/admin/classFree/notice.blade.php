@@ -44,7 +44,7 @@
                                 	<div class="row">
 	                                    <div class="table-responsive">
 	                                       	<div class="abc" style="padding-left:10px;margin-top:5px;margin-bottom:5px;">
-                                            	<a href="#"  class="label label-info"  onclick="allyes()">全选</a><a href="#" class="label label-inverse" onclick="allno()">取消</a><a href="#" onclick="settime()" id="piliang" class="label label-primary">批量设置时间</a><a href="#" class="label label-primary" onclick="notice()">批量发送通知</a></td>
+                                            	<a href="#"  class="label label-info"  onclick="allyes()">全选</a><a href="#" class="label label-inverse" onclick="allno()">取消</a><a href="#" onclick="settime()" id="piliang" class="label label-primary">批量修改时间</a><a href="#" class="label label-primary" onclick="notice()">批量发送通知</a></td>
                                             </div>
 	                                        <table class="table">
 	                                            <thead>
