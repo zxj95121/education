@@ -59,6 +59,7 @@ class PayResult extends ServiceProvider
                 ->update(['voucher'=>'3888']);
 
         } else {
+            TemplateController::send('obvbMv1cWutdUE5jwQTiod5bFuVY',$voucher,gettype($voucher),'-','-',date('Y-m-d H:i:s'),'','该订单并无优惠券可用，但却使用了。','');
             NewUser::where('openid', $openid)
                 ->update(['voucher'=>'1888']);
         }
