@@ -136,13 +136,13 @@
                                 <a href="/admin/share">半价购课</a>
                             </li>
                             <li class="{!!(Request::is('admin/classFree/setActiveTime')? 'active' : '') !!}">
-                                <a href="/admin/classFree/setActiveTime">免费试听课时间设置</a>
+                                <a href="/admin/classFree/setActiveTime">试听课-待时间设置</a>
                             </li>
                             <li class="{!!(Request::is('admin/classFree/notice')? 'active' : '') !!}">
-                                <a href="/admin/classFree/notice">免费试听课发送通知</a>
+                                <a href="/admin/classFree/notice">试听课-待发送通知</a>
                             </li>
                             <li class="{!!(Request::is('admin/classFree/list')? 'active' : '') !!}">
-                                <a href="/admin/classFree/list">免费试听课列表</a>
+                                <a href="/admin/classFree/list">试听课-已完成列表</a>
                             </li>
                         </ul>
                     </li>
@@ -161,7 +161,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="has-submenu {!!(Request::is('admin/chatShow', 'admin/coin')? 'active' : '') !!}">
+                    <li class="has-submenu {!!(Request::is('admin/chatShow')? 'active' : '') !!}">
                         <a href="#">
                             <i class="ion-chatbubble-working"></i> 
                             <span class="nav-label">用户信息、交流</span>
@@ -170,9 +170,6 @@
                         <ul class="list-unstyled">
                             <li class="{!!(Request::is('admin/chatShow')? 'active' : '') !!} communication">
                                 <a href="/admin/chatShow?read=1">用户沟通</a>
-                            </li>
-                            <li class="{!!(Request::is('admin/coin')? 'active' : '') !!}">
-                                <a href="/admin/coin">用户加辰币</a>
                             </li>
                         </ul>
                     </li>
