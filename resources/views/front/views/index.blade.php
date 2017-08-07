@@ -175,8 +175,6 @@
             $('#login_btn').click(function(){
                 // var role = $('input[type="radio"]:checked').val();
                 var role = $('.roleActive').attr('val');
-                console.log(role);
-                return false;
                 if (!role) {
                     $('#tishi').html('请选择身份！');
                     $('#tishi').css('opacity',1);
