@@ -257,7 +257,7 @@
                 $(this).addClass('roleActive');
                 $('.iBtn:eq('+other+')').removeClass('roleActive');
 
-                $(this)[0].click();
+                $('#tishi')[0].click();
                 e.stopPropagation();
 
             })
