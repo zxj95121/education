@@ -9,6 +9,8 @@ use App\Models\NewUser;
 use App\Models\UserShare;
 use App\Models\HalfBuyInfo;
 
+use DB;
+
 class SubscribeController extends Controller
 {
     public function subscribe($openid)
@@ -31,11 +33,7 @@ class SubscribeController extends Controller
     			->select('pid')
     			->get()[0]
     			->pid;
-    		$msg = HalfBuyInfo::where('uid', $uid)
-    			->first();
-    		$ticket = $msg->ticket_num + 1;
-    		HalfBuyInfo::where('uid', $uid)
-    			->update(['ticket'=>$ticket]);
+    		DB::table('half_buy_info')->increment('ticket_num');
     	}
 	}
 }
