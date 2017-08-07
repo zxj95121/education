@@ -65,10 +65,10 @@ class ClassFreeController extends Controller
     	for($i = 0; $i < count($ids); $i++){
     		$freeObj = ClassFree::find($ids[$i]);
     		/*发送用户通知  */
-    		$userObj = NewUser::find($ids[$i]);
+    		$userObj = NewUser::find($freeObj->uid);
     		$phone = $userObj->phone;
     		$code[] = $userObj->nickname;
-    		$code[] = $freeObj->active_time.''.'';
+    		$code[] = $freeObj->active_time.''.'芜湖柏庄时代广场三楼加辰教育'.'';
     		require_once($_SERVER['DOCUMENT_ROOT'].'/php/Qcloud/Sms/SmsSenderDemo.php');
     		$result = postPhoneCodeSms($phone, $code, 32502);
     		if ($result['result'] == '') {
