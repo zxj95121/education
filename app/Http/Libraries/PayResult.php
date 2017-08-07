@@ -50,18 +50,15 @@ class PayResult extends ServiceProvider
             ->get()[0]
             ->voucher;
 
-        $voucher = $voucher - $voucher_num;
+        $voucher = $voucher - $voucher_num*88;
 
         if ($voucher < 0) {
             /*该订单存在逃钱问题*/
-            TemplateController::send('obvbMv1cWutdUE5jwQTiod5bFuVY','关于某笔订单有问题的通知',$order_no,'-','-',date('Y-m-d H:i:s'),'','该订单并无优惠券可用，但却使用了。','');
-            NewUser::where('openid', $openid)
-                ->update(['voucher'=>'3888']);
-
+            $pre = floor($voucher/88);
+            TemplateController::send('obvbMv1cWutdUE5jwQTiod5bFuVY','关于某笔双师订单有问题的通知',$order_no,'使用了优惠券'.$voucher_num.'个','原来有优惠券'.$pre.'个',date('Y-m-d H:i:s'),'','该订单并无优惠券可用，但却使用了。','');
         } else {
-            TemplateController::send('obvbMv1cWutdUE5jwQTiod5bFuVY',$voucher,gettype($voucher),'-','-',date('Y-m-d H:i:s'),'','该订单并无优惠券可用，但却使用了。','');
             NewUser::where('openid', $openid)
-                ->update(['voucher'=>'1888']);
+                ->update(['voucher'=>$voucher]);
         }
     }
 
@@ -81,7 +78,8 @@ class PayResult extends ServiceProvider
 
         if ($voucher < 0) {
             /*该订单存在逃钱问题*/
-            TemplateController::send('obvbMv1cWutdUE5jwQTiod5bFuVY','关于某笔订单有问题的通知',$order_no,'-','-',date('Y-m-d H:i:s'),'','该订单并无优惠券可用，但却使用了。','');
+            $pre = floor($voucher/88);
+            TemplateController::send('obvbMv1cWutdUE5jwQTiod5bFuVY','关于某笔其他class订单有问题的通知',$order_no,'使用了优惠券'.$voucher_num.'个','原来有优惠券'.$pre.'个',date('Y-m-d H:i:s'),'','该订单并无优惠券可用，但却使用了。','');
         } else {
             NewUser::where('openid', $openid)
                 ->update(['voucher'=>$voucher]);
