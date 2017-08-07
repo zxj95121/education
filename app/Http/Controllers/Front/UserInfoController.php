@@ -607,9 +607,16 @@ class UserInfoController extends Controller
                 $communityInfo[$key]['next'][$k]['name'] = $v->name;
                 $communityInfo[$key]['next'][$k]['next'] = array();
 
-                $communityThree = CommunityCommunity::where('status', 1)
+                // $communityThree = CommunityCommunity::where('status', 1)
+                //     ->where('aid', $v->id)
+                //     ->orderBy('name')
+                //     ->select('id', 'name', 'aid')
+                //     ->get();
+
+                $communityThree = DB::table('community_community')
+                    ->where('status', 1)
                     ->where('aid', $v->id)
-                    ->orderBy('name')
+                    ->orderBy(DB::rows(nlssort('name', 'NLS_SORT=SCHINESE_PINYIN_M')))
                     ->select('id', 'name', 'aid')
                     ->get();
 
