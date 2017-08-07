@@ -105,7 +105,7 @@ class wechatIndexCatchonController extends Controller
 //                                "PicUrl"=>"",
 //                                "Url" =>""
 //                               );
-                $result = $this->transmitText($object, $openid);
+                $result = $this->transmitText($object, '欢迎关注');
             break;
             case "unsubscribe":
             break;

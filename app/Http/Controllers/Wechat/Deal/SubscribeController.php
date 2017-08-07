@@ -33,7 +33,7 @@ class SubscribeController extends Controller
     			->select('pid')
     			->get()[0]
     			->pid;
-    		DB::table('half_buy_info')->increment('ticket_num');
+    		DB::table('half_buy_info')->where('uid', $uid)->increment('ticket_num');
     	}
 	}
 }
