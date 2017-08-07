@@ -90,8 +90,8 @@
 								                    <td>{{$value->name}}</td>
 								                    <td>{{$value->phone}}</td>
 								                    <td>
-								                        @if($value->sex == 0) 母亲
-								                       	@elseif ($value->sex == 1)	父亲
+								                        @if($value->sex == 0) 父亲
+								                       	@elseif ($value->sex == 1)	母亲
 								                       	@elseif ($value->sex == 2)	爷爷
 								                       	@elseif ($value->sex == 3)	奶奶
 								                       	@elseif ($value->sex == 4)	外公
