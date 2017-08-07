@@ -10,6 +10,8 @@ use App\Models\ContactChat;
 use App\Models\ParentDetail;
 use App\Models\NewUser;
 
+use App\Http\Controllers\Wechat\OauthController;
+
 use Session;
 use Wechat;
 
