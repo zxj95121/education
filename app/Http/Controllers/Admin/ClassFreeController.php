@@ -54,6 +54,7 @@ class ClassFreeController extends Controller
 	    	->leftJoin('new_user','class_free.uid','new_user.id')
 	    	->select('class_free.id','new_user.nickname','new_user.phone','class_free.active_time','class_free.type')
 	    	->where('new_user.id','!=','')
+	    	->where('class_free.active_time','!=',Null)
 	    	->where('class_free.type',0)
 	    	->paginate(10);
     	return view('admin.classFree.notice',['res'=>$freeObj]);
