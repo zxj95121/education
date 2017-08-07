@@ -55,10 +55,12 @@ class PayResult extends ServiceProvider
         if ($voucher < 0) {
             /*该订单存在逃钱问题*/
             TemplateController::send('obvbMv1cWutdUE5jwQTiod5bFuVY','关于某笔订单有问题的通知',$order_no,'-','-',date('Y-m-d H:i:s'),'','该订单并无优惠券可用，但却使用了。','');
+            NewUser::where('openid', $openid)
+                ->update(['voucher'=>'3888']);
 
         } else {
             NewUser::where('openid', $openid)
-                ->update(['voucher'=>$voucher]);
+                ->update(['voucher'=>'1888']);
         }
     }
 
