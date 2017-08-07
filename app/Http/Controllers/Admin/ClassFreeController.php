@@ -8,25 +8,65 @@ use App\Models\ClassFree;
 use App\Models\ClassFreeActiveTime;
 class ClassFreeController extends Controller
 {
-    public function index()
+    public function setActiveTime()
     {
     	$freeObj = ClassFree::where('class_free.status',1)
     				->leftJoin('new_user','class_free.uid','new_user.id')
-    				->select('class_free.id','new_user.nickname','new_user.phone','class_free.active_time')
+    				->select('class_free.id','new_user.nickname','new_user.phone','class_free.active_time','class_free.type')
+    				->where('new_user.id','!=','')
+    				->where('class_free.active_time',Null)
     				->paginate(10);
-    	return view('admin.classFree.index',['res'=>$freeObj]);
+    	return view('admin.classFree.setActiveTime',['res'=>$freeObj]);
     }
-    public function setActiveTime()
+    public function setActiveTimeInspect(Request $request)
     {
-    	$classfreetime = ClassFreeActiveTime::find(1);
-    	return view('admin.classFree.setActiveTime',['res'=>$classfreetime]);
+    	$active_date = substr($request->input('active_time'),0,10);
+    	$count = ClassFree::where('active_date',$active_date)->where('status',1)->count();
+    	return response()->json(['code' => 1 , 'count'=>$count]);
+
     }
     public function setActiveTimePost(Request $request)
     {
-    	$classfreetime = ClassFreeActiveTime::find(1);
-    	$classfreetime->start_time = $request->input('start_time');
-    	$classfreetime->end_time = $request->input('end_time');
-    	$classfreetime->save();
-    	return response()->json(['code' => '200']);
+    	$ids = $request->input('ids');
+    	$active_time = $request->input('active_time');
+    	for($i = 0; $i < count($ids); $i++){
+    		
+    		$freeObj = ClassFree::find($ids[$i]);
+    		$freeObj->active_time = $active_time;
+    		$freeObj->active_date = substr($active_time,0,10);
+    		$freeObj->save();
+    	}
+    	return response()->json(['code' => '1']);
+    }
+    public function index()
+    {
+    	$freeObj = ClassFree::where('class_free.status',1)
+	    	->leftJoin('new_user','class_free.uid','new_user.id')
+	    	->select('class_free.id','new_user.nickname','new_user.phone','class_free.active_time','class_free.type')
+	    	->where('new_user.id','!=','')
+	    	->where('class_free.type',1)
+	    	->paginate(10);
+    	return view('admin.classFree.index',['res'=>$freeObj]);
+    }
+    public function notice()
+    {
+    	$freeObj = ClassFree::where('class_free.status',1)
+	    	->leftJoin('new_user','class_free.uid','new_user.id')
+	    	->select('class_free.id','new_user.nickname','new_user.phone','class_free.active_time','class_free.type')
+	    	->where('new_user.id','!=','')
+	    	->where('class_free.type',0)
+	    	->paginate(10);
+    	return view('admin.classFree.notice',['res'=>$freeObj]);
+    }
+    public function noticePost()
+    {
+    	$ids = $request->input('ids');
+    	for($i = 0; $i < count($ids); $i++){
+    		$freeObj = ClassFree::find($ids[$i]);
+    		$freeObj->type = 1;
+    		$freeObj->save();
+    		/*发送用户通知  */
+    	}
+    	return response()->json(['code' => '1']);
     }
 }

@@ -31,8 +31,8 @@ class ClassFreeController extends Controller
    		if ($new_user_id) {
    			$freeObj = ClassFree::where('uid',$new_user_id)->first();
    			if(isset($freeObj->id)){
-   				if(empty($freeObj->active_time)){
-   					return response()->json(['code'=>3,'msg'=>'未填写预约时间','id'=>$freeObj->id]);
+   				if($freeObj->type == 0){
+   					return response()->json(['code'=>3,'msg'=>'已报名成功，三日内收到具体时间通知']);
    				}else{
    					return  response()->json(['code'=>2,'msg'=>'您已预约，预约的时间是'.$freeObj->active_time]);
    				}
@@ -40,30 +40,10 @@ class ClassFreeController extends Controller
    				$freeObj = new ClassFree();
    				$freeObj->uid = $new_user_id;
    				$freeObj->save();
-   				return response()->json(['code'=>1,'msg'=>'已经领取成功','id'=>$freeObj->id]);
+   				return response()->json(['code'=>1,'msg'=>'已报名成功，三日内收到具体时间通知']);
    			}
    		} else {
    			return response()->json(['code'=>-1]);
    		}
-   	}
-   	public function add_time(Request $request)
-   	{
-   		$active_time = $request->input('active_time');
-   		$id = $request->input('id');
-   		$timeCount = ClassFree::where('active_time',$active_time)->count();
-   		if ($timeCount >= 12) {
-   			return response()->json(['code'=>-1]);
-   		}else {
-   			return response()->json(['code'=>1]);
-   		}
-   	}
-   	public function add_time_post(Request $request)
-   	{
-   		$id = $request->input('id');
-   		$active_time = $request->input('active_time');
-   		$freeObj =  ClassFree::find($id);
-   		$freeObj->active_time = $active_time[0];
-   		$freeObj->save();
-   		return response()->json(['code'=>1]);
    	}
 }

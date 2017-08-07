@@ -181,37 +181,6 @@
 						</div>
 					</div>
 				</div>
-				<div class="popup popup-services">
-					<div class="content-block">
-					    <header class="bar bar-nav">
-					    	<a class="button button-link button-nav pull-right close-popup"  data-transition="slide-out" style="color:#fff; padding-right:10px" >
-				      			关闭
-				    		</a>
-						 	<h1 class='title' style="background: #22AAE8;color: #fff;">预约时间设置</h1>
-						</header>
-						<div class="content">
-							<div class="list-block" style="margin-top:0px">
-								<div class="item-content">
-									<div class="item-inner" style="padding-right:0px">
-										<div class="item-title label" style="width:63px">预约时间:</div>
-										<div class="item-input">
-											<input type="text" placeholder="预约时间" name="time" id="mytime">
-										</div>
-									</div>
-									
-								</div>
-								<div class="content-block" style="margin-top:20px">
-									<div class="row">
-										<div class="col-50"><a href="#" class="button  button-fill button-danger close-services" >取消</a></div>
-			      						<div class="col-50"><a href="#" class="button  button-fill  button-success" id="sendtime">提交</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			 <div class="popup-overlay"></div>
-			 <!-- End About Popup -->
         </div>
     </div>
     <script type='text/javascript' src='/js/zepto.min.js' charset='utf-8'></script>
@@ -220,58 +189,6 @@
     <script>
     	$(function(){
         	var id = '';
-        	var active_time = '';
-    		$("#mytime").calendar({
-    			minDate:'{{$freeTime->start_time}}',
-    			maxDate:'{{$freeTime->end_time}}',
-    			onChange:function(p, values, displayValues){
-    				console.log(displayValues);
-    				$.ajax({
-    					headers:{
-    						'X-CSRF-TOKEN': '{{csrf_token()}}'
-    					},
-    					url:'/front/classFree/add_time',
-    					data:{
-							active_time:displayValues,
-							id:id
-            			},
-            			type:'post',
-            			datatype:'json',
-            			success:function(data){
-							if(data.code == -1){
-								$.toast('此日期已满员，请重新选择日期，谢谢');
-								$('#mytime').val('');
-							}else{
-								active_time = displayValues;
-							}
-                    	}	
-            		})
-    			},
-			})
-			$(document).on('click','#sendtime',function(){
-				if(active_time == ''){
-					$.toast('您还没有选择预约时间');
-					return false;
-				}
-				$.ajax({
-					headers:{
-						'X-CSRF-TOKEN': '{{csrf_token()}}'
-					},
-					url:'/front/classFree/add_time_post',
-					data:{
-						id:id,
-						active_time:active_time
-					},
-					type:'post',
-					datatype:'json',
-					success:function(data){
-						if(data.code == 1){
-							$.closeModal('.popup-services')
-							$.toast("预约时间成功");
-						}
-					}
-				})
-			})
 			$(document).on('click','#free',function(){
 				$.ajax({
 					headers:{
@@ -281,14 +198,10 @@
 					type:'post',
 					datatype:'json',
 					success:function(data){
-						if(data.code == 1 || data.code == 3){
-							$.toast(data.msg);
-							$.popup('.popup-services');
-							id = data.id;
-						}else if (data.code == -1){
+						if(data.code == -1 ){
 							$.popup('.popup-about');
 							return false;
-						}else {
+						}else{
 							$.toast(data.msg);
 							return false;
 						}

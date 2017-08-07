@@ -52,7 +52,7 @@
 	                                            <tbody>
 	                                                @foreach($res as $value)
 	                                                <tr>
-	                                                    <td>{{$value->id}}</td>
+	                                                    <td><input type="checkbox" name="ids" value="{{$value->id}}">{{$value->id}}</td>
 	                                                    <td>{{$value->nickname}}</td>
 	                                                    <td>{{$value->phone}}</td>
 	                                                    <td>{{$value->active_time}}</td>
@@ -81,8 +81,8 @@
                     </div> <!-- end col -->
                     
                 </div> <!-- end row -->
-
             </div>
+            
 @endsection
             
 
@@ -96,5 +96,7 @@
         });
 
     })
+
+
 </script>
 @endsection

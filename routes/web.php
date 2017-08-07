@@ -203,9 +203,12 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     // $router->get('/halfBuy', 'HalfBuyController@halfBuy');
 
     /*免费试听课  */
-    $router->get('/classFree', 'ClassFreeController@index');
     $router->get('/classFree/setActiveTime', 'ClassFreeController@setActiveTime');
+    $router->get('/classFree/list', 'ClassFreeController@index');
+    $router->get('/classFree/notice', 'ClassFreeController@notice');
+    $router->post('/classFree/setActiveTime/inspect', 'ClassFreeController@setActiveTimeInspect');
     $router->post('/classFree/setActiveTime/post', 'ClassFreeController@setActiveTimePost');
+    $router->post('/classFree/notice_post', 'ClassFreeController@noticePost');
     /*退款*/
     $router->any('/tuikuan', 'EclassOrderController@tuikuan');
     /*查订单用户的信息*/

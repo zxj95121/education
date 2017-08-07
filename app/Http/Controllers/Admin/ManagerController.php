@@ -195,7 +195,7 @@ class ManagerController extends Controller
     		$Shareobj[$key]['count'] = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status',1)->count();
     		//更新成功关注状态
       		$openids = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status', 1)->where('subscribe' ,0)->select('openid','id')->get();
-    		foreach ($openids as $value2) {
+/*     		foreach ($openids as $value2) {
     			$openid = $value2->openid;
     			$access_token = Wechat::get_access_token();
     			$url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token['access_token'].'&openid='.$openid.'&lang=zh_CN';
@@ -205,7 +205,7 @@ class ManagerController extends Controller
     				$usershare->subscribe = 1;
     				$usershare->save();
     			}
-    		}  
+    		}   */
     		//用户成功关注数量
 			$Shareobj[$key]['succeed'] = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status',1)->where('subscribe',1)->count();
 
