@@ -81,6 +81,17 @@
 									        </li>
 									    </ul>
 									</section>
+									<div class="panel panel-success mt-20">
+										<div class="panel-header">加辰币说明</div>
+										<div class="panel-body">
+											<ul>
+												<li>1、加辰币是用户在加辰教育的消费积分</li>
+												<li>2、每购买加辰教育课程1000元，返积分100加辰币</li>
+												<li>3、加辰币可直接用于加辰精品小店购物（以加辰币标示价格）</li>
+												<li>4、每100加辰币课兑换88元优惠券，购买新课程使用。</li>
+											</ul>
+										</div>
+									</div>
             			        </li>
             			        <li class="li1">
             			        	<div style="height: 124px;margin: 0 auto 20px;width: 96%;">
@@ -97,7 +108,7 @@
 												<div style="height: 68px;text-align: left;color: #000;padding-top:10px;">
 													<ol type="decimal">
 														<li style="font-size:14px;">优惠券可叠加使用</li>
-														<li style="font-size:14px;">除半价课程均可使用</li>
+														<li style="font-size:14px;">除特价课程均可使用</li>
 													</ol>
 												</div>
 												<div style="text-align: center;color: #FFF;text-align: right;font-size:12px;height: 32px;">
@@ -119,7 +130,7 @@
 									            <input type="number" id="changeInput" max="{{$changeNumber}}" placeholder="请输入数字" style="padding-left: 15px;">
 									            
 									            <!-- 若按钮不可点击则添加 disabled 类 -->
-									            <button type="button" class="ui-border-l" id="change">确认兑换</button>
+									            <button type="button btn-success" class="ui-border-l" id="change" style="color: #FFF;">确认兑换</button>
 	<!-- 									            <a href="#" class="ui-icon-close"></a> -->
 									        </div>
 									        <!-- <div class="ui-form-item" style="text-align: center;background: #48C23D;color: #FFF;border-radius: 3px;margin-top: 15px;" >
@@ -133,8 +144,8 @@
 									</div>
             			        </li>
             			        <li class="li2" style="min-height: 150px;">
-            			        	<div class="ui-poptips ui-poptips-warn" style="position: relative;top: 60px;">
-									    <div class="ui-poptips-cnt"><i></i>加辰精品小店正在精心“装修”和开发中</div>
+            			        	<div class="ui-poptips ui-poptips-warn" style="position: relative;top: 60px;" style="background: #2448D8;">
+									    <div class="ui-poptips-cnt" style="color: #FFF;"><i></i>加辰精品小店正在精心“装修”和开发中</div>
 									</div>
             			        </li>
             			    </ul>
