@@ -173,8 +173,8 @@
 								</div>
 								<div class="content-block" style="margin-top:20px">
 									<div class="row">
-										<div class="col-50"><a href="#" class="button  button-fill button-danger close-popup" >取消</a></div>
-			      						<div class="col-50"><a href="#" class="button  button-fill  button-success" id="send">提交</a></div>
+										<div class="col-50"><a href="#" style="font-size:20px" class="button  button-big button-fill button-danger close-popup" >取消</a></div>
+			      						<div class="col-50"><a href="#" style="font-size:20px" class="button  button-big  button-fill  button-success" id="send">提交</a></div>
 									</div>
 								</div>
 							</div>
