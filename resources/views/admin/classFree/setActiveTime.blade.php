@@ -173,7 +173,9 @@ $.jeDate('#inputstart',start);
    	function allno(){
    		$("input[name='ids']").removeAttr("checked");
    	}	
-    function settime(){ 
+    function settime(){
+        $('#inputstart').val('');
+        $('#sum').val('12');  
     	ids = [];
     	$('input[name="ids"]:checked').each(function(){ 
     		ids.push($(this).val()); 

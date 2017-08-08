@@ -209,6 +209,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/classFree/setActiveTime/inspect', 'ClassFreeController@setActiveTimeInspect');
     $router->post('/classFree/setActiveTime/post', 'ClassFreeController@setActiveTimePost');
     $router->post('/classFree/notice_post', 'ClassFreeController@noticePost');
+    $router->get('/classFree/notice/query', 'ClassFreeController@notice');
     /*退款*/
     $router->any('/tuikuan', 'EclassOrderController@tuikuan');
     /*查订单用户的信息*/
