@@ -56,6 +56,7 @@ class ClassFreeController extends Controller
 	    	->where('new_user.id','!=','')
 	    	->where('class_free.active_time','!=',Null)
 	    	->where('class_free.type',0)
+	    	->orderBy('class_free.updated_at')
 	    	->paginate(10);
     	return view('admin.classFree.notice',['res'=>$freeObj]);
     }
