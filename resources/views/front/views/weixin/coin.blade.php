@@ -143,8 +143,8 @@
 									    <i></i><span>兑换成功！</span>
 									</div>
             			        </li>
-            			        <li class="li2" style="min-height: 150px;">
-            			        	<div class="ui-poptips ui-poptips-warn" style="position: relative;top: 60px;background: #2448D8;">
+            			        <li class="li2" style="min-height: 150px;background: #22AAE8;">
+            			        	<div class="ui-poptips ui-poptips-warn" style="position: relative;top: 60px;background: #22AAE8;">
 									    <div class="ui-poptips-cnt" style="color: #FFF;"><i></i>加辰精品小店正在精心“装修”和开发中</div>
 									</div>
             			        </li>
