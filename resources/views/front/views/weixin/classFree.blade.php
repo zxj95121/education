@@ -37,7 +37,7 @@
 					                                                    <span style="font-size: 20px;">免费试听课</span>
 					                                                </section>
 					                                                <!-- <section style="border-top-width: 30px; box-sizing:border-box;border-top-style: solid; border-color: transparent rgb(58, 58, 255); border-bottom-width: 0px; border-bottom-style: solid; border-right-width: 15px; border-right-style: solid; display: inline-block; vertical-align: top;"></section> -->
-					                                                <section style="padding:3px 10px;box-sizing:border-box; display: inline-block; height: 30px; color: rgb(255, 255, 255);background-color:rgb(58, 58, 255);border-bottom: 1px solid #3A3AFF;">
+					                                                <section style="padding:3px 10px;box-sizing:border-box; display: inline-block; height: 30px; color: rgb(255, 255, 255);background-color:rgb(58, 58, 255);border-bottom: 26px solid #3A3AFF;">
 					                                                    <span style="color: #FEFEFE; font-size: 20px;">加辰教育定制</span>
 					                                                </section>
 					                                            </section>
