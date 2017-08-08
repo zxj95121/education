@@ -81,8 +81,8 @@
 									        </li>
 									    </ul>
 									</section>
-									<div class="panel panel-success mt-20">
-										<div class="panel-header">加辰币说明</div>
+									<div class="panel panel-success mt-20" style="width: 95%;margin: 0 auto;">
+										<div class="panel-header" style="background: #4048FF;color: #FFF;">加辰币说明</div>
 										<div class="panel-body">
 											<ul>
 												<li>1、加辰币是用户在加辰教育的消费积分</li>
@@ -222,6 +222,8 @@
 						skin:'msg',
 						time:2
 					});
+				} else if (!num) {
+					return false;
 				} else if (num > max) {
 					layer.open({
 						content: '最大兑换数量'+max+'个',
