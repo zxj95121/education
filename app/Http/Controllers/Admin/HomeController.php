@@ -308,7 +308,7 @@ class HomeController extends Controller
 
         } else {
             NewUser::where('openid', $openid)
-                ->update(['type', '1']);
+                ->update(['type'=>'1']);
         }
         
         return response()->json(['errcode'=>0]);
