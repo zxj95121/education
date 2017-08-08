@@ -18,7 +18,7 @@
         <div class="page page-current">
 		    
 			<div class="content" style='background: #FFF;font-family: -apple-system-font,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;'>
-				<div class="content-block" style="margin-top: 1rem;font-weight: bold;font-size: 1.2em;margin-bottom: 0.4rem;">免费试听课</div>
+				<div class="content-block" style="color: #1F9B17;margin-top: 1rem;font-weight: bold;font-size: 1.2em;margin-bottom: 0.4rem;">免费试听课</div>
 				<div class="content-block" style='margin: 4px 0px 0.38rem;color: #557ECB;font-size: 0.9em;' onclick="window.location.href='https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIxNzg4MDY4Ng==&scene=124#wechat_redirect';">加辰教育定制</div>
 			  	<div style="width: 96%;margin: 0 auto;">
                     <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
