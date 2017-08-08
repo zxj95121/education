@@ -119,7 +119,7 @@
             			        	</div>
             			        	<div class="ui-tips ui-tips-info">
             			        		@php $changeNumber = floor($userObj->coin/100); @endphp
-									    <i></i><span>您的币额最多可兑换<span id="maxNotice">{{$changeNumber}}</span>张券</span>
+									    <i></i><span>您的币额最多可兑换<span id="maxNotice" style="color: #0540AD;"> {{$changeNumber}} </span>张券</span>
 									</div>
             			        	<div class="ui-form ui-border-t">
 									    <form action="#">
@@ -130,7 +130,7 @@
 									            <input type="number" id="changeInput" max="{{$changeNumber}}" placeholder="请输入数字" style="padding-left: 15px;">
 									            
 									            <!-- 若按钮不可点击则添加 disabled 类 -->
-									            <button type="button" class="ui-border-l" id="change" style="background: #0AE55A;color: #FFF;">确认兑换</button>
+									            <button type="button" class="ui-border-l" id="change" style="background: #03BF4B;color: #FFF;">确认兑换</button>
 	<!-- 									            <a href="#" class="ui-icon-close"></a> -->
 									        </div>
 									        <!-- <div class="ui-form-item" style="text-align: center;background: #48C23D;color: #FFF;border-radius: 3px;margin-top: 15px;" >
