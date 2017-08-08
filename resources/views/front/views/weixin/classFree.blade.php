@@ -106,7 +106,7 @@
 					                                            <section style="width:100%;" data-width="100%">
 					                                                <section class="135brush" style="font-size:14px;width:80%; margin:0 auto;" data-width="80%">
 					                                                    <p>
-					                                                        <img style="width: 100%; height: 100%" src="http://image.135editor.com/files/users/262/2625290/201708/JCUcSMP7_BIrO.jpg?imageView2/2/w/200" alt="" title="undefined"/>不要担心，外教合不合适，孩子体验了才会知道。敬请点击自定义菜单，加辰教育中小学生外教一对一双师class免费试听课, 诚邀您的孩子和外教一起快乐学习、体验英语交流的乐趣。
+					                                                        <img style="width: 100%; height: 100%" src="http://image.135editor.com/files/users/262/2625290/201708/JCUcSMP7_BIrO.jpg?imageView2/2/w/200" alt="" title="undefined"/>不要担心，外教合不合适，孩子体验了才会知道。加辰教育中小学生外教一对一双师class免费试听课, 诚邀您的孩子和外教一起快乐学习、体验英语交流的乐趣。
 					                                                    </p>
 					                                                </section>
 					                                                <p style="text-align:center;">
