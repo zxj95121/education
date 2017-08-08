@@ -82,7 +82,7 @@
 									    </ul>
 									</section>
 									<div class="panel panel-success mt-20" style="width: 95%;margin: 0 auto;">
-										<div class="panel-header" style="background: #4048FF;color: #FFF;">加辰币说明</div>
+										<div class="panel-header" style="background: #4048FF;color: #FFF;padding: 8px;">加辰币说明</div>
 										<div class="panel-body">
 											<ul>
 												<li>1、加辰币是用户在加辰教育的消费积分</li>
@@ -130,7 +130,7 @@
 									            <input type="number" id="changeInput" max="{{$changeNumber}}" placeholder="请输入数字" style="padding-left: 15px;">
 									            
 									            <!-- 若按钮不可点击则添加 disabled 类 -->
-									            <button type="button btn-success" class="ui-border-l" id="change" style="color: #FFF;">确认兑换</button>
+									            <button type="button" class="ui-border-l" id="change" style="background: #0AE55A;color: #FFF;">确认兑换</button>
 	<!-- 									            <a href="#" class="ui-icon-close"></a> -->
 									        </div>
 									        <!-- <div class="ui-form-item" style="text-align: center;background: #48C23D;color: #FFF;border-radius: 3px;margin-top: 15px;" >
