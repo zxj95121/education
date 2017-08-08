@@ -37,12 +37,12 @@
         <div id="form">
             <div id="Phone" class="input" style="position: relative;">
                 <lable>手机号：</lable>
-                <input type="text" id="phone" name="phone" placeholder="请输入手机号" isok=0 required/>
+                <input type="text" id="phone" name="phone" placeholder="请输入手机号" isok=0 required style="color: #000;"/>
                 <button class="weui-btn weui-btn_mini weui-btn_default" type="button" style="position: absolute;top: 0px;right: 0px;height: 100%;" id="getPhoneCode">获取验证码</button>
             </div>
             <div id="phonecode" class="input">
                 <lable>验证码：</lable>
-                <input type="text" id="phoneCode" name="phoneCode" placeholder="请输入验证码" isok=0 required/>
+                <input type="text" id="phoneCode" name="phoneCode" placeholder="请输入验证码" isok=0 required style="color: #000;"/>
             </div>
             <!-- <div class="skin-minimal">
                 <div class="mt-20 skin-minimal">
