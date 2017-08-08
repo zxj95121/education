@@ -277,18 +277,26 @@ class HomeController extends Controller
             $powerObj->uid = $uid;
             $powerObj->save();
 
-        $flight = new UserType();
-        $flight->openid = $openid;
-        $flight->uid = $uid;
-        $flight->save();
+        // $flight = new UserType();
+        // $flight->openid = $openid;
+        // $flight->uid = $uid;
+        // $flight->save();
 
 
-        /*user_type里面的id*/
-        $uid = $flight->id;
+        // /*user_type里面的id*/
+        // $uid = $flight->id;
 
         /*存到new_user表*/
         $count = NewUser::where('openid', $openid)->count();
         if ($count == 0) {
+
+            $flight = new UserType();
+            $flight->openid = $openid;
+            $flight->type = 1;
+            $flight->uid = $uid;
+            $flight->save();
+            $uid = $flight->id;
+
             /*存到new_user表*/
             $flight = new NewUser();
             $flight->openid = $openid;
@@ -297,6 +305,7 @@ class HomeController extends Controller
             $flight->phone = $phone;
             $flight->nickname = $nickname;
             $flight->save();
+
         } else {
             NewUser::where('openid', $openid)
                 ->update(['type', '1']);
