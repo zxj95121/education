@@ -21,7 +21,16 @@ class ClassFreeController extends Controller
     public function setActiveTimeInspect(Request $request)
     {
     	$active_date = substr($request->input('active_time'),0,10);
+    	$ids = $request->input('ids');
+    	$num = 0;
+    	for($i = 0; $i < count($ids); $i++){
+    		$freeObj = ClassFree::find($ids[$i]);
+    		if ($freeObj->active_date == $active_date ) {
+    			$num++;
+    		}
+    	}
     	$count = ClassFree::where('active_date',$active_date)->where('status',1)->count();
+    	$count = $count - $num;
     	return response()->json(['code' => 1 , 'count'=>$count]);
 
     }
@@ -48,17 +57,27 @@ class ClassFreeController extends Controller
 	    	->paginate(10);
     	return view('admin.classFree.index',['res'=>$freeObj]);
     }
-    public function notice()
+    public function notice(Request $request)
     {
+    	$querytime = $request->input('hiddencxdate');
+    	$querytype = $request->input('querytype');
+    	$str = '';
     	$freeObj = ClassFree::where('class_free.status',1)
 	    	->leftJoin('new_user','class_free.uid','new_user.id')
-	    	->select('class_free.id','new_user.nickname','new_user.phone','class_free.active_time','class_free.type')
 	    	->where('new_user.id','!=','')
-	    	->where('class_free.active_time','!=',Null)
-	    	->where('class_free.type',0)
-	    	->orderBy('class_free.updated_at')
-	    	->paginate(10);
-    	return view('admin.classFree.notice',['res'=>$freeObj]);
+	    	->where('class_free.active_time','!=',Null);
+    	if($querytime){
+    		$freeObj = $freeObj->where('active_date',$querytime);
+    		$str .= '&hiddencxdate='.$querytime;
+    	}
+    	if($querytype != NULL){
+    		$freeObj = $freeObj->where('class_free.type',$querytype);
+    		$str .= '&type='.$querytype;
+    	}
+    	$freeObj = $freeObj->select('class_free.id','new_user.nickname','new_user.phone','class_free.active_time','class_free.type')
+    				->orderBy('class_free.updated_at')
+    				->paginate(10);
+    	return view('admin.classFree.notice',['res'=>$freeObj,'str'=>$str,'querytime'=>$querytime,'querytype'=>$querytype]);
     }
     public function noticePost(Request $request)
     {

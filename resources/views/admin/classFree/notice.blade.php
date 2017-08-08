@@ -41,6 +41,26 @@
                             </div>
                             <div class="panel-collapse collapse in">
                                 <div class="portlet-body">
+                                	<div class="row" style="margin-bottom: 5px;">
+                                        <div class="form-group">
+                                      		<form id="search_form" action="/admin/classFree/notice/query" method="get">
+	                                            <label for="pay_select" class="col-md-1 clh text-right">日期:</label>
+	                                            <div class="col-md-2">
+	                                                <input type="text" class="form-control" name="" id="cxdate" value="@if($querytime) {{$querytime}} @endif">
+	                                                <input type="hidden" name="hiddencxdate" id="hiddencxdate" value="@if($querytime) {{$querytime}} @endif">
+	                                            </div>
+	                                            <label class="col-md-1 clh text-right">通知状态:</label>
+	                                            <div class="col-md-2">
+	                                                <select name="querytype" id="banji_select" class="form-control">
+	                                                    <option value="">全部</option>
+	                                                    <option value="0" @if($querytype != null && $querytype == 0) selected="selected" @endif>未发送</option>
+	                                                    <option value="1" @if($querytype ==1) selected="selected" @endif>已发送</option>
+	                                                </select>
+	                                            </div>
+	                                            <button class="btn btn-success" style="margin-left: 20px;" id="searchBtn">确认查询</button>
+                                        	</form>
+                                        </div>
+                                    </div>
                                 	<div class="row">
 	                                    <div class="table-responsive">
 	                                       	<div class="abc" style="padding-left:10px;margin-top:5px;margin-bottom:5px;">
@@ -53,6 +73,7 @@
 	                                                    <th>用户昵称</th>
 	                                                    <th>手机号</th>
 	                                                    <th>预约时间</th>
+	                                                    <th>发送状态</th>
 	                                                    <th>操作</th>
 	                                                </tr>
 	                                            </thead>
@@ -63,6 +84,13 @@
 	                                                    <td>{{$value->nickname}}</td>
 	                                                    <td>{{$value->phone}}</td>
 	                                                    <td>{{$value->active_time}}</td>
+	                                                    <td>
+	                                                    	@if($value->type)
+	                                                    		<span class="label label-success">已通知</span>
+	                                                    	@else
+	                                                    		<span class="label label-default">未通知</span>
+	                                                    	@endif
+	                                                    </td>
 	                                                    <td>
 															<a >
 																<span class="label label-default">暂无操作</span>
@@ -129,6 +157,7 @@ var start = {
     minDate: '2017-07-01', //设定最小日期为当前日期
     festival: false,
     isinitVal:false,                            //是否初始化时间，默认不初始化时间
+    hmsSetVal:{hh:00,mm:00,ss:00},
     isTime:true, //是否开启时间选择
     maxDate: '2099-01-01', //最大日期
     choosefun: function(elem, val, date){
@@ -137,6 +166,7 @@ var start = {
         $.ajax({
 			url:'/admin/classFree/setActiveTime/inspect',
 			data:{
+				ids:ids,
 				active_time:val
 			},
 			type:'post',
@@ -152,12 +182,46 @@ var start = {
         
     },
     okfun:function(elem, val, date) {
-        console.log(2);
-        $('#hiddenDate').val(val);
+        $.ajax({
+			url:'/admin/classFree/setActiveTime/inspect',
+			data:{
+				ids:ids,
+				active_time:val
+			},
+			type:'post',
+			datatype:'json',
+			success:function(data){
+				if(data.code == 1){
+					var count = 12 - parseInt(data.count);
+					$('#sum').val(count);
+					 $('#hiddenDate').val(val);
+				}
+			}
+        })
     }, 
 };
 //或者是
 $.jeDate('#inputstart',start);
+
+var start2 = {
+	    format: 'YYYY-MM-DD',
+	    minDate: '2017-07-01', //设定最小日期为当前日期
+	    festival: false,
+	    isinitVal:false,                            //是否初始化时间，默认不初始化时间
+	    hmsSetVal:{hh:00,mm:00,ss:00},
+	    isTime:true, //是否开启时间选择
+	    maxDate: '2099-01-01', //最大日期
+	    choosefun: function(elem, val, date){
+	        // end.minDate = val; //开始日选好后，重置结束日的最小日期
+	        // endDates();
+			$('#hiddencxdate').val(val);
+	    },
+	    okfun:function(elem, val, date) {
+	    	$('#hiddencxdate').val(val);
+	    }, 
+	};
+	//或者是
+	$.jeDate('#cxdate',start2);
 </script>
 <script type="text/javascript">
 	var ids = '';
@@ -167,13 +231,20 @@ $.jeDate('#inputstart',start);
         });
 
     })
+    $('.pagination li a').each(function(){
+   		var href = $(this).attr('href');
+        if (href)
+       		$(this).attr('href', href+'{!!$str!!}');
+    })
     function allyes(){
     	$("input[name='ids']").prop("checked",'true');//全选 
    	}
    	function allno(){
    		$("input[name='ids']").removeAttr("checked");
    	}	
-    function settime(){ 
+    function settime(){
+        $('#inputstart').val('');
+        $('#sum').val('12'); 
     	ids = [];
     	$('input[name="ids"]:checked').each(function(){ 
     		ids.push($(this).val()); 
