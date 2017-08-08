@@ -85,10 +85,10 @@
 										<div class="panel-header" style="background: #22AAE8;color: #FFF;padding: 8px;">加辰币说明</div>
 										<div class="panel-body">
 											<ul>
-												<li>1、加辰币是用户在加辰教育的消费积分</li>
-												<li>2、每购买加辰教育课程1000元，返积分100加辰币</li>
-												<li>3、加辰币可直接用于加辰精品小店购物（以加辰币标示价格）</li>
-												<li>4、每100加辰币课兑换一张88元优惠券，购买新课程使用。</li>
+												<li>1、加辰币是用户在加辰教育的消费积分；</li>
+												<li>2、每购买加辰教育课程1000元，返积分100加辰币；</li>
+												<li>3、加辰币可直接用于加辰精品小店购物（以加辰币标示价格）；</li>
+												<li>4、每100加辰币可兑换一张88元优惠券，购买新课程使用。</li>
 											</ul>
 										</div>
 									</div>
@@ -124,10 +124,10 @@
             			        	<div class="ui-form ui-border-t">
 									    <form action="#">
 										    <div class="ui-form-item ui-form-item-order ui-border-b">
-									            <a href="#">兑换优惠券（满1000减88）</a>
+									            <a href="#">兑换优惠券（100加辰币兑88元）</a>
 									        </div>
 									        <div class="ui-form-item ui-form-item-r ui-border-b">
-									            <input type="number" id="changeInput" max="{{$changeNumber}}" placeholder="请输入数字" style="padding-left: 15px;">
+									            <input type="number" id="changeInput" max="{{$changeNumber}}" placeholder="请输入兑换张数" style="padding-left: 15px;">
 									            
 									            <!-- 若按钮不可点击则添加 disabled 类 -->
 									            <button type="button" class="ui-border-l" id="change" style="background: #03BF4B;color: #FFF;">确认兑换</button>
