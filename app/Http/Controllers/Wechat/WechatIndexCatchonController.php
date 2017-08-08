@@ -130,6 +130,10 @@ class wechatIndexCatchonController extends Controller
             $content = $object->FromUserName;
             $result = $this->transmitText($object, $content); 
         }
+        else if ($keyword == '半价购课网址') {
+            $content = 'http://wechat.catchon-edu.cn/front/share/oauth';
+            $result = $this->transmitText($object, $content); 
+        }
         else
             return '';
             // $result = $this->transmitText($object, $keyword);
