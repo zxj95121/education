@@ -82,7 +82,7 @@
 									    </ul>
 									</section>
 									<div class="panel panel-success mt-20" style="width: 95%;margin: 0 auto;">
-										<div class="panel-header" style="background: #4048FF;color: #FFF;padding: 8px;">加辰币说明</div>
+										<div class="panel-header" style="background: #22AAE8;color: #FFF;padding: 8px;">加辰币说明</div>
 										<div class="panel-body">
 											<ul>
 												<li>1、加辰币是用户在加辰教育的消费积分</li>
