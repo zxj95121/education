@@ -244,6 +244,13 @@ $signPackage = $jssdk->GetSignPackage();
 	                </div>
 	                <div class="weui-cell__ft"></div>
 	            </a>
+	            <a class="weui-cell weui-cell_access" href="/front/coin">
+	                <div class="weui-cell__hd"><img src="/images/home/option_coin.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>我的加辰币</p>
+	                </div>
+	                <div class="weui-cell__ft"></div>
+	            </a>
 	            <a class="weui-cell weui-cell_access" href="/front/parent/parentChat">
 	                <div class="weui-cell__hd"><img src="/images/home/option_chat.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
 	                <div class="weui-cell__bd">
