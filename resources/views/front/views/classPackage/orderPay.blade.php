@@ -72,7 +72,14 @@ $signPackage = $jssdk->GetSignPackage();
     					<div class="item-media"><i class="icon icon-f7"></i></div>
     					<div class="item-inner">
       						<div class="item-title">课程价格</div>
-      						<div class="item-after">¥ {{number_format((string)$price, 2)}}</div>
+      						<div class="item-after">¥ {{number_format((string)$prePrice, 2)}}</div>
+    					</div>
+  					</li>
+  					<li class="item-content">
+    					<div class="item-media"><i class="icon icon-f7"></i></div>
+    					<div class="item-inner">
+      						<div class="item-title">优惠后金额</div>
+      						<div class="item-after" style="font-weight: bold;">¥ {{number_format((string)$price, 2)}}</div>
     					</div>
   					</li>
   					<li class="item-content">

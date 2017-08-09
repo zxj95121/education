@@ -84,6 +84,8 @@ class ClassPackageController extends Controller
                 $vouNum++;
             }
         }
+
+        $prePrice = $price;
         $price = $price-(88*$vouNum);
         $cid = $package->id;
         $uid = $userObj->id;
@@ -101,6 +103,7 @@ class ClassPackageController extends Controller
         Session::put('package_order_no', $order_no);
         Session::put('package_order_price', $price);
         Session::put('package_order_vouNum', $vouNum);
+        Session::put('prePrice', $prePrice);
 
         Session::put('hasOrder', '0');
     	
@@ -113,6 +116,7 @@ class ClassPackageController extends Controller
         $order_no = Session::get('package_order_no');
         $price = Session::get('package_order_price');
         $vouNum = Session::get('package_order_vouNum');
+        $prePrice = Session::get('prePrice');
 
         // Session::forget('package_order_no');
         // Session::forget('package_order_price');
@@ -132,7 +136,7 @@ class ClassPackageController extends Controller
         $phone = NewUser::where('openid', $openid)
             ->first()
             ->phone;
-        return view('front.views.classPackage.orderPay', ['package'=>$packageObj,'voucher'=>$voucher,'userObj'=>$userObj,'price'=>$price,'vouNum'=>$vouNum,'order_no'=>$order_no,'phone'=>$phone]);
+        return view('front.views.classPackage.orderPay', ['package'=>$packageObj,'voucher'=>$voucher,'userObj'=>$userObj,'price'=>$price,'vouNum'=>$vouNum,'order_no'=>$order_no,'phone'=>$phone,'prePrice'=>$prePrice]);
     }
 
     /*支付订单oauth*/
