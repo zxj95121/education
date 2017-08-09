@@ -19,17 +19,20 @@ class ShareController extends Controller
 	public function index(Request $request)
 	{
 		$openid = Session::get('openid');
+		$oauth_access_token = Session::get('oauth_access_token');
 
 		if (!$openid)
 			return redirect('/front/share/oauth');
 		
-		$userinfo = $this->select($openid);
+		if ($oauth_access_token) {
+			$userinfo = $this->select($openid, $oauth_access_token);
+		}
 
 		// $userinfo = $data['userinfo'];
 		$uid = NewUser::where('openid', $openid)
 			->first()->id;
 
-		if($userinfo['subscribe'] == 0){
+		// if($userinfo['subscribe'] == 0){
 			/*被分享未关注  */
 			if(Session::get('share')){
 				$id = Session::get('share')['id'];
@@ -46,7 +49,7 @@ class ShareController extends Controller
 					}
 				}
 			}
-		}
+		// }
 
 		/*用户半价信息*/
 		$halfObj = HalfBuyInfo::where('uid', $uid)
@@ -129,7 +132,7 @@ class ShareController extends Controller
 			$share['id'] = $request->input('id');
 			Session::put('share',$share);
 		}
-		return redirect(OauthController::getUrl(7, 0));
+		return redirect(OauthController::getUrl(7, 1));
 	}
 
 	/*halfBuyOrder用户进行购买*/
@@ -227,16 +230,18 @@ class ShareController extends Controller
 
 	/*用户判断，new_user表以及half_buy_info表*/
 
-	private function select($openid)
+	private function select($openid, $oauth_access_token)
 	{
 		$exists = NewUser::where('openid', $openid)
 			->count();
 
-		$access_token = Wechat::get_access_token();
-		/*获取用户个人详细信息*/
-		$url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token['access_token'].'&openid='.$openid.'&lang=zh_CN';
+		// $access_token = Wechat::get_access_token();
+		// /*获取用户个人详细信息*/
+		// $url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token['access_token'].'&openid='.$openid.'&lang=zh_CN';
+		// $userinfo = Wechat::curl($url);
+		$url = 'https://api.weixin.qq.com/sns/userinfo?access_token='.$oauth_access_token.'&openid='.$openid.'&lang=zh_CN';
 		$userinfo = Wechat::curl($url);
-
+		
 		if (!$exists) {
 			/*不存在*/
 			$flight = new NewUser();
