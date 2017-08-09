@@ -692,7 +692,7 @@ $signPackage = $jssdk->GetSignPackage();
 			/*价格*/
 			var yearArr = new Array();
 			var end = new Date().getFullYear();
-			for (var i = end-68,j = 0;i <= end;i++,j++) {
+			for (var i = end-88,j = 0;i <= end;i++,j++) {
 				yearArr[j] = new Object();
 				yearArr[j].name = i+'年',
 				yearArr[j].value = i;
