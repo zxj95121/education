@@ -19,11 +19,11 @@ $(function(){
 	})
 	/*孩子列表点击*/
 	$(document).on('click','.listChild',function(){
-		layer.open({
+/*		layer.open({
 			content:'该功能正在开发中...',
 			skin:'msg',
 			time:2
-		});
-		//alert($(this).attr('childid'));
+		});*/
+		window.location.href= "/front/child/editChild?id="+$(this).attr('childid');
 	})
 })
