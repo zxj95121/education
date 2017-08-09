@@ -263,7 +263,7 @@ function cartInit(){
 		$(this).remove();
 	})
 	for (var i in cartOrder) {
-		$('#orderdetail').append('<div class="cartblock" pid="'+i+'"> <div class="cartheader" style="width:100%;background: #EA6969;'
+		$('#orderdetail').append('<div class="cartblock" pid="'+i+'"> <div class="cartheader" style="width:100%;background: #60b4e6;'
 			+'color: #FFF;padding:6px 10px;"> <p style="font-size:1.1em;margin: 0px 0px;">'+cartOrder[i].name+'</p> </div> </div>');
 		var val = cartOrder[i]['val'];
 		for (var j in val) {
