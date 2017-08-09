@@ -237,8 +237,6 @@ class ShareController extends Controller
 		$url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token['access_token'].'&openid='.$openid.'&lang=zh_CN';
 		$userinfo = Wechat::curl($url);
 
-		var_dump($userinfo);
-
 		if (!$exists) {
 			/*不存在*/
 			$flight = new NewUser();
