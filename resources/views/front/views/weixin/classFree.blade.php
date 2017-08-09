@@ -32,15 +32,6 @@
 					                                <section class="_135editor" data-tools="135编辑器" data-id="7237" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
 					                                    <section style="margin: 3px;background-color: #fff;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">
 					                                        <section class="_135editor" data-tools="135编辑器" data-id="86445" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
-					                                            <section style="margin: 1em 0px; color: rgba(255, 255, 255, 1); border-bottom-width: 2px; box-sizing:border-box;border-bottom-style: solid; /*border-bottom-color: rgb(33, 33, 34); */clear: both; text-align: right;background: #1F9B17;">
-					                                                <section style="display:inline-block;float:left;" class="135brush" data-brushtype="text">
-					                                                    <span style="font-size: 20px;">免费试听课</span>
-					                                                </section>
-					                                                <!-- <section style="border-top-width: 30px; box-sizing:border-box;border-top-style: solid; border-color: transparent rgb(58, 58, 255); border-bottom-width: 0px; border-bottom-style: solid; border-right-width: 15px; border-right-style: solid; display: inline-block; vertical-align: top;"></section> -->
-					                                                <section style="padding:3px 10px;box-sizing:border-box; display: inline-block; height: 30px; color: rgb(255, 255, 255);background-color:rgb(58, 58, 255);border-bottom: 26px solid #3A3AFF;">
-					                                                    <span style="color: #FEFEFE; font-size: 20px;">加辰教育定制</span>
-					                                                </section>
-					                                            </section>
 					                                        </section><img src="http://image.135editor.com/files/users/262/2625290/201708/ObVSVjg5_zXBj.jpg" style="margin: 0px;" width="100%" height="" border="0" opacity="" mapurl="" title="U12451P20DT20151026073523.jpg" alt="U12451P20DT20151026073523.jpg" data-width="100%"/>
 					                                        <section class="135brush" data-type="main">
 					                                            <p style="text-indent: 2em; text-align: left;">
