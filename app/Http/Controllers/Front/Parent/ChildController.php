@@ -36,7 +36,7 @@ class ChildController extends Controller
    		$obj->save();
    		return response()->json(['code'=>200]);
    	}
-   	public function editChild(Reuqest $request)
+   	public function editChild(Request $request)
    	{
    		$id = $request->input('id');
    		$obj = ParentChild::find($id);

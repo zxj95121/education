@@ -24,7 +24,6 @@ $(function(){
 			skin:'msg',
 			time:2
 		});*/
-		console.log($(this).attr('childid'));
-		//window.location.href= "/front/child/editChild?id="+2;
+		window.location.href= "/front/child/editChild?id="+$(this).attr('childid');
 	})
 })
