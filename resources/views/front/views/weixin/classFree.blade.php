@@ -41,15 +41,16 @@
 					                                    </section>
 					                                    <section class="_135editor" data-tools="135编辑器" data-id="86323" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
 					                                        <section style="margin-top: 0.5em; margin-bottom: 0.5em; padding-left: 0.5em; padding-right: 0.5em; text-align: center; position: static; box-sizing: border-box;">
-					                                            <section style="position: static;box-sizing: border-box;transform: rotate(0.1deg);-webkit-transform: rotate(0.1deg);-moz-transform: rotate(0.1deg);-ms-transform: rotate(0.1deg);-o-transform: rotate(0.1deg);">
-					                                                <img style="width: 2.2em; margin-bottom: -1.4em; vertical-align: middle;" src="http://image3.135editor.com/cache/remote/aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpei9jWlYyaFJwdUFQaWFpY211RWlidzVTS1BrSGxQVUZuVFY1Mm41RENRVTlNYWlhazJCckg5a3hxeVNHbXFDOHJPQk9pYzZLdU1NSHBQelpUaWNmeE9pYXlqRWliREFnLzA="/>
-					                                            </section>
+					                                            
 					                                            <section class="layout" style="padding: 7%; box-shadow: rgb(204, 204, 204) 0.3em 0.3em 0.3em; width: 90%; margin-right: auto; margin-left: auto; box-sizing: border-box; background-color: rgb(239, 239, 239);" data-width="90%">
 					                                                <section class="135brush">
 					                                                    <p style="text-align: left; text-indent: 2em;">
 					                                                        语言最重要的功能是为了不同文化、不同地域的人们能更好的交流，我们中小学生跟随外教学习英语，就是要从学习英语之初，就尝试运用最简单、最基本的英语进行会话交流，这才是我们英语学习的基本目标。所以，让孩子们从小就跟着外教体验英语交流过程，掌握英语发音方式，熟悉英语基本表达，在日常会话中自主自发的运用英语语言思维，不受中文思维习惯的约束，和外国人在一起时，自然就会信心满满的脱口而出了。<img style="width:100%; height:100%" src="http://image.135editor.com/files/users/262/2625290/201708/OhMKA6zg_AnQv.jpg" alt="微信图片_20170801151754.jpg" title="微信图片_20170801151754.jpg"/>
 					                                                    </p>
 					                                                </section>
+					                                            </section>
+					                                            <section style="position: static;box-sizing: border-box;transform: rotate(0.1deg);-webkit-transform: rotate(0.1deg);-moz-transform: rotate(0.1deg);-ms-transform: rotate(0.1deg);-o-transform: rotate(0.1deg);">
+					                                                <img style="width: 2.2em; margin-bottom: -1.4em; vertical-align: middle;" src="http://image3.135editor.com/cache/remote/aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpei9jWlYyaFJwdUFQaWFpY211RWlidzVTS1BrSGxQVUZuVFY1Mm41RENRVTlNYWlhazJCckg5a3hxeVNHbXFDOHJPQk9pYzZLdU1NSHBQelpUaWNmeE9pYXlqRWliREFnLzA="/>
 					                                            </section>
 					                                        </section>
 					                                    </section>
