@@ -34,7 +34,7 @@
 					                                        <section class="_135editor" data-tools="135编辑器" data-id="86445" style="border: 0px none; padding: 0px; position: relative; box-sizing: border-box;">
 					                                        </section>
 					                                        <section class="135brush" data-type="main">
-					                                            <p style="text-indent: 2em; text-align: left;margin-top:0.5em">
+					                                            <p style="text-indent: 2em; text-align: left;    padding-top: 8px;">
 					                                                <span style="color: #595959;">家长们在一起聊英语外教教学的优点时，多半会提到，外教教学首先帮助孩子增强了开口说英语的自信心，其次让孩子感觉和外国人面对面交流是一件很平常的事儿。谈到更深一点，有些家长就意识到，孩子跟着英语外教学习，有利于培养孩子的英语思维，而且，这样的语言思维习惯，培养越早，效果会越好。</span>
 					                                            </p>
 					                                        </section>
