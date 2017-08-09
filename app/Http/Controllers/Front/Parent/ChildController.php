@@ -36,4 +36,27 @@ class ChildController extends Controller
    		$obj->save();
    		return response()->json(['code'=>200]);
    	}
+   	public function editChild(Reuqest $request)
+   	{
+   		$id = $request->input('id');
+   		$obj = ParentChild::find($id);
+   		return  view('front.views.parent.editChild',['res'=>$obj]);
+   	}
+   	public function editPost(Request $request)
+   	{
+   		$id = $request->input('id');
+   		$obj = ParentChild::find($id);
+   		$obj->name = $request->input('name');
+   		$obj->sex = $request->input('sex');
+   		$obj->save();
+   		return response()->json(['code'=>200]);
+   	}
+   	public function deleteChild(Request $request)
+   	{
+   		$id = $request->input('id');
+   		$obj = ParentChild::find($id);
+   		$obj->status = 0;
+   		$obj->save();
+   		return response()->json(['code'=>200]);
+   	}
 }

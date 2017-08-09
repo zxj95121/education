@@ -20,6 +20,9 @@
 		    	<a class="button button-link button-nav pull-left" href="/front/home" data-transition="slide-out" style="color:#fff">
 	      			<span class="icon icon-left"></span>返回
 	    		</a>
+	    		<a id="delete" class="button button-link button-nav pull-left" href="#" data-transition="slide-out" style="color:#fff">
+	      			删除
+	    		</a>
 			 	<h1 class='title' style="background: #22AAE8;color: #fff;">添加我的孩子</h1>
 			</header>
 			<div class="content">
@@ -31,7 +34,7 @@
 			          			<div class="item-inner">
 			            			<div class="item-title label">姓名</div>
 			            			<div class="item-input">
-			              				<input type="text" name="name" placeholder="名称">
+			              				<input type="text" name="name" placeholder="名称" value="{{$res->name}}">
 			            			</div>
 			       				</div>
 			        		</div>
@@ -43,8 +46,8 @@
 			            			<div class="item-title label">性别</div>
 			            			<div class="item-input">
 			              				<select name="sex">
-			              					<option value="1">男</option>
-			              					<option value="0">女</option>
+			              					<option value="1" @if($res->sex == 1) selected="selected" @endif>男</option>
+			              					<option value="0" @if($res->sex == 0) selected="selected" @endif>女</option>
 			              				</select>
 			            			</div>
 			       				</div>
@@ -54,7 +57,8 @@
 				</div>
 				<div class="content-block" style="margin-top:20px">
 					<div class="row">
-						<div class="col-100"><a href="#" class="button button-big button-fill button-success">提交</a></div>
+						<input type="hidden" name="childid" value="{{$res->id}}">
+						<div class="col-100"><a href="#" class="button button-big button-fill button-success">修改</a></div>
 					</div>
 				</div>
 			</div>
@@ -83,20 +87,20 @@
 			}
 			if (!ajax) {
 				ajax = true;
-
 				$.ajax({
 					headers:{
 						'X-CSRF-TOKEN': '{{csrf_token()}}'
 					},	
 					type:'post',
-					url:'/front/child/post',
+					url:'/front/child/editPost',
 					data:{
+						id:$('input[name="childid"]').val(),
 						name:name,
 						sex:sex
 					},
 					success:function(date){
 						if(date.code == 200){
-							$.toast('添加成功');
+							$.toast('修改成功');
 							$('.button-success').replaceWith('<a href="#" class="button button-big button-fill button-danger">已完成</a>')
 							setTimeout(function(){
 								window.location.href="/front/home";
@@ -113,7 +117,26 @@
 				})
 			}
 		})
-		
+		$('#delete').click(function(){
+			$.ajax({
+				headers:{
+					'X-CSRF-TOKEN': '{{csrf_token()}}'
+				},	
+				type:'post',
+				url:'/front/child/delete',
+				data:{
+					id:$('input[name="childid"]').val(),
+				},
+				success:function(date){
+					if(date.code == 200){
+						$.toast('删除成功');
+						setTimeout(function(){
+							window.location.href="/front/home";
+						},500);
+					}
+				}
+			})
+		})
 		$(document).on('click','.button-danger',function(){
 			window.location.href = '/front/home	';
 		})
