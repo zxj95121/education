@@ -87,6 +87,8 @@ class PayClassController extends Controller
             }
         }
 
+        $preBigPrice = $bigPrice;
+
         $bigPrice = $bigPrice-(88*$vouNum);
 
         Session::put('vouNum', $vouNum);
@@ -134,6 +136,7 @@ class PayClassController extends Controller
 
 		Session::put('bigOrder_id', $bid);
 		Session::put('orderName', $orderName);
+		Session::put('preBigPrice', $preBigPrice);
 		// return view('front.views.parent.bigOrder');
 		return redirect('/front/parent/newEclassOrder2');
 		// exit;
@@ -145,10 +148,12 @@ class PayClassController extends Controller
 		// $childName = Session::get('child');
 		$openid = Session::get('openid');
 		$bid = Session::get('bigOrder_id');
+		$preBigPrice = Session::get('preBigPrice');
+
 		$orderName = Session::get('orderName');
 		$bigOrderObj = BigOrder::find($bid);
 		$vouNum = Session::get('vouNum');
-		return view('front.views.parent.bigOrder', ['bigOrderObj'=>$bigOrderObj,'orderName'=>$orderName,'vouNum'=>$vouNum]);
+		return view('front.views.parent.bigOrder', ['bigOrderObj'=>$bigOrderObj,'orderName'=>$orderName,'vouNum'=>$vouNum,'preBigPrice'=>$preBigPrice]);
 	}
 
 	public function newEclassOrder00(Request $request)
