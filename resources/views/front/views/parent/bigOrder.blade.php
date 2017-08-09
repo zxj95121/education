@@ -74,6 +74,13 @@
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">
           						<div class="item-title">订单价格</div>
+          						<div class="item-after" style="font-weight: bold;text-decoration: line-through;">¥ {{number_format($preBigPrice, 2)}}</div>
+        					</div>
+      					</li>
+      					<li class="item-content">
+        					<div class="item-media"><i class="icon icon-f7"></i></div>
+        					<div class="item-inner">
+          						<div class="item-title">优惠后金额</div>
           						<div class="item-after" style="font-weight: bold;">¥ {{number_format($bigOrderObj->price, 2)}}</div>
         					</div>
       					</li>
