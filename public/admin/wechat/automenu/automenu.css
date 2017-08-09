@@ -1,0 +1,587 @@
+html{
+	background: #FFF;
+	box-sizing: border-box;
+}
+div {
+    display: block;
+}
+body {
+    line-height: 1.6;
+    font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei","\9ED1\4F53",Arial,sans-serif;
+    color: #222;
+    font-size: 14px;
+}
+ul, li, p, em {
+    list-style-type: none;
+    -webkit-padding-start: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+/*初始*/
+
+.highlight_box.icon_wrap {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    overflow: hidden;
+}
+.highlight_box.border {
+    border-top: 1px solid #e7e7eb;
+}
+.highlight_box {
+    position: relative;
+    padding: 9px 30px;
+    background-color: #f4f5f9;
+    /*margin-bottom: 20px;*/
+    line-height: 1.6;
+}
+
+.highlight_box.icon_wrap .icon_msg_small {
+    margin-top: 5px;
+}
+.highlight_box.icon_wrap .icon {
+    float: left;
+    margin-right: 15px;
+}
+#menustatus_1 .icon_msg_small.success {
+    background: url(/images/wechat/base_z375baf.png) 0 -936px no-repeat;/*success*/
+}
+#menustatus_2 .icon_msg_small.success {
+	background: url(/images/wechat/base_z375baf.png) 0 -1008px no-repeat;/*wait*/
+}
+.icon_msg_small {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.highlight_box.icon_wrap .title, .highlight_box.icon_wrap .desc {
+    overflow: hidden;
+}
+.highlight_box .title {
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.6;
+    font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei","\9ED1\4F53",Arial,sans-serif;
+    color: #222;
+    font-size: 14px;
+}
+
+.highlight_box.icon_wrap .title, .highlight_box.icon_wrap .desc {
+    overflow: hidden;
+}
+.highlight_box .desc {
+    color: #8d8d8d;
+    overflow: hidden;
+}
+
+a {
+    color: #459ae9;
+    text-decoration: none;
+}
+
+
+
+
+/*menu部分开始*/
+
+.menu_setting_area {
+    margin: 14px 30px 0;
+}
+.menu_preview_area {
+    float: left;
+    margin-right: 12px;
+    position: relative;
+}
+.container_box.cell_layout .col_side, .container_box.cell_layout .col_main {
+    display: table-cell;
+    vertical-align: top;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+/*左边的图示部分*/
+.mobile_menu_preview {
+    position: relative;
+    width: 317px;
+    height: 580px;
+    background: transparent url(/images/wechat/automenu/bg_mobile_head_default2968da.png) no-repeat 0 0;
+    background-position: 0 0;
+    border: 1px solid #e7e7eb;
+}
+
+.menu_preview_area .sort_btn_wrp {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -72px;
+    text-align: center;
+}
+
+.mobile_menu_preview .mobile_hd {
+    color: #fff;
+    text-align: center;
+    padding-top: 30px;
+    font-size: 15px;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    margin: 0 30px;
+}
+.container_box.cell_layout .col_main {
+    display: table-cell;
+    vertical-align: top;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.menu_preview_area .pre_menu_list {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #e7e7eb;
+    background: transparent url(/images/wechat/automenu/bg_mobile_foot_default2968da.png) no-repeat 0 0;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    padding-left: 43px;
+}
+.menu_preview_area .pre_menu_item {
+    line-height: 50px;
+}
+.pre_menu_item {
+    position: relative;
+    float: left;
+    line-height: 38px;
+    text-align: center;
+}
+.size1of3 {
+    width: 33.33%;
+}
+
+.menu_preview_area .pre_menu_item.current .pre_menu_link {
+    border: 1px solid #44b549;
+    line-height: 48px;
+    background-color: #fff;
+    color: #44b549;
+}
+.menu_preview_area .pre_menu_item:first-child .pre_menu_link {
+    border-left-width: 0;
+}
+.pre_menu_item a {
+    display: block;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    color: #616161;
+    text-decoration: none;
+}
+
+.pre_menu_item .icon_menu_dot {
+    background: url(/images/wechat/automenu/index_z354723.png) 0 -36px no-repeat;
+    width: 7px;
+    height: 7px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 2px;
+    margin-top: -2px;
+}
+
+.menu_preview_area .pre_menu_list .sort_gray {
+    margin-top: -4px;
+}
+.menu_preview_area .pre_menu_list .sort_gray {
+    display: none;
+}
+
+.icon20_common.sort_gray {
+    background: url(/images/wechat/base_z375baf.png) 0 -4779px no-repeat;
+}
+.icon20_common {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 100px;
+    overflow: hidden;
+}
+
+.menu_preview_area .pre_menu_item.current .pre_menu_link {
+    border: 1px solid #44b549;
+    line-height: 48px;
+    background-color: #fff;
+    color: #44b549;
+}
+.pre_menu_item a {
+    display: block;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    color: #616161;
+    text-decoration: none;
+}
+
+.menu_preview_area .sub_pre_menu_list li.current a {
+    color: #44b549;
+}
+.sub_pre_menu_list li a {
+    padding: 0 .5em;
+}
+.menu_preview_area .sub_pre_menu_box {
+    bottom: 60px;
+    background-color: #fafafa;
+    border-top-width: 0;
+}
+.sub_pre_menu_box {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    border: 1px solid #d0d0d0;
+    background-color: #fff;
+}
+
+.menu_preview_area .pre_menu_item {
+    line-height: 50px;
+}
+.pre_menu_item {
+    position: relative;
+    float: left;
+    line-height: 38px;
+    text-align: center;
+}
+.menu_preview_area .sub_pre_menu_inner {
+    display: block;
+    border-top: 1px solid #e7e7eb;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    cursor: pointer;
+}
+.menu_preview_area .icon14_menu_add {
+    background: url(/images/wechat/automenu/index_z354723.png) 0 0 no-repeat;
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: -2px;
+}
+.grid_line .no_extra.grid_item {
+    float: none;
+    width: auto;
+    overflow: hidden;
+}
+.menu_preview_area .pre_menu_item {
+    line-height: 50px;
+}
+.grid_item.no_extra {
+    float: none;
+    width: auto;
+    overflow: hidden;
+}
+.pre_menu_item {
+    position: relative;
+    float: left;
+    line-height: 38px;
+    text-align: center;
+}
+.size1of3 {
+    width: 33.33%;
+}
+.grid_item {
+    float: left;
+}
+.pre_menu_link {
+    border-left: 1px solid #e7e7eb;
+}
+.menu_preview_area .sub_pre_menu_list li:first-child {
+    border-top: 1px solid #d0d0d0;
+}
+.menu_preview_area .sub_pre_menu_list li.current {
+    background-color: #fff;
+    border: 1px solid #44b549;
+    position: relative;
+    z-index: 1;
+    line-height: 45px;
+}
+.menu_preview_area .sub_pre_menu_list li.current a {
+    color: #44b549;
+}
+
+.sub_pre_menu_box .arrow_out {
+    bottom: -6px;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-width: 6px;
+    border-style: dashed;
+    border-color: transparent;
+    border-bottom-width: 0;
+    border-top-color: #d0d0d0;
+    border-top-style: solid;
+}
+.sub_pre_menu_box .arrow {
+    position: absolute;
+    left: 50%;
+    margin-left: -6px;
+}
+.sub_pre_menu_box .arrow_in {
+    bottom: -5px;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-width: 6px;
+    border-style: dashed;
+    border-color: transparent;
+    border-bottom-width: 0;
+    border-top-color: #fafafa;
+    border-top-style: solid;
+}
+.sub_pre_menu_box .arrow {
+    position: absolute;
+    left: 50%;
+    margin-left: -6px;
+}
+
+
+
+
+/*---------------------*/
+
+.menu_form_area {
+    display: table-cell;
+    vertical-align: top;
+    float: none;
+    width: auto;
+}
+
+.menu_initial_tips {
+    text-align: center;
+    padding-top: 200px;
+}
+.tips_global {
+    color: #8d8d8d;
+}
+.portable_editor.to_left {
+    padding-left: 12px;
+}
+.portable_editor {
+    position: relative;
+}
+.menu_form_area .editor_inner {
+    min-height: 560px;
+    padding-bottom: 20px;
+}
+.portable_editor .editor_inner {
+    padding: 0 20px 5px;
+    background-color: #f4f5f9;
+    border: 1px solid #e7e7eb;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.menu_form_area .portable_editor.to_left .editor_arrow_wrp {
+    top: 545px;
+}
+.portable_editor.to_left .editor_arrow_wrp {
+    left: 0;
+    top: 20px;
+}
+.portable_editor .editor_arrow_wrp, .portable_editor .editor_arrow {
+    position: absolute;
+}
+.portable_editor.to_left .editor_arrow_out {
+    left: 0;
+}
+.portable_editor.to_left .editor_arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-width: 12px;
+    border-style: dashed;
+    border-color: transparent;
+    border-left-width: 0;
+    border-right-color: #e7e7eb;
+    border-right-style: solid;
+}
+.portable_editor.to_left .editor_arrow_in {
+    left: 1px;
+    border-right-color: #f4f5f9;
+}
+.portable_editor.to_left .editor_arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-width: 12px;
+    border-style: dashed;
+    border-color: transparent;
+    border-left-width: 0;
+    border-right-color: #e7e7eb;
+    border-right-style: solid;
+}
+
+.menu_form_hd {
+    padding: 9px 0;
+    border-bottom: 1px solid #e7e7eb;
+}
+.global_mod.float_layout .global_info {
+    float: left;
+}
+.global_mod .global_extra {
+    text-align: right;
+}
+.menu_form_area .msg_sender_tips {
+    padding-top: 10px;
+}
+.portable_editor .frm_control_group {
+    margin-bottom: 10px;
+}
+.portable_editor .frm_control_group {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 0;
+}
+.frm_control_group {
+    padding-bottom: 25px;
+}
+.menu_form_area .frm_label {
+    width: 5em;
+}
+.frm_label {
+    float: left;
+    width: 5em;
+    margin-top: .3em;
+    margin-right: 1em;
+    font-size: 14px;
+}
+.frm_controls {
+    display: table-cell;
+    vertical-align: top;
+    float: none;
+    width: auto;
+}
+.frm_input_box.counter_in {
+    width: 228px;
+    padding-right: 60px;
+}
+.frm_input_box.counter_in {
+    padding-right: 70px;
+}
+.frm_input_box.append {
+    padding-right: 30px;
+}
+.frm_input_box {
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    width: 278px;
+    font-size: 14px;
+    padding: 0 10px;
+    border: 1px solid #e7e7eb;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    background-color: #fff;
+}
+.frm_msg.fail {
+    color: #e15f63;
+}
+.dn {
+    display: none;
+}
+.frm_msg {
+    display: none;
+    overflow: hidden;
+}
+.frm_tips, .frm_msg {
+    padding-top: 4px;
+    width: 300px;
+}
+.frm_radio_label, .frm_checkbox_label {
+    display: inline-block;
+    text-align: left;
+    cursor: pointer;
+    margin-right: 1em;
+}
+.frm_vertical_pt {
+    padding-top: .3em;
+}
+.frm_input {
+    height: 22px;
+    margin: 4px 0;
+}
+.frm_input, .frm_textarea {
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+}
+.menu_form_area .frm_tips, .menu_form_area .frm_msg {
+    width: auto;
+}
+.frm_tips, .frm_msg {
+    padding-top: 4px;
+    width: 300px;
+}
+.frm_tips {
+    color: #8d8d8d;
+}
+.portable_editor .frm_label .title {
+    font-weight: 400;
+    font-style: normal;
+}
+.icon_radio {
+	background: url(/images/wechat/base_z375baf.png) 0 -140px no-repeat;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.icon_radio.selected, .selected .icon_radio {
+    background: url(/images/wechat/base_z375baf.png) 0 -160px no-repeat;
+}
+.icon_radio, .icon_checkbox {
+    margin-right: 3px;
+    margin-top: -2px;
+}
+.frm_radio_label, .frm_checkbox_label {
+    display: inline-block;
+    text-align: left;
+    cursor: pointer;
+    margin-right: 1em;
+}
+.lbl_content{
+	font-weight: normal;
+}
+input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+.frm_radio, .frm_checkbox {
+    position: absolute;
+    left: -999em;
+}

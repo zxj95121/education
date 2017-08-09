@@ -268,6 +268,13 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
 
 /*----------------------------------------------------------------*/
 
+
+
+/*管理后台组*/
+Route::group(['prefix' => 'wechat','namespace' => 'Wechat','middleware' => ['admin','domainAdmin']], function ($router) {
+    $router->get('/autoMenu','Deal\AutoMenu\AutoMenuController@index');
+});
+
 /*-----------------------------------------------------------------*/
 
 
