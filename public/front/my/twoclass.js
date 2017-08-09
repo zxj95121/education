@@ -227,10 +227,10 @@ $(document).on('click', '#myCartRight', function(){
 		 });
 	} else {
 		// $('#cartConfirm').show();
-		var loadIndex = layer.open({
-		    type: 2
-		    ,content: ''
-		});
+		// var loadIndex = layer.open({
+		//     type: 2
+		//     ,content: ''
+		// });
 		$('#cartOrderForm textarea').val(JSON.stringify(cartOrder));
 		$('#inputcartTotal').val(cartTotal);
 		$('#cartOrderForm')[0].submit();
