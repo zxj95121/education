@@ -107,7 +107,7 @@ class wechatIndexCatchonController extends Controller
 //                               );
                 $result = $this->transmitText($object, '外教一对一，合适吗？双师Class，喜欢吗？不用担心哦/:rose孩子体验过了，就会知道啦/:v加辰教育中小学生外教一对一双师Class免费试听课，诚邀您的孩子和外教一起快乐学习，体验英语交流的乐趣/:share：
 
-1.【中小学外教一对一，双师Class】点击（“我要试听”绿色按钮），即可体验一次免费试听\ue41b课。
+1.【中小学外教一对一，双师Class】点击（“我要试听”绿色按钮），即可体验一次免费试听课。
 
 2.【注册有礼】点击（“个人中心”绿色按钮），注册即送188元；外教一对一双师Class，定制由你哦/:rose
 
