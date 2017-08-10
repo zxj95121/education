@@ -46,6 +46,12 @@ class PayClassController extends Controller
 		  }
 		}
 		*/
+		$hasOrder = Session::get('hasOrder');
+        if ($hasOrder == '1') {
+            Session::put('hasOrder', '0');
+            return redirect('/front/home');
+        }
+
 		$openid = Session::get('openid');
 		$userObj = NewUser::where('openid', $openid)->first();
 		$voucher = $userObj->voucher;//代金券可用金额
@@ -137,6 +143,8 @@ class PayClassController extends Controller
 		Session::put('bigOrder_id', $bid);
 		Session::put('orderName', $orderName);
 		Session::put('preBigPrice', $preBigPrice);
+
+		Session::put('hasOrder', '0');
 		// return view('front.views.parent.bigOrder');
 		return redirect('/front/parent/newEclassOrder2');
 		// exit;
@@ -144,7 +152,7 @@ class PayClassController extends Controller
 
 	public function newEclassOrder2(Request $request)
 	{
-
+		Session::put('hasOrder', '1');
 		// $childName = Session::get('child');
 		$openid = Session::get('openid');
 		$bid = Session::get('bigOrder_id');
