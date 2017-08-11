@@ -42,6 +42,9 @@ function emoji_decode($str){
 			word-break: break-all;
 			color: #1a1A1a;
 		}
+		.dateSpan{
+			color: #1a1A1a;
+		}
     </style>
 
   </head>
@@ -100,7 +103,7 @@ function emoji_decode($str){
 				                <div class="bubble"  @if($value['admin_id']) @else style="background: #22AAE8;" @endif>
 				                  	<span @if($value['admin_id']) class="chatData" @else class="chatDataUser" @endif >{{emoji_decode($value['content'])}}</span>
 				                    <div class="corner"></div>
-				                    <span>{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
+				                    <span class="dateSpan">{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
 				                </div>
 				            </div>
 				        @elseif($value['type'] == 1)
@@ -109,7 +112,7 @@ function emoji_decode($str){
 				                <div class="bubble" @if($value['admin_id']) @else style="background: #22AAE8;" @endif>
 				                	<img class="chatImg" src="{{$value['content']}}" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
 				                    <div class="corner"></div>
-				                    <span style="position: absolute;">{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
+				                    <span class="dateSpan" style="position: absolute;">{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
 				                </div>
 				            </div>
 				        @else
@@ -314,12 +317,12 @@ function emoji_decode($str){
 		        }
 
 		        if (data.status == 'msg') {
-	        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble" '+str1+'> <span class="'+str2+'">'+data.content+'</span> <div class="corner"></div> <span>'+data.time+'</span> </div> </div>';
+	        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble" '+str1+'> <span class="'+str2+'">'+data.content+'</span> <div class="corner"></div> <span class="dateSpan">'+data.time+'</span> </div> </div>';
 	        		$('#chat-messages').append(str);
 
 	        		dealMessageHeight();
 	        	} else if (data.status == 'image') {
-	        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble" '+str1+'> <img class="chatImg" src="'+data.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span style="position: absolute;">'+data.time+'</span> </div> </div>';
+	        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble" '+str1+'> <img class="chatImg" src="'+data.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span class="dateSpan" style="position: absolute;">'+data.time+'</span> </div> </div>';
 	        		$('#chat-messages').append(str);
 
 	        		var img = new Image();

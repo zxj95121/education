@@ -264,6 +264,13 @@ div.message.right .corner{
 	  right: 0;
 	  bottom: -22px;
 }
+.bubble span{
+	  /*color: #1A1A1A;*/
+	  font-size: 13px;
+	  /**/
+	  right: 0;
+	  bottom: -22px;
+}
 .bubble .chatData{
 	font-size: 16px;
 }
