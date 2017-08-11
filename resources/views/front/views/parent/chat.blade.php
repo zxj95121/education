@@ -104,7 +104,7 @@ function emoji_decode($str){
 		          		@if ($value['type'] == 0)
 				            <div @if($value['admin_id']) class="message" @else class="message right" @endif time="{{$value['created_at']}}">
 				              <img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
-				                <div @if($value['admin_id']) class="bubble" style="float:left;" @else class="bubbleUser" style="float:right;" @endif>
+				                <div @if($value['admin_id']) class="bubble" style="float:left;" @else class="bubble bubbleUser" style="float:right;" @endif>
 				                  	<span class="chatData">{{emoji_decode($value['content'])}}</span>
 				                    <div class="corner"></div>
 				                    <span>{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
@@ -113,7 +113,7 @@ function emoji_decode($str){
 				        @elseif($value['type'] == 1)
 					        <div @if($value['admin_id']) class="message" @else class="message right" @endif time="{{$value['created_at']}}">
 				            	<img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
-				                <div @if($value['admin_id']) class="bubble" style="float:left;" @else class="bubbleUser" style="float:right;" @endif>
+				                <div @if($value['admin_id']) class="bubble" style="float:left;" @else class="bubble bubbleUser" style="float:right;" @endif>
 				                	<img class="chatImg" src="{{$value['content']}}" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
 				                    <div class="corner"></div>
 				                    <span style="position: absolute;">{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
@@ -317,7 +317,7 @@ function emoji_decode($str){
 		        } else if (data.type == 'u') {
 		        	var right = ' right';
 					var str = 'float:right;';
-					var str2 = 'bubbleUser';
+					var str2 = 'bubble bubbleUser';
 		        }
 
 		        if (data.status == 'msg') {
