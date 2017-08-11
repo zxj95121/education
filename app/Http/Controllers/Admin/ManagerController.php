@@ -209,6 +209,7 @@ class ManagerController extends Controller
     		//用户成功关注数量
 			// $Shareobj[$key]['succeed'] = UserShare::where('pid',$Shareobj[$key]['pid'])->where('status',1)->where('subscribe',1)->count();
             $midTicket = HalfBuyInfo::where('uid', $Shareobj[$key]['pid'])
+                ->get()
                 ->first();
             $Shareobj[$key]['succeed'] = $midTicket->ticket_num + $midTicket->used_num;
             /*用户的半价券*/

@@ -37,6 +37,18 @@ function emoji_decode($str){
 		.chatData{
 			word-break: break-all;
 		}
+		.bubbleUser{
+			color: #fff;
+			background: #22AAE8;
+		    border-radius: 5px 5px 0px 5px;
+		    font-size: 13px;
+		    font-weight: 600;
+		    padding: 12px 13px;
+		    border-radius: 5px 5px 5px 0px;
+		    color: #8495a3;
+		    position: relative;
+		    min-width: 100px;
+		}
     </style>
 
   </head>
@@ -92,7 +104,7 @@ function emoji_decode($str){
 		          		@if ($value['type'] == 0)
 				            <div @if($value['admin_id']) class="message" @else class="message right" @endif time="{{$value['created_at']}}">
 				              <img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
-				                <div class="bubble">
+				                <div @if($value['admin_id']) class="bubble" style="float:left;" @else class="bubbleUser" style="float:right;" @endif>
 				                  	<span class="chatData">{{emoji_decode($value['content'])}}</span>
 				                    <div class="corner"></div>
 				                    <span>{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
@@ -101,7 +113,7 @@ function emoji_decode($str){
 				        @elseif($value['type'] == 1)
 					        <div @if($value['admin_id']) class="message" @else class="message right" @endif time="{{$value['created_at']}}">
 				            	<img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
-				                <div class="bubble">
+				                <div @if($value['admin_id']) class="bubble" style="float:left;" @else class="bubbleUser" style="float:right;" @endif>
 				                	<img class="chatImg" src="{{$value['content']}}" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
 				                    <div class="corner"></div>
 				                    <span style="position: absolute;">{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
@@ -299,19 +311,22 @@ function emoji_decode($str){
 		        
 		        if (data.type == 'a') {
 		        	var right = '';
+		        	var str = 'float:left;'
+		        	var str2 = 'bubble';
 		        	
 		        } else if (data.type == 'u') {
 		        	var right = ' right';
-		
+					var str = 'float:right;';
+					var str2 = 'bubbleUser';
 		        }
 
 		        if (data.status == 'msg') {
-	        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble"> <span class="chatData">'+data.content+'</span> <div class="corner"></div> <span>'+data.time+'</span> </div> </div>';
+	        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="'+str2+'" style="'+str+'"> <span class="chatData">'+data.content+'</span> <div class="corner"></div> <span>'+data.time+'</span> </div> </div>';
 	        		$('#chat-messages').append(str);
 
 	        		dealMessageHeight();
 	        	} else if (data.status == 'image') {
-	        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble"> <img class="chatImg" src="'+data.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span style="position: absolute;">'+data.time+'</span> </div> </div>';
+	        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="'+str2+'" style="'+str+'"> <img class="chatImg" src="'+data.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span style="position: absolute;">'+data.time+'</span> </div> </div>';
 	        		$('#chat-messages').append(str);
 
 	        		var img = new Image();
