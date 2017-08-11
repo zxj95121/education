@@ -170,7 +170,7 @@ class wechatIndexCatchonController extends Controller
                 'Url' => 'http://wechat.catchon-edu.cn/front/home/oauth'
             );
             $result = $this->transmitNews($object, $contentArr);
-        } else if (strcasecmp($keyword, '双师class')) {
+        } else if (strcasecmp($keyword, '双师class') == 0) {
             $contentArr[] = array(
                 'Title' => '购买即可畅想全年啦!!!',
                 'Description' => '外教一对一教学，英语课程顾问一对六辅导学习和英语活动班课程，这样的双师Class还不来快快抢购？',
