@@ -40,14 +40,6 @@ function emoji_decode($str){
 		.bubbleUser{
 			color: #fff;
 			background: #22AAE8;
-		    border-radius: 5px 5px 0px 5px;
-		    font-size: 13px;
-		    font-weight: 600;
-		    padding: 12px 13px;
-		    border-radius: 5px 5px 5px 0px;
-		    color: #8495a3;
-		    position: relative;
-		    min-width: 100px;
 		}
     </style>
 
