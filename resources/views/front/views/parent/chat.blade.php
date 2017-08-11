@@ -33,6 +33,7 @@ function emoji_decode($str){
     <style type="text/css">
 	    .chatImg{
 			max-width: 210px;
+			color: #1a1A1a;
 		}
 		.chatDataUser{
 			max-width: 210px;
