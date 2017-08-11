@@ -51,10 +51,18 @@
 	                                            </div>
 	                                            <label class="col-md-1 clh text-right">通知状态:</label>
 	                                            <div class="col-md-2">
-	                                                <select name="querytype" id="banji_select" class="form-control">
+	                                                <select name="querytype"  class="form-control">
 	                                                    <option value="">全部</option>
 	                                                    <option value="0" @if($querytype != null && $querytype == 0) selected="selected" @endif>未发送</option>
 	                                                    <option value="1" @if($querytype ==1) selected="selected" @endif>已发送</option>
+	                                                </select>
+	                                            </div>
+	                                            <label class="col-md-1 clh text-right">完成状态:</label>
+	                                            <div class="col-md-2">
+	                                                <select name="complete"  class="form-control">
+	                                                    <option value="">全部</option>
+	                                                    <option value="0" @if($complete != null && $complete == 0) selected="selected" @endif>未完成</option>
+	                                                    <option value="1" @if($complete ==1) selected="selected" @endif>已完成</option>
 	                                                </select>
 	                                            </div>
 	                                            <button class="btn btn-success" style="margin-left: 20px;" id="searchBtn">确认查询</button>
@@ -64,7 +72,11 @@
                                 	<div class="row">
 	                                    <div class="table-responsive">
 	                                       	<div class="abc" style="padding-left:10px;margin-top:5px;margin-bottom:5px;">
-                                            	<a href="#"  class="label label-info"  onclick="allyes()">全选</a><a href="#" class="label label-inverse" onclick="allno()">取消</a><a href="#" onclick="settime()" id="piliang" class="label label-primary">批量修改时间</a><a href="#" class="label label-primary" onclick="notice()">批量发送通知</a></td>
+                                            	<a href="#"  class="label label-info"  onclick="allyes()">全选</a>
+                                            	<a href="#" class="label label-inverse" onclick="allno()">取消</a>
+                                            	<a href="#" class="label label-primary" onclick="settime()">批量修改时间</a>
+                                            	<a href="#" class="label label-primary"  onclick="notice()" >批量发送通知</a>
+                                            	<a href="#" class="label label-primary" onclick="complete()"  >批量完成</a>
                                             </div>
 	                                        <table class="table">
 	                                            <thead>
@@ -74,13 +86,20 @@
 	                                                    <th>手机号</th>
 	                                                    <th>预约时间</th>
 	                                                    <th>发送状态</th>
+	                                                    <th>完成状态</th>
 	                                                    <th>操作</th>
 	                                                </tr>
 	                                            </thead>
 	                                            <tbody>
 	                                                @foreach($res as $value)
 	                                                <tr>
-	                                                    <td><input type="checkbox" name="ids" value="{{$value->id}}">{{$value->id}}</td>
+	                                                    <td>
+	                                                    	@if($value->complete)
+	                                                    	@else
+	                                                    		<input type="checkbox" name="ids" value="{{$value->id}}">
+	                                                    	@endif
+	                                                    	{{$value->id}}
+	                                                   	</td>
 	                                                    <td>{{$value->nickname}}</td>
 	                                                    <td>{{$value->phone}}</td>
 	                                                    <td>{{$value->active_time}}</td>
@@ -89,6 +108,13 @@
 	                                                    		<span class="label label-success">已通知</span>
 	                                                    	@else
 	                                                    		<span class="label label-default">未通知</span>
+	                                                    	@endif
+	                                                    </td>
+	                                                    <td>
+	                                                    	@if($value->complete)
+	                                                    		<span class="label label-success">已完成</span>
+	                                                    	@else
+	                                                    		<span class="label label-default">未完成</span>
 	                                                    	@endif
 	                                                    </td>
 	                                                    <td>
@@ -314,6 +340,32 @@ var start2 = {
 			success:function(data){
 				if(data.code == 1){
 					layer.msg('发送通知成功');
+					setTimeout(function(){
+						window.location.href="/admin/classFree/notice";
+					},2000)
+				}
+			}
+		})
+	}
+	function complete(){
+    	ids = [];
+    	$('input[name="ids"]:checked').each(function(){ 
+    		ids.push($(this).val()); 
+    	}); 
+    	if(ids.length == 0){
+			layer.msg('未进行选择');
+			return false;
+	    }
+	    $.ajax({
+			url:'/admin/classFree/complete_post',
+			data:{
+				ids:ids
+			},
+			type:'post',
+			datatype:'json',
+			success:function(data){
+				if(data.code == 1){
+					layer.msg('已完成');
 					setTimeout(function(){
 						window.location.href="/admin/classFree/notice";
 					},2000)
