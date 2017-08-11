@@ -8,7 +8,7 @@ use App\Models\ClassFree;
 use App\Models\NewUser;
 class ClassFreeController extends Controller
 {
-    public function setActiveTime()
+/*     public function setActiveTime()
     {
     	$freeObj = ClassFree::where('class_free.status',1)
     				->leftJoin('new_user','class_free.uid','new_user.id')
@@ -17,7 +17,7 @@ class ClassFreeController extends Controller
     				->where('class_free.active_time',Null)
     				->paginate(10);
     	return view('admin.classFree.setActiveTime',['res'=>$freeObj]);
-    }
+    } */
     public function setActiveTimeInspect(Request $request)
     {
     	$active_date = substr($request->input('active_time'),0,10);
@@ -39,7 +39,6 @@ class ClassFreeController extends Controller
     	$ids = $request->input('ids');
     	$active_time = $request->input('active_time');
     	for($i = 0; $i < count($ids); $i++){
-    		
     		$freeObj = ClassFree::find($ids[$i]);
     		$freeObj->active_time = $active_time;
     		$freeObj->active_date = substr($active_time,0,10);
@@ -47,25 +46,32 @@ class ClassFreeController extends Controller
     	}
     	return response()->json(['code' => '1']);
     }
-    public function index()
+/*     public function index(Request $request)
     {
+    	$str = '';
+    	$querytime = $request->input('hiddencxdate');
     	$freeObj = ClassFree::where('class_free.status',1)
 	    	->leftJoin('new_user','class_free.uid','new_user.id')
-	    	->select('class_free.id','new_user.nickname','new_user.phone','class_free.active_time','class_free.type')
 	    	->where('new_user.id','!=','')
-	    	->where('class_free.type',1)
-	    	->paginate(10);
-    	return view('admin.classFree.index',['res'=>$freeObj]);
-    }
+	    	->where('class_free.type',1);
+    	if($querytime){
+    		$freeObj = $freeObj->where('active_date',$querytime);
+    		$str .= '&hiddencxdate='.$querytime;
+    	}
+    		$freeObj = $freeObj->select('class_free.id','new_user.nickname','new_user.phone','class_free.active_time','class_free.type')
+    							->orderBy('class_free.updated_at')
+    							->paginate(10);
+    	return view('admin.classFree.index',['res'=>$freeObj,'str'=>$str,'querytime'=>$querytime]);
+    } */
     public function notice(Request $request)
     {
     	$querytime = $request->input('hiddencxdate');
     	$querytype = $request->input('querytype');
+    	$complete = $request->input('complete');
     	$str = '';
     	$freeObj = ClassFree::where('class_free.status',1)
 	    	->leftJoin('new_user','class_free.uid','new_user.id')
-	    	->where('new_user.id','!=','')
-	    	->where('class_free.active_time','!=',Null);
+	    	->where('new_user.id','!=','');
     	if($querytime){
     		$freeObj = $freeObj->where('active_date',$querytime);
     		$str .= '&hiddencxdate='.$querytime;
@@ -74,10 +80,14 @@ class ClassFreeController extends Controller
     		$freeObj = $freeObj->where('class_free.type',$querytype);
     		$str .= '&type='.$querytype;
     	}
-    	$freeObj = $freeObj->select('class_free.id','new_user.nickname','new_user.phone','class_free.active_time','class_free.type')
+    	if($complete != NULL){
+    		$freeObj = $freeObj->where('class_free.complete',$complete);
+    		$str .= '&complete='.$complete;
+    	}
+    	$freeObj = $freeObj->select('class_free.id','new_user.nickname','new_user.phone','class_free.active_time','class_free.type','complete')
     				->orderBy('class_free.updated_at')
     				->paginate(10);
-    	return view('admin.classFree.notice',['res'=>$freeObj,'str'=>$str,'querytime'=>$querytime,'querytype'=>$querytype]);
+    	return view('admin.classFree.notice',['res'=>$freeObj,'str'=>$str,'querytime'=>$querytime,'querytype'=>$querytype,'complete'=>$complete]);
     }
     public function noticePost(Request $request)
     {
@@ -97,5 +107,14 @@ class ClassFreeController extends Controller
     		}
     	}
     	return response()->json(['code' => '1']);
+    }
+    public function completePost(Request $request){
+    	$ids = $request->input('ids');
+    	for($i = 0; $i < count($ids); $i++){
+    		$freeObj = ClassFree::find($ids[$i]);
+    		$freeObj->complete = 1;
+    		$freeObj->save();
+    	}
+    	return response()->json(['code'=>'1']);
     }
 }

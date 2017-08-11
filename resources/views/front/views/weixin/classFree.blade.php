@@ -197,6 +197,7 @@
 							return false;
 						}else{
 							$.alert(data.msg);
+							console.log(data.code);
 							if(data.code == 1){
 								$('#free').html('已领取');
 							}
