@@ -165,7 +165,7 @@ class wechatIndexCatchonController extends Controller
         } else if ($keyword == '注册') {
             $contentArr[] = array(
                 'Title' => '给自己一次学习英语的机会，世界就在你的眼前',
-                'Description' => '你还为学习英语而苦恼吗？你还在为没有良好的学习环境而着急吗？~不用担心，这些我们都能帮你，即日起，注册/:v加辰教育即送188元！外教一对一双师Class,定制由你！',
+                'Description' => '你还为学习英语而苦恼吗？你还在为没有良好的学习环境而着急吗？~不用担心，这些我们都能帮你，即日起，注册加辰教育即送188元！外教一对一双师Class,定制由你！',
                 'PicUrl' => 'http://wechat.catchon-edu.cn/admin/images/wechat/register_reply.png',
                 'Url' => 'http://wechat.catchon-edu.cn/front/home/oauth'
             );
