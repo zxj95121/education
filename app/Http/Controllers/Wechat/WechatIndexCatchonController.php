@@ -154,6 +154,38 @@ class wechatIndexCatchonController extends Controller
         else if ($keyword == '半价购课网址') {
             $content = 'http://wechat.catchon-edu.cn/front/share/oauth';
             $result = $this->transmitText($object, $content); 
+        } else if ($keyword == '我要试听') {
+            $contentArr[] = array(
+                'Title' => '外教适不适合，孩子体验了才知道！',
+                'Description' => '加辰教育中小学外教一对一双师Class免费试听课，诚邀您的孩子和外教一起快乐学习、体验英语交流的乐趣！',
+                'PicUrl' => 'http://wechat.catchon-edu.cn/admin/images/wechat/free_reply.png',
+                'Url' => 'http://wechat.catchon-edu.cn/front/classFree/oauth'
+            );
+            $result = $this->transmitNews($contentArr);
+        } else if ($keyword == '注册') {
+            $contentArr[] = array(
+                'Title' => '给自己一次学习英语的机会，世界就在你的眼前',
+                'Description' => '你还为学习英语而苦恼吗？你还在为没有良好的学习环境而着急吗？~不用担心，这些我们都能帮你，即日起，注册加辰教育即送188元！外教一对一双师Class,定制由你！',
+                'PicUrl' => 'http://wechat.catchon-edu.cn/admin/images/wechat/register_reply.png',
+                'Url' => 'http://wechat.catchon-edu.cn/front/home/oauth'
+            );
+            $result = $this->transmitNews($contentArr);
+        } else if (strcasecmp($keyword, '双师class')) {
+            $contentArr[] = array(
+                'Title' => '购买即可畅想全年啦!!!',
+                'Description' => '外教一对一教学，英语课程顾问一对六辅导学习和英语活动班课程，这样的双师Class还不来快快抢购？',
+                'PicUrl' => 'http://wechat.catchon-edu.cn/admin/images/wechat/class_reply.png',
+                'Url' => 'http://wechat.catchon-edu.cn/front/home/oauth#eclass'
+            );
+            $result = $this->transmitNews($contentArr);
+        } else if ($keyword == '家长亲子') {
+            $contentArr[] = array(
+                'Title' => '给你一个亲子乐园，快乐学习吧!',
+                'Description' => '家长不仅能成为孩子的良好学习榜样，还能通过学习英语陪伴孩子一起成长，增进与孩子之间的感情。',
+                'PicUrl' => 'http://wechat.catchon-edu.cn/admin/images/wechat/parent_reply.png',
+                'Url' => 'http://wechat.catchon-edu.cn/front/classPackage?id=9'
+            );
+            $result = $this->transmitNews($contentArr);
         }
         else
             return '';
