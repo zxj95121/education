@@ -40,7 +40,14 @@ class ClassFreeController extends Controller
    		if ($new_user_id) {
    			$freeObj = ClassFree::where('uid',$new_user_id)->first();
    			if(isset($freeObj->id)){
-   				return  response()->json(['code'=>2,'msg'=>'您已预约成功，加辰教育将在三日内短信通知您具体上课时间和地点，敬请关注。']);
+   				if($freeObj->complete == 1){
+   					return	response()->json(['code'=>5,'msg'=>'您已体验免费试听课。如您不满意，请告诉我们；如您满意，请与您的好友分享～谢谢^_^']);
+   				}else if($freeObj->active_time){
+   					return response()->json(['code'=>4,'msg'=>'你已预约成功，谢谢关注']);
+   				}else{
+   					return  response()->json(['code'=>2,'msg'=>'您已预约成功，加辰教育将在三日内短信通知您具体上课时间和地点，敬请关注。']);
+   					
+   				}
    			}else{
    				$freeObj = new ClassFree();
    				$freeObj->uid = $new_user_id;

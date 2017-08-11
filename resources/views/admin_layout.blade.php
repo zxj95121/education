@@ -135,15 +135,15 @@
                             <li class="{!!(Request::is('admin/share')? 'active' : '') !!}">
                                 <a href="/admin/share">半价购课</a>
                             </li>
-                            <li class="{!!(Request::is('admin/classFree/setActiveTime')? 'active' : '') !!}">
+<!--                             <li class="{!!(Request::is('admin/classFree/setActiveTime')? 'active' : '') !!}">
                                 <a href="/admin/classFree/setActiveTime">试听课-待时间设置</a>
-                            </li>
-                            <li class="{!!(Request::is('admin/classFree/notice')? 'active' : '') !!}">
-                                <a href="/admin/classFree/notice">试听课-待发送通知</a>
-                            </li>
-<!--                             <li class="{!!(Request::is('admin/classFree/list')? 'active' : '') !!}">
-                                <a href="/admin/classFree/list">试听课-已完成列表</a>
                             </li> -->
+                            <li class="{!!(Request::is('admin/classFree/notice')? 'active' : '') !!}">
+                                <a href="/admin/classFree/notice">试听课管理</a>
+                            </li>
+<!--                              <li class="{!!(Request::is('admin/classFree/list')? 'active' : '') !!}">
+                                <a href="/admin/classFree/list">试听课-已完成列表</a>
+                            </li>  -->
                         </ul>
                     </li>
                     <li class="has-submenu {!!(Request::is('admin/applySchool', 'admin/applyHobby')? 'active' : '') !!}">
