@@ -161,7 +161,7 @@ class wechatIndexCatchonController extends Controller
                 'PicUrl' => 'http://wechat.catchon-edu.cn/admin/images/wechat/free_reply.png',
                 'Url' => 'http://wechat.catchon-edu.cn/front/classFree/oauth'
             );
-            $result = $this->transmitNews($contentArr);
+            $result = $this->transmitNews($object, $contentArr);
         } else if ($keyword == '注册') {
             $contentArr[] = array(
                 'Title' => '给自己一次学习英语的机会，世界就在你的眼前',
@@ -169,7 +169,7 @@ class wechatIndexCatchonController extends Controller
                 'PicUrl' => 'http://wechat.catchon-edu.cn/admin/images/wechat/register_reply.png',
                 'Url' => 'http://wechat.catchon-edu.cn/front/home/oauth'
             );
-            $result = $this->transmitNews($contentArr);
+            $result = $this->transmitNews($object, $contentArr);
         } else if (strcasecmp($keyword, '双师class')) {
             $contentArr[] = array(
                 'Title' => '购买即可畅想全年啦!!!',
@@ -177,7 +177,7 @@ class wechatIndexCatchonController extends Controller
                 'PicUrl' => 'http://wechat.catchon-edu.cn/admin/images/wechat/class_reply.png',
                 'Url' => 'http://wechat.catchon-edu.cn/front/home/oauth#eclass'
             );
-            $result = $this->transmitNews($contentArr);
+            $result = $this->transmitNews($object, $contentArr);
         } else if ($keyword == '家长亲子') {
             $contentArr[] = array(
                 'Title' => '给你一个亲子乐园，快乐学习吧!',
@@ -185,7 +185,7 @@ class wechatIndexCatchonController extends Controller
                 'PicUrl' => 'http://wechat.catchon-edu.cn/admin/images/wechat/parent_reply.png',
                 'Url' => 'http://wechat.catchon-edu.cn/front/classPackage?id=9'
             );
-            $result = $this->transmitNews($contentArr);
+            $result = $this->transmitNews($object, $contentArr);
         }
         else
             return '';
