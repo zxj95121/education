@@ -98,9 +98,17 @@ class ClassFreeController extends Controller
     		$userObj = NewUser::find($freeObj->uid);
     		$phone = $userObj->phone;
     		$code[] = $userObj->nickname;
-    		$code[] = $freeObj->active_time.''.'芜湖柏庄时代广场三楼加辰教育'.'';
+    		$time = $freeObj->active_time;
+    		$mm = date('a',strtotime($time));
+    		if($mm == 'am'){
+    			$mm = '上午';
+    		}else{
+    			$mm = '下午';
+    		}
+    		$code[] = date('Y-m-d',strtotime($time)).''.$mm.''.date('h:i',strtotime($time));
+    		$code[] = '芜湖柏庄时代广场三楼加辰教育';
     		require_once($_SERVER['DOCUMENT_ROOT'].'/php/Qcloud/Sms/SmsSenderDemo.php');
-    		$result = postPhoneCodeSms($phone, $code, 32502);
+    		$result = postPhoneCodeSms($phone, $code, 33644);
     		if ($result['result'] == '') {
     			$freeObj->type = 1;
     			$freeObj->save();
