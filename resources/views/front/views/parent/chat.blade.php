@@ -34,6 +34,10 @@ function emoji_decode($str){
 	    .chatImg{
 			max-width: 210px;
 		}
+		.chatDataUser{
+			max-width: 210px;
+			color: #FFF;
+		}
 		.chatData{
 			word-break: break-all;
 		}
@@ -93,7 +97,7 @@ function emoji_decode($str){
 				            <div @if($value['admin_id']) class="message" @else class="message right" @endif time="{{$value['created_at']}}">
 				              <img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
 				                <div class="bubble"  @if($value['admin_id']) @else style="background: #22AAE8;" @endif>
-				                  	<span class="chatData" @if($value['admin_id']) @else style="color: #fff;" @endif>{{emoji_decode($value['content'])}}</span>
+				                  	<span @if($value['admin_id']) class="chatData" @else class="chatDataUser" @endif >{{emoji_decode($value['content'])}}</span>
 				                    <div class="corner"></div>
 				                    <span>{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
 				                </div>
@@ -300,16 +304,16 @@ function emoji_decode($str){
 		        if (data.type == 'a') {
 		        	var right = '';
 		        	var str1 = '';
-		        	var str2 = '';
+		        	var str2 = 'chatData';
 		        	
 		        } else if (data.type == 'u') {
 		        	var right = ' right';
 					var str1 = ' style="background: #22AAE8;" ';
-					var str2 = ' style="color: #FFF;';
+					var str2 = 'chatDataUser';
 		        }
 
 		        if (data.status == 'msg') {
-	        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble" '+str1+'> <span class="chatData"'+str2+'>'+data.content+'</span> <div class="corner"></div> <span>'+data.time+'</span> </div> </div>';
+	        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble" '+str1+'> <span class="'+str2+'">'+data.content+'</span> <div class="corner"></div> <span>'+data.time+'</span> </div> </div>';
 	        		$('#chat-messages').append(str);
 
 	        		dealMessageHeight();
