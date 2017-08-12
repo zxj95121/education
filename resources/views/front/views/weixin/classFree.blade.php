@@ -115,7 +115,7 @@
 					                                    </p>
 					                                    <section data-role="paragraph" class="_135editor" style="border: 0px none; padding: 0px; box-sizing: border-box;">
 					                                        <p>
-					                                            <img src="/images/getqrcode.jpg">
+					                                            <img src="/images/getqrcode.jpg" style="width: 100%;">
 					                                        </p>
 					                                    </section>
 					                                </section>
