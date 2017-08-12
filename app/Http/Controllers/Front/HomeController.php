@@ -126,9 +126,13 @@ class HomeController extends Controller
     {
     	$id = $request->input('id');
 
+    	$count = EclassCart::where('uid', $id)
+    		->count();
+
     	$obj = EclassCart::where('uid', $id)
     		->get();
-    	if ($obj) {
+
+    	if ($count > 0) {
     		$a = $obj[0];
     		return response()->json(['errcode'=>0,'order'=>$a->order,'arr'=>$a->arr,'total'=>$a->total]);
     	}
