@@ -15,15 +15,25 @@ use App\Models\TeacherInfo;
 use App\Models\ParentChild;
 use App\Models\EclassOrder;
 use App\Models\ParentDetail;
+use App\Models\NewUser;
+use App\Models\EclassCart;
+
 class HomeController extends Controller
 {
     public function home()
     {
     	$openid = Session::get('openid');
+
 		$res = $this->userType($openid);
     	if (count($res['userType'])){
+    		/*newUserId*/
+	    	$newUserId = NewUser::where('openid', $openid)
+	    		->select('id')
+	    		->get()[0]
+	    		->id;
+
     		if ($res['type'] == '1') {
-    			return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0]]);
+    			return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'newUserId'=>$newUserId]);
     		} elseif ($res['type'] == '2') {
 	    		$parentinfo = ParentInfo::where('openid',$openid)->select('id')->first();
 	    		$child = ParentChild::where('pid',$parentinfo->id)->where('status',1)->select('id','sex','name')->get();
@@ -41,9 +51,9 @@ class HomeController extends Controller
 					->where('status', 1)
 					->count();
 				$parentDetail = ParentDetail::where('pid', $res['data'][0]->id)->get()[0];
-	    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus,'parentDetail'=>$parentDetail]);
+	    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus,'parentDetail'=>$parentDetail,'newUserId'=>$newUserId]);
 	    	} elseif ($res['type'] == '3') {
-	    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0]]);
+	    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'newUserId'=>$newUserId]);
 	    	} else {
 	    		exit;
 	    	}
@@ -86,5 +96,43 @@ class HomeController extends Controller
     		->select('uid')
     		->get()[0];
     	return $userType->uid;
+    }
+
+
+    public function cartStorage(Request $request)
+    {
+    	$id = $request->input('id');
+    	$total = $request->input('total');
+    	$arr = $request->input('arr');
+    	$order = $request->input('order');
+
+    	$count = EclassCart::where('uid', $id)
+    		->count();
+
+    	if ($count == 0) {
+    		$flight = new EclassCart();
+    		$flight->uid = $id;
+    		$flight->total = $total;
+    		$flight->arr = $arr;
+    		$flight->order = $order;
+    	} else {
+    		EclassCart::where('uid', $id)
+    			->update(['order'=>$order,'total'=>$total,'arr'=>$arr]);
+    	}
+    }
+
+
+    public function getCartStorage(Request $request)
+    {
+    	$id = $request->input('id');
+
+    	$obj = EclassCart::where('uid', $id)
+    		->get();
+    	if ($obj)
+    		$a = $obj[0];
+    		return response()->json(['errcode'=>0,'order'=>$a->order,'arr'=>$a->arr,'total'=>$a->total]);
+    	else {
+    		return response()->json(['errcode'=>1]);
+    	}
     }
 }

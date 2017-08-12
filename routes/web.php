@@ -356,6 +356,9 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 
     /*主页*/
     $router->get('/home', 'HomeController@home');
+    /*ajax购物车*/
+    $router->post('/cartStorage', 'HomeController@cartStorage');
+    $router->post('/getCartStorage', 'HomeController@getCartStorage');
 
     /*补充信息页*/
     $router->get('/user_info_parent','UserInfoController@parent');

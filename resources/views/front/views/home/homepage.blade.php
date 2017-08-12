@@ -363,6 +363,8 @@ $signPackage = $jssdk->GetSignPackage();
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
     <script type="text/javascript">
     	$(function(){
+    		newUserId = '{{$newUserId}}';
+
     		cartArr = new Array();
     		cartTotal = 0;
     		cartOrder = new Object();
@@ -428,6 +430,21 @@ $signPackage = $jssdk->GetSignPackage();
             $('#eclass').load('/front/twoClass', function(){
             	setCartPosition();
             	cartInit();
+            	$.ajax({
+            		url: '/front/getCartStorage',
+					dataType: 'json',
+					type: 'post',
+					data: {
+						id: newUserId
+					},
+					success: function(data) {
+						if (data.errcode == 0) {
+							console.log(data);
+						} else {
+							console.log(0);
+						}
+					}
+            	})
             });
         	includeLink("/front/my/twoclass.js","js");
 

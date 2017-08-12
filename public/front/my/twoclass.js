@@ -73,6 +73,7 @@ $(document).on('click','.class3',function(){
        			cartOrder[i]['val'][id].count = count;
        		}
        		console.log(cartOrder);
+       		ajaxStorage();
        		cartInit();
 	        flyer.fly({   
 	            start: {   
@@ -275,4 +276,22 @@ function cartInit(){
 			    +'background-size:100% 100%;width:28px;height:28px;"> </span> </div> </a> </div> </div>');
 		}
 	}
+}
+
+function ajaxStorage(){
+	/*将购物车的数据存储*/
+	$.ajax({
+		url: '/front/cartStorage',
+		dataType: 'html',
+		type: 'post',
+		data: {
+			id: newUserId,
+			total: cartTotal,
+			arr: JSON.stringify(cartArr),
+			order: JSON.stringify(cartOrder)
+		},
+		success: function(data) {
+			// 
+		}
+	});
 }
