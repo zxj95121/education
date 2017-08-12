@@ -385,6 +385,16 @@ $signPackage = $jssdk->GetSignPackage();
                 'X-CSRF-TOKEN': '{{csrf_token()}}'
             }
         });
+
+        /*购物车保留*/
+        if ( localStorage.cartTotal ) {
+        	setCartPosition();
+            cartInit();
+            console.log(32);
+        }
+
+
+
 	    var urlStyle = [];
 	    var urlScript = [];
 	    /* 加载js css*/

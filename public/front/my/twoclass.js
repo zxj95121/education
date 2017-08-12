@@ -238,6 +238,9 @@ $(document).on('click', '#myCartRight', function(){
 })
 
 function setCartPosition(){
+
+	localStorage.cartTotal = cartTotal;
+	
 	var bottomHeight = $('#all_bottom').height();
 	$('#myCart').css({'position':'fixed','bottom':bottomHeight+'px'});
 	if ($('#myCart').length == 0) {
@@ -278,8 +281,4 @@ function cartInit(){
 			    +'background-size:100% 100%;width:28px;height:28px;"> </span> </div> </a> </div> </div>');
 		}
 	}
-}
-
-if (localStorage.cartOrder) {
-	cartInit();
 }
