@@ -438,7 +438,7 @@ $signPackage = $jssdk->GetSignPackage();
 					},
 					success: function(data) {
 						if (data.errcode == 0) {
-							cartOrder = JSON.parse(data.order);
+							cartOrder = $.parseJSON(data.order);
 							cartArr = eval('('+data.arr+')');
 							cartTotal = parseInt(data.total);
 
