@@ -428,8 +428,7 @@ $signPackage = $jssdk->GetSignPackage();
 		}
         $('#eclass1').click(function(){
             $('#eclass').load('/front/twoClass', function(){
-            	setCartPosition();
-            	cartInit();
+            	
             	$.ajax({
             		url: '/front/getCartStorage',
 					dataType: 'json',
@@ -439,7 +438,12 @@ $signPackage = $jssdk->GetSignPackage();
 					},
 					success: function(data) {
 						if (data.errcode == 0) {
-							console.log(data);
+							cartOrder = eval('('+data.order+')');
+							cartArr = eval('('+data.arr+')');
+							cartTotal = parseInt(data.total);
+							
+							setCartPosition();
+            				cartInit();
 						} else {
 							console.log(0);
 						}
