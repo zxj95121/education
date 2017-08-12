@@ -73,7 +73,7 @@ $(document).on('click','.class3',function(){
        			cartOrder[i]['val'][id].count = count;
        		}
        		console.log(cartOrder);
-       		ajaxStorage();
+       		
        		cartInit();
 	        flyer.fly({   
 	            start: {   
@@ -89,6 +89,8 @@ $(document).on('click','.class3',function(){
 	                var prevCount = parseInt($('#cartNum').html());
 	                cartTotal = prevCount+count;
 	                $('#cartNum').html(cartTotal);
+
+	                ajaxStorage();
 	            }   
 	        });
 	    }
