@@ -115,6 +115,7 @@ class HomeController extends Controller
     		$flight->total = $total;
     		$flight->arr = $arr;
     		$flight->order = $order;
+    		$flight->save();
     	} else {
     		EclassCart::where('uid', $id)
     			->update(['order'=>$order,'total'=>$total,'arr'=>$arr]);
