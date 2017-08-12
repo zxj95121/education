@@ -430,41 +430,42 @@ $signPackage = $jssdk->GetSignPackage();
             $('#eclass').load('/front/twoClass', function(){
             	setCartPosition();
             	$.ajax({
-            		url: '/front/getCartStorage',
-					dataType: 'json',
-					type: 'post',
-					data: {
-						id: newUserId
-					},
-					success: function(data) {
-						if (data.errcode == 0) {
-							cartOrder = eval('('+data.order+')');
-							cartArr = eval('('+data.arr+')');
-							cartTotal = parseInt(data.total);
+		        		url: '/front/twoClass/getpid',
+		        		dataType: 'json',
+		        		type: 'post',
+		        		data: {
 
-							setCartPosition();
-            				cartInit();
-						} else {
-							console.log(0);
-						}
-						$.ajax({
-			        		url: '/front/twoClass/getpid',
-			        		dataType: 'json',
-			        		type: 'post',
-			        		data: {
+		        		},
+		        		success: function(data) {
+		        			if(data.errcode == 0) {
+		        				$('#eclass').attr('pid1',data.pid1);
+		        				$('#eclass').attr('pid2',data.pid2);
+		        				// setCartPosition();
+		        				// cartInit();
 
-			        		},
-			        		success: function(data) {
-			        			if(data.errcode == 0) {
-			        				$('#eclass').attr('pid1',data.pid1);
-			        				$('#eclass').attr('pid2',data.pid2);
-			        				setCartPosition();
-			        				cartInit();
-			        			}
-			        		}
-			        	})
-					}
-            	})
+			            	$.ajax({
+			            		url: '/front/getCartStorage',
+								dataType: 'json',
+								type: 'post',
+								data: {
+									id: newUserId
+								},
+								success: function(data) {
+									if (data.errcode == 0) {
+										cartOrder = eval('('+data.order+')');
+										cartArr = eval('('+data.arr+')');
+										cartTotal = parseInt(data.total);
+
+										setCartPosition();
+			            				cartInit();
+									} else {
+										console.log(0);
+									}
+								}
+			            	})
+			            }
+		        	}
+			    })
             });
         	includeLink("/front/my/twoclass.js","js");
 
