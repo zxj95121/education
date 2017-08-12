@@ -438,10 +438,10 @@ $signPackage = $jssdk->GetSignPackage();
 					},
 					success: function(data) {
 						if (data.errcode == 0) {
-							cartOrder = eval('('+data.order+')');
+							cartOrder = JSON.parse(data.order);
 							cartArr = eval('('+data.arr+')');
 							cartTotal = parseInt(data.total);
-							
+
 							setCartPosition();
             				cartInit();
 						} else {
