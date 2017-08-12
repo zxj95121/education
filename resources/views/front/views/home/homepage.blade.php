@@ -367,7 +367,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        if ( localStorage.cartTotal ) {
 	        	cartArr = localStorage.cartArr;
     			cartTotal = localStorage.cartTotal;
-    			cartOrder = cartOrder;
+    			cartOrder = localStorage.cartOrder;
 
 	        	setCartPosition();
 	            cartInit();
