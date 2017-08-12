@@ -19,7 +19,7 @@ class CreateEclassCart extends Migration
             $table->string('total')->comment('cartTotal');
             $table->string('arr')->comment('cartArr');
             $table->string('order')->comment('cartOrder');
-            $table->tinyInteger('status')->comment('状态');
+            $table->tinyInteger('status')->default('1')->comment('状态');
             $table->timestamps();
         });
     }
