@@ -363,9 +363,20 @@ $signPackage = $jssdk->GetSignPackage();
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
     <script type="text/javascript">
     	$(function(){
-    		cartArr = new Array();
-    		cartTotal = 0;
-    		cartOrder = new Object();
+    		/*购物车保留*/
+	        if ( localStorage.cartTotal ) {
+	        	cartArr = localStorage.cartArr;
+    			cartTotal = localStorage.cartTotal;
+    			cartOrder = cartOrder;
+
+	        	setCartPosition();
+	            cartInit();
+	            console.log(32);
+	        } else {
+	        	cartArr = new Array();
+    			cartTotal = 0;
+    			cartOrder = new Object();
+    		}
 
     		var url = [];	
     		url = window.location.href.split('#');
@@ -385,14 +396,6 @@ $signPackage = $jssdk->GetSignPackage();
                 'X-CSRF-TOKEN': '{{csrf_token()}}'
             }
         });
-
-        /*购物车保留*/
-        if ( localStorage.cartTotal ) {
-        	setCartPosition();
-            cartInit();
-            console.log(32);
-        }
-
 
 
 	    var urlStyle = [];
@@ -473,7 +476,7 @@ $signPackage = $jssdk->GetSignPackage();
 			console.log(height);
 			$('#orderdetail').css({'bottom':bottomHeight+40+'px'});
 			
-			$('#cartNum').html(localStorage.cartTotal);/*购物车个数显示*/
+			$('#cartNum').html(cartTotal);/*购物车个数显示*/
 			/*对购物车已有的三级变灰色*/
 			for (var i = 0;i < cartArr.length;i++) {
 				$('.buyCell a[pid="'+cartArr[i]+'"]').find('span').css({'background-color':'#FFF','border-color':'#FFF','background-image':"url('/images/home/cart_dark.png')"});
