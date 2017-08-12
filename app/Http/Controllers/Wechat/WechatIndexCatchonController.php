@@ -175,7 +175,7 @@ class wechatIndexCatchonController extends Controller
                 'Title' => '购买即可畅学全年啦!!!',
                 'Description' => '外教一对一教学，英语课程顾问一对六辅导学习和英语活动班课程，这样的双师Class还不来快快抢购？',
                 'PicUrl' => 'http://wechat.catchon-edu.cn/admin/images/wechat/class_reply.png',
-                'Url' => 'http://wechat.catchon-edu.cn/front/home/oauth#eclass'
+                'Url' => 'http://wechat.catchon-edu.cn/front/classPackage?id=3'
             );
             $result = $this->transmitNews($object, $contentArr);
         } else if ($keyword == '家长亲子') {
