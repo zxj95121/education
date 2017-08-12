@@ -363,25 +363,9 @@ $signPackage = $jssdk->GetSignPackage();
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
     <script type="text/javascript">
     	$(function(){
-    		/*购物车保留*/
-    		// localStorage.removeItem('cartArr');
-    		// localStorage.removeItem('cartTotal');
-    		// localStorage.removeItem('cartOrder');
-	        if ( localStorage.cartTotal ) {
-	        	cartArr = localStorage.cartArr;
-    			cartTotal = localStorage.cartTotal;
-    			cartOrder = localStorage.cartOrder;
-
-	        	setCartPosition();
-	            cartInit();
-	            console.log(32);
-	        } else {
-	        	cartArr = new Array();
-    			cartTotal = 0;
-    			cartOrder = new Object();
-    		}
-
-    		console.log(cartOrder);
+    		cartArr = new Array();
+    		cartTotal = 0;
+    		cartOrder = new Object();
 
     		var url = [];	
     		url = window.location.href.split('#');
@@ -401,8 +385,6 @@ $signPackage = $jssdk->GetSignPackage();
                 'X-CSRF-TOKEN': '{{csrf_token()}}'
             }
         });
-
-
 	    var urlStyle = [];
 	    var urlScript = [];
 	    /* 加载js css*/

@@ -72,7 +72,7 @@ $(document).on('click','.class3',function(){
        			cartOrder[i]['val'][id].name = thisAdd.find('p').html();
        			cartOrder[i]['val'][id].count = count;
        		}
-       		// console.log(cartOrder);
+       		console.log(cartOrder);
        		cartInit();
 	        flyer.fly({   
 	            start: {   
@@ -238,9 +238,6 @@ $(document).on('click', '#myCartRight', function(){
 })
 
 function setCartPosition(){
-
-	localStorage.cartTotal = cartTotal;
-
 	var bottomHeight = $('#all_bottom').height();
 	$('#myCart').css({'position':'fixed','bottom':bottomHeight+'px'});
 	if ($('#myCart').length == 0) {
@@ -265,10 +262,6 @@ function cartInit(){
 	$('#orderdetail .cartblock').each(function(){
 		$(this).remove();
 	})
-
-	/*存localStorage*/
-	localStorage.cartOrder = cartOrder;
-	localStorage.cartArr = cartArr;
 	for (var i in cartOrder) {
 		$('#orderdetail').append('<div class="cartblock" pid="'+i+'"> <div class="cartheader" style="width:100%;background: #60b4e6;'
 			+'color: #FFF;padding:6px 10px;"> <p style="font-size:1.1em;margin: 0px 0px;">'+cartOrder[i].name+'</p> </div> </div>');
