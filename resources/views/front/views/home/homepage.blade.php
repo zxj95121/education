@@ -473,7 +473,7 @@ $signPackage = $jssdk->GetSignPackage();
 			console.log(height);
 			$('#orderdetail').css({'bottom':bottomHeight+40+'px'});
 			
-			$('#cartNum').html(cartTotal);/*购物车个数显示*/
+			$('#cartNum').html(localStorage.cartTotal);/*购物车个数显示*/
 			/*对购物车已有的三级变灰色*/
 			for (var i = 0;i < cartArr.length;i++) {
 				$('.buyCell a[pid="'+cartArr[i]+'"]').find('span').css({'background-color':'#FFF','border-color':'#FFF','background-image':"url('/images/home/cart_dark.png')"});
