@@ -381,6 +381,8 @@ $signPackage = $jssdk->GetSignPackage();
     			cartOrder = new Object();
     		}
 
+    		console.log(cartOrder);
+
     		var url = [];	
     		url = window.location.href.split('#');
     		if(url.length == 1){
