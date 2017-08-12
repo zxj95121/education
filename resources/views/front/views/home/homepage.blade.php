@@ -364,6 +364,9 @@ $signPackage = $jssdk->GetSignPackage();
     <script type="text/javascript">
     	$(function(){
     		/*购物车保留*/
+    		localStorage.removeItem('cartArr');
+    		localStorage.removeItem('cartTotal');
+    		localStorage.removeItem('cartOrder');
 	        if ( localStorage.cartTotal ) {
 	        	cartArr = localStorage.cartArr;
     			cartTotal = localStorage.cartTotal;
