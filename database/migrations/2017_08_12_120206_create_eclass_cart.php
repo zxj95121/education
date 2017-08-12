@@ -17,8 +17,8 @@ class CreateEclassCart extends Migration
             $table->increments('id');
             $table->integer('uid')->comment('new_user表ID');
             $table->string('total')->comment('cartTotal');
-            $table->string('arr')->comment('cartArr');
-            $table->string('order')->comment('cartOrder');
+            $table->text('arr')->comment('cartArr');
+            $table->text('order')->comment('cartOrder');
             $table->tinyInteger('status')->default('1')->comment('状态');
             $table->timestamps();
         });
