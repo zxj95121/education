@@ -428,7 +428,7 @@ $signPackage = $jssdk->GetSignPackage();
 		}
         $('#eclass1').click(function(){
             $('#eclass').load('/front/twoClass', function(){
-            	
+            	setCartPosition();
             	$.ajax({
             		url: '/front/getCartStorage',
 					dataType: 'json',
