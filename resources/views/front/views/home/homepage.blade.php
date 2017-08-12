@@ -441,33 +441,34 @@ $signPackage = $jssdk->GetSignPackage();
 							cartOrder = eval('('+data.order+')');
 							cartArr = eval('('+data.arr+')');
 							cartTotal = parseInt(data.total);
-							
+
 							setCartPosition();
             				cartInit();
 						} else {
 							console.log(0);
 						}
+						$.ajax({
+			        		url: '/front/twoClass/getpid',
+			        		dataType: 'json',
+			        		type: 'post',
+			        		data: {
+
+			        		},
+			        		success: function(data) {
+			        			if(data.errcode == 0) {
+			        				$('#eclass').attr('pid1',data.pid1);
+			        				$('#eclass').attr('pid2',data.pid2);
+			        				setCartPosition();
+			        				cartInit();
+			        			}
+			        		}
+			        	})
 					}
             	})
             });
         	includeLink("/front/my/twoclass.js","js");
 
-        	$.ajax({
-        		url: '/front/twoClass/getpid',
-        		dataType: 'json',
-        		type: 'post',
-        		data: {
-
-        		},
-        		success: function(data) {
-        			if(data.errcode == 0) {
-        				$('#eclass').attr('pid1',data.pid1);
-        				$('#eclass').attr('pid2',data.pid2);
-        				setCartPosition();
-        				cartInit();
-        			}
-        		}
-        	})
+        	
         })
 
         function setCartPosition(){
