@@ -3,7 +3,7 @@ $(function(){
 	$('#all_bottom .weui-tabbar__item').click(function(e){
 		var height = document.body.clientHeight;
 		console.log(height);
-		var PageY = e.PageY;
+		var PageY = e.pageY;
 		console.log(PageY);
 
 		var forDiv = $(this).attr('for');
