@@ -71,12 +71,12 @@
         @endforeach	
         	<div id="hideThree" pid="{{$pid}}" style="display: none;">{{$name}}</div>
         	<div id="zhicheng"></div>
-        	<div id="myCart" style="height: 40px;background: #1F9B12/*52525A*/;width: 100%;z-index: 999;">
+        	<div id="myCart" style="height: 50px;background: #1F9B12/*52525A*/;width: 100%;z-index: 999;">
                 <div style="width:70%;height:100%;text-align: center;float: left;z-index: 999;cursor:pointer;" id="myCartLeft">
-                    <span style="vertical-align: middle;line-height: 40px;color:#FFF;">我的购物车</span>
+                    <span style="vertical-align: middle;line-height: 50px;color:#FFF;">我的购物车</span>
                     <span class="weui-badge" style="margin-left: 5px;background: #FFF;color:#52525A;" id="cartNum">0</span>
                 </div>
-                <div style="width:30%;height: 100%;text-align: center;background: #0A4DDB;z-index: 999;line-height: 40px;float: right;color:#FFF;font-size:18px;cursor:pointer;" id="myCartRight">
+                <div style="width:30%;height: 100%;text-align: center;background: #0A4DDB;z-index: 999;line-height: 50px;float: right;color:#FFF;font-size:18px;cursor:pointer;" id="myCartRight">
                 	生成订单
                 </div>
             </div>
