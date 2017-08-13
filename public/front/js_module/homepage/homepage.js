@@ -1,12 +1,7 @@
 $(function(){
-	var height = document.documentElement.clientHeight;
+	// var height = document.documentElement.clientHeight;
 	/*底部点击效果*/
 	$('#all_bottom .weui-tabbar__item').click(function(e){
-		
-		console.log(height);
-		var PageY = e.pageY;
-		console.log(PageY);
-
 		var forDiv = $(this).attr('for');
 		history.pushState('', '', '/front/home#'+forDiv);
 		// console.log(forDiv);
