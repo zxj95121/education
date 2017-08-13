@@ -315,7 +315,7 @@ function emoji_decode($str){
 		        	var right = ' right';
 					var str1 = ' style="background: #22AAE8;" ';
 					var str2 = 'chatDataUser';
-					var strImage = "url(/front/lib/chat/img/bubble-cornerR2.png) 0 0 no-repeat;"
+					var strImage = "background: url(/front/lib/chat/img/bubble-cornerR2.png) 0 0 no-repeat;"
 		        }
 
 		        if (data.status == 'msg') {
