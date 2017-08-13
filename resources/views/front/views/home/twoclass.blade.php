@@ -72,7 +72,7 @@
         	<div id="hideThree" pid="{{$pid}}" style="display: none;">{{$name}}</div>
         	<div id="zhicheng"></div>
         	<div id="myCart" style="height: 50px;background: #1F9B12/*52525A*/;width: 100%;z-index: 999;">
-                <div style="width:70%;height:100%;text-align: center;float: left;z-index: 999;cursor:pointer;" id="myCartLeft">
+                <div style="width:70%;height:100%;text-align: center;float: left;z-index: 999;cursor:pointer;font-size: 18px;" id="myCartLeft">
                     <span style="vertical-align: middle;line-height: 50px;color:#FFF;">我的购物车</span>
                     <span class="weui-badge" style="margin-left: 5px;background: #FFF;color:#52525A;" id="cartNum">0</span>
                 </div>
