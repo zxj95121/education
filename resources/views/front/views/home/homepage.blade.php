@@ -33,12 +33,12 @@ $signPackage = $jssdk->GetSignPackage();
        	#all_bottom .weui-tabbar__label{
        		font-size: 14px;
        	}
-       	#all_bottom{
+       	/*#all_bottom{
        		transform: scale(1, 0.7);
        	}
        	.weui-tabbar__item{
        		transform: scale(0.7, 0.7);
-       	}
+       	}*/
     </style>
 </head>
 <body>
