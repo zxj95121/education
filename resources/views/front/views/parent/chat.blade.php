@@ -37,7 +37,6 @@ function emoji_decode($str){
 		.chatDataUser{
 			word-break: break-all;
 			color: #FFF;
-			border-radius: 5px 0px 0px 5px;
 		}
 		.chatData{
 			word-break: break-all;
@@ -101,7 +100,7 @@ function emoji_decode($str){
 		          		@if ($value['type'] == 0)
 				            <div @if($value['admin_id']) class="message" @else class="message right" @endif time="{{$value['created_at']}}">
 				              <img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
-				                <div class="bubble"  @if($value['admin_id']) @else style="background: #22AAE8;" @endif>
+				                <div class="bubble"  @if($value['admin_id']) @else style="background: #22AAE8;border-radius: 5px 0px 0px 5px;" @endif>
 				                  	<span @if($value['admin_id']) class="chatData" @else class="chatDataUser" @endif >{{emoji_decode($value['content'])}}</span>
 				                    <div class="corner" @if($value['admin_id']) @else style="background: url('/front/lib/chat/img/bubble-cornerR2.png') 0 0 no-repeat;" @endif></div>
 				                    <span class="dateSpan">{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
@@ -110,7 +109,7 @@ function emoji_decode($str){
 				        @elseif($value['type'] == 1)
 					        <div @if($value['admin_id']) class="message" @else class="message right" @endif time="{{$value['created_at']}}">
 				            	<img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
-				                <div class="bubble" @if($value['admin_id']) @else style="background: #22AAE8;" @endif>
+				                <div class="bubble" @if($value['admin_id']) @else style="background: #22AAE8;border-radius: 5px 0px 0px 5px;" @endif>
 				                	<img class="chatImg" src="{{$value['content']}}" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
 				                    <div class="corner" @if($value['admin_id']) @else style="background: url('/front/lib/chat/img/bubble-cornerR2.png') 0 0 no-repeat;" @endif></div>
 				                    <span class="dateSpan" style="position: absolute;">{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
@@ -314,7 +313,7 @@ function emoji_decode($str){
 		        	
 		        } else if (data.type == 'u') {
 		        	var right = ' right';
-					var str1 = ' style="background: #22AAE8;" ';
+					var str1 = ' style="background: #22AAE8;border-radius: 5px 0px 0px 5px;" ';
 					var str2 = 'chatDataUser';
 					var strImage = "background: url(/front/lib/chat/img/bubble-cornerR2.png) 0 0 no-repeat;"
 		        }
