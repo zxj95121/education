@@ -37,6 +37,7 @@ function emoji_decode($str){
 		.chatDataUser{
 			word-break: break-all;
 			color: #FFF;
+			border-radius: 5px 0px 0px 5px;
 		}
 		.chatData{
 			word-break: break-all;
