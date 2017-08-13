@@ -111,7 +111,7 @@ function emoji_decode($str){
 				            	<img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
 				                <div class="bubble" @if($value['admin_id']) @else style="background: #22AAE8;" @endif>
 				                	<img class="chatImg" src="{{$value['content']}}" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
-				                    <div class="corner"></div>
+				                    <div class="corner" @if($value['admin_id']) @else style="background: url('/front/lib/chat/img/bubble-cornerR.png') 0 0 no-repeat;" @endif></div>
 				                    <span class="dateSpan" style="position: absolute;">{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
 				                </div>
 				            </div>
@@ -309,11 +309,13 @@ function emoji_decode($str){
 		        	var right = '';
 		        	var str1 = '';
 		        	var str2 = 'chatData';
+		        	var strImage = '';
 		        	
 		        } else if (data.type == 'u') {
 		        	var right = ' right';
 					var str1 = ' style="background: #22AAE8;" ';
 					var str2 = 'chatDataUser';
+					var strImage = "url(/front/lib/chat/img/bubble-cornerR.png) 0 0 no-repeat;"
 		        }
 
 		        if (data.status == 'msg') {
@@ -322,7 +324,7 @@ function emoji_decode($str){
 
 	        		dealMessageHeight();
 	        	} else if (data.status == 'image') {
-	        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble" '+str1+'> <img class="chatImg" src="'+data.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span class="dateSpan" style="position: absolute;">'+data.time+'</span> </div> </div>';
+	        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble" '+str1+'> <img class="chatImg" src="'+data.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner" style="'+strImage+'"></div> <span class="dateSpan" style="position: absolute;">'+data.time+'</span> </div> </div>';
 	        		$('#chat-messages').append(str);
 
 	        		var img = new Image();
