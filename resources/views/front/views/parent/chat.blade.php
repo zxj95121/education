@@ -102,7 +102,7 @@ function emoji_decode($str){
 				              <img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
 				                <div class="bubble"  @if($value['admin_id']) @else style="background: #22AAE8;" @endif>
 				                  	<span @if($value['admin_id']) class="chatData" @else class="chatDataUser" @endif >{{emoji_decode($value['content'])}}</span>
-				                    <div class="corner"></div>
+				                    <div class="corner" @if($value['admin_id']) @else style="background: url('/front/lib/chat/img/bubble-cornerR2.png') 0 0 no-repeat;" @endif></div>
 				                    <span class="dateSpan">{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
 				                </div>
 				            </div>
@@ -111,7 +111,7 @@ function emoji_decode($str){
 				            	<img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
 				                <div class="bubble" @if($value['admin_id']) @else style="background: #22AAE8;" @endif>
 				                	<img class="chatImg" src="{{$value['content']}}" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;">
-				                    <div class="corner" @if($value['admin_id']) @else style="background: url('/front/lib/chat/img/bubble-cornerR.png') 0 0 no-repeat;" @endif></div>
+				                    <div class="corner" @if($value['admin_id']) @else style="background: url('/front/lib/chat/img/bubble-cornerR2.png') 0 0 no-repeat;" @endif></div>
 				                    <span class="dateSpan" style="position: absolute;">{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
 				                </div>
 				            </div>
@@ -315,11 +315,11 @@ function emoji_decode($str){
 		        	var right = ' right';
 					var str1 = ' style="background: #22AAE8;" ';
 					var str2 = 'chatDataUser';
-					var strImage = "url(/front/lib/chat/img/bubble-cornerR.png) 0 0 no-repeat;"
+					var strImage = "url(/front/lib/chat/img/bubble-cornerR2.png) 0 0 no-repeat;"
 		        }
 
 		        if (data.status == 'msg') {
-	        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble" '+str1+'> <span class="'+str2+'">'+data.content+'</span> <div class="corner"></div> <span class="dateSpan">'+data.time+'</span> </div> </div>';
+	        		var str = '<div  class="message'+right+'" > <img  src="'+data.headimg+'" /> <div class="bubble" '+str1+'> <span class="'+str2+'">'+data.content+'</span> <div class="corner" style="'+strImage+'"></div> <span class="dateSpan">'+data.time+'</span> </div> </div>';
 	        		$('#chat-messages').append(str);
 
 	        		dealMessageHeight();
