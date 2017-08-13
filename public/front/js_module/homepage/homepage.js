@@ -1,5 +1,5 @@
 $(function(){
-	var height = document.body.clientHeight;
+	var height = document.documentElement.clientHeight;
 	/*底部点击效果*/
 	$('#all_bottom .weui-tabbar__item').click(function(e){
 		
