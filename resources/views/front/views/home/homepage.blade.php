@@ -546,6 +546,8 @@ $signPackage = $jssdk->GetSignPackage();
 			for (var i = 0;i < cartArr.length;i++) {
 				$('.buyCell a[pid="'+cartArr[i]+'"]').find('span').css({'background-color':'#FFF','border-color':'#FFF','background-image':"url('/images/home/cart_dark.png')"});
 			}
+
+			ajaxStorage();
 		})
 
 		/*直接将购物车详情内容根据cartOrder对象重置*/
