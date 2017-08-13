@@ -9,6 +9,7 @@ use App\Http\Controllers\Wechat\OauthController;
 use App\Models\NewUser;
 
 use Session;
+use Wechat;
 
 class MyVoucherController extends Controller
 {
@@ -35,7 +36,7 @@ class MyVoucherController extends Controller
             $flight->worker_id = 0;
             $flight->save();
         }
-        
+
     	$userinfo = NewUser::where('openid', $openid)
     		->select('nickname', 'voucher')
     		->first();

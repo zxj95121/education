@@ -10,6 +10,7 @@ use App\Http\Controllers\Wechat\OauthController;
 use App\Models\NewUser;
 
 use Session;
+use Wechat;
 
 class CoinController extends Controller
 {
@@ -39,7 +40,7 @@ class CoinController extends Controller
             $flight->worker_id = 0;
             $flight->save();
         }
-        
+
     	/*查询加辰币*/
     	$userObj = NewUser::where('openid', $openid)
     		->get()
