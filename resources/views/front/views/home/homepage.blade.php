@@ -31,8 +31,8 @@ $signPackage = $jssdk->GetSignPackage();
             text-decoration: none;
         }
        	#all_bottom .weui-tabbar__label{
-       		font-size: 14px;
-       		line-height: 1;
+       		font-size: 13px;
+       		line-height: 1.3;
        		margin: 0px 0px 5px;
        	}
        	.weui-tabbar__icon{
