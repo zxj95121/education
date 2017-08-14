@@ -112,8 +112,10 @@ class HomeController extends Controller
     			$str .= '"'.$value.'",';
     		}
     	}
-    	$str = substr($str, 0, -1).']';
-    	$arr = $str;
+    	if (strlen($str) > 1) {
+    		$str = substr($str, 0, -1);
+    	}
+    	$arr = $str.']';
     	$order = $request->input('order');
 
     	$count = EclassCart::where('uid', $id)
