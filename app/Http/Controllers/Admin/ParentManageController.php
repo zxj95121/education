@@ -10,6 +10,7 @@ use App\Models\CommunityCommunity;
 use App\Models\CommunityArea;
 use App\Models\CommunityCity;
 use App\Models\NewUser;
+use App\Models\VoucherRecord;
 
 class ParentManageController extends Controller
 {
@@ -85,6 +86,51 @@ class ParentManageController extends Controller
 
     	$flight->save();
 
+
+        $f2 = new VoucherRecord();
+        $f2->uid = $id;
+        $f2->voucher = $num*88;
+        $f2->save();
+
     	return response()->json(['errcode'=>0,'voucher'=>$flight->voucher]);
+    }
+
+
+    /*查优惠券*/
+    public function getVoucherRecord(Request $request)
+    {
+        $id = $request->input('id');
+
+        $obj = VoucherRecord::where('uid', $id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return response()->json(['obj'=>$obj]);
+    }
+
+    /*撤销优惠券*/
+    public function dealVoucherRecord(Request $request)
+    {
+        $vid = $request->input('vid');
+        $uid = $request->input('uid');
+
+        $flight = VoucherRecord::find($vid);
+        $flight->status = 0;
+        $voucher = $flight->voucher;
+        $flight->save();
+
+        $flight = NewUser::find($uid);
+        $vou = $flight->voucher;
+        $vou = $vou - $voucher;
+
+        if ($vou < 0)
+            $vou = 0;
+
+        $flight->voucher = $vou;
+
+        $flight->save();
+
+        echo $vou;
+        exit;
     }
 }

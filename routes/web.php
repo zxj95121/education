@@ -85,6 +85,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
 
     $router->get('/parentInfo', 'ParentManageController@parentInfo');/*parentManage控制器*/
     $router->post('/parent/addTicket', 'ParentManageController@addTicket');/*parentManage控制器*/
+    $router->post('/parent/getVoucherRecord', 'ParentManageController@getVoucherRecord');/*parentManage控制器*/
+    $router->post('/parent/dealVoucherRecord', 'ParentManageController@dealVoucherRecord');/*parentManage控制器*/
 
 
     $router->get('/teacherInfo', 'ManagerController@teacherInfo');

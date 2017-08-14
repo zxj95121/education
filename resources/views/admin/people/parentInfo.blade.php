@@ -4,7 +4,7 @@
 @section('style')
 <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css">
 <style type="text/css">
-	.label-primary,.addTicketBtn{
+	.label-primary,.addTicketBtn,.backTicket{
 		cursor: pointer;
 	}
 </style>
@@ -173,6 +173,25 @@
                             <button type="button" class="btn btn-white" data-dismiss="modal"><font><font>关闭</font></font></button> 
                             <button type="button" class="btn btn-info" id="saveTicket"><font><font>确认添加</font></font></button> 
                         </div>
+
+                        <div class="row" style="margin-top: 5px;">
+	                        <div class="col-md-12 col-sm-12 col-xs-12">
+	                            <table class="table table-hover" id="recordTable">
+	                                <thead>
+	                                    <tr>
+	                                        <th>序号</th>
+	                                        <th>优惠券数量</th>
+	                                        <th>优惠券金额</th>
+	                                        <th>发生事件</th>
+	                                        <th>操作</th>
+	                                    </tr>
+	                                </thead>
+	                                <tbody>
+
+	                                </tbody>
+	                            </table>
+	                        </div>
+	                    </div>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
             </div>   
@@ -193,6 +212,58 @@
 	    	$('#modal1').modal('show');
 	    	var userId = $(this).parents('tr').attr('userId');
 	    	$('#modal1').attr('userId', userId);
+
+	    	$.ajax({
+	    		url: '/admin/parent/getVoucherRecord',
+				type: 'post',
+				dataType: 'json',
+				data: {
+					id: userId
+				},
+				success: function(data){
+					var obj = data.obj;
+					if (obj.length > 0) {
+						$('#recordTable').show();
+						$('#recordTable tbody').html('');
+						for (var i in obj) {
+							if (obj[i].status == 1) {
+								var str = '<span class="label label-info backTicket">撤销操作</span>';
+							} else {
+								var str = '<span class="label label-success">已撤销</span>';
+							}
+							$('#recordTable tbody').append('<tr vid="'+obj[i].id+'"> <td>'+(i+1)+'</td> <td>'+(obj[i].voucher/88)+'</td> <td>'+obj[i].voucher+'</td> <td>'+obj[i].created_at.substr(0,16)+'</td> <td>'+str+'</td> </tr>');
+						}
+
+					} else {
+						$('#recordTable').hide();
+					}
+				}
+	    	});
+	    })
+
+
+	    /*撤销添加优惠券*/
+	    $(document).on('click', '.backTicket', function(){
+	    	var vid = $(this).parents('tr').attr('vid');
+	    	var uid = $('#modal1').attr('userId');
+	    	var cdom = $(this);
+
+	    	console.log($(this));
+
+	    	$.ajax({
+	    		url: '/admin/parent/dealVoucherRecord',
+				type: 'post',
+				dataType: 'html',
+				data: {
+					uid: uid,
+					vid: vid
+				},
+				success: function(data){
+					// cdom.remove();
+					cdom.replaceWith('<span class="label label-success">已撤销</span>');
+					$('#parentDetail tr[userId="'+uid+'"]').find('.voucherTd').html(data);
+				}
+	    	});
 	    })
 
 
@@ -211,6 +282,7 @@
 					if (data.errcode == 0) {
 						window.layer.msg('添加成功');
 						$('#modal1').modal('hide');
+						$('#ticketNumInput').val('');
 						$('#parentDetail tr[userId="'+id+'"]').find('.voucherTd').html(data.voucher);
 					}
 				}
