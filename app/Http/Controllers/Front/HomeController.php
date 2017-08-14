@@ -104,11 +104,16 @@ class HomeController extends Controller
     	$id = $request->input('id');
     	$total = $request->input('total');
     	$arr = json_decode($request->input('arr'), true);
+    	$str = '[';
     	foreach ($arr as $key => $value) {
-    		if (!$value)
-    		unset($arr[$key]);
+    		if (!$value) {
+    			unset($arr[$key]);
+    		} else {
+    			$str .= '"'.$value.'",';
+    		}
     	}
-    	$arr = json_encode($arr);
+    	$str = substr($str, 0, -1).']';
+    	$arr = $str;
     	$order = $request->input('order');
 
     	$count = EclassCart::where('uid', $id)
