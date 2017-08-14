@@ -15,6 +15,7 @@ use App\Models\NewUser;
 use App\Models\HalfBuyRecord;
 use App\Models\HalfBuyInfo;
 use App\Models\TeacherOne;
+use App\Models\EclassCart;
 
 use PayResult;
 
@@ -46,6 +47,11 @@ class WeixinController extends Controller
                         ->where('status', '1')
                         ->first();
     				$userObj = NewUser::find($eclassObj->uid);
+
+                    /*购物车清空*/
+                    EclassCart::where('uid', $eclassObj->uid)
+                        ->update(['total'=>0,'arr'=>'[]','order'=>'{}']);
+
     				$twoName = EclassPriceController::getName($eclassObj->tid, 3);
     				$firstName = EclassPriceController::getName($eclassObj->tid, 0);
     				TemplateController::send($userObj->openid,'关于双师Class订单支付成功的通知',$firstName,$twoName,$order->price,$bill->created_at,$userObj->nickname,'订单支付成功，请耐心等待管理员审核','http://'.$_SERVER["SERVER_NAME"].'/front/parent/myClassOrder/oauth');
