@@ -42,7 +42,9 @@
 						            		<div class="item-text">
 						            			优惠金额：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
 						            		</div>
-						            		<button class="button button-block" onclick="window.location.href='/front/parent/showPayEclassOrder?id={{$value['id']}}';">去付款</button>
+						            		<div class="item-text" style="text-align: right;">
+						            			<button class="button button-block" onclick="window.location.href='/front/parent/showPayEclassOrder?id={{$value['id']}}';">去付款</button>
+						            		</div>
 						          		</div>
 						        	</a>
 					      		</li>
