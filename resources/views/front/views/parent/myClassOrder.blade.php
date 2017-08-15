@@ -27,7 +27,7 @@
 	    		<div class="tabs">
 	      			<div id="tab1" class="tab active">
 	      			@foreach($noPayObj as $value)
-					  	<div class="content-block-title" style="overflow: auto;">订单编号：<span>{{$value['order_no']}}</span></div>
+					  	<div class="content-block-title" style="height: 16px;line-height: 15px;">订单编号：<span>{{$value['order_no']}}</span></div>
 						<div class="list-block media-list">
 					    	<ul>
 					      		<li onclick="window.location.href='/front/parent/showPayEclassOrder?id={{$value['id']}}';">
@@ -55,7 +55,7 @@
 	      			</div>
 			      	<div id="tab2" class="tab">
 			       	@foreach($noConfirmObj as $value)
-					  	<div class="content-block-title" style="overflow: auto;">订单编号：<span>{{$value['order_no']}}</span></div>
+					  	<div class="content-block-title" style="height: 16px;line-height: 15px;">订单编号：<span>{{$value['order_no']}}</span></div>
 						<div class="list-block media-list">
 					    	<ul>
 					      		<li>
@@ -83,7 +83,7 @@
 			      	</div>
 			      	<div id="tab3" class="tab">
 			       	@foreach($teachingObj as $value)
-					  	<div class="content-block-title" style="overflow: auto;">订单编号：<span>{{$value['order_no']}}</span></div>
+					  	<div class="content-block-title" style="height: 16px;line-height: 15px;">订单编号：<span>{{$value['order_no']}}</span></div>
 						<div class="list-block media-list">
 					    	<ul>
 					      		<li  onclick="window.location.href='/front/parent/myClassOrder/details?id={{$value['id']}}';">
