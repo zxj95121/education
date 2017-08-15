@@ -39,7 +39,7 @@ class MyClassOrderController extends Controller
 
 
         /*查待审核订单*/
-        $noConfirmObj = BigOrder::where('uid', $front_id)
+        $noConfirmObj = BigOrder::where('openid', $openid)
             ->where('pay_status', '1')
             ->where('confirm_status', '0')
             ->where('status', '1')
@@ -55,7 +55,7 @@ class MyClassOrderController extends Controller
 
 
         /*授课中订单*/
-        $teachingObj = BigOrder::where('uid', $front_id)
+        $teachingObj = BigOrder::where('openid', $openid)
             ->where('pay_status', '1')
             ->where('confirm_status', '1')
             ->where('status', '1')
