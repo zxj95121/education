@@ -21,7 +21,7 @@
 			    <a href="#tab1" class="tab-link active button">待付款</a>
 			    <a href="#tab2" class="tab-link button">待审核</a>
 			    <a href="#tab3" class="tab-link button">授课中</a>
-			    <a href="#tab4" class="tab-link button">已完成</a>
+			    <!-- <a href="#tab4" class="tab-link button">已完成</a> -->
 			 </div>
 	  		<div class="content-block">
 	    		<div class="tabs">
@@ -106,38 +106,7 @@
 			              	<div class="preloader"></div>
 			          	</div>
 			     	</div>
-			     	<div id="tab4" class="tab">
-				     	@foreach($complete as $key4 => $value)
-						  	<div class="content-block-title">订单编号：<span>{{$value['order_no']}}</span></div>
-							<div class="list-block media-list">
-						    	<ul>
-						      		<li>
-							        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
-							          		<div class="item-inner">
-								            	<div class="item-title-row">
-								              		<div class="item-title">状态：<span @if($value['pay_status'] == '2') style="color:#D81227;" @else style="color:#343639;" @endif>@if($value['pay_status'] == '2') 已退款 @else 已完成 @endif</span></div>
-								              		<div class="item-after">{{$value['created_at']}}</div>
-								            	</div>
-								            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
-							            		<div class="item-text">
-							            			课程名称：<span style="font-size: 13px;color: #343639;">{{$value['name']}}</span>
-							            		</div>
-							          		</div>
-							        	</a>
-						      		</li>
-						    	</ul>
-						  	</div>
-						@endforeach
-					  	<!-- 加载提示符 -->
-			          	<div class="infinite-scroll-preloader" style="display: none;">
-			              	<div class="preloader"></div>
-			          	</div>
-			          	@if(!isset($key4))
-			        		<div class="content-block">
-			          			<p>暂无数据</p>
-			        		</div>
-			        	@endif
-			     	</div>
+			     	
 	    		</div>
 	  		</div>
 	  	</div>

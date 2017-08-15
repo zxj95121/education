@@ -13,11 +13,73 @@ use App\Http\Controllers\Wechat\OauthController;
 use App\Models\EclassProgress;
 use App\Models\TeacherFour;
 use App\Models\ParentChild;
+use App\Models\NewUser;
+use App\Models\BigOrder;
 use Session;
 
 class MyClassOrderController extends Controller
 {
     public function index()
+    {
+        $openid = Session::get('openid');
+        
+        /*查订单详情*/
+        $noPayObj = BigOrder::where('openid', $openid)
+            ->where('pay_status', 0)
+            ->where('status', 1)
+            ->orderBy('id', 'desc')
+            ->where('complete', '0')
+            ->get()
+            ->toArray();
+        foreach ($noPayObj as $key => $value) {
+            $tid = $value['tid'];
+            $name = EclassPriceController::getName($tid,1,' 》');
+            $noPayObj[$key]['name'] = $name;
+        }
+
+
+        /*查待审核订单*/
+        $noConfirmObj = BigOrder::where('uid', $front_id)
+            ->where('pay_status', '1')
+            ->where('confirm_status', '0')
+            ->where('status', '1')
+            ->where('complete', '0')
+            ->orderBy('id', 'desc')
+            ->get()
+            ->toArray();
+        foreach ($noConfirmObj as $key => $value) {
+            $tid = $value['tid'];
+            $name = EclassPriceController::getName($tid,1,' 》');
+            $noConfirmObj[$key]['name'] = $name;
+        }
+
+
+        /*授课中订单*/
+        $teachingObj = BigOrder::where('uid', $front_id)
+            ->where('pay_status', '1')
+            ->where('confirm_status', '1')
+            ->where('status', '1')
+            ->where('complete', '0')
+            ->orderBy('id', 'desc')
+            ->get()
+            ->toArray();
+        foreach ($teachingObj as $key => $value) {
+            $tid = $value['tid'];
+            $name = EclassPriceController::getName($tid,1,' 》');
+            $teachingObj[$key]['name'] = $name;
+        }
+
+        return view('front.views.parent.myClassOrder', [
+            'noPayObj' => $noPayObj,
+            'noConfirmObj' => $noConfirmObj,
+            'teachingObj' => $teachingObj
+            // 'complete' => $complete
+        ]);
+
+
+    }
+
+    public function index2()
     {
     	$openid = Session::get('openid');
     	$front_id = $this->getUid($openid);
