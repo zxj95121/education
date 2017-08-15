@@ -27,7 +27,7 @@
 	    		<div class="tabs">
 	      			<div id="tab1" class="tab active">
 	      			@foreach($noPayObj as $value)
-					  	<div class="content-block-title">订单编号：<span>{{$value['order_no']}}</span></div>
+					  	<div class="content-block-title" style="overflow: auto;">订单编号：<span>{{$value['order_no']}}</span></div>
 						<div class="list-block media-list">
 					    	<ul>
 					      		<li onclick="window.location.href='/front/parent/showPayEclassOrder?id={{$value['id']}}';">
@@ -40,7 +40,7 @@
 							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
 							            	<div class="item-subtitle">课时：<span style="color:#2e7900;">{{$value['count']}}次</span></div>
 						            		<div class="item-text">
-						            			课程名称：<span style="font-size: 13px;color: #343639;"></span>
+						            			优惠金额：<span style="font-size: 13px;color: #343639;">{{$valule['voucher_num']*88}}元</span>
 						            		</div>
 						          		</div>
 						        	</a>
@@ -55,7 +55,7 @@
 	      			</div>
 			      	<div id="tab2" class="tab">
 			       	@foreach($noConfirmObj as $value)
-					  	<div class="content-block-title">订单编号：<span>{{$value['order_no']}}</span></div>
+					  	<div class="content-block-title" style="overflow: auto;">订单编号：<span>{{$value['order_no']}}</span></div>
 						<div class="list-block media-list">
 					    	<ul>
 					      		<li>
@@ -68,7 +68,7 @@
 							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
 							            	<div class="item-subtitle">课时：<span style="color:#2e7900;">{{$value['count']}}次</span></div>
 						            		<div class="item-text">
-						            			课程名称：<span style="font-size: 13px;color: #343639;"></span>
+						            			优惠金额：<span style="font-size: 13px;color: #343639;">{{$valule['voucher_num']*88}}元</span>
 						            		</div>
 						          		</div>
 						        	</a>
@@ -83,7 +83,7 @@
 			      	</div>
 			      	<div id="tab3" class="tab">
 			       	@foreach($teachingObj as $value)
-					  	<div class="content-block-title">订单编号：<span>{{$value['order_no']}}</span></div>
+					  	<div class="content-block-title" style="overflow: auto;">订单编号：<span>{{$value['order_no']}}</span></div>
 						<div class="list-block media-list">
 					    	<ul>
 					      		<li  onclick="window.location.href='/front/parent/myClassOrder/details?id={{$value['id']}}';">
@@ -96,7 +96,7 @@
 							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
 							            	<div class="item-subtitle">课时：<span style="color:#2e7900;">{{$value['count']}}次</span></div>
 						            		<div class="item-text">
-						            			课程名称：<span style="font-size: 13px;color: #343639;"></span>
+						            			优惠金额：<span style="font-size: 13px;color: #343639;">{{$valule['voucher_num']*88}}元</span>
 						            		</div>
 						          		</div>
 						        	</a>
