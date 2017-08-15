@@ -39,7 +39,7 @@
 							            	</div>
 							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
 						            		<div class="item-text">
-						            			课程名称：<span style="font-size: 13px;color: #343639;">{{$value['name']}}</span>
+						            			课程名称：<span style="font-size: 13px;color: #343639;"></span>
 						            		</div>
 						          		</div>
 						        	</a>
@@ -66,7 +66,7 @@
 							            	</div>
 							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
 						            		<div class="item-text">
-						            			课程名称：<span style="font-size: 13px;color: #343639;">{{$value['name']}}</span>
+						            			课程名称：<span style="font-size: 13px;color: #343639;"></span>
 						            		</div>
 						          		</div>
 						        	</a>
@@ -93,7 +93,7 @@
 							            	</div>
 							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
 						            		<div class="item-text">
-						            			课程名称：<span style="font-size: 13px;color: #343639;">{{$value['name']}}</span>
+						            			课程名称：<span style="font-size: 13px;color: #343639;"></span>
 						            		</div>
 						          		</div>
 						        	</a>

@@ -31,11 +31,11 @@ class MyClassOrderController extends Controller
             ->where('complete', '0')
             ->get()
             ->toArray();
-        foreach ($noPayObj as $key => $value) {
-            $tid = $value['tid'];
-            $name = EclassPriceController::getName($tid,1,' 》');
-            $noPayObj[$key]['name'] = $name;
-        }
+        // foreach ($noPayObj as $key => $value) {
+        //     $tid = $value['tid'];
+        //     $name = EclassPriceController::getName($tid,1,' 》');
+        //     $noPayObj[$key]['name'] = $name;
+        // }
 
 
         /*查待审核订单*/
@@ -47,11 +47,11 @@ class MyClassOrderController extends Controller
             ->orderBy('id', 'desc')
             ->get()
             ->toArray();
-        foreach ($noConfirmObj as $key => $value) {
-            $tid = $value['tid'];
-            $name = EclassPriceController::getName($tid,1,' 》');
-            $noConfirmObj[$key]['name'] = $name;
-        }
+        // foreach ($noConfirmObj as $key => $value) {
+        //     $tid = $value['tid'];
+        //     $name = EclassPriceController::getName($tid,1,' 》');
+        //     $noConfirmObj[$key]['name'] = $name;
+        // }
 
 
         /*授课中订单*/
@@ -63,11 +63,11 @@ class MyClassOrderController extends Controller
             ->orderBy('id', 'desc')
             ->get()
             ->toArray();
-        foreach ($teachingObj as $key => $value) {
-            $tid = $value['tid'];
-            $name = EclassPriceController::getName($tid,1,' 》');
-            $teachingObj[$key]['name'] = $name;
-        }
+        // foreach ($teachingObj as $key => $value) {
+        //     $tid = $value['tid'];
+        //     $name = EclassPriceController::getName($tid,1,' 》');
+        //     $teachingObj[$key]['name'] = $name;
+        // }
 
         return view('front.views.parent.myClassOrder', [
             'noPayObj' => $noPayObj,
