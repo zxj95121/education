@@ -40,7 +40,7 @@
 							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
 							            	<div class="item-subtitle">课时：<span style="color:#2e7900;">{{$value['count']}}次</span></div>
 						            		<div class="item-text">
-						            			优惠金额：<span style="font-size: 13px;color: #343639;">{{$valule['voucher_num']*88}}元</span>
+						            			优惠金额：<span style="font-size: 13px;color: #343639;">{{$value['voucher_num']*88}}元</span>
 						            		</div>
 						          		</div>
 						        	</a>
@@ -68,7 +68,7 @@
 							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
 							            	<div class="item-subtitle">课时：<span style="color:#2e7900;">{{$value['count']}}次</span></div>
 						            		<div class="item-text">
-						            			优惠金额：<span style="font-size: 13px;color: #343639;">{{$valule['voucher_num']*88}}元</span>
+						            			优惠金额：<span style="font-size: 13px;color: #343639;">{{$value['voucher_num']*88}}元</span>
 						            		</div>
 						          		</div>
 						        	</a>
@@ -96,7 +96,7 @@
 							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
 							            	<div class="item-subtitle">课时：<span style="color:#2e7900;">{{$value['count']}}次</span></div>
 						            		<div class="item-text">
-						            			优惠金额：<span style="font-size: 13px;color: #343639;">{{$valule['voucher_num']*88}}元</span>
+						            			优惠金额：<span style="font-size: 13px;color: #343639;">{{$value['voucher_num']*88}}元</span>
 						            		</div>
 						          		</div>
 						        	</a>
