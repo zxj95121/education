@@ -30,7 +30,7 @@
 					  	<div class="content-block-title" style="height: 16px;line-height: 15px;">订单编号：<span>{{$value['order_no']}}</span></div>
 						<div class="list-block media-list">
 					    	<ul>
-					      		<li onclick="window.location.href='/front/parent/showPayEclassOrder?id={{$value['id']}}';">
+					      		<li>
 						        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
 						          		<div class="item-inner">
 							            	<div class="item-title-row">
@@ -42,6 +42,7 @@
 						            		<div class="item-text">
 						            			优惠金额：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
 						            		</div>
+						            		<button class="button button-block" onclick="window.location.href='/front/parent/showPayEclassOrder?id={{$value['id']}}';">去付款</button>
 						          		</div>
 						        	</a>
 					      		</li>
