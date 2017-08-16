@@ -16,6 +16,7 @@ use App\Models\HalfBuyRecord;
 use App\Models\HalfBuyInfo;
 use App\Models\TeacherOne;
 use App\Models\EclassCart;
+use App\Models\ClassMessage;
 
 use PayResult;
 
@@ -55,6 +56,18 @@ class WeixinController extends Controller
     				$twoName = EclassPriceController::getName($eclassObj->tid, 3);
     				$firstName = EclassPriceController::getName($eclassObj->tid, 0);
     				TemplateController::send($userObj->openid,'关于双师Class订单支付成功的通知',$firstName,$twoName,$order->price,$bill->created_at,$userObj->nickname,'订单支付成功，请耐心等待管理员审核','http://'.$_SERVER["SERVER_NAME"].'/front/parent/myClassOrder/oauth');
+    				$messageObj = ClassMessage::where('status',1)
+    					->select('phone')
+    					->get();
+    				foreach($messageObj as $vo){
+    					$phone = $vo->phone;
+    					$code[] = $userObj->nickname;
+    					$code[] = $firstName;
+    					$code[] = $order->price;
+    					require_once($_SERVER['DOCUMENT_ROOT'].'/php/Qcloud/Sms/SmsSenderDemo.php');
+    					$result = postPhoneCodeSms($phone, $code, 34066);
+    				}
+    					
     			}
     		}
     	}
@@ -89,6 +102,17 @@ class WeixinController extends Controller
                     $cpObj = ClassPackage::find($order->cid);
                     $caseNameObj = NewUser::find($order->uid);
                     TemplateController::send($caseNameObj->openid,'关于订单支付成功的通知','课程套餐',$cpObj->name,$order->price,$bill->created_at,$caseNameObj->nickname,'订单支付成功','');
+                    $messageObj = ClassMessage::where('status',1)
+                    	->select('phone')
+                    	->get();
+                    foreach($messageObj as $vo){
+                    	$phone = $vo->phone;
+                    	$code[] = $caseNameObj->nickname;
+                    	$code[] = $cpObj->name;
+                    	$code[] = $order->price;
+                    	require_once($_SERVER['DOCUMENT_ROOT'].'/php/Qcloud/Sms/SmsSenderDemo.php');
+                    	$result = postPhoneCodeSms($phone, $code, 34066);
+                    }
                 }
             }
         }
@@ -130,6 +154,17 @@ class WeixinController extends Controller
                     HalfBuyInfo::where('uid', $order->uid)
                         ->update(['ticket_num'=>$ticket_num, 'used_num'=>$used_num]);
                         /*更新结束*/
+                    $messageObj = ClassMessage::where('status',1)
+                        ->select('phone')
+                        ->get();
+                   	foreach($messageObj as $vo){
+                   		$phone = $vo->phone;
+                        $code[] = $caseNameObj->nickname;
+                        $code[] = $classObj->name;
+                        $code[] = $order->price;
+                        require_once($_SERVER['DOCUMENT_ROOT'].'/php/Qcloud/Sms/SmsSenderDemo.php');
+                        $result = postPhoneCodeSms($phone, $code, 34066);
+                  	}
                 }
             }
         }
