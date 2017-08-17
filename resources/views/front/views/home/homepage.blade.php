@@ -242,7 +242,7 @@ $signPackage = $jssdk->GetSignPackage();
 	                </div>
 	                <div class="weui-cell__ft">必填</div>
 	            </a>
-	            <a class="weui-cell weui-cell_access" style="display: none;" href="/front/parent/myClassOrder">
+	            <a class="weui-cell weui-cell_access" href="/front/parent/myClassOrder">
 	                <div class="weui-cell__hd"><img src="/images/home/option_order.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
 	                <div class="weui-cell__bd">
 	                    <p>我的双师class订单</p>
