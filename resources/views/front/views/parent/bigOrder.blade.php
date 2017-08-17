@@ -24,6 +24,9 @@
 	<meta name="csrf-token" content="{{csrf_token()}}">
 	<link rel="stylesheet" type="text/css" href="/css/sm.min.css">
 	<style type="text/css">
+		.item-title{
+			min-width: 73px;
+		}
 	</style>
 </head>
 <body>
