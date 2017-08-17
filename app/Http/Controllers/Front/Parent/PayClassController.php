@@ -217,7 +217,7 @@ class PayClassController extends Controller
 		$bid = $request->input('id');
 
 		// $flight = EclassOrder::find($order_id);
-		$flight = BigOrder::find($order_id);
+		$flight = BigOrder::find($bid);
 
 		$bigOrderObj = BigOrder::find($bid);
 
