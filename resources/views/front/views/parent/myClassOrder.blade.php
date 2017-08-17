@@ -60,7 +60,7 @@
 						            			已优惠：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
 						            		</div>
 						            		<div class="item-text" style="text-align: right;">
-						            			<button class="button button-block" id="showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;cursor:pointer;">订单详情</button>
+						            			<button class="button button-block showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;cursor:pointer;">订单详情</button>
 						            		</div>
 						          		</div>
 						        	</a>
@@ -91,7 +91,7 @@
 						            			已优惠：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
 						            		</div>
 						            		<div class="item-text" style="text-align: right;">
-						            			<button class="button button-block" id="showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;cursor:pointer;">订单详情</button>
+						            			<button class="button button-block showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;cursor:pointer;">订单详情</button>
 						            		</div>
 						          		</div>
 						        	</a>
@@ -122,7 +122,7 @@
 						            			已优惠：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
 						            		</div>
 						            		<div class="item-text" style="text-align: right;">
-						            			<button class="button button-block" id="showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;cursor:pointer;">订单详情</button>
+						            			<button class="button button-block showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;cursor:pointer;">订单详情</button>
 						            		</div>
 						          		</div>
 						        	</a>
@@ -167,7 +167,7 @@
 		})
 
 		
-		$(document).on('click','#showOrderDetail', function (e) {
+		$(document).on('click','.showOrderDetail', function (e) {
 			var vid = $(this).parents('.urlPay').attr('vid');
 			$.ajax({
 				headers:{
@@ -236,7 +236,7 @@
 
 		$(document).on('click', '.urlPay', function(e){
 			var vid = $(this).attr('vid');
-			console.log(e.target.tagName);
+			// console.log(e.target.tagName);
 			if (e.target.tagName == 'DIV')
 				window.location.href='/front/parent/showPayEclassOrder?id='+vid;
 		})
