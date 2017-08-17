@@ -25,11 +25,18 @@
 			 </div>
 	  		<div class="content-block">
 	  			<div class="popup popup-services">
-				  <div class="content-block">
-				    <p>Services</p>
-				    <p><a href="#" class="close-popup">Close popup</a></p>
-				    <p>Lorem ipsum dolor ...</p>
-				  </div>
+				  	<div class="content-block">
+					    <p><a href="#" class="close-popup">关闭</a></p>
+					    <div id="orderdetail" style="position: fixed;z-index: 99;width: 100%;overflow: scroll;display: none;font-family: arial, helvetica, sans-serif;background: #FFF;">
+	            			<div class="cartTop" style="position: relative;text-align: center;line-height: 39px;height:39px;background: #EA7E1F;color:#FFF;z-index: 100;cursor: pointer;">
+	            		我的购物车
+	            				<div class="cartTopRight" id="orderdetailClose" style="height: 39px;cursor: pointer;line-height: 39px;position: absolute;right: 10px;top: 0px;">关闭</div>
+	            			</div>
+	            			<div class="weui-loadmore weui-loadmore_line" style="position: absolute;top:39px;left:0px;z-index: -1;width: 100%;">
+		            			<span class="weui-loadmore__tips">购物车为空</span>
+		        			</div>
+		        		</div>
+				  	</div>
 				</div>
 				<div class="popup-overlay"></div>
 	    		<div class="tabs">
