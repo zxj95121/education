@@ -151,8 +151,8 @@
 		})
 
 		
-		$(document).on('click','#showOrderDetail', function () {
-			e.prevent();
+		$(document).on('click','#showOrderDetail', function (e) {
+			e.stopPropagation();
 		  	$.popup('.popup-services');
 		});
 
