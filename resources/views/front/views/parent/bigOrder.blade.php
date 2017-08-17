@@ -12,7 +12,6 @@
 	$input->SetTime_start(date("YmdHis"));//交易起始时间
 	$input->SetNotify_url("http://".$_SERVER['SERVER_NAME']."/wxpay/notify");//通知地址
 	$input->SetTrade_type("JSAPI");//交易类型
-	var_dump($input);
 	$input->SetOpenid($openId);//用户标识
 	$order = WxPayApi::unifiedOrder($input);
 	$jsApiParameters = $tools->GetJsApiParameters($order);
