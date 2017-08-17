@@ -47,10 +47,12 @@
 							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
 							            	<div class="item-subtitle">课时：<span style="color:#2e7900;">{{$value['count']}}次</span></div>
 						            		<div class="item-text">
-						            			优惠金额：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
+						            			已优惠：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
 						            		</div>
 						            		<div class="item-text" style="text-align: right;">
-						            			<button class="button button-block" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;">订单详情</button>
+						            			<a href="#" class="open-about">
+						            				<button class="button button-block" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;">订单详情</button>
+						            			</a>
 						            		</div>
 						          		</div>
 						        	</a>
@@ -78,7 +80,7 @@
 							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
 							            	<div class="item-subtitle">课时：<span style="color:#2e7900;">{{$value['count']}}次</span></div>
 						            		<div class="item-text">
-						            			优惠金额：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
+						            			已优惠：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
 						            		</div>
 						          		</div>
 						        	</a>
@@ -106,7 +108,7 @@
 							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
 							            	<div class="item-subtitle">课时：<span style="color:#2e7900;">{{$value['count']}}次</span></div>
 						            		<div class="item-text">
-						            			优惠金额：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
+						            			已优惠：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
 						            		</div>
 						          		</div>
 						        	</a>
@@ -121,6 +123,14 @@
 			     	</div>
 			     	
 	    		</div>
+
+	    		<div class="popup popup-about">
+  <div class="content-block">
+    <p>About</p>
+    <p><a href="#" class="close-popup">Close popup</a></p>
+    <p>Lorem ipsum dolor ...</p>
+  </div>
+</div>
 	  		</div>
 	  	</div>
 	</div>
