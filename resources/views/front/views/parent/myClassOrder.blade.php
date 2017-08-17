@@ -153,14 +153,14 @@
 		
 		$(document).on('click','#showOrderDetail', function (e) {
 			e.stopPropagation();
-			console.log(e.name);
+			console.log(e.target);
 		  	$.popup('.popup-services');
 		});
 
 
 		$(document).on('click', '.urlPay', function(e){
 			var vid = $(this).attr('vid');
-			console.log(e.name);
+			console.log(e.target);
 			// window.location.href='/front/parent/showPayEclassOrder?id='+vid;
 		})
 	</script>
