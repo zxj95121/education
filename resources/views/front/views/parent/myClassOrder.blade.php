@@ -6,10 +6,6 @@
 	<meta name="csrf-token" content="{{csrf_token()}}">
 	<link rel="stylesheet" type="text/css" href="/css/sm.min.css">
 	<style type="text/css">
-		.cartcontent{
-			width: 96%;
-			margin: 0 auto;
-		}
 	</style>
 </head>
 <body>
@@ -191,7 +187,7 @@
 
 							var liObj = obj[i]['detail'];
                             for (var j in liObj) {
-								$('.cartblock').last().append('<div class="cartcontent" style="width: 100%;background: #FFF;" pid="'+j+'">'
+								$('.cartblock').last().append('<div class="cartcontent" style="width: 96%;margin:0 auto;background: #FFF;" pid="'+j+'">'
 								 +'<div  class="weui-cells" style="margin:0;"> <a class="weui-cell weui-cell_title"> <div class="weui-cell__bd"'
 								  +'style="position: relative;color:#333;"> <p style="font-size:15px;">'+liObj[j]['name3']+'</p> <iframe id="tmp_downloadhelper_iframe"'
 								   +'style="display: none;"></iframe> </div> <div class="weui-cell__ft"> <span>'+liObj[j]['count']+'课时</span> <span class="btn btn-danger deleteCartBtn"'
@@ -206,13 +202,15 @@
                             //     var cdom = $('.detailList[twoid="'+id2+'"]').find('ol');
                             //     cdom.append('<li>'+liObj[j]['name3']+'<span style="display: inline-block;margin-left:8px;">'+liObj[j]['count']+'</span>'+'</li>');
                             // }
+
+                            $('.payT').hide();
+		  					$('.payC').hide();
                         }
 					}
 				}
 			})
 		  	$.popup('.popup-services');
-		  	$('.payT').hide();
-		  	$('.payC').hide();
+		  	
 		});
 
 
