@@ -49,8 +49,7 @@
 						            		<div class="item-text">
 						            			已优惠：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
 						            		</div>
-						            				<button class="button button-block open-about" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;">订单详情</button>
-						            			
+					            				<button class="button button-block" id="showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;">订单详情</button>
 						            		</div>
 						          		</div>
 						        	</a>
@@ -159,6 +158,11 @@
 			var newUrl = "/front/parent/myClassOrder?action="+num;
 			history.pushState(stateObject,'',newUrl);
 		})
+
+
+		$(document).on('click','#showOrderDetail', function () {
+		  	$.popup('.popup-about');
+		});
 	</script>
 </body>
 </html>
