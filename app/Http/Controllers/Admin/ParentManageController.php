@@ -11,6 +11,7 @@ use App\Models\CommunityArea;
 use App\Models\CommunityCity;
 use App\Models\NewUser;
 use App\Models\VoucherRecord;
+use App\Models\PatyRecord;
 
 class ParentManageController extends Controller
 {
@@ -53,7 +54,7 @@ class ParentManageController extends Controller
     		$req['nickname'] = '';
     	}
 
-    	$res = $res->select('pi.name as nickname','pi.id','nu.id as userId','parent_detail.name','pi.phone','sex','parent_detail.type','address','place', 'nu.voucher as voucher')
+    	$res = $res->select('pi.name as nickname','pi.id','nu.id as userId','parent_detail.name','pi.phone','sex','parent_detail.type','address','place', 'nu.voucher as voucher','nu.paty as patynum')
     	->paginate(10);
     	for($i = 0; $i < count($res); $i++){
     		if(isset($res[$i]->address)){ 
@@ -132,5 +133,61 @@ class ParentManageController extends Controller
 
         echo $vou;
         exit;
+    }
+    /*添加paty*/
+    public function addPaty(Request $request)
+    {
+    	$id = $request->input('id');/*new_user表的ID*/
+    	$num = (int)$request->input('num');
+    
+    	$userObj = NewUser::find($id);
+    	$paty = $userObj->paty;
+    	$userObj->paty = $paty+$num;
+    
+    	$userObj->save();
+    
+    
+    	$f2 = new PatyRecord();
+    	$f2->uid = $id;
+    	$f2->number = $num;
+    	$f2->save();
+    
+    	return response()->json(['errcode'=>0,'paty'=>$userObj->paty]);
+    }
+    /*查paty*/
+    public function getPatyRecord(Request $request)
+    {
+    	$id = $request->input('id');
+    
+    	$obj = PatyRecord::where('uid', $id)
+    	->orderBy('created_at', 'desc')
+    	->get();
+    
+    	return response()->json(['obj'=>$obj]);
+    }
+    /*撤销paty*/
+    public function dealPatyRecord(Request $request)
+    {
+    	$pid = $request->input('pid');
+    	$uid = $request->input('uid');
+    
+    	$paty = PatyRecord::find($pid);
+    	$paty->status = 0;
+    	$number = $paty->number;
+    	$paty->save();
+    
+    	$paty = NewUser::find($uid);
+    	$vou = $paty->paty;
+    	$vou = $vou - $number;
+    
+    	if ($vou < 0)
+    		$vou = 0;
+    
+    		$paty->paty = $vou;
+    
+    		$paty->save();
+    
+    		echo $vou;
+    		exit;
     }
 }

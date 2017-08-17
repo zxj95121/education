@@ -4,7 +4,7 @@
 @section('style')
 <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css">
 <style type="text/css">
-	.label-primary,.addTicketBtn,.backTicket{
+	.label-primary,.addTicketBtn,.backTicket,.addPaty,.backPaty{
 		cursor: pointer;
 	}
 </style>
@@ -78,6 +78,7 @@
 								                    <th>身份</th>
 								                    <th>类别</th>
 								                    <th>优惠券余额</th>
+								                    <th>paty次数</th>
 								                    <th>住宅小区</th>
 								                    <th>单元楼层</th>
 								                    <th>操作</th>
@@ -109,10 +110,15 @@
 								                    <td class="voucherTd">
 								                    	{{$value->voucher}}
 								                    </td>
+								                    <td class="patyTd">
+								                    	{{$value->patynum}}
+								                    </td>
 								                    <td>{{$value->address}}</td>
+								                    
 								                    <td>{{$value->place}}</td>
 								                    <td>
 								                    	<span class="label label-info addTicketBtn">增加优惠券</span>
+								                    	<span class="label label-info addPaty">添加paty</span>
 								                    	<span class="label label-primary" onclick="deleteParent({{$value->id}});">删除用户</span>
 								                    </td>
 								                </tr>
@@ -194,6 +200,49 @@
 	                    </div>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
+            </div>
+			<div id="modal2" class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="mypatyLabel" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><font><font class="">×</font></font></button>
+                            <h4 class="modal-title" id="mypatyLabel" style="font-weight: bold;"><font><font id="bttitle2">添加paty</font></font></h4>
+                        </div>
+                        <div class="modal-body">
+	                       	<div class="row">
+							    <div class="form-group" style="margin-top:13px;">
+							    	<div class="col-md-3" style="text-align: right;">
+							    		<label for="ticketNumInput">paty次数</label>
+							    	</div>
+					        		<div class="col-md-9">
+					        			<input type="number" min="1" value="1" id="patyNumber" name="patyNumber" class="form-control">
+					        		</div>
+					        	</div>
+					        </div>
+                        </div>
+                        <div class="modal-footer"> 
+                            <button type="button" class="btn btn-white" data-dismiss="modal"><font><font>关闭</font></font></button> 
+                            <button type="button" class="btn btn-info" id="addPostPaty"><font><font>确认添加</font></font></button> 
+                        </div>
+
+                        <div class="row" style="margin-top: 5px;">
+	                        <div class="col-md-12 col-sm-12 col-xs-12">
+	                            <table class="table table-hover" id="recordTable2">
+	                                <thead>
+	                                    <tr>
+	                                        <th>序号</th>
+	                                        <th>paty数量</th>
+	                                        <th>操作</th>
+	                                    </tr>
+	                                </thead>
+	                                <tbody>
+
+	                                </tbody>
+	                            </table>
+	                        </div>
+	                    </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
             </div>   
 @endsection
             
@@ -240,7 +289,38 @@
 				}
 	    	});
 	    })
+		$(document).on('click', '.addPaty', function(){
+	    	$('#modal2').modal('show');
+	    	var userId = $(this).parents('tr').attr('userId');
+	    	$('#modal2').attr('userId', userId);
 
+	    	$.ajax({
+	    		url: '/admin/parent/getPatyRecord',
+				type: 'post',
+				dataType: 'json',
+				data: {
+					id: userId
+				},
+				success: function(data){
+					var obj = data.obj;
+					if (obj.length > 0) {
+						$('#recordTable2').show();
+						$('#recordTable2 tbody').html('');
+						for (var i in obj) {
+							if (obj[i].status == 1) {
+								var str = '<span class="label label-info backPaty">撤销操作</span>';
+							} else {
+								var str = '<span class="label label-success">已撤销</span>';
+							}
+							$('#recordTable2 tbody').append('<tr pid="'+obj[i].id+'"> <td>'+(i+1)+'</td> <td>'+(obj[i].number)+'</td>  <td>'+str+'</td> </tr>');
+						}
+
+					} else {
+						$('#recordTable2').hide();
+					}
+				}
+	    	});
+	    })
 
 	    /*撤销添加优惠券*/
 	    $(document).on('click', '.backTicket', function(){
@@ -265,7 +345,29 @@
 				}
 	    	});
 	    })
+		/*撤销添加paty*/
+	    $(document).on('click', '.backPaty', function(){
+	    	var pid = $(this).parents('tr').attr('pid');
+	    	var uid = $('#modal2').attr('userId');
+	    	var cdom = $(this);
 
+	    	console.log($(this));
+
+	    	$.ajax({
+	    		url: '/admin/parent/dealPatyRecord',
+				type: 'post',
+				dataType: 'html',
+				data: {
+					uid: uid,
+					pid: pid
+				},
+				success: function(data){
+					// cdom.remove();
+					cdom.replaceWith('<span class="label label-success">已撤销</span>');
+					$('#parentDetail tr[userId="'+uid+'"]').find('.patyTd').html(data);
+				}
+	    	});
+	    })
 
 	    $('#saveTicket').click(function(){
 	    	/*saveTicket*/
@@ -288,7 +390,27 @@
 				}
 	    	})
 	    })
-
+		$('#addPostPaty').click(function(){
+	    	/*saveTicket*/
+	    	var id = $('#modal2').attr('userId');
+	    	$.ajax({
+	    		url: '/admin/parent/addPostPaty',
+				type: 'post',
+				dataType: 'json',
+				data: {
+					id: id,
+					num: $('#patyNumber').val()
+				},
+				success: function(data){
+					if (data.errcode == 0) {
+						window.layer.msg('添加成功');
+						$('#modal2').modal('hide');
+						$('#patyNumber').val('1');
+						$('#parentDetail tr[userId="'+id+'"]').find('.patyTd').html(data.paty);
+					}
+				}
+	    	})
+	    })
 	})
 
 	function deleteParent(id) {
