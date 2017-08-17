@@ -169,6 +169,8 @@
 		
 		$(document).on('click','.showOrderDetail', function (e) {
 			var vid = $(this).parents('.urlPay').attr('vid');
+			$('.payT').hide();
+		  	$('.payC').hide();
 			$.ajax({
 				headers:{
 					'X-CSRF-TOKEN': '{{csrf_token()}}'
@@ -181,7 +183,7 @@
 				datatype:'json',
 				success:function(data){
 					if(data.errcode == 0){
-						
+						$('#orderdetail').html('');
 						var obj = data.obj;
 
                         for (var i in obj) {
@@ -224,9 +226,14 @@
 								    +'background-size:100% 100%;width:28px;height:28px;"> </span> </div> </a> </div> </div>');
 
                         }
-                        $('.payT').hide();
+					} else {
+						$('.payT').hide();
 		  				$('.payC').hide();
 					}
+				},
+				error: function(){
+					$('.payT').hide();
+		  			$('.payC').hide();
 				}
 			})
 		  	$.popup('.popup-services');
