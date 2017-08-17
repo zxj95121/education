@@ -228,7 +228,7 @@ class PayClassController extends Controller
 		$count = EclassOrder::where('bid', $bid)
 			->count();
 		$name = EclassOrder::where('bid', $bid)
-			->leftJoin('teacher_trhee as tt', 'tt.id', 'eclass_order.tid')
+			->leftJoin('teacher_three as tt', 'tt.id', 'eclass_order.tid')
 			->select('tt.name')
 			->get()[0]
 			->name;
