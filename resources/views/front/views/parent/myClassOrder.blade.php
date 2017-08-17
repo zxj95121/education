@@ -160,7 +160,7 @@
 		$(document).on('click', '.urlPay', function(e){
 			var vid = $(this).attr('vid');
 			console.log(e.target.tagName);
-			if (e.target.tagName == 'div')
+			if (e.target.tagName == 'DIV')
 				window.location.href='/front/parent/showPayEclassOrder?id='+vid;
 		})
 	</script>
