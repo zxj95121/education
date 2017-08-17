@@ -113,7 +113,7 @@
 						        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
 						          		<div class="item-inner">
 							            	<div class="item-title-row">
-							              		<div class="item-title">状态：<span style="color:#3B833E;">待授课</span></div>
+							              		<div class="item-title">状态：<span style="color:#3B833E;">授课中</span></div>
 							              		<div class="item-after">{{$value['created_at']}}</div>
 							            	</div>
 							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
