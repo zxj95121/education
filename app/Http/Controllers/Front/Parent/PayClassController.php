@@ -218,7 +218,10 @@ class PayClassController extends Controller
 		$bid = $request->input('id');
 
 		// $flight = EclassOrder::find($order_id);
+		$order_no = 'EC'.date('YmdHis').rand(10000,99999);
 		$flight = BigOrder::find($bid);
+		$flight->order_no = $order_no;
+		$flight->save();
 
 		$bigOrderObj = BigOrder::find($bid);
 
