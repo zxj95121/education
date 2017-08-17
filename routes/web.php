@@ -87,7 +87,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/parent/addTicket', 'ParentManageController@addTicket');/*parentManage控制器*/
     $router->post('/parent/getVoucherRecord', 'ParentManageController@getVoucherRecord');/*parentManage控制器*/
     $router->post('/parent/dealVoucherRecord', 'ParentManageController@dealVoucherRecord');/*parentManage控制器*/
-
+    $router->post('/parent/addPostPaty', 'ParentManageController@addPaty');/*parentManage控制器*/
+    $router->post('/parent/getPatyRecord', 'ParentManageController@getPatyRecord');/*parentManage控制器*/
+    $router->post('/parent/dealPatyRecord', 'ParentManageController@dealPatyRecord');/*parentManage控制器*/
 
     $router->get('/teacherInfo', 'ManagerController@teacherInfo');
     $router->post('/expect','ManagerController@expect');//教学社区

@@ -9,6 +9,7 @@ use App\Http\Controllers\TemplateController;
 use App\Models\NewUser;
 use App\Models\BigOrder;
 use App\Models\ClassPackageOrder;
+use App\Models\PatyRecord;
 
 class PayResult extends ServiceProvider
 {
@@ -35,6 +36,13 @@ class PayResult extends ServiceProvider
         NewUser::where('openid', $openid)
             ->update(['coin'=>$coin]);
         /*2、满3000送188元英语主题party一次*/
+        if ($count >= 3) {
+        	$userObj = NewUser::where('openid', $openid)
+        		->first();
+        	$paty = $userObj->paty + 1;
+        	$userObj->paty = $paty;
+        	$userObj->save();
+        }
 
     }
 
