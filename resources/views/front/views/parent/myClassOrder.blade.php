@@ -41,8 +41,8 @@
 	    		<div class="tabs">
 	      			<div id="tab1" class="tab active">
 	      			@foreach($noPayObj as $value)
-					  	<div class="content-block-title" style="height: 16px;line-height: 15px;">订单编号：<span>{{$value['order_no']}}</span></div>
-						<div class="list-block media-list">
+					  	<div class="content-block-title payT" style="height: 16px;line-height: 15px;">订单编号：<span>{{$value['order_no']}}</span></div>
+						<div class="list-block media-list payC">
 					    	<ul>
 					      		<li class="urlPay" vid="{{$value['id']}}">
 						        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
@@ -160,7 +160,8 @@
 		
 		$(document).on('click','#showOrderDetail', function (e) {
 		  	$.popup('.popup-services');
-		  	$('.urlPay').hide();
+		  	$('.payT').hide();
+		  	$('.payC').hide();
 		});
 
 
