@@ -49,10 +49,8 @@
 						            		<div class="item-text">
 						            			已优惠：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
 						            		</div>
-						            		<div class="item-text" style="text-align: right;">
-						            			<a href="#" class="open-about">
-						            				<button class="button button-block" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;">订单详情</button>
-						            			</a>
+						            				<button class="button button-block open-about" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;">订单详情</button>
+						            			
 						            		</div>
 						          		</div>
 						        	</a>
