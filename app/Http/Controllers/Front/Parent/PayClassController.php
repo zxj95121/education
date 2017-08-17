@@ -209,6 +209,7 @@ class PayClassController extends Controller
 		return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight,'classname'=>$classname]);
 	}
 
+	/*未支付订单进行支付*/
 	public function showPayEclassOrder(Request $request)
 	{
 		$openid = Session::get('openid');
