@@ -124,14 +124,16 @@
 			     	
 	    		</div>
 
-	    		<div class="popup popup-about">
+
+	  		</div>
+
+	  			    		<div class="popup popup-about">
   <div class="content-block">
     <p>About</p>
     <p><a href="#" class="close-popup">Close popup</a></p>
     <p>Lorem ipsum dolor ...</p>
   </div>
 </div>
-	  		</div>
 	  	</div>
 	</div>
 
