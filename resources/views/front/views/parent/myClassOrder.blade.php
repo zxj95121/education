@@ -31,6 +31,7 @@
 				    <p>Lorem ipsum dolor ...</p>
 				  </div>
 				</div>
+				<div class="popup-overlay"></div>
 	    		<div class="tabs">
 	      			<div id="tab1" class="tab active">
 	      			@foreach($noPayObj as $value)
