@@ -24,13 +24,20 @@
 			    <!-- <a href="#tab4" class="tab-link button">已完成</a> -->
 			 </div>
 	  		<div class="content-block">
+	  			<div class="popup popup-services">
+				  <div class="content-block">
+				    <p>Services</p>
+				    <p><a href="#" class="close-popup">Close popup</a></p>
+				    <p>Lorem ipsum dolor ...</p>
+				  </div>
+				</div>
 	    		<div class="tabs">
 	      			<div id="tab1" class="tab active">
 	      			@foreach($noPayObj as $value)
 					  	<div class="content-block-title" style="height: 16px;line-height: 15px;">订单编号：<span>{{$value['order_no']}}</span></div>
 						<div class="list-block media-list">
 					    	<ul>
-					      		<li>
+					      		<li onclick="window.location.href='/front/parent/showPayEclassOrder?id={{$value['id']}}';">
 						        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
 						          		<div class="item-inner">
 							            	<div class="item-title-row">
@@ -43,7 +50,7 @@
 						            			优惠金额：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
 						            		</div>
 						            		<div class="item-text" style="text-align: right;">
-						            			<button class="button button-block" onclick="window.location.href='/front/parent/showPayEclassOrder?id={{$value['id']}}';" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;">去付款</button>
+						            			<button class="button button-block" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;">去付款</button>
 						            		</div>
 						          		</div>
 						        	</a>
