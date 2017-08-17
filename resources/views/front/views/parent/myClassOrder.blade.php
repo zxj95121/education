@@ -24,13 +24,6 @@
 			    <!-- <a href="#tab4" class="tab-link button">已完成</a> -->
 			 </div>
 	  		<div class="content-block">
-	  			<div class="popup popup-services">
-				  <div class="content-block">
-				    <p>Services</p>
-				    <p><a href="#" class="close-popup">Close popup</a></p>
-				    <p>Lorem ipsum dolor ...</p>
-				  </div>
-				</div>
 	    		<div class="tabs">
 	      			<div id="tab1" class="tab active">
 	      			@foreach($noPayObj as $value)
@@ -121,7 +114,13 @@
 			     	
 	    		</div>
 
-
+	    		<div class="popup popup-services" style="display: none;z-index: 88888;">
+				  <div class="content-block">
+				    <p>Services</p>
+				    <p><a href="#" class="close-popup">Close popup</a></p>
+				    <p>Lorem ipsum dolor ...</p>
+				  </div>
+				</div>
 	  		</div>
 	  	</div>
 	</div>
