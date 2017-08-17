@@ -182,10 +182,10 @@
 
                             $('#orderdetail').append('<div class="cartblock" pid="'+i+'"> <div class="cartheader" style="width:100%;background: #60b4e6;'
 			+'color: #FFF;padding:6px 10px;"> <p style="font-size:1.1em;margin: 0px 0px;">'+name2+'</p> </div> </div>');
-                            
+
 							var liObj = obj[i]['detail'];
                             for (var j in liObj) {
-								$('#orderdetail .cartblock:last').append('<div class="cartcontent" style="width: 100%;background: #FFF;" pid="'+j+'">'
+								$('.cartblock').last().append('<div class="cartcontent" style="width: 100%;background: #FFF;" pid="'+j+'">'
 								 +'<div  class="weui-cells" style="margin:0;"> <a class="weui-cell weui-cell_title"> <div class="weui-cell__bd"'
 								  +'style="position: relative;color:#333;"> <p style="font-size:15px;">'+liObj[j]['name3']+'</p> <iframe id="tmp_downloadhelper_iframe"'
 								   +'style="display: none;"></iframe> </div> <div class="weui-cell__ft"> <span>'+liObj[j]['count']+'课时</span> <span class="btn btn-danger deleteCartBtn"'
