@@ -169,8 +169,11 @@
 		
 		$(document).on('click','.showOrderDetail', function (e) {
 			var vid = $(this).parents('.urlPay').attr('vid');
-			$('.payT').hide();
-		  	$('.payC').hide();
+			setTimeout(function(){
+				$('.payT').hide();
+		  		$('.payC').hide();
+			}, 250)
+			
 			$.ajax({
 				headers:{
 					'X-CSRF-TOKEN': '{{csrf_token()}}'
