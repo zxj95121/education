@@ -13,9 +13,9 @@
 	$input->SetNotify_url("http://".$_SERVER['SERVER_NAME']."/wxpay/notify");//通知地址
 	$input->SetTrade_type("JSAPI");//交易类型
 	$input->SetOpenid($openId);//用户标识
-	var_dump($input);
-	exit;
 	$order = WxPayApi::unifiedOrder($input);
+	var_dump($order);
+	exit;
 	$jsApiParameters = $tools->GetJsApiParameters($order);
 ?>
 <!DOCTYPE html>

@@ -181,15 +181,7 @@
 				datatype:'json',
 				success:function(data){
 					if(data.errcode == 0){
-						$('#orderdetail').append('<div class="cartblock"> <div class="cartheader" style="width:100%;background: #60b4e6;'
-			+'color: #FFF;padding:6px 10px;"> <p style="font-size:1.1em;margin: 0px 0px;">英语主题party</p> </div> </div>');
-						$('.cartblock').last().append('<div class="cartcontent" style="width: 96%;margin:0 auto;background: #FFF;" pid="'+j+'">'
-								 +'<div  class="weui-cells" style="margin:0;"> <a class="weui-cell weui-cell_title"> <div class="weui-cell__bd"'
-								  +'style="position: relative;color:#333;"> <p style="font-size:15px;">英语主题party</p> <iframe id="tmp_downloadhelper_iframe"'
-								   +'style="display: none;"></iframe> </div> <div class="weui-cell__ft"> <span>'+data.count+'次</span> <span class="btn btn-danger deleteCartBtn"'
-								    +'style="background-color:#FFF;border-color:#FFF;background-image:url(\'/images/home/cart_delete.png\');'
-								    +'background-size:100% 100%;width:28px;height:28px;"> </span> </div> </a> </div> </div>');
-
+						
 						var obj = data.obj;
 
                         for (var i in obj) {
@@ -219,6 +211,17 @@
                             //     var cdom = $('.detailList[twoid="'+id2+'"]').find('ol');
                             //     cdom.append('<li>'+liObj[j]['name3']+'<span style="display: inline-block;margin-left:8px;">'+liObj[j]['count']+'</span>'+'</li>');
                             // }
+
+
+
+                           	$('#orderdetail').append('<div class="cartblock"> <div class="cartheader" style="width:100%;background: #60b4e6;'
+			+'color: #FFF;padding:6px 10px;"> <p style="font-size:1.1em;margin: 0px 0px;">英语主题party</p> </div> </div>');
+							$('.cartblock').last().append('<div class="cartcontent" style="width: 96%;margin:0 auto;background: #FFF;" pid="'+j+'">'
+								 +'<div  class="weui-cells" style="margin:0;"> <a class="weui-cell weui-cell_title"> <div class="weui-cell__bd"'
+								  +'style="position: relative;color:#333;"> <p style="font-size:15px;">英语主题party</p> <iframe id="tmp_downloadhelper_iframe"'
+								   +'style="display: none;"></iframe> </div> <div class="weui-cell__ft"> <span>'+data.count+'次</span> <span class="btn btn-danger deleteCartBtn"'
+								    +'style="background-color:#FFF;border-color:#FFF;background-image:url(\'/images/home/cart_delete.png\');'
+								    +'background-size:100% 100%;width:28px;height:28px;"> </span> </div> </a> </div> </div>');
 
                             $('.payT').hide();
 		  					$('.payC').hide();
