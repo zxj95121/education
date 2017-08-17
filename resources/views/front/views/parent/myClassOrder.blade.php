@@ -37,7 +37,7 @@
 					  	<div class="content-block-title" style="height: 16px;line-height: 15px;">订单编号：<span>{{$value['order_no']}}</span></div>
 						<div class="list-block media-list">
 					    	<ul>
-					      		<li onclick="window.location.href='/front/parent/showPayEclassOrder?id={{$value['id']}}';">
+					      		<li class="urlPay" vid="{{$value['id']}}">
 						        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
 						          		<div class="item-inner">
 							            	<div class="item-title-row">
@@ -152,8 +152,15 @@
 
 		
 		$(document).on('click','#showOrderDetail', function () {
+			e.prevent();
 		  	$.popup('.popup-services');
 		});
+
+
+		$(document).on('click', '.urlPay', function(){
+			var vid = $(this).attr('vid');
+			window.location.href='/front/parent/showPayEclassOrder?id='+vid;
+		})
 	</script>
 </body>
 </html>
