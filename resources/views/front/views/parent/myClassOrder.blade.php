@@ -223,9 +223,9 @@
 								    +'style="background-color:#FFF;border-color:#FFF;background-image:url(\'/images/home/cart_delete.png\');'
 								    +'background-size:100% 100%;width:28px;height:28px;"> </span> </div> </a> </div> </div>');
 
-                            $('.payT').hide();
-		  					$('.payC').hide();
                         }
+                        $('.payT').hide();
+		  				$('.payC').hide();
 					}
 				}
 			})
