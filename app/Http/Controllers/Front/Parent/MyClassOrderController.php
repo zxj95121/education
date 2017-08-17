@@ -212,7 +212,7 @@ class MyClassOrderController extends Controller
             $Obj[$key]['detail'] = $orderDetail;
         }
 
-
+        $openid = Session::get('openid');
         $count = NewUser::where('openid', $openid)
             ->first()
             ->paty;
