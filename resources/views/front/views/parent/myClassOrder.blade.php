@@ -159,6 +159,23 @@
 
 		
 		$(document).on('click','#showOrderDetail', function (e) {
+			var vid = $(this).parents('.urlPay').attr('vid');
+			$.ajax({
+				headers:{
+					'X-CSRF-TOKEN': '{{csrf_token()}}'
+				},	
+				url:'/front/parent/getOrderDetail',
+				data:{
+					id: vid
+				},
+				type:'post',
+				datatype:'json',
+				success:function(data){
+					if(data.errcode == 0){
+						console.log(data);
+					}
+				}
+			})
 		  	$.popup('.popup-services');
 		  	$('.payT').hide();
 		  	$('.payC').hide();

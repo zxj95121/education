@@ -178,4 +178,39 @@ class MyClassOrderController extends Controller
     	}
     	return view('front.views.parent.details',['res'=>$all,'childname'=>$child->name,'classname'=>$classname]);
     }
+
+        /*获取订单详情*/
+    public function getOrderDetail(Request $request)
+    {
+        $id = $request->input('id');
+
+        $TwoObj = EclassOrder::where('eclass_order.bid', $id)
+            ->leftJoin('teacher_three as tt', 'tt.id', 'eclass_order.tid')
+            ->leftJoin('teacher_two as two', 'two.id', 'tt.pid')
+            ->leftJoin('teacher_one as to', 'to.id', 'two.pid')
+            ->where('eclass_order.status', 1)
+            ->select('to.id as id1', 'to.name as name1','two.name as name2', 'two.id as id2')
+            ->groupBy('two.id')
+            ->get();
+
+        $Obj = array();
+        // dd($TwoObj);
+        foreach ($TwoObj as $key => $value) {
+            $id2 = $value->id2;
+            $Obj[$key]['id'] = $id2;
+            $Obj[$key]['name'] = $value->name2; 
+            $Obj[$key]['name1'] = $value->name1; 
+            $Obj[$key]['id1'] = $value->id1;
+            $orderDetail = EclassOrder::where('eclass_order.bid', $id)
+                ->leftJoin('teacher_three as tt', 'tt.id', 'eclass_order.tid')
+                ->leftJoin('teacher_two as two', 'two.id', 'tt.pid')
+                ->where('eclass_order.status', 1)
+                ->where('two.id', $id2)
+                ->select('two.name as name2', 'two.id as id2', 'tt.name as name3', 'tt.id as id3', 'eclass_order.*')
+                ->get()->toArray();
+            $Obj[$key]['detail'] = $orderDetail;
+        }
+    
+        return response()->json(['errcode'=>0,'obj'=>$Obj]);
+    }
 }
