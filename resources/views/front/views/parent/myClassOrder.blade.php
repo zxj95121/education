@@ -172,7 +172,35 @@
 				datatype:'json',
 				success:function(data){
 					if(data.errcode == 0){
-						console.log(data);
+						var obj = data.obj;
+
+                        for (var i in obj) {
+                            var id2 = obj[i]['id'];
+                            var name2 = obj[i]['name'];
+                            var name1 = obj[i]['name1'];
+
+
+                            $('#orderdetail').append('<div class="cartblock" pid="'+i+'"> <div class="cartheader" style="width:100%;background: #60b4e6;'
+			+'color: #FFF;padding:6px 10px;"> <p style="font-size:1.1em;margin: 0px 0px;">'+name2+'</p> </div> </div>');
+                            
+							var liObj = obj[i]['detail'];
+                            for (var j in liObj) {
+								$('#orderdetail .cartblock:last').append('<div class="cartcontent" style="width: 100%;background: #FFF;" pid="'+j+'">'
+								 +'<div  class="weui-cells" style="margin:0;"> <a class="weui-cell weui-cell_title"> <div class="weui-cell__bd"'
+								  +'style="position: relative;color:#333;"> <p style="font-size:15px;">'+liObj[j]['name3']+'</p> <iframe id="tmp_downloadhelper_iframe"'
+								   +'style="display: none;"></iframe> </div> <div class="weui-cell__ft"> <span>'+liObj[j]['count']+'课时</span> <span class="btn btn-danger deleteCartBtn"'
+								    +'style="background-color:#FFF;border-color:#FFF;background-image:url(\'/images/home/cart_delete.png\');'
+								    +'background-size:100% 100%;width:28px;height:28px;"> </span> </div> </a> </div> </div>');
+							}
+
+
+                            // appendDiv.append('<div class="col-md-12 detailList" twoid="'+id2+'"> <div class="panel panel-default"> <div class="panel-heading"> <h3 class="panel-title">'+name1+' 》 '+name2+'</h3> </div> <div class="panel-body"> <ol> </ol> </div> </div> </div>');
+                            // var liObj = obj[i]['detail'];
+                            // for (var j in liObj) {
+                            //     var cdom = $('.detailList[twoid="'+id2+'"]').find('ol');
+                            //     cdom.append('<li>'+liObj[j]['name3']+'<span style="display: inline-block;margin-left:8px;">'+liObj[j]['count']+'</span>'+'</li>');
+                            // }
+                        }
 					}
 				}
 			})
