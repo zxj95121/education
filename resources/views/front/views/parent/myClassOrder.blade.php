@@ -160,6 +160,7 @@
 		
 		$(document).on('click','#showOrderDetail', function (e) {
 		  	$.popup('.popup-services');
+		  	$('.urlPay').hide();
 		});
 
 
