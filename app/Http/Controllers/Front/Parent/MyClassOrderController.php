@@ -15,6 +15,7 @@ use App\Models\TeacherFour;
 use App\Models\ParentChild;
 use App\Models\NewUser;
 use App\Models\BigOrder;
+
 use Session;
 
 class MyClassOrderController extends Controller
@@ -210,7 +211,12 @@ class MyClassOrderController extends Controller
                 ->get()->toArray();
             $Obj[$key]['detail'] = $orderDetail;
         }
-    
-        return response()->json(['errcode'=>0,'obj'=>$Obj]);
+
+
+        $count = NewUser::where('openid', $openid)
+            ->first()
+            ->paty;
+
+        return response()->json(['errcode'=>0,'obj'=>$Obj,'count'=>$count]);
     }
 }
