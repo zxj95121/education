@@ -212,17 +212,34 @@ class PayClassController extends Controller
 	public function showPayEclassOrder(Request $request)
 	{
 		$openid = Session::get('openid');
-		$uid = $this->getUid($openid);
+		// $uid = $this->getUid($openid);
 		/*新订单*/
-		$order_id = $request->input('id');
+		$bid = $request->input('id');
 
-		$flight = EclassOrder::find($order_id);
+		// $flight = EclassOrder::find($order_id);
+		$flight = BigOrder::find($order_id);
 
-		// $childName = ParentChild::find($flight->child)->name;/*学生名称*/
+		$bigOrderObj = BigOrder::find($bid);
 
-		$name = EclassPriceController::getName($flight->tid, 2);
-		$classname = EclassPriceController::getName($flight->tid);
-		return view('front.views.parent.eclassOrder', ['name'=>$name,'order_id'=>$order_id,'flight'=>$flight,'classname'=>$classname,'back'=>'/front/parent/myClassOrder']);
+		$vouNum = $flight->voucher_num;
+
+		$preBigPrice = $flight->price+88*$voucher;
+
+		$count = EclassOrder::where('bid', $bid)
+			->count();
+		$name = EclassOrder::where('bid', $bid)
+			->leftJoin('teacher_trhee as tt', 'tt.id', 'eclass_order.tid')
+			->select('tt.name')
+			->get()[0]
+			->name;
+
+		if ($count == 1) {
+			$orderName = $name;
+		} else {
+			$orderName = $name.'等';
+		}
+
+		return view('front.views.parent.bigOrder', ['bigOrderObj'=>$bigOrderObj,'orderName'=>$orderName,'vouNum'=>$vouNum,'preBigPrice'=>$preBigPrice]);
 	}
 
     public function checkMessage(Request $request)
