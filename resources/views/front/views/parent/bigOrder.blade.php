@@ -14,6 +14,7 @@
 	$input->SetTrade_type("JSAPI");//交易类型
 	$input->SetOpenid($openId);//用户标识
 	var_dump($input);
+	exit;
 	$order = WxPayApi::unifiedOrder($input);
 	$jsApiParameters = $tools->GetJsApiParameters($order);
 ?>
