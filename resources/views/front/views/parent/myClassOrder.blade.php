@@ -114,13 +114,13 @@
 			     	
 	    		</div>
 
-	    		<div class="popup popup-services" style="display: none;z-index: 88888;">
+	    		<!-- <div class="popup popup-services">
 				  <div class="content-block">
 				    <p>Services</p>
 				    <p><a href="#" class="close-popup">Close popup</a></p>
 				    <p>Lorem ipsum dolor ...</p>
 				  </div>
-				</div>
+				</div> -->
 	  		</div>
 	  	</div>
 	</div>
