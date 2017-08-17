@@ -223,7 +223,7 @@ class PayClassController extends Controller
 
 		$vouNum = $flight->voucher_num;
 
-		$preBigPrice = $flight->price+88*$voucher;
+		$preBigPrice = $flight->price+88*$vouNum;
 
 		$count = EclassOrder::where('bid', $bid)
 			->count();
