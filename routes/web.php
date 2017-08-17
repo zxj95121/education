@@ -251,7 +251,11 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/applyHobby/failed', 'Review\HobbyController@failed');/*驳回申请*/
     $router->post('/applyHobby/success', 'Review\HobbyController@success');/*驳回申请*/
 
-
+    /*订单短信  */
+	$router->get('/classMessage', 'Setting\MessageController@index');
+	$router->post('/classMessage/add', 'Setting\MessageController@add');
+	$router->post('/classMessage/edit', 'Setting\MessageController@edit');
+	$router->post('/classMessage/delete' ,'Setting\MessageController@delete');
     /*用户交流反馈*/
 
       /*用户沟通*/
