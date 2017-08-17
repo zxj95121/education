@@ -159,8 +159,8 @@
 
 		$(document).on('click', '.urlPay', function(e){
 			var vid = $(this).attr('vid');
-			console.log(e.target.name);
-			if (e.target.name == 'div')
+			console.log(e.target.tagname);
+			if (e.target.tagname == 'div')
 				window.location.href='/front/parent/showPayEclassOrder?id='+vid;
 		})
 	</script>
