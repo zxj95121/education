@@ -183,7 +183,9 @@
 				datatype:'json',
 				success:function(data){
 					if(data.errcode == 0){
-						$('#orderdetail').html('');
+						$('.cartblock').each(function(){
+							$(this).remove();
+						})
 						var obj = data.obj;
 
                         for (var i in obj) {
