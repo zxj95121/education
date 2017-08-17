@@ -193,7 +193,7 @@ class MyClassOrderController extends Controller
             ->select('to.id as id1', 'to.name as name1','two.name as name2', 'two.id as id2')
             ->groupBy('two.id')
             ->get();
-            dd($TwoObj);
+
         $Obj = array();
         // dd($TwoObj);
         foreach ($TwoObj as $key => $value) {
