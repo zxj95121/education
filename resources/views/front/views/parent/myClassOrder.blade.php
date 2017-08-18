@@ -123,6 +123,7 @@
 						            		</div>
 						            		<div class="item-text" style="text-align: right;">
 						            			<button class="button button-block showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;cursor:pointer;">订单详情</button>
+						            			<button class="button button-block showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #ED2424;cursor:pointer;">删除订单</button>
 						            		</div>
 						          		</div>
 						        	</a>

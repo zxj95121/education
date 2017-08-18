@@ -224,7 +224,7 @@ $signPackage = $jssdk->GetSignPackage();
 	            <!-- <div class="row" class="my_function">
 	            </div> -->
 	        </div>
-	        <div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
+	        <!-- <div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div> -->
 	        @else
 	        @endif
         @elseif($userType->type == 3)
