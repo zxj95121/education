@@ -175,7 +175,7 @@
 						            		<div class="item-text">
 						            			已优惠：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
 						            		</div>
-						            		<div class="item-subtitle">英语主题party：<span style="color:#2e7900;">{{$value['count']}}次</span></div>
+						            		<div class="item-subtitle">英语主题party：<span style="color:#2e7900;">{{$value['paty']}}次</span></div>
 						          		</div>
 						        	</a>
 					      		</li>
