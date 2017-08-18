@@ -351,7 +351,7 @@ function emoji_decode($str){
 			var cdom = $('#chat-messages .message:last');
 			if (cdom.find('.chatData').length == 1) {
 				var height = cdom.find('.chatData')[0].offsetHeight;
-				// console.log(height);
+				console.log(height);
 				if (height > 20) {
 					cdom.css('padding-bottom', (height+18) +'px');
 				}
