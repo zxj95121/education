@@ -190,6 +190,6 @@ class ClassPackageController extends Controller
         $phone = NewUser::where('openid', $openid)
             ->first()
             ->phone;
-        return view('front.views.classPackage.orderPay', ['package'=>$packageObj,'voucher'=>$voucher,'userObj'=>$userObj,'price'=>$price,'vouNum'=>$vouNum,'order_no'=>$order_no,'phone'=>$phone,'prePrice'=>$prePrice]);
+        return view('front.views.classPackage.orderPay2', ['package'=>$packageObj,'voucher'=>$voucher,'userObj'=>$userObj,'price'=>$price,'vouNum'=>$vouNum,'order_no'=>$order_no,'phone'=>$phone,'prePrice'=>$prePrice]);
     }
 }
