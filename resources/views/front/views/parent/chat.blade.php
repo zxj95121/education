@@ -101,7 +101,7 @@ function emoji_decode($str){
 				            <div @if($value['admin_id']) class="message" @else class="message right" @endif time="{{$value['created_at']}}">
 				              <img @if($value['admin_id']) src="{{$value['aheadimg']}}" @else src="{{$value['uheadimg']}}" @endif" />
 				                <div class="bubble"  @if($value['admin_id']) @else style="background: #22AAE8;border-radius: 5px 0px 0px 5px;" @endif>
-				                  	<span @if($value['admin_id']) class="chatData" @else class="chatDataUser" @endif >{{emoji_decode($value['content'])}}</span>
+				                  	<span @if($value['admin_id']) class="chatData chatDataC" @else class="chatDataUser" @endif >{{emoji_decode($value['content'])}}</span>
 				                    <div class="corner" @if($value['admin_id']) @else style="background: url('/front/lib/chat/img/bubble-cornerR2.png') 0 0 no-repeat;" @endif></div>
 				                    <span class="dateSpan">{{date('m-d H:i:s', strtotime($value['created_at']))}}</span>
 				                </div>
@@ -171,8 +171,8 @@ function emoji_decode($str){
 			$('#chat-messages .message').each(function(){
 				// var height = $(this).child()
 				// console.log(index);
-				if ($(this).find('.chatData').length == 1) {
-					var height = $(this).find('.chatData')[0].offsetHeight;
+				if ($(this).find('.chatDataC').length == 1) {
+					var height = $(this).find('.chatDataC')[0].offsetHeight;
 					// console.log(height);
 					if (height > 20) {
 						$(this).css('padding-bottom', (height+18) +'px');
@@ -308,7 +308,7 @@ function emoji_decode($str){
 		        if (data.type == 'a') {
 		        	var right = '';
 		        	var str1 = '';
-		        	var str2 = 'chatData';
+		        	var str2 = 'chatData chatDataC';
 		        	var strImage = '';
 		        	
 		        } else if (data.type == 'u') {
@@ -350,7 +350,8 @@ function emoji_decode($str){
     	function dealMessageHeight() {
 			var cdom = $('#chat-messages .message:last');
 			if (cdom.find('.chatData').length == 1) {
-				var height = cdom.find('.chatData')[0].offsetHeight || $(this).find('.chatDataUser')[0].offsetHeight;
+				var height = cdom.find('.chatDataC')[0].offsetHeight;
+				// console.log(height);
 				if (height > 20) {
 					cdom.css('padding-bottom', (height+18) +'px');
 				}
@@ -370,7 +371,7 @@ function emoji_decode($str){
 		function dealMessageHeightTop() {
 			$('#chat-messages .message:lt(5)').each(function(){
 				if ($(this).find('.chatData').length == 1) {
-					var height = $(this).find('.chatData')[0].offsetHeight || $(this).find('.chatDataUser')[0].offsetHeight;
+					var height = $(this).find('.chatDataC')[0].offsetHeight;
 					// console.log(height);
 					if (height > 20) {
 						$(this).css('padding-bottom', (height+18) +'px');
