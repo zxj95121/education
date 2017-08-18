@@ -48,4 +48,11 @@ $(function(){
 	$('#user_info').click(function(){
 		  window.location.href = "/front/user_info_parent";
 	})
+
+
+	/*调整高度*/
+	var funcTypeHeight = $('.my_function_type')[0].clientHeight;
+	$('.my_function_type').each(function(){
+		$(this).css('height', funcTypeHeight+'px');
+	})
 })
