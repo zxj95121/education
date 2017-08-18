@@ -35,10 +35,11 @@ class WeixinController extends Controller
     			if(count($bill) == 0){
 
                     /*加辰比存取*/
-                    PayResult::give($order->price, $postObj->openid);
+                    PayResult::give($order->price, $postObj->openid, $bill[0]->oid);
                     /*优惠券扣除*/
                     PayResult::editBigOrderVoucher($postObj->openid, $postObj->out_trade_no);
-
+					
+                    
     				$bill = new Bill();
     				$bill->oid = $order->id;
     				$bill->save();
@@ -91,7 +92,7 @@ class WeixinController extends Controller
                 if(count($bill) == 0){
 
                     /*加辰比存取*/
-                    PayResult::give($order->price, $postObj->openid);
+                    PayResult::give($order->price, $postObj->openid ,$bill[0]->oid);
                     /*优惠券扣除*/
                     PayResult::editClassPackageOrderVoucher($postObj->openid, $postObj->out_trade_no);
 
