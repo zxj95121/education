@@ -99,7 +99,8 @@ class MyClassOrderController extends Controller
             'noPayObj' => $noPayObj,
             'noPayObj2' => $noPayObj2,
             'noConfirmObj' => $noConfirmObj,
-            'teachingObj' => $teachingObj
+            'teachingObj' => $teachingObj,
+            'teachingObj2' => $teachingObj2
             // 'complete' => $complete
         ]);
 
