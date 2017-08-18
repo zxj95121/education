@@ -83,7 +83,7 @@
 						          		<div class="item-inner">
 							            	<div class="item-title-row">
 							              		<div class="item-title">状态：<span style="color:#3B833E;">排课中</span></div>
-							              		<div class="item-after">{{$value['created_at']}}</div>
+							              		<div class="item-after">{{$value['created_at']}}</div> 
 							            	</div>
 							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
 							            	<div class="item-subtitle">课时：<span style="color:#2e7900;">{{$value['count']}}次</span></div>
