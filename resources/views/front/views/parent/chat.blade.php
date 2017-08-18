@@ -350,8 +350,7 @@ function emoji_decode($str){
     	function dealMessageHeight() {
 			var cdom = $('#chat-messages .message:last');
 			if (cdom.find('.chatData').length == 1) {
-				var height = cdom.find('.chatData')[0].offsetHeight;
-				console.log(height);
+				var height = cdom.find('.chatData')[0].offsetHeight || $(this).find('.chatDataUser')[0].offsetHeight;
 				if (height > 20) {
 					cdom.css('padding-bottom', (height+18) +'px');
 				}
@@ -371,8 +370,7 @@ function emoji_decode($str){
 		function dealMessageHeightTop() {
 			$('#chat-messages .message:lt(5)').each(function(){
 				if ($(this).find('.chatData').length == 1) {
-					var height = $(this).find('.chatData')[0].offsetHeight;
-					console.log(height);
+					var height = $(this).find('.chatData')[0].offsetHeight || $(this).find('.chatDataUser')[0].offsetHeight;
 					// console.log(height);
 					if (height > 20) {
 						$(this).css('padding-bottom', (height+18) +'px');
