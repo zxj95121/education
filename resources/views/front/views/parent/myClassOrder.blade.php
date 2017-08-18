@@ -47,7 +47,7 @@
 					  	<div class="content-block-title payT" style="height: 16px;line-height: 15px;">订单编号：<span>{{$value['order_no']}}</span></div>
 						<div class="list-block media-list payC">
 					    	<ul>
-					      		<li class="urlPay" vid="{{$value['id']}}">
+					      		<li class="urlPay urlPay0" vid="{{$value['id']}}">
 						        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
 						          		<div class="item-inner">
 							            	<div class="item-title-row">
@@ -78,7 +78,7 @@
 					  	<div class="content-block-title payT" style="height: 16px;line-height: 15px;">订单编号：<span>{{$value['order_no']}}</span></div>
 						<div class="list-block media-list payC">
 					    	<ul>
-					      		<li vid="{{$value['id']}}">
+					      		<li class="urlPay" vid="{{$value['id']}}">
 						        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
 						          		<div class="item-inner">
 							            	<div class="item-title-row">
@@ -109,7 +109,7 @@
 					  	<div class="content-block-title payT" style="height: 16px;line-height: 15px;">订单编号：<span>{{$value['order_no']}}</span></div>
 						<div class="list-block media-list payC">
 					    	<ul>
-					      		<li vid="{{$value['id']}}">
+					      		<li class="urlPay" vid="{{$value['id']}}">
 						        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
 						          		<div class="item-inner">
 							            	<div class="item-title-row">
@@ -242,7 +242,7 @@
 		});
 
 
-		$(document).on('click', '.urlPay', function(e){
+		$(document).on('click', '.urlPay0', function(e){
 			var vid = $(this).attr('vid');
 			// console.log(e.target.tagName);
 			if (e.target.tagName == 'DIV')
