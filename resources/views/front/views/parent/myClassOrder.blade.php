@@ -69,6 +69,32 @@
 					    	</ul>
 					  	</div>
 					@endforeach
+					@foreach($noPayObj2 as $value)
+					  	<div class="content-block-title payT" style="height: 16px;line-height: 15px;">订单编号：<span>{{$value['order_no']}}</span></div>
+						<div class="list-block media-list payC">
+					    	<ul>
+					      		<li class="urlPay urlPay0" vid="{{$value['id']}}">
+						        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
+						          		<div class="item-inner">
+							            	<div class="item-title-row">
+							              		<div class="item-title">状态：<span style="color:#343639;">待付款</span></div>
+							              		<div class="item-after">{{$value['created_at']}}</div>
+							            	</div>
+							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
+							            	<div class="item-subtitle">课时：<span style="color:#2e7900;">{{$value['count']}}次</span></div>
+						            		<div class="item-text">
+						            			已优惠：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
+						            		</div>
+						            		<div class="item-text" style="text-align: right;">
+						            			<button class="button button-block showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;cursor:pointer;width: 48%;display: inline-block;">订单详情</button>
+						            			<button class="button button-block deleteOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #ED2424;cursor:pointer;border-color:#ED2424;width: 48%;display: inline-block;">删除订单</button>
+						            		</div>	
+						          		</div>
+						        	</a>
+					      		</li>
+					    	</ul>
+					  	</div>
+					@endforeach
 					  	<!-- 加载提示符 -->
 			          	<div class="infinite-scroll-preloader" style="display: none;">
 			              	<div class="preloader"></div>

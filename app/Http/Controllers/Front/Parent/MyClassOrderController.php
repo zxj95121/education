@@ -15,6 +15,7 @@ use App\Models\TeacherFour;
 use App\Models\ParentChild;
 use App\Models\NewUser;
 use App\Models\BigOrder;
+use App\Models\ClassPackageOrder;
 
 use Session;
 
@@ -70,8 +71,21 @@ class MyClassOrderController extends Controller
         //     $teachingObj[$key]['name'] = $name;
         // }
 
+
+
+        /*查其他课程未支付*/
+        $noPayObj2 = ClassPackageOrder::where('class_package_order.status', 1)
+            ->leftJoin('new_user as nu', 'nu.id', 'class_package_order.uid')
+            ->where('class_package_order.pay_status', 0)
+            ->orderBy('class_package_order.id', 'desc')
+            ->get()
+            ->toArray();
+        /*查其他课程排课中*/
+        /*查其他课程授课中*/
+
         return view('front.views.parent.myClassOrder', [
             'noPayObj' => $noPayObj,
+            'noPayObj2' => $noPayObj2,
             'noConfirmObj' => $noConfirmObj,
             'teachingObj' => $teachingObj
             // 'complete' => $complete
