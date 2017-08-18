@@ -371,7 +371,7 @@ function emoji_decode($str){
 		function dealMessageHeightTop() {
 			$('#chat-messages .message:lt(5)').each(function(){
 				if ($(this).find('.chatData').length == 1) {
-					var height = $(this).find('.chatData')[0].offsetHeight;
+					var height = $(this).find('.chatData')[0].offsetHeight || $(this).find('.chatDataUser')[0].offsetHeight;
 					// console.log(height);
 					if (height > 20) {
 						$(this).css('padding-bottom', (height+18) +'px');
@@ -543,7 +543,6 @@ function emoji_decode($str){
 					        		$('#chat-messages').prepend(str);
 
 					        		imageArr[i] = 1;
-					        		dealMessageHeightTop();
 					        		// var img = new Image();
 					        		// img.src = data.content;
 					        		var img = document.getElementById('img'+i);   
