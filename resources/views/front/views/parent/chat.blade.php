@@ -543,6 +543,7 @@ function emoji_decode($str){
 					        		$('#chat-messages').prepend(str);
 
 					        		imageArr[i] = 1;
+					        		dealMessageHeightTop();
 					        		// var img = new Image();
 					        		// img.src = data.content;
 					        		var img = document.getElementById('img'+i);   
