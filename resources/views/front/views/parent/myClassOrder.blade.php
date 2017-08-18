@@ -252,7 +252,7 @@
 
 		$(document).on('click', '.deleteOrderDetail', function(e){
 			var vid = $(this).parents('li').attr('vid');
-			var cdom = $(this).parents('payC');
+			var cdom = $(this).parents('.payC');
 
 			$.ajax({
 				headers:{
