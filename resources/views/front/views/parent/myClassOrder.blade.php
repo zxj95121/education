@@ -62,6 +62,7 @@
 						            		<div class="item-text" style="text-align: right;">
 						            			<button class="button button-block showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;cursor:pointer;">订单详情</button>
 						            		</div>
+						            		<button class="button button-block deleteOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #ED2424;cursor:pointer;border-color:#ED2424;width: 48%;display: inline-block;">删除订单</button>
 						          		</div>
 						        	</a>
 					      		</li>
@@ -123,7 +124,6 @@
 						            		</div>
 						            		<div class="item-text" style="text-align: right;">
 						            			<button class="button button-block showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;cursor:pointer;width: 48%;display: inline-block;">订单详情</button>
-						            			<button class="button button-block showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #ED2424;cursor:pointer;border-color:#ED2424;width: 48%;display: inline-block;">删除订单</button>
 						            		</div>
 						          		</div>
 						        	</a>
@@ -248,6 +248,27 @@
 			// console.log(e.target.tagName);
 			if (e.target.tagName == 'DIV')
 				window.location.href='/front/parent/showPayEclassOrder?id='+vid;
+		})
+
+		$(document).on('click', '.deleteOrderDetail', function(e){
+			var vid = $(this).parents('li').attr('vid');
+
+			$.ajax({
+				headers:{
+					'X-CSRF-TOKEN': '{{csrf_token()}}'
+				},	
+				url:'/front/parent/deleteOrderDetail',
+				data:{
+					id: vid
+				},
+				type:'post',
+				datatype:'json',
+				success:function(data){
+					if (data.errcode == 0) {
+
+					}
+				}
+			})
 		})
 
 

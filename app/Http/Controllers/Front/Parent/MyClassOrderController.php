@@ -219,4 +219,17 @@ class MyClassOrderController extends Controller
 
         return response()->json(['errcode'=>0,'obj'=>$Obj,'count'=>$count]);
     }
+
+
+    public function deleteOrderDetail(Request $request){
+        // 删除订单
+        $id = $request->input('id');
+        EclassOrder::where('eclass_order.bid', $id)
+            ->update(['status'=>0]);
+        $flight = BigOrder::find($id);
+        $flight->status = 0;
+        $flight->save();
+
+        return response()->json(['errcode'=>0]);
+    }
 }

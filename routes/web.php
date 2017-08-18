@@ -421,6 +421,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
   /*/parent/myClassOrder*/
   $router->get('/parent/myClassOrder', 'Parent\MyClassOrderController@index');
   $router->post('/parent/getOrderDetail', 'Parent\MyClassOrderController@getOrderDetail');
+  $router->post('/parent/deleteOrderDetail', 'Parent\MyClassOrderController@deleteOrderDetail');
 
   $router->get('/parent/mySchedule', 'Parent\MyScheduleController@orderList');
   $router->get('/parent/mySchedule/schedule/{id}', 'Parent\MyScheduleController@schedule');
