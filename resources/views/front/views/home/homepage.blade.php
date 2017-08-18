@@ -245,7 +245,7 @@ $signPackage = $jssdk->GetSignPackage();
 	            <a class="weui-cell weui-cell_access" href="/front/parent/myClassOrder">
 	                <div class="weui-cell__hd"><img src="/images/home/option_order.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
 	                <div class="weui-cell__bd">
-	                    <p>我的双师class订单</p>
+	                    <p>我的订单</p>
 	                </div>
 	                <div class="weui-cell__ft"></div>
 	            </a>
