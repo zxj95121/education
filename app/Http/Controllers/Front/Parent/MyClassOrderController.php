@@ -240,8 +240,7 @@ class MyClassOrderController extends Controller
         }
 
         $openid = Session::get('openid');
-        $count = NewUser::where('openid', $openid)
-            ->first()
+        $count = BigOrder::find($id)
             ->paty;
 
         return response()->json(['errcode'=>0,'obj'=>$Obj,'count'=>$count]);
