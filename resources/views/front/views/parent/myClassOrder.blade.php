@@ -86,8 +86,8 @@
 						            			已优惠：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
 						            		</div>
 						            		<div class="item-text" style="text-align: right;">
-						            			<button class="button button-block showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;cursor:pointer;width: 48%;display: inline-block;">订单详情</button>
-						            			<button class="button button-block deleteOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #ED2424;cursor:pointer;border-color:#ED2424;width: 48%;display: inline-block;">删除订单</button>
+						            			<!-- <button class="button button-block showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;cursor:pointer;width: 48%;display: inline-block;">订单详情</button> -->
+						            			<button class="button button-block deleteOrderDetail2" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #ED2424;cursor:pointer;border-color:#ED2424;width: 48%;display: inline-block;">删除订单</button>
 						            		</div>	
 						          		</div>
 						        	</a>
@@ -286,6 +286,32 @@
 						'X-CSRF-TOKEN': '{{csrf_token()}}'
 					},	
 					url:'/front/parent/deleteOrderDetail',
+					data:{
+						id: vid
+					},
+					type:'post',
+					datatype:'json',
+					success:function(data){
+						if (data.errcode == 0) {
+							$.alert('删除成功');
+							cdom.prev().remove();
+							cdom.remove();
+						}
+					}
+				})
+			});
+		})
+
+		$(document).on('click', '.deleteOrderDetail', function(e){
+			var vid = $(this).parents('li').attr('vid');
+			var cdom = $(this).parents('.payC');
+
+			$.confirm('确定?', '删除该课程订单', function () {
+				$.ajax({
+					headers:{
+						'X-CSRF-TOKEN': '{{csrf_token()}}'
+					},	
+					url:'/front/parent/deleteOrderDetail2',
 					data:{
 						id: vid
 					},
