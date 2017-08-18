@@ -49,5 +49,5 @@ $(function(){
 		  window.location.href = "/front/user_info_parent";
 	})
 
-	console.log($('.my_function_type')[0].clientHeight);
+	console.log($('.my_function_type')[0].height());
 })
