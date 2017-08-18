@@ -48,6 +48,4 @@ $(function(){
 	$('#user_info').click(function(){
 		  window.location.href = "/front/user_info_parent";
 	})
-
-	console.log($('.my_function_type')[0].style.height);
 })

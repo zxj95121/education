@@ -204,7 +204,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                    		<img src="/images/home/function_child_boy.png" />
 		                    	@endif
 		                    </div>
-		                    <div class="my_function_bottom">
+		                    <div class="my_function_bottom" style="padding-top:11px">
 		                    	{{$value->name}}
 		                    </div>
 		                </div>
