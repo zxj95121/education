@@ -160,4 +160,36 @@ class ClassPackageController extends Controller
 
         return view('front.views.classPackage.list', ['obj'=>$obj]);
     }
+
+    /*classPackage另支付*/
+    public function payShow(Request $request)
+    {
+        $id = $request->input('id');
+        $order_no = 'CP'.date('YmdHis').rand(10000,99999);
+
+        $flight = ClassPackageOrder::find($id);
+        $flight->order_no = $order_no;
+        $flight->save();
+
+        $price = $flight->price;
+        $vouNum = $flight->voucher_num;
+        $prePrice = $price + 88*$vouNum;
+
+
+        $cid = $flight->cid;
+        $openid = Session::get('openid');
+
+        $packageObj = ClassPackage::find($cid);
+        /*查用户的代金券余额*/
+        $userObj = NewUser::where('openid', $openid)
+            ->get()[0];
+        $voucher = $userObj->voucher;
+        // return view('front.views.classPackage.orderPay', ['package'=>$packageObj,'voucher'=>$voucher,'userObj'=>$userObj]);
+
+        /*查这个用户有没有输入手机号*/
+        $phone = NewUser::where('openid', $openid)
+            ->first()
+            ->phone;
+        return view('front.views.classPackage.orderPay', ['package'=>$packageObj,'voucher'=>$voucher,'userObj'=>$userObj,'price'=>$price,'vouNum'=>$vouNum,'order_no'=>$order_no,'phone'=>$phone,'prePrice'=>$prePrice]);
+    }
 }

@@ -73,7 +73,7 @@
 					  	<div class="content-block-title payT" style="height: 16px;line-height: 15px;">订单编号：<span>{{$value['order_no']}}</span></div>
 						<div class="list-block media-list payC">
 					    	<ul>
-					      		<li class="urlPay urlPay0" vid="{{$value['id']}}">
+					      		<li class="urlPay urlPay1" vid="{{$value['id']}}">
 						        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
 						          		<div class="item-inner">
 							            	<div class="item-title-row">
@@ -275,6 +275,13 @@
 			// console.log(e.target.tagName);
 			if (e.target.tagName == 'DIV')
 				window.location.href='/front/parent/showPayEclassOrder?id='+vid;
+		})
+
+		$(document).on('click', '.urlPay1', function(e){
+			var vid = $(this).attr('vid');
+			// console.log(e.target.tagName);
+			if (e.target.tagName == 'DIV')
+				window.location.href='/front/classPackage/payShow?id='+vid;
 		})
 
 		$(document).on('click', '.deleteOrderDetail', function(e){
