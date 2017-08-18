@@ -300,9 +300,9 @@
 					}
 				})
 			});
-		})
+		}) 
 
-		$(document).on('click', '.deleteOrderDetail', function(e){
+		$(document).on('click', '.deleteOrderDetail2', function(e){
 			var vid = $(this).parents('li').attr('vid');
 			var cdom = $(this).parents('.payC');
 
