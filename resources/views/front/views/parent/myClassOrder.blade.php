@@ -254,24 +254,26 @@
 			var vid = $(this).parents('li').attr('vid');
 			var cdom = $(this).parents('.payC');
 
-			$.ajax({
-				headers:{
-					'X-CSRF-TOKEN': '{{csrf_token()}}'
-				},	
-				url:'/front/parent/deleteOrderDetail',
-				data:{
-					id: vid
-				},
-				type:'post',
-				datatype:'json',
-				success:function(data){
-					if (data.errcode == 0) {
-						$.alert('删除成功');
-						cdom.prev().remove();
-						cdom.remove();
+			$.confirm('确定?', '删除该订单', function () {
+				$.ajax({
+					headers:{
+						'X-CSRF-TOKEN': '{{csrf_token()}}'
+					},	
+					url:'/front/parent/deleteOrderDetail',
+					data:{
+						id: vid
+					},
+					type:'post',
+					datatype:'json',
+					success:function(data){
+						if (data.errcode == 0) {
+							$.alert('删除成功');
+							cdom.prev().remove();
+							cdom.remove();
+						}
 					}
-				}
-			})
+				})
+			});
 		})
 
 
