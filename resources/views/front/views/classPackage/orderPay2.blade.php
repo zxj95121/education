@@ -181,7 +181,8 @@ $signPackage = $jssdk->GetSignPackage();
 						          		text: '确认',
 						         		onClick: function() {
 						            		$.closeModal();
-						            		wx.closeWindow();
+						            		// wx.closeWindow();
+						            		window.location.href = '/front/parent/myClassOrder?action=3';
 						          		}
 						        	},
 						      	]

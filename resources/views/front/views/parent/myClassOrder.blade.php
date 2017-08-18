@@ -87,7 +87,7 @@
 						            			已优惠：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
 						            		</div>
 						            		<div class="item-text" style="text-align: right;">
-						            			<!-- <button class="button button-block showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;cursor:pointer;width: 48%;display: inline-block;">订单详情</button> -->
+						            			<button class="button button-block" onclick="window.location.href='/front/classPackage/payShow?id={{$value['id']}}';" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #31B22C;cursor:pointer;width: 48%;display: inline-block;">立即支付</button>
 						            			<button class="button button-block deleteOrderDetail2" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #ED2424;cursor:pointer;border-color:#ED2424;width: 48%;display: inline-block;">删除订单</button>
 						            		</div>	
 						          		</div>
@@ -151,6 +151,32 @@
 						            		</div>
 						            		<div class="item-text" style="text-align: right;">
 						            			<button class="button button-block showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;cursor:pointer;">订单详情</button>
+						            		</div>
+						          		</div>
+						        	</a>
+					      		</li>
+					    	</ul>
+					  	</div>
+					@endforeach
+
+					@foreach($teachingObj2 as $value)
+					  	<div class="content-block-title payT" style="height: 16px;line-height: 15px;">订单编号：<span>{{$value['order_no']}}</span></div>
+						<div class="list-block media-list payC">
+					    	<ul>
+					      		<li class="urlPay" vid="{{$value['id']}}">
+						        	<a href="javascript:void(0);" class="item-link item-content" style="font-size: 15px;">
+						          		<div class="item-inner">
+							            	<div class="item-title-row">
+							              		<div class="item-title">状态：<span style="color:#3B833E;">授课中</span></div>
+							              		<div class="item-after">{{$value['created_at']}}</div>
+							            	</div>
+							            	<div class="item-subtitle">价格：<span style="color:#DE5145;">{{$value['price']}}元</span></div>
+							            	<div class="item-subtitle">课时：<span style="color:#2e7900;">{{$value['count']}}次</span></div>
+						            		<div class="item-text">
+						            			已优惠：<span style="font-size: 15px;color: #343639;">{{$value['voucher_num']*88}}元</span>
+						            		</div>
+						            		<div class="item-text" style="text-align: right;">
+						            			<!-- <button class="button button-block showOrderDetail" style="color:#FFF;height: 1.6rem;line-height:1.6rem;background: #0894ec;cursor:pointer;">订单详情</button> -->
 						            		</div>
 						          		</div>
 						        	</a>

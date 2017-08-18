@@ -85,6 +85,15 @@ class MyClassOrderController extends Controller
             ->toArray();
         /*查其他课程排课中*/
         /*查其他课程授课中*/
+        $teachingObj2 = ClassPackageOrder::where('class_package_order.status', 1)
+            ->leftJoin('new_user as nu', 'nu.id', 'class_package_order.uid')
+            ->leftJoin('class_package as cp', 'class_package_order.cid', 'cp.id')
+            ->where('nu.openid', $openid)
+            ->where('class_package_order.pay_status', 1)
+            ->orderBy('class_package_order.id', 'desc')
+            ->select('class_package_order.*', 'cp.name')
+            ->get()
+            ->toArray();
 
         return view('front.views.parent.myClassOrder', [
             'noPayObj' => $noPayObj,
