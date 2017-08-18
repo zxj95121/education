@@ -78,7 +78,7 @@
 								                    <th>身份</th>
 								                    <th>类别</th>
 								                    <th>优惠券余额</th>
-								                    <th>paty次数</th>
+								                    <th>英语party次数</th>
 								                    <th>住宅小区</th>
 								                    <th>单元楼层</th>
 								                    <th>操作</th>
@@ -118,7 +118,7 @@
 								                    <td>{{$value->place}}</td>
 								                    <td>
 								                    	<span class="label label-info addTicketBtn">增加优惠券</span>
-								                    	<span class="label label-info addPaty">添加paty</span>
+								                    
 								                    	<span class="label label-primary" onclick="deleteParent({{$value->id}});">删除用户</span>
 								                    </td>
 								                </tr>
