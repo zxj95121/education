@@ -82,6 +82,7 @@
 	                                            <thead>
 	                                                <tr>
 	                                                    <th>ID</th>
+	                                                    <th>申请时间</th>
 	                                                    <th>用户昵称</th>
 	                                                    <th>手机号</th>
 	                                                    <th>预约时间</th>
@@ -100,6 +101,7 @@
 	                                                    	@endif
 	                                                    	{{$value->id}}
 	                                                   	</td>
+	                                                   	<td>{{substr($value->created_at, 0, 15)}}</td>
 	                                                    <td>{{$value->nickname}}</td>
 	                                                    <td>{{$value->phone}}</td>
 	                                                    <td>{{$value->active_time}}</td>

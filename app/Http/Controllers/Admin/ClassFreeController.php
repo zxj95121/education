@@ -84,8 +84,8 @@ class ClassFreeController extends Controller
     		$freeObj = $freeObj->where('class_free.complete',$complete);
     		$str .= '&complete='.$complete;
     	}
-    	$freeObj = $freeObj->select('class_free.id','new_user.nickname','new_user.phone','class_free.active_time','class_free.type','complete')
-    				->orderBy('class_free.updated_at')
+    	$freeObj = $freeObj->select('class_free.id','new_user.nickname','new_user.phone','class_free.active_time','class_free.type','complete','class_free.created_at')
+    				->orderBy('class_free.created_at')
     				->paginate(10);
     	return view('admin.classFree.notice',['res'=>$freeObj,'str'=>$str,'querytime'=>$querytime,'querytype'=>$querytype,'complete'=>$complete]);
     }
