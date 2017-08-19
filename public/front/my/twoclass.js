@@ -273,7 +273,7 @@ function cartInit(){
 			$('#orderdetail .cartblock:last').append('<div class="cartcontent" style="width: 100%;background: #FFF;" pid="'+j+'">'
 			 +'<div  class="weui-cells" style="margin:0;"> <a class="weui-cell weui-cell_title"> <div class="weui-cell__bd"'
 			  +'style="position: relative;color:#333;"> <p style="font-size:15px;">'+val[j].name+'</p> <iframe id="tmp_downloadhelper_iframe"'
-			   +'style="display: none;"></iframe> </div> <div class="weui-cell__ft"> <span>'+val[j].count+'课时</span> <span class="btn btn-danger deleteCartBtn"'
+			   +'style="display: none;"></iframe> </div> <div class="weui-cell__ft"> <span>'+val[j].count+'次课</span> <span class="btn btn-danger deleteCartBtn"'
 			    +'style="background-color:#FFF;border-color:#FFF;background-image:url(\'/images/home/cart_delete.png\');'
 			    +'background-size:100% 100%;width:28px;height:28px;"> </span> </div> </a> </div> </div>');
 		}

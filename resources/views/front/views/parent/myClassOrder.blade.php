@@ -258,7 +258,7 @@
 								$('.cartblock').last().append('<div class="cartcontent" style="width: 96%;margin:0 auto;background: #FFF;" pid="'+j+'">'
 								 +'<div  class="weui-cells" style="margin:0;"> <a class="weui-cell weui-cell_title"> <div class="weui-cell__bd"'
 								  +'style="position: relative;color:#333;"> <p style="font-size:15px;">'+liObj[j]['name3']+'</p> <iframe id="tmp_downloadhelper_iframe"'
-								   +'style="display: none;"></iframe> </div> <div class="weui-cell__ft"> <span>'+liObj[j]['count']+'课时</span> <span class="btn btn-danger deleteCartBtn"'
+								   +'style="display: none;"></iframe> </div> <div class="weui-cell__ft"> <span>'+liObj[j]['count']+'次课</span> <span class="btn btn-danger deleteCartBtn"'
 								    +'style="background-color:#FFF;border-color:#FFF;background-image:url(\'/images/home/cart_delete.png\');'
 								    +'background-size:100% 100%;width:28px;height:28px;"> </span> </div> </a> </div> </div>');
 							}
@@ -276,7 +276,7 @@
 							$('.cartblock').last().append('<div class="cartcontent" style="width: 96%;margin:0 auto;background: #FFF;" pid="'+j+'">'
 								 +'<div  class="weui-cells" style="margin:0;"> <a class="weui-cell weui-cell_title"> <div class="weui-cell__bd"'
 								  +'style="position: relative;color:#333;"> <p style="font-size:15px;">英语主题party</p> <iframe id="tmp_downloadhelper_iframe"'
-								   +'style="display: none;"></iframe> </div> <div class="weui-cell__ft"> <span>'+data.count+'次</span> <span class="btn btn-danger deleteCartBtn"'
+								   +'style="display: none;"></iframe> </div> <div class="weui-cell__ft"> <span>'+data.count+'次课</span> <span class="btn btn-danger deleteCartBtn"'
 								    +'style="background-color:#FFF;border-color:#FFF;background-image:url(\'/images/home/cart_delete.png\');'
 								    +'background-size:100% 100%;width:28px;height:28px;"> </span> </div> </a> </div> </div>');
 					} else {
