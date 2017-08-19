@@ -77,10 +77,7 @@ class ChatController extends Controller
     	// 	$content[$num--] = $value;
     	// }
     	krsort($contentArr);
-        echo '<pre>';
-        var_dump($contentArr);
-        echo '</pre>';
-        dd(1);
+
         foreach ($contentArr as $key => $value) {
             if ($value['admin_id'] != 0) {
                 $kk = $value['admin_id'];
