@@ -18,7 +18,7 @@ class PayResult extends ServiceProvider
 	* @function give
 	* @program $price
 	*/
-	public static function give($price, $openid)
+	public static function give($price, $openid ,$oid)
 	{
 		// ------------------------------------------------------------------------
         //满减等活动
@@ -42,6 +42,12 @@ class PayResult extends ServiceProvider
         	$paty = $userObj->paty + 1;
         	$userObj->paty = $paty;
         	$userObj->save();
+        	
+        	$bigObj = BigOrder::find($oid);
+        	$paty = $bigObj->paty + 1;
+        	$bigObj->paty = $paty;
+        	$bigObj->save();
+        	
         }
 
     }
