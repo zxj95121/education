@@ -53,10 +53,11 @@
 	                                            <div class="col-md-2">
 	                                                <select name="querytype"  class="form-control">
 	                                                    <option value="">全部</option>
-	                                                    <option value="0" @if($querytype != null && $querytype == 0) selected="selected" @endif>未发送</option>
-	                                                    <option value="1" @if($querytype ==1) selected="selected" @endif>已发送</option>
+	                                                    <option value="0" @if($querytype != Null && $querytype == 0) selected="selected" @endif>未发送</option>
+	                                                    <option value="1" @if($querytype == 1) selected="selected" @endif>已发送</option>
 	                                                </select>
 	                                            </div>
+	                                            
 	                                            <label class="col-md-1 clh text-right">完成状态:</label>
 	                                            <div class="col-md-2">
 	                                                <select name="complete"  class="form-control">
@@ -69,6 +70,7 @@
                                         	</form>
                                         </div>
                                     </div>
+                                 
                                 	<div class="row">
 	                                    <div class="table-responsive">
 	                                       	<div class="abc" style="padding-left:10px;margin-top:5px;margin-bottom:5px;">
@@ -91,8 +93,10 @@
 	                                                    <th>操作</th>
 	                                                </tr>
 	                                            </thead>
+	                                            
 	                                            <tbody>
 	                                            	@php $currentPage = $res->currentPage(); @endphp
+	                                            	@if (count($res) > 0)
 	                                            	@php $currentDate = substr($res[0]->created_at, 0, 10);$people = 0;$noticePeople = 0; @endphp
 	                                                @foreach($res as $key => $value)
 		                                                @if($currentDate != substr($value->created_at, 0, 10))
@@ -107,6 +111,7 @@
 		                                                @endif
 		                                                @php $people++; @endphp
 	                                                <tr>
+	                                                   
 	                                                    <td>
 	                                                    	@if($value->complete)
 	                                                    	@else
@@ -141,6 +146,8 @@
 	                                                @endforeach
                                                 	<tr style="background: #e0e0e0;"><td colspan="8" style="font-size:18px;">{{$currentDate}} 新增用户{{$people}}人, 已通知{{$noticePeople}}人。</td></tr>
                                                 	@php $currentDate = substr($value->created_at, 0, 10); @endphp
+	                                            @else
+	                                            @endif
 	                                            </tbody>
 	                                        </table>
 	                                    </div>
