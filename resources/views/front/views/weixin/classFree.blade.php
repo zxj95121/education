@@ -279,6 +279,8 @@
 							$.toast(data.reason);
 						}else{
 							$.closeModal('.popup-about')
+							$.alert('您已预约成功，加辰教育将在三日内短信通知您具体上课时间和地点，敬请关注。');
+							$('#free').html('已领取');
 						}
 					},
 				})
