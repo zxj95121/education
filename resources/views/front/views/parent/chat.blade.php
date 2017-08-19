@@ -370,7 +370,7 @@ function emoji_decode($str){
 
 		function dealMessageHeightTop() {
 			$('#chat-messages .message:lt(5)').each(function(){
-				if ($(this).find('.chatData').length == 1) {
+				if ($(this).find('.chatDataC').length == 1) {
 					var height = $(this).find('.chatDataC')[0].offsetHeight;
 					// console.log(height);
 					if (height > 20) {
