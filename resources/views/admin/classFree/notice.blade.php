@@ -100,7 +100,7 @@
 	                                                    	@else
 	                                                    		<input type="checkbox" name="ids" value="{{$value->id}}">
 	                                                    	@endif
-	                                                    	{{$key+($currentPage*10)+1}}
+	                                                    	{{$key+(($currentPage-1)*10)+1}}
 	                                                   	</td>
 	                                                   	<td>{{substr($value->created_at, 0, 16)}}</td>
 	                                                    <td>{{$value->nickname}}</td>
