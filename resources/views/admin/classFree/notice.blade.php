@@ -95,10 +95,9 @@
 	                                            	@php $currentPage = $res->currentPage(); @endphp
 	                                            	@php $currentDate = substr($res[0]->created_at, 0, 10); @endphp
 	                                                @foreach($res as $key => $value)
-		                                                @if($currentDate != substr($value->created_at, 0, 10)) {
-		                                                	echo '<tr><td colspan="8">'.{{$currentDate}}.'</td></tr>';
-		                                                	$currentDate = substr($value->created_at, 0, 10);
-		                                                }
+		                                                @if($currentDate != substr($value->created_at, 0, 10))
+		                                                	<tr><td colspan="8">{{$currentDate}}</td></tr>
+		                                                	@php $currentDate = substr($value->created_at, 0, 10); @endphp
 		                                                @else
 		                                                @endif
 	                                                <tr>
