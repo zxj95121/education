@@ -524,11 +524,11 @@ function emoji_decode($str){
         						// console.log(content);
 
             					if (content.admin_id != '0') {
-						        	var right = ' right';
+						        	var right = '';
 						        	var headimg = content.aheadimg;
 						        	
 						        } else {
-						        	var right = '';
+						        	var right = ' right';
 									var headimg = content.uheadimg;
 						        }
 
