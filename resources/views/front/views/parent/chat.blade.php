@@ -527,19 +527,26 @@ function emoji_decode($str){
 						        	var right = '';
 						        	var headimg = content.aheadimg;
 						        	
+						        	var str1 = '';
+						        	var str2 = 'chatData chatDataC';
+						        	var strImage = '';
 						        } else {
 						        	var right = ' right';
 									var headimg = content.uheadimg;
+
+									var str1 = ' style="background: #22AAE8;border-radius: 5px 0px 0px 5px;" ';
+									var str2 = 'chatDataUser chatDataC';
+									var strImage = "background: url(/front/lib/chat/img/bubble-cornerR2.png) 0 0 no-repeat;"
 						        }
 
 						       	// var timeStr = content.time;
 
 						        if (content.type == '0') {
-					        		var str = '<div  class="message'+right+'" time="'+content.created_at+'" > <img  src="'+headimg+'" /> <div class="bubble"> <span class="chatData chatDataC">'+content.content+'</span> <div class="corner"></div> <span>'+content.created_at.slice(11)+'</span> </div> </div>';
+					        		var str = '<div  class="message'+right+'" time="'+content.created_at+'" > <img  src="'+headimg+'" /> <div class="bubble '+str1+'"> <span class="'+str2+'">'+content.content+'</span> <div class="corner" style="'+strImage+'"></div> <span>'+content.created_at.slice(11)+'</span> </div> </div>';
 					        		$('#chat-messages').prepend(str);
 
 					        	} else if (content.type == 1) {
-					        		var str = '<div  class="message'+right+'"  time="'+content.created_at+'" > <img  src="'+headimg+'" /> <div class="bubble"> <img class="chatImg" src="'+content.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner"></div> <span style="position: absolute;">'+content.created_at.slice(11)+'</span> </div> </div>';
+					        		var str = '<div  class="message'+right+'"  time="'+content.created_at+'" > <img  src="'+headimg+'" /> <div class="bubble '+str1+'"> <img class="chatImg" src="'+content.content+'" style="margin-left: 0px;margin-right: 0px;border-radius: 0px;width: 100%;min-width: 80px;"> <div class="corner" style="'+strImage+'"></div> <span style="position: absolute;">'+content.created_at.slice(11)+'</span> </div> </div>';
 					        		$('#chat-messages').prepend(str);
 
 					        		imageArr[i] = 1;
