@@ -26,7 +26,7 @@ class MyClassOrderController extends Controller
         $openid = Session::get('openid');
 
         $userObj = NewUser::where('openid', $openid)
-            ->get()[0];
+            ->get();
         
         /*查订单详情*/
         $noPayObj = BigOrder::where('openid', $openid)
