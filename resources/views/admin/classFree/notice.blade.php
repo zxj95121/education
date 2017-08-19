@@ -101,9 +101,10 @@
 		                                                @else
 		                                                @endif
 
-		                                                @if($value->type == 1){
+		                                                @if($value->type == 1)
 		                                                	@php $noticePeople++;@endphp
-		                                                }
+		                                                @else
+		                                                @endif
 		                                                @php $people++; @endphp
 	                                                <tr>
 	                                                    <td>
