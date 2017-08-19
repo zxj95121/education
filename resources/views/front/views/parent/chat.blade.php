@@ -581,6 +581,11 @@ function emoji_decode($str){
 					        }
 
 					        dealMessageHeightTop();
+					        var height = 0;
+        					$('#chat-messages .message:lt(5)').each(function(){
+        						height += parseInt($(this).css('height'))+45;
+        					})
+					        $('#chat-messages').scrollTop(height);
         					
         				}
         			}
