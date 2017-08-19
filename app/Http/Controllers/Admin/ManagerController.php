@@ -323,19 +323,19 @@ class ManagerController extends Controller
         $openid = $flight->openid;
 
         /*查出所有的big_order*/
-        $BigOrder = BigOrder::where('openid', $openid)
-            ->select('id')
-            ->get();
+        // $BigOrder = BigOrder::where('openid', $openid)
+        //     ->select('id')
+        //     ->get();
 
         DB::beginTransaction();
         /*删除订单表和交易表*/
-        foreach ($BigOrder as $value) {
-            $bid = $value->bid;
-            EclassOrder::where('bid', $bid)->delete();
-            Bill::where('oid', $bid)->delete();
-            BigOrder::where('id', $bid)->delete();
-        }
-
+        // foreach ($BigOrder as $value) {
+        //     $bid = $value->bid;
+        //     EclassOrder::where('bid', $bid)->delete();
+        //     Bill::where('oid', $bid)->delete();
+        //     BigOrder::where('id', $bid)->delete();
+        // } 
+        BigOrder::where('openid', $openid)->delete();
         $nid = NewUser::where('openid', $openid)->first();
 
         $pid = ParentInfo::where('openid', $openid)->first()->id;
