@@ -272,7 +272,7 @@
                             // }
                         }
                         $('#orderdetail').append('<div class="cartblock"> <div class="cartheader" style="width:100%;background: #60b4e6;'
-			+'color: #FFF;padding:6px 10px;"> <p style="font-size:1.1em;margin: 0px 0px;">英语主题party</p> </div> </div>');
+			+'color: #FFF;padding:6px 10px;"> <p style="font-size:1.1em;margin: 0px 0px;">英语主题party（赠送）</p> </div> </div>');
 							$('.cartblock').last().append('<div class="cartcontent" style="width: 96%;margin:0 auto;background: #FFF;" pid="'+j+'">'
 								 +'<div  class="weui-cells" style="margin:0;"> <a class="weui-cell weui-cell_title"> <div class="weui-cell__bd"'
 								  +'style="position: relative;color:#333;"> <p style="font-size:15px;">英语主题party</p> <iframe id="tmp_downloadhelper_iframe"'
