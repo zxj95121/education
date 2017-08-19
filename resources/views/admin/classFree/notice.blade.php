@@ -92,14 +92,15 @@
 	                                                </tr>
 	                                            </thead>
 	                                            <tbody>
-	                                                @foreach($res as $value)
+	                                            	@php $currentPage = $res->currentPage(); @endphp
+	                                                @foreach($res as $key => $value)
 	                                                <tr>
 	                                                    <td>
 	                                                    	@if($value->complete)
 	                                                    	@else
 	                                                    		<input type="checkbox" name="ids" value="{{$value->id}}">
 	                                                    	@endif
-	                                                    	{{$value->id}}
+	                                                    	{{$key+($currentPage*10)+1}}
 	                                                   	</td>
 	                                                   	<td>{{substr($value->created_at, 0, 16)}}</td>
 	                                                    <td>{{$value->nickname}}</td>
