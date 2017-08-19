@@ -573,6 +573,7 @@ function emoji_decode($str){
 
 
 									}; 
+									dealMessageHeightTop();
 					        	}
 					        }
 
