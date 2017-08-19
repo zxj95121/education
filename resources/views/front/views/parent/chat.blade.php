@@ -535,7 +535,7 @@ function emoji_decode($str){
 						       	// var timeStr = content.time;
 
 						        if (content.type == '0') {
-					        		var str = '<div  class="message'+right+'" time="'+content.created_at+'" > <img  src="'+headimg+'" /> <div class="bubble"> <span class="chatData">'+content.content+'</span> <div class="corner"></div> <span>'+content.created_at.slice(11)+'</span> </div> </div>';
+					        		var str = '<div  class="message'+right+'" time="'+content.created_at+'" > <img  src="'+headimg+'" /> <div class="bubble"> <span class="chatData chatDataC">'+content.content+'</span> <div class="corner"></div> <span>'+content.created_at.slice(11)+'</span> </div> </div>';
 					        		$('#chat-messages').prepend(str);
 
 					        	} else if (content.type == 1) {
