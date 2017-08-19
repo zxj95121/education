@@ -22,7 +22,7 @@
 	  	<div class="content">
 		  	<div class="buttons-tab">
 			    <a href="#tab1" class="tab-link active button">待付款</a>
-			    @if($userObj == 1)
+			    @if($userObj->type == 1)
 			    <a href="#tab2" class="tab-link button">排课中</a>
 			    @else
 			    @endif
