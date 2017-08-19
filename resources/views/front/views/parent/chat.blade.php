@@ -573,13 +573,14 @@ function emoji_decode($str){
 
 
 									}; 
-									dealMessageHeightTop();
 					        	}
 					        }
 
 					        if (imageArr.length < 1) {
 					        	request = 0;
 					        }
+
+					        dealMessageHeightTop();
         					
         				}
         			}
