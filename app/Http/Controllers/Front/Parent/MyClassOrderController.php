@@ -24,6 +24,9 @@ class MyClassOrderController extends Controller
     public function index()
     {
         $openid = Session::get('openid');
+
+        $userObj = NewUser::where('openid', $openid)
+            ->get();
         
         /*查订单详情*/
         $noPayObj = BigOrder::where('openid', $openid)
@@ -100,7 +103,8 @@ class MyClassOrderController extends Controller
             'noPayObj2' => $noPayObj2,
             'noConfirmObj' => $noConfirmObj,
             'teachingObj' => $teachingObj,
-            'teachingObj2' => $teachingObj2
+            'teachingObj2' => $teachingObj2,
+            'userObj' => $userObj
             // 'complete' => $complete
         ]);
 
