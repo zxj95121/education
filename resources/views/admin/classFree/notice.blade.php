@@ -97,7 +97,7 @@
 	                                                @foreach($res as $key => $value)
 		                                                @if($currentDate != substr($value->created_at, 0, 10))
 		                                                	<tr style="background: #e0e0e0;"><td colspan="8">{{$currentDate}}新增用户{{$people}}人,已通知{{$noticePeople}}人。</td></tr>
-		                                                	@php $currentDate = substr($value->created_at, 0, 10); @endphp
+		                                                	@php $currentDate = substr($value->created_at, 0, 10);@people = 0;$noticePeople = 0; @endphp
 		                                                @else
 		                                                @endif
 
