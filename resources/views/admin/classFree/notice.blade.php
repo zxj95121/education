@@ -43,7 +43,7 @@
                                 <div class="portlet-body">
                                 	<div class="row" style="margin-bottom: 5px;">
                                         <div class="form-group">
-                                      		<form id="search_form" action="/admin/classFree/notice/query" method="get">
+                                      		<form id="search_form" action="/admin/classFree/notice" method="get">
 	                                            <label for="pay_select" class="col-md-1 clh text-right">日期:</label>
 	                                            <div class="col-md-2">
 	                                                <input type="text" class="form-control" name="" id="cxdate" value="@if($querytime) {{$querytime}} @endif">
@@ -262,6 +262,9 @@ var start2 = {
 	    okfun:function(elem, val, date) {
 	    	$('#hiddencxdate').val(val);
 	    }, 
+	    clearfun:function(elem, val) {
+	    	$('#hiddencxdate').val('');
+		} 
 	};
 	//或者是
 	$.jeDate('#cxdate',start2);
