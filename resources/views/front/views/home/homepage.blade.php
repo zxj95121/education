@@ -196,7 +196,7 @@ $signPackage = $jssdk->GetSignPackage();
 	                    </div>
 	                </div> -->
 	                @foreach($child as $key => $value)
-	                	<div class="col-xs-3 my_function_type listChild" childid="{{$value->id}}">
+	                	<div class="col-xs-3 my_function_type listChild" childid="{{$value->id}}" style="cursor: pointer;">
 		                    <div class="my_function_top">
 		                    	@if($value->sex == 0)
 		                        	<img src="/images/home/function_child_girl.png" />
