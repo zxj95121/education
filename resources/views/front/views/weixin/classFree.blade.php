@@ -208,6 +208,18 @@ $signPackage = $jssdk->GetSignPackage();
 	    	var description = '加辰教育免费领取试听课,注册即送188元。';
 	    	var link = 'http://wechat.catchon-edu.cn/front/classFree';
 	    	var imgUrl = 'http://wechat.catchon-edu.cn/images/kefu.jpg';
+
+	    	wx.hideAllNonBaseMenuItem();//隐藏所有非基础类
+	    	wx.showMenuItems({
+	    	    menuList: [
+	    	    	//要显示的菜单项
+	    	    	'menuItem:share:appMessage',
+	    	    	'menuItem:share:timeline'
+			    ],
+			    success: function (res){
+			    	//alert("隐藏");
+				}
+	    	});
 	        wx.onMenuShareAppMessage({
 	            title: title,
 	            desc: description,
