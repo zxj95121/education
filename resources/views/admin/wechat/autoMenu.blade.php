@@ -4,6 +4,8 @@
 @section('style')
 <link rel="stylesheet" type="text/css" href="/js/layui/css/layui.css">
 <link rel="stylesheet" type="text/css" href="/admin/wechat/automenu/automenu.css">
+<!-- <link rel="stylesheet" type="text/css" href="/js/jqueryemoji/css/main.css" /> -->
+
 @endsection
 
 @section('content')
@@ -16,7 +18,7 @@
 
                 <div class="row">
                     
-                    <div class="col-lg-12" style="width: 1000px;">
+                    <div class="col-lg-12">
 
                         <div class="highlight_box icon_wrap border menu_setting_msg js_menustatus dn" id="menustatus_1" style="display: block;">
                             <i class="icon icon icon_msg_small success"></i>            
@@ -36,396 +38,204 @@
                             </p>        
                         </div>
 
-                        <div class="menu_setting_area js_editBox">
-                            <div class="menu_preview_area">
-                                <div class="mobile_menu_preview">
-                                    <div class="mobile_hd tc">张贤健</div>
-                                    <div class="mobile_bd">
-                                        <ul class="pre_menu_list grid_line ui-sortable ui-sortable-disabled" id="menuList">
-                                            <!-- <li class="jsMenu pre_menu_item grid_item jslevel1 ui-sortable ui-sortable-disabled size1of3 current selected bigMenu" id="menu_0">
-                                                <a href="javascript:void(0);" class="pre_menu_link" draggable="false">
-                                                    <i class="icon_menu_dot js_icon_menu_dot dn" style="display: none;"></i>
-                                                    <i class="icon20_common sort_gray"></i>
-                                                    <span class="js_l1Title">菜单名称</span>
-                                                </a>
-                                                <div class="sub_pre_menu_box js_l2TitleBox" style="">
-                                                    <ul class="sub_pre_menu_list">
-                                                        
-                                                        <li class="js_addMenuBox"><a href="javascript:void(0);" class="jsSubView js_addL2Btn" title="最多添加5个子菜单" draggable="false"><span class="sub_pre_menu_inner js_sub_pre_menu_inner"><i class="icon14_menu_add"></i></span></a></li>
-                                                    </ul>
-                                                    <i class="arrow arrow_out"></i>
-                                                    <i class="arrow arrow_in"></i>
-                                                </div>
-                                            </li>
-        
-                                            <li class="jsMenu pre_menu_item grid_item jslevel1 ui-sortable ui-sortable-disabled size1of3 bigMenu" id="menu_1">
-                                                <a href="javascript:void(0);" class="pre_menu_link" draggable="false">
-                                                    
-                                                    <i class="icon_menu_dot js_icon_menu_dot dn"></i>
-                                                    <i class="icon20_common sort_gray"></i>
-                                                    <span class="js_l1Title">菜单名称</span>
-                                                </a>
-                                                <div class="sub_pre_menu_box js_l2TitleBox" style="display:block;">
-                                                    <ul class="sub_pre_menu_list">
-                                                        
-                                                        <li id="subMenu_menu_1_0" class="jslevel2"><a href="javascript:void(0);" class="jsSubView" draggable="false"><span class="sub_pre_menu_inner js_sub_pre_menu_inner"><i class="icon20_common sort_gray"></i><span class="js_l2Title">子菜单名称</span></span></a></li>
-                                                        <li id="subMenu_menu_1_1" class="jslevel2 current selected"><a href="javascript:void(0);" class="jsSubView" draggable="false"><span class="sub_pre_menu_inner js_sub_pre_menu_inner"><i class="icon20_common sort_gray"></i><span class="js_l2Title">子菜单名称</span></span></a></li>
-                                                        
-                                                        <li class="js_addMenuBox"><a href="javascript:void(0);" class="jsSubView js_addL2Btn" title="最多添加5个子菜单" draggable="false"><span class="sub_pre_menu_inner js_sub_pre_menu_inner"><i class="icon14_menu_add"></i></span></a></li>
-                                                    </ul>
-                                                    <i class="arrow arrow_out"></i>
-                                                    <i class="arrow arrow_in"></i>
-                                                </div>
-                                            </li> -->
-        
-                                            <!-- <li class="jsMenu pre_menu_item grid_item jslevel1 ui-sortable ui-sortable-disabled size1of3" id="menu_2" style="display: none;">
-                                                <a href="javascript:void(0);" class="pre_menu_link" draggable="false">
-                                                    
-                                                    <i class="icon_menu_dot js_icon_menu_dot dn"></i>
-                                                    <i class="icon20_common sort_gray"></i>
-                                                    <span class="js_l1Title">菜单名称</span>
-                                                </a>
-                                                <div class="sub_pre_menu_box js_l2TitleBox" style="display:none;">
-                                                    <ul class="sub_pre_menu_list">
-                                                        
-                                                        <li id="subMenu_menu_2_0" class="jslevel2"><a href="javascript:void(0);" class="jsSubView" draggable="false"><span class="sub_pre_menu_inner js_sub_pre_menu_inner"><i class="icon20_common sort_gray"></i><span class="js_l2Title">子菜单名称</span></span></a></li>
-                                                        
-                                                        <li id="subMenu_menu_2_1" class="jslevel2"><a href="javascript:void(0);" class="jsSubView" draggable="false"><span class="sub_pre_menu_inner js_sub_pre_menu_inner"><i class="icon20_common sort_gray"></i><span class="js_l2Title">子菜单名称</span></span></a></li>
-                                                        
-                                                        <li id="subMenu_menu_2_2" class="jslevel2"><a href="javascript:void(0);" class="jsSubView" draggable="false"><span class="sub_pre_menu_inner js_sub_pre_menu_inner"><i class="icon20_common sort_gray"></i><span class="js_l2Title">子菜单名称</span></span></a></li>
-                                                        
-                                                        <li id="subMenu_menu_2_3" class="jslevel2"><a href="javascript:void(0);" class="jsSubView" draggable="false"><span class="sub_pre_menu_inner js_sub_pre_menu_inner"><i class="icon20_common sort_gray"></i><span class="js_l2Title">子菜单名称</span></span></a></li>
-                                                        
-                                                        <li class="js_addMenuBox"><a href="javascript:void(0);" class="jsSubView js_addL2Btn" title="最多添加5个子菜单" draggable="false"><span class="sub_pre_menu_inner js_sub_pre_menu_inner"><i class="icon14_menu_add"></i></span></a></li>
-                                                    </ul>
-                                                    <i class="arrow arrow_out"></i>
-                                                    <i class="arrow arrow_in"></i>
-                                                </div>
-                                            </li> -->
-        
-                                            <li class="js_addMenuBox pre_menu_item grid_item no_extra">
-                                                <a href="javascript:void(0);" class="pre_menu_link js_addL1Btn" title="最多添加3个一级菜单" draggable="false">
-                                                    <i class="icon14_menu_add"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                    </div> <!-- end col -->
 
-                                <div class="sort_btn_wrp">
-                                    <a id="orderBt" class="btn btn_default" href="javascript:void(0);" style="display: inline-block;">菜单排序</a>
-                                    <span id="orderDis" class="dn btn btn_disabled" style="display: none;">菜单排序</span>
-                                    <a id="finishBt" href="javascript:void(0);" class="dn btn btn_default">完成</a>
+                    <div class="col-lg-3" style="padding-right: 0px;margin-top: 30px;margin-left: 10px;height:500px;background: #FFF;">
+                        <div style="width: 100%;height: 100%;">
+                            <div class="row">
+                                <div class="col-lg-4 btn btn-success menu1">
+                                    ——
+                                </div>
+                                <div class="col-lg-4 btn btn-default menu1">
+                                    ——
+                                </div>
+                                <div class="col-lg-4 btn btn-default menu1">
+                                    ——
+                                </div>
+                                <div class="col-lg-4 arrowMenuDiv">
+                                    <div class="arrow-menu arrow-menu-green"></div>
+                                </div>
+                                <div class="col-lg-4 arrowMenuDiv">
+                                    <div class="arrow-menu"></div>
+                                </div>
+                                <div class="col-lg-4 arrowMenuDiv">
+                                    <div class="arrow-menu"></div>
+                                </div>
+                                <!-- 第一行 -->
+                                <div class="col-lg-4 menu2 menu1s menuRow1">
+                                    ——
+                                </div>
+                                <div class="col-lg-4 menu2 menu2s menuRow1">
+                                    ——
+                                </div>
+                                <div class="col-lg-4 menu2 menu3s menuRow1">
+                                    ——
+                                </div>
+                                <!-- 第二行 -->
+                                <div class="col-lg-4 menu2 menu1s menuRow2">
+                                    ——
+                                </div>
+                                <div class="col-lg-4 menu2 menu2s menuRow2">
+                                    ——
+                                </div>
+                                <div class="col-lg-4 menu2 menu3s menuRow2">
+                                    ——
+                                </div>
+                                <!-- 第三行 -->
+                                <div class="col-lg-4 menu2 menu1s menuRow3">
+                                    ——
+                                </div>
+                                <div class="col-lg-4 menu2 menu2s menuRow3">
+                                    ——
+                                </div>
+                                <div class="col-lg-4 menu2 menu3s menuRow3">
+                                    ——
+                                </div>
+                                <!-- 第四行 -->
+                                <div class="col-lg-4 menu2 menu1s menuRow4">
+                                    ——
+                                </div>
+                                <div class="col-lg-4 menu2 menu2s menuRow4">
+                                    ——
+                                </div>
+                                <div class="col-lg-4 menu2 menu3s menuRow4">
+                                    ——
+                                </div>
+                                <!-- 第五行 -->
+                                <div class="col-lg-4 menu2 menu1s menuRow5">
+                                    ——
+                                </div>
+                                <div class="col-lg-4 menu2 menu2s menuRow5">
+                                    ——
+                                </div>
+                                <div class="col-lg-4 menu2 menu3s menuRow5">
+                                    ——
                                 </div>
                             </div>
+                        </div>
+                    </div>
 
-                            <div class="menu_form_area" style="width: 600px;">
-                                <div id="js_none" class="menu_initial_tips tips_global" style="display: none;">
-                                    点击左侧菜单进行编辑操作
-                                </div>
-                                <div id="js_rightBox" class="portable_editor to_left" style="display: block;">
-                                    <div class="editor_inner">
-                                        <div class="global_mod float_layout menu_form_hd js_second_title_bar">
-                                            <h4 class="global_info">
-                                            菜单名称
-                                            </h4>                            
-                                            <div class="global_extra">                                
-                                            <a href="javascript:void(0);" id="jsDelBt">删除菜单</a>                            
-                                            </div>                        
-                                        </div>                        
-                                        <div class="menu_form_bd" id="view">                            
-                                            <div id="js_innerNone" style="display:none;" class="msg_sender_tips tips_global">
-                                            </div>                            
-                                            <div class="frm_control_group js_setNameBox">                                
-                                                <label for="" class="frm_label">                                    
-                                                    <strong class="title js_menuTitle">菜单名称</strong>
-                                                </label>
-                                                <div class="frm_controls">                                    
-                                                    <span class="frm_input_box with_counter counter_in append">
-                                                        <input type="text" class="frm_input js_menu_name">
-                                                    </span>
-                                                    <p class="frm_msg fail js_titleEorTips dn">字数超过上限</p>
-                                                    <p class="frm_msg fail js_titlenoTips dn" style="display: none;">请输入菜单名称</p>
-                                                    <p class="frm_tips js_titleNolTips">字数不超过4个汉字或8个字母</p>
-                                                </div>                         
-                                            </div>
-                                            <div class="frm_control_group">
-                                                <label for="" class="frm_label">
-                                                    <strong class="title js_menuContent">菜单内容</strong>
-                                                </label>
-                                                <div class="frm_controls frm_vertical_pt">
-                                                    <label class="frm_radio_label js_radio_sendMsg selected" data-editing="0">
-                                                        <i class="icon_radio"></i>
-                                                        <span class="lbl_content">发送消息</span>
-                                                        <input type="radio" name="hello" class="frm_radio">
-                                                    </label>
-                                                    <label class="frm_radio_label js_radio_url" data-editing="0">
-                                                        <i class="icon_radio"></i>
-                                                        <span class="lbl_content">跳转网页</span>
-                                                        <input type="radio" name="hello" class="frm_radio">
-                                                    </label>
-                                                    <label class="frm_radio_label js_radio_weapp" data-editing="0">
-                                                        <i class="icon_radio"></i>
-                                                        <span class="lbl_content">跳转小程序</span>
-                                                        <input type="radio" name="hello" class="frm_radio">
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="menu_content_container">
-                                                <div class="menu_content send jsMain" id="edit" style="display: block;">
-                                                    <div class="msg_sender" id="editDiv">
-                                                        <div class="msg_tab">
-                                                            <div class="tab_navs_panel">
-                                                                <span class="tab_navs_switch_wrp switch_prev js_switch_prev">
-                                                                    <span class="tab_navs_switch"></span>
-                                                                </span>
-                                                                <span class="tab_navs_switch_wrp switch_next js_switch_next" style="display: none;">
-                                                                    <span class="tab_navs_switch"></span>
-                                                                </span>
-                                                                <div class="tab_navs_wrp">
-                                                                    <ul class="tab_navs js_tab_navs" style="margin-left:0;">
-                                                                        
-                                                                        <li class="tab_nav tab_appmsg width4 selected" data-type="10" data-tab=".js_appmsgArea" data-tooltip="图文消息">
-                                                                            <a href="javascript:void(0);" onclick="return false;">&nbsp;<i class="icon_msg_sender"></i><span class="msg_tab_title">图文消息</span></a>
-                                                                        </li>
-                                                                        
-                                                                        <li class="tab_nav tab_img width4" data-type="2" data-tab=".js_imgArea" data-tooltip="图片">
-                                                                            <a href="javascript:void(0);" onclick="return false;">&nbsp;<i class="icon_msg_sender"></i><span class="msg_tab_title">图片</span></a>
-                                                                        </li>
-                                                                        
-                                                                        <li class="tab_nav tab_audio width4" data-type="3" data-tab=".js_audioArea" data-tooltip="语音">
-                                                                            <a href="javascript:void(0);" onclick="return false;">&nbsp;<i class="icon_msg_sender"></i><span class="msg_tab_title">语音</span></a>
-                                                                        </li>
-                                                                        
-                                                                        <li class="tab_nav tab_video width4 no_extra" data-type="15" data-tab=".js_videoArea" data-tooltip="视频">
-                                                                            <a href="javascript:void(0);" onclick="return false;">&nbsp;<i class="icon_msg_sender"></i><span class="msg_tab_title">视频</span></a>
-                                                                        </li>
-                                                                        
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tab_panel">
-                                                                
-                                                                <div class="tab_content">
-                                                                    <div class="js_appmsgArea inner ">
-                                                                        <!--type 10图文 2图片  3语音 15视频 11商品消息-->
-                                                                        
-                                                                        <div class="tab_cont_cover jsMsgSendTab" data-index="0">
-                                                                            <div class="media_cover">
-                                                                                <span class="create_access">
-                                                                                    <a class="add_gray_wrp jsMsgSenderPopBt" href="javascript:;" data-type="10" data-index="0">
-                                                                                        <i class="icon36_common add_gray"></i>
-                                                                                        <strong>从素材库中选择</strong>
-                                                                                    </a>
-                                                                                </span>
-                                                                            </div>
-                                                                            <div class="media_cover">
-                                                                                <span class="create_access">
-                                                                                    <a target="_blank" class="add_gray_wrp create_new_appmsg" href="javascript:;">
-                                                                                        <i class="icon36_common add_gray"></i>
-                                                                                        <strong>新建图文消息</strong>
-                                                                                    </a>
-                                                                                    <a target="_blank" href="/cgi-bin/appmsg?t=media/appmsg_edit&amp;action=edit&amp;type=10&amp;isMul=1&amp;isNew=1&amp;lang=zh_CN&amp;token=2087822649"><i class="icon_appmsg_selfcreate"></i><strong>自建图文</strong></a>
-                                                                                    <a target="_blank" href="/cgi-bin/appmsg?t=media/appmsg_edit&amp;action=edit&amp;type=10&amp;isMul=1&amp;isNew=1&amp;share=1&amp;lang=zh_CN&amp;token=2087822649"><i class="icon_appmsg_share"></i><strong>分享图文</strong></a>
-                                                                                </span>
-                                                                            </div>
-                                                                        </div>              
-                                                                        
-                                                                    </div>
-                                                                </div>
-                                                                
-                                                                <div class="tab_content" style="display: none;">
-                                                                    <div class="js_imgArea inner ">
-                                                                        <!--type 10图文 2图片  3语音 15视频 11商品消息-->
-                                                                        
-                                                                        <div class="tab_cont_cover jsMsgSendTab" data-index="1" data-type="2">
-                                                                            <div class="media_cover">
-                                                                                <span class="create_access">
-                                                                                    <a class="add_gray_wrp jsMsgSenderPopBt" href="javascript:;" data-type="2" data-index="1">
-                                                                                        <i class="icon36_common add_gray"></i>
-                                                                                        <strong>从素材库中选择</strong>
-                                                                                    </a>
-                                                                                </span>
-                                                                            </div>
-                                                                            <div class="media_cover">
-                                                                                <span class="create_access">
-                                                                                    <a class="add_gray_wrp" id="msgSendImgUploadBt" data-type="2" href="javascript:;">
-                                                                                        <i class="icon36_common add_gray"></i>
-                                                                                        <strong>上传图片</strong>
-                                                                                    </a>
-                                                                                </span>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                    </div>
-                                                                </div>
-                                                                
-                                                                <div class="tab_content" style="display: none;">
-                                                                    <div class="js_audioArea inner ">
-                                                                        <!--type 10图文 2图片  3语音 15视频 11商品消息-->
-                                                                        
-                                                                        <div class="tab_cont_cover jsMsgSendTab" data-index="2" data-type="3">
-                                                                            <div class="media_cover">
-                                                                                <span class="create_access">
-                                                                                    <a class="add_gray_wrp jsMsgSenderPopBt" href="javascript:;" data-type="3" data-index="2">
-                                                                                        <i class="icon36_common add_gray"></i>
-                                                                                        <strong>从素材库中选择</strong>
-                                                                                    </a>
-                                                                                </span>
-                                                                            </div>
-                                                                            <div class="media_cover">
-                                                                                <span class="create_access">
-                                                                                    <a class="add_gray_wrp " id="msgSendAudioUploadBt" href="javascript:;">
-                                                                                        <i class="icon36_common add_gray"></i>
-                                                                                        <strong>新建语音</strong>
-                                                                                    </a>
-                                                                                </span>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                    </div>
-                                                                </div>
-                                                                
-                                                                <div class="tab_content" style="display: none;">
-                                                                    <div class="js_videoArea inner ">
-                                                                        <!--type 10图文 2图片  3语音 15视频 11商品消息-->
-                                                                        
-                                                                        <div class="tab_cont_cover jsMsgSendTab" data-index="3">
-                                                                            <div class="media_cover">
-                                                                                <span class="create_access">
-                                                                                    <a class="add_gray_wrp jsMsgSenderPopBt" href="javascript:;" data-type="15" data-index="3">
-                                                                                        <i class="icon36_common add_gray"></i>
-                                                                                        <strong>从素材库中选择</strong>
-                                                                                    </a>
-                                                                                </span>
-                                                                            </div>
-                                                                            <div class="media_cover">
-                                                                                <span class="create_access">
-                                                                                    <a target="_blank" class="add_gray_wrp" href="/cgi-bin/appmsg?t=media/videomsg_edit&amp;action=video_edit&amp;type=15&amp;lang=zh_CN&amp;token=2087822649">
-                                                                                        <i class="icon36_common add_gray"></i>
-                                                                                        <strong>新建视频</strong>
-                                                                                    </a>
-                                                                                </span>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                    </div>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <p class="profile_link_msg_global menu_send mini_tips warn dn js_warn">
-                                                        请勿添加其他公众号的主页链接
-                                                    </p>                                
-                                                </div>
-                                                <div class="menu_content url jsMain" id="url" style="display: none;">
-                                                    <form action="" id="urlForm" onsubmit="return false;">
-                                                        <p class="menu_content_tips tips_global">订阅者点击该子菜单会跳到以下链接</p>
-                                                        <div class="frm_control_group">
-                                                            <label for="" class="frm_label">页面地址</label>
-                                                            <div class="frm_controls">
-                                                                <span class="frm_input_box">
-                                                                    <input type="text" class="frm_input" id="urlText" name="urlText">
-                                                                </span>
-                                                                <p class="profile_link_msg_global menu_url mini_tips warn dn js_warn">
-                                                                    请勿添加其他公众号的主页链接
-                                                                </p>
-                                                                <p class="frm_tips" id="js_urlTitle" style="display: none;">来自<span class="js_name"></span>
-                                                                <span style="display:none;"> -《<span class="js_title"></span>》</span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="frm_control_group btn_appmsg_wrap">
-                                                            <div class="frm_controls">
-                                                                <p class="frm_msg fail dn" id="urlUnSelect" style="display: none;">
-                                                                    <span for="urlText" class="frm_msg_content" style="display: inline;">请选择一篇文章</span>
-                                                                </p>
-                                                                <a href="javascript:;" id="js_appmsgPop">从公众号图文消息中选择</a>
-                                                                <a href="javascript:void(0);" class="dn btn btn_default" id="js_reChangeAppmsg">重新选择</a>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="menu_content weapp " id="weapp" style="display: none;">
-                                                    <div class="link_weapp_loading js_link_weapp_loading" style="display: none;">
-                                                        <i class="icon_loading_small white"></i>
-                                                    </div>
-                                                    <div class="weapp_empty_box js_weapp_no_binded_hint">
-                                                        <p class="desc">自定义菜单可跳转已绑定的小程序，本公众号尚未绑定小程序。</p>
-                                                        <a href="https://mp.weixin.qq.com/cgi-bin/wxopen?action=list&amp;token=2087822649&amp;lang=zh_CN" class="btn btn_default">前往绑定</a>
-                                                    </div>
-                                                    <form action="" id="weappSettingsForm" onsubmit="return false;">
-                                                        <p class="menu_content_tips tips_global">订阅者点击该子菜单会跳到以下小程序</p>
-                                                            <div class="frm_control_group js_weapp_select_group">
-                                                                <label for="" class="frm_label">小程序</label>
-                                                                <div class="frm_controls">
-                                                                    <a href="" class="btn btn_default js_weapp_select">选择小程序</a>
-                                                                </div>
-                                                                <input type="hidden" class="js_weapp_appid" id="" name="">
-                                                            </div>
-                                                            <div class="frm_control_group js_weapp_path_group">
-                                                            <label for="" class="frm_label">小程序路径</label>
-                                                            <div class="frm_controls">
-                                                                <span class="frm_input_box">
-                                                                    <input type="text" class="frm_input js_weapp_path" id="" name="">
-                                                                </span>
-                                                                <p class="frm_tips">已选择小程序 - <span class="js_weapp_title">中华小当家</span>
-                                                                </p>
-                                                                <a href="" class="btn btn_default js_weapp_select">重新选择</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="frm_control_group">
-                                                            <label for="" class="frm_label">备用网页</label>
-                                                            <div class="frm_controls js_weapp_backup_url_input_wrapper">
-                                                                <span class="frm_input_box js_weapp_backup_url_input">
-                                                                    <input type="text" class="frm_input js_weapp_backup_url" id="" name="">
-                                                                </span>
-                                                                <div class="js_weapp_backup_url_select" style="display: none">
-                                                                    <p><a href="javascript:;" id="js_weapp_appmsgPop">从公众号图文消息中选择</a></p>
-                                                                    <p class="frm_tips js_weapp_url_title" style="display: none;">来自<span class="js_name"></span>
-                                                                        <span style="display:none;"> -《<span class="js_title"></span>》</span>
-                                                                    </p>
-                                                                    <a href="javascript:void(0);" class="dn btn btn_default" id="js_weapp_reChangeAppmsg">重新选择</a>
-                                                                </div>
-                                                                <p class="profile_link_msg_global mini_tips warn dn js_warn"></p>
-                                                                <p class="frm_tips" id="" style="">旧版微信客户端无法支持小程序，用户点击菜单时将会打开备用网页。</p>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="menu_content sended" style="display:none;">
-                                                    <p class="menu_content_tips tips_global">订阅者点击该子菜单会跳到以下链接</p>
-                                                    <div class="msg_wrp" id="viewDiv"></div>
-                                                    <p class="frm_tips">来自<span class="js_name">素材库</span>
-                                                        <span style="display:none;"> -《<span class="js_title"></span>》</span>
-                                                    </p>
-                                                </div>
-                                                <div id="js_errTips" style="display:none;" class="msg_sender_msg mini_tips warn"></div>
-                                            </div>
+                    <div class="col-lg-8" style="padding-right: 0px;margin-top: 30px;margin-left: 30px;background: #F4F5F9;">
+                        <div style="width: 100%;height: 100%;">
+                            <div class="row">
+                                <div class="col-lg-11" style="margin: 8px auto;left: 4.1666%;border-bottom: 1px solid #E7E7EB;">
+                                    <div style="width:100%;">
+                                        <h4 class="global_info" style="float: left;">子菜单名称</h4>
+                                        <div class="global_extra" style="float: right;">
+                                            <a href="javascript:void(0);" id="jsDelBt">删除子菜单</a>
                                         </div>
                                     </div>
-                                    <span class="editor_arrow_wrp">
-                                        <i class="editor_arrow editor_arrow_out"></i>
-                                        <i class="editor_arrow editor_arrow_in"></i>
-                                    </span>
+                                </div>
+                                <div class="col-lg-11" style="margin: 8px auto;left: 4.1666%;">
+                                    <div class="form-group">
+                                            <span>菜单名称</span>　　
+                                            <input type="text" name="menuName" id="menuName">　
+                                            <span  style="font-size: 15px;color: #8D8D8D;">字数不超过8个汉字或16个字母</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-11" style="margin: 8px auto;left: 4.1666%;">
+                                    <span>子菜单内容</span>
+                                    <button class="layui-btn layui-btn-primary layui-btn-small menu2Type" style="margin-left: 15px;">发送消息</button>
+                                    <button class="layui-btn layui-btn-primary layui-btn-small menu2Type">跳转网页</button>
+                                    <br>
+                                    <div class="layui-tab layui-tab-card">
+                                        <ul class="layui-tab-title">
+                                            <li class="layui-this">自定义图文</li>
+                                            <li>文字</li>
+                                            <li>图片</li>
+                                        </ul>
+                                        <div class="layui-tab-content">
+                                            <div class="layui-tab-item layui-show">
+                                                <p>
+                                                    <button class="layui-btn"><i class="layui-icon"></i> 添加图文</button>
+                                                </p>
+                                                <form class="layui-form" action="" style="margin-top: 9px;">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">标题</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="title" required  lay-verify="required" placeholder="请输入图文标题" autocomplete="off" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">图片</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="title" required  lay-verify="required" placeholder="请输入图片地址" autocomplete="off" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">链接</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="title" required  lay-verify="required" placeholder="请输入链接跳转地址" autocomplete="off" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">说明</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="title" required  lay-verify="required" placeholder="请输入图文说明文字" autocomplete="off" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-input-block">
+                                                        <button class="layui-btn" lay-submit="" lay-filter="formDemo">立即添加</button>
+                                                        <!-- <button type="reset" class="layui-btn layui-btn-primary">重置</button> -->
+                                                    </div>
+
+                                                    <table class="layui-table">
+                                                      <!-- <colgroup>
+                                                        <col width="150">
+                                                        <col width="200">
+                                                        <col>
+                                                      </colgroup> -->
+                                                        <thead>
+                                                            <tr>
+                                                                <th>顺序</th>
+                                                                <th>标题</th>
+                                                                <th>时间</th>
+                                                            </tr> 
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>人生就像是一场修行</td>
+                                                                <td>2016-11-29</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+                                                                <td>2016-11-28</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </form>
+                                            </div>
+                                            <div class="layui-tab-item">
+                                                <form class="layui-form" action="">
+                                                    <div class="layui-form-item layui-form-text">
+                                                        <label class="layui-form-label">内容</label>
+                                                        <div class="layui-input-block">
+                                                            <textarea name="desc" id="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+                                                            <span class="emotion">表情</span></p>
+                                                        </div>
+                                                        <!-- <div class="ad_demo"><script src="/js/jqueryemoji/js/ad_js/ad_demo.js" type="text/javascript"></script></div> -->
+                                                    </div>
+                                                    <p id="show"></p>
+                                                    <div class="layui-form-item">
+                                                        <div class="layui-input-block">
+                                                            
+                                                            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                                                          <!-- <p id="stat"><script type="text/javascript" src="http://js.tongji.linezing.com/1870888/tongji.js"></script></p> -->
+                                                          <!-- <button type="reset" class="layui-btn layui-btn-primary">重置</button> -->
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="layui-tab-item">内容3</div>
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-
-
-                        <div class="tool_bar tc js_editBox">
-                            <span id="pubBt" class="btn btn_input btn_primary">
-                                <button>保存并发布</button>
-                            </span>
-                            <a href="javascript:void(0);" class="btn btn_default" id="viewBt">预览</a>
-                        </div>
-<!-- wechat -->
-
-
-                    </div> <!-- end col -->
-                    
+                    </div>                  
                 </div> <!-- end row -->
 
             </div>
@@ -435,7 +245,6 @@
 <!-- 加js代码，或引入 -->
 @section('jquery')
 <script type="text/javascript" src="/js/layui/layui.js"></script>
-<script type="text/javascript" src="/admin/wechat/automenu/automenu.js"></script>
 <script type="text/javascript">
     $(function(){
         $('#computer_footer').css('display', 'none');
@@ -443,5 +252,38 @@
             window.layer = layui.layer;
         });
     })
+</script>
+<script>
+//注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+layui.use('element', function(){
+  var element = layui.element;
+  
+  //…
+});
+</script>
+<script type="text/javascript" src="/admin/wechat/automenu/automenu.js"></script>
+
+<!-- <script type="text/javascript" src="/admin/js/jquery.1.7.2.min.js"></script> -->
+<script type="text/javascript" src="/js/jqueryemoji/jquery.qqFace.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('.emotion').qqFace({
+        id : 'facebox', //表情盒子的ID
+        assign:'desc', //给那个控件赋值
+        path:'face/'    //表情存放的路径
+    });
+    $(".sub_btn").click(function(){
+        var str = $("#desc").val();
+        $("#show").html(replace_em(str));
+    });
+});
+//查看结果
+function replace_em(str){
+    str = str.replace(/\</g,'&lt;');
+    str = str.replace(/\>/g,'&gt;');
+    str = str.replace(/\n/g,'<br/>');
+    str = str.replace(/\[em_([0-9]*)\]/g,'<img src="/js/jqueryemoji/face/$1.gif" border="0" />');
+    return str;
+}
 </script>
 @endsection

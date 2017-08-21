@@ -24,6 +24,10 @@ class MyClassOrderController extends Controller
     public function index()
     {
         $openid = Session::get('openid');
+        
+        if (!$openid) {
+            return redirect('/parent/myClassOrder/oauth');
+        }
 
         $userObj = NewUser::where('openid', $openid)
             ->get();
