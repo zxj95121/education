@@ -32,13 +32,13 @@ $signPackage = $jssdk->GetSignPackage();
 </head>
 
 <body>
-    <div id="big">
+    <div id="big" style="position: relative;">
+        <div id="closeWindow" style="position: absolute;left:8px;color:#FFF;top:-12px;">关闭</div>
         <div id="title">
             <h3>加辰教育定制</h3>
             <!-- <p>请绑定手机号</p> -->
         </div>
         <div id="head">
-            <div id="closeWindow">关闭</div>
         </div>
         <div id="form">
             <div id="Phone" class="input" style="position: relative;">
