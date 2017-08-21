@@ -206,7 +206,7 @@ $signPackage = $jssdk->GetSignPackage();
 	    wx.ready(function () {
 	    	var title = '加辰教育免费领取试听课';
 	    	var description = '加辰教育免费领取试听课,注册即送188元。';
-	    	var link = 'http://wechat.catchon-edu.cn/front/share';
+	    	var link = 'http://wechat.catchon-edu.cn/front/classFree';
 	    	var imgUrl = 'http://wechat.catchon-edu.cn/images/kefu.jpg';
 	        wx.onMenuShareAppMessage({
 	            title: title,
