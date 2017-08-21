@@ -66,13 +66,13 @@
           						<div class="item-after">{{$bigOrderObj->count}}</div>
         					</div>
       					</li>
-      					<li class="item-content">
+      					<!-- <li class="item-content">
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">
           						<div class="item-title">标准价格</div>
           						<div class="item-after" style=";text-decoration: line-through;">¥ {{$bigOrderObj->standard}}</div>
         					</div>
-      					</li>
+      					</li> -->
       					<li class="item-content">
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">
