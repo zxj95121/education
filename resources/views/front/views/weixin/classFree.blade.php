@@ -116,7 +116,7 @@ $signPackage = $jssdk->GetSignPackage();
 					                                        </section>
 					                                    </section>
 					                                    <p style="text-align: center">
-					                                        点击免费领取，免费领课试听！<br>
+					                                        点击“免费领取”，免费领课试听！<br>
 					                                        注册即送188元
 					                                    </p>
 					                                    <section data-role="paragraph" class="_135editor" style="border: 0px none; padding: 0px; box-sizing: border-box;">

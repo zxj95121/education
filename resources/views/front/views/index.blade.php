@@ -1,3 +1,8 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT']."/php/jssdk/jssdk.php";
+$jssdk = new JSSDK(getenv('APPID'), getenv('APPSECRET'));
+$signPackage = $jssdk->GetSignPackage();
+?>
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
@@ -33,6 +38,7 @@
             <!-- <p>请绑定手机号</p> -->
         </div>
         <div id="head">
+            <div id="closeWindow">关闭</div>
         </div>
         <div id="form">
             <div id="Phone" class="input" style="position: relative;">
@@ -81,6 +87,22 @@
     <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
         
     <script type="text/javascript">
+        wx.config({
+            debug: false,
+            appId: '<?php echo $signPackage["appId"];?>',
+            timestamp: <?php echo $signPackage["timestamp"];?>,
+            nonceStr: '<?php echo $signPackage["nonceStr"];?>',
+            signature: '<?php echo $signPackage["signature"];?>',
+            jsApiList: [
+                // 所有要调用的 API 都要加到这个列表中
+                'closeWindow'
+              ]
+        });
+        wx.ready(function () {
+            $('#closeWindow').click(function(){
+                wx.closeWindow();
+            })
+        })
     </script>
     <script type="text/javascript">
         $(function(){
