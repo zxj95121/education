@@ -8,7 +8,7 @@
 
         <link rel="shortcut icon" href="img/favicon_1.ico">
 
-        <title>Velonic - Responsive Admin Dashboard Template</title>
+        <title>扫码登录</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
