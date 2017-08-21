@@ -158,7 +158,7 @@
     					layer.msg('添加完成');
     					setTimeout(function(){
     						window.location.href="/admin/classMessage/";
-    					},2000)
+    					},1000)
     				}
     			}
             })
@@ -170,7 +170,8 @@
 			$('#editModal').modal('show');
 		})
 		$('#editpost').click(function(){
-            var phone = $('#phone').val();
+            var phone = $('#editphone').val();
+            console.log(phone);
 			var reg = /^1\d{10}$/;
 			if(!reg.test(phone)){
 				layer.msg("手机号输入不正确");
@@ -190,7 +191,7 @@
     					layer.msg('修改完成');
     					setTimeout(function(){
     						window.location.href="/admin/classMessage/";
-    					},2000)
+    					},1000)
     				}
     			}
 	    	})
@@ -209,7 +210,7 @@
 	    					layer.msg('删除完成');
 	    					setTimeout(function(){
 	    						window.location.href="/admin/classMessage/";
-	    					},2000)
+	    					},1000)
 	    				}
 	    			}
 	            })
