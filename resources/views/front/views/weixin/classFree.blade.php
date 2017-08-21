@@ -1,3 +1,8 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT']."/php/jssdk/jssdk.php";
+$jssdk = new JSSDK(getenv('APPID'), getenv('APPSECRET'));
+$signPackage = $jssdk->GetSignPackage();
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -111,7 +116,8 @@
 					                                        </section>
 					                                    </section>
 					                                    <p style="text-align: center">
-					                                        立即注册，免费领课试听！
+					                                        点击免费领取，免费领课试听！<br>
+					                                        注册即送188元
 					                                    </p>
 					                                    <section data-role="paragraph" class="_135editor" style="border: 0px none; padding: 0px; box-sizing: border-box;">
 					                                        <p>
@@ -180,6 +186,64 @@
     <script type='text/javascript' src='/js/zepto.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+	<script>
+	    wx.config({
+	        debug: false,
+	        appId: '<?php echo $signPackage["appId"];?>',
+	        timestamp: <?php echo $signPackage["timestamp"];?>,
+	        nonceStr: '<?php echo $signPackage["nonceStr"];?>',
+	        signature: '<?php echo $signPackage["signature"];?>',
+	        jsApiList: [
+	            // 所有要调用的 API 都要加到这个列表中
+	            'checkJsApi',
+	            'onMenuShareTimeline',
+	            'onMenuShareAppMessage',
+	            'hideAllNonBaseMenuItem',
+                'showMenuItems'
+	          ]
+	    });
+	    wx.ready(function () {
+	    	var title = '加辰教育免费领取试听课';
+	    	var description = '加辰教育免费领取试听课,注册即送188元。';
+	    	var link = 'http://wechat.catchon-edu.cn/front/share';
+	    	var imgUrl = 'http://wechat.catchon-edu.cn/images/kefu.jpg';
+	        wx.onMenuShareAppMessage({
+	            title: title,
+	            desc: description,
+	            link: link,
+	            imgUrl: imgUrl,
+	            trigger: function (res) {
+	            },
+	            success: function (res) {
+	            //	$.alert('已分享');
+	            },
+	            cancel: function (res) {
+	              // alert('已取消');
+	            },
+	            fail: function (res) {
+	              // alert(JSON.stringify(res));
+	            }
+	        });
+	        wx.onMenuShareTimeline({
+	            title: title,
+	            link: link,
+	            imgUrl: imgUrl,
+	            trigger: function (res) {
+	              // alert('用户点击分享到朋友圈');
+	            },
+	            success: function (res) {
+	             // $.alert('已分享');
+	            },
+	            cancel: function (res) {
+	              // alert('已取消');
+	            },
+	            fail: function (res) {
+	              // alert(JSON.stringify(res));
+	            }
+	          });
+		});
+	</script>
     <script>
     	$(function(){
         	var id = '';
