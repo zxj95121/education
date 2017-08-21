@@ -33,7 +33,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 <body>
     <div id="big" style="position: relative;">
-        <div id="closeWindow" style="position: absolute;left:8px;color:#FFF;top:-12px;">关闭</div>
+        <div id="closeWindow" style="position: absolute;left:6px;color:#FFF;top:-13px;font-size: 16px;">关闭</div>
         <div id="title">
             <h3>加辰教育定制</h3>
             <!-- <p>请绑定手机号</p> -->
