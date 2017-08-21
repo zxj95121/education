@@ -61,6 +61,7 @@ class WeixinController extends Controller
     					->select('phone')
     					->get();
     				foreach($messageObj as $vo){
+                        $code = array();
     					$phone = $vo->phone;
     					$code[] = $userObj->nickname;
     					$code[] = $firstName;
@@ -107,6 +108,7 @@ class WeixinController extends Controller
                     	->select('phone')
                     	->get();
                     foreach($messageObj as $vo){
+                        $code = array();
                     	$phone = $vo->phone;
                     	$code[] = $caseNameObj->nickname;
                     	$code[] = $cpObj->name;
@@ -159,6 +161,7 @@ class WeixinController extends Controller
                         ->select('phone')
                         ->get();
                    	foreach($messageObj as $vo){
+                        $code = array();
                    		$phone = $vo->phone;
                         $code[] = $caseNameObj->nickname;
                         $code[] = $classObj->name;
