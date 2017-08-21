@@ -78,9 +78,10 @@ class PayClassController extends Controller
 			}
 			
 		}
-		
+		$standard = 0;
 		foreach ($onePrice as $key => $value) {
 			$price += $value*EclassPriceController::getUnitPriceByCount($key, $value);
+			$standard += $value*EclassPriceController::getUnitPriceByStandard($key);
 		}
 		// dd(23);
 		$bigPrice = $price;
@@ -105,6 +106,7 @@ class PayClassController extends Controller
 		$flight->openid = $openid;
 		$flight->count = $cartTotal;
 		$flight->voucher_num = $vouNum;
+		$flight->standard = $standard;
 		$flight->price = $bigPrice;
 		$flight->save();
 		/*大订单插入结束*/

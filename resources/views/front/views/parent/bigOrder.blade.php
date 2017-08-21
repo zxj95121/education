@@ -69,6 +69,20 @@
       					<li class="item-content">
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">
+          						<div class="item-title">标准价格</div>
+          						<div class="item-after" style=";text-decoration: line-through;">¥ {{$bigOrderObj->standard}}</div>
+        					</div>
+      					</li>
+      					<li class="item-content">
+        					<div class="item-media"><i class="icon icon-f7"></i></div>
+        					<div class="item-inner">
+          						<div class="item-title">优惠价格</div>
+          						<div class="item-after" style=";text-decoration: line-through;">¥ {{number_format($preBigPrice, 2)}}</div>
+        					</div>
+      					</li>
+      					<li class="item-content">
+        					<div class="item-media"><i class="icon icon-f7"></i></div>
+        					<div class="item-inner">
           						<div class="item-title">可用代金券</div>
           						<div class="item-after">@if($vouNum == 0)无可用@else 88元*{{$vouNum}}张@endif</div>
         					</div>
@@ -76,14 +90,7 @@
       					<li class="item-content">
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">
-          						<div class="item-title">订单价格</div>
-          						<div class="item-after" style=";text-decoration: line-through;">¥ {{number_format($preBigPrice, 2)}}</div>
-        					</div>
-      					</li>
-      					<li class="item-content">
-        					<div class="item-media"><i class="icon icon-f7"></i></div>
-        					<div class="item-inner">
-          						<div class="item-title">优惠后金额</div>
+          						<div class="item-title">结算金额</div>
           						<div class="item-after" style="font-weight: bold;">¥ {{number_format($bigOrderObj->price, 2)}}</div>
         					</div>
       					</li>

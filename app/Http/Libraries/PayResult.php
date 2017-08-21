@@ -76,7 +76,7 @@ class PayResult extends ServiceProvider
         }
     }
 
-    public function editClassPackageOrderVoucher($openid, $order_no)
+    public static function editClassPackageOrderVoucher($openid, $order_no)
     {
         $voucher_num = ClassPackageOrder::where('order_no', $order_no)
             ->select('voucher_num')

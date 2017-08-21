@@ -100,4 +100,17 @@ class EclassPriceController extends Controller
 
         return $unitPrice;
     }
+
+    public static function getUnitPriceByStandard($tid)
+    {
+
+        $priceObj = ClassPrice::where('status', 1)
+            ->where('tid', $tid)
+            ->select('area', 'price')
+            ->get()[0];
+
+        $unitPrice = $priceObj->price;
+
+        return $unitPrice;
+    }
 }
