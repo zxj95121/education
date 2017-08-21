@@ -226,7 +226,7 @@ $signPackage = $jssdk->GetSignPackage();
 	            }
 	        });
 	        wx.onMenuShareTimeline({
-	            title: title,
+	            title: '加辰教育免费领取试听课,注册即送188元。',
 	            link: link,
 	            imgUrl: imgUrl,
 	            trigger: function (res) {
