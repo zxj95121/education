@@ -296,6 +296,11 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['domai
     $router->get('/register/oauth','LoginController@oauth');
     $router->get('/home/oauth', 'HomeController@homeOauth');
     $router->get('/parent/myClassOrder/oauth', 'Parent\MyClassOrderController@oauth');
+    /*/parent/myClassOrder*/
+  $router->get('/parent/myClassOrder', 'Parent\MyClassOrderController@index');
+  $router->post('/parent/getOrderDetail', 'Parent\MyClassOrderController@getOrderDetail');
+  $router->post('/parent/deleteOrderDetail', 'Parent\MyClassOrderController@deleteOrderDetail');
+  $router->post('/parent/deleteOrderDetail2', 'Parent\MyClassOrderController@deleteOrderDetail2');
 
     $router->get('/parent/mySchedule/oauth', 'Parent\MyScheduleController@oauth');
       /*myVoucher*/
@@ -418,11 +423,7 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
   /*parent模块，购买相关*/
   $router->post('/parent/checkMessage', 'Parent\PayClassController@checkMessage');
   $router->post('/parent/getChild', 'Parent\PayClassController@getChild');
-  /*/parent/myClassOrder*/
-  $router->get('/parent/myClassOrder', 'Parent\MyClassOrderController@index');
-  $router->post('/parent/getOrderDetail', 'Parent\MyClassOrderController@getOrderDetail');
-  $router->post('/parent/deleteOrderDetail', 'Parent\MyClassOrderController@deleteOrderDetail');
-  $router->post('/parent/deleteOrderDetail2', 'Parent\MyClassOrderController@deleteOrderDetail2');
+  
 
   $router->get('/parent/mySchedule', 'Parent\MyScheduleController@orderList');
   $router->get('/parent/mySchedule/schedule/{id}', 'Parent\MyScheduleController@schedule');
