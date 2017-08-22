@@ -14,6 +14,7 @@ $signPackage = $jssdk->GetSignPackage();
     <link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/css/weui.css"/>
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/my.css">
+    <link rel="stylesheet" type="text/css" href="/js/mui/dist/css/mui.min.css">
     <style type="text/css">
 	    #twoclass{
 	    	position: relative;
@@ -51,9 +52,41 @@ $signPackage = $jssdk->GetSignPackage();
 	@if($userType->type == 2)
 		@if($parentDetail->type == 1)
 		<div class="container-fluid" id="teacher" style="display: none;">
+			@if($parentDetail->id == 21)
+			<ul class="mui-table-view mui-grid-view mui-grid-9">
+	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+	                    <span class="mui-icon mui-icon-home"></span>
+	                    <div class="mui-media-body">Home</div></a></li>
+	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+	                    <span class="mui-icon mui-icon-email"><span class="mui-badge">5</span></span>
+	                    <div class="mui-media-body">Email</div></a></li>
+	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+	                    <span class="mui-icon mui-icon-chatbubble"></span>
+	                    <div class="mui-media-body">Chat</div></a></li>
+	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+	                    <span class="mui-icon mui-icon-location"></span>
+	                    <div class="mui-media-body">location</div></a></li>
+	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+	                    <span class="mui-icon mui-icon-search"></span>
+	                    <div class="mui-media-body">Search</div></a></li>
+	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+	                    <span class="mui-icon mui-icon-phone"></span>
+	                    <div class="mui-media-body">Phone</div></a></li>
+	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+	                    <span class="mui-icon mui-icon-gear"></span>
+	                    <div class="mui-media-body">Setting</div></a></li>
+	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+	                    <span class="mui-icon mui-icon-info"></span>
+	                    <div class="mui-media-body">about</div></a></li>
+	           <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+	                    <span class="mui-icon mui-icon-more"></span>
+	                    <div class="mui-media-body">more</div></a></li>
+	        </ul>
+			@else
         	<div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">名师定制功能正在开发中</span>
         	</div>
+        	@endif
     	</div>
     	<div class="container-fluid" id="classroom" style="display: none;">
         	 <div class="weui-loadmore weui-loadmore_line">
@@ -380,6 +413,7 @@ $signPackage = $jssdk->GetSignPackage();
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script type="text/javascript" src="/js/json2.js"></script>
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
+    <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script>
     <script type="text/javascript">
     	$(function(){
     		newUserId = '{{$newUserId}}';
