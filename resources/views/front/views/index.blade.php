@@ -7,7 +7,7 @@ $signPackage = $jssdk->GetSignPackage();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>绑定手机号</title>
+    <title>关联手机号</title>
     <link rel="stylesheet" type="text/css" href="/css/weui.css">
     <link rel="stylesheet" href="/front/css_module/bind.css"/>
     <link rel="stylesheet" type="text/css" href="/js/h-ui/static/h-ui/css/H-ui.min.css">
