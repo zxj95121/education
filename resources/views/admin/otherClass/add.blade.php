@@ -50,7 +50,8 @@
                                                     <th>课时数量</th>
                                                     <th>课程订单数量</th>
 													<th>展示内容</th>
-													<th>价格</th>
+                                                    <th>标准价格</th>
+													<th>优惠价格</th>
 													<th>操作</th>
 												</tr>
 											</thead>
@@ -62,6 +63,7 @@
                                                     <td class="td_tcNumber">{{$value->number}}</td>
                                                     <td class="td_tcOrderCount">{{$value->order_count}}</td>
 													<td>@if($value->show) <span class="label label-success seeShow">查看详情</span> @else <span class="label label-info setShow">立即设置</span> @endif</td>
+                                                    <td class="td_standardPrice">¥ {{number_format($value->standard_price, 2)}}</td>
 													<td class="td_tcPrice">¥ {{number_format($value->price, 2)}}</td>
 													<td><span class="label label-primary edit">修改</span>　　<span class="label label-primary delete">删除</span>　　<span class="label label-primary seeOrder">查看订单</span>　　<span class="label label-primary copySpan" url="http://{{$SERVER_NAME}}/front/classPackage?id={{$value->id}}">复制网址</span></td>
 												</tr>
@@ -96,9 +98,18 @@
 		                                <span class="error" id="tc_name_error"></span>
 		                            </div>
 	                        	</div>
+                                <div class="form-group row">
+                                    <div class="col-md-2" style="text-align: right;">
+                                        <label for="standardPrice">标准价格</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" name="standardPrice" id="standardPrice" class="form-control">
+                                        <span class="error" id="tc_price2_error"></span>
+                                    </div>
+                                </div>
 	                        	<div class="form-group row">
 		                            <div class="col-md-2" style="text-align: right;">
-		                                <label for="tcPrice">套餐价格</label>
+		                                <label for="tcPrice">优惠价格</label>
 		                            </div>
 		                            <div class="col-md-10">
 		                                <input type="text" name="tcPrice" id="tcPrice" class="form-control">
@@ -146,12 +157,17 @@
 
         $('#addBtn').click(function(){
         	var tcName = $('#tcName').val();
-        	var tcPrice = $('#tcPrice').val();
+            var tcPrice = $('#tcPrice').val();
+        	var standardPrice = $('#standardPrice').val();
             var tcNumber = $('#tcNumber').val();
         	var temp = 0;
         	var reg = /^(\d{1,8})(\.\d{1,2})?$/;
         	if ( !reg.test(tcPrice) ) {
-        		$('#tc_price_error').html('价格格式不正确');
+                $('#tc_price_error').html('优惠价格格式不正确');
+                temp = 1;
+            }
+            if ( !reg.test(standardPrice) ) {
+        		$('#tc_price2_error').html('标准价格格式不正确');
         		temp = 1;
         	}
         	if ( tcName == '' ) {
@@ -173,13 +189,15 @@
         		data: {
         			name: tcName,
         			price: tcPrice,
-                    number: tcNumber
+                    number: tcNumber,
+                    standardPrice: standardPrice
         		},
         		success: function(data) {
         			if (data.errcode == 0) {
         				window.layer.msg('添加成功');
         				$('#tcName').val('');
-        				$('#tcPrice').val('');
+                        $('#tcPrice').val('');
+        				$('#standardPrice').val('');
         				$('#addModal').modal('hide');
         				$('#tcTable').show();
                         window.location.reload();
@@ -197,11 +215,16 @@
         $('#editBtn').click(function(){
             var tcName = $('#tcName').val();
             var tcPrice = $('#tcPrice').val();
+            var standardPrice = $('#standardPrice').val();
             var tcNumber = $('#tcNumber').val();
             var temp = 0;
             var reg = /^(\d{1,8})(\.\d{1,2})?$/;
             if ( !reg.test(tcPrice) ) {
-                $('#tc_price_error').html('价格格式不正确');
+                $('#tc_price_error').html('优惠价格格式不正确');
+                temp = 1;
+            }
+            if ( !reg.test(standardPrice) ) {
+                $('#tc_price2_error').html('标准价格格式不正确');
                 temp = 1;
             }
             if ( tcName == '' ) {
@@ -224,6 +247,7 @@
                 data: {
                     name: tcName,
                     price: tcPrice,
+                    standardPrice: standardPrice,
                     number: tcNumber,
                     id: $('#addModal').attr('pid')
                 },
@@ -232,11 +256,13 @@
                         window.layer.msg('修改成功');
                         $('#tcName').val('');
                         $('#tcPrice').val('');
+                        $('#standardPrice').val('');
                         
                         var cdom = $('#tcTable tr[pid="'+$('#addModal').attr('pid')+'"]');
                         cdom.find('.td_tcName').html(tcName);
                         cdom.find('.td_tcNumber').html(tcNumber);
                         cdom.find('.td_tcPrice').html('¥ '+tcPrice);
+                        cdom.find('.td_standardPrice').html('¥ '+standardPrice);
 
                         $('#addModal').modal('hide');
                         $('#tcTable').show();
@@ -256,6 +282,9 @@
         })
         $('#tcPrice').focus(function(){
         	$('#tc_price_error').html('');
+        })
+        $('#standardPrice').focus(function(){
+            $('#tc_price2_error').html('');
         })
 
 
@@ -303,6 +332,7 @@
 
             var tcName = cdom.find('.td_tcName').html();
             var tcNumber = cdom.find('.td_tcNumber').html();
+            var standardPrice = parseFloat(cdom.find('.td_standardPrice').html().split(' ')[1]);
             var tcPrice = parseFloat(cdom.find('.td_tcPrice').html().split(' ')[1]);
 
             $('#addModal').attr('pid', pid);
@@ -310,6 +340,7 @@
             $('#tcName').val(tcName);
             $('#tcNumber').val(tcNumber);
             $('#tcPrice').val(tcPrice);
+            $('#standardPrice').val(standardPrice);
 
             $('#addModal .modal-title').html('修改class套餐');
             $('#addModal').modal('show');
@@ -333,6 +364,7 @@
             $('#tcName').val('');
             $('#tcNumber').val('');
             $('#tcPrice').val('');
+            $('#standardPrice').val('');
         })
 
 

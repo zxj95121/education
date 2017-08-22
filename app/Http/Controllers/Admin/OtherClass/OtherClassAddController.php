@@ -22,12 +22,14 @@ class OtherClassAddController extends Controller
     public function addPost(Request $request)
     {
     	$name = $request->input('name');
-    	$price = $request->input('price');
+        $price = $request->input('price');
+    	$standardPrice = $request->input('standardPrice');
     	$number = $request->input('number');
 
     	$flight = new ClassPackage();
     	$flight->name = $name;
-    	$flight->price = $price;
+        $flight->price = $price;
+    	$flight->standard_price = $standardPrice;
     	$flight->number = $number;
     	$flight->save();
 
@@ -38,12 +40,14 @@ class OtherClassAddController extends Controller
     {
         $name = $request->input('name');
         $price = $request->input('price');
+        $standardPrice = $request->input('standardPrice');
         $number = $request->input('number');
         $id = $request->input('id');
 
         $flight = ClassPackage::find($id);
         $flight->name = $name;
         $flight->price = $price;
+        $flight->standard_price = $standardPrice;
         $flight->number = $number;
         $flight->save();
 

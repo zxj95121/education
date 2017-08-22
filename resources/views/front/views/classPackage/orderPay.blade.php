@@ -64,15 +64,22 @@ $signPackage = $jssdk->GetSignPackage();
   					<li class="item-content">
     					<div class="item-media"><i class="icon icon-f7"></i></div>
     					<div class="item-inner">
-      						<div class="item-title">代金券</div>
-      						<div class="item-after">@if($vouNum != 0) 88元*{{$vouNum}}张 @else 无可用 @endif</div>
+      						<div class="item-title">标准价格</div>
+      						<div class="item-after" style="text-decoration: line-through;">¥ {{number_format((string)$package->standard_price, 2)}}</div>
     					</div>
   					</li>
   					<li class="item-content">
     					<div class="item-media"><i class="icon icon-f7"></i></div>
     					<div class="item-inner">
-      						<div class="item-title">课程价格</div>
+      						<div class="item-title">优惠价格</div>
       						<div class="item-after" style="text-decoration: line-through;">¥ {{number_format((string)$prePrice, 2)}}</div>
+    					</div>
+  					</li>
+  					<li class="item-content">
+    					<div class="item-media"><i class="icon icon-f7"></i></div>
+    					<div class="item-inner">
+      						<div class="item-title">代金券</div>
+      						<div class="item-after">@if($vouNum != 0) 88元*{{$vouNum}}张 @else 无可用 @endif</div>
     					</div>
   					</li>
   					<li class="item-content">
