@@ -68,7 +68,7 @@ $signPackage = $jssdk->GetSignPackage();
             </div>
             <p id="tishi" style="color: #0af39e;">让你看不到，哈哈哈</p>
 
-            <button id="login_btn" type="submit">确认绑定</button>
+            <button id="login_btn" type="submit">确认</button>
         </div>
         <div id="information">
             <p>{{$phone_footer}}</p>
