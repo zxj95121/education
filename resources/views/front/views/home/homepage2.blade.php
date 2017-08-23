@@ -58,7 +58,7 @@ $signPackage = $jssdk->GetSignPackage();
 <body>
 	@if($userType->type == 2)
 		@if($parentDetail->type == 1)
-		<div class="container-fluid" id="teacher" style="display: none;">
+		<div class="container-fluid" id="teacher1" style="display: none;">
 			@if($parentDetail->id == 21)
 			<ul class="mui-table-view mui-grid-view mui-grid-9" id="madeT_ul">
 	            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" hr="#madeT_made"><a href="#">
@@ -78,12 +78,12 @@ $signPackage = $jssdk->GetSignPackage();
         	</div>
         	@endif
     	</div>
-    	<div class="container-fluid" id="classroom" style="display: none;">
+    	<div class="container-fluid" id="classroom1" style="display: none;">
         	 <div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">教室定制功能正在开发中</span>
         	</div>
     	</div>
-    	<div class="container-fluid" id="eclass" style="display: none; padding:0">
+    	<div class="container-fluid" id="eclass1" style="display: none; padding:0">
         	<div id="twoclass">
         	</div>
     	</div>
@@ -117,7 +117,7 @@ $signPackage = $jssdk->GetSignPackage();
         	</div>
     	</div>
 	@endif
-    <div class="container-fluid" id="my" style="display:none">
+    <div class="container-fluid" id="my1" style="display:none">
         <!-- header start -->
         <div class="row" id="my_header" style="position: relative;">
             <div class="col-xs-2" id="my_header_img">
