@@ -131,8 +131,8 @@ $signPackage = $jssdk->GetSignPackage();
 			            <div><div class="placeholder glyphicon glyphicon-ok done_ok1"></div></div>
 			        </div>
 			    </div>
-			    <div style="width: 97%;margin: 0 auto;" class="div_detail">
-			    	<div class="mui-content">
+			    <div style="width: 100%;margin: 0 auto;" class="div_detail">
+			    	<div class="mui-content" style="padding: 6px;">
 			    		<div class="mui-col-xs-12 mui-col-sm-12 subject_type">
 				    		<h5>打开</h5>
 				    		<button type="button" class="mui-btn">默认</button>
