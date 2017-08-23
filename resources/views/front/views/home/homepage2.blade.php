@@ -67,24 +67,28 @@ $signPackage = $jssdk->GetSignPackage();
 		                    <div class="mui-media-body">定制历史</div></a></li>
 		        </ul>
 
-		        <div class="mui-content">
+		        
+			<div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_apply">
+	        	<div class="mui-content">
 					<div style="padding: 10px 10px;">
 						<div id="segmentedControl" class="mui-segmented-control">
-							<a class="mui-control-item mui-active" href="#">
-								待办公文（8）
+							<a class="mui-control-item mui-active" for="#directionMade" href="#">
+								专业定制
 							</a>
-									<a class="mui-control-item" href="#">
-								已办公文
-							</a>
-									<a class="mui-control-item" href="#">
-								全部公文
+									<a class="mui-control-item" for="#otherMade" href="#">
+								其他定制
 							</a>
 						</div>
-					
 					</div>
 				</div>
-			<div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_apply">
-	        	
+				<div class="mui-content">
+					<div class="mui-col-xs-12 mui-col-sm-12 madeSteps" id="directionMade">
+						111
+					</div>
+					<div class="mui-col-xs-12 mui-col-sm-12 madeSteps" id="otherMade" style="display: none;">
+						22222
+					</div>
+				</div>
 	        </div>
 
 	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history">
