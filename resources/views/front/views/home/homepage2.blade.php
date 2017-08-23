@@ -436,6 +436,17 @@ $signPackage = $jssdk->GetSignPackage();
     <script type="text/javascript" src="/front/js_module/homepage/madeT.js?v={{rand(1,1000)}}"></script>
     @else
     @endif
+    @if($parentDetail->id == 21)
+    <script type="text/javascript">
+  //   	mui.init({
+		// 	// swipeBack:true //启用右滑关闭功能
+		// });
+		mui.init({
+			swipeBack: true
+		});
+    </script>
+    @else
+    @endif
     <script type="text/javascript">
     	$(function(){
     		newUserId = '{{$newUserId}}';
@@ -501,7 +512,8 @@ $signPackage = $jssdk->GetSignPackage();
 			}
 
 		}
-        $('#eclass1').dblclick(function(){
+        $('#eclass1').click(function(e){
+        	// e.stoppropagation();
             $('#eclass').load('/front/twoClass', function(){
             	setCartPosition();
             	$.ajax({
@@ -634,17 +646,6 @@ function cartInit(){
 }
     </script>
 
-    @if($parentDetail->id == 21)
-    <script type="text/javascript">
-  //   	mui.init({
-		// 	// swipeBack:true //启用右滑关闭功能
-		// });
-		mui.init({
-			swipeBack: true
-		});
-    </script>
-    @else
-    @endif
     <script type="text/javascript">
   //   	closeStatus =0;
   //   	window.onpopstate = function(event) {
