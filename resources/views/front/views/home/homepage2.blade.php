@@ -102,7 +102,7 @@ $signPackage = $jssdk->GetSignPackage();
 							</form>
 						</div>
 						<div style="padding: 10px 10px;">
-							<button type="button" class="mui-btn mui-btn-success" style="width: 100%;height: 40px;font-size: 1.5em;line-height: 40px;">提交定制</button>
+							<button type="button" class="mui-btn mui-btn-success" style="width: 100%;height: 40px;font-size: 1.5em;line-height: 26px;">提交定制</button>
 						</div>
 					</div>
 
@@ -123,13 +123,47 @@ $signPackage = $jssdk->GetSignPackage();
 							        </select>
 							    </div>
 							    <div class="mui-input-row">
+							        <label>风格定制</label>
+							        <input type="text" placeholder="选择辅导老师风格" readonly="readonly">
+							    	<select class="selectMade" name="sexM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
+							        	<option value="1">温和型</option>
+							        	<option value="2">严厉型</option>
+							        	<option value="3">幽默型</option>
+							        </select>
+							    </div>
+							    <div class="mui-input-row">
 							        <label>特长定制</label>
 							    	<input type="text" placeholder="选择特长" id="hobbyMade" readonly="readonly">
+							    </div>
+							    <div class="mui-input-row">
+							        <label>经验定制</label>
+							        <input type="text" placeholder="要求教师曾经授课对象" readonly="readonly">
+							    	<select class="selectMade" name="sexM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
+							        	<option value="1">高中生</option>
+							        	<option value="2">初中生</option>
+							        	<option value="3">小学生</option>
+							        	<option value="3">无</option>
+							        </select>
+							    </div>
+							    <div class="mui-input-row">
+							        <label>学费定制</label>
+							        <input type="text" placeholder="选择辅导价格" id="priceM" readonly="readonly">
+							    </div>
+							    <div class="mui-input-row">
+							        <label>时间定制</label>
+							        <input type="text" placeholder="选择辅导时间" readonly="readonly">
+							    	<select class="selectMade" name="sexM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
+							        	<option value="1">周一至周五晚上</option>
+							        	<option value="2">周末</option>
+							        	<option value="3">节假日</option>
+							        	<option value="3">暑假</option>
+							        	<option value="4">寒假</option>
+							        </select>
 							    </div>
 							</form>
 						</div>
 						<div style="padding: 10px 10px;">
-							<button type="button" class="mui-btn mui-btn-success" style="width: 100%;height: 40px;font-size: 1.5em;line-height: 40px;">提交定制</button>
+							<button type="button" class="mui-btn mui-btn-success" style="width: 100%;height: 40px;font-size: 1.5em;line-height: 26px;">提交定制</button>
 						</div>
 					</div>
 				</div>
