@@ -93,7 +93,7 @@ $signPackage = $jssdk->GetSignPackage();
 							        <label>学历定制</label>
 
 							        <input type="text" placeholder="选择学历" class="selectMade" readonly="readonly">
-							        <select name="educationM" style="display: none;">
+							        <select name="educationM" style="opacity: 0;z-index:2;">
 							        	<option value="1">研究生</option>
 							        	<option value="2">本科生</option>
 							        	<option value="3">专科生</option>
@@ -116,7 +116,7 @@ $signPackage = $jssdk->GetSignPackage();
 							    <div class="mui-input-row">
 							        <label>性别定制</label>
 							        <input type="text" placeholder="性别要求" class="selectMade" readonly="readonly">
-							    	<select name="sexM" style="display: none;">
+							    	<select name="sexM" style="opacity: 0;z-index:2;">
 							        	<option value="1">男女均可</option>
 							        	<option value="2">男</option>
 							        	<option value="3">女</option>
