@@ -2,7 +2,19 @@ $(function(){
 	// var height = document.documentElement.clientHeight;
 	/*底部点击效果*/
 	$(document).on('touchstart', '#all_bottom .mui-tab-item', function(){
-		console.log(1);
+		var forDiv = $(this).attr('for');
+		history.pushState('', '', '/front/home#'+forDiv);
+		// console.log(forDiv);
+		$('#all_bottom .mui-tab-item').each(function(){
+			// var sforDiv = $(this).attr('for');
+			// $('#'+sforDiv).css('display', 'none');
+			var src = $(this).find('img').attr('src');
+			src = src.replace('_fill','');
+			$(this).find('img').attr('src', src);
+		})
+		// $('#'+forDiv).css('display', 'block');
+		console.log($(this).html());
+		$(this).find('img').attr('src', $(this).find('img').attr('src').replace('.png', '_fill.png'));
 	})
 	$('#all_bottom .mui-tab-item').click(function(e){
 		var forDiv = $(this).attr('for');
