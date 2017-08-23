@@ -21,7 +21,7 @@ var height = document.documentElement.clientHeight;
 $('.page_set').css({'height': height+'px','top': height+'px'});
 
 $('.done_romove').click(function(){
-	$(this).parents('.page_set').animate({'top': height+'px'}, 250);
+	$(this).parents('.page_set').show().animate({'top': height+'px'}, 250);
 })
 
 $('#subjectMade').click(function(){
@@ -32,5 +32,5 @@ $('#subjectMade').click(function(){
 $('.selectMade').click(function(){
 	$(this).hide();
 	$(this).next().show();
-	$(this).next().attr('size', 4);
+	$(this).next()[0].focus();
 })

@@ -35,6 +35,7 @@
 	position: absolute;
 	z-index: 2;
 	background-color: #E8E8E3;
+	display: none;
 }
 .div_detail .mui-btn{
 	margin-left: 6px;
