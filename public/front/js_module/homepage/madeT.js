@@ -46,6 +46,7 @@ $('#priceM').click(function(){
 		arr1[i].value = j;
 		j += 10;
 	}
+	console.log(arr1);
 
 	// var arr2 = new Array();
 	// arr2[0] = new Object();
