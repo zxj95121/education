@@ -7,7 +7,6 @@ $(function(){
 		// console.log(forDiv);
 		if (forDiv == 'teacher') {
 			includeLink('/front/css_module/picker.css', 'css');
-			includeLink('/front/js_module/picker.js', 'js');
 		}
 		$('#all_bottom .mui-tab-item').each(function(){
 			// var sforDiv = $(this).attr('for');

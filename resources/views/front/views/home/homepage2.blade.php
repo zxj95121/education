@@ -593,6 +593,7 @@ $signPackage = $jssdk->GetSignPackage();
     <script type="text/javascript" src="/front/js_module/homepage/my.js"></script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script type="text/javascript" src="/js/json2.js"></script>
+    <script type="text/javascript" src="/front/js_module/picker.js"></script>
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
     <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script>
     @if($userType->type == 2 && $parentDetail->id == 21)
@@ -632,7 +633,7 @@ $signPackage = $jssdk->GetSignPackage();
     			}
     			if(url[1] == 'teacher') {
     				includeLink('/front/css_module/picker.css', 'css');
-					includeLink('/front/js_module/picker.js', 'js');
+					// includeLink('/front/js_module/picker.js', 'js');
     			}
     		}
         })
