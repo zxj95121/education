@@ -1,7 +1,7 @@
 $(function(){
 	// var height = document.documentElement.clientHeight;
 	/*底部点击效果*/
-	$('#all_bottom .mui-tab-item').touchstart(function(){
+	$(document).on('touchstart', '#all_bottom .mui-tab-item', function(){
 		console.log(1);
 	})
 	$('#all_bottom .mui-tab-item').click(function(e){
