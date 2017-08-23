@@ -512,8 +512,8 @@ $signPackage = $jssdk->GetSignPackage();
 			}
 
 		}
-		$('#eclass1').unbind('click');
-		$('#all_bottom').unbind('click');
+		// $('#eclass1').unbind('click');
+		// $('#all_bottom').unbind('click');
 		// console.log($('#eclass1'));
         // $(document).on('click', '#eclass1', function(e){
             $('#eclass').load('/front/twoClass', function(){
