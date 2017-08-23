@@ -92,17 +92,16 @@ $signPackage = $jssdk->GetSignPackage();
 							    <div class="mui-input-row">
 							        <label>学历定制</label>
 
-							        <select name="education">
+							        <select name="educationM">
 							        	<option value="1">研究生</option>
 							        	<option value="2">本科生</option>
 							        	<option value="3">专科生</option>
 							        </select>
 							    </div>
-							    <div class="mui-button-row">
-							        <button type="button" class="mui-btn mui-btn-primary" >确认</button>
-							        <button type="button" class="mui-btn mui-btn-danger" >取消</button>
-							    </div>
 							</form>
+						</div>
+						<div style="padding: 10px 10px;">
+							<button type="button" class="mui-btn mui-btn-success" style="width: 90%;margin: 0 auto;">提交定制</button>
 						</div>
 					</div>
 
@@ -112,7 +111,19 @@ $signPackage = $jssdk->GetSignPackage();
 
 					<div class="mui-col-xs-12 mui-col-sm-12 madeSteps" id="otherMade" style="display: none;">
 						<div style="padding: 10px 10px;">
-						222
+							<form class="mui-input-group">
+							    <div class="mui-input-row">
+							        <label>性别定制</label>
+							    	<select name="sexM">
+							        	<option value="1">男女均可</option>
+							        	<option value="2">男</option>
+							        	<option value="3">女</option>
+							        </select>
+							    </div>
+							</form>
+						</div>
+						<div style="padding: 10px 10px;">
+							<button type="button" class="mui-btn mui-btn-success" style="width: 90%;margin: 0 auto;">提交定制</button>
 						</div>
 					</div>
 				</div>
@@ -127,7 +138,7 @@ $signPackage = $jssdk->GetSignPackage();
 				<div class="weui-cells" style="margin-top:0px" >
 		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
 			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
-			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">专业</div></div>
+			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">学科定制</div></div>
 			            <div><div class="placeholder glyphicon glyphicon-ok done_ok1"></div></div>
 			        </div>
 			    </div>
