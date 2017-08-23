@@ -4,7 +4,7 @@ $('#madeT_ul li').click(function(){
 	$(href).show();
 })
 
-$('#segmentedControl .mui-control-item').touchstart(function(){
+$(document).on('touchstart', '#segmentedControl .mui-control-item', function(){
 	// $('#segmentedControl .mui-control-item').each(function(){
 	// 	$(this).removeClass('mui-active');
 	// })
