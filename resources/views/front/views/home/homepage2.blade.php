@@ -71,145 +71,17 @@ $signPackage = $jssdk->GetSignPackage();
 		        <div class="mui-content">
 					<div style="padding: 10px 10px;">
 						<div id="segmentedControl" class="mui-segmented-control">
-							<a class="mui-control-item mui-active" href="#item1">
-						待办公文（8）
-					</a>
-							<a class="mui-control-item" href="#item2">
-						已办公文
-					</a>
-							<a class="mui-control-item" href="#item3">
-						全部公文
-					</a>
+							<a class="mui-control-item mui-active" href="#">
+								待办公文（8）
+							</a>
+									<a class="mui-control-item" href="#">
+								已办公文
+							</a>
+									<a class="mui-control-item" href="#">
+								全部公文
+							</a>
 						</div>
-					</div>
-					<div>
-						<div id="item1" class="mui-control-content mui-active">
-							<div id="scroll" class="mui-scroll-wrapper" data-scroll="1">
-								<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px);">
-									<ul class="mui-table-view">
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-1
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-2
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-3
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-4
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-5
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-6
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-7
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-8
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-9
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-10
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-11
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-12
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-13
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-14
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-15
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-16
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-17
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-18
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-19
-										</li>
-										<li class="mui-table-view-cell">
-											第一个选项卡子项-20
-										</li>
-									</ul>
-								</div>
-							<div class="mui-scrollbar mui-scrollbar-vertical"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: block; height: 25px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
-						</div>
-						<div id="item2" class="mui-control-content">
-							<ul class="mui-table-view">
-								<li class="mui-table-view-cell">
-									第二个选项卡子项-1
-								</li>
-								<li class="mui-table-view-cell">
-									第二个选项卡子项-2
-								</li>
-								<li class="mui-table-view-cell">
-									第二个选项卡子项-3
-								</li>
-							</ul>
-						</div>
-						<div id="item3" class="mui-control-content">
-							<ul class="mui-table-view">
-								<li class="mui-table-view-cell">
-									第三个选项卡子项-1
-								</li>
-								<li class="mui-table-view-cell">
-									第三个选项卡子项-2
-								</li>
-								<li class="mui-table-view-cell">
-									第三个选项卡子项-3
-								</li>
-							</ul>
-						</div>
-					</div>
-					<h5 class="mui-content-padded">Style</h5>
-					<div class="mui-card">
-						<form class="mui-input-group">
-							<div class="mui-input-row mui-radio">
-								<label>按钮</label>
-								<input name="style" type="radio" checked="" value="">
-							</div>
-							<div class="mui-input-row mui-radio">
-								<label>文字</label>
-								<input name="style" type="radio" value="inverted">
-							</div>
-						</form>
-					</div>
-					<h5 class="mui-content-padded">Color</h5>
-					<div class="mui-card">
-						<form class="mui-input-group">
-							<div class="mui-input-row mui-radio">
-								<label><span class="mui-bg-primary" style="display:block;width:25px;height:25px;"></span>
-								</label>
-								<input name="color" type="radio" checked="" value="primary">
-							</div>
-							<div class="mui-input-row mui-radio">
-								<label><span class="mui-bg-positive" style="display:block;width:25px;height:25px;"></span>
-								</label>
-								<input name="color" type="radio" value="positive">
-							</div>
-							<div class="mui-input-row mui-radio">
-								<label><span class="mui-bg-negative" style="display:block;width:25px;height:25px;"></span>
-								</label>
-								<input name="color" type="radio" value="negative">
-							</div>
-						</form>
+					
 					</div>
 				</div>
 	        </div>
@@ -586,34 +458,11 @@ $signPackage = $jssdk->GetSignPackage();
   //   	mui.init({
 		// 	// swipeBack:true //启用右滑关闭功能
 		// });
-		// mui.init({
-		// 	swipeBack: true
-		// });
+		mui.init({
+			swipeBack: true
+		});
     </script>
-    <script>
 
-			mui.init({
-				swipeBack:true //启用右滑关闭功能
-			});
-			(function($) {
-				$('#scroll').scroll({
-					indicators: true //是否显示滚动条
-				});
-				var segmentedControl = document.getElementById('segmentedControl');
-				$('.mui-input-group').on('change', 'input', function() {
-					if (this.checked) {
-						var styleEl = document.querySelector('input[name="style"]:checked');
-						var colorEl = document.querySelector('input[name="color"]:checked');
-						if (styleEl && colorEl) {
-							var style = styleEl.value;
-							var color = colorEl.value;
-							segmentedControl.className = 'mui-segmented-control' + (style ? (' mui-segmented-control-' + style) : '') + ' mui-segmented-control-' + color;
-						}
-					}
-				});
-			})(mui);
-		
-		</script>
     <script type="text/javascript">
     	$(function(){
     		newUserId = '{{$newUserId}}';
