@@ -222,6 +222,18 @@ $signPackage = $jssdk->GetSignPackage();
 			    </div>
 			</div>
 
+			<!-- 学费选择部分 -->
+			<div id="priceMPicker" class="zxjPicker">
+		    	<div class="operatePicker">
+		    		<div class="canclePicker">取消</div>
+		    		<div class="okPicker">确认</div>
+		    	</div>
+		    	<div class="contentPicker">
+		    		<div class="linePicker"></div>
+		    		<div class="linePicker"></div>
+		    	</div>
+		    </div>
+
 			@else
         	<div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">名师定制功能正在开发中</span>
