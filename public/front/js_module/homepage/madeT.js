@@ -32,5 +32,5 @@ $('#subjectMade').click(function(){
 $('.selectMade').click(function(){
 	$(this).hide();
 	$(this).next().show();
-	$(this).next().find('option')[0].attr('selected', 'selected');
+	$(this).next()[0].click();
 })
