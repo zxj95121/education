@@ -66,7 +66,7 @@ $signPackage = $jssdk->GetSignPackage();
 	                    <div class="mui-media-body">教师定制</div></a></li>
 	            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" hr="#madeT_made"><a href="#">
 	                    <span class="mui-icon mui-icon-paperclip"><span class="mui-badge">5</span></span>
-	                    <div class="mui-media-body">历史定制</div></a></li>
+	                    <div class="mui-media-body">定制历史</div></a></li>
 	        </ul>
 	       
 	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history">
@@ -513,6 +513,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 		}
 		$('#eclass1').unbind('click');
+		console.log($('#eclass1'));
         $(document).on('click', '#eclass1', function(e){
             $('#eclass').load('/front/twoClass', function(){
             	setCartPosition();
