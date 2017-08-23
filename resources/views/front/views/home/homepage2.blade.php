@@ -136,7 +136,7 @@ $signPackage = $jssdk->GetSignPackage();
         	</div>
     	</div>
 	@endif
-    <div class="container-fluid mui-control-content" id="my" style="display:none">
+    <div class="container-fluid" id="my" style="display:none">
         <!-- header start -->
         <div class="row" id="my_header" style="position: relative;">
             <div class="col-xs-2" id="my_header_img">
