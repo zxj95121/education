@@ -1,5 +1,7 @@
 
-
+	$('#sliderProgressBar .mui-slider-item').each(function(){
+		$(this).css('height', $(this).find('.mui-scroll').css('height'));
+	})
 	$('.mui-scroll-wrapper').scroll({
 		indicators: true //是否显示滚动条
 	});

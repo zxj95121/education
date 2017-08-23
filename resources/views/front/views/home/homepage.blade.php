@@ -714,7 +714,7 @@ function cartInit(){
 		// 	// swipeBack:true //启用右滑关闭功能
 		// });
 		mui.init({
-			swipeBack: false
+			swipeBack: true
 		});
     </script>
     @else
