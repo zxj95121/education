@@ -20,7 +20,7 @@
 	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #0fc5e2), color-stop(1, #1483b5));
 }
 #madeT_ul .mui-media-body,#madeT_ul li{
-	user-select: none;
+	-webkit-user-select: none;
 	color: #FFF;
 	cursor: pointer;
 }
