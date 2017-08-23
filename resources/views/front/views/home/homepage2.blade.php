@@ -458,16 +458,27 @@ $signPackage = $jssdk->GetSignPackage();
     		var url = [];	
     		url = window.location.href.split('#');
     		if(url.length == 1){
-    			$('#my1').trigger('click');
+    			// $('#my1').trigger('click');
+    			tabFunc(my);
     		}else{
     			var obj = document.getElementById(url[1]);
     			if(obj){
-        			$('#'+url[1]+'1').trigger('click');
+        			// $('#'+url[1]+'1').trigger('click');
+        			tabFunc(url[1]);
     			}else{
-    				$('#my1').trigger('click');
+    				// $('#my1').trigger('click');
+    				tabFunc(my);
     			}
     		}
         })
+
+        function tabFunc(tab){
+        	$('.mui-control-content').each(function(){
+        		$(this).remove('mui-active');
+        		$('#'.tab).addClass('mui-active');
+        	})
+        }
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': '{{csrf_token()}}'
