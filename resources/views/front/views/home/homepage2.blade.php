@@ -58,7 +58,7 @@ $signPackage = $jssdk->GetSignPackage();
 <body>
 	@if($userType->type == 2)
 		@if($parentDetail->type == 1)
-		<div class="mui-control-content" id="teacher1" style="display: none;">
+		<div class="container-fluid mui-control-content" id="teacher1" style="display: none;">
 			@if($parentDetail->id == 21)
 			<ul class="mui-table-view mui-grid-view mui-grid-9" id="madeT_ul">
 	            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" hr="#madeT_made"><a href="#">
@@ -78,46 +78,46 @@ $signPackage = $jssdk->GetSignPackage();
         	</div>
         	@endif
     	</div>
-    	<div class="mui-control-content" id="classroom1" style="display: none;">
+    	<div class="container-fluid mui-control-content" id="classroom1" style="display: none;">
         	 <div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">教室定制功能正在开发中</span>
         	</div>
     	</div>
-    	<div class="mui-control-content" id="eclass1" style="display: none; padding:0">
+    	<div class="container-fluid mui-control-content" id="eclass1" style="display: none; padding:0">
         	<div id="twoclass">
         	</div>
     	</div>
     	@elseif($parentDetail->type == 2)
-    	<div class="mui-control-content" id="teacher" style="display: none;">
+    	<div class="container-fluid mui-control-content" id="teacher" style="display: none;">
         	<div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">名师定制功能正在开发中</span>
         	</div>
     	</div>
     	@else
-    	<div class="mui-control-content" id="teacher" style="display: none;">
+    	<div class="container-fluid mui-control-content" id="teacher" style="display: none;">
         	<div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">名师定制功能正在开发中</span>
         	</div>
     	</div>
     	@endif
 	@elseif($userType->type == 3)
-		<div class="mui-control-content" id="studytime" style="display: none;">
+		<div class="container-fluid mui-control-content" id="studytime" style="display: none;">
         	<div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">功能正在开发中</span>
         	</div>
     	</div>
-    	<div class="mui-control-content" id="studyplace" style="display: none;">
+    	<div class="container-fluid mui-control-content" id="studyplace" style="display: none;">
         	 <div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">功能正在开发中</span>
         	</div>
     	</div>
-    	<div class="mui-control-content" id="salary" style="display: none; padding:0">
+    	<div class="container-fluid mui-control-content" id="salary" style="display: none; padding:0">
         	 <div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">功能正在开发中</span>
         	</div>
     	</div>
 	@endif
-    <div class="mui-control-content" id="my1" style="display:none">
+    <div class="container-fluid mui-control-content" id="my1" style="display:none">
         <!-- header start -->
         <div class="row" id="my_header" style="position: relative;">
             <div class="col-xs-2" id="my_header_img">
