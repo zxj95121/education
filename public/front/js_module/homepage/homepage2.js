@@ -13,6 +13,7 @@ $(function(){
 			$(this).find('img').attr('src', src);
 		})
 		// $('#'+forDiv).css('display', 'block');
+		console.log($(this).html());
 		$(this).find('img').attr('src', $(this).find('img').attr('src').replace('.png', '_fill.png'));
 	})
 
