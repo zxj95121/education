@@ -10,7 +10,10 @@ $signPackage = $jssdk->GetSignPackage();
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
     <title>加辰教育</title>
     <!-- 引入 WeUI -->
+    @if($userType->type == 2 && $parentDetail->id == 21)
     <link rel="stylesheet" type="text/css" href="/js/mui/dist/css/mui.css">
+    @else
+    @endif
     <link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/css/weui.css"/>
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/my.css">
@@ -55,7 +58,7 @@ $signPackage = $jssdk->GetSignPackage();
 <body>
 	@if($userType->type == 2)
 		@if($parentDetail->type == 1)
-		<div class="container-fluid mui-control-content" id="teacher">
+		<div class="container-fluid" id="teacher" style="display: none;">
 			@if($parentDetail->id == 21)
 			<ul class="mui-table-view mui-grid-view mui-grid-9" id="madeT_ul">
 	            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" hr="#madeT_made"><a href="#">
@@ -63,9 +66,28 @@ $signPackage = $jssdk->GetSignPackage();
 	                    <div class="mui-media-body">教师定制</div></a></li>
 	            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" hr="#madeT_made"><a href="#">
 	                    <span class="mui-icon mui-icon-paperclip"><span class="mui-badge">5</span></span>
-	                    <div class="mui-media-body">定制历史</div></a></li>
+	                    <div class="mui-media-body">历史定制</div></a></li>
 	        </ul>
-	       
+	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_made">
+	        	<nav class="mui-bar mui-bar-tab">
+					<a class="mui-tab-item" href="#teacher1">
+						<span class="mui-icon mui-icon-home"></span>
+						<span class="mui-tab-label">首页</span>
+					</a>
+					<a class="mui-tab-item" href="#classroom1">
+						<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+						<span class="mui-tab-label">消息</span>
+					</a>
+					<a class="mui-tab-item" href="#eclass1">
+						<span class="mui-icon mui-icon-contact"></span>
+						<span class="mui-tab-label">通讯录</span>
+					</a>
+					<a class="mui-tab-item mui-active" href="#my1">
+						<span class="mui-icon mui-icon-gear"></span>
+						<span class="mui-tab-label">设置</span>
+					</a>
+				</nav>
+	        </div>
 	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history">
 	        	
 	        </div>
@@ -75,46 +97,46 @@ $signPackage = $jssdk->GetSignPackage();
         	</div>
         	@endif
     	</div>
-    	<div class="container-fluid mui-control-content" id="classroom">
+    	<div class="container-fluid" id="classroom" style="display: none;">
         	 <div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">教室定制功能正在开发中</span>
         	</div>
     	</div>
-    	<div class="container-fluid mui-control-content" id="eclass" style="padding:0">
+    	<div class="container-fluid" id="eclass" style="display: none; padding:0">
         	<div id="twoclass">
         	</div>
     	</div>
     	@elseif($parentDetail->type == 2)
-    	<div class="container-fluid mui-control-content" id="teacher">
+    	<div class="container-fluid" id="teacher" style="display: none;">
         	<div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">名师定制功能正在开发中</span>
         	</div>
     	</div>
     	@else
-    	<div class="container-fluid mui-control-content" id="teacher">
+    	<div class="container-fluid" id="teacher" style="display: none;">
         	<div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">名师定制功能正在开发中</span>
         	</div>
     	</div>
     	@endif
 	@elseif($userType->type == 3)
-		<div class="container-fluid mui-control-content" id="studytime">
+		<div class="container-fluid" id="studytime" style="display: none;">
         	<div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">功能正在开发中</span>
         	</div>
     	</div>
-    	<div class="container-fluid mui-control-content" id="studyplace">
+    	<div class="container-fluid" id="studyplace" style="display: none;">
         	 <div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">功能正在开发中</span>
         	</div>
     	</div>
-    	<div class="container-fluid mui-control-content" id="salary" style="padding:0">
+    	<div class="container-fluid" id="salary" style="display: none; padding:0">
         	 <div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">功能正在开发中</span>
         	</div>
     	</div>
 	@endif
-    <div class="container-fluid mui-control-content" id="my">
+    <div class="container-fluid mui-control-content" id="my" style="display:none">
         <!-- header start -->
         <div class="row" id="my_header" style="position: relative;">
             <div class="col-xs-2" id="my_header_img">
@@ -332,35 +354,7 @@ $signPackage = $jssdk->GetSignPackage();
 	    </div>
    	@elseif($userType->type == 2)
    		@if($parentDetail->type == 1)
-
-        	<nav class="mui-bar mui-bar-tab" id="all_bottom" style="position: fixed;z-index: 9999;">
-				<a class="mui-tab-item" for="teacher" href="#teacher" id="teacher1" style="cursor: pointer;">
-					<span style="display: inline-block;position: relative;">
-		                <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
-		            </span><br>
-					<span class="mui-tab-label">名师定制</span>
-				</a>
-				<a class="mui-tab-item" for="classroom" href="#classroom" id="classroom1" style="cursor: pointer;">
-					<span style="display: inline-block;position: relative;">
-		                <img src="/images/home/menu_classroom.png" alt="" class="weui-tabbar__icon">
-		            </span><br>
-					<span class="mui-tab-label">教室定制</span>
-				</a>
-				<a class="mui-tab-item" for="eclass" href="#eclass" id="eclass1" style="cursor: pointer;">
-					<span style="display: inline-block;position: relative;">
-		                <img src="/images/home/menu_class.png" alt="" class="weui-tabbar__icon">
-		            </span><br>
-					<span class="mui-tab-label">双师class</span>
-				</a>
-				<a class="mui-tab-item" for="my" href="#my" id="my1" style="cursor: pointer;">
-					<span style="display: inline-block;position: relative;">
-		                <img src="/images/home/menu_my.png" alt="" class="weui-tabbar__icon">
-		            </span><br>
-					<span class="mui-tab-label">我的加辰</span>
-				</a>
-			</nav>
-
-<!--    		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
+   		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
 	        <a href="javascript:void(0);" class="weui-tabbar__item" for="teacher" id="teacher1">
 	            <span style="display: inline-block;position: relative;">
 	                <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
@@ -381,7 +375,7 @@ $signPackage = $jssdk->GetSignPackage();
 	            <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
 	            <p class="weui-tabbar__label">我的加辰</p>
 	        </a>
-	    </div> -->
+	    </div>
 	    @else
 	    <div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
 	        <a href="javascript:void(0);" class="weui-tabbar__item" for="teacher" id="teacher1">
@@ -423,25 +417,22 @@ $signPackage = $jssdk->GetSignPackage();
    	@endif
     <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="/js/layui/layer_only/mobile/layer.js"></script>
-    <script type="text/javascript" src="/front/js_module/homepage/homepage2.js"></script>
-    <!-- <script type="text/javascript" src="/front/js_module/homepage/homepage.js"></script> -->
+    <script type="text/javascript" src="/front/js_module/homepage/homepage.js"></script>
     <script type="text/javascript" src="/front/js_module/homepage/my.js"></script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script type="text/javascript" src="/js/json2.js"></script>
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
-    <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script>
     @if($userType->type == 2 && $parentDetail->id == 21)
+    <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script>
     <script type="text/javascript" src="/front/js_module/homepage/madeT.js?v={{rand(1,1000)}}"></script>
     @else
     @endif
-    <script type="text/javascript">
-  //   	mui.init({
-		// 	// swipeBack:true //启用右滑关闭功能
-		// });
-		mui.init({
-			swipeBack: true
-		});
-    </script>
+    <script type="text/javascript" class="tabbar js_show">
+    $(function(){
+        $('.weui-tabbar__item').on('click', function () {
+            $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+        });
+    });</script>
     <script type="text/javascript">
     	$(function(){
     		newUserId = '{{$newUserId}}';
@@ -453,32 +444,16 @@ $signPackage = $jssdk->GetSignPackage();
     		var url = [];	
     		url = window.location.href.split('#');
     		if(url.length == 1){
-    			// $('#my1').trigger('click');
-    			tabFunc(my);
+    			$('#my1').trigger('click');
     		}else{
     			var obj = document.getElementById(url[1]);
     			if(obj){
-        			// $('#'+url[1]+'1').trigger('click');
-        			tabFunc(url[1]);
+        			$('#'+url[1]+'1').trigger('click');
     			}else{
-    				// $('#my1').trigger('click');
-    				tabFunc(my);
+    				$('#my1').trigger('click');
     			}
     		}
         })
-
-        function tabFunc(tab){
-        	$('.mui-tab-item').each(function(){
-        		$(this).removeClass('mui-active');
-        	})
-        	$('.mui-control-content').each(function(){
-        		$(this).removeClass('mui-active');
-        	})
-
-        	$('#'+tab+'1').addClass('mui-active');
-        	$('#'+tab).addClass('mui-active');
-        	$('#'+tab+'1').find('img').attr('src', $('#'+tab+'1').find('img').attr('src').replace('.png', '_fill.png'));
-        }
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': '{{csrf_token()}}'
@@ -523,10 +498,7 @@ $signPackage = $jssdk->GetSignPackage();
 			}
 
 		}
-		// $('#eclass1').unbind('click');
-		// $('#all_bottom').unbind('click');
-		// console.log($('#eclass1'));
-        // $(document).on('click', '#eclass1', function(e){
+        $('#eclass1').click(function(){
             $('#eclass').load('/front/twoClass', function(){
             	setCartPosition();
             	$.ajax({
@@ -570,7 +542,7 @@ $signPackage = $jssdk->GetSignPackage();
         	includeLink("/front/my/twoclass.js","js");
 
         	
-        // })
+        })
 
         function setCartPosition(){
 			var bottomHeight = $('#all_bottom').height();
@@ -659,6 +631,17 @@ function cartInit(){
 }
     </script>
 
+    @if($userType->type == 2 && $parentDetail->id == 21)
+    <script type="text/javascript">
+  //   	mui.init({
+		// 	// swipeBack:true //启用右滑关闭功能
+		// });
+		mui.init({
+			swipeBack: true
+		});
+    </script>
+    @else
+    @endif
     <script type="text/javascript">
   //   	closeStatus =0;
   //   	window.onpopstate = function(event) {

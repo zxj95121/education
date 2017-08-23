@@ -10,10 +10,7 @@ $signPackage = $jssdk->GetSignPackage();
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
     <title>加辰教育</title>
     <!-- 引入 WeUI -->
-    @if($userType->type == 2 && $parentDetail->id == 21)
     <link rel="stylesheet" type="text/css" href="/js/mui/dist/css/mui.css">
-    @else
-    @endif
     <link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/css/weui.css"/>
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/my.css">
@@ -432,12 +429,11 @@ $signPackage = $jssdk->GetSignPackage();
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script type="text/javascript" src="/js/json2.js"></script>
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
-    @if($userType->type == 2 && $parentDetail->id == 21)
     <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script>
+    @if($userType->type == 2 && $parentDetail->id == 21)
     <script type="text/javascript" src="/front/js_module/homepage/madeT.js?v={{rand(1,1000)}}"></script>
     @else
     @endif
-    @if($userType->type == 2 && $parentDetail->id == 21)
     <script type="text/javascript">
   //   	mui.init({
 		// 	// swipeBack:true //启用右滑关闭功能
@@ -446,8 +442,6 @@ $signPackage = $jssdk->GetSignPackage();
 			swipeBack: true
 		});
     </script>
-    @else
-    @endif
     <script type="text/javascript">
     	$(function(){
     		newUserId = '{{$newUserId}}';
