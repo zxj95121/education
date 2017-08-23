@@ -49,7 +49,7 @@ $('#priceM').click(function(){
 
 	var arr2 = new Array();
 	arr2[0] = new Object();
-	arr2[0].name = ' / 月',
+	arr2[0].name = '时',
 	arr2[0].value = '1';
 
 	/*为content提供变量，仅此而已结束*/
@@ -60,9 +60,9 @@ $('#priceM').click(function(){
     	content: [
     		arr1,arr2/*content必填项，但数组元素个数可1个，可2个，可3个等*/
     	],
-    	default: [
-    		150, 1
-    	],/*default，可选项，设置打开picker时默认展示的值*/
+    	// default: [
+    	// 	150, 1
+    	// ],/*default，可选项，设置打开picker时默认展示的值*/
     	select: function(result){
     		console.log(result);/*result响应用户选择的内容*/
 			/*select结束*/

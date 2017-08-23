@@ -5,6 +5,7 @@
 	left: 0;
 	background: rgba(102,102,102, 0.8);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66F4F7ED, endColorstr=#66F4F7ED);
+	z-index: 99999;
 }
 
 .zxjPicker{
