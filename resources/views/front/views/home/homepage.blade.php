@@ -14,7 +14,10 @@ $signPackage = $jssdk->GetSignPackage();
     <link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/css/weui.css"/>
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/my.css">
+    @if($parentDetail->id == 21)
     <link rel="stylesheet" type="text/css" href="/js/mui/dist/css/mui.min.css">
+    @else
+    @endif
     <style type="text/css">
 	    #twoclass{
 	    	position: relative;
@@ -611,6 +614,13 @@ function cartInit(){
 	}
 }
     </script>
+
+    @if($parentDetail->id == 21)
+    <script type="text/javascript">
+    	
+    </script>
+    @else
+    @endif
     <script type="text/javascript">
   //   	closeStatus =0;
   //   	window.onpopstate = function(event) {
