@@ -517,6 +517,12 @@ $signPackage = $jssdk->GetSignPackage();
     <script type="text/javascript" src="/front/js_module/homepage/madeT.js?v={{rand(1,1000)}}"></script>
     @else
     @endif
+    <script type="text/javascript" class="tabbar js_show">
+    $(function(){
+        $('.weui-tabbar__item').on('click', function () {
+            $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+        });
+    });</script>
     <script type="text/javascript">
     	$(function(){
     		newUserId = '{{$newUserId}}';
