@@ -1,6 +1,9 @@
 $(function(){
 	// var height = document.documentElement.clientHeight;
 	/*底部点击效果*/
+	$('#all_bottom .mui-tab-item').touchstart(function(){
+		console.log(1);
+	})
 	$('#all_bottom .mui-tab-item').click(function(e){
 		var forDiv = $(this).attr('for');
 		history.pushState('', '', '/front/home#'+forDiv);
