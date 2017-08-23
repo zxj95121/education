@@ -9,3 +9,11 @@
 	border-left: 0px solid transparent;
 	border-top: 0px solid transparent;
 }
+
+#madeT_ul{
+	color: #FFF;
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #0fc5e2), color-stop(1, #22aae8));
+}
+.madeT_ul .mui-media-body{
+	color: #FFF;
+}

@@ -60,7 +60,7 @@ $signPackage = $jssdk->GetSignPackage();
 		@if($parentDetail->type == 1)
 		<div class="container-fluid" id="teacher" style="display: none;">
 			@if($parentDetail->id == 21)
-			<ul class="mui-table-view mui-grid-view mui-grid-9">
+			<ul class="mui-table-view mui-grid-view mui-grid-9" id="madeT_ul">
 	            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6"><a href="#">
 	                    <span class="mui-icon mui-icon-compose"></span>
 	                    <div class="mui-media-body">教师定制</div></a></li>
