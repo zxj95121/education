@@ -87,7 +87,7 @@ $signPackage = $jssdk->GetSignPackage();
 							<form class="mui-input-group">
 							    <div class="mui-input-row">
 							        <label>学科定制</label>
-							    	<input type="text" placeholder="选择学科" readonly="readonly">
+							    	<input type="text" placeholder="选择学科" id="subjectMade" readonly="readonly">
 							    </div>
 							    <div class="mui-input-row">
 							        <label>学历定制</label>
