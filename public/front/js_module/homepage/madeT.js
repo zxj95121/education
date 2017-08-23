@@ -21,12 +21,12 @@ var height = document.documentElement.clientHeight;
 $('.page_set').css({'height': height+'px','top': height+'px'});
 
 $('.done_romove').click(function(){
-	$(this).parents('.page_set').show().animate({'top': height+'px'}, 250);
+	$(this).parents('.page_set').animate({'top': height+'px'}, 250);
 })
 
 $('#subjectMade').click(function(){
 	// mui('.mui-popover-subject').popover('toggle',document.getElementById("openPopover"));
-	$('#subjectPopover').animate({'top': '0px'},250);
+	$('#subjectPopover').show().animate({'top': '0px'},250);
 })
 
 $('.selectMade').click(function(){
