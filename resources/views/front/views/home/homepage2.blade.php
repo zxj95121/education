@@ -132,14 +132,16 @@ $signPackage = $jssdk->GetSignPackage();
 			        </div>
 			    </div>
 			    <div style="width: 97%;margin: 0 auto;" class="div_detail">
-			    	<div class="weui-cells__title"><span>3</span>/10</div>
-			    	<div class="weui-cells">
-			            <div class="weui-cell">
-			                <div class="weui-cell__bd">
-			                    <input class="weui-input input_set" name="project" type="text" placeholder="所学专业">
-			                </div>
-			            </div>
-       				</div>
+			    	<div class="mui-content subject_type">
+			    		<h5>打开</h5>
+			    		<button type="button" class="mui-btn mui-btn-outlined">默认</button>
+			    		<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">蓝色</button>
+			    	</div>
+			    	<div class="mui-content subject_type">
+			    		<h5>打开2</h5>
+			    		<button type="button" class="mui-btn mui-btn-outlined">默认2</button>
+			    		<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">蓝色2</button>
+			    	</div>
 			    </div>
 			</div>
 			@else
