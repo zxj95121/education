@@ -25,8 +25,11 @@ $('.done_romove').click(function(){
 })
 
 $('#subjectMade').click(function(){
-	// mui('.mui-popover-subject').popover('toggle',document.getElementById("openPopover"));
 	$('#subjectPopover').show().animate({'top': '0px'},250);
+})
+
+$('#hobbyMade').click(function(){
+	$('#hobbyPopover').show().animate({'top': '0px'},250);
 })
 
 $('.selectMade').click(function(){

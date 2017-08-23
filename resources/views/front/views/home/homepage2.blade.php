@@ -93,7 +93,7 @@ $signPackage = $jssdk->GetSignPackage();
 							        <label>学历定制</label>
 
 							        <input type="text" placeholder="选择学历" readonly="readonly">
-							        <select class="selectMade" name="educationM" style="opacity: 0;z-index:2;position: relative;top: -38px;">
+							        <select class="selectMade" name="educationM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
 							        	<option value="1">研究生</option>
 							        	<option value="2">本科生</option>
 							        	<option value="3">专科生</option>
@@ -102,7 +102,7 @@ $signPackage = $jssdk->GetSignPackage();
 							</form>
 						</div>
 						<div style="padding: 10px 10px;">
-							<button type="button" class="mui-btn mui-btn-success" style="width: 100%;height: 40px;">提交定制</button>
+							<button type="button" class="mui-btn mui-btn-success" style="width: 100%;height: 40px;font-size: 1.5em;line-height: 40px;">提交定制</button>
 						</div>
 					</div>
 
@@ -116,16 +116,20 @@ $signPackage = $jssdk->GetSignPackage();
 							    <div class="mui-input-row">
 							        <label>性别定制</label>
 							        <input type="text" placeholder="性别要求" readonly="readonly">
-							    	<select class="selectMade" name="sexM" style="opacity: 0;z-index:2;position: relative;top: -38px;">
+							    	<select class="selectMade" name="sexM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
 							        	<option value="1">男女均可</option>
 							        	<option value="2">男</option>
 							        	<option value="3">女</option>
 							        </select>
 							    </div>
+							    <div class="mui-input-row">
+							        <label>特长定制</label>
+							    	<input type="text" placeholder="选择特长" id="hobbyMade" readonly="readonly">
+							    </div>
 							</form>
 						</div>
 						<div style="padding: 10px 10px;">
-							<button type="button" class="mui-btn mui-btn-success" style="width: 100%;height: 40px;">提交定制</button>
+							<button type="button" class="mui-btn mui-btn-success" style="width: 100%;height: 40px;font-size: 1.5em;line-height: 40px;">提交定制</button>
 						</div>
 					</div>
 				</div>
@@ -159,6 +163,31 @@ $signPackage = $jssdk->GetSignPackage();
 			    	</div>
 			    </div>
 			</div>
+
+			<div class="page__bd page_set" id="hobbyPopover">
+				<div class="weui-cells" style="margin-top:0px" >
+		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
+			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
+			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">特长定制</div></div>
+			            <div><div class="placeholder glyphicon glyphicon-ok done_ok1"></div></div>
+			        </div>
+			    </div>
+			    <div style="width: 100%;margin: 0 auto;" class="div_detail">
+			    	<div class="mui-content" style="padding: 6px;">
+			    		<div class="mui-col-xs-12 mui-col-sm-12 subject_type">
+				    		<h5>特长1</h5>
+				    		<button type="button" class="mui-btn">默认</button>
+							<button type="button" class="mui-btn mui-btn-primary">蓝色</button>
+						</div>
+						<div class="mui-col-xs-12 mui-col-sm-12 subject_type">
+				    		<h5>打开2</h5>
+				    		<button type="button" class="mui-btn">默认</button>
+							<button type="button" class="mui-btn mui-btn-primary">蓝色</button>
+						</div>
+			    	</div>
+			    </div>
+			</div>
+
 			@else
         	<div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">名师定制功能正在开发中</span>
