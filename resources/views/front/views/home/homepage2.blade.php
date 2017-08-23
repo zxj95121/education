@@ -513,7 +513,8 @@ $signPackage = $jssdk->GetSignPackage();
 
 		}
 		$('#eclass1').unbind('click');
-		console.log($('#eclass1'));
+		$('#all_bottom').unbind('click');
+		// console.log($('#eclass1'));
         $(document).on('click', '#eclass1', function(e){
             $('#eclass').load('/front/twoClass', function(){
             	setCartPosition();
