@@ -28,3 +28,9 @@ $('#subjectMade').click(function(){
 	// mui('.mui-popover-subject').popover('toggle',document.getElementById("openPopover"));
 	$('#subjectPopover').animate({'top': '0px'},250);
 })
+
+$('.selectMade').click(function(){
+	$(this).hide();
+	$(this).next().show();
+	$(this).next().find('option')[0].attr('selected', 'selected');
+})
