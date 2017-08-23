@@ -1,20 +1,20 @@
 $(function(){
 	// var height = document.documentElement.clientHeight;
 	/*底部点击效果*/
-	// $('#all_bottom .weui-tabbar__item').click(function(e){
-	// 	var forDiv = $(this).attr('for');
-	// 	history.pushState('', '', '/front/home#'+forDiv);
-	// 	// console.log(forDiv);
-	// 	$('#all_bottom .weui-tabbar__item').each(function(){
-	// 		var sforDiv = $(this).attr('for');
-	// 		$('#'+sforDiv).css('display', 'none');
-	// 		var src = $(this).find('img').attr('src');
-	// 		src = src.replace('_fill','');
-	// 		$(this).find('img').attr('src', src);
-	// 	})
-	// 	$('#'+forDiv).css('display', 'block');
-	// 	$(this).find('img').attr('src', $(this).find('img').attr('src').replace('.png', '_fill.png'));
-	// })
+	$('#all_bottom .weui-tabbar__item').click(function(e){
+		var forDiv = $(this).attr('for');
+		history.pushState('', '', '/front/home#'+forDiv);
+		// console.log(forDiv);
+		$('#all_bottom .weui-tabbar__item').each(function(){
+			var sforDiv = $(this).attr('for');
+			$('#'+sforDiv).css('display', 'none');
+			var src = $(this).find('img').attr('src');
+			src = src.replace('_fill','');
+			$(this).find('img').attr('src', src);
+		})
+		$('#'+forDiv).css('display', 'block');
+		$(this).find('img').attr('src', $(this).find('img').attr('src').replace('.png', '_fill.png'));
+	})
 
 	var imgUrl = new Array(
 		'/images/home/menu_teach.png',
