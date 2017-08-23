@@ -68,26 +68,7 @@ $signPackage = $jssdk->GetSignPackage();
 	                    <span class="mui-icon mui-icon-paperclip"><span class="mui-badge">5</span></span>
 	                    <div class="mui-media-body">历史定制</div></a></li>
 	        </ul>
-	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_made">
-	        	<nav class="mui-bar mui-bar-tab">
-					<a class="mui-tab-item" href="#teacher1">
-						<span class="mui-icon mui-icon-home"></span>
-						<span class="mui-tab-label">首页</span>
-					</a>
-					<a class="mui-tab-item" href="#classroom1">
-						<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
-						<span class="mui-tab-label">消息</span>
-					</a>
-					<a class="mui-tab-item" href="#eclass1">
-						<span class="mui-icon mui-icon-contact"></span>
-						<span class="mui-tab-label">通讯录</span>
-					</a>
-					<a class="mui-tab-item mui-active" href="#my1">
-						<span class="mui-icon mui-icon-gear"></span>
-						<span class="mui-tab-label">设置</span>
-					</a>
-				</nav>
-	        </div>
+	       
 	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history">
 	        	
 	        </div>
@@ -354,6 +335,28 @@ $signPackage = $jssdk->GetSignPackage();
 	    </div>
    	@elseif($userType->type == 2)
    		@if($parentDetail->type == 1)
+   		
+        	<nav class="mui-bar mui-bar-tab" id="all_bottom" style="position: fixed;z-index: 9999;">
+				<a class="mui-tab-item" href="#teacher1">
+					<span style="display: inline-block;position: relative;">
+		                <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
+		            </span>
+					<span class="mui-tab-label">名师定制</span>
+				</a>
+				<a class="mui-tab-item" href="#classroom1">
+					<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+					<span class="mui-tab-label">消息</span>
+				</a>
+				<a class="mui-tab-item" href="#eclass1">
+					<span class="mui-icon mui-icon-contact"></span>
+					<span class="mui-tab-label">通讯录</span>
+				</a>
+				<a class="mui-tab-item mui-active" href="#my1">
+					<span class="mui-icon mui-icon-gear"></span>
+					<span class="mui-tab-label">设置</span>
+				</a>
+			</nav>
+
    		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
 	        <a href="javascript:void(0);" class="weui-tabbar__item" for="teacher" id="teacher1">
 	            <span style="display: inline-block;position: relative;">
