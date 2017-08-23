@@ -407,7 +407,7 @@ $signPackage = $jssdk->GetSignPackage();
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
     @if($parentDetail->id == 21)
     <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script>
-    <script type="text/javascript" src="/front/js_module/homepage/madeT.js"></script>
+    <script type="text/javascript" src="/front/js_module/homepage/madeT.js?v={{rand(1,1000)}}"></script>
     @else
     @endif
     <script type="text/javascript">
