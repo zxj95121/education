@@ -83,7 +83,7 @@
       					<li class="item-content">
         					<div class="item-media"><i class="icon icon-f7"></i></div>
         					<div class="item-inner">
-          						<div class="item-title">可用代金券</div>
+          						<div class="item-title">代金券</div>
           						<div class="item-after">@if($vouNum == 0)无可用@else 88元*{{$vouNum}}张@endif</div>
         					</div>
       					</li>

@@ -85,7 +85,7 @@ $signPackage = $jssdk->GetSignPackage();
   					<li class="item-content">
     					<div class="item-media"><i class="icon icon-f7"></i></div>
     					<div class="item-inner">
-      						<div class="item-title">优惠后金额</div>
+      						<div class="item-title">结算金额</div>
       						<div class="item-after" style="font-weight: bold;">¥ {{number_format((string)$price, 2)}}</div>
     					</div>
   					</li>
