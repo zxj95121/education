@@ -514,6 +514,7 @@ $signPackage = $jssdk->GetSignPackage();
 		}
         $('#eclass1').click(function(e){
         	// e.stoppropagation();
+        	e.stopImmediatePropagation();
             $('#eclass').load('/front/twoClass', function(){
             	setCartPosition();
             	$.ajax({
