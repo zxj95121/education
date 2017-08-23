@@ -19,6 +19,7 @@ class ClassPackageController extends Controller
     public function index(Request $request)
     {
     	$id = $request->input('id', '');
+        Session::forget('hasOrder');
     	if (!$id) {
     		/*没有带id参数*/
     		return redirect('/front/error_403');

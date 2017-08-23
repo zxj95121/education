@@ -23,6 +23,7 @@ class HomeController extends Controller
     public function home()
     {
     	$openid = Session::get('openid');
+        Session::forget('hasOrder');
 
 		$res = $this->userType($openid);
     	if (count($res['userType'])){
