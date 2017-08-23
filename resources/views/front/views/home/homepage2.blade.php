@@ -337,25 +337,25 @@ $signPackage = $jssdk->GetSignPackage();
    		@if($parentDetail->type == 1)
 
         	<nav class="mui-bar mui-bar-tab" id="all_bottom" style="position: fixed;z-index: 9999;">
-				<a class="mui-tab-item" for="teacher" href="#teacher">
+				<a class="mui-tab-item" for="teacher" href="#teacher" id="teacher1">
 					<span style="display: inline-block;position: relative;">
 		                <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
 		            </span><br>
 					<span class="mui-tab-label">名师定制</span>
 				</a>
-				<a class="mui-tab-item" for="classroom" href="#classroom">
+				<a class="mui-tab-item" for="classroom" href="#classroom" id="classroom1">
 					<span style="display: inline-block;position: relative;">
 		                <img src="/images/home/menu_classroom.png" alt="" class="weui-tabbar__icon">
 		            </span><br>
 					<span class="mui-tab-label">教室定制</span>
 				</a>
-				<a class="mui-tab-item" for="eclass" href="#eclass">
+				<a class="mui-tab-item" for="eclass" href="#eclass" id="eclass1">
 					<span style="display: inline-block;position: relative;">
 		                <img src="/images/home/menu_class.png" alt="" class="weui-tabbar__icon">
 		            </span><br>
 					<span class="mui-tab-label">双师class</span>
 				</a>
-				<a class="mui-tab-item mui-active" for="my" href="#my">
+				<a class="mui-tab-item mui-active" for="my" href="#my" id="my1">
 					<span style="display: inline-block;position: relative;">
 		                <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
 		            </span><br>
