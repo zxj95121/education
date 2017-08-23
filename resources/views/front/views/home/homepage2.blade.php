@@ -618,6 +618,10 @@ $signPackage = $jssdk->GetSignPackage();
     				// $('#my1').trigger('click');
     				tabFunc('my');
     			}
+    			if(url[1] == 'teacher') {
+    				includeLink('/front/css_module/picker.css', 'css');
+					includeLink('/front/js_module/picker.js', 'js');
+    			}
     		}
         })
 
