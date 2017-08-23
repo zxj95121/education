@@ -454,7 +454,7 @@ $signPackage = $jssdk->GetSignPackage();
     		url = window.location.href.split('#');
     		if(url.length == 1){
     			// $('#my1').trigger('click');
-    			tabFunc(my);
+    			tabFunc('my');
     		}else{
     			var obj = document.getElementById(url[1]);
     			if(obj){
@@ -462,7 +462,7 @@ $signPackage = $jssdk->GetSignPackage();
         			tabFunc(url[1]);
     			}else{
     				// $('#my1').trigger('click');
-    				tabFunc(my);
+    				tabFunc('my');
     			}
     		}
         })
