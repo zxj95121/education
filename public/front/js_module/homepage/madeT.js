@@ -47,10 +47,10 @@ $('#priceM').click(function(){
 		j += 10;
 	}
 
-	var arr2 = new Array();
-	arr2[0] = new Object();
-	arr2[0].name = '时',
-	arr2[0].value = '1';
+	// var arr2 = new Array();
+	// arr2[0] = new Object();
+	// arr2[0].name = '时',
+	// arr2[0].value = '1';
 
 	/*为content提供变量，仅此而已结束*/
 
@@ -58,7 +58,7 @@ $('#priceM').click(function(){
     	id: 'priceMPicker', /*div的ID*/
     	action: 'priceM',/*要响应的button的ID*/
     	content: [
-    		arr1,arr2/*content必填项，但数组元素个数可1个，可2个，可3个等*/
+    		arr1/*content必填项，但数组元素个数可1个，可2个，可3个等*/
     	],
     	default: [
     		150, 1
