@@ -78,20 +78,20 @@ $signPackage = $jssdk->GetSignPackage();
 					全部公文
 				</a>
 					</div>
-					<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4" style="transform: translate3d(280px, 0px, 0px) translateZ(0px);"></div>
-					<div class="mui-slider-group" style="transform: translate3d(-841px, 0px, 0px) translateZ(0px); transition-duration: 0ms; transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);">
-						<div id="item1mobile" class="mui-slider-item mui-control-content">
-						1
-						</div>
-						<div id="item2mobile" class="mui-slider-item mui-control-content mui-active">
-						22
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4" style="transform: translate3d(280px, 0px, 0px) translateZ(0px);"></div>
 
-						</div>
-						<div id="item3mobile" class="mui-slider-item mui-control-content">
-						333
+				<div id="item1mobile" class="mui-col-xs-12 mui-slider-item mui-control-content">
+				1
+				</div>
+				<div id="item2mobile" class="mui-col-xs-12 mui-slider-item mui-control-content mui-active">
+				22
 
-						</div>
-					</div>
+				</div>
+				<div id="item3mobile" class="mui-col-xs-12 mui-slider-item mui-control-content">
+				333
+
+				</div>
+
 				</div>
 
 				<h5 class="mui-content-padded">Color</h5>
