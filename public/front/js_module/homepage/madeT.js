@@ -1,6 +1,4 @@
-mui.init({
-	swipeBack: false
-});
+
 
 	$('.mui-scroll-wrapper').scroll({
 		indicators: true //是否显示滚动条
