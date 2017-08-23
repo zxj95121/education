@@ -431,11 +431,6 @@ $signPackage = $jssdk->GetSignPackage();
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script type="text/javascript" src="/js/json2.js"></script>
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
-    @if($parentDetail->id == 21)
-    <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script>
-    <script type="text/javascript" src="/front/js_module/homepage/madeT.js?v={{rand(1,1000)}}"></script>
-    @else
-    @endif
     <script type="text/javascript">
     	$(function(){
     		newUserId = '{{$newUserId}}';
@@ -634,7 +629,11 @@ function cartInit(){
 	}
 }
     </script>
-
+    @if($parentDetail->id == 21)
+    <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script>
+    <script type="text/javascript" src="/front/js_module/homepage/madeT.js?v={{rand(1,1000)}}"></script>
+    @else
+    @endif
     @if($parentDetail->id == 21)
     <script type="text/javascript">
   //   	mui.init({
