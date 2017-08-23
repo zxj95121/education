@@ -63,7 +63,6 @@ $('#priceM').click(function(){
     	default: [
     		150, 1
     	],/*default，可选项，设置打开picker时默认展示的值*/
-    	len: 1,
     	select: function(result){
     		console.log(result);/*result响应用户选择的内容*/
 			/*select结束*/
