@@ -69,114 +69,24 @@ $signPackage = $jssdk->GetSignPackage();
 	                    <div class="mui-media-body">历史定制</div></a></li>
 	        </ul>
 	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_made">
-	        	<div class="mui-content">
-					<div id="slider" class="mui-slider">
-						<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
-							<a class="mui-control-item" href="#item1mobile">
-						待办公文
+	        	<nav class="mui-bar mui-bar-tab">
+					<a class="mui-tab-item" href="#teacher1">
+						<span class="mui-icon mui-icon-home"></span>
+						<span class="mui-tab-label">首页</span>
 					</a>
-							<a class="mui-control-item" href="#item2mobile">
-						已办公文
+					<a class="mui-tab-item" href="#classroom1">
+						<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+						<span class="mui-tab-label">消息</span>
 					</a>
-							<a class="mui-control-item" href="#item3mobile">
-						全部公文
+					<a class="mui-tab-item" href="#eclass1">
+						<span class="mui-icon mui-icon-contact"></span>
+						<span class="mui-tab-label">通讯录</span>
 					</a>
-						</div>
-						<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
-						<div class="mui-slider-group">
-							<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
-								<div id="scroll1" class="mui-scroll-wrapper">
-									<div class="mui-scroll">
-										<ul class="mui-table-view">
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-1
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-2
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-3
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-4
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-5
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-6
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-7
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-8
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-9
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-10
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-11
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-12
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-13
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-14
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-15
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-16
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-17
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-18
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-19
-											</li>
-											<li class="mui-table-view-cell">
-												第一个选项卡子项-20
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div id="item2mobile" class="mui-slider-item mui-control-content">
-								<div id="scroll2" class="mui-scroll-wrapper">
-									<div class="mui-scroll">
-										<div class="mui-loading">
-											<div class="mui-spinner">
-											</div>
-										</div>
-									</div>
-								</div>
-
-							</div>
-							<div id="item3mobile" class="mui-slider-item mui-control-content">
-								<div id="scroll3" class="mui-scroll-wrapper">
-									<div class="mui-scroll">
-										<div class="mui-loading">
-											<div class="mui-spinner">
-											</div>
-										</div>
-									</div>
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</div>
+					<a class="mui-tab-item mui-active" href="#my1">
+						<span class="mui-icon mui-icon-gear"></span>
+						<span class="mui-tab-label">设置</span>
+					</a>
+				</nav>
 	        </div>
 	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history">
 	        	
