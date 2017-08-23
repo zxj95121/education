@@ -502,6 +502,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 		}
         $('#eclass1').click(function(){
+ 			console.log('fcaosdmfsdf');
             $('#eclass').load('/front/twoClass', function(){
             	setCartPosition();
             	$.ajax({
