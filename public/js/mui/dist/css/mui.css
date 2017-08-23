@@ -2781,10 +2781,10 @@ input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
     border-right: 1px solid #eee;
     border-bottom: 1px solid #eee;
 }
-.mui-grid-view.mui-grid-9 .mui-table-view-cell.mui-active
+/*.mui-grid-view.mui-grid-9 .mui-table-view-cell.mui-active
 {
     background-color: #eee;
-}
+}*/
 .mui-grid-view.mui-grid-9 .mui-table-view-cell > a:not(.mui-btn)
 {
     margin: 0;
