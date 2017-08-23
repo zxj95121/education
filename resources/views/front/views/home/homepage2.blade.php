@@ -458,31 +458,16 @@ $signPackage = $jssdk->GetSignPackage();
     		var url = [];	
     		url = window.location.href.split('#');
     		if(url.length == 1){
-    			// $('#my1').trigger('click');
-    			tabFunc(my);
+    			$('#my1').trigger('click');
     		}else{
     			var obj = document.getElementById(url[1]);
     			if(obj){
-        			// $('#'+url[1]+'1').trigger('click');
-        			tabFunc(url[1]);
+        			$('#'+url[1]+'1').trigger('click');
     			}else{
-    				// $('#my1').trigger('click');
-    				tabFunc(my);
+    				$('#my1').trigger('click');
     			}
     		}
         })
-
-        function tabFunc(tab){
-        	$('.mui-control-content').each(function(){
-        		$(this).remove('mui-active');
-        	})
-        	$('.mui-tab-item').each(function(){
-        		$(this).remove('mui-active');
-        	})
-        	$('#'+tab).addClass('mui-active');
-        	$('#'+tab+'1').addClass('mui-active');
-        }
-
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': '{{csrf_token()}}'
@@ -527,10 +512,9 @@ $signPackage = $jssdk->GetSignPackage();
 			}
 
 		}
-		$('#eclass1').unbind('click');
-        $(document).on('click', '#eclass1', function(){
+        $(document).on('click', '#eclass1', function(e){
             $('#eclass').load('/front/twoClass', function(){
-            	setCartPosition(); 
+            	setCartPosition();
             	$.ajax({
 		        		url: '/front/twoClass/getpid',
 		        		dataType: 'json',
