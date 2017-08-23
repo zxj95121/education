@@ -571,7 +571,7 @@ p
     margin-top: 0;
     margin-bottom: 10px;
 
-    color: #8f8f94;
+    /*color: #8f8f94;*/
 }
 
 .mui-row:before, .mui-row:after
@@ -2280,10 +2280,10 @@ input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
 {
     padding-left: 58px;
 }
-.mui-table-view-cell.mui-active
+/*.mui-table-view-cell.mui-active
 {
     background-color: #eee;
-}
+}*/
 .mui-table-view-cell:last-child:before, .mui-table-view-cell:last-child:after
 {
     height: 0;

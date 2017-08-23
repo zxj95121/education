@@ -11,7 +11,7 @@ $signPackage = $jssdk->GetSignPackage();
     <title>加辰教育</title>
     <!-- 引入 WeUI -->
     @if($parentDetail->id == 21)
-    <link rel="stylesheet" type="text/css" href="/js/mui/dist/css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="/js/mui/dist/css/mui.css">
     @else
     @endif
     <link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.css">
