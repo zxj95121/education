@@ -81,7 +81,7 @@ $signPackage = $jssdk->GetSignPackage();
 					<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4" style="transform: translate3d(280px, 0px, 0px) translateZ(0px);"></div>
 					<div class="mui-slider-group" style="transform: translate3d(-841px, 0px, 0px) translateZ(0px); transition-duration: 0ms; transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);">
 						<div id="item1mobile" class="mui-slider-item mui-control-content">
-							<div id="scroll1" class="mui-scroll-wrapper" data-scroll="1">
+							<!-- <div id="scroll1" class="mui-scroll-wrapper" data-scroll="1"> -->
 								<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
 									<ul class="mui-table-view">
 										<li class="mui-table-view-cell">
@@ -146,18 +146,19 @@ $signPackage = $jssdk->GetSignPackage();
 										</li>
 									</ul>
 								</div>
-							<div class="mui-scrollbar mui-scrollbar-vertical"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: block; height: 52px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+							<div class="mui-scrollbar mui-scrollbar-vertical"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: block; height: 52px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div><!-- </div> -->
 						</div>
 						<div id="item2mobile" class="mui-slider-item mui-control-content mui-active">
-							<div id="scroll2" class="mui-scroll-wrapper" data-scroll="2">
+							<!-- <div id="scroll2" class="mui-scroll-wrapper" data-scroll="2"> -->
 								<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;"><ul class="mui-table-view"><li class="mui-table-view-cell">第二个选项卡子项-1</li><li class="mui-table-view-cell">第二个选项卡子项-2</li><li class="mui-table-view-cell">第二个选项卡子项-3</li><li class="mui-table-view-cell">第二个选项卡子项-4</li><li class="mui-table-view-cell">第二个选项卡子项-5</li></ul></div>
-							<div class="mui-scrollbar mui-scrollbar-vertical"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: block; height: 207px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+							<div class="mui-scrollbar mui-scrollbar-vertical"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: block; height: 207px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div>
+							<!-- </div> -->
 
 						</div>
 						<div id="item3mobile" class="mui-slider-item mui-control-content">
-							<div id="scroll3" class="mui-scroll-wrapper" data-scroll="3">
+							<!-- <div id="scroll3" class="mui-scroll-wrapper" data-scroll="3"> -->
 								<div class="mui-scroll" style="transform: translate3d(0px, -1px, 0px) translateZ(0px); transition-duration: 0ms;"><ul class="mui-table-view"><li class="mui-table-view-cell">第三个选项卡子项-1</li><li class="mui-table-view-cell">第三个选项卡子项-2</li><li class="mui-table-view-cell">第三个选项卡子项-3</li><li class="mui-table-view-cell">第三个选项卡子项-4</li><li class="mui-table-view-cell">第三个选项卡子项-5</li></ul></div>
-							<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 500ms; opacity: 0;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: block; height: 207px; transform: translate3d(0px, 2px, 0px) translateZ(0px);"></div></div></div>
+							<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 500ms; opacity: 0;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: block; height: 207px; transform: translate3d(0px, 2px, 0px) translateZ(0px);"></div></div><!-- </div> -->
 
 						</div>
 					</div>
