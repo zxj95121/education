@@ -432,12 +432,12 @@ $signPackage = $jssdk->GetSignPackage();
     <script type="text/javascript" src="/js/json2.js"></script>
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
     @if($parentDetail->id == 21)
-    <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script>
+    <!-- <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script> -->
     <script type="text/javascript" src="/front/js_module/homepage/madeT.js?v={{rand(1,1000)}}"></script>
     @else
     @endif
     @if($parentDetail->id == 21)
-    <script type="text/javascript">
+<!--     <script type="text/javascript">
   //   	mui.init({
 		// 	// swipeBack:true //启用右滑关闭功能
 		// });
@@ -445,7 +445,7 @@ $signPackage = $jssdk->GetSignPackage();
 			swipeBack: true
 		});
     </script>
-    @else
+    @else -->
     @endif
     <script type="text/javascript">
     	$(function(){
