@@ -58,7 +58,7 @@ $signPackage = $jssdk->GetSignPackage();
 <body>
 	@if($userType->type == 2)
 		@if($parentDetail->type == 1)
-		<div class="container-fluid mui-control-content" id="teacher1">
+		<div class="container-fluid mui-control-content" id="teacher">
 			@if($parentDetail->id == 21)
 			<ul class="mui-table-view mui-grid-view mui-grid-9" id="madeT_ul">
 	            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" hr="#madeT_made"><a href="#">
@@ -78,12 +78,12 @@ $signPackage = $jssdk->GetSignPackage();
         	</div>
         	@endif
     	</div>
-    	<div class="container-fluid mui-control-content" id="classroom1">
+    	<div class="container-fluid mui-control-content" id="classroom">
         	 <div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">教室定制功能正在开发中</span>
         	</div>
     	</div>
-    	<div class="container-fluid mui-control-content" id="eclass1" style="padding:0">
+    	<div class="container-fluid mui-control-content" id="eclass" style="padding:0">
         	<div id="twoclass">
         	</div>
     	</div>
@@ -117,7 +117,7 @@ $signPackage = $jssdk->GetSignPackage();
         	</div>
     	</div>
 	@endif
-    <div class="container-fluid mui-control-content" id="my1">
+    <div class="container-fluid mui-control-content mui-active" id="my">
         <!-- header start -->
         <div class="row" id="my_header" style="position: relative;">
             <div class="col-xs-2" id="my_header_img">
@@ -337,25 +337,25 @@ $signPackage = $jssdk->GetSignPackage();
    		@if($parentDetail->type == 1)
 
         	<nav class="mui-bar mui-bar-tab" id="all_bottom" style="position: fixed;z-index: 9999;">
-				<a class="mui-tab-item" for="teacher1" href="#teacher1">
+				<a class="mui-tab-item" for="teacher" href="#teacher">
 					<span style="display: inline-block;position: relative;">
 		                <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
 		            </span><br>
 					<span class="mui-tab-label">名师定制</span>
 				</a>
-				<a class="mui-tab-item" for="classroom1" href="#classroom1">
+				<a class="mui-tab-item" for="classroom" href="#classroom">
 					<span style="display: inline-block;position: relative;">
 		                <img src="/images/home/menu_classroom.png" alt="" class="weui-tabbar__icon">
 		            </span><br>
 					<span class="mui-tab-label">教室定制</span>
 				</a>
-				<a class="mui-tab-item" for="eclass1" href="#eclass1">
+				<a class="mui-tab-item" for="eclass" href="#eclass">
 					<span style="display: inline-block;position: relative;">
 		                <img src="/images/home/menu_class.png" alt="" class="weui-tabbar__icon">
 		            </span><br>
 					<span class="mui-tab-label">双师class</span>
 				</a>
-				<a class="mui-tab-item mui-active" for="my1" href="#my1">
+				<a class="mui-tab-item mui-active" for="my" href="#my">
 					<span style="display: inline-block;position: relative;">
 		                <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
 		            </span><br>
