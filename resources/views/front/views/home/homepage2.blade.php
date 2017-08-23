@@ -501,7 +501,7 @@ $signPackage = $jssdk->GetSignPackage();
 			}
 
 		}
-        $('#eclass1').click(function(){
+        $('#eclass1').dblclick(function(){
             $('#eclass').load('/front/twoClass', function(){
             	setCartPosition();
             	$.ajax({
