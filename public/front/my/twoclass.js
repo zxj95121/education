@@ -11,6 +11,26 @@ $(document).on('click','.class2',function(){
 	var pid = $(this).attr('pid');
 	$('#eclass').attr('pid2',pid);
 	$('#eclass').load('/front/twoClassthree?pid='+pid, function(){
+		$.ajax({
+    		url: '/front/getCartStorage',
+			dataType: 'json',
+			type: 'post',
+			data: {
+				id: newUserId
+			},
+			success: function(data) {
+				if (data.errcode == 0) {
+					cartOrder = eval('('+data.order+')');
+					cartArr = eval('('+data.arr+')');
+					cartTotal = parseInt(data.total);
+
+					setCartPosition();
+    				cartInit();
+				} else {
+					console.log(0);
+				}
+			}
+    	})
 		setCartPosition();
 		cartInit();
 	});
