@@ -349,7 +349,7 @@ $signPackage = $jssdk->GetSignPackage();
 		            </span><br>
 					<span class="mui-tab-label">教室定制</span>
 				</a>
-				<a class="mui-tab-item" for="eclass" href="#eclass" id="eclassA" style="cursor: pointer;">
+				<a class="mui-tab-item" for="eclass" href="#eclass" id="eclass1" style="cursor: pointer;">
 					<span style="display: inline-block;position: relative;">
 		                <img src="/images/home/menu_class.png" alt="" class="weui-tabbar__icon">
 		            </span><br>
@@ -431,6 +431,11 @@ $signPackage = $jssdk->GetSignPackage();
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script type="text/javascript" src="/js/json2.js"></script>
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
+    @if($parentDetail->id == 21)
+    <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script>
+    <script type="text/javascript" src="/front/js_module/homepage/madeT.js?v={{rand(1,1000)}}"></script>
+    @else
+    @endif
     <script type="text/javascript">
     	$(function(){
     		newUserId = '{{$newUserId}}';
@@ -496,8 +501,7 @@ $signPackage = $jssdk->GetSignPackage();
 			}
 
 		}
-        $('#all_bottom #eclassA').click(function(){
- 			console.log('fcaosdmfsdf');
+        $('#eclass1').click(function(){
             $('#eclass').load('/front/twoClass', function(){
             	setCartPosition();
             	$.ajax({
@@ -629,11 +633,7 @@ function cartInit(){
 	}
 }
     </script>
-    @if($parentDetail->id == 21)
-    <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script>
-    <script type="text/javascript" src="/front/js_module/homepage/madeT.js?v={{rand(1,1000)}}"></script>
-    @else
-    @endif
+
     @if($parentDetail->id == 21)
     <script type="text/javascript">
   //   	mui.init({
