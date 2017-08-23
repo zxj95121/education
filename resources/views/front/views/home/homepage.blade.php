@@ -711,7 +711,7 @@ function cartInit(){
     @if($parentDetail->id == 21)
     <script type="text/javascript">
     	mui.init({
-			swipeBack:true //启用右滑关闭功能
+			// swipeBack:true //启用右滑关闭功能
 		});
     </script>
     @else
