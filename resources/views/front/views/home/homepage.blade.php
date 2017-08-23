@@ -12,12 +12,13 @@ $signPackage = $jssdk->GetSignPackage();
     <!-- 引入 WeUI -->
     
     <link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/css/weui.css"/>
-    <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/my.css">
     @if($parentDetail->id == 21)
     <link rel="stylesheet" type="text/css" href="/js/mui/dist/css/mui.min.css">
     @else
     @endif
+    <link rel="stylesheet" type="text/css" href="/css/weui.css"/>
+    <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/my.css">
+
     <style type="text/css">
 	    #twoclass{
 	    	position: relative;
