@@ -28,3 +28,11 @@
 {
     background-color: #498bc5;
 }
+
+
+.page_set{
+	width: 100%;
+	position: absolute;
+	z-index: 2;
+	background-color: #E8E8E3;
+}

@@ -106,9 +106,27 @@ $signPackage = $jssdk->GetSignPackage();
 						</div>
 					</div>
 
-					<div id="popover" class="mui-popover mui-popover-subject">
-						你是真的菜
-					</div>
+					<!-- <div id="subjectPopover" class="self-propover"> -->
+						<div class="page__bd page_set" id="">
+							<div class="weui-cells" style="margin-top:0px" >
+					            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
+						            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
+						            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">专业</div></div>
+						            <div><div class="placeholder glyphicon glyphicon-ok done_ok1"></div></div>
+						        </div>
+						    </div>
+						    <div style="width: 97%;margin: 0 auto;" class="div_detail">
+						    	<div class="weui-cells__title"><span>3</span>/10</div>
+						    	<div class="weui-cells">
+						            <div class="weui-cell">
+						                <div class="weui-cell__bd">
+						                    <input class="weui-input input_set" name="project" type="text" placeholder="所学专业">
+						                </div>
+						            </div>
+			       				</div>
+						    </div>
+						</div>
+					<!-- </div> -->
 
 					<div class="mui-col-xs-12 mui-col-sm-12 madeSteps" id="otherMade" style="display: none;">
 						<div style="padding: 10px 10px;">
