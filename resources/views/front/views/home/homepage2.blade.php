@@ -512,9 +512,9 @@ $signPackage = $jssdk->GetSignPackage();
 			}
 
 		}
-        $('#eclass1').click(function(e){
+        $(document).on('click', '#eclass1', function(e){
             $('#eclass').load('/front/twoClass', function(){
-            	setCartPosition();
+            	setCartPosition(); 
             	$.ajax({
 		        		url: '/front/twoClass/getpid',
 		        		dataType: 'json',
