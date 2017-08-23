@@ -56,8 +56,7 @@ $signPackage = $jssdk->GetSignPackage();
 	@if($userType->type == 2)
 		@if($parentDetail->type == 1)
 		<div class="container-fluid mui-control-content" id="teacher">
-			@if($parentDetail->id == 21)
-			<div class="mui-col-xs-12 mui-col-sm-12 madeT_Div">		
+			@if($parentDetail->id == 21)		
 
 				<ul class="mui-table-view mui-grid-view mui-grid-9" id="madeT_ul">
 		            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" hr="#madeT_made"><a href="#">
@@ -84,6 +83,8 @@ $signPackage = $jssdk->GetSignPackage();
 					
 					</div>
 				</div>
+			<div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_apply">
+	        	
 	        </div>
 
 	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history">
