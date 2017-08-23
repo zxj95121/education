@@ -101,7 +101,7 @@ $signPackage = $jssdk->GetSignPackage();
 							</form>
 						</div>
 						<div style="padding: 10px 10px;">
-							<button type="button" class="mui-btn mui-btn-success" style="width: 90%;margin: 0 auto;">提交定制</button>
+							<button type="button" class="mui-btn mui-btn-success" style="width: 100%;height: 40px;">提交定制</button>
 						</div>
 					</div>
 
