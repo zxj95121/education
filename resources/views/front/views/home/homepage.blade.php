@@ -18,7 +18,7 @@ $signPackage = $jssdk->GetSignPackage();
     <link rel="stylesheet" type="text/css" href="/css/weui.css"/>
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/my.css">
     @if($parentDetail->id == 21)
-    <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/madeT.css?v={{rand(1,10000)}}">
+    <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/madeT.css">
     @else
     @endif
 
@@ -407,7 +407,7 @@ $signPackage = $jssdk->GetSignPackage();
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
     @if($parentDetail->id == 21)
     <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script>
-    <script type="text/javascript" src="/front/js_module/homepage/madeT.js?v={{rand(1,10000)}}"></script>
+    <script type="text/javascript" src="/front/js_module/homepage/madeT.js"></script>
     @else
     @endif
     <script type="text/javascript">
