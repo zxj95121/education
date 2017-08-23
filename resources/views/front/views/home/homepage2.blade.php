@@ -335,12 +335,12 @@ $signPackage = $jssdk->GetSignPackage();
 	    </div>
    	@elseif($userType->type == 2)
    		@if($parentDetail->type == 1)
-   		
+
         	<nav class="mui-bar mui-bar-tab" id="all_bottom" style="position: fixed;z-index: 9999;">
 				<a class="mui-tab-item" href="#teacher1">
 					<span style="display: inline-block;position: relative;">
 		                <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
-		            </span>
+		            </span><br>
 					<span class="mui-tab-label">名师定制</span>
 				</a>
 				<a class="mui-tab-item" href="#classroom1">
