@@ -16,6 +16,6 @@
 #madeT_ul .mui-media-body,#madeT_ul li{
 	color: #FFF;
 }
-#madeT_ul .mui_active{
-	background: #498bc5;
+.mui-grid-view.mui-grid-9 .mui-table-view-cell .mui_active{
+	background-color: #498bc5;
 }
