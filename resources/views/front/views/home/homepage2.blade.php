@@ -357,7 +357,7 @@ $signPackage = $jssdk->GetSignPackage();
 				</a>
 			</nav>
 
-   		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
+<!--    		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
 	        <a href="javascript:void(0);" class="weui-tabbar__item" for="teacher" id="teacher1">
 	            <span style="display: inline-block;position: relative;">
 	                <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
@@ -378,7 +378,7 @@ $signPackage = $jssdk->GetSignPackage();
 	            <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
 	            <p class="weui-tabbar__label">我的加辰</p>
 	        </a>
-	    </div>
+	    </div> -->
 	    @else
 	    <div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
 	        <a href="javascript:void(0);" class="weui-tabbar__item" for="teacher" id="teacher1">
