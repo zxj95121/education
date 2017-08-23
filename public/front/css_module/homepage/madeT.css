@@ -1,3 +1,11 @@
 #teacher{
 	padding: 0px;
 }
+.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+	border-right: 0px solid transparent;
+	border-bottom: 0px solid transparent;
+}
+.mui-grid-view.mui-grid-9{
+	border-left: 0px solid transparent;
+	border-top: 0px solid transparent;
+}
