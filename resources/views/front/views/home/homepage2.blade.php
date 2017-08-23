@@ -117,7 +117,7 @@ $signPackage = $jssdk->GetSignPackage();
         	</div>
     	</div>
 	@endif
-    <div class="container-fluid mui-control-content mui-active" id="my">
+    <div class="container-fluid mui-control-content" id="my">
         <!-- header start -->
         <div class="row" id="my_header" style="position: relative;">
             <div class="col-xs-2" id="my_header_img">
@@ -357,7 +357,7 @@ $signPackage = $jssdk->GetSignPackage();
 				</a>
 				<a class="mui-tab-item" for="my" href="#my" id="my1" style="cursor: pointer;">
 					<span style="display: inline-block;position: relative;">
-		                <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
+		                <img src="/images/home/menu_my.png" alt="" class="weui-tabbar__icon">
 		            </span><br>
 					<span class="mui-tab-label">我的加辰</span>
 				</a>
