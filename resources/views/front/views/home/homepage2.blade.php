@@ -475,8 +475,12 @@ $signPackage = $jssdk->GetSignPackage();
         function tabFunc(tab){
         	$('.mui-control-content').each(function(){
         		$(this).remove('mui-active');
-        		$('#'.tab).addClass('mui-active');
         	})
+        	$('.mui-tab-item').each(function(){
+        		$(this).remove('mui-active');
+        	})
+        	$('#'+tab).addClass('mui-active');
+        	$('#'+tab+'1').addClass('mui-active');
         }
 
         $.ajaxSetup({
