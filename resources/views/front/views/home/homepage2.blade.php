@@ -515,7 +515,7 @@ $signPackage = $jssdk->GetSignPackage();
 		$('#eclass1').unbind('click');
 		$('#all_bottom').unbind('click');
 		// console.log($('#eclass1'));
-        $(document).on('click', '#eclass1', function(e){
+        // $(document).on('click', '#eclass1', function(e){
             $('#eclass').load('/front/twoClass', function(){
             	setCartPosition();
             	$.ajax({
@@ -559,7 +559,7 @@ $signPackage = $jssdk->GetSignPackage();
         	includeLink("/front/my/twoclass.js","js");
 
         	
-        })
+        // })
 
         function setCartPosition(){
 			var bottomHeight = $('#all_bottom').height();
