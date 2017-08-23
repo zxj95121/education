@@ -21,7 +21,7 @@ var height = document.documentElement.clientHeight;
 $('.page_set').css({'height': height+'px','top': height+'px'});
 
 $('.done_romove').click(function(){
-	$(this).parents('.page_set').animate({'top': height+'px'}, 250);
+	$(this).parents('.page_set').hide().animate({'top': height+'px'}, 250);
 })
 
 $('#subjectMade').click(function(){

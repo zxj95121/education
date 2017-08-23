@@ -5,6 +5,10 @@ $(function(){
 		var forDiv = $(this).attr('for');
 		history.pushState('', '', '/front/home#'+forDiv);
 		// console.log(forDiv);
+		if (forDiv == 'teacher') {
+			includeLink('/front/css_module/picker.css', 'css');
+			includeLink('/front/js_module/picker.js', 'js');
+		}
 		$('#all_bottom .mui-tab-item').each(function(){
 			// var sforDiv = $(this).attr('for');
 			// $('#'+sforDiv).css('display', 'none');
@@ -63,4 +67,44 @@ $(function(){
 	$('#user_info').click(function(){
 		  window.location.href = "/front/user_info_parent";
 	})
+
+	var urlStyle = [];
+    var urlScript = [];
+    /* 加载js css*/
+	function includeLink(url,urlType) {
+		if(urlType == "css"){
+			for(var i = 0; i < urlStyle.length;i++){
+				if(urlStyle[i] == url){
+					var status = 2333;
+					return false;
+				}
+			}
+			if(status == 2333){
+				return false;
+			}
+			urlStyle.push(url);
+			var link = document.createElement("link");
+			link.rel = "stylesheet";
+			link.type = "text/css";
+			link.href = url;
+			document.getElementsByTagName("head")[0].appendChild(link);
+		}else{
+			for(var i = 0; i < urlScript.length;i++){
+				if(urlScript[i] == url){
+					var status = 2333;
+					return false;
+				}
+			}
+			if(status == 2333){
+				return false;
+			}
+			urlScript.push(url);
+			$.ajaxSetup({
+				cache: true
+			});
+			$.getScript(url, function(){
+			});
+		}
+
+	}
 })
