@@ -11,10 +11,12 @@
 }
 
 #madeT_ul{
-	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #0fc5e2), color-stop(1, #22aae8));
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #0fc5e2), color-stop(1, #1483b5));
 }
 #madeT_ul .mui-media-body,#madeT_ul li{
+	user-select: none;
 	color: #FFF;
+	cursor: pointer;
 }
 .mui-grid-view.mui-grid-9 .mui-table-view-cell.mui-active
 {

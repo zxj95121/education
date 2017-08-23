@@ -61,13 +61,19 @@ $signPackage = $jssdk->GetSignPackage();
 		<div class="container-fluid" id="teacher" style="display: none;">
 			@if($parentDetail->id == 21)
 			<ul class="mui-table-view mui-grid-view mui-grid-9" id="madeT_ul">
-	            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6"><a href="#">
+	            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6"><a href="#madeT_made">
 	                    <span class="mui-icon mui-icon-compose"></span>
 	                    <div class="mui-media-body">教师定制</div></a></li>
-	            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6"><a href="#">
+	            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6"><a href="#madeT_history">
 	                    <span class="mui-icon mui-icon-paperclip"><span class="mui-badge">5</span></span>
 	                    <div class="mui-media-body">历史定制</div></a></li>
 	        </ul>
+	        <div class="mui-col-xs-12 mui-col-sm-12" id="madeT_made">
+	        	
+	        </div>
+	        <div class="mui-col-xs-12 mui-col-sm-12" id="madeT_history">
+	        	
+	        </div>
 			@else
         	<div class="weui-loadmore weui-loadmore_line">
             	<span class="weui-loadmore__tips">名师定制功能正在开发中</span>
@@ -399,7 +405,11 @@ $signPackage = $jssdk->GetSignPackage();
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script type="text/javascript" src="/js/json2.js"></script>
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
+    @if($parentDetail->id == 21)
     <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script>
+    <script type="text/javascript" src="/front/js_module/homepage/madeT.js"></script>
+    @else
+    @endif
     <script type="text/javascript">
     	$(function(){
     		newUserId = '{{$newUserId}}';
