@@ -18,8 +18,8 @@ $(document).on('touchstart', '#segmentedControl .mui-control-item', function(){
 /*定制部分*/
 $('#subjectMade').click(function(){
 	mui.openWindow({
-	    url:new-page-url,
-	    id:new-page-id,
+	    url:'http://dev.dcloud.net.cn/mui/',
+	    id:'dafdsaf',
 	    styles:{
 	      top:newpage-top-position,//新页面顶部位置
 	      bottom:newage-bottom-position,//新页面底部位置
