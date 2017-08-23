@@ -16,6 +16,10 @@ $(document).on('touchstart', '#segmentedControl .mui-control-item', function(){
 })
 
 /*定制部分*/
+
+var height = document.documentElement.clientHeight;
+$('.page_set').css({'height': height+'px','top': height+'px'});
 $('#subjectMade').click(function(){
-	mui('.mui-popover-subject').popover('toggle',document.getElementById("openPopover"));
+	// mui('.mui-popover-subject').popover('toggle',document.getElementById("openPopover"));
+	$('#subjectPopover').animate({'top': '0px'},250);
 })
