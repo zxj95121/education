@@ -355,7 +355,7 @@ $signPackage = $jssdk->GetSignPackage();
 		            </span><br>
 					<span class="mui-tab-label">双师class</span>
 				</a>
-				<a class="mui-tab-item mui-active" for="my" href="#my" id="my1" style="cursor: pointer;">
+				<a class="mui-tab-item" for="my" href="#my" id="my1" style="cursor: pointer;">
 					<span style="display: inline-block;position: relative;">
 		                <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
 		            </span><br>
@@ -483,6 +483,7 @@ $signPackage = $jssdk->GetSignPackage();
 
         	$('#'+tab+'1').addClass('mui-active');
         	$('#'+tab).addClass('mui-active');
+        	$('#'+tab+'1').find('img').attr('src', $('#'+tab+'1').find('img').attr('src').replace('.png', '_fill.png'));
         }
         $.ajaxSetup({
             headers: {
