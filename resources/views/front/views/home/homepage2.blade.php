@@ -59,10 +59,10 @@ $signPackage = $jssdk->GetSignPackage();
 			@if($parentDetail->id == 21)		
 
 				<ul class="mui-table-view mui-grid-view mui-grid-9" id="madeT_ul">
-		            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" hr="#madeT_made"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" hr="#madeT_apply"><a href="#">
 		                    <span class="mui-icon mui-icon-compose"></span>
 		                    <div class="mui-media-body">教师定制</div></a></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" hr="#madeT_made"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" hr="#madeT_history"><a href="#">
 		                    <span class="mui-icon mui-icon-paperclip"><span class="mui-badge">5</span></span>
 		                    <div class="mui-media-body">定制历史</div></a></li>
 		        </ul>
