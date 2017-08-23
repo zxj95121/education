@@ -86,12 +86,17 @@ $signPackage = $jssdk->GetSignPackage();
 						<div style="padding: 10px 10px;">
 							<form class="mui-input-group">
 							    <div class="mui-input-row">
-							        <label>用户名</label>
-							    <input type="text" class="mui-input-clear" placeholder="请输入用户名">
+							        <label>学科定制</label>
+							    	<input type="text" placeholder="选择学科" readonly="readonly">
 							    </div>
 							    <div class="mui-input-row">
-							        <label>密码</label>
+							        <label>学历定制</label>
 							        <input type="password" class="mui-input-password" placeholder="请输入密码">
+							        <select name="education">
+							        	<option value="1">研究生</option>
+							        	<option value="2">本科生</option>
+							        	<option value="3">专科生</option>
+							        </select>
 							    </div>
 							    <div class="mui-button-row">
 							        <button type="button" class="mui-btn mui-btn-primary" >确认</button>
