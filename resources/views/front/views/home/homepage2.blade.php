@@ -91,7 +91,7 @@ $signPackage = $jssdk->GetSignPackage();
 							    </div>
 							    <div class="mui-input-row">
 							        <label>学历定制</label>
-							        <input type="password" class="mui-input-password" placeholder="请输入密码">
+
 							        <select name="education">
 							        	<option value="1">研究生</option>
 							        	<option value="2">本科生</option>
