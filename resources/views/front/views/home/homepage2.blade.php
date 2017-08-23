@@ -83,10 +83,14 @@ $signPackage = $jssdk->GetSignPackage();
 				</div>
 				<div class="mui-content">
 					<div class="mui-col-xs-12 mui-col-sm-12 madeSteps" id="directionMade">
+						<div style="padding: 10px 10px;">
 						111
+						</div>
 					</div>
 					<div class="mui-col-xs-12 mui-col-sm-12 madeSteps" id="otherMade" style="display: none;">
-						22222
+						<div style="padding: 10px 10px;">
+						222
+						</div>
 					</div>
 				</div>
 	        </div>
