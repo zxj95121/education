@@ -584,6 +584,7 @@ $signPackage = $jssdk->GetSignPackage();
     <script type="text/javascript" src="/js/json2.js"></script>
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
     <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script>
+    <script type="text/javascript" src="/js/mui/plugin/picker/dist/js/mui.picker.min.js"></script>
     <script type="text/javascript" src="/front/js_module/homepage/homepage2.js"></script>
     @if($userType->type == 2 && $parentDetail->id == 21)
     <script type="text/javascript" src="/front/js_module/homepage/madeT.js?v={{rand(1,1000)}}"></script>
