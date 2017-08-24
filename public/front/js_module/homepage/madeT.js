@@ -37,27 +37,46 @@ $('.selectMade').click(function(){
 	$(this).css({'top': '0px', 'opacity': '1'});
 })
 
+var isPriceMPicker = 0;
 $('#priceM').click(function(){
-	var picker = new mui.PopPicker();
-	picker.setData([{
-	    value: "first",
-	    text: "第一项"
-	}, {
-	    value: "second",
-	    text: "第一项"
-	}, {
-	    value: "third",
-	    text: "第三项"
-	}, {
-	    value: "fourth",
-	    text: "第四项"
-	}, {
-	    value: "fifth",
-	    text: "第五项"
-	}])
-	//picker.pickers[0].setSelectedIndex(4, 2000);
-	picker.pickers[0].setSelectedValue('fourth', 2000);
-	picker.show(function(SelectedItem) {
-		console.log(SelectedItem);
-	})
+	if (!isPriceMPicker) {
+		pricePicker = new mui.PopPicker();
+
+
+		/*80*/
+
+		var priceArr = new Array();
+		for(var i = 0,j=10;j <= 300; i++){
+			priceArr[i] = new Object();
+			priceArr[i]['value'] = i;
+			priceArr[i]['text'] = i+'元';
+			j += 10;
+		}
+
+		pricePicker.setData(priceArr);
+		// pricePicker.setData([{
+		//     value: "first",
+		//     text: "第一项"
+		// }, {
+		//     value: "second",
+		//     text: "第一项"
+		// }, {
+		//     value: "third",
+		//     text: "第三项"
+		// }, {
+		//     value: "fourth",
+		//     text: "第四项"
+		// }, {
+		//     value: "fifth",
+		//     text: "第五项"
+		// }])
+		//picker.pickers[0].setSelectedIndex(4, 2000);
+		pricePicker.show(function(SelectedItem) {
+			console.log(SelectedItem);
+		})
+
+		isPriceMPicker = 1;
+	}
+
+	pricePicker.pickers[0].setSelectedValue('150', 200);
 })
