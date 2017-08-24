@@ -15,6 +15,7 @@ $signPackage = $jssdk->GetSignPackage();
     <link rel="stylesheet" type="text/css" href="/css/weui.css"/>
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/my.css">
     @if($userType->type == 2 && $parentDetail->id == 21)
+    <link rel="stylesheet" type="text/css" href="/js/mui/plugin/picker/dist/css/mui.picker.min.css"">
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/madeT.css">
     @else
     @endif
