@@ -36,39 +36,3 @@ $('.selectMade').click(function(){
 	$(this).prev().hide();
 	$(this).css({'top': '0px', 'opacity': '1'});
 })
-
-$('#priceM').click(function(){
-	/*为content提供变量，仅此而已开始*/
-	var arr1 = new Array();
-	for (var i = 0,j = 50;j <= 300;i++) {
-		arr1[i] = new Object();
-		arr1[i].name = j+'元',
-		arr1[i].value = j;
-		j += 10;
-	}
-
-	// var arr2 = new Array();
-	// arr2[0] = new Object();
-	// arr2[0].name = '时',
-	// arr2[0].value = '1';
-
-	/*为content提供变量，仅此而已结束*/
-
-	selfPicker.start({
-    	id: 'priceMPicker', /*div的ID*/
-    	action: 'priceM',/*要响应的button的ID*/
-    	content: [
-    		arr1/*content必填项，但数组元素个数可1个，可2个，可3个等*/
-    	],
-    	default: [
-    		150, 1
-    	],/*default，可选项，设置打开picker时默认展示的值*/
-    	select: function(result){
-    		console.log(result);/*result响应用户选择的内容*/
-			/*select结束*/
-    	}
-    });
-
-
-    $('#priceM')[0].click();
-})

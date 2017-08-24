@@ -223,16 +223,6 @@ $signPackage = $jssdk->GetSignPackage();
 			</div>
 
 			<!-- 学费选择部分 -->
-			<div id="priceMPicker" class="zxjPicker">
-		    	<div class="operatePicker">
-		    		<div class="canclePicker">取消</div>
-		    		<div class="okPicker">确认</div>
-		    	</div>
-		    	<div class="contentPicker">
-		    		<div class="linePicker"></div>
-		    		<div class="linePicker"></div>
-		    	</div>
-		    </div>
 
 			@else
         	<div class="weui-loadmore weui-loadmore_line">
@@ -588,13 +578,13 @@ $signPackage = $jssdk->GetSignPackage();
    	@endif
     <script type="text/javascript" src="/admin/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="/js/layui/layer_only/mobile/layer.js"></script>
-    <script type="text/javascript" src="/front/js_module/homepage/homepage2.js"></script>
     <!-- <script type="text/javascript" src="/front/js_module/homepage/homepage.js"></script> -->
     <script type="text/javascript" src="/front/js_module/homepage/my.js"></script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script type="text/javascript" src="/js/json2.js"></script>
     <script type="text/javascript" src="/js/jquery.fly.js"></script>
     <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script>
+    <script type="text/javascript" src="/front/js_module/homepage/homepage2.js"></script>
     @if($userType->type == 2 && $parentDetail->id == 21)
     <script type="text/javascript" src="/front/js_module/homepage/madeT.js?v={{rand(1,1000)}}"></script>
     @else
@@ -629,10 +619,6 @@ $signPackage = $jssdk->GetSignPackage();
     			}else{
     				// $('#my1').trigger('click');
     				tabFunc('my');
-    			}
-    			if(url[1] == 'teacher') {
-    				includeLink('/front/css_module/picker.css', 'css');
-					includeLink('/front/js_module/picker.js', 'js');
     			}
     		}
         })

@@ -6,8 +6,12 @@ $(function(){
 		history.pushState('', '', '/front/home#'+forDiv);
 		// console.log(forDiv);
 		if (forDiv == 'teacher') {
-			includeLink('/front/css_module/picker.css', 'css');
-			includeLink('/front/js_module/picker.js', 'js');
+			var picker = new mui.PopPicker();
+			 picker.setData([{value:'zz',text:'智子'}]);
+			 picker.show(function (selectItems) {
+			    console.log(selectItems[0].text);//智子
+			    console.log(selectItems[0].value);//zz 
+			  })
 		}
 		$('#all_bottom .mui-tab-item').each(function(){
 			// var sforDiv = $(this).attr('for');
