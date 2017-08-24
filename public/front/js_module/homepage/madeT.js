@@ -36,3 +36,28 @@ $('.selectMade').click(function(){
 	$(this).prev().hide();
 	$(this).css({'top': '0px', 'opacity': '1'});
 })
+
+$('#priceM').click(function(){
+	var picker = new mui.PopPicker();
+	picker.setData([{
+	    value: "first",
+	    text: "第一项"
+	}, {
+	    value: "second",
+	    text: "第一项"
+	}, {
+	    value: "third",
+	    text: "第三项"
+	}, {
+	    value: "fourth",
+	    text: "第四项"
+	}, {
+	    value: "fifth",
+	    text: "第五项"
+	}])
+	//picker.pickers[0].setSelectedIndex(4, 2000);
+	picker.pickers[0].setSelectedValue('fourth', 2000);
+	picker.show(function(SelectedItem) {
+		console.log(SelectedItem);
+	})
+})
