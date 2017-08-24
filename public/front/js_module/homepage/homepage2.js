@@ -5,14 +5,9 @@ $(function(){
 		var forDiv = $(this).attr('for');
 		history.pushState('', '', '/front/home#'+forDiv);
 		// console.log(forDiv);
-		if (forDiv == 'teacher') {
-			var picker = new mui.PopPicker();
-			 picker.setData([{value:'zz',text:'智子'}]);
-			 picker.show(function (selectItems) {
-			    console.log(selectItems[0].text);//智子
-			    console.log(selectItems[0].value);//zz 
-			  })
-		}
+		// if (forDiv == 'teacher') {
+			
+		// }
 		$('#all_bottom .mui-tab-item').each(function(){
 			// var sforDiv = $(this).attr('for');
 			// $('#'+sforDiv).css('display', 'none');
