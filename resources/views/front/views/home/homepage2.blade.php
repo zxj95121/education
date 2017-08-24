@@ -622,33 +622,25 @@ $signPackage = $jssdk->GetSignPackage();
     				tabFunc('my');
     			}
     			if(url[1] == 'teacher') {
-var picker = new mui.PopPicker({
-    layer: 2
-});
-    picker.setData([{
-        value: '110000',
-        text: '北京市',
-        children: [{
-                value: "110101",
-                text: "东城区"
-        }]
-    }, {
-        value: '120000',
-        text: '天津市',
-        children: [{
-	        value: "120101",
-            text: "和平区"
-        }, {
-            value: "120102",
-            text: "河东区"
-        }, {
-            value: "120104",
-            text: "南开区"
-        }
-        ]
-    }])
-picker.pickers[0].setSelectedIndex(1);
-picker.pickers[1].setSelectedIndex(1);
+var picker = new mui.PopPicker();
+picker.setData([{
+    value: "first",
+    text: "第一项"
+}, {
+    value: "second",
+    text: "第一项"
+}, {
+    value: "third",
+    text: "第三项"
+}, {
+    value: "fourth",
+    text: "第四项"
+}, {
+    value: "fifth",
+    text: "第五项"
+}])
+//picker.pickers[0].setSelectedIndex(4, 2000);
+picker.pickers[0].setSelectedValue('fourth', 2000);
 picker.show(function(SelectedItem) {
 	console.log(SelectedItem);
 })
