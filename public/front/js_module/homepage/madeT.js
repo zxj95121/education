@@ -48,8 +48,8 @@ $('#priceM').click(function(){
 		var priceArr = new Array();
 		for(var i = 0,j=10;j <= 300; i++){
 			priceArr[i] = new Object();
-			priceArr[i]['value'] = i;
-			priceArr[i]['text'] = i+'元';
+			priceArr[i]['value'] = j;
+			priceArr[i]['text'] = j+'元';
 			j += 10;
 		}
 
