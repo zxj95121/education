@@ -144,6 +144,6 @@ class EclassPriceController extends Controller
             
         }
 
-        return number_format($price, 2);
+        return $price;
     }
 }

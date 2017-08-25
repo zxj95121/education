@@ -640,6 +640,7 @@
                 },
                 success: function(data) {
                     if (data.errcode == 0) {
+                        data.price = twoxs(data.price);
                         $('#standPrice1').val('¥ '+data.price+'元');
                         $('#standPrice2').val('¥ '+data.price+'元');
                         var kou = parseFloat($('#zhekou option:selected').val());
