@@ -324,7 +324,7 @@
                                                         <label for="standPrice1">课程标准价</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <input type="text" value="¥ 966元" id="standPrice1" name="" class="form-control standPrice" disabled="disabled">
+                                                        <input type="text" value="¥ 966元" id="standPrice1" name="" class="form-control" disabled="disabled">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-12" style="margin-top:13px;">
@@ -378,7 +378,7 @@
                                                         <label for="standPrice2">课程标准价</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <input type="number" min="1" value="¥ 966元" id="standPrice2" name="" class="form-control standPrice" disabled="disabled">
+                                                        <input type="number" min="1" value="¥ 966元" id="standPrice2" name="" class="form-control" disabled="disabled">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-12" style="margin-top:13px;">
@@ -624,9 +624,7 @@
 
         //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
         layui.use('element', function(){
-          var element = layui.element;
-          
-          //…
+            var element = layui.element;
         });
 
         /*修改价格*/
@@ -642,7 +640,8 @@
                 },
                 success: function(data) {
                     if (data.errcode == 0) {
-                        $('.standPrice').val('¥ '+data.price+'元');
+                        $('#standPrice1').val('¥ '+data.price+'元');
+                        $('#standPrice2').val('¥ '+data.price+'元');
                         var halfPrice = 0.5*parseFloat(data.price);
                         $('#nextPrice').val('¥ '+twoxs(halfPrice)+'元');
                         $('#zhekou').attr('price', data.price);
@@ -660,8 +659,36 @@
         })
 
         $('#editPriceBtn2').click(function(){
+            var val = $('#zhekou option:selected').val();
+            var kouPrice = twoxs(parseFloat(val)*parseFloat($('#zhekou').attr('price')));
+            var passwd = $('#passwd1').val();
+            if(reg.test(price)) {
+                $.ajax({
+                    url: '/admin/editECPrice2',
+                    dataType: '1',
+                    type: 'post',
+                    data: {
+                        oid: oid,
+                        price: kouPrice
+                        passwd: passwd
+                    },
+                    success: function(data) {
+                        if (data.errcode == 0) {
+                            $('#zhekou option[value="0.5"]').prop('selected');
+                            $('#editPriceModal').modal('hide');
+                            window.layer.msg('设置价格成功');
+                        }
+                        
+                    }
+
+                })
+            }
+        })
+
+        $('#editPriceBtn2').click(function(){
             var price = $('#setPrice').val();
             var reg = /^\d{1,10}[\.]?\d{1,2}$/;
+            var passwd2 = $('#passwd2').val();
             if(reg.test(price)) {
                 $.ajax({
                     url: '/admin/editECPrice2',
@@ -670,6 +697,7 @@
                     data: {
                         oid: oid,
                         price: price
+                        passwd: passwd2
                     },
                     success: function(data) {
                         if (data.errcode == 0) {

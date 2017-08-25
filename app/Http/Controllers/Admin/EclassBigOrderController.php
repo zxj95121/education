@@ -9,6 +9,7 @@ use App\Models\EclassOrder;
 use App\Models\TeacherThree;
 use App\Models\TeacherTwo;
 use App\Models\AdminPower;
+use App\Models\ModifyPricePasswd;
 
 use App\Http\Controllers\EclassPriceController;
 
@@ -169,11 +170,19 @@ class EclassBigOrderController extends Controller
 
     public function editECPrice1(Request $request)
     {
+        $oid = $request->input('oid');
+        $price = $request->input('price');
+        $passwd = $request->input('passwd');
 
-    }
+        $flight = BigOrder::find($oid);
 
-    public function editECPrice2(Request $request)
-    {
-        
+        $passwd2 = ModifyPricePasswd::where('status', '1')
+            ->first();
+        if ($passwd2->passwd == $passwd) {
+            $flight->price = $price;
+            $flight->save();
+            return response()->json(['errcode'=>0]);
+        }
+        return response()->json(['errcode'=>1]);
     }
 }
