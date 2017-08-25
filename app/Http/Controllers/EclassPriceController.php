@@ -146,4 +146,54 @@ class EclassPriceController extends Controller
 
         return $price;
     }
+
+    public static function getHuiPrice($id)
+    {
+        /*传入大订单的ID*/
+        $eclassObj = EclassOrder::where('bid', $id)
+            ->where('status', 1)
+            ->select('id', 'tid', 'count')
+            ->get();
+
+        $price = 0;
+        foreach ($eclassObj as $value) {
+            $oneId = TeacherThree::where('teacher_three.id', $value->tid)
+                ->leftJoin('teacher_two as tt', 'tt.id', 'teacher_three.pid')
+                ->leftJoin('teacher_one as to', 'to.id', 'tt.pid')
+                ->select('to.id')
+                ->first()
+                ->id;
+
+            $priceObj = ClassPrice::where('status', 1)
+                ->where('tid', $oneId)
+                ->select('area', 'price')
+                ->get();
+
+            foreach ($priceObj as $key => $value) {
+                $area = $value->area;
+                $arr = explode('-', $area);
+                if (count($arr) == 1 && $key == 0) {
+                    if ($count <= $arr[0]) {
+                        $unitPrice = $value->price;
+                        break;
+                    }
+                } else if (count($arr) == 1 && $key != 0) {
+                    if ($count >= $arr[0]) {
+                        $unitPrice = $value->price;
+                        break;
+                    }
+                } else {
+                    if ($count >= $arr[0] && $count <= $arr[1]) {
+                        $unitPrice = $value->price;
+                        break;
+                    }
+                }
+            }
+
+            $price += $value->count*$unitPrice;
+            
+        }
+
+        return $price;
+    }
 }

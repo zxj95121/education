@@ -230,7 +230,8 @@ class PayClassController extends Controller
 		$vouNum = $flight->voucher_num;
 
 		$standPrice = EclassPriceController::getStandardPrice($bid);
-		$preBigPrice = $standPrice-88*$vouNum;
+		// $preBigPrice = $flight->price+88*$vouNum;
+		$preBigPrice = EclassPriceController::getHuiPrice($bid);
 
 		$count = EclassOrder::where('bid', $bid)
 			->count();
