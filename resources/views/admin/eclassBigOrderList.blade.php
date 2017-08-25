@@ -143,7 +143,7 @@
                                                 <tbody>
                                                     @foreach($orderList as $value)
                                                     <tr oid="{{$value->id}}" userId="{{$value->userId}}">
-                                                        <td id="td_id">{{$value->id}}</td>
+                                                        <td class="td_id">{{$value->id}}</td>
                                                         <td>
                                                         @if($value->complete == 0)
                                                             @if($value->pay_status == 1 && $value->confirm_status == 0)
@@ -174,11 +174,11 @@
                                                         @endif
                                                         	<span class="label label-info addPaty">添加party</span>
                                                         </td>
-                                                        <td id="td_no">{{$value->order_no}}</td>
-                                                        <td id="td_name"><span class="label label-info orderClassDetailBtn">查看课程详情</span></td>
-                                                        <td id="td_count">{{$value->count}}</td>
+                                                        <td class="td_no">{{$value->order_no}}</td>
+                                                        <td class="td_name"><span class="label label-info orderClassDetailBtn">查看课程详情</span></td>
+                                                        <td class="td_count">{{$value->count}}</td>
                                                         <td>@if($child[$value->id]) echo '有孩子'; @else <span class="label label-default">未添加孩子</span></td> @endif</td>
-                                                        <td id="td_price">{{$value->price}}</td>
+                                                        <td class="td_price">{{$value->price}}</td>
                                                         <td>
                                                             @if($value->pay_status == 1)
                                                                 <span class="label label-success">已支付</span>
@@ -196,11 +196,11 @@
                                                                 <span class="label label-danger">已驳回</span></td>
                                                             @endif
                                                         </td>
-                                                        <td id="td_nickname">{{$value->nickname}}</td>
+                                                        <td class="td_nickname">{{$value->nickname}}</td>
                                                         <td class="bpaty">{{$value->paty}}</td>
                                                         <td class="patyTd">{{$value->patynum}}</td>
                                                         <td>{{$value->phone}}</td>
-                                                        <td id="td_time">{{$value->created_at}}</td>
+                                                        <td class="td_time">{{$value->created_at}}</td>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
