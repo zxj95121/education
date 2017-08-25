@@ -61,7 +61,7 @@ class HomeController extends Controller
                     ->get()
                     ->toArray();
                 foreach ($subject as $key => $value) {
-                    $subjectOne[$key]['two'] = SubjectTwo::where('pid', $value['id'])
+                    $subject[$key]['two'] = SubjectTwo::where('pid', $value['id'])
                         ->select('id', 'name', 'pid')
                         ->get()
                         ->toArray();
