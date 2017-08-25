@@ -37,6 +37,7 @@ $('.selectMade').click(function(){
 	$(this).css({'top': '0px', 'opacity': '1'});
 })
 
+pricePicker = 0;
 $('#priceM').click(function(){
 	pricePicker = new mui.PopPicker();
 
