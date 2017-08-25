@@ -216,7 +216,7 @@
                             <li class="{!!(Request::is('admin/bill')? 'active' : '') !!}">
                                 <a href="/admin/bill">流水账   </a>
                             </li>
-                            <li class="{!!(Request::is('admin/modifyPriceRecord')? 'active' : '') !!}">
+                            <li class="{!!(Request::is('admin/modifyPriceRecord')? 'active' : '') !!} modifyPriceRecordLi" style="display: none;">
                                 <a href="/admin/modifyPriceRecord">改价格记录  </a>
                             </li>
                         </ul>
@@ -411,6 +411,9 @@
                             var power = data.power;
                             if (power.chat == 0) {
                                 $('.communication').hide();
+                            }
+                            if (power.modify_price != 0) {
+                                $('.modifyPriceRecordLi').show();
                             }
                         }
                     }

@@ -183,6 +183,7 @@ class EclassBigOrderController extends Controller
         if ($passwd2->passwd == $passwd) {
             $pre = $flight->price;
             $flight->price = $price;
+            $flight->voucher_num = 0;
             $flight->save();
 
             /*存记录*/

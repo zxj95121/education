@@ -278,6 +278,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
 
     /*账单流水*/
     $router->get('/bill', 'BillController@bill');
+
+    /*其他信息记录*/
+    $router->get('/modifyPriceRecord', 'MessageRecordController@modifyPrice');
 });
 
 
