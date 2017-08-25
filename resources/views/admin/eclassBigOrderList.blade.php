@@ -658,7 +658,7 @@
             $('#nextPrice').val('¥ '+kouPrice+'元');
         })
 
-        $('#editPriceBtn2').click(function(){
+        $('#editPriceBtn1').click(function(){
             var val = $('#zhekou option:selected').val();
             var kouPrice = twoxs(parseFloat(val)*parseFloat($('#zhekou').attr('price')));
             var passwd = $('#passwd1').val();
