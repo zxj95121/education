@@ -87,6 +87,6 @@ $('#done_ok1').click(function(){
 	}
 	$(this).parents('.page_set').animate({'top': height+'px'}, 250);
 	setTimeout(function(){
-		cdom.parents('.page_set').hide();
+		$('#subjectPopover').hide();
 	}, 250);
 })
