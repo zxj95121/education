@@ -670,7 +670,7 @@
                 type: 'post',
                 data: {
                     oid: oid,
-                    price: kouPric,
+                    price: kouPrice,
                     passwd: passwd
                 },
                 success: function(data) {
