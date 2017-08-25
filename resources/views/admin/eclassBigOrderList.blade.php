@@ -642,7 +642,8 @@
                     if (data.errcode == 0) {
                         $('#standPrice1').val('¥ '+data.price+'元');
                         $('#standPrice2').val('¥ '+data.price+'元');
-                        var halfPrice = 0.5*parseFloat(data.price);
+                        var kou = parseFloat($('#zhekou option:selected').val());
+                        var halfPrice = kou*parseFloat(data.price);
                         $('#nextPrice').val('¥ '+twoxs(halfPrice)+'元');
                         $('#zhekou').attr('price', data.price);
                     }
@@ -675,7 +676,6 @@
                 },
                 success: function(data) {
                     if (data.errcode == 0) {
-                        $('#zhekou option[value="0.5"]').prop('selected');
                         $('#editPriceModal').modal('hide');
                         $('#parentDetail tr[oid="'+oid+'"]').find('.td_price').html(kouPrice);
                         window.layer.msg('设置价格成功');
