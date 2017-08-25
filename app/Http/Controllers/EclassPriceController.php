@@ -156,16 +156,16 @@ class EclassPriceController extends Controller
             ->get();
 
         $price = 0;
-        foreach ($eclassObj as $value) {
-            $oneId = TeacherThree::where('teacher_three.id', $value->tid)
+        foreach ($eclassObj as $v) {
+            $oneId = TeacherThree::where('teacher_three.id', $v->tid)
                 ->leftJoin('teacher_two as tt', 'tt.id', 'teacher_three.pid')
                 ->leftJoin('teacher_one as to', 'to.id', 'tt.pid')
                 ->select('to.id')
                 ->first()
                 ->id;
 
-            $count = $value->count;
-            
+            $count = $v->count;
+
             $priceObj = ClassPrice::where('status', 1)
                 ->where('tid', $oneId)
                 ->select('area', 'price')
@@ -192,7 +192,7 @@ class EclassPriceController extends Controller
                 }
             }
 
-            $price += $value->count*$unitPrice;
+            $price += $v->count*$unitPrice;
             
         }
 
