@@ -59,7 +59,7 @@
                                                         @if($value->type == 0) 
                                                             <span class="label label-success">直接设定</span> 
                                                         @else 
-                                                            <span class="label label-primary">打{{$value->type*10}}折</span> 
+                                                            <span class="label label-primary">打{{$value->type}}折</span> 
                                                         @endif
                                                     </td>
                                                     <td>{{$value->name}}</td>
