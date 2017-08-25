@@ -59,6 +59,7 @@ $('#priceM').click(function(){
 	if (value) {
 		var v = value.split('元')[0];
 		pricePicker.pickers[0].setSelectedValue(''+v);
+	} else {
+		pricePicker.pickers[0].setSelectedValue('100');
 	}
-	pricePicker.pickers[0].setSelectedValue('100');
 })
