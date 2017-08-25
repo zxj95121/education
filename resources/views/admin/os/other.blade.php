@@ -74,7 +74,7 @@
         		$.ajax({
         			url: '/admin/otherSetting/modifyPrice',
         			type: 'post',
-        			dataType: 'json',
+        			dataType: 'html',
         			data: {
         				val: val
         			},
