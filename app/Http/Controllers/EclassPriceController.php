@@ -141,8 +141,9 @@ class EclassPriceController extends Controller
             $unitPrice = $priceObj->price;
 
             $price += $value->count*$unitPrice;
-
-            return number_format($price, 2);
+            
         }
+
+        return number_format($price, 2);
     }
 }

@@ -10,6 +10,7 @@ use App\Models\TeacherThree;
 use App\Models\TeacherTwo;
 use App\Models\AdminPower;
 use App\Models\ModifyPricePasswd;
+use App\Models\ModifyPriceRecord;
 
 use App\Http\Controllers\EclassPriceController;
 
@@ -173,14 +174,27 @@ class EclassBigOrderController extends Controller
         $oid = $request->input('oid');
         $price = $request->input('price');
         $passwd = $request->input('psd');
+        $type = $request->input('type');
 
         $flight = BigOrder::find($oid);
 
         $passwd2 = ModifyPricePasswd::where('status', '1')
             ->first();
         if ($passwd2->passwd == $passwd) {
+            $pre = $flight->price;
             $flight->price = $price;
             $flight->save();
+
+            /*存记录*/
+            $admin_id = Session::get('admin_id');
+            
+            $fli = new ModifyPriceRecord();
+            $fli->uid = $admin_id;
+            $fli->pre = $pre;
+            $fli->now = $price;
+            $fli->type = $type;
+            $fli->save();
+
             return response()->json(['errcode'=>0]);
         }
         return response()->json(['errcode'=>1]);

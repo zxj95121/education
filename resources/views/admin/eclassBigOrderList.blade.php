@@ -664,6 +664,7 @@
             var val = $('#zhekou option:selected').val();
             var kouPrice = twoxs(parseFloat(val)*parseFloat($('#zhekou').attr('price')));
             var passwd = $('#passwd1').val();
+            var zhe = parseFloat($('#zhekou option:selected').val())*10;
 
             $.ajax({
                 url: '/admin/editECPrice',
@@ -672,7 +673,8 @@
                 data: {
                     oid: oid,
                     price: kouPrice,
-                    psd: passwd
+                    psd: passwd,
+                    type: zhe
                 },
                 success: function(data) {
                     if (data.errcode == 0) {
@@ -703,6 +705,7 @@
                         oid: oid,
                         price: price,
                         psd: passwd2
+                        type: 0
                     },
                     success: function(data) {
                         if (data.errcode == 0) {
