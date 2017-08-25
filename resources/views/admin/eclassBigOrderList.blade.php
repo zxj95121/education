@@ -704,7 +704,7 @@
                     data: {
                         oid: oid,
                         price: price,
-                        psd: passwd2
+                        psd: passwd2,
                         type: 0
                     },
                     success: function(data) {
