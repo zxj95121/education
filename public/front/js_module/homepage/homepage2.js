@@ -6,7 +6,7 @@ $(function(){
 		history.pushState('', '', '/front/home#'+forDiv);
 		// console.log(forDiv);
 		if (forDiv != 'teacher') {
-			if (pricePicker) {
+			if (typeof(pricePicker)) {
 				pricePicker.hide();
 			}
 		}
