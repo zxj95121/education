@@ -168,7 +168,7 @@ class EclassBigOrderController extends Controller
         return response()->json(['errcode'=>0, 'price'=>$price]);
     }
 
-    public function editECPrice1(Request $request)
+    public function editECPrice(Request $request)
     {
         $oid = $request->input('oid');
         $price = $request->input('price');

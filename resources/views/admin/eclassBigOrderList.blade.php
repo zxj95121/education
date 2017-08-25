@@ -665,7 +665,7 @@
             var passwd = $('#passwd1').val();
 
             $.ajax({
-                url: '/admin/editECPrice2',
+                url: '/admin/editECPrice',
                 dataType: '1',
                 type: 'post',
                 data: {
@@ -693,7 +693,7 @@
             var passwd2 = $('#passwd2').val();
             if(reg.test(price)) {
                 $.ajax({
-                    url: '/admin/editECPrice2',
+                    url: '/admin/editECPrice',
                     dataType: 'json',
                     type: 'post',
                     data: {
