@@ -193,11 +193,6 @@ $signPackage = $jssdk->GetSignPackage();
 				    		@endforeach
 						</div>
 						@endforeach
-						<!-- <div class="mui-col-xs-12 mui-col-sm-12 subject_type">
-				    		<h5>打开2</h5>
-				    		<button type="button" class="mui-btn">默认</button>
-							<button type="button" class="mui-btn mui-btn-primary">蓝色</button>
-						</div> -->
 			    	</div>
 			    </div>
 			</div>

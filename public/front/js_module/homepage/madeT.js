@@ -64,3 +64,17 @@ $('#priceM').click(function(){
 		pricePicker.pickers[0].setSelectedValue('100');
 	}
 })
+
+
+/*学科选课方面的js*/
+
+$('#subjectPopover button').click(function(){
+	if ($(this).hasClass('mui-btn-primary')) {
+		$(this).removeClass('mui-btn-primary');
+	} else {
+		$('#subjectPopover button').each(function(){
+			$(this).removeClass('mui-btn-primary');
+		})
+		$(this).addClass('mui-btn-primary');
+	}
+})
