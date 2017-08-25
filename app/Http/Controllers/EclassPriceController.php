@@ -206,7 +206,7 @@ class EclassPriceController extends Controller
                 }
             }
 
-            $price += $count->count*$unitPrice;
+            $price += $count*$unitPrice;
             
         }
 
