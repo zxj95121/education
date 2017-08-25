@@ -8,6 +8,8 @@ use App\Models\TeacherTwo;
 use App\Models\TeacherThree;
 use App\Models\TeacherFour;
 use App\Models\ClassPrice;
+use App\Models\BigOrder;
+use App\Models\EclassOrder;
 
 class EclassPriceController extends Controller
 {
@@ -112,5 +114,35 @@ class EclassPriceController extends Controller
         $unitPrice = $priceObj->price;
 
         return $unitPrice;
+    }
+
+    public static function getStandardPrice($id)
+    {
+        /*传入大订单的ID*/
+        $eclassObj = EclassOrder::where('bid', $id)
+            ->where('status', 1)
+            ->select('id', 'tid', 'count')
+            ->get();
+
+        $price = 0;
+        foreach ($eclassObj as $value) {
+            $oneId = TeacherThree::where('teacher_three.id', $value->tid)
+                ->leftJoin('teacher_two as tt', 'tt.id', 'teacher_three.pid')
+                ->leftJoin('teacher_one as to', 'to.id', 'tt.pid')
+                ->select('to.id')
+                ->first()
+                ->id;
+
+            $priceObj = ClassPrice::where('status', 1)
+                ->where('tid', $oneId)
+                ->select('area', 'price')
+                ->get()[0];
+
+            $unitPrice = $priceObj->price;
+
+            $price += $value->count*$unitPrice;
+
+            return number_format($price, 2);
+        }
     }
 }

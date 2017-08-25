@@ -8,6 +8,11 @@ use App\Models\BigOrder;
 use App\Models\EclassOrder;
 use App\Models\TeacherThree;
 use App\Models\TeacherTwo;
+use App\Models\AdminPower;
+
+use App\Http\Controllers\EclassPriceController;
+
+use Session;
 
 class EclassBigOrderController extends Controller
 {
@@ -78,7 +83,12 @@ class EclassBigOrderController extends Controller
                 $child[$bigOrderId][$key]['name'] = $value->name;
             }
         }
-    	return view('admin.eclassBigOrderList',['orderList'=>$orderList,'arg'=>$arg,'order_no'=>$order_no,'pay_select'=>$pay_select,'confirm_select'=>$confirm_select,'date0'=>$date0,'date1'=>$date1,'child'=>$child]);
+
+        /*查该管理员的管理权限*/
+        $powerObj = AdminPower::where('uid', Session::get('admin_id'))
+            ->select('modify_price')
+            ->get()[0];
+    	return view('admin.eclassBigOrderList',['orderList'=>$orderList,'arg'=>$arg,'order_no'=>$order_no,'pay_select'=>$pay_select,'confirm_select'=>$confirm_select,'date0'=>$date0,'date1'=>$date1,'child'=>$child,'powerObj'=>$powerObj]);
     }
 
 
@@ -147,5 +157,13 @@ class EclassBigOrderController extends Controller
         }
     
         return response()->json(['errcode'=>0,'obj'=>$Obj]);
+    }
+
+    /*获取订单的标准价*/
+    public function getOrderStandardPrice(Request $request)
+    {
+        $oid = $request->input('oid');
+        $price = EclassPriceController::getStandardPrice($oid);
+        return response()->json(['errcode'=>0, 'price'=>$price]);
     }
 }

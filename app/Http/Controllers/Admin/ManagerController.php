@@ -48,6 +48,7 @@ class ManagerController extends Controller
         foreach($adminInfo as $value) {
             $power[$value->aid]['set_power'] = $value->set_power;
             $power[$value->aid]['chat'] = $value->chat;
+            $power[$value->aid]['modify_price'] = $value->modify_price;
         }
         $power = json_encode($power);
     	$manageInfo = AdminInfo::find(Session::get('admin_id'));

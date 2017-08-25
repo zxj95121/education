@@ -167,6 +167,29 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-sm-6" style="margin-top: 10px;">
+                                    <div class="form-group">
+                                        <label class="col-sm-6 control-label">订单改价权限</label>
+                                        <div class="col-sm-6 control-label">
+                                            <div class="toggle toggle-success toggle_power" power="modify_price" style="height: 20px; width: 50px;">
+                                                <div class="toggle-slide">
+                                                    <div class="toggle-inner" style="width: 80px; margin-left: 0px;">
+                                                        <div class="toggle-on" style="height: 20px; width: 40px; text-align: center; text-indent: -10px; line-height: 20px;">
+                                                            ON
+                                                        </div>
+                                                        <div class="toggle-blob" style="height: 20px; width: 20px; margin-left: -10px;">
+                                                            
+                                                        </div>
+                                                        <div class="toggle-off" style="height: 20px; width: 40px; margin-left: -10px; text-align: center; text-indent: 10px; line-height: 20px;">
+                                                            OFF
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="modal-footer">

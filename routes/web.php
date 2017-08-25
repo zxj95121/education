@@ -139,6 +139,10 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/festivalSetting/add', 'Setting\FestivalSettingController@add');
     $router->post('/festivalSetting/change', 'Setting\FestivalSettingController@change');
 
+    /*其他简单设置*/
+    $router->get('/otherSetting', 'Setting\OtherSettingController@index');
+    $router->post('/otherSetting/modifyPrice', 'Setting\OtherSettingController@modifyPrice');
+
   	/**
   	 * 双师classOne*/
   	$router->get('/doubleTeacher','Teacher\DoubleTeacherController@doubleTeacher');//列表
@@ -226,6 +230,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/eclassBigOrderList/confirmXX', 'EclassBigOrderController@confirmXX');/*驳回订单*/
     $router->post('/eclassBigOrderList/confirmOK', 'EclassBigOrderController@confirmOK');/*驳回订单*/
     $router->post('/eclassBigOrderList/getOrderDetail', 'EclassBigOrderController@getOrderDetail');/*驳回订单*/
+    /*获取订单标准价*/
+    $router->post('/getOrderStandardPrice', 'EclassBigOrderController@getOrderStandardPrice');/*驳回订单*/
 
     /*其他class管理*/
     $router->get('/otherClass/add', 'OtherClass\OtherClassAddController@add');

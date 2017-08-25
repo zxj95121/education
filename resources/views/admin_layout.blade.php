@@ -99,9 +99,9 @@
                             <span class="menu-arrow"></span>
                         </a>
                         <ul class="list-unstyled">
-                            <li class="{!!(Request::is('admin/eclassOrderList')? 'active' : '') !!}">
+                            <!-- <li class="{!!(Request::is('admin/eclassOrderList')? 'active' : '') !!}">
                                 <a href="/admin/eclassOrderList">双师class订单</a>
-                            </li>
+                            </li> -->
                             <li class="{!!(Request::is('admin/eclassBigOrderList')? 'active' : '') !!}">
                                 <a href="/admin/eclassBigOrderList">双师class大订单</a>
                             </li>
@@ -173,7 +173,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="has-submenu {!!(Request::is('admin/communityManage','admin/subjectManage','admin/schoolManage','admin/hobbyManage','admin/classSetting','admin/festivalSetting','admin/classMessage')? 'active' : '') !!}">
+                    <li class="has-submenu {!!(Request::is('admin/communityManage','admin/subjectManage','admin/schoolManage','admin/hobbyManage','admin/classSetting','admin/festivalSetting','admin/classMessage', 'admin/otherSetting')? 'active' : '') !!}">
                         <a href="#">
                             <i class="fa fa-cog"></i> 
                             <span class="nav-label">系统设置</span>
@@ -200,6 +200,9 @@
                             </li>
                             <li class="{!!(Request::is('admin/classMessage')? 'active' : '') !!}">
                                 <a href="/admin/classMessage">订单短信设置   </a>
+                            </li>
+                            <li class="{!!(Request::is('admin/otherSetting')? 'active' : '') !!}">
+                                <a href="/admin/otherSetting">其他简单设置</a>
                             </li>
                         </ul>
                     </li>
