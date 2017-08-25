@@ -677,6 +677,7 @@
                     if (data.errcode == 0) {
                         $('#zhekou option[value="0.5"]').prop('selected');
                         $('#editPriceModal').modal('hide');
+                        $('#parentDetail tr[oid="'+oid+'"]').find('.td_price').html(kouPrice);
                         window.layer.msg('设置价格成功');
                     } else{
                         window.layer.msg('口令不正确');
