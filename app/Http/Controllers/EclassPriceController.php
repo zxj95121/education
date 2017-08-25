@@ -164,6 +164,8 @@ class EclassPriceController extends Controller
                 ->first()
                 ->id;
 
+            $count = $value->count;
+            
             $priceObj = ClassPrice::where('status', 1)
                 ->where('tid', $oneId)
                 ->select('area', 'price')
