@@ -85,5 +85,8 @@ $('#done_ok1').click(function(){
 		$('#subjectMade').val(cdom.html());
 		$('#subjectMade').attr('stid', cdom.attr('stid'));
 	}
-	$(this).parents('.page_set').hide().animate({'top': height+'px'}, 250);
+	$(this).parents('.page_set').animate({'top': height+'px'}, 250);
+	setTimeout(function(){
+		cdom.parents('.page_set').hide();
+	}, 250);
 })
