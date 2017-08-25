@@ -391,6 +391,14 @@
                                                 </div>
                                                 <div class="form-group col-md-12" style="margin-top:13px;">
                                                     <div class="col-md-3" style="text-align: right;">
+                                                        <label for="passwd2">改价口令</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input value="" id="passwd2" name="" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12" style="margin-top:13px;">
+                                                    <div class="col-md-3" style="text-align: right;">
                                                         
                                                     </div>
                                                     <div class="col-md-9">
