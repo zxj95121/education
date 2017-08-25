@@ -366,7 +366,7 @@
                                                         
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <button type="button" class="btn btn-info" id="editPriceBtn1"><font><font>确认改价</font></font></button>
+                                                        <button type="button" class="btn btn-info" id="editPriceBtn1"><font><font>确认打折</font></font></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -402,7 +402,7 @@
                                                         
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <button type="button" class="btn btn-info" id="editPriceBtn2"><font><font>确认打折</font></font></button>
+                                                        <button type="button" class="btn btn-info" id="editPriceBtn2"><font><font>确认改价</font></font></button>
                                                     </div>
                                                 </div>
                                             </div>
