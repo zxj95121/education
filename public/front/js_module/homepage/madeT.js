@@ -55,11 +55,10 @@ $('#priceM').click(function(){
 	})
 
 	var value = $('#priceM').val();
-	console.log(value);
-	console.log(value.split('元'));
+
 	if (value) {
 		var v = value.split('元')[0];
-		pricePicker.pickers[0].setSelectedValue(v);
+		pricePicker.pickers[0].setSelectedValue(''+v);
 	}
 	pricePicker.pickers[0].setSelectedValue('100');
 })
