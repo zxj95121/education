@@ -662,27 +662,27 @@
             var val = $('#zhekou option:selected').val();
             var kouPrice = twoxs(parseFloat(val)*parseFloat($('#zhekou').attr('price')));
             var passwd = $('#passwd1').val();
-            if(reg.test(price)) {
-                $.ajax({
-                    url: '/admin/editECPrice2',
-                    dataType: '1',
-                    type: 'post',
-                    data: {
-                        oid: oid,
-                        price: kouPric,
-                        passwd: passwd
-                    },
-                    success: function(data) {
-                        if (data.errcode == 0) {
-                            $('#zhekou option[value="0.5"]').prop('selected');
-                            $('#editPriceModal').modal('hide');
-                            window.layer.msg('设置价格成功');
-                        }
-                        
-                    }
 
-                })
-            }
+            $.ajax({
+                url: '/admin/editECPrice2',
+                dataType: '1',
+                type: 'post',
+                data: {
+                    oid: oid,
+                    price: kouPric,
+                    passwd: passwd
+                },
+                success: function(data) {
+                    if (data.errcode == 0) {
+                        $('#zhekou option[value="0.5"]').prop('selected');
+                        $('#editPriceModal').modal('hide');
+                        window.layer.msg('设置价格成功');
+                    }
+                    
+                }
+
+            })
+
         })
 
         $('#editPriceBtn2').click(function(){
