@@ -81,6 +81,9 @@ $('#subjectPopover button').click(function(){
 
 $('#done_ok1').click(function(){
 	var cdom = $('#subjectPopover button[active="1"]');
-	$('#subjectMade').val(cdom.html());
-	$('#subjectMade').attr('stid', cdom.attr('stid'));
+	if (cdom) {
+		$('#subjectMade').val(cdom.html());
+		$('#subjectMade').attr('stid', cdom.attr('stid'));
+	}
+	$(this).parents('.page_set').hide().animate({'top': height+'px'}, 250);
 })
