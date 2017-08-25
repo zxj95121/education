@@ -231,7 +231,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->post('/eclassBigOrderList/confirmOK', 'EclassBigOrderController@confirmOK');/*驳回订单*/
     $router->post('/eclassBigOrderList/getOrderDetail', 'EclassBigOrderController@getOrderDetail');/*驳回订单*/
     /*获取订单标准价*/
-    $router->post('/getOrderStandardPrice', 'EclassBigOrderController@getOrderStandardPrice');/*驳回订单*/
+    $router->post('/getOrderStandardPrice', 'EclassBigOrderController@getOrderStandardPrice');/**/
+    $router->post('/editECPrice1', 'EclassBigOrderController@editECPrice1');/**/
+    $router->post('/editECPrice2', 'EclassBigOrderController@editECPrice2');/**/
 
     /*其他class管理*/
     $router->get('/otherClass/add', 'OtherClass\OtherClassAddController@add');

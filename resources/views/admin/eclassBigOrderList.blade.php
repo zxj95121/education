@@ -624,6 +624,7 @@
         /*修改价格*/
         $('.modifyPriceBtn').click(function(){
             var oid = $(this).parents('tr').attr('oid');
+            $('#editPriceModal').attr('oid', oid);
             $.ajax({
                 url: '/admin/getOrderStandardPrice',
                 dataType: 'json',
@@ -653,7 +654,26 @@
         $('#editPriceBtn2').click(function(){
             var price = $('#setPrice').val();
             var reg = /^\d{1,10}[\.]?\d{1,2}$/;
-            console.log(reg.test(price));
+            if(reg.test(price)) {
+                $.ajax({
+                    url: '/admin/editECPrice2',
+                    dataType: 'json',
+                    type: 'post',
+                    data: {
+                        oid: oid,
+                        price: price
+                    },
+                    success: function(data) {
+                        if (data.errcode == 0) {
+                            $('#zhekou option[value="0.5"]').prop('selected');
+                            $('#editPriceModal').modal('hide');
+                            window.layer.msg('设置价格成功');
+                        }
+                        
+                    }
+
+                })
+            }
         })
     })
 

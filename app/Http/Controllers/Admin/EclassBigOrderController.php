@@ -166,4 +166,14 @@ class EclassBigOrderController extends Controller
         $price = EclassPriceController::getStandardPrice($oid);
         return response()->json(['errcode'=>0, 'price'=>$price]);
     }
+
+    public function editECPrice1(Request $request)
+    {
+
+    }
+
+    public function editECPrice2(Request $request)
+    {
+        
+    }
 }
