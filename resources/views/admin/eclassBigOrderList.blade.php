@@ -710,7 +710,7 @@
                             $('#parentDetail tr[oid="'+oid+'"]').find('.td_price').html(kouPrice);
                             window.layer.msg('设置价格成功');
                         } else {
-                            window.layer.msg('口令不正确';
+                            window.layer.msg('口令不正确');
                         }
                         
                     }
