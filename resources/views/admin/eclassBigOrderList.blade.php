@@ -692,7 +692,7 @@
         $('#editPriceBtn2').click(function(){
             var oid = $('#editPriceModal').attr('oid');
             var price = $('#setPrice').val();
-            var reg = /^\d{1,10}[\.]?\d{1,2}$/;
+            var reg = /^(\d{1,8})(\.\d{1,2})?$/;
             var passwd2 = $('#passwd2').val();
             if(reg.test(price)) {
                 $.ajax({
@@ -706,9 +706,11 @@
                     },
                     success: function(data) {
                         if (data.errcode == 0) {
-                            $('#zhekou option[value="0.5"]').prop('selected');
                             $('#editPriceModal').modal('hide');
+                            $('#parentDetail tr[oid="'+oid+'"]').find('.td_price').html(kouPrice);
                             window.layer.msg('设置价格成功');
+                        } else {
+                            window.layer.msg('口令不正确';
                         }
                         
                     }
