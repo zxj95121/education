@@ -172,7 +172,7 @@ class EclassBigOrderController extends Controller
     {
         $oid = $request->input('oid');
         $price = $request->input('price');
-        $passwd = $request->input('passwd');
+        $passwd = $request->input('psd');
 
         $flight = BigOrder::find($oid);
 

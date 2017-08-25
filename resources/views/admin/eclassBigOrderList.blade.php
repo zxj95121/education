@@ -671,7 +671,7 @@
                 data: {
                     oid: oid,
                     price: kouPrice,
-                    passwd: passwd
+                    psd: passwd
                 },
                 success: function(data) {
                     if (data.errcode == 0) {
@@ -699,7 +699,7 @@
                     data: {
                         oid: oid,
                         price: price,
-                        passwd: passwd2
+                        psd: passwd2
                     },
                     success: function(data) {
                         if (data.errcode == 0) {
