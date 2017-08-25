@@ -355,10 +355,10 @@
                                                 </div>
                                                 <div class="form-group col-md-12" style="margin-top:13px;">
                                                     <div class="col-md-3" style="text-align: right;">
-                                                        <label for="passwd">改价口令</label>
+                                                        <label for="passwd1">改价口令</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <input value="" id="passwd" name="" class="form-control">
+                                                        <input value="" id="passwd1" name="" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-12" style="margin-top:13px;">
