@@ -659,6 +659,7 @@
         })
 
         $('#editPriceBtn1').click(function(){
+            var oid = $('#editPriceModal').attr('oid');
             var val = $('#zhekou option:selected').val();
             var kouPrice = twoxs(parseFloat(val)*parseFloat($('#zhekou').attr('price')));
             var passwd = $('#passwd1').val();
@@ -686,6 +687,7 @@
         })
 
         $('#editPriceBtn2').click(function(){
+            var oid = $('#editPriceModal').attr('oid');
             var price = $('#setPrice').val();
             var reg = /^\d{1,10}[\.]?\d{1,2}$/;
             var passwd2 = $('#passwd2').val();
