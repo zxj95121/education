@@ -79,6 +79,7 @@
         				val: val
         			},
         			success: function(data) {
+                        window.layer.msg('修改成功');
         			}
         		})
         	}
