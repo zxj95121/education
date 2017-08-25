@@ -647,7 +647,7 @@
 
         $('#zhekou').click(function(){
             var val = $('#zhekou option:selected').val();
-            $kouPrice = twoxs(parseFloat(val)*parseFloat($('#zhekou').attr('price')));
+            var kouPrice = twoxs(parseFloat(val)*parseFloat($('#zhekou').attr('price')));
             $('#nextPrice').val('¥ '+kouPrice+'元');
         })
 
