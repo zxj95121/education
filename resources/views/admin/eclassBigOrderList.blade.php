@@ -666,7 +666,7 @@
 
             $.ajax({
                 url: '/admin/editECPrice',
-                dataType: '1',
+                dataType: 'json',
                 type: 'post',
                 data: {
                     oid: oid,
