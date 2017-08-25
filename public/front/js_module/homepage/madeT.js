@@ -44,14 +44,20 @@ $('#priceM').click(function(){
 	for(var i = 0,j=30;j <= 300; i++){
 		priceArr[i] = new Object();
 		priceArr[i]['value'] = j;
-		priceArr[i]['text'] = j+'元';
+		priceArr[i]['text'] = j+'元/时';
 		j += 10;
 	}
 
 	pricePicker.setData(priceArr);
 	pricePicker.show(function(SelectedItem) {
 		console.log(SelectedItem);
+		$('#priceM').val(SelectedItem[0].text);
 	})
 
-	pricePicker.pickers[0].setSelectedValue('150');
+	var value = $('#priceM').val();
+	if (value) {
+		var v = value.split('元')[0];
+		pricePicker.pickers[0].setSelectedValue(v);
+	}
+	pricePicker.pickers[0].setSelectedValue('100');
 })
