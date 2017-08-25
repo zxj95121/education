@@ -17,6 +17,8 @@ use App\Models\EclassOrder;
 use App\Models\ParentDetail;
 use App\Models\NewUser;
 use App\Models\EclassCart;
+use App\Models\SubjectOne;
+use App\Models\SubjectTwo;
 
 class HomeController extends Controller
 {
@@ -52,8 +54,20 @@ class HomeController extends Controller
 					->where('status', 1)
 					->count();
 				$parentDetail = ParentDetail::where('pid', $res['data'][0]->id)->get()[0];
+
+                /*学科信息查询*/
+                $subject = SubjectOne::where('status', 1)
+                    ->select('id', 'name')
+                    ->get()
+                    ->toArray();
+                foreach ($subject as $key => $value) {
+                    $subjectOne[$key]['two'] = SubjectTwo::where('pid', $value['id'])
+                        ->select('id', 'name', 'pid')
+                        ->get()
+                        ->toArray();
+                }
                 if ($parentDetail->id == 21) {
-                    return view('front.views.home.homepage2',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus,'parentDetail'=>$parentDetail,'newUserId'=>$newUserId]);
+                    return view('front.views.home.homepage2',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus,'parentDetail'=>$parentDetail,'newUserId'=>$newUserId,'subject'=>$subject]);
                 }
 	    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus,'parentDetail'=>$parentDetail,'newUserId'=>$newUserId]);
 	    	} elseif ($res['type'] == '3') {
