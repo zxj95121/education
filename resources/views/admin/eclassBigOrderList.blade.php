@@ -378,7 +378,7 @@
                                                         <label for="standPrice2">课程标准价</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <input type="number" min="1" value="¥ 966元" id="standPrice2" name="" class="form-control" disabled="disabled">
+                                                        <input type="text" value="¥ 966元" id="standPrice2" name="" class="form-control" disabled="disabled">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-12" style="margin-top:13px;">
@@ -678,6 +678,8 @@
                         $('#zhekou option[value="0.5"]').prop('selected');
                         $('#editPriceModal').modal('hide');
                         window.layer.msg('设置价格成功');
+                    } else{
+                        window.layer.msg('口令不正确');
                     }
                     
                 }
