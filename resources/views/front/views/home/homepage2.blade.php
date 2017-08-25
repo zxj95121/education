@@ -88,7 +88,7 @@ $signPackage = $jssdk->GetSignPackage();
 							<form class="mui-input-group">
 							    <div class="mui-input-row">
 							        <label>学科定制</label>
-							    	<input type="text" placeholder="选择学科" id="subjectMade" readonly="readonly">
+							    	<input type="text" placeholder="选择学科" id="subjectMade" stid="0" readonly="readonly">
 							    </div>
 							    <div class="mui-input-row">
 							        <label>学历定制</label>
@@ -189,7 +189,7 @@ $signPackage = $jssdk->GetSignPackage();
 			    		<div class="mui-col-xs-12 mui-col-sm-12 subject_type" sid="{{$value['id']}}">
 				    		<h5>{{$value['name']}}</h5>
 				    		@foreach($value['two'] as $v)
-				    		<button type="button" class="mui-btn" stid="{{$v['id']}}">{{$v['name']}}</button>
+				    		<button type="button" class="mui-btn" stid="{{$v['id']}}" active="0">{{$v['name']}}</button>
 				    		@endforeach
 						</div>
 						@endforeach
@@ -202,14 +202,14 @@ $signPackage = $jssdk->GetSignPackage();
 		            <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
 			            <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
 			            <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">特长定制</div></div>
-			            <div><div class="placeholder glyphicon glyphicon-ok done_ok1"></div></div>
+			            <div><div class="placeholder glyphicon glyphicon-ok done_ok2"></div></div>
 			        </div>
 			    </div>
 			    <div style="width: 100%;margin: 0 auto;" class="div_detail">
 			    	<div class="mui-content" style="padding: 6px;">
 			    		<div class="mui-col-xs-12 mui-col-sm-12 subject_type">
 				    		<h5>特长1</h5>
-				    		<button type="button" class="mui-btn">默认</button>
+				    		<button type="button" class="mui-btn" active="0">默认</button>
 							<button type="button" class="mui-btn mui-btn-primary">蓝色</button>
 						</div>
 						<div class="mui-col-xs-12 mui-col-sm-12 subject_type">

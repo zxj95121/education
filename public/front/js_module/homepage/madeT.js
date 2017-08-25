@@ -71,10 +71,15 @@ $('#priceM').click(function(){
 $('#subjectPopover button').click(function(){
 	if ($(this).hasClass('mui-btn-primary')) {
 		$(this).removeClass('mui-btn-primary');
+		$(this).attr('active', '0');
 	} else {
-		$('#subjectPopover button').each(function(){
-			$(this).removeClass('mui-btn-primary');
-		})
+		$('#subjectPopover button[active="1"]').removeClass('mui-btn-primary');
 		$(this).addClass('mui-btn-primary');
 	}
+})
+
+$('#done_ok1').click(function(){
+	var cdom = $('#subjectPopover button[active="1"]');
+	$('#subjectMade').val(cdom.html());
+	$('#subjectMade').attr('stid', cdom.attr('stid'));
 })
