@@ -206,15 +206,18 @@
                             </li>
                         </ul>
                     </li>
-                   	<li class="has-submenu {!!(Request::is('admin/bill')? 'active' : '') !!}">
+                   	<li class="has-submenu {!!(Request::is('admin/bill', 'admin/modifyPriceRecord')? 'active' : '') !!}">
                         <a href="#">
                             <i class="zmdi zmdi-money"></i> 
-                            <span class="nav-label">流水账管理</span>
+                            <span class="nav-label">流水账等信息记录</span>
                             <span class="menu-arrow"></span>
                         </a>
                         <ul class="list-unstyled">
                             <li class="{!!(Request::is('admin/bill')? 'active' : '') !!}">
                                 <a href="/admin/bill">流水账   </a>
+                            </li>
+                            <li class="{!!(Request::is('admin/modifyPriceRecord')? 'active' : '') !!}">
+                                <a href="/admin/modifyPriceRecord">改价格记录  </a>
                             </li>
                         </ul>
                     </li>

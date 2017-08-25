@@ -40,9 +40,6 @@ $signPackage = $jssdk->GetSignPackage();
 	    	</a>
 	    	<h1 class="title">订单详情</h1>
 	  	</header>
-	  	<nav class="bar bar-tab">
-	    	
-	  	</nav>
 	  	<div class="content">
   			<!-- <div class="content-block-title">双师class订单</div> -->
 			<div class="list-block">
