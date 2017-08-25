@@ -707,7 +707,7 @@
                     success: function(data) {
                         if (data.errcode == 0) {
                             $('#editPriceModal').modal('hide');
-                            $('#parentDetail tr[oid="'+oid+'"]').find('.td_price').html(kouPrice);
+                            $('#parentDetail tr[oid="'+oid+'"]').find('.td_price').html(price);
                             window.layer.msg('设置价格成功');
                         } else {
                             window.layer.msg('口令不正确');
