@@ -366,7 +366,7 @@
                                                         
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <button type="button" class="btn btn-info" id=""><font><font>确认改价</font></font></button>
+                                                        <button type="button" class="btn btn-info" id="editPriceBtn1"><font><font>确认改价</font></font></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -394,7 +394,7 @@
                                                         
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <button type="button" class="btn btn-info" id=""><font><font>确认打折</font></font></button>
+                                                        <button type="button" class="btn btn-info" id="editPriceBtn2"><font><font>确认打折</font></font></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -634,13 +634,26 @@
                 success: function(data) {
                     if (data.errcode == 0) {
                         $('.standPrice').val('¥ '+data.price+'元');
-                        $halfPrice = 0.5*parseFloat(data.price);
+                        var halfPrice = 0.5*parseFloat(data.price);
                         $('#nextPrice').val('¥ '+twoxs(halfPrice)+'元');
+                        $('#zhekou').attr('price', data.price);
                     }
+                    $('#editPriceModal').modal('show');
                 }
 
             })
-            $('#editPriceModal').modal('show');
+        })
+
+        $('#zhekou').click(function(){
+            var val = $('#zhekou option:selected').val();
+            $kouPrice = twoxs(parseFloat(val)*parseFloat($('#zhekou').attr('price')));
+            $('#nextPrice').val('¥ '+kouPrice+'元');
+        })
+
+        $('#editPriceBtn2').click(function(){
+            var price = $('#setPrice').val();
+            var reg = /^\d{1,10}[\.]?\d{1,2}$/;
+            console.log(reg.test(price));
         })
     })
 
