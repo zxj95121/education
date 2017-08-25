@@ -696,7 +696,7 @@
                     type: 'post',
                     data: {
                         oid: oid,
-                        price: price
+                        price: price,
                         passwd: passwd2
                     },
                     success: function(data) {
