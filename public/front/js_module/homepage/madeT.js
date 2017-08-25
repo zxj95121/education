@@ -75,6 +75,7 @@ $('#subjectPopover button').click(function(){
 	} else {
 		$('#subjectPopover button[active="1"]').removeClass('mui-btn-primary');
 		$(this).addClass('mui-btn-primary');
+		$(this).attr('active', '1');
 	}
 })
 
