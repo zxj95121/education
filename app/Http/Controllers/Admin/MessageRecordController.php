@@ -20,7 +20,7 @@ class MessageRecordController extends Controller
     		->select('ai.name','modify_price_record.*')
     		->paginate(10);
 
-    	foreach($recordObj as $value) {
+    	foreach($recordObj as $key=>$value) {
     		if ($value->which == 1) {
     			$orderno = BigOrder::find($value->order_no)->order_no;
     		} elseif ($value->which == 2) {
@@ -28,7 +28,7 @@ class MessageRecordController extends Controller
     		} else {
     			$orderno = '';
     		}
-  			$recordObj->no = $orderno;
+  			$recordObj[$key]->no = $orderno;
     	}
     	return view('admin.record.modifyPrice', ['recordObj'=>$recordObj]);
     }
