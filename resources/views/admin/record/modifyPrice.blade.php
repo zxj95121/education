@@ -42,6 +42,8 @@
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
+                                                    <th>订单类别</th>
+                                                    <th>订单编号</th>
                                                     <th>之前价格</th>
                                                     <th>之后价格</th>
                                                     <th>修改方式</th>
@@ -53,6 +55,8 @@
                                                 @foreach($recordObj as $value)
                                                 <tr>
                                                     <td>{{$value->id}}</td>
+                                                    <td>@if($value->which == 1) 双师class @elseif($value->which == 2) 课程订单 @else @endif</td>
+                                                    <td>{{$value->order_no}}</td>
                                                     <td>{{$value->pre}}</td>
                                                     <td>{{$value->now}}</td>
                                                     <td>

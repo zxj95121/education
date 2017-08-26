@@ -185,6 +185,7 @@ class EclassBigOrderController extends Controller
             $flight->price = $price;
             $flight->voucher_num = 0;
             $flight->save();
+            $orderno = $flight->order_no;
 
             /*存记录*/
             $admin_id = Session::get('admin_id');
@@ -194,6 +195,7 @@ class EclassBigOrderController extends Controller
             $fli->pre = $pre;
             $fli->now = $price;
             $fli->type = $type;
+            $fli->order_no = $orderno;
             $fli->save();
 
             return response()->json(['errcode'=>0]);
