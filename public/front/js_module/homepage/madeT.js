@@ -51,7 +51,7 @@ $('#priceM').click(function(){
 
 	pricePicker.setData(priceArr);
 	pricePicker.show(function(SelectedItem) {
-		console.log(SelectedItem);
+		// console.log(SelectedItem);
 		$('#priceM').val(SelectedItem[0].text);
 	})
 

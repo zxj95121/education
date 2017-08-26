@@ -70,7 +70,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 		        
 			<div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_apply">
-	        	<div class="mui-content">
+<!-- 	        	<div class="mui-content">
 					<div style="padding: 10px 10px;">
 						<div id="segmentedControl" class="mui-segmented-control">
 							<a class="mui-control-item mui-active" for="#directionMade" href="#">
@@ -81,7 +81,7 @@ $signPackage = $jssdk->GetSignPackage();
 							</a>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<div class="mui-content">
 					<div class="mui-col-xs-12 mui-col-sm-12 madeSteps" id="directionMade">
 						<div style="padding: 10px 10px;">
@@ -100,20 +100,6 @@ $signPackage = $jssdk->GetSignPackage();
 							        	<option value="3">专科生</option>
 							        </select>
 							    </div>
-							</form>
-						</div>
-						<div style="padding: 10px 10px;">
-							<button type="button" class="mui-btn mui-btn-success" style="width: 100%;height: 40px;font-size: 1.5em;line-height: 26px;">提交定制</button>
-						</div>
-					</div>
-
-					<!-- <div id="subjectPopover" class="self-propover"> -->
-					
-					<!-- </div> -->
-
-					<div class="mui-col-xs-12 mui-col-sm-12 madeSteps" id="otherMade" style="display: none;">
-						<div style="padding: 10px 10px;">
-							<form class="mui-input-group">
 							    <div class="mui-input-row">
 							        <label>性别定制</label>
 							        <input type="text" placeholder="性别要求" readonly="readonly">
