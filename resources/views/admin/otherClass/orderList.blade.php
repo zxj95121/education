@@ -10,6 +10,13 @@
 	.label{
 		cursor: pointer;
 	}
+	#parentDetail td{
+        vertical-align: middle;
+    }
+    #parentDetail .label{
+        margin-top: 5px;
+        display: inline-block;
+    }
 </style>
 @endsection
 
@@ -60,7 +67,7 @@
     											</thead>
     											<tbody>
     												@foreach($orderObj as $value)
-                                                    <tr oid="{{$value->id}}" userId="{{$value->userId}}">
+                                                    <tr oid="{{$value->id}}" userId="{{$value->userId}}" cid="{{$value->cid}}">
                                                         <td>{{$value->id}}</td>
                                                         <td>{{$value->order_no}}</td>
                                                         <td>{{$value->nickname}}</td>
@@ -68,9 +75,13 @@
                                                         <td class="patyTd">{{$value->patynum}}</td>
                                                         <td>{{$value->phone}}</td>
                                                         <td>@if($value->voucher_name) 88元*{{$value->voucher_num}} @else <span class="label label-default">未使用优惠券</span> @endif</td>
-                                                        <td>¥ {{number_format($value->price, 2)}}</td>
+                                                        <td class="td_price">¥ {{number_format($value->price, 2)}}</td>
                                                         <td>
                                                         	<span class="label label-info addPaty">添加party</span>
+                                                        	@if($powerObj->modify_price)
+                                                        		<span class="label label-info modifyPriceBtn">修改订单价格</span>
+                                                        	@else
+                                                        	@endif
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -186,6 +197,125 @@
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
             </div> 
+
+
+            <div id="editPriceModal" class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="mypatyLabel" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><font><font class="">×</font></font></button>
+                            <h4 class="modal-title" id="mypatyLabel" style="font-weight: bold;"><font><font id="bttitle2">修改课程价格</font></font></h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="layui-tab">
+                                    <ul class="layui-tab-title">
+                                        <li class="layui-this">通过打折</li>
+                                        <li>直接设价格</li>
+                                    </ul>
+                                    <div class="layui-tab-content">
+                                        <div class="layui-tab-item layui-show">
+                                            <div class="row">
+                                                <div class="form-group col-md-12" style="margin-top:13px;">
+                                                    <div class="col-md-3" style="text-align: right;">
+                                                        <label for="standPrice1">课程标准价</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="text" value="¥ 966元" id="standPrice1" name="" class="form-control" disabled="disabled">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12" style="margin-top:13px;">
+                                                    <div class="col-md-3" style="text-align: right;">
+                                                        <label for="zhekou">打几折</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <select id="zhekou" class="form-control">
+                                                            <option value="0.9">9折</option>
+                                                            <option value="0.8">8折</option>
+                                                            <option value="0.7">7折</option>
+                                                            <option value="0.6">6折</option>
+                                                            <option value="0.5" selected="selected">5折</option>
+                                                            <option value="0.4">4折</option>
+                                                            <option value="0.3">3折</option>
+                                                            <option value="0.2">2折</option>
+                                                            <option value="0.1">1折</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12" style="margin-top:13px;">
+                                                    <div class="col-md-3" style="text-align: right;">
+                                                        <label for="nextPrice">折后价</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="text" value="¥ 966元" id="nextPrice" name="" class="form-control" disabled="disabled">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12" style="margin-top:13px;">
+                                                    <div class="col-md-3" style="text-align: right;">
+                                                        <label for="passwd1">改价口令</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input value="" id="passwd1" name="" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12" style="margin-top:13px;">
+                                                    <div class="col-md-3" style="text-align: right;">
+                                                        
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <button type="button" class="btn btn-info" id="editPriceBtn1"><font><font>确认打折</font></font></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-tab-item">
+                                            <div class="row">
+                                                <div class="form-group col-md-12" style="margin-top:13px;">
+                                                    <div class="col-md-3" style="text-align: right;">
+                                                        <label for="standPrice2">课程标准价</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="text" value="¥ 966元" id="standPrice2" name="" class="form-control" disabled="disabled">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12" style="margin-top:13px;">
+                                                    <div class="col-md-3" style="text-align: right;">
+                                                        <label for="setPrice">设定价格</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="decimal" value="" id="setPrice" name="" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12" style="margin-top:13px;">
+                                                    <div class="col-md-3" style="text-align: right;">
+                                                        <label for="passwd2">改价口令</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input value="" id="passwd2" name="" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12" style="margin-top:13px;">
+                                                    <div class="col-md-3" style="text-align: right;">
+                                                        
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <button type="button" class="btn btn-info" id="editPriceBtn2"><font><font>确认改价</font></font></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer"> 
+                            <button type="button" class="btn btn-white" data-dismiss="modal"><font><font>关闭</font></font></button> 
+                             
+                        </div>
+
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div> 
 @endsection
             
 
@@ -285,6 +415,125 @@
 				}
 	    	});
 	    })
+
+	    @if($powerObj->modify_price)
+        //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+        layui.use('element', function(){
+            var element = layui.element;
+        });
+
+        /*修改价格*/
+        $('.modifyPriceBtn').click(function(){
+            var oid = $(this).parents('tr').attr('oid');
+            var cid = $(this).parents('tr').attr('cid');
+            $('#editPriceModal').attr('oid', oid);
+            $.ajax({
+                url: '/admin/otherClass/getStandardPrice',
+                dataType: 'json',
+                type: 'post',
+                data: {
+                    cid: cid
+                },
+                success: function(data) {
+                    if (data.errcode == 0) {
+                        data.price = twoxs(data.price);
+                        $('#standPrice1').val('¥ '+data.price+'元');
+                        $('#standPrice2').val('¥ '+data.price+'元');
+                        var kou = parseFloat($('#zhekou option:selected').val());
+                        var halfPrice = kou*parseFloat(data.price);
+                        $('#nextPrice').val('¥ '+twoxs(halfPrice)+'元');
+                        $('#zhekou').attr('price', data.price);
+                    }
+                    $('#editPriceModal').modal('show');
+                }
+
+            })
+        })
+
+        $('#zhekou').click(function(){
+            var val = $('#zhekou option:selected').val();
+            var kouPrice = twoxs(parseFloat(val)*parseFloat($('#zhekou').attr('price')));
+            $('#nextPrice').val('¥ '+kouPrice+'元');
+        })
+
+        $('#editPriceBtn1').click(function(){
+            var oid = $('#editPriceModal').attr('oid');
+            var val = $('#zhekou option:selected').val();
+            var kouPrice = twoxs(parseFloat(val)*parseFloat($('#zhekou').attr('price')));
+            var passwd = $('#passwd1').val();
+            var zhe = parseFloat($('#zhekou option:selected').val())*10;
+
+            $.ajax({
+                url: '/admin/otherClass/editECPrice',
+                dataType: 'json',
+                type: 'post',
+                data: {
+                    oid: oid,
+                    price: kouPrice,
+                    psd: passwd,
+                    type: zhe
+                },
+                success: function(data) {
+                    if (data.errcode == 0) {
+                        $('#editPriceModal').modal('hide');
+                        $('#parentDetail tr[oid="'+oid+'"]').find('.td_price').html('¥ '+twoxs(kouPrice));
+                        window.layer.msg('设置价格成功');
+                    } else{
+                        window.layer.msg('口令不正确');
+                    }
+                    
+                }
+
+            })
+
+        })
+
+        $('#editPriceBtn2').click(function(){
+            var oid = $('#editPriceModal').attr('oid');
+            var price = $('#setPrice').val();
+            var reg = /^(\d{1,8})(\.\d{1,2})?$/;
+            var passwd2 = $('#passwd2').val();
+            if(reg.test(price)) {
+                $.ajax({
+                    url: '/admin/otherClass/editECPrice',
+                    dataType: 'json',
+                    type: 'post',
+                    data: {
+                        oid: oid,
+                        price: price,
+                        psd: passwd2,
+                        type: 0
+                    },
+                    success: function(data) {
+                        if (data.errcode == 0) {
+                            $('#editPriceModal').modal('hide');
+                            $('#parentDetail tr[oid="'+oid+'"]').find('.td_price').html('¥ '+twoxs(price));
+                            window.layer.msg('设置价格成功');
+                        } else {
+                            window.layer.msg('口令不正确');
+                        }
+                        
+                    }
+
+                })
+            }
+        })
+    @else
+    @endif
     })
+    
+
+    /*计算两位小数*/
+    function twoxs(a){
+        if((a+'').indexOf('.')>=0)
+            a=a+'0000';
+        else
+            a=a+'.0000';
+        var sp=a.split('.');
+        if(sp[1].substring(2,3)=='5')
+            a=sp[0]+'.'+sp[1].substring(0,2)+'6';
+        a=parseFloat(a);
+        return a.toFixed(2);
+    }
 </script>
 @endsection

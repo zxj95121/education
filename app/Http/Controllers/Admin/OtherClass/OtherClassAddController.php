@@ -5,8 +5,13 @@ namespace App\Http\Controllers\Admin\OtherClass;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Models\AdminPower;
 use App\Models\ClassPackage;
 use App\Models\ClassPackageOrder;
+use App\Models\ModifyPricePasswd;
+use App\Models\ModifyPriceRecord;
+
+use Session;
 
 class OtherClassAddController extends Controller
 {
@@ -101,6 +106,57 @@ class OtherClassAddController extends Controller
             ->orderBy('class_package_order.created_at', 'desc')
             ->paginate(10);
         // dd($orderObj->toArray());
-        return view('admin.otherClass.orderList', ['package'=>$packageObj,'orderObj'=>$orderObj,'cid'=>$cid]);
+
+        /*查该管理员的管理权限*/
+        $powerObj = AdminPower::where('uid', Session::get('admin_id'))
+            ->select('modify_price')
+            ->get()[0];
+
+        return view('admin.otherClass.orderList', ['package'=>$packageObj,'orderObj'=>$orderObj,'cid'=>$cid,'powerObj'=>$powerObj]);
+    }
+
+    public function getStandardPrice(Request $request)
+    {
+        $cid = $request->input('cid');
+
+        $price = ClassPackage::find($cid)->standard_price;
+
+        return response()->json(['errcode'=>0,'price'=>$price]);
+    }
+
+    /*xiugai价格*/
+    public function editECPrice(Request $request)
+    {
+        $oid = $request->input('oid');
+        $price = $request->input('price');
+        $passwd = $request->input('psd');
+        $type = $request->input('type');
+
+        $flight = ClassPackageOrder::find($oid);
+
+        $passwd2 = ModifyPricePasswd::where('status', '1')
+            ->first();
+        if ($passwd2->passwd == $passwd) {
+            $pre = $flight->price;
+            $flight->price = $price;
+            $flight->voucher_num = 0;
+            $flight->save();
+            $orderno = $flight->order_no;
+
+            /*存记录*/
+            $admin_id = Session::get('admin_id');
+            
+            $fli = new ModifyPriceRecord();
+            $fli->uid = $admin_id;
+            $fli->pre = $pre;
+            $fli->now = $price;
+            $fli->type = $type;
+            $fli->which = 2;
+            $fli->order_no = $oid;
+            $fli->save();
+
+            return response()->json(['errcode'=>0]);
+        }
+        return response()->json(['errcode'=>1]);
     }
 }

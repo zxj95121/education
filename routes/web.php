@@ -242,6 +242,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['admin
     $router->get('/otherClass/add/setShow', 'OtherClass\OtherClassAddController@setShow');
     $router->post('/otherClass/add/setShowPost', 'OtherClass\OtherClassAddController@setShowPost');
     $router->post('/otherClass/add/delete', 'OtherClass\OtherClassAddController@delete');//delete套餐
+    /*修改价格*/
+    $router->post('/otherClass/getStandardPrice', 'OtherClass\OtherClassAddController@getStandardPrice');
+    $router->post('/otherClass/editECPrice', 'OtherClass\OtherClassAddController@editECPrice');
 
     $router->get('/otherClass/orderList', 'OtherClass\OtherClassAddController@orderList');//
 
