@@ -175,7 +175,7 @@ class ClassPackageController extends Controller
         $prePrice = ClassPackage::find($flight->cid)->price;
         // $price = $flight->price;
         $vouNum = $flight->voucher_num;
-        $prePrice = $prePrice - 88*$vouNum;
+        $price = $prePrice - 88*$vouNum;
 
 
         $cid = $flight->cid;
