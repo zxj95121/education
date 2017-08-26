@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\BigOrder;
+use App\Models\Bill;
 use App\Models\EclassOrder;
 use App\Models\TeacherThree;
 use App\Models\TeacherTwo;
@@ -195,7 +196,7 @@ class EclassBigOrderController extends Controller
             $fli->pre = $pre;
             $fli->now = $price;
             $fli->type = $type;
-            $fli->order_no = $orderno;
+            $fli->order_no = $oid;
             $fli->save();
 
             return response()->json(['errcode'=>0]);

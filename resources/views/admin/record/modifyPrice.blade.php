@@ -56,7 +56,7 @@
                                                 <tr>
                                                     <td>{{$value->id}}</td>
                                                     <td>@if($value->which == 1) 双师class @elseif($value->which == 2) 课程订单 @else @endif</td>
-                                                    <td>{{$value->order_no}}</td>
+                                                    <td>{{$value->no}}</td>
                                                     <td>{{$value->pre}}</td>
                                                     <td>{{$value->now}}</td>
                                                     <td>
