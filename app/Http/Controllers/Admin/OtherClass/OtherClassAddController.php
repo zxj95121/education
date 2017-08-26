@@ -99,7 +99,7 @@ class OtherClassAddController extends Controller
             ->leftJoin('new_user as nu', 'nu.id', 'class_package_order.uid')
             ->select('nu.nickname', 'nu.phone as phone', 'class_package_order.*' ,'nu.paty as patynum','nu.id as userId')
             ->paginate(10);
-        // dd($orderObj->toArray());
+        dd($orderObj->toArray());
         return view('admin.otherClass.orderList', ['package'=>$packageObj,'orderObj'=>$orderObj,'cid'=>$cid]);
     }
 }
