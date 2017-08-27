@@ -31,8 +31,8 @@ $signPackage = $jssdk->GetSignPackage();
         					<a id="free" href="#" class="button button-big button-fill button-success active" style="border-radius: 5px;width: 60%;margin: 0 auto;color: #FFF;background: #34C73B;border-color: #34C73B;font-size:22px;">{{$mmsg}}</a>
         				</p>
       				</div>
-      				<p style="text-align: center">
-					                                        点击“免费领取”，免费领课试听！<br>
+      				<p style="text-align: center;font-size:0.7rem;">
+					                                        （点击“免费领取”，免费领课试听！）<br>
 					                                    </p>
 					                                    <section data-role="paragraph" class="_135editor" style="border: 0px none; padding: 0px; box-sizing: border-box;">
 					                                        <p>
