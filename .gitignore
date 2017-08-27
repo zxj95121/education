@@ -13,3 +13,4 @@ npm-debug.log
 /public/php/jssdk/jsapi_ticket.php
 /public/php/jssdk/access_token.php
 public/admin/images/applyAdmin.png
+.settings/org.eclipse.core.resources.prefs
