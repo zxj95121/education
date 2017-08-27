@@ -124,7 +124,7 @@
             			        	<div class="ui-form ui-border-t">
 									    <form action="#">
 										    <div class="ui-form-item ui-form-item-order ui-border-b">
-									            <a href="#">兑换优惠券（100加辰币兑88元）</a>
+									            <a href="#">兑换优惠券（100加辰币兑一张88元优惠券）</a>
 									        </div>
 									        <div class="ui-form-item ui-form-item-r ui-border-b">
 									            <input type="number" id="changeInput" max="{{$changeNumber}}" placeholder="请输入兑换张数" style="padding-left: 15px;">
