@@ -92,7 +92,7 @@ $('#done_ok1').click(function(){
 })
 
 /*特长方面的js*/
-$('#hobbyPopover buton').click(function(){
+$('#hobbyPopover button').click(function(){
 	if ($(this).hasClass('mui-btn-primary')) {
 		$(this).removeClass('mui-btn-primary');
 		$(this).attr('active', '0');
