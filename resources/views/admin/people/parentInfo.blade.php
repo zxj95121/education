@@ -118,8 +118,9 @@
 								                    <td>{{$value->place}}</td>
 								                    <td>
 								                    	<span class="label label-info addTicketBtn">增加优惠券</span>
-								                    
+								                    <!-- 
 								                    	<span class="label label-primary" onclick="deleteParent({{$value->id}});">删除用户</span>
+								                    	 -->
 								                    </td>
 								                </tr>
 								                @endforeach

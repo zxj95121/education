@@ -87,7 +87,9 @@
 				                        </td>
 				                        <td>{{$value->money}}</td>
 				                        <td><span class="label label-info identity" tid="{{$value->id}}">查看</span></td>
+				                        <!-- 
 				                        <td><span class="label label-primary" onclick="deleteTeacher({{$value->id}});">删除用户</span></td>
+				                         -->
 				                    </tr>
 				                    @endforeach
 				                </tbody>
