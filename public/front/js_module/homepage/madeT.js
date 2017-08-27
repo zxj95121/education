@@ -138,11 +138,11 @@ $('#submitBtn').click(function(){
 	
 	if (subject && price && timeVad) {
 //		获取每一个值
-		var education = $('#educationM').css('opacity') ? $('#educationM option:selected').val() : 0;
-		var sex = $('#sexM').css('opacity') ? $('#sexM option:selected').val() : 0;
-		var type = $('#typeM').css('opacity') ? $('#typeM option:selected').val() : 0;//风格
+		var education = $('#educationM').css('opacity') != '1' ? $('#educationM option:selected').val() : 0;
+		var sex = $('#sexM').css('opacity') != '1' ? $('#sexM option:selected').val() : 0;
+		var type = $('#typeM').css('opacity') != '1' ? $('#typeM option:selected').val() : 0;//风格
 		var hobby = $('#hobbyMade').attr('hid');
-		var teachObj = $('#teachObjM').css('opacity') ? $('#teachObjM option:selected').val() : 0;//经验定制
+		var teachObj = $('#teachObjM').css('opacity') != '1' ? $('#teachObjM option:selected').val() : 0;//经验定制
 		
 		console.log('teacherObj:' + teachObj);
 		console.log('hobby:' + hobby);
