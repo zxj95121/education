@@ -80,7 +80,7 @@
                                             	<a href="#" class="label label-primary"  onclick="notice()" >批量发送通知</a>
                                             	<a href="#" class="label label-primary" onclick="complete()"  >批量完成</a>
                                             </div>
-	                                        <table class="table">
+	                                        <table class="table" id="classFreeTable">
 	                                            <thead>
 	                                                <tr>
 	                                                    <th>ID</th>
@@ -100,7 +100,7 @@
 	                                            	@php $currentDate = substr($res[0]->created_at, 0, 10);$people = 0;$noticePeople = 0;$trColor = '#e6e6e6'; @endphp
 	                                                @foreach($res as $key => $value)
 		                                                @if($currentDate != substr($value->created_at, 0, 10))
-		                                                	<tr style="background: {{$trColor}};"><td colspan="8" style="font-size:18px;">{{$currentDate}} 新增用户{{$people}}人, 已通知{{$noticePeople}}人。</td></tr>
+		                                                	<tr class="cut" style="background: {{$trColor}};"><td colspan="8" style="font-size:18px;">{{$currentDate}} 新增用户{{$people}}人, 已通知{{$noticePeople}}人。</td></tr>
 		                                                	@php $currentDate = substr($value->created_at, 0, 10);$people = 0;$noticePeople = 0;
 		                                                	if($trColor == '#e6e6e6')
 		                                                		$trColor = '#FFF';
@@ -149,7 +149,7 @@
 	                                                    </td>
 	                                                </tr>
 	                                                @endforeach
-                                                	<tr style="background: {{$trColor}};"><td colspan="8" style="font-size:18px;">{{$currentDate}} 新增用户{{$people}}人, 已通知{{$noticePeople}}人。</td></tr>
+                                                	<tr class="cut" style="background: {{$trColor}};"><td colspan="8" style="font-size:18px;">{{$currentDate}} 新增用户{{$people}}人, 已通知{{$noticePeople}}人。</td></tr>
                                                 	@php $currentDate = substr($value->created_at, 0, 10); @endphp
 	                                            @else
 	                                            @endif
@@ -353,6 +353,23 @@ var start2 = {
 			})
 		}
 	})
+	
+	
+// 	js调整cut 的tr的位置
+	var cutLen = 0;
+	var lastTr;
+	$('.cut').each(function(){
+		if (cutLen == 0) {
+			$('#classFreeTable tbody tr').prepend($(this));
+			lastTr = $(this);
+		}
+		else {
+			lastTr.replaceWith($(this));
+			lastTr = $(this);
+		}
+	});
+	lastTr.remove();
+	
 	function notice(){
     	ids = [];
     	$('input[name="ids"]:checked').each(function(){ 
