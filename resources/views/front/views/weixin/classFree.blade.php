@@ -32,7 +32,7 @@ $signPackage = $jssdk->GetSignPackage();
         				</p>
       				</div>
       				<p style="text-align: center;font-size:0.7rem;">
-					                                        （点击“免费领取”，90分钟英语外教双师课堂邀您来听！）<br>
+					                                        （90分钟英语外教双师课堂邀您免费来听！）<br>
 					                                    </p>
 					                                    <section data-role="paragraph" class="_135editor" style="border: 0px none; padding: 0px; box-sizing: border-box;">
 					                                        <p>
