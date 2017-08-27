@@ -53,13 +53,14 @@ $('#priceM').click(function(){
 	pricePicker.show(function(SelectedItem) {
 		// console.log(SelectedItem);
 		$('#priceM').val(SelectedItem[0].text);
+		$('#priceM').attr('price', SelectedItem[0].value);
 	})
 
-	var value = $('#priceM').val();
+	var value = $('#priceM').attr('price');
 
-	if (value) {
-		var v = value.split('元')[0];
-		pricePicker.pickers[0].setSelectedValue(''+v);
+	if (price) {
+		var v = price;
+		pricePicker.pickers[0].setSelectedValue(v);
 	} else {
 		pricePicker.pickers[0].setSelectedValue('100');
 	}
@@ -123,6 +124,16 @@ $('#done_ok2').click(function(){
 	setTimeout(function(){
 		$('#subjectPopover').hide();
 	}, 250);
+})
+
+//提交定制后的事情
+$('#submitBtn').click(function(){
+	var subject = $('#subjectMade').attr('stid');
+	var price = $('#priceM').attr('price');
+	var time = $('#timeM').val();
+	console.log(subject);
+	console.log(price);
+	console.log(time);
 })
 
 
