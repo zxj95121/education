@@ -98,7 +98,7 @@ class PayResult extends ServiceProvider
             NewUser::where('openid', $openid)
                 ->update(['voucher'=>$voucher]);
 //         }
-//     }
+    }
 }
 
 ?>
