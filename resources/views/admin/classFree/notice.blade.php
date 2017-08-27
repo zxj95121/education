@@ -360,6 +360,7 @@ var start2 = {
 	var lastTr;
 	$('.cut').each(function(){
 		var ccc = $(this).clone();
+		console.log(ccc);
 		if (cutLen == 0) {
 			$('#classFreeTable tbody').prepend(ccc));
 			lastTr = $(this);
