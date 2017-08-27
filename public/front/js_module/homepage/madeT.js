@@ -90,3 +90,62 @@ $('#done_ok1').click(function(){
 		$('#subjectPopover').hide();
 	}, 250);
 })
+
+/*特长方面的js*/
+$('#hobbyPopover buton').click(function(){
+	if ($(this).hasClass('mui-btn-primary')) {
+		$(this).removeClass('mui-btn-primary');
+		$(this).attr('active', '0');
+	} else {
+		$(this).addClass('mui-btn-primary');
+		$(this).attr('active', '1');
+	}
+})
+
+$('#done_ok2').click(function(){
+	var cdom = $('#hobbyPopover button[active="1"]');
+	var html = '';
+	var ids = new Array();
+	cdom.each(function(){
+		if (ids.length < 2)
+			html += $(this).html();
+		ids[ids.length] = $(this).attr('hid');
+	})
+	if (html) {
+		$('#hobbyMade').val(html);
+		$('#hobbyMade').attr('hid', ids.join('-'));
+	}
+	$(this).parents('.page_set').animate({'top': height+'px'}, 250);
+	setTimeout(function(){
+		$('#subjectPopover').hide();
+	}, 250);
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
