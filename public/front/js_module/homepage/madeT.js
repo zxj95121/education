@@ -145,7 +145,9 @@ $('#submitBtn').click(function(){
 		var teachObj = $('#teachObjM').css('opacity') == '1' ? $('#teachObjM option:selected').val() : 0;//经验定制
 		
 		if (!education || !sex || !type || !hobby || !teachObj) {
-			mui.confirm('您的定制存在内容为空，确认提交吗？', '提示', ['取消', '确认']);
+			mui.confirm('您的定制存在内容为空，确认提交吗？', '提示', ['取消', '确认'], function(){
+				console.log('1');
+			});
 		}
 	} else {
 		mui.alert('带红色<span style="color:red;">*</span>为必填项','提醒', '确认');
