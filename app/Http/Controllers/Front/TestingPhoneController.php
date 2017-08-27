@@ -100,6 +100,9 @@ class TestingPhoneController extends Controller
 			$newObj->phone = $phone;
 			$newObj->save();
 		}
+		$freeObj = new ClassFree();
+		$freeObj->uid = $newObj->id;
+		$freeObj->save();
 		return response()->json(['errcode'=>1]);
 	}
 

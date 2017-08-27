@@ -135,6 +135,12 @@ $('#submitBtn').click(function(){
 	console.log(subject);
 	console.log(price);
 	console.log(timeVad);
+	
+	if (subject && price && timeVad) {
+		
+	} else {
+		alert('带红色为必填项');
+	}
 })
 
 
