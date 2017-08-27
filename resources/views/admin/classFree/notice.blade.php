@@ -363,11 +363,12 @@ var start2 = {
 		console.log(ccc);
 		if (cutLen == 0) {
 			$('#classFreeTable tbody').prepend(ccc));
+			$(this).attr('tt', 'tt');
 			lastTr = $(this);
 		}
 		else {
-			
 			lastTr.replaceWith(ccc));
+			$(this).attr('tt', 'tt');
 			lastTr = $(this);
 		}
 		cutLen++;
