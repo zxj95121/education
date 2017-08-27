@@ -143,7 +143,7 @@ $('#submitBtn').click(function(){
 		var type = $('#typeM').css('opacity') != '1' ? $('#typeM option:selected').val() : 0;//风格
 		var hobby = $('#hobbyMade').attr('hid');
 		var teachObj = $('#teachObjM').css('opacity') != '1' ? $('#teachObjM option:selected').val() : 0;//经验定制
-		
+		console.log($('#teachObjM').css('opacity'));
 		console.log('teacherObj:' + teachObj);
 		console.log('hobby:' + hobby);
 	} else {
