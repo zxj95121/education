@@ -359,15 +359,16 @@ var start2 = {
 	var cutLen = 0;
 	var lastTr;
 	$('.cut').each(function(){
+		var ccc = $(this).clone();
 		if (cutLen == 0) {
-			$('#classFreeTable tbody').prepend($(this));
+			$('#classFreeTable tbody').prepend(ccc));
 			lastTr = $(this);
 		}
 		else {
-			lastTr.replaceWith($(this));
+			
+			lastTr.replaceWith(ccc));
 			lastTr = $(this);
 		}
-		console.log(lastTr.html());
 		cutLen++;
 	});
 	lastTr.remove();
