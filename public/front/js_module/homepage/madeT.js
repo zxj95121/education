@@ -131,9 +131,10 @@ $('#submitBtn').click(function(){
 	var subject = $('#subjectMade').attr('stid');
 	var price = $('#priceM').attr('price');
 	var time = $('#timeM').val();
+	var timeVad = $('#timeM').css('opacity');
 	console.log(subject);
 	console.log(price);
-	console.log(time);
+	console.log(timeVad);
 })
 
 
