@@ -107,8 +107,12 @@ $('#done_ok2').click(function(){
 	var html = '';
 	var ids = new Array();
 	cdom.each(function(){
-		if (ids.length < 2)
+		if (ids.length == 0)
 			html += $(this).html();
+		else if (ids.length == 1)
+			html = html + '、' + $(this).html();
+		else
+			html += '等';
 		ids[ids.length] = $(this).attr('hid');
 	})
 	if (html) {
