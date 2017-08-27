@@ -87,7 +87,7 @@ $signPackage = $jssdk->GetSignPackage();
 						<div style="padding: 10px 10px;">
 							<form class="mui-input-group">
 							    <div class="mui-input-row">
-							        <label>学科定制</label>
+							        <label>学科定制 <span style="color:red;">*</span></label>
 							    	<input type="text" placeholder="选择学科" id="subjectMade" stid="0" readonly="readonly">
 							    </div>
 							    <div class="mui-input-row">
@@ -133,11 +133,11 @@ $signPackage = $jssdk->GetSignPackage();
 							        </select>
 							    </div>
 							    <div class="mui-input-row">
-							        <label>学费定制</label>
+							        <label>学费定制 <span style="color:red;">*</span></label>
 							        <input type="text" placeholder="选择辅导价格" id="priceM" readonly="readonly">
 							    </div>
 							    <div class="mui-input-row">
-							        <label>时间定制</label>
+							        <label>时间定制 <span style="color:red;">*</span></label>
 							        <input type="text" placeholder="选择辅导时间" readonly="readonly">
 							    	<select class="selectMade" name="sexM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
 							        	<option value="1">周一至周五晚上</option>
