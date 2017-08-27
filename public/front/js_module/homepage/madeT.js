@@ -56,7 +56,7 @@ $('#priceM').click(function(){
 		$('#priceM').attr('price', SelectedItem[0].value);
 	})
 
-	var value = $('#priceM').attr('price');
+	var price = $('#priceM').attr('price');
 
 	if (price) {
 		var v = price;
