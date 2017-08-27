@@ -72,12 +72,20 @@ class HomeController extends Controller
                 $hobby = Hobby::where('status', '1')
                     ->orderBy('type')
                     ->groupBy('type')
-                    ->select('id', 'name')
-                    ->get();
-                
+                    ->select('type')
+                    ->get()
+                    ->toArray();
+                foreach ($hobby as $key => $value) {
+                    $hobby[$key]['two'] = Hobby::where('type', $value['type'])
+                        ->where('status', 1)
+                        ->select('id', 'name')
+                        ->get()
+                        ->toArray();
+                }
+                 
                 if ($parentDetail->id == 21) {
                     dd($hobby->toArray());
-                    return view('front.views.home.homepage2',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus,'parentDetail'=>$parentDetail,'newUserId'=>$newUserId,'subject'=>$subject]);
+                    return view('front.views.home.homepage2',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus,'parentDetail'=>$parentDetail,'newUserId'=>$newUserId,'subject'=>$subject,'hobby'=>$hobby]);
                 }
 	    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus,'parentDetail'=>$parentDetail,'newUserId'=>$newUserId]);
 	    	} elseif ($res['type'] == '3') {

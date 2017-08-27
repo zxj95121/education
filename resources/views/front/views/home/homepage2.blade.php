@@ -193,16 +193,14 @@ $signPackage = $jssdk->GetSignPackage();
 			    </div>
 			    <div style="width: 100%;margin: 0 auto;" class="div_detail">
 			    	<div class="mui-content" style="padding: 6px;">
+			    		@foreach($hobby as $value)
 			    		<div class="mui-col-xs-12 mui-col-sm-12 subject_type">
-				    		<h5>特长1</h5>
-				    		<button type="button" class="mui-btn" active="0">默认</button>
-							<button type="button" class="mui-btn mui-btn-primary">蓝色</button>
+				    		<h5>{{$value['type']}}</h5>
+				    		@foreach($value['two'] as $v)
+				    		<button type="button" class="mui-btn" stid="{{$v['id']}}" active="0">{{$v['name']}}</button>
+				    		@endforeach
 						</div>
-						<div class="mui-col-xs-12 mui-col-sm-12 subject_type">
-				    		<h5>打开2</h5>
-				    		<button type="button" class="mui-btn">默认</button>
-							<button type="button" class="mui-btn mui-btn-primary">蓝色</button>
-						</div>
+						@endforeach
 			    	</div>
 			    </div>
 			</div>
