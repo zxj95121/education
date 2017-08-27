@@ -362,12 +362,12 @@ var start2 = {
 		var ccc = $(this).clone();
 		console.log(ccc);
 		if (cutLen == 0) {
-			$('#classFreeTable tbody').prepend(ccc));
+			$('#classFreeTable tbody').prepend(ccc);
 			$(this).attr('tt', 'tt');
 			lastTr = $(this);
 		}
 		else {
-			lastTr.replaceWith(ccc));
+			lastTr.replaceWith(ccc);
 			$(this).attr('tt', 'tt');
 			lastTr = $(this);
 		}
