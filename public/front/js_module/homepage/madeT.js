@@ -139,7 +139,7 @@ $('#submitBtn').click(function(){
 	if (subject && price && timeVad) {
 		
 	} else {
-		mui.alert('带红色为必填项','提醒', '确认');
+		mui.alert('带红色<span style="color:red;">*</span>为必填项','提醒', '确认');
 	}
 })
 
