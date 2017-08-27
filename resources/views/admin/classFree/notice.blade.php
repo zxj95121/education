@@ -367,6 +367,7 @@ var start2 = {
 			lastTr.replaceWith($(this));
 			lastTr = $(this);
 		}
+		console.log(lastTr.html());
 		cutLen++;
 	});
 	lastTr.remove();
