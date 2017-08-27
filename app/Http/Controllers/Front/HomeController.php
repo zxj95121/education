@@ -71,7 +71,7 @@ class HomeController extends Controller
                 /*爱好特长查询*/
                 $hobby = Hobby::where('status', '1')
                     ->orderBy('type')
-                    ->groupBy('type');
+                    ->groupBy('type')
                     ->select('id', 'name')
                     ->get();
                 
