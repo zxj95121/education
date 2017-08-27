@@ -85,7 +85,7 @@ class PayClassController extends Controller
 		}
 		// dd(23);
 		$bigPrice = $price;
-		$vnum = floor($bigPrice/100);
+		$vnum = floor($bigPrice/1000);
         $vouNum = 0;
         for ($i = 0; $i < $vnum; $i++) {
             if (($voucher-88)>=0) {
