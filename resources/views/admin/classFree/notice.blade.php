@@ -100,7 +100,7 @@
 	                                            	@php $currentDate = substr($res[0]->created_at, 0, 10);$people = 0;$noticePeople = 0;$trColor = '#e0e0e0'; @endphp
 	                                                @foreach($res as $key => $value)
 		                                                @if($currentDate != substr($value->created_at, 0, 10))
-		                                                	<tr style="background: #e0e0e0;"><td colspan="8" style="font-size:18px;">{{$currentDate}} 新增用户{{$people}}人, 已通知{{$noticePeople}}人。</td></tr>
+		                                                	<tr style="background: {{$trColor}};"><td colspan="8" style="font-size:18px;">{{$currentDate}} 新增用户{{$people}}人, 已通知{{$noticePeople}}人。</td></tr>
 		                                                	@php $currentDate = substr($value->created_at, 0, 10);$people = 0;$noticePeople = 0;
 		                                                	if($trColor == '#e0e0e0')
 		                                                		$trColor = '#FFF';
