@@ -26,12 +26,12 @@ $signPackage = $jssdk->GetSignPackage();
 				<div class="content-block" style="color: #1F9B17;margin-top: 1rem;font-weight: bold;font-size: 1.2em;margin-bottom: 0.4rem;">免费试听课</div>
 				<div class="content-block" style='margin: 4px 0px 0.38rem;color: #557ECB;font-size: 0.9em;' onclick="window.location.href='https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIxNzg4MDY4Ng==&scene=124#wechat_redirect';">加辰教育定制</div>
 			  	<div style="width: 96%;margin: 0 auto;">
-			  		<div class="content-block">
+			  		<div class="content-block" style="margin-bottom: 0px;">
         				<p class="buttons-row">
         					<a id="free" href="#" class="button button-big button-fill button-success active" style="border-radius: 5px;width: 60%;margin: 0 auto;color: #FFF;background: #34C73B;border-color: #34C73B;font-size:22px;">{{$mmsg}}</a>
         				</p>
       				</div>
-      				<p style="text-align: center;font-size:0.7rem;">
+      				<p style="text-align: center;font-size:0.7rem;position:relative;top: -10px;">
 					                                        （90分钟英语外教双师课堂邀您免费来听！）<br>
 					                                    </p>
 					                                    <section data-role="paragraph" class="_135editor" style="border: 0px none; padding: 0px; box-sizing: border-box;">
