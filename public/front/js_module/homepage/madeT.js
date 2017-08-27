@@ -145,8 +145,10 @@ $('#submitBtn').click(function(){
 		var teachObj = $('#teachObjM').css('opacity') == '1' ? $('#teachObjM option:selected').val() : 0;//经验定制
 		
 		if (!education || !sex || !type || !hobby || !teachObj) {
-			mui.confirm('您的定制存在内容为空，确认提交吗？', '提示', ['取消', '确认'], function(){
-				console.log('1');
+			mui.confirm('您的定制存在内容为空，确认提交吗？', '提示', ['取消', '确认'], function(e){
+				if (e.index == 1) {
+					console.log('我要开始提交数据了');
+				}
 			});
 		}
 	} else {
