@@ -94,7 +94,7 @@ $signPackage = $jssdk->GetSignPackage();
 							        <label>学历定制</label>
 
 							        <input type="text" placeholder="选择学历" readonly="readonly">
-							        <select class="selectMade" name="educationM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
+							        <select class="selectMade" id="educationM" name="educationM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
 							        	<option value="1">研究生</option>
 							        	<option value="2">本科生</option>
 							        	<option value="3">专科生</option>
@@ -103,7 +103,7 @@ $signPackage = $jssdk->GetSignPackage();
 							    <div class="mui-input-row">
 							        <label>性别定制</label>
 							        <input type="text" placeholder="性别要求" readonly="readonly">
-							    	<select class="selectMade" name="sexM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
+							    	<select class="selectMade" name="sexM" id="sexM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
 							        	<option value="1">男女均可</option>
 							        	<option value="2">男</option>
 							        	<option value="3">女</option>
@@ -112,7 +112,7 @@ $signPackage = $jssdk->GetSignPackage();
 							    <div class="mui-input-row">
 							        <label>风格定制</label>
 							        <input type="text" placeholder="选择辅导老师风格" readonly="readonly">
-							    	<select class="selectMade" name="typeM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
+							    	<select class="selectMade" id="typeM" name="typeM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
 							        	<option value="1">温和型</option>
 							        	<option value="2">严厉型</option>
 							        	<option value="3">幽默型</option>
@@ -125,7 +125,7 @@ $signPackage = $jssdk->GetSignPackage();
 							    <div class="mui-input-row">
 							        <label>经验定制</label>
 							        <input type="text" placeholder="要求教师曾经授课对象" readonly="readonly">
-							    	<select class="selectMade" name="teachObjM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
+							    	<select class="selectMade" name="teachObjM" id="teachObjM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
 							        	<option value="1">高中生</option>
 							        	<option value="2">初中生</option>
 							        	<option value="3">小学生</option>

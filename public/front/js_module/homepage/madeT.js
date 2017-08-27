@@ -122,7 +122,7 @@ $('#done_ok2').click(function(){
 	}
 	$(this).parents('.page_set').animate({'top': height+'px'}, 250);
 	setTimeout(function(){
-		$('#subjectPopover').hide();
+		$('#hobbyPopover').hide();
 	}, 250);
 })
 
@@ -137,7 +137,15 @@ $('#submitBtn').click(function(){
 	console.log(timeVad);
 	
 	if (subject && price && timeVad) {
+//		获取每一个值
+		var education = $('#educationM option:selected').val();
+		var sex = $('#sexM option:selected').val();
+		var type = $('#typeM option:selected').val();//风格
+		var hobby = $('#hobbyMade').attr('hid');
+		var teachObj = $('#teachObjM option:selected').val();//经验定制
 		
+		console.log('teacherObj:' + teachObj);
+		console.log('hobby:' + hobby);
 	} else {
 		mui.alert('带红色<span style="color:red;">*</span>为必填项','提醒', '确认');
 	}
