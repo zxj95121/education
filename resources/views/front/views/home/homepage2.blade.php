@@ -112,7 +112,7 @@ $signPackage = $jssdk->GetSignPackage();
 							    <div class="mui-input-row">
 							        <label>风格定制</label>
 							        <input type="text" placeholder="选择辅导老师风格" readonly="readonly">
-							    	<select class="selectMade" name="sexM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
+							    	<select class="selectMade" name="typeM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
 							        	<option value="1">温和型</option>
 							        	<option value="2">严厉型</option>
 							        	<option value="3">幽默型</option>
@@ -125,7 +125,7 @@ $signPackage = $jssdk->GetSignPackage();
 							    <div class="mui-input-row">
 							        <label>经验定制</label>
 							        <input type="text" placeholder="要求教师曾经授课对象" readonly="readonly">
-							    	<select class="selectMade" name="sexM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
+							    	<select class="selectMade" name="teachObjM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
 							        	<option value="1">高中生</option>
 							        	<option value="2">初中生</option>
 							        	<option value="3">小学生</option>
@@ -139,7 +139,7 @@ $signPackage = $jssdk->GetSignPackage();
 							    <div class="mui-input-row">
 							        <label>时间定制 <span style="color:red;">*</span></label>
 							        <input type="text" placeholder="选择辅导时间" readonly="readonly">
-							    	<select class="selectMade" name="sexM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
+							    	<select class="selectMade" name="timeM" id="timeM" style="opacity: 0;z-index:2;position: relative;top: -39px;">
 							        	<option value="1">周一至周五晚上</option>
 							        	<option value="2">周末</option>
 							        	<option value="3">节假日</option>
