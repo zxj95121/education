@@ -360,7 +360,7 @@ var start2 = {
 	var lastTr;
 	$('.cut').each(function(){
 		if (cutLen == 0) {
-			$('#classFreeTable tbody tr').prepend($(this));
+			$('#classFreeTable tbody').prepend($(this));
 			lastTr = $(this);
 		}
 		else {
