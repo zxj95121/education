@@ -85,7 +85,7 @@ class ClassFreeController extends Controller
     		$str .= '&complete='.$complete;
     	}
     	$freeObj = $freeObj->select('class_free.id','new_user.nickname','new_user.phone','class_free.active_time','class_free.type','complete','class_free.created_at')
-    	           ->orderBy('class_free.created_at')
+    	           ->orderBy('class_free.created_at', 'desc')
                     ->orderBy('class_free.type')
                     ->orderBy('class_free.complete')
     				->paginate(10);
