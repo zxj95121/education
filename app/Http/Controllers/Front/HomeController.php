@@ -19,6 +19,7 @@ use App\Models\NewUser;
 use App\Models\EclassCart;
 use App\Models\SubjectOne;
 use App\Models\SubjectTwo;
+use App\Models\Hobby;
 
 class HomeController extends Controller
 {
@@ -66,7 +67,16 @@ class HomeController extends Controller
                         ->get()
                         ->toArray();
                 }
+                
+                /*爱好特长查询*/
+                $hobby = Hobby::where('status', '1')
+                    ->orderBy('type')
+                    ->groupBy('type');
+                    ->select('id', 'name')
+                    ->get();
+                
                 if ($parentDetail->id == 21) {
+                    dd($hobby->toArray());
                     return view('front.views.home.homepage2',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus,'parentDetail'=>$parentDetail,'newUserId'=>$newUserId,'subject'=>$subject]);
                 }
 	    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus,'parentDetail'=>$parentDetail,'newUserId'=>$newUserId]);
