@@ -195,7 +195,7 @@ $signPackage = $jssdk->GetSignPackage();
 			    	<div class="mui-content" style="padding: 6px;">
 			    		@foreach($hobby as $value)
 			    		<div class="mui-col-xs-12 mui-col-sm-12 subject_type">
-				    		<h5>{{$value['type']}}</h5>
+				    		<h5 style="margin-bottom: 0px;">{{$value['type']}}</h5>
 				    		@foreach($value['two'] as $v)
 				    		<button type="button" class="mui-btn" stid="{{$v['id']}}" active="0" style="margin-top: 8px;">{{$v['name']}}</button>
 				    		@endforeach
