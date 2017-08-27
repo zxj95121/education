@@ -40,8 +40,8 @@ $signPackage = $jssdk->GetSignPackage();
 					                                        </p>
 					                                    </section>
 					                                    
-  				<p style="text-align: center">
-					                                        注册即送188元
+  				<p style="text-align: center;position:relative;top:-43px;font-size: 0.65rem;">
+					                                        （注册即送188元）
 					                                    </p>
                     <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
 					    <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
