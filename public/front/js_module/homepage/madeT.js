@@ -35,6 +35,7 @@ $('#hobbyMade').click(function(){
 $('.selectMade').click(function(){
 	$(this).prev().hide();
 	$(this).css({'top': '0px', 'opacity': '1'});
+	ajaxSession();
 })
 
 pricePicker = 0;
