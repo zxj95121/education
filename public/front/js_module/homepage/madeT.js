@@ -163,7 +163,7 @@ $('#submitBtn').click(function(){
 							sex: sex,
 							type: type,
 							hobby: hobby,
-							exp: exp
+							exp: teachObj
 						},
 						success: function(data) {
 							if (data.errcode == 0) {
