@@ -179,7 +179,6 @@ $('#submitBtn').click(function(){
 })
 
 //每一次失去焦点都需要进行存储内容
-education ,sex ,type ,exp ,time
 var selectArr = new Array('#educationM', '#sexM', '#typeM', '#teachObjM', '#timeM');
 for (var q in selectArr) {
 	$(selectArr[i]).change(function(){
