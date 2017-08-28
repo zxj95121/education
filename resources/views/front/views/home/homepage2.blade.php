@@ -87,7 +87,7 @@ $signPackage = $jssdk->GetSignPackage();
 						<div style="padding: 10px 10px;">
 							<form class="mui-input-group">
 								<div class="mui-input-row">
-							        <h4>初始化</h4>
+							        <span class="mui-btn mui-btn-success">初始化表单</span>
 							    </div>
 							    <div class="mui-input-row">
 							        <label>学科定制 <span style="color:red;">*</span></label>
