@@ -139,7 +139,7 @@ $signPackage = $jssdk->GetSignPackage();
 							    </div>
 							    <div class="mui-input-row">
 							        <label>时间定制 <span style="color:red;">*</span></label>
-							        <input type="text" placeholder="选择辅导时间" readonly="readonly" @if($madeSession && $madeSession->time) style="display:none;" @else @endif>
+							        <input type="text" placeholder="选择辅导时间" readonly="readonly">
 							    	<select class="selectMade" name="timeM" id="timeM" style="@if($madeSession && $madeSession->time) opacity: 1; @else opacity: 0; @endif z-index:2;position: relative;top: -39px;">
 							        	<option value="1" @if($madeSession && $madeSession->time == '1') selected="selected" @else @endif>周一至周五晚上</option>
 							        	<option value="2" @if($madeSession && $madeSession->time == '2') selected="selected" @else @endif>周末</option>
