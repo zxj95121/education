@@ -24,15 +24,15 @@ $('.done_romove').click(function(){
 	$(this).parents('.page_set').hide().animate({'top': height+'px'}, 250);
 })
 
-$('#subjectMade').click(function(){
+$(document).on('click', '#subjectMade', function(){
 	$('#subjectPopover').show().animate({'top': '0px'},250);
 })
 
-$('#hobbyMade').click(function(){
+$(document).on('click', '#hobbyMade', function(){
 	$('#hobbyPopover').show().animate({'top': '0px'},250);
 })
 
-$('.selectMade').click(function(){
+$(document).on('click', '.selectMade', function(){
 	$(this).prev().hide();
 	$(this).css({'top': '0px', 'opacity': '1'});
 	ajaxSession();
