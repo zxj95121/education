@@ -163,7 +163,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        			@foreach($madeObj as $value)
                         <div class="col-md-3 col-xs-12 col-sm-12" style="padding-top: 20px;">
                             <div class="widget-panel widget-style-1 bg-info">
-                            	<span style="display: inline-block;background: red;z-index:333;position:absolute;right: 0px;top: 0px;font-size:1.5rem;">新订单</span>
+                            	<span style="display: inline-block;background: #65ad3a;z-index:333;position:absolute;padding: 0.4rem;right: 0px;top: 0px;font-size:1.5rem;color: #fff;">新订单</span>
                                 <i class="fa glyphicon glyphicon-chevron-right"></i> 
                                 <h2 class="m-0 counter text-white">{{$value->stname}}定制</h2>
                                 <div class="text-white">{{substr($value->created_at, 0, 10)}}</div>
@@ -172,20 +172,6 @@ $signPackage = $jssdk->GetSignPackage();
                         @endforeach
                     </div>
 	        	</div>
-	        	 <ul class="mui-table-view"> 
-	        	 	@foreach($madeObj as $value)
-                    <li class="mui-table-view-cell mui-collapse">
-                        <a class="mui-navigate-right" href="#">{{$value->stname}}定制</a>
-                        <div class="mui-collapse-content">
-                            <ul class="mui-table-view">
-                                <li class="mui-table-view-cell">学科：<span>{{$value->stname}}</span></li>
-                                <li class="mui-table-view-cell">学历： <span>{{$value->education}}</span></li>
-                                <li class="mui-table-view-cell">Item 3</li>
-                            </ul>
-                        </div>
-                    </li>
-                    @endforeach
-                </ul>
 	        </div>
 
 
