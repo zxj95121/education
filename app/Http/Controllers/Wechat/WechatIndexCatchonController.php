@@ -178,7 +178,7 @@ class wechatIndexCatchonController extends Controller
             $content = '注册即送188元。';
             $result = $this->transmitText($object, $content);
         } else if ($keyword == 'class') {
-            $content = '陪您孩子一起学习。Try class,enter study.Come on,let's study with CATCHON.';
+            $content = '陪您孩子一起学习。Try class,enter study.Come on,let\'s study with CATCHON.';
             $result = $this->transmitText($object, $content);
         } else if ($keyword == '注册') {
             $contentArr[] = array(
