@@ -160,7 +160,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history" style="display: none;">
 	        	<div class="row" style="padding-top: 20px;margin-right: 0px;padding-right: 0px;">
         			@foreach($madeObj as $value)
-                    <div class="col-md-3 col-xs-12 col-sm-12" style="margin: 0 auto;width: 96%;">
+                    <div class="col-md-3 col-xs-12 col-sm-12" style="padding-right: 12px;padding-left: 12px;">
                         <div class="widget-panel widget-style-1 bg-info">
                         	<span style="display: inline-block;z-index:333;position:absolute;padding: 0 0 0.7rem 0.8rem;right: 0px;top: 0px;font-size:1rem;color: #fff;border-bottom-left-radius: 100% 100%;background:@if($value->made_status == 1) #f35a1d;">新定制 @elseif($value->made_status == 2) #0b53dc;">安排中 @else #65ad3a;">已完成@endif</span>
                             <i class="fa glyphicon glyphicon-chevron-right"></i>
