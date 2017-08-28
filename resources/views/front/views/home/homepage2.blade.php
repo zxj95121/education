@@ -158,7 +158,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        </div>
 
 	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history" style="display: none;">
-	        	<div class="row" style="padding-top: 20px;">
+	        	<div class="row" style="padding-top: 20px;margin-right: 0px;padding-right: 0px;">
         			@foreach($madeObj as $value)
                     <div class="col-md-3 col-xs-12 col-sm-12">
                         <div class="widget-panel widget-style-1 bg-info">
