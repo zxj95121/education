@@ -91,9 +91,13 @@ class HomeController extends Controller
 //                     ->leftJoin('subject_two as st', 'st.id', 'tmade_parent_session.subject')
 //                     ->leftJoin('hobby', 'hobby.id', 'tmade_parent_session.hobby')
                     ->first();
-                 
+                /*定制历史查询*/
+                $madeObj = TmadeParent::where('uid', $newUserId)
+                    ->where('status', '1')
+                    ->get();
+                    
                 if ($parentDetail->id == 21) {
-                    return view('front.views.home.homepage2',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus,'parentDetail'=>$parentDetail,'newUserId'=>$newUserId,'subject'=>$subject,'hobby'=>$hobby,'madeSession'=>$madeSession]);
+                    return view('front.views.home.homepage2',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus,'parentDetail'=>$parentDetail,'newUserId'=>$newUserId,'subject'=>$subject,'hobby'=>$hobby,'madeSession'=>$madeSession,'madeObj'=>$madeObj]);
                 }
 	    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus,'parentDetail'=>$parentDetail,'newUserId'=>$newUserId]);
 	    	} elseif ($res['type'] == '3') {

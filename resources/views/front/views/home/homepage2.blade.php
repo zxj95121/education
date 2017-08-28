@@ -157,20 +157,20 @@ $signPackage = $jssdk->GetSignPackage();
 				</div>
 	        </div>
 
-	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history">
+	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history" style="display: none;">
 	        	 <ul class="mui-table-view"> 
+	        	 	@foreach($madeObj as $value)
                     <li class="mui-table-view-cell mui-collapse">
                         <a class="mui-navigate-right" href="#">面板1</a>
                         <div class="mui-collapse-content">
-                            <p>面板1子内容</p>
+                            <ul class="mui-table-view">
+                                <li class="mui-table-view-cell">Item 1</li>
+                                <li class="mui-table-view-cell">Item 2</li>
+                                <li class="mui-table-view-cell">Item 3</li>
+                            </ul>
                         </div>
                     </li>
-                    <li class="mui-table-view-cell mui-collapse">
-                        <a class="mui-navigate-right" href="#">面板2</a>
-                        <div class="mui-collapse-content">
-                            <p>面板2子内容</p>
-                        </div>
-                    </li>
+                    @endforeach
                 </ul>
 	        </div>
 
