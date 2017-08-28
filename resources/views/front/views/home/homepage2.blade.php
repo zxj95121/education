@@ -163,7 +163,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        			@foreach($madeObj as $value)
                         <div class="col-md-3 col-xs-12 col-sm-12" style="padding-top: 20px;">
                             <div class="widget-panel widget-style-1 bg-info">
-                            	<span style="display: inline-block;background: red;z-index:333;position:absolute;right: 0px;top: 0px;font-size:1.5rem;>新订单</span>
+                            	<span style="display: inline-block;background: red;z-index:333;position:absolute;right: 0px;top: 0px;font-size:1.5rem;">新订单</span>
                                 <i class="fa glyphicon glyphicon-chevron-right"></i> 
                                 <h2 class="m-0 counter text-white">{{$value->stname}}定制</h2>
                                 <div class="text-white">{{substr($value->created_at, 0, 10)}}</div>
