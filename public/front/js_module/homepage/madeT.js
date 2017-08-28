@@ -193,7 +193,7 @@ function ajaxSession() {
 	var sex = $('#sexM').css('opacity') == '1' ? $('#sexM option:selected').val() : 0;
 	var type = $('#typeM').css('opacity') == '1' ? $('#typeM option:selected').val() : 0;//风格
 	var hobby = $('#hobbyMade').attr('hid');
-	var teachObj = $('#teachObjM').css('opacity') == '1' ? $('#teachObjM option:selected').val() : 0;//经验定制
+	var exp = $('#teachObjM').css('opacity') == '1' ? $('#teachObjM option:selected').val() : 0;//经验定制
 	
 	$.ajax({
 		url: '/front/tmade/session',
