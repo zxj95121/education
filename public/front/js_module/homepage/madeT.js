@@ -230,7 +230,7 @@ function setSessionValue() {
 	var eduB = $('#subjectMade').attr('stid');
 	if (eduB) {
 		console.log(eduB);
-		var eduBdom = $('#subjectPopover button[hid="'+eduB+'"]');
+		var eduBdom = $('#subjectPopover button[stid="'+eduB+'"]');
 		eduBdom.attr('active', 1);
 		eduBdom.addClass('mui-btn-primary');
 		$('#subjectMade').val(eduBdom.html());
