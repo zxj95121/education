@@ -89,12 +89,12 @@ $signPackage = $jssdk->GetSignPackage();
 							<form class="mui-input-group">
 							    <div class="mui-input-row">
 							        <label>学科定制 <span style="color:red;">*</span></label>
-							    	<input type="text" placeholder="选择学科" id="subjectMade" stid="" readonly="readonly">
+							    	<input type="text" placeholder="选择学科" id="subjectMade" readonly="readonly" @if($madeSession && $madeSession->subject) stid="{{$madeSession->subject}}" @else @endif>
 							    </div>
 							    <div class="mui-input-row">
 							        <label>学历定制</label>
 
-							        <input type="text" placeholder="选择学历" readonly="readonly" @if($madeSession && $madeSession->education) stid="{{$madeSession->education}}" @else @endif>
+							        <input type="text" placeholder="选择学历" readonly="readonly">
 							        <select class="selectMade" id="educationM" name="educationM" style="@if($madeSession && $madeSession->education) opacity: 1; @else opacity: 0; @endif z-index:2;position: relative;top: -39px;">
 							        	<option value="1" @if($madeSession && $madeSession->education == '1') selected="selected" @else @endif>研究生</option>
 							        	<option value="2" @if($madeSession && $madeSession->education == '2') selected="selected" @else @endif>本科生</option>
