@@ -44,6 +44,7 @@ class TmadeParentController extends Controller
                 ->update($data);
         } else {
             $flight = new TmadeParentSession();
+            $flight->uid = $uid;
             foreach ($data as $key => $value) {
                 $flight->$key = $value;
             }
