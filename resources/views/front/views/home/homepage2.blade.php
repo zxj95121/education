@@ -82,8 +82,8 @@ $signPackage = $jssdk->GetSignPackage();
 						</div>
 					</div>
 				</div> -->
-				<div class="mui-content">
-					<span class="glyphicon glyphicon-erase">初始化定制</span>
+				<div class="mui-content" style="position: relative;">
+					<span style="display: block;width:100%;text-align:right;font-size:0.76rem;">初始化定制<i class="glyphicon glyphicon-erase"></i></span>
 					<div class="mui-col-xs-12 mui-col-sm-12 madeSteps" id="directionMade">
 						<div style="padding: 10px 10px;">
 							<form class="mui-input-group">
