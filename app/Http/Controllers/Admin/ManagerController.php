@@ -27,6 +27,9 @@ use App\Models\ContactChat;
 use App\Models\HalfBuyInfo;
 use App\Models\HalfBuyRecord;
 use App\Models\ParentChild;
+use App\Models\ClassFree;
+use App\Models\ContactChat;
+use App\Models\ModifyPriceRecord;
 
 use Session;
 use Wechat;
@@ -329,6 +332,8 @@ class ManagerController extends Controller
         //     ->get();
 
         DB::beginTransaction();
+        ContactChat::where('uid', $flight->id)
+            ->update(['status'=>0]);
         /*删除订单表和交易表*/
         // foreach ($BigOrder as $value) {
         //     $bid = $value->bid;
@@ -343,6 +348,14 @@ class ManagerController extends Controller
 
         ParentChild::where('pid', $pid)
             ->delete();
+        
+        $uid = NewUser::where('openid', $openid)
+            ->first()
+            ->id;
+        ClassFree::where('uid', $uid)
+            ->update(['status', '0']);
+        ModifyPriceRecord::where('uid', $uid)
+            ->update(['status', '0']);
 
         ContactChat::where('uid', $nid)->delete();
 
