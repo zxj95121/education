@@ -116,17 +116,18 @@ class wechatIndexCatchonController extends Controller
 // 4.【家长亲子学英语】想陪伴孩子一起学习英语吗？请点击（“家长亲子”绿色按钮）/:handclap加辰教育鼓励家长亲子学英语，支持家长陪伴孩子一起学习，共同进步/:v
  
 // 另外，我还有自己的想法，怎么办？可以呀，更多服务，请检阅【加辰教育定制】菜单栏/:handclap');
-                $result = $this->transmitText($object, '外教一对一，合适吗？双师Class，喜欢吗？不用担心哦/:rose孩子体验过了，就会知道啦～加辰教育中小学生外教一对一双师Class免费试听课，诚邀您的孩子和外教一起快乐学习，体验英语交流的乐趣/:v：
+//                 $result = $this->transmitText($object, '外教一对一，合适吗？双师Class，喜欢吗？不用担心哦/:rose孩子体验过了，就会知道啦～加辰教育中小学生外教一对一双师Class免费试听课，诚邀您的孩子和外教一起快乐学习，体验英语交流的乐趣/:v：
 
-1.【中小学生外教一对一，双师Class】回复“我要试听”，即可领取免费试听课。
+// 1.【中小学生外教一对一，双师Class】回复“我要试听”，即可领取免费试听课。
 
-2.【注册有礼】回复“注册”，就可以注册成为加辰教育学习会员啦～，注册即送188元哦/:rose
+// 2.【注册有礼】回复“注册”，就可以注册成为加辰教育学习会员啦～，注册即送188元哦/:rose
  
-3.【双师Class学年版】全年100次外教一对一双师Class课程，回复“双师Class"，即可定制课程，开启畅学模式～
+// 3.【双师Class学年版】全年100次外教一对一双师Class课程，回复“双师Class"，即可定制课程，开启畅学模式～
  
-4.【家长亲子学英语】您愿意陪伴孩子一起学习英语吗？加辰教育鼓励家长亲子学英语，支持家长与孩子一起学习，共同进步。回复“家长亲子”，即可开启您的亲子学习之旅啦～
+// 4.【家长亲子学英语】您愿意陪伴孩子一起学习英语吗？加辰教育鼓励家长亲子学英语，支持家长与孩子一起学习，共同进步。回复“家长亲子”，即可开启您的亲子学习之旅啦～
 
-合适的才是最好的，适应需求才是更有效的。更多课程与教学服务，请您展开页面下方菜单栏～您的需求，就是我们努力的方向。加油/:@@');
+// 合适的才是最好的，适应需求才是更有效的。更多课程与教学服务，请您展开页面下方菜单栏～您的需求，就是我们努力的方向。加油/:@@');
+                $result = $this->transmitText($object, '记住四个单词：try，class，enter，study，发出您的号令，加辰教育携手51talk专业英语外教，乖乖陪您溜英语~');
             break;
             case "unsubscribe":
             break;
@@ -162,6 +163,23 @@ class wechatIndexCatchonController extends Controller
                 'Url' => 'http://wechat.catchon-edu.cn/front/classFree/oauth'
             );
             $result = $this->transmitNews($object, $contentArr);
+        } else if ($keyword == 'try') {
+            $contentArr[] = array(
+                'Title' => '外教适不适合，孩子体验了才知道！',
+                'Description' => '加辰教育中小学外教一对一双师Class免费试听课，诚邀您的孩子和外教一起快乐学习、体验英语交流的乐趣！',
+                'PicUrl' => 'http://wechat.catchon-edu.cn/admin/images/wechat/free_reply.png',
+                'Url' => 'http://wechat.catchon-edu.cn/front/classFree/oauth'
+            );
+            $result = $this->transmitNews($object, $contentArr);
+        } else if ($keyword == 'class') {
+            $content = '51talk双师课程任您学。';
+            $result = $this->transmitText($object, $content); 
+        } else if ($keyword == 'enter') {
+            $content = '注册即送188元。';
+            $result = $this->transmitText($object, $content);
+        } else if ($keyword == 'class') {
+            $content = '陪您孩子一起学习。Try class,enter study.Come on,let's study with CATCHON.';
+            $result = $this->transmitText($object, $content);
         } else if ($keyword == '注册') {
             $contentArr[] = array(
                 'Title' => '给自己一次学习英语的机会，世界就在你的眼前',
