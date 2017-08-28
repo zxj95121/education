@@ -83,12 +83,10 @@ $signPackage = $jssdk->GetSignPackage();
 					</div>
 				</div> -->
 				<div class="mui-content">
+					<span class="glyphicon glyphicon-erase">初始化定制</span>
 					<div class="mui-col-xs-12 mui-col-sm-12 madeSteps" id="directionMade">
 						<div style="padding: 10px 10px;">
 							<form class="mui-input-group">
-								<div class="mui-input-row">
-							        <span class="mui-btn mui-btn-success">初始化表单</span>
-							    </div>
 							    <div class="mui-input-row">
 							        <label>学科定制 <span style="color:red;">*</span></label>
 							    	<input type="text" placeholder="选择学科" id="subjectMade" stid="" readonly="readonly">
