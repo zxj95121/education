@@ -48,72 +48,38 @@
 
 /***************** 8.Widget  ****************/
 .widget-panel {
-  padding: 26px 20px;
-  border-radius: 4px;
-  position: relative;
-  margin-bottom: 20px;
-  border: 1px solid #E6EBEC;
+    padding: 26px 20px;
+    border-radius: 4px;
+    position: relative;
+    margin-bottom: 20px;
+    border: 1px solid #E6EBEC;
 }
-
+.bg-info {
+    background-color: #3fb7ee;
+}
+.bg-info {
+    background-color: #d9edf7;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.fa{
+	font: normal normal normal 14px/1 FontAwesome;
+}
 .widget-style-1 i {
-  position: absolute;
-  font-size: 6rem;
-  right: 0;
-  bottom: 1rem;
-  color: #edf0f0;
+    position: absolute;
+    font-size: 6rem;
+    right: 0;
+    bottom: 1rem;
+    color: #edf0f0;
 }
 .widget-style-1 h2 {
-  font-weight: 600;
-  font-size: 32px;
-  margin-bottom: 8px !important;
+    font-weight: 600;
+    font-size: 32px;
+    margin-bottom: 8px !important;
 }
-
-.widget-style-1:hover i {
-  -moz-transform: scale(1.5);
-  -webkit-transform: scale(1.5);
-  -o-transform: scale(1.5);
-  transform: scale(1.5);
-}
-.widget-style-2 {
-  padding-left: 30px;
-}
-.widget-style-2 i {
-  font-size: 48px;
-  float: right;
-  line-height: 48px;
-  padding: 35px 35px 29px;
-  margin-top: -27px;
-  margin-right: -20px;
-}
-.widget-style-2 h2 {
-  font-weight: 500;
-  font-size: 28px;
-  margin-bottom: 8px !important;
-}
-
-.profile-widget {
-  background: #ffffff;
-  margin-bottom: 20px;
-}
-
-.bg-profile {
-  height: 100px;
-}
-
-.profile-widget .img-thumbnail {
-  margin-top: -42px;
-  border: none;
-}
-
-.widget-list {
-  padding: 10px;
-  margin-top: 20px;
-  margin-left: 0px;
-  padding-bottom: 30px;
-}
-
-.widget-list span {
-  display: block;
-  font-weight: bold;
-  font-size: 18px;
+.text-white {
+    color: #ffffff;
 }

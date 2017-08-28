@@ -161,7 +161,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        	<div class="row">
 	        		<div class="col-md-3 col-xs-12 col-sm-12">
                         <div class="widget-panel widget-style-1 bg-info">
-                            <i class="mui-icon mui-icon-paperclip"></i> 
+                            <i class="fa mui-icon mui-icon-paperclip"></i> 
                             <h2 class="m-0 counter text-white">1268</h2>
                             <div class="text-white">New Orders</div>
                         </div>
