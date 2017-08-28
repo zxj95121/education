@@ -161,11 +161,11 @@ $signPackage = $jssdk->GetSignPackage();
 	        	 <ul class="mui-table-view"> 
 	        	 	@foreach($madeObj as $value)
                     <li class="mui-table-view-cell mui-collapse">
-                        <a class="mui-navigate-right" href="#">面板1</a>
+                        <a class="mui-navigate-right" href="#">{{$value->stname}}定制</a>
                         <div class="mui-collapse-content">
                             <ul class="mui-table-view">
-                                <li class="mui-table-view-cell">Item 1</li>
-                                <li class="mui-table-view-cell">Item 2</li>
+                                <li class="mui-table-view-cell">学科：<span>{{$value->stname}}</span></li>
+                                <li class="mui-table-view-cell">学历： <span>{{$value->education}}</span></li>
                                 <li class="mui-table-view-cell">Item 3</li>
                             </ul>
                         </div>

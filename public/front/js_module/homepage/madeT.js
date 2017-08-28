@@ -119,6 +119,10 @@ $('#done_ok2').click(function(){
 			html += '等';
 		ids[ids.length] = $(this).attr('hid');
 	})
+	if (ids.length > 3) {
+		mui.alert('最多填写三个特长项','提示', '确认');
+		return false;
+	}
 	if (html) {
 		$('#hobbyMade').val(html);
 		$('#hobbyMade').attr('hid', ids.join('-'));

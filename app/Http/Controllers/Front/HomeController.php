@@ -92,8 +92,10 @@ class HomeController extends Controller
 //                     ->leftJoin('hobby', 'hobby.id', 'tmade_parent_session.hobby')
                     ->first();
                 /*定制历史查询*/
-                $madeObj = TmadeParent::where('uid', $newUserId)
-                    ->where('status', '1')
+                $madeObj = TmadeParent::where('tmade_parent.uid', $newUserId)
+                    ->where('tmade_parent.status', '1')
+                    ->leftJoin('subject_two as st', 'st.id', 'tmade_parent.subject')
+                    ->select('tmade_parent.*', 'st.name as stname')
                     ->get();
                     
                 if ($parentDetail->id == 21) {
