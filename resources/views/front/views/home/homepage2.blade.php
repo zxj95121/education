@@ -158,7 +158,20 @@ $signPackage = $jssdk->GetSignPackage();
 	        </div>
 
 	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history">
-	        	
+	        	 <ul class="mui-table-view"> 
+                    <li class="mui-table-view-cell mui-collapse">
+                        <a class="mui-navigate-right" href="#">面板1</a>
+                        <div class="mui-collapse-content">
+                            <p>面板1子内容</p>
+                        </div>
+                    </li>
+                    <li class="mui-table-view-cell mui-collapse">
+                        <a class="mui-navigate-right" href="#">面板2</a>
+                        <div class="mui-collapse-content">
+                            <p>面板2子内容</p>
+                        </div>
+                    </li>
+                </ul>
 	        </div>
 
 
