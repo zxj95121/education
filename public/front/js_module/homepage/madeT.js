@@ -240,7 +240,7 @@ function setSessionValue() {
 		var arr = eduH.split('-');
 		var str = new Array();
 		for (var i in arr) {
-			var eduHdom = $('#hobbyPopover button[hid="'+eduH+'"]');
+			var eduHdom = $('#hobbyPopover button[hid="'+arr[i]+'"]');
 			eduHdom.attr('active', 1);
 			eduHdom.addClass('mui-btn-primary');
 			str[i] = eduHdom.html();
