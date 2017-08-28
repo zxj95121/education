@@ -160,11 +160,15 @@ $signPackage = $jssdk->GetSignPackage();
 	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history" style="display: none;">
 	        	<div class="row">
 	        		<div class="col-md-3 col-xs-12 col-sm-12" style="padding-left: 10px;padding-right: 10px;">
-                        <div class="widget-panel widget-style-1 bg-info">
-                            <i class="fa mui-icon mui-icon-paperclip"></i> 
-                            <h2 class="m-0 counter text-white">1268</h2>
-                            <div class="text-white">New Orders</div>
+	        			@foreach($madeObj as $value)
+                        <div class="col-md-3 col-xs-12 col-sm-12" style="padding-left: 10px;padding-right: 10px;">
+                            <div class="widget-panel widget-style-1 bg-info">
+                                <i class="fa mui-icon mui-icon-paperclip"></i> 
+                                <h2 class="m-0 counter text-white">{{$value->stname}}定制</h2>
+                                <div class="text-white">{{substr($value->created_at, 0, 10)}}</div>
+                            </div>
                         </div>
+                        @endforeach
                     </div>
 	        	</div>
 	        	 <ul class="mui-table-view"> 
