@@ -445,8 +445,13 @@ Route::group(['prefix' => 'front','namespace' => 'Front','middleware' => ['wecha
 
   /*myVoucher*/
   $router->get('/parent/myVoucher', 'Parent\MyVoucherController@index');
-
-      /*新订单*/
+   
+  
+  /*名师定制*/
+  $router->post('/tmade/submit', 'Parent\TmadeParentController@submit');//名师定制提交
+  $router->post('/tmade/session', 'Parent\TmadeParentController@session');//名师定制session
+  
+  /*新订单*/
   $router->post('/parent/newEclassOrder', 'Parent\PayClassController@newEclassOrder');
   $router->get('/parent/newEclassOrder2','Parent\PayClassController@newEclassOrder2');
   $router->get('/parent/showPayEclassOrder','Parent\PayClassController@showPayEclassOrder');

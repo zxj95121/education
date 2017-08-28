@@ -129,7 +129,7 @@ $signPackage = $jssdk->GetSignPackage();
 							        	<option value="1">高中生</option>
 							        	<option value="2">初中生</option>
 							        	<option value="3">小学生</option>
-							        	<option value="3">无</option>
+							        	<option value="4">无</option>
 							        </select>
 							    </div>
 							    <div class="mui-input-row">
@@ -143,8 +143,8 @@ $signPackage = $jssdk->GetSignPackage();
 							        	<option value="1">周一至周五晚上</option>
 							        	<option value="2">周末</option>
 							        	<option value="3">节假日</option>
-							        	<option value="3">暑假</option>
-							        	<option value="4">寒假</option>
+							        	<option value="4">暑假</option>
+							        	<option value="5">寒假</option>
 							        </select>
 							    </div>
 							</form>

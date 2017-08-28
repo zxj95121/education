@@ -3,17 +3,17 @@ $('#madeT_ul li').click(function(){
 	$('.madeT_Div').css('display', 'none');
 	$(href).show();
 })
-
-$(document).on('touchstart', '#segmentedControl .mui-control-item', function(){
-	// $('#segmentedControl .mui-control-item').each(function(){
-	// 	$(this).removeClass('mui-active');
-	// })
-
-	// $(this).addClass('mui-active');
-	var href = $(this).attr('for');
-	$('.madeSteps').hide();
-	$(href).show();
-})
+//
+//$(document).on('touchstart', '#segmentedControl .mui-control-item', function(){
+//	// $('#segmentedControl .mui-control-item').each(function(){
+//	// 	$(this).removeClass('mui-active');
+//	// })
+//
+//	// $(this).addClass('mui-active');
+//	var href = $(this).attr('for');
+//	$('.madeSteps').hide();
+//	$(href).show();
+//})
 
 /*定制部分*/
 
@@ -54,6 +54,7 @@ $('#priceM').click(function(){
 		// console.log(SelectedItem);
 		$('#priceM').val(SelectedItem[0].text);
 		$('#priceM').attr('price', SelectedItem[0].value);
+		ajaxSession();
 	})
 
 	var price = $('#priceM').attr('price');
@@ -90,6 +91,7 @@ $('#done_ok1').click(function(){
 	setTimeout(function(){
 		$('#subjectPopover').hide();
 	}, 250);
+	ajaxSession();
 })
 
 /*特长方面的js*/
@@ -124,6 +126,7 @@ $('#done_ok2').click(function(){
 	setTimeout(function(){
 		$('#hobbyPopover').hide();
 	}, 250);
+	ajaxSession();
 })
 
 //提交定制后的事情
@@ -145,9 +148,28 @@ $('#submitBtn').click(function(){
 		var teachObj = $('#teachObjM').css('opacity') == '1' ? $('#teachObjM option:selected').val() : 0;//经验定制
 		
 		if (!education || !sex || !type || !hobby || !teachObj) {
-			mui.confirm('您的定制存在内容为空，确认提交吗？', '提示', ['取消', '确认'], function(e){
+			mui.confirm('您的定制不太完善，确认提交吗？', '提示', ['取消', '确认'], function(e){
 				if (e.index == 1) {
-					console.log('我要开始提交数据了');
+					$.ajax({
+						url: '/front/tmade/submit',
+						dataType: 'json',
+						type: 'post',
+						data: {
+							subject: subject,
+							price: price,
+							time: time,
+							education: education,
+							sex: sex,
+							type: type,
+							hobby: hobby,
+							exp: exp
+						},
+						success: function(data) {
+							if (data.errcode == 0) {
+								console.log(data);
+							}
+						}
+					})
 				}
 			});
 		}
@@ -156,12 +178,45 @@ $('#submitBtn').click(function(){
 	}
 })
 
-
-
-
-
-
-
+//每一次失去焦点都需要进行存储内容
+education ,sex ,type ,exp ,time
+var selectArr = new Array('#educationM', '#sexM', '#typeM', '#teachObjM', '#timeM');
+for (var q in selectArr) {
+	$(selectArr[i]).change(function(){
+		ajaxSession();
+	})
+}
+function ajaxSession() {
+	var subject = $('#subjectMade').attr('stid');
+	var price = $('#priceM').attr('price');
+	var time = $('#timeM').val();
+	var education = $('#educationM').css('opacity') == '1' ? $('#educationM option:selected').val() : 0;
+	var sex = $('#sexM').css('opacity') == '1' ? $('#sexM option:selected').val() : 0;
+	var type = $('#typeM').css('opacity') == '1' ? $('#typeM option:selected').val() : 0;//风格
+	var hobby = $('#hobbyMade').attr('hid');
+	var teachObj = $('#teachObjM').css('opacity') == '1' ? $('#teachObjM option:selected').val() : 0;//经验定制
+	
+	$.ajax({
+		url: '/front/tmade/session',
+		dataType: 'json',
+		type: 'post',
+		data: {
+			subject: subject,
+			price: price,
+			time: time,
+			education: education,
+			sex: sex,
+			type: type,
+			hobby: hobby,
+			exp: exp
+		},
+		success: function(data) {
+			if (data.errcode == 0) {
+				console.log(data);
+			}
+		}
+	})
+}
 
 
 
