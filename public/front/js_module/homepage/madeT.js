@@ -229,11 +229,29 @@ window.onload = function() {
 function setSessionValue() {
 	var eduB = $('#subjectMade').attr('stid');
 	if (eduB) {
-		console.log(eduB);
 		var eduBdom = $('#subjectPopover button[stid="'+eduB+'"]');
 		eduBdom.attr('active', 1);
 		eduBdom.addClass('mui-btn-primary');
 		$('#subjectMade').val(eduBdom.html());
+	}
+	
+	var eduH = $('#hobbyMade').attr('hid');
+	if (eduH) {
+		var arr = eduH.split('-');
+		var str = new Array();
+		for (var i in arr) {
+			var eduHdom = $('#hobbyPopover button[hid="'+eduH+'"]');
+			eduHdom.attr('active', 1);
+			eduHdom.addClass('mui-btn-primary');
+			str[i] = eduHdom.html();
+		}
+		if (i == 0) {
+			$('#hobbyMade').val(str[0]);
+		} else if (i == 1) {
+			$('#hobbyMade').val(str[0]+'、'+str[1]);
+		} else {
+			$('#hobbyMade').val(str[0]+'、'+str[1]+'等');
+		}
 	}
 }
 
