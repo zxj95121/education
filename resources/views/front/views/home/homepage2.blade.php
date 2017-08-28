@@ -95,7 +95,7 @@ $signPackage = $jssdk->GetSignPackage();
 							        <label>学历定制</label>
 
 							        <input type="text" placeholder="选择学历" readonly="readonly" @if($madeSession && $madeSession->education) stid="{{$madeSession->education}}" style="display:none;" @else @endif>
-							        <select class="selectMade" id="educationM" name="educationM" style="@if($madeSession && $madeSession->education opacity: 1; @else opacity: 0; @endif z-index:2;position: relative;top: -39px;">
+							        <select class="selectMade" id="educationM" name="educationM" style="@if($madeSession && $madeSession->education) opacity: 1; @else opacity: 0; @endif z-index:2;position: relative;top: -39px;">
 							        	<option value="1" @if($madeSession && $madeSession->education == '1') selected="selected" @else @endif>研究生</option>
 							        	<option value="2" @if($madeSession && $madeSession->education == '2') selected="selected" @else @endif>本科生</option>
 							        	<option value="3" @if($madeSession && $madeSession->education == '3') selected="selected" @else @endif>专科生</option>
@@ -103,8 +103,8 @@ $signPackage = $jssdk->GetSignPackage();
 							    </div>
 							    <div class="mui-input-row">
 							        <label>性别定制</label>
-							        <input type="text" placeholder="性别要求" readonly="readonly" @if($madeSession && $madeSession->sex style="display:none;" @else @endif>
-							    	<select class="selectMade" name="sexM" id="sexM" style="@if($madeSession && $madeSession->sex opacity: 1; @else opacity: 0; @endifz-index:2;position: relative;top: -39px;">
+							        <input type="text" placeholder="性别要求" readonly="readonly" @if($madeSession && $madeSession->sex) style="display:none;" @else @endif>
+							    	<select class="selectMade" name="sexM" id="sexM" style="@if($madeSession && $madeSession->sex) opacity: 1; @else opacity: 0; @endifz-index:2;position: relative;top: -39px;">
 							        	<option value="1" @if($madeSession && $madeSession->sex == '1') selected="selected" @else @endif>男女均可</option>
 							        	<option value="2" @if($madeSession && $madeSession->sex == '2') selected="selected" @else @endif>男</option>
 							        	<option value="3" @if($madeSession && $madeSession->sex == '3') selected="selected" @else @endif>女</option>
@@ -112,8 +112,8 @@ $signPackage = $jssdk->GetSignPackage();
 							    </div>
 							    <div class="mui-input-row">
 							        <label>风格定制</label>
-							        <input type="text" placeholder="选择辅导老师风格" readonly="readonly" @if($madeSession && $madeSession->type style="display:none;" @else @endif>
-							    	<select class="selectMade" id="typeM" name="typeM" style="@if($madeSession && $madeSession->type opacity: 1; @else opacity: 0; @endifz-index:2;position: relative;top: -39px;">
+							        <input type="text" placeholder="选择辅导老师风格" readonly="readonly" @if($madeSession && $madeSession->type) style="display:none;" @else @endif>
+							    	<select class="selectMade" id="typeM" name="typeM" style="@if($madeSession && $madeSession->type) opacity: 1; @else opacity: 0; @endifz-index:2;position: relative;top: -39px;">
 							        	<option value="1" @if($madeSession && $madeSession->type == '1') selected="selected" @else @endif>温和型</option>
 							        	<option value="2" @if($madeSession && $madeSession->type == '2') selected="selected" @else @endif>严厉型</option>
 							        	<option value="3" @if($madeSession && $madeSession->type == '3') selected="selected" @else @endif>幽默型</option>
@@ -121,12 +121,12 @@ $signPackage = $jssdk->GetSignPackage();
 							    </div>
 							    <div class="mui-input-row">
 							        <label>特长定制</label>
-							    	<input type="text" placeholder="选择特长" id="hobbyMade" readonly="readonly" @if($madeSession && $madeSession->hobby style="display:none;" @else @endif>
+							    	<input type="text" placeholder="选择特长" id="hobbyMade" readonly="readonly" @if($madeSession && $madeSession->hobby) style="display:none;" @else @endif>
 							    </div>
 							    <div class="mui-input-row">
 							        <label>经验定制</label>
-							        <input type="text" placeholder="要求教师曾经授课对象" readonly="readonly" @if($madeSession && $madeSession->exp style="display:none;" @else @endif>
-							    	<select class="selectMade" name="teachObjM" id="teachObjM" style="@if($madeSession && $madeSession->exp opacity: 1; @else opacity: 0; @endifz-index:2;position: relative;top: -39px;">
+							        <input type="text" placeholder="要求教师曾经授课对象" readonly="readonly" @if($madeSession && $madeSession->exp) style="display:none;" @else @endif>
+							    	<select class="selectMade" name="teachObjM" id="teachObjM" style="@if($madeSession && $madeSession->exp) opacity: 1; @else opacity: 0; @endifz-index:2;position: relative;top: -39px;">
 							        	<option value="1" @if($madeSession && $madeSession->exp == '1') selected="selected" @else @endif>高中生</option>
 							        	<option value="2" @if($madeSession && $madeSession->exp == '2') selected="selected" @else @endif>初中生</option>
 							        	<option value="3" @if($madeSession && $madeSession->exp == '3') selected="selected" @else @endif>小学生</option>
@@ -139,8 +139,8 @@ $signPackage = $jssdk->GetSignPackage();
 							    </div>
 							    <div class="mui-input-row">
 							        <label>时间定制 <span style="color:red;">*</span></label>
-							        <input type="text" placeholder="选择辅导时间" readonly="readonly" @if($madeSession && $madeSession->time style="display:none;" @else @endif>
-							    	<select class="selectMade" name="timeM" id="timeM" style="@if($madeSession && $madeSession->time opacity: 1; @else opacity: 0; @endifz-index:2;position: relative;top: -39px;">
+							        <input type="text" placeholder="选择辅导时间" readonly="readonly" @if($madeSession && $madeSession->time) style="display:none;" @else @endif>
+							    	<select class="selectMade" name="timeM" id="timeM" style="@if($madeSession && $madeSession->time) opacity: 1; @else opacity: 0; @endifz-index:2;position: relative;top: -39px;">
 							        	<option value="1" @if($madeSession && $madeSession->time == '1') selected="selected" @else @endif>周一至周五晚上</option>
 							        	<option value="2" @if($madeSession && $madeSession->time == '2') selected="selected" @else @endif>周末</option>
 							        	<option value="3" @if($madeSession && $madeSession->time == '3') selected="selected" @else @endif>节假日</option>
