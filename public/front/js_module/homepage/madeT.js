@@ -221,13 +221,20 @@ function ajaxSession() {
 	})
 }
 
-//读取sesison
-var eduB = $('#subjectMade').attr('stid');
-if (eduB) {
-	var eduBdom = $('#subjectPopover button[hid="'+eduB+'"]');
-	eduBdom.attr('active', 1);
-	eduBdom.addClass('mui-btn-primary');
-	$('#subjectMade').val(eduBdom.html());
+//读取sesisons
+window.onload = function() {
+	setSessionValue();
+}
+
+function setSessionValue() {
+	var eduB = $('#subjectMade').attr('stid');
+	if (eduB) {
+		console.log(eduB);
+		var eduBdom = $('#subjectPopover button[hid="'+eduB+'"]');
+		eduBdom.attr('active', 1);
+		eduBdom.addClass('mui-btn-primary');
+		$('#subjectMade').val(eduBdom.html());
+	}
 }
 
 function initForm() {
