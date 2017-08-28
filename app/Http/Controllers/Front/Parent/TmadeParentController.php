@@ -15,14 +15,26 @@ class TmadeParentController extends Controller
 {
     public function submit(Request $request)
     {
-        $subject = $request->input('subject');
-        $price = $request->input('price');
-        $time = $request->input('time');
-        $education = $request->input('education');
-        $hobby = $request->input('hobby');
-        $type = $request->input('type');
-        $exp = $request->input('exp');
-        $sex = $request->input('sex');
+        $openid = Session::get('openid');
+        $uid = NewUser::where('openid', $openid)
+        ->select('id')
+        ->get()[0]
+        ->id;
+        
+        $data = $request->all();
+        
+        $flight = new TmadeParent();
+        $flight->uid = $uid;
+        foreach ($data as $key => $value) {
+            $flight->$key = $value;
+        }
+        $flight->save();
+        
+        TmadeParentSession::where('status', 1)
+        ->where('uid', $uid)
+        ->update(['subject'=>'', 'education'=>'0', 'sex'=>'0', 'type'=>'0', 'hobby'=>'0' ,'exp'=> '0', 'price'=>'', 'time'=>0]);
+        
+        return response()->json(['errcode'=>0]);
     }
     
     public function session(Request $request)
