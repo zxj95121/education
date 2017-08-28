@@ -83,7 +83,7 @@ $signPackage = $jssdk->GetSignPackage();
 					</div>
 				</div> -->
 				<div class="mui-content" style="position: relative;">
-					<span onclick="initForm();" style="display: block;width:100%;text-align:right;font-size:0.76rem;padding-right: 10px;padding-top: 5px;cursor: pointer;">初始化定制<i class="glyphicon glyphicon-erase"></i></span>
+					<span onclick="initForm();" style="display: block;width:100%;text-align:right;font-size:0.89rem;padding-right: 10px;padding-top: 7px;cursor: pointer;">初始化定制<i class="glyphicon glyphicon-erase"></i></span>
 					<div class="mui-col-xs-12 mui-col-sm-12 madeSteps" id="directionMade">
 						<div style="padding: 10px 10px;">
 							<form class="mui-input-group">
@@ -158,6 +158,15 @@ $signPackage = $jssdk->GetSignPackage();
 	        </div>
 
 	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history" style="display: none;">
+	        	<div class="row">
+	        		<div class="col-md-3 col-xs-12 col-sm-12">
+                        <div class="widget-panel widget-style-1 bg-info">
+                            <i class="mui-icon mui-icon-paperclip"></i> 
+                            <h2 class="m-0 counter text-white">1268</h2>
+                            <div class="text-white">New Orders</div>
+                        </div>
+                    </div>
+	        	</div>
 	        	 <ul class="mui-table-view"> 
 	        	 	@foreach($madeObj as $value)
                     <li class="mui-table-view-cell mui-collapse">
