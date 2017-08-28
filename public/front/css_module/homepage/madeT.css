@@ -53,6 +53,7 @@
     position: relative;
     margin-bottom: 20px;
     border: 1px solid #E6EBEC;
+    background: #3fb7ee;
 }
 .bg-info {
     background-color: #3fb7ee;
@@ -66,7 +67,13 @@
     box-sizing: border-box;
 }
 .fa{
-	font: normal normal normal 14px/1 FontAwesome;
+	display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
 }
 .widget-style-1 i {
     position: absolute;
