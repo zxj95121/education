@@ -161,7 +161,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        	<div class="row">
 	        		<div class="col-md-3 col-xs-12 col-sm-12" style="padding-left: 10px;padding-right: 10px;">
 	        			@foreach($madeObj as $value)
-                        <div class="col-md-3 col-xs-12 col-sm-12" style="padding-left: 10px;padding-right: 10px;">
+                        <div class="col-md-3 col-xs-12 col-sm-12" style="padding-top: 20px;">
                             <div class="widget-panel widget-style-1 bg-info">
                                 <i class="fa glyphicon glyphicon-chevron-right"></i> 
                                 <h2 class="m-0 counter text-white">{{$value->stname}}定制</h2>
