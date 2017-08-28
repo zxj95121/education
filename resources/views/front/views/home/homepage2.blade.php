@@ -86,6 +86,9 @@ $signPackage = $jssdk->GetSignPackage();
 					<div class="mui-col-xs-12 mui-col-sm-12 madeSteps" id="directionMade">
 						<div style="padding: 10px 10px;">
 							<form class="mui-input-group">
+								<div class="mui-input-row">
+							        <h4>初始化</h4>
+							    </div>
 							    <div class="mui-input-row">
 							        <label>学科定制 <span style="color:red;">*</span></label>
 							    	<input type="text" placeholder="选择学科" id="subjectMade" stid="" readonly="readonly">

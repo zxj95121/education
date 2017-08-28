@@ -167,7 +167,7 @@ $('#submitBtn').click(function(){
 						},
 						success: function(data) {
 							if (data.errcode == 0) {
-								console.log(data);
+								mui.toast('定制提交成功',{ duration:'1000', type:'div' });
 							}
 						}
 					})
@@ -216,6 +216,10 @@ function ajaxSession() {
 			}
 		}
 	})
+}
+
+function formInit() {
+	$('#directionMade').html('');
 }
 
 
