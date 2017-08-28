@@ -245,9 +245,9 @@ function setSessionValue() {
 			eduHdom.addClass('mui-btn-primary');
 			str[i] = eduHdom.html();
 		}
-		if (i == 0) {
+		if (str.length == 1) {
 			$('#hobbyMade').val(str[0]);
-		} else if (i == 1) {
+		} else if (str.length == 2) {
 			$('#hobbyMade').val(str[0]+'、'+str[1]);
 		} else {
 			$('#hobbyMade').val(str[0]+'、'+str[1]+'等');
