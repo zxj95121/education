@@ -121,7 +121,7 @@ $signPackage = $jssdk->GetSignPackage();
 							    </div>
 							    <div class="mui-input-row">
 							        <label>特长定制</label>
-							    	<input type="text" placeholder="选择特长" id="hobbyMade" readonly="readonly">
+							    	<input type="text" placeholder="选择特长" id="hobbyMade" readonly="readonly" @if($madeSession && $madeSession->hobby) hid="{{$madeSession->hobby}}" @else @endif>
 							    </div>
 							    <div class="mui-input-row">
 							        <label>经验定制</label>

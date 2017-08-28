@@ -221,6 +221,12 @@ function ajaxSession() {
 	})
 }
 
+//读取sesison
+var eduB = $('#educationM').attr('stid');
+var eduBdom = $('#subjectPopover button[hid="'+eduB+'"]');
+eduBdom.attr('active', 1);
+eduBdom.addClass('mui-btn-primary');
+
 function initForm() {
 	pricePicker = 0;
 	$('#directionMade').html('<div style="padding: 10px 10px;"> <form class="mui-input-group"> <div class="mui-input-row"> <label>学科定制 <span style="color:red;">*</span></label> <input type="text" placeholder="选择学科" id="subjectMade" stid="" readonly="readonly"> </div> <div class="mui-input-row"> <label>学历定制</label> <input type="text" placeholder="选择学历" readonly="readonly"> <select class="selectMade" id="educationM" name="educationM" style="opacity: 0;z-index:2;position: relative;top: -39px;"> <option value="1">研究生</option> <option value="2">本科生</option> <option value="3">专科生</option> </select> </div> <div class="mui-input-row"> <label>性别定制</label> <input type="text" placeholder="性别要求" readonly="readonly"> <select class="selectMade" name="sexM" id="sexM" style="opacity: 0;z-index:2;position: relative;top: -39px;"> <option value="1">男女均可</option> <option value="2">男</option> <option value="3">女</option> </select> </div> <div class="mui-input-row"> <label>风格定制</label> <input type="text" placeholder="选择辅导老师风格" readonly="readonly"> <select class="selectMade" id="typeM" name="typeM" style="opacity: 0;z-index:2;position: relative;top: -39px;"> <option value="1">温和型</option> <option value="2">严厉型</option> <option value="3">幽默型</option> </select> </div> <div class="mui-input-row"> <label>特长定制</label> <input type="text" placeholder="选择特长" id="hobbyMade" readonly="readonly"> </div> <div class="mui-input-row"> <label>经验定制</label> <input type="text" placeholder="要求教师曾经授课对象" readonly="readonly"> <select class="selectMade" name="teachObjM" id="teachObjM" style="opacity: 0;z-index:2;position: relative;top: -39px;"> <option value="1">高中生</option> <option value="2">初中生</option> <option value="3">小学生</option> <option value="4">无</option> </select> </div> <div class="mui-input-row"> <label>学费定制 <span style="color:red;">*</span></label> <input type="text" placeholder="选择辅导价格" id="priceM" readonly="readonly"> </div> <div class="mui-input-row"> <label>时间定制 <span style="color:red;">*</span></label> <input type="text" placeholder="选择辅导时间" readonly="readonly"> <select class="selectMade" name="timeM" id="timeM" style="opacity: 0;z-index:2;position: relative;top: -39px;"> <option value="1">周一至周五晚上</option> <option value="2">周末</option> <option value="3">节假日</option> <option value="4">暑假</option> <option value="5">寒假</option> </select> </div> </form> </div> <div style="padding: 10px 10px;"> <button type="button" id="submitBtn" class="mui-btn mui-btn-success" style="width: 100%;height: 40px;font-size: 1.5em;line-height: 26px;">提交定制</button> </div>');
@@ -231,6 +237,9 @@ function initForm() {
 			ajaxSession();
 		})
 	}
+	
+	$('#hobbyPopover button').attr('active', 0);
+	$('#subjectPopover button').attr('active', 0);
 }
 
 
