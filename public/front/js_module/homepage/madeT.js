@@ -181,6 +181,7 @@ $(document).on('click', '#submitBtn', function(){
 								$('.madeT_Div').css('display', 'none');
 								$('#madeT_history').show();
 								window.location.href = '/front/home#teachers';
+								window.location.reload();
 							}
 						}
 					})
