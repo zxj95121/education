@@ -140,9 +140,6 @@ $(document).on('click', '#submitBtn', function(){
 	var price = $('#priceM').attr('price');
 	var time = $('#timeM').val();
 	var timeVad = $('#timeM').css('opacity');
-	console.log(subject);
-	console.log(price);
-	console.log(timeVad);
 	
 	if (subject && price && timeVad) {
 //		获取每一个值
@@ -152,7 +149,7 @@ $(document).on('click', '#submitBtn', function(){
 		var hobby = $('#hobbyMade').attr('hid');
 		var teachObj = $('#teachObjM').css('opacity') == '1' ? $('#teachObjM option:selected').val() : 0;//经验定制
 		
-		if (!education || !sex || !type || !hobby || !teachObj) {
+		if (!education || !sex || !type || !hobby || !teachObj || (education && sex && type && hobby && teachObj)) {
 			mui.confirm('您的定制不太完善，确认提交吗？', '提示', ['取消', '确认'], function(e){
 				if (e.index == 1) {
 					$.ajax({
