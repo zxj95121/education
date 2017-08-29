@@ -224,7 +224,7 @@ $signPackage = $jssdk->GetSignPackage();
                                                     <h4 class="timeline-title">特长定制</h4>
                                                 </div>
                                                 <div class="timeline-body">
-                                                    <p><span class="label label-info chobby"></span></p>
+                                                    <p><span class="label label-info chobby" style="white-space: normal";></span></p>
                                                 </div>
                                                 <div class="timeline-heading">
                                                     <h4 class="timeline-title">风格定制</h4>
