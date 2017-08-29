@@ -870,7 +870,7 @@ function cartInit(){
 	
 	<script>        
       	var mySwiper = new Swiper ('.swiper-container', {
-        	direction: 'vertical',
+        	direction: 'horizontal',
             loop: true,
             
             // 如果需要分页器
