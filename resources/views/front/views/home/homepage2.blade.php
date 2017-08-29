@@ -611,28 +611,6 @@ $signPackage = $jssdk->GetSignPackage();
 				</a>
 			</nav>
 
-<!--    		<div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
-	        <a href="javascript:void(0);" class="weui-tabbar__item" for="teacher" id="teacher1">
-	            <span style="display: inline-block;position: relative;">
-	                <img src="/images/home/menu_teach.png" alt="" class="weui-tabbar__icon">
-	            </span>
-	            <p class="weui-tabbar__label">名师定制</p>
-	        </a>
-	        <a href="javascript:void(0);" class="weui-tabbar__item" for="classroom" id="classroom1">
-	            <img src="/images/home/menu_classroom.png" alt="" class="weui-tabbar__icon">
-	            <p class="weui-tabbar__label">教室定制</p>
-	        </a>
-	        <a href="javascript:void(0);" class="weui-tabbar__item" for="eclass" id="eclass1">
-	            <span style="display: inline-block;position: relative;">
-	                <img src="/images/home/menu_class.png" alt="" class="weui-tabbar__icon">
-	            </span>
-	            <p class="weui-tabbar__label">双师class</p>
-	        </a>
-	        <a href="javascript:void(0);" class="weui-tabbar__item" for="my" id="my1">
-	            <img src="/images/home/menu_my_fill.png" alt="" class="weui-tabbar__icon">
-	            <p class="weui-tabbar__label">我的加辰</p>
-	        </a>
-	    </div> -->
 	    @else
 	    <div class="weui-tabbar" id="all_bottom" style="position: fixed;z-index: 9999;">
 	        <a href="javascript:void(0);" class="weui-tabbar__item" for="teacher" id="teacher1">
@@ -936,19 +914,6 @@ function cartInit(){
     </script>
 
     <script type="text/javascript">
-  //   	closeStatus =0;
-  //   	window.onpopstate = function(event) {
-  //   		if(closeStatus == 1)
-		//       	wx.closeWindow();
-		//     else {
-		//     	setTimeout(function(){wx.closeWindow();},100);
-		//     	setTimeout(function(){wx.closeWindow();},200);
-		//     	setTimeout(function(){wx.closeWindow();},400);
-		//     	setTimeout(function(){wx.closeWindow();},600);
-		//     	setTimeout(function(){wx.closeWindow();},800);
-		//     	setTimeout(function(){wx.closeWindow();},1000);
-		//     }
-		// }
 
 		wx.config({
 		    debug: false,
@@ -970,11 +935,5 @@ function cartInit(){
 
 		});
 	</script>
-	
-	
-	<script>        
-
-    </script>
-</body>
 </body>
 </html>
