@@ -874,7 +874,8 @@ function cartInit(){
             paginationType : 'progress',
 
             scrollbar:'.swiper-scrollbar',
-      	})        
+      	})
+      	mySwiper.lockSwipes();
     </script>
 </body>
 </body>

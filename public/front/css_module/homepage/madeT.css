@@ -88,3 +88,8 @@
 .text-white {
     color: #ffffff;
 }
+
+
+.swiper-scrollbar {
+    background: rgb(56, 95, 208);
+}
