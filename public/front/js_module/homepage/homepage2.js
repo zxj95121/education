@@ -14,9 +14,7 @@ $(function(){
 			includeLink('/admin/css/style.min.css', 'css');
 			includeLink('/js/swiper/dist/css/swiper.min.css', 'css');
 			
-			includeLink('/js/swiper/dist/js/swiper.jquery.min.js', 'js', 'doSwiper');
-			
-	      	
+			includeLink('/js/swiper/dist/js/swiper.jquery.min.js', 'js', 'doSwiper');	      	
 		}
 		$('#all_bottom .mui-tab-item').each(function(){
 			// var sforDiv = $(this).attr('for');

@@ -713,6 +713,12 @@ $signPackage = $jssdk->GetSignPackage();
     			if(obj){
         			// $('#'+url[1]+'1').trigger('click');
         			tabFunc(url[1]);
+        			if (obj == 'teacher') {
+        				includeLink('/admin/css/style.min.css', 'css');
+        				includeLink('/js/swiper/dist/css/swiper.min.css', 'css');
+        				
+        				includeLink('/js/swiper/dist/js/swiper.jquery.min.js', 'js', 'doSwiper');	 
+            		}
     			}else{
     				// $('#my1').trigger('click');
     				tabFunc('my');
