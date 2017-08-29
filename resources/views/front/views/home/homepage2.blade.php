@@ -675,6 +675,7 @@ $signPackage = $jssdk->GetSignPackage();
         				includeLink('/js/swiper/dist/js/swiper.jquery.min.js', 'js', 'doSwiper');
 
         				if (url[1] == 'teachers') {
+        					tabFunc('teacher');
         					$('.madeT_Div').css('display', 'none');
         					$('#madeT_history').show();
         				}
