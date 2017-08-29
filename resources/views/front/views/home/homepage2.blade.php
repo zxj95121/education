@@ -755,42 +755,63 @@ $signPackage = $jssdk->GetSignPackage();
 	    var urlStyle = [];
 	    var urlScript = [];
 	    /* 加载js css*/
-		function includeLink(url,urlType) {
-			if(urlType == "css"){
-				for(var i = 0; i < urlStyle.length;i++){
-					if(urlStyle[i] == url){
-						var status = 2333;
-						return false;
-					}
-				}
-				if(status == 2333){
-					return false;
-				}
-				urlStyle.push(url);
-				var link = document.createElement("link");
-				link.rel = "stylesheet";
-				link.type = "text/css";
-				link.href = url;
-				document.getElementsByTagName("head")[0].appendChild(link);
-			}else{
-				for(var i = 0; i < urlScript.length;i++){
-					if(urlScript[i] == url){
-						var status = 2333;
-						return false;
-					}
-				}
-				if(status == 2333){
-					return false;
-				}
-				urlScript.push(url);
-				$.ajaxSetup({
-					cache: true
-				});
-				$.getScript(url, function(){
-				});
-			}
-
-		}
+			function includeLink(url,urlType, func='') {
+        		if(urlType == "css"){
+        			for(var i = 0; i < urlStyle.length;i++){
+        				if(urlStyle[i] == url){
+        					var status = 2333;
+        					return false;
+        				}
+        			}
+        			if(status == 2333){
+        				return false;
+        			}
+        			urlStyle.push(url);
+        			var link = document.createElement("link");
+        			link.rel = "stylesheet";
+        			link.type = "text/css";
+        			link.href = url;
+        			document.getElementsByTagName("head")[0].appendChild(link);
+        		}else{
+        			for(var i = 0; i < urlScript.length;i++){
+        				if(urlScript[i] == url){
+        					var status = 2333;
+        					return false;
+        				}
+        			}
+        			if(status == 2333){
+        				return false;
+        			}
+        			urlScript.push(url);
+        			$.ajaxSetup({
+        				cache: true
+        			});
+        			$.getScript(url, function(){
+        				if (func) {
+        					var ffff = eval(func);
+        					new ffff();
+        				}
+        			});
+        		}
+        
+        	}
+	    	
+        	function doSwiper() {
+        		var mySwiper = new Swiper ('.swiper-container', {
+                	direction: 'horizontal',
+                	
+                    loop: false,
+        
+              	
+              	$(document).on('click', '.madeShowDiv', function(){
+        //       		mySwiper.slideNext(function(){}, 500);
+        			console.log(213);
+              		mySwiper.slideTo(2, 500, false);//切换到第二个slide，速度为0.5秒
+              		$('.swiper-slide').eq(0).fadeOut(300);
+              		$('.swiper-slide').eq(1).fadeIn(600);
+        //       		setTimeout(function(){mySwiper.lockSwipes();}, 600);
+                })
+        	}
 		// $('#eclass1').unbind('click');
 		// $('#all_bottom').unbind('click');
 		// console.log($('#eclass1'));

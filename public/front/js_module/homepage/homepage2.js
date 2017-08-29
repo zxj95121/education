@@ -125,13 +125,6 @@ $(function(){
         	direction: 'horizontal',
         	
             loop: false,
-            
-//             // 如果需要分页器
-//             pagination: '.swiper-pagination',
-//             paginationType : 'progress',
-            
-      	})
-//       	mySwiper.lockSwipes();
 
       	
       	$(document).on('click', '.madeShowDiv', function(){
