@@ -713,8 +713,7 @@ $signPackage = $jssdk->GetSignPackage();
     			if(obj){
         			// $('#'+url[1]+'1').trigger('click');
         			tabFunc(url[1]);
-        			console.log(obj);
-        			if (obj == 'teacher') {
+        			if (obj.attr('id') == 'teacher') {
         				includeLink('/admin/css/style.min.css', 'css');
         				includeLink('/js/swiper/dist/css/swiper.min.css', 'css');
         				
