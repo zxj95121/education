@@ -135,7 +135,7 @@ $('#done_ok2').click(function(){
 })
 
 //提交定制后的事情
-$('#submitBtn').click(function(){
+$(document).on('click', '#submitBtn', function(){
 	var subject = $('#subjectMade').attr('stid');
 	var price = $('#priceM').attr('price');
 	var time = $('#timeM').val();
