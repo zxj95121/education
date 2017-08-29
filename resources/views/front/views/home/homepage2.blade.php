@@ -164,10 +164,10 @@ $signPackage = $jssdk->GetSignPackage();
                         <div class="swiper-slide">
                         	<div class="row" style="padding-top: 20px;margin-right: 0px;padding-right: 0px;margin-left: 0px;">
                     			@foreach($madeObj as $value)
-                                <div class="col-md-3 col-xs-12 col-sm-12">
+                                <div class="col-md-3 col-xs-12 col-sm-12 madeShowDiv" mid="{{$value->id}}">
                                     <div class="widget-panel widget-style-1 bg-info">
                                     	<span style="display: inline-block;z-index:333;position:absolute;padding: 0 0 0.7rem 0.8rem;right: 0px;top: 0px;font-size:1rem;color: #fff;border-bottom-left-radius: 100% 100%;background:@if($value->made_status == 1) #f35a1d;">新定制 @elseif($value->made_status == 2) #0b53dc;">安排中 @else #65ad3a;">已完成@endif</span>
-                                        <i class="fa glyphicon glyphicon-chevron-right"></i>
+                                        <i class="fafa glyphicon glyphicon-chevron-right"></i>
                                         <h2 class="m-0 counter text-white">{{$value->stname}}定制</h2>
                                         <div class="text-white">{{substr($value->created_at, 0, 10)}}</div>
                                     </div>
@@ -175,13 +175,46 @@ $signPackage = $jssdk->GetSignPackage();
                                 @endforeach
             	        	</div>
                         </div>
-                        <div class="swiper-slide">Slide 2</div>
-                        <div class="swiper-slide">Slide 3</div>
+                        <div class="swiper-slide">
+                        	<div class="row">
+                                <div class="col-sm-12 col-xs-12">
+                                    <ul class="timeline m-b-30">
+                                        <li>
+                                            <div class="timeline-badge">学科</i>
+                                            </div>
+                                            <div class="timeline-panel">
+                                                <div class="timeline-heading">
+                                                    <h4 class="timeline-title">Timeline Event</h4>
+                                                    <p>
+                                                        <small class="text-muted"><i class="fa fa-time"></i> 11 hours ago via Twitter</small>
+                                                    </p>
+                                                </div>
+                                                <div class="timeline-body">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                        <li>
+                                            <div class="timeline-badge success"><i class="fa fa-thumbs-up"></i>
+                                            </div>
+                                            <div class="timeline-panel">
+                                                <div class="timeline-heading">
+                                                    <h4 class="timeline-title">Timeline Event</h4>
+                                                </div>
+                                                <div class="timeline-body">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- 如果需要分页器 -->
                     <div class="swiper-pagination"></div>
-                    <!-- 如果需要滚动条 -->
-                    <div class="swiper-scrollbar"></div>
+
                 </div>
 	        	
 	        </div>
@@ -872,10 +905,13 @@ function cartInit(){
             // 如果需要分页器
             pagination: '.swiper-pagination',
             paginationType : 'progress',
-
-            scrollbar:'.swiper-scrollbar',
+            
       	})
       	mySwiper.lockSwipes();
+
+      	$(document).on('touchstart', '.madeShowDiv', function(){
+      		mySwiper.slideTo(1, 500, false);//切换到第二个slide，速度为0.5秒
+        })
     </script>
 </body>
 </body>
