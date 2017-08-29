@@ -33,13 +33,10 @@ $signPackage = $jssdk->GetSignPackage();
       				</div>
       				<p style="text-align: center;font-size:0.7rem;position:relative;top: -10px;">
 					                                        （90分钟英语外教双师课堂邀您免费来听！）<br>
-					                                        （注册即送188元）
 					                                    </p>
 					                                    
 					                                    <!-- 
-  				<p style="text-align: center;position:relative;top:-43px;font-size: 0.65rem;">
-					                                        （注册即送188元）
-					                                    </p> -->
+  				 -->
                     <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
 					    <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
 					        <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
@@ -123,6 +120,9 @@ $signPackage = $jssdk->GetSignPackage();
 					                                                <section data-role="paragraph" class="_135editor" style="border: 0px none; padding: 0px; box-sizing: border-box;">
             					                                        <p>
             					                                            <img src="/images/getqrcode.jpg" style="width: 100%;">
+            					                                            <p style="text-align: center;position:relative;top:-43px;font-size: 0.65rem;">
+					                                        （注册即送188元）
+					                                    </p>
             					                                        </p>
             					                                    </section>
 					                                                <p style="text-align:center;">
