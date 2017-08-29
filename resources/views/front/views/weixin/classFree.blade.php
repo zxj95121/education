@@ -33,12 +33,13 @@ $signPackage = $jssdk->GetSignPackage();
       				</div>
       				<p style="text-align: center;font-size:0.7rem;position:relative;top: -10px;">
 					                                        （90分钟英语外教双师课堂邀您免费来听！）<br>
-					                                    </p>
-					                                    
-					                                    
-  				<p style="text-align: center;position:relative;top:-43px;font-size: 0.65rem;">
 					                                        （注册即送188元）
 					                                    </p>
+					                                    
+					                                    <!-- 
+  				<p style="text-align: center;position:relative;top:-43px;font-size: 0.65rem;">
+					                                        （注册即送188元）
+					                                    </p> -->
                     <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
 					    <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
 					        <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
@@ -115,6 +116,9 @@ $signPackage = $jssdk->GetSignPackage();
 					                                        <section style="padding: 10px; box-sizing: border-box;">
 					                                            <section style="width:100%;" data-width="100%">
 					                                                <section class="135brush" style="font-size:14px;width:80%; margin:0 auto;" data-width="80%">
+					                                                    <p>
+					                                                    	不要担心，外教合不合适，孩子体验了才会知道。加辰教育中小学生外教一对一双师class免费试听课, 诚邀您的孩子和外教一起快乐学习、体验英语交流的乐趣。
+					                                                    </p>
 					                                                </section>
 					                                                <section data-role="paragraph" class="_135editor" style="border: 0px none; padding: 0px; box-sizing: border-box;">
             					                                        <p>
