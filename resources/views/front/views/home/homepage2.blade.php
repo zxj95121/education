@@ -18,6 +18,7 @@ $signPackage = $jssdk->GetSignPackage();
     <link rel="stylesheet" type="text/css" href="/js/mui/plugin/picker/dist/css/mui.picker.min.css"">
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/madeT.css">
     <link rel="stylesheet" href="/js/swiper/dist/css/swiper.min.css">
+    <link rel="stylesheet" href="/admin/css/style.min.css">
     @else
     @endif
 
