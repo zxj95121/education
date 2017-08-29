@@ -870,7 +870,7 @@ function cartInit(){
             
             // 如果需要分页器
             pagination: '.swiper-pagination',
-            paginationType : 'fraction',
+            paginationType : 'progress',
            
       	})        
     </script>
