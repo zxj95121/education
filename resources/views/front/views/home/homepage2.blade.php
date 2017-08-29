@@ -793,12 +793,7 @@ $signPackage = $jssdk->GetSignPackage();
                 	direction: 'horizontal',
                 	
                     loop: false,
-        		};
-        		var mySwiper = new Swiper ('.swiper-container', {
-                	direction: 'horizontal',
-                	
-                    loop: false,
-        		};
+        		});
         		$(document).on('click', '.madeShowDiv', function(){
         	  		mySwiper.slideTo(2, 500, false);//切换到第二个slide，速度为0.5秒
         	  		$('.swiper-slide').eq(0).fadeOut(300);
