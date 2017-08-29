@@ -128,6 +128,15 @@ $(function(){
 	  		mySwiper.slideTo(2, 500, false);//切换到第二个slide，速度为0.5秒
 	  		$('.swiper-slide').eq(0).fadeOut(300);
 	  		$('.swiper-slide').eq(1).fadeIn(600);
+	  		
+	  		window.showMade($(this));
 	    })
+	    
+	    window.showMade = function(cdom){
+  			var name = cdom.attr('stname');
+  			var sex = cdom.attr(msex');
+  			console.log(name);
+  			console.log(sex);
+  		}
 	}
 })
