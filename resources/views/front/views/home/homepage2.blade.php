@@ -161,7 +161,7 @@ $signPackage = $jssdk->GetSignPackage();
 	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history" style="display: none;margin-bottom: 50px;">
     	        <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
+                        <div class="swiper-slide swiper-no-swiping">
                         	<div class="row" style="padding-top: 20px;margin-right: 0px;padding-right: 0px;margin-left: 0px;">
                     			@foreach($madeObj as $value)
                                 <div class="col-md-3 col-xs-12 col-sm-12 madeShowDiv" mid="{{$value->id}}">
@@ -175,7 +175,7 @@ $signPackage = $jssdk->GetSignPackage();
                                 @endforeach
             	        	</div>
                         </div>
-                        <div class="swiper-slide">
+                        <div class="swiper-slide swiper-no-swiping">
                         	<div class="row">
                                 <div class="col-sm-12 col-xs-12">
                                     <ul class="timeline m-b-30">
