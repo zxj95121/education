@@ -203,21 +203,6 @@ $signPackage = $jssdk->GetSignPackage();
                                                 </div>
                                                 <div class="timeline-body">
                                                     <div class="m-t-20">
-                                                        <a href="#">
-                                                            <img alt="" src="img/album/sm-img-1.jpg">
-                                                        </a>
-                                                        <a href="#">
-                                                            <img alt="" src="img/album/sm-img-2.jpg">
-                                                        </a>
-                                                        <a href="#">
-                                                            <img alt="" src="img/album/sm-img-3.jpg">
-                                                        </a>
-                                                        <a href="#">
-                                                            <img alt="" src="img/album/sm-img-4.jpg">
-                                                        </a>
-                                                        <a href="#">
-                                                            <img alt="" src="img/album/sm-img-5.jpg">
-                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
