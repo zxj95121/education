@@ -64,7 +64,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                    <span class="mui-icon mui-icon-compose"></span>
 		                    <div class="mui-media-body">教师定制</div></a></li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" hr="#madeT_history"><a href="#">
-		                    <span class="mui-icon mui-icon-paperclip"><span class="mui-badge">5</span></span>
+		                    <span class="mui-icon mui-icon-paperclip"><span class="mui-badge">{{count($madeObj)}}</span></span>
 		                    <div class="mui-media-body">定制历史</div></a></li>
 		        </ul>
 
@@ -163,7 +163,7 @@ $signPackage = $jssdk->GetSignPackage();
                         <div class="swiper-slide swiper-no-swiping">
                         	<div class="row" style="padding-top: 20px;margin-right: 0px;padding-right: 0px;margin-left: 0px;">
                     			@foreach($madeObj as $value)
-                                <div class="col-md-3 col-xs-12 col-sm-12 madeShowDiv" mid="{{$value->id}}">
+                                <div class="col-md-3 col-xs-12 col-sm-12 madeShowDiv" mid="{{$value->id}}" stname="{{$value->stname}}" mtime="{{$value->time}}" meducation="{{$value->education}}" mprice="{{$value->price}}" mhobby="{{$value->hobby}}" mexp="{{$value->exp}}" msex="{{$value->sex}}" mtype="{{$value->type}}">
                                     <div class="widget-panel widget-style-1 bg-info">
                                     	<span style="display: inline-block;z-index:333;position:absolute;padding: 0 0 0.7rem 0.8rem;right: 0px;top: 0px;font-size:1rem;color: #fff;border-bottom-left-radius: 100% 100%;background:@if($value->made_status == 1) #f35a1d;">新定制 @elseif($value->made_status == 2) #0b53dc;">安排中 @else #65ad3a;">已完成@endif</span>
                                         <i class="fafa glyphicon glyphicon-chevron-right"></i>
