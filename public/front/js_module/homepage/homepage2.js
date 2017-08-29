@@ -10,6 +10,14 @@ $(function(){
 				pricePicker.hide();
 			}
 		}
+		if (forDiv == 'teacher') {
+			includeLink('/admin/css/style.min.css', 'css');
+			includeLink('/js/swiper/dist/css/swiper.min.css', 'css');
+			
+			includeLink('/js/swiper/dist/js/swiper.jquery.min.js', 'js', 'doSwiper');
+			
+	      	
+		}
 		$('#all_bottom .mui-tab-item').each(function(){
 			// var sforDiv = $(this).attr('for');
 			// $('#'+sforDiv).css('display', 'none');
@@ -72,7 +80,7 @@ $(function(){
 	var urlStyle = [];
     var urlScript = [];
     /* 加载js css*/
-	function includeLink(url,urlType) {
+	function includeLink(url,urlType, func='') {
 		if(urlType == "css"){
 			for(var i = 0; i < urlStyle.length;i++){
 				if(urlStyle[i] == url){
@@ -104,8 +112,35 @@ $(function(){
 				cache: true
 			});
 			$.getScript(url, function(){
+				if (func) {
+					var ffff = eval(func);
+					new ffff();
+				}
 			});
 		}
 
+	}
+	function doSwiper() {
+		var mySwiper = new Swiper ('.swiper-container', {
+        	direction: 'horizontal',
+        	
+            loop: false,
+            
+//             // 如果需要分页器
+//             pagination: '.swiper-pagination',
+//             paginationType : 'progress',
+            
+      	})
+//       	mySwiper.lockSwipes();
+
+      	
+      	$(document).on('click', '.madeShowDiv', function(){
+//       		mySwiper.slideNext(function(){}, 500);
+			console.log(213);
+      		mySwiper.slideTo(2, 500, false);//切换到第二个slide，速度为0.5秒
+      		$('.swiper-slide').eq(0).fadeOut(300);
+      		$('.swiper-slide').eq(1).fadeIn(600);
+//       		setTimeout(function(){mySwiper.lockSwipes();}, 600);
+        })
 	}
 })

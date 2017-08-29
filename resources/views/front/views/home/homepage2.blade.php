@@ -17,8 +17,6 @@ $signPackage = $jssdk->GetSignPackage();
     @if($userType->type == 2 && $parentDetail->id == 21)
     <link rel="stylesheet" type="text/css" href="/js/mui/plugin/picker/dist/css/mui.picker.min.css"">
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/madeT.css">
-    <link rel="stylesheet" href="/js/swiper/dist/css/swiper.min.css">
-    <link rel="stylesheet" href="/admin/css/style.min.css">
     @else
     @endif
 
@@ -700,7 +698,6 @@ $signPackage = $jssdk->GetSignPackage();
     <script type="text/javascript" src="/js/mui/plugin/picker/dist/js/mui.picker.min.js"></script>
     @if($userType->type == 2 && $parentDetail->id == 21)
     <script type="text/javascript" src="/front/js_module/homepage/madeT.js?v={{rand(1,1000)}}"></script>
-    <script type="text/javascript" src="/js/swiper/dist/js/swiper.jquery.min.js""></script>
     @else
     @endif
     <script type="text/javascript" src="/front/js_module/homepage/homepage2.js"></script>
@@ -968,27 +965,7 @@ function cartInit(){
 	
 	
 	<script>        
-      	var mySwiper = new Swiper ('.swiper-container', {
-        	direction: 'horizontal',
-        	
-            loop: false,
-            
-//             // 如果需要分页器
-//             pagination: '.swiper-pagination',
-//             paginationType : 'progress',
-            
-      	})
-//       	mySwiper.lockSwipes();
 
-      	
-      	$(document).on('click', '.madeShowDiv', function(){
-//       		mySwiper.slideNext(function(){}, 500);
-			console.log(213);
-      		mySwiper.slideTo(2, 500, false);//切换到第二个slide，速度为0.5秒
-      		$('.swiper-slide').eq(0).fadeOut(300);
-      		$('.swiper-slide').eq(1).fadeIn(600);
-//       		setTimeout(function(){mySwiper.lockSwipes();}, 600);
-        })
     </script>
 </body>
 </body>
