@@ -150,7 +150,12 @@ $(document).on('click', '#submitBtn', function(){
 		var teachObj = $('#teachObjM').css('opacity') == '1' ? $('#teachObjM option:selected').val() : 0;//经验定制
 		
 		if (!education || !sex || !type || !hobby || !teachObj || (education && sex && type && hobby && teachObj)) {
-			mui.confirm('您的定制不太完善，确认提交吗？', '提示', ['取消', '确认'], function(e){
+			if (education && sex && type && hobby && teachObj) {
+				var sttt = '确认提交吗？';
+			} else {
+				var sttt = '您的定制不太完善，确认提交吗？';
+			}
+			mui.confirm(sttt, '提示', ['取消', '确认'], function(e){
 				if (e.index == 1) {
 					$.ajax({
 						url: '/front/tmade/submit',
