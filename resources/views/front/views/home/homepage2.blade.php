@@ -180,7 +180,8 @@ $signPackage = $jssdk->GetSignPackage();
                     </div>
                     <!-- 如果需要分页器 -->
                     <div class="swiper-pagination"></div>
-                    
+                    <!-- 如果需要滚动条 -->
+                    <div class="swiper-scrollbar"></div>
                 </div>
 	        	
 	        </div>
@@ -871,7 +872,8 @@ function cartInit(){
             // 如果需要分页器
             pagination: '.swiper-pagination',
             paginationType : 'progress',
-           
+
+            scrollbar:'.swiper-scrollbar',
       	})        
     </script>
 </body>
