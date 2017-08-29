@@ -914,6 +914,8 @@ function cartInit(){
 //       		mySwiper.slideNext(function(){}, 500);
 			console.log(213);
       		mySwiper.slideTo(2, 500, false);//切换到第二个slide，速度为0.5秒
+      		$('.swiper-slide').eq(0).fadeOut(500);
+      		$('.swiper-slide').eq(1).fadeIn(1000);
 //       		setTimeout(function(){mySwiper.lockSwipes();}, 600);
         })
     </script>
