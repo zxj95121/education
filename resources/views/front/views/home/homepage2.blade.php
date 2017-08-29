@@ -187,19 +187,19 @@ $signPackage = $jssdk->GetSignPackage();
                                                     <h4 class="timeline-title">学科定制</h4>
                                                 </div>
                                                 <div class="timeline-body">
-                                                    <p>数学</p>
+                                                    <p><span class="label label-info csubject"></span></p>
                                                 </div>
                                                 <div class="timeline-heading">
                                                     <h4 class="timeline-title">学费定制</h4>
                                                 </div>
                                                 <div class="timeline-body">
-                                                    <p>to e</p>
+                                                    <p><span class="label label-info cprice"></span></p>
                                                 </div>
                                                 <div class="timeline-heading">
                                                     <h4 class="timeline-title">时间定制</h4>
                                                 </div>
                                                 <div class="timeline-body">
-                                                    <p>to e</p>
+                                                    <p><span class="label label-info ctime"></span></p>
                                                 </div>
                                             </div>
                                         </li>
@@ -212,31 +212,31 @@ $signPackage = $jssdk->GetSignPackage();
                                                     <h4 class="timeline-title">学历定制</h4>
                                                 </div>
                                                 <div class="timeline-body">
-                                                    <p>数学</p>
+                                                    <p><span class="label label-info ceducation"></span></p>
                                                 </div>
                                                 <div class="timeline-heading">
                                                     <h4 class="timeline-title">性别定制</h4>
                                                 </div>
                                                 <div class="timeline-body">
-                                                    <p>to e</p>
+                                                    <p><span class="label label-info csex"></span></p>
                                                 </div>
                                                 <div class="timeline-heading">
                                                     <h4 class="timeline-title">特长定制</h4>
                                                 </div>
                                                 <div class="timeline-body">
-                                                    <p>to e</p>
+                                                    <p><span class="label label-info chobby"></span></p>
                                                 </div>
                                                 <div class="timeline-heading">
                                                     <h4 class="timeline-title">风格定制</h4>
                                                 </div>
                                                 <div class="timeline-body">
-                                                    <p>to e</p>
+                                                    <p><span class="label label-info ctype"></span></p>
                                                 </div>
                                                 <div class="timeline-heading">
                                                     <h4 class="timeline-title">经验定制</h4>
                                                 </div>
                                                 <div class="timeline-body">
-                                                    <p>to e</p>
+                                                    <p><span class="label label-info cexp"></span></p>
                                                 </div>
                                             </div>
                                         </li>
