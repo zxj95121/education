@@ -127,12 +127,19 @@ class wechatIndexCatchonController extends Controller
                 // 4.【家长亲子学英语】您愿意陪伴孩子一起学习英语吗？加辰教育鼓励家长亲子学英语，支持家长与孩子一起学习，共同进步。回复“家长亲子”，即可开启您的亲子学习之旅啦～
                 
                 // 合适的才是最好的，适应需求才是更有效的。更多课程与教学服务，请您展开页面下方菜单栏～您的需求，就是我们努力的方向。加油/:@@');
-                $result = $this->transmitText($object, '记住四个单词：try，class，enter ，study，发出您的号令，加辰教育携手51talk专业英语外教，乖乖陪您溜英语～
-1.回复“try”，免费领取51talk专业英语外教试听课；
-2.回复“class”，51talk双师课程任您学；
-3.回复“enter”，注册即送188元；
-4.回复“study”，陪孩子一起学习。
-Try class, enter study. Come on, let\'s study with CATCHON.');
+                $result = $this->transmitText($object, '记住四个单词：try，class，enter ，study，发出您的号令，加辰教育携手51Talk专业英语外教，乖乖陪您溜英语～
+
+———————————
+【免费51Talk】回复“try”，免费领取51Talk专业英语外教试听课；
+
+【双师课堂】回复“class”，51Talk双师课程任您学；
+
+【注册】回复“enter”，注册即送188元；
+
+【亲子共学】回复“study”，陪孩子一起学习。
+———————————
+
+Try class, enter study. Come on, let\'s study with CATCHON & 51Talk.');
                 break;
             case "unsubscribe":
                 break;
