@@ -159,8 +159,8 @@ $signPackage = $jssdk->GetSignPackage();
 	        </div>
 
 	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history" style="display: none;margin-bottom: 50px;">
-    	        <div class="swiper-container">
-                    <div class="swiper-wrapper">
+    	        <div class="swiper-container swiper-no-swiping">
+                    <div class="swiper-wrapper swiper-no-swiping">
                         <div class="swiper-slide swiper-no-swiping">
                         	<div class="row" style="padding-top: 20px;margin-right: 0px;padding-right: 0px;margin-left: 0px;">
                     			@foreach($madeObj as $value)
