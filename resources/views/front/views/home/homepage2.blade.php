@@ -159,18 +159,36 @@ $signPackage = $jssdk->GetSignPackage();
 	        </div>
 
 	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history" style="display: none;">
-	        	<div class="row" style="padding-top: 20px;margin-right: 0px;padding-right: 0px;margin-left: 0px;">
-        			@foreach($madeObj as $value)
-                    <div class="col-md-3 col-xs-12 col-sm-12">
-                        <div class="widget-panel widget-style-1 bg-info">
-                        	<span style="display: inline-block;z-index:333;position:absolute;padding: 0 0 0.7rem 0.8rem;right: 0px;top: 0px;font-size:1rem;color: #fff;border-bottom-left-radius: 100% 100%;background:@if($value->made_status == 1) #f35a1d;">新定制 @elseif($value->made_status == 2) #0b53dc;">安排中 @else #65ad3a;">已完成@endif</span>
-                            <i class="fa glyphicon glyphicon-chevron-right"></i>
-                            <h2 class="m-0 counter text-white">{{$value->stname}}定制</h2>
-                            <div class="text-white">{{substr($value->created_at, 0, 10)}}</div>
+    	        <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                        	<div class="row" style="padding-top: 20px;margin-right: 0px;padding-right: 0px;margin-left: 0px;">
+                    			@foreach($madeObj as $value)
+                                <div class="col-md-3 col-xs-12 col-sm-12">
+                                    <div class="widget-panel widget-style-1 bg-info">
+                                    	<span style="display: inline-block;z-index:333;position:absolute;padding: 0 0 0.7rem 0.8rem;right: 0px;top: 0px;font-size:1rem;color: #fff;border-bottom-left-radius: 100% 100%;background:@if($value->made_status == 1) #f35a1d;">新定制 @elseif($value->made_status == 2) #0b53dc;">安排中 @else #65ad3a;">已完成@endif</span>
+                                        <i class="fa glyphicon glyphicon-chevron-right"></i>
+                                        <h2 class="m-0 counter text-white">{{$value->stname}}定制</h2>
+                                        <div class="text-white">{{substr($value->created_at, 0, 10)}}</div>
+                                    </div>
+                                </div>
+                                @endforeach
+            	        	</div>
                         </div>
+                        <div class="swiper-slide">Slide 2</div>
+                        <div class="swiper-slide">Slide 3</div>
                     </div>
-                    @endforeach
-	        	</div>
+                    <!-- 如果需要分页器 -->
+                    <div class="swiper-pagination"></div>
+                    
+                    <!-- 如果需要导航按钮 -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    
+                    <!-- 如果需要滚动条 -->
+                    <div class="swiper-scrollbar"></div>
+                </div>
+	        	
 	        </div>
 
 
@@ -583,7 +601,7 @@ $signPackage = $jssdk->GetSignPackage();
     <script type="text/javascript" src="/js/mui/plugin/picker/dist/js/mui.picker.min.js"></script>
     @if($userType->type == 2 && $parentDetail->id == 21)
     <script type="text/javascript" src="/front/js_module/homepage/madeT.js?v={{rand(1,1000)}}"></script>
-    <script type="text/javascript" src="/js/swiper/dist/js/swiper.min.js""></script>
+    <script type="text/javascript" src="/js/swiper/dist/js/swiper.jquery.min.js""></script>
     @else
     @endif
     <script type="text/javascript" src="/front/js_module/homepage/homepage2.js"></script>
@@ -848,5 +866,24 @@ function cartInit(){
 
 		});
 	</script>
+	
+	
+	<script>        
+      	var mySwiper = new Swiper ('.swiper-container', {
+        	direction: 'vertical',
+            loop: true,
+            
+            // 如果需要分页器
+            pagination: '.swiper-pagination',
+            
+            // 如果需要前进后退按钮
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            
+            // 如果需要滚动条
+            scrollbar: '.swiper-scrollbar',
+      	})        
+    </script>
+</body>
 </body>
 </html>
