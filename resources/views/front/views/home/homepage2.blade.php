@@ -17,6 +17,7 @@ $signPackage = $jssdk->GetSignPackage();
     @if($userType->type == 2 && $parentDetail->id == 21)
     <link rel="stylesheet" type="text/css" href="/js/mui/plugin/picker/dist/css/mui.picker.min.css"">
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/madeT.css">
+    <link rel="stylesheet" href="/js/swiper/dist/css/swiper.min.css">
     @else
     @endif
 
@@ -582,6 +583,7 @@ $signPackage = $jssdk->GetSignPackage();
     <script type="text/javascript" src="/js/mui/plugin/picker/dist/js/mui.picker.min.js"></script>
     @if($userType->type == 2 && $parentDetail->id == 21)
     <script type="text/javascript" src="/front/js_module/homepage/madeT.js?v={{rand(1,1000)}}"></script>
+    <script type="text/javascript" src="/js/swiper/dist/js/swiper.min.js""></script>
     @else
     @endif
     <script type="text/javascript" src="/front/js_module/homepage/homepage2.js"></script>
