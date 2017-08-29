@@ -70,7 +70,7 @@ $signPackage = $jssdk->GetSignPackage();
 		        </ul>
 
 		        
-			<div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_apply">
+			<div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_apply" style="margin-bottom: 50px;">
 <!-- 	        	<div class="mui-content">
 					<div style="padding: 10px 10px;">
 						<div id="segmentedControl" class="mui-segmented-control">
@@ -158,7 +158,7 @@ $signPackage = $jssdk->GetSignPackage();
 				</div>
 	        </div>
 
-	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history" style="display: none;">
+	        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history" style="display: none;margin-bottom: 50px;">
     	        <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
