@@ -178,50 +178,62 @@ $signPackage = $jssdk->GetSignPackage();
                         	<div class="row">
                                 <div class="col-sm-12">
                                     <ul class="timeline m-b-30">
-            
-                                        <li class="timeline-inverted">
-                                            <div class="timeline-badge info"><i class="fa fa-save"></i>
-                                            </div>
-                                            <div class="timeline-panel">
-                                                <div class="timeline-heading">
-                                                    <h4 class="timeline-title">Timeline Event</h4>
-                                                </div>
-                                                <div class="timeline-body">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
-                                                    <hr>
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                                                            <i class="fa fa-cog"></i> 
-                                                            <span class="caret"></span>
-                                                        </button>
-                                                        <ul class="dropdown-menu" role="menu">
-                                                            <li><a href="#">Action</a>
-                                                            </li>
-                                                            <li><a href="#">Another action</a>
-                                                            </li>
-                                                            <li><a href="#">Something else here</a>
-                                                            </li>
-                                                            <li class="divider"></li>
-                                                            <li><a href="#">Separated link</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
                                         
                                         <li>
                                             <div class="timeline-badge success"><i class="fa fa-thumbs-up"></i>
                                             </div>
                                             <div class="timeline-panel">
                                                 <div class="timeline-heading">
-                                                    <h4 class="timeline-title">Timeline Event</h4>
+                                                    <h4 class="timeline-title">学科定制</h4>
+                                                </div>
+                                                <div class="timeline-body">
+                                                    <p>数学</p>
+                                                </div>
+                                                <div class="timeline-heading">
+                                                    <h4 class="timeline-title">学费定制</h4>
                                                 </div>
                                                 <div class="timeline-body">
                                                     <p>to e</p>
                                                 </div>
                                                 <div class="timeline-heading">
-                                                    <h4 class="timeline-title">Timeline Event</h4>
+                                                    <h4 class="timeline-title">时间定制</h4>
+                                                </div>
+                                                <div class="timeline-body">
+                                                    <p>to e</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                        <li class="timeline-inverted">
+                                            <div class="timeline-badge info"><i class="fa fa-save"></i>
+                                            </div>
+                                            <div class="timeline-panel">
+                                                <div class="timeline-heading">
+                                                    <h4 class="timeline-title">学历定制</h4>
+                                                </div>
+                                                <div class="timeline-body">
+                                                    <p>数学</p>
+                                                </div>
+                                                <div class="timeline-heading">
+                                                    <h4 class="timeline-title">性别定制</h4>
+                                                </div>
+                                                <div class="timeline-body">
+                                                    <p>to e</p>
+                                                </div>
+                                                <div class="timeline-heading">
+                                                    <h4 class="timeline-title">特长定制</h4>
+                                                </div>
+                                                <div class="timeline-body">
+                                                    <p>to e</p>
+                                                </div>
+                                                <div class="timeline-heading">
+                                                    <h4 class="timeline-title">风格定制</h4>
+                                                </div>
+                                                <div class="timeline-body">
+                                                    <p>to e</p>
+                                                </div>
+                                                <div class="timeline-heading">
+                                                    <h4 class="timeline-title">经验定制</h4>
                                                 </div>
                                                 <div class="timeline-body">
                                                     <p>to e</p>
