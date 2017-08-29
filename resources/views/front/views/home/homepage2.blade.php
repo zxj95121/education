@@ -177,10 +177,10 @@ $signPackage = $jssdk->GetSignPackage();
                         </div>
                         <div class="swiper-slide swiper-no-swiping">
                         	<div class="row">
-                                <div class="col-sm-12 col-xs-12">
+                                <div class="col-sm-12">
                                     <ul class="timeline m-b-30">
                                         <li>
-                                            <div class="timeline-badge">学科</i>
+                                            <div class="timeline-badge"><i class="fa fa-check"></i>
                                             </div>
                                             <div class="timeline-panel">
                                                 <div class="timeline-heading">
@@ -191,6 +191,78 @@ $signPackage = $jssdk->GetSignPackage();
                                                 </div>
                                                 <div class="timeline-body">
                                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="timeline-inverted">
+                                            <div class="timeline-badge warning"><i class="fa fa-image"></i>
+                                            </div>
+                                            <div class="timeline-panel">
+                                                <div class="timeline-heading">
+                                                    <h4 class="timeline-title">Timeline Event</h4>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+                                                </div>
+                                                <div class="timeline-body">
+                                                    <div class="m-t-20">
+                                                        <a href="#">
+                                                            <img alt="" src="img/album/sm-img-1.jpg">
+                                                        </a>
+                                                        <a href="#">
+                                                            <img alt="" src="img/album/sm-img-2.jpg">
+                                                        </a>
+                                                        <a href="#">
+                                                            <img alt="" src="img/album/sm-img-3.jpg">
+                                                        </a>
+                                                        <a href="#">
+                                                            <img alt="" src="img/album/sm-img-4.jpg">
+                                                        </a>
+                                                        <a href="#">
+                                                            <img alt="" src="img/album/sm-img-5.jpg">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="timeline-badge danger"><i class="fa fa-credit-card"></i>
+                                            </div>
+                                            <div class="timeline-panel">
+                                                <div class="timeline-heading">
+                                                    <h4 class="timeline-title">Timeline Event</h4>
+                                                </div>
+                                                <div class="timeline-body">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+                                                </div>
+                                            </div>
+                                        </li>
+            
+                                        <li class="timeline-inverted">
+                                            <div class="timeline-badge info"><i class="fa fa-save"></i>
+                                            </div>
+                                            <div class="timeline-panel">
+                                                <div class="timeline-heading">
+                                                    <h4 class="timeline-title">Timeline Event</h4>
+                                                </div>
+                                                <div class="timeline-body">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+                                                    <hr>
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                            <i class="fa fa-cog"></i> 
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                            <li><a href="#">Action</a>
+                                                            </li>
+                                                            <li><a href="#">Another action</a>
+                                                            </li>
+                                                            <li><a href="#">Something else here</a>
+                                                            </li>
+                                                            <li class="divider"></li>
+                                                            <li><a href="#">Separated link</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </li>
@@ -212,8 +284,6 @@ $signPackage = $jssdk->GetSignPackage();
                             </div>
                         </div>
                     </div>
-                    <!-- 如果需要分页器 -->
-                    <div class="swiper-pagination"></div>
 
                 </div>
 	        	
@@ -902,9 +972,9 @@ function cartInit(){
         	
             loop: false,
             
-            // 如果需要分页器
-            pagination: '.swiper-pagination',
-            paginationType : 'progress',
+//             // 如果需要分页器
+//             pagination: '.swiper-pagination',
+//             paginationType : 'progress',
             
       	})
 //       	mySwiper.lockSwipes();
@@ -914,8 +984,8 @@ function cartInit(){
 //       		mySwiper.slideNext(function(){}, 500);
 			console.log(213);
       		mySwiper.slideTo(2, 500, false);//切换到第二个slide，速度为0.5秒
-      		$('.swiper-slide').eq(0).fadeOut(500);
-      		$('.swiper-slide').eq(1).fadeIn(1000);
+      		$('.swiper-slide').eq(0).fadeOut(300);
+      		$('.swiper-slide').eq(1).fadeIn(600);
 //       		setTimeout(function(){mySwiper.lockSwipes();}, 600);
         })
     </script>
