@@ -180,6 +180,7 @@ $(document).on('click', '#submitBtn', function(){
 								initForm();
 								$('.madeT_Div').css('display', 'none');
 								$('madeT_history').show();
+								window.location.href = '/front/home#teachers';
 							}
 						}
 					})

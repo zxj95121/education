@@ -668,11 +668,16 @@ $signPackage = $jssdk->GetSignPackage();
     			if(obj){
         			// $('#'+url[1]+'1').trigger('click');
         			tabFunc(url[1]);
-        			if (url[1] == 'teacher') {
+        			if (url[1] == 'teacher' || url[1] == 'teachers') {
         				includeLink('/admin/css/style.min.css', 'css');
         				includeLink('/js/swiper/dist/css/swiper.min.css', 'css');
         				
-        				includeLink('/js/swiper/dist/js/swiper.jquery.min.js', 'js', 'doSwiper');	 
+        				includeLink('/js/swiper/dist/js/swiper.jquery.min.js', 'js', 'doSwiper');
+
+        				if (url[1] == 'teachers') {
+        					$('.madeT_Div').css('display', 'none');
+        					$('#made_history').show();
+        				}
             		}
     			}else{
     				// $('#my1').trigger('click');
