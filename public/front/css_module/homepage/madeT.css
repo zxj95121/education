@@ -67,6 +67,9 @@
     /* bottom: 3rem; */
     color: #edf0f0;
 }
+.text-white{
+	color: #FFF;
+}
 
 .swiper-scrollbar {
     background: rgb(56, 95, 208);
