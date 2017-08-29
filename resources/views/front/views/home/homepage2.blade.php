@@ -676,7 +676,7 @@ $signPackage = $jssdk->GetSignPackage();
 
         				if (url[1] == 'teachers') {
         					$('.madeT_Div').css('display', 'none');
-        					$('#made_history').show();
+        					$('#madeT_history').show();
         				}
             		}
     			}else{

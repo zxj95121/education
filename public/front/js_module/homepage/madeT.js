@@ -179,7 +179,7 @@ $(document).on('click', '#submitBtn', function(){
 								mui.toast('定制提交成功',{ duration:'1000', type:'div' });
 								initForm();
 								$('.madeT_Div').css('display', 'none');
-								$('madeT_history').show();
+								$('#madeT_history').show();
 								window.location.href = '/front/home#teachers';
 							}
 						}
