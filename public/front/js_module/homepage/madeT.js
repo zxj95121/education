@@ -126,6 +126,9 @@ $('#done_ok2').click(function(){
 	if (html) {
 		$('#hobbyMade').val(html);
 		$('#hobbyMade').attr('hid', ids.join('-'));
+	} else {
+		$('#hobbyMade').val('');
+		$('#hobbyMade').attr('hid', '');
 	}
 	$(this).parents('.page_set').animate({'top': height+'px'}, 250);
 	setTimeout(function(){
