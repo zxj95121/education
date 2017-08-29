@@ -134,7 +134,7 @@ $(function(){
 	    
 	    window.showMade = function(cdom){
   			var name = cdom.attr('stname');
-  			var sex = cdom.attr(msex');
+  			var sex = cdom.attr('msex');
   			console.log(name);
   			console.log(sex);
   		}
