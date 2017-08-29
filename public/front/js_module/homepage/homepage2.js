@@ -142,7 +142,7 @@ $(function(){
   			var time = cdom.attr('mtime');
   			var type = cdom.attr('mtype');
   			
-  			$('.cname').html(name);
+  			$('.csubject').html(name);
   			$('.cprice').html(price+'元/时');
   			
   			var sexArr = ['未定制', '男女均可', '男', '女'];
@@ -150,14 +150,17 @@ $(function(){
   			
   			var educationArr = ['未定制', '研究生', '本科生', '专科生'];
   			$('.ceducation').html(educationArr[education]);
-  			
-  			var hb = hobby.split('-');
-  			var str = '';
-  			for (var i in hb) {
-  				var dt = $('#hobbyPopover button[hid="'+hb[i]+'"]').html();
-  				str = str + '、' + dt;
+  			if (hobby) {
+  				var hb = hobby.split('-');
+	  			var str = '';
+	  			for (var i in hb) {
+	  				var dt = $('#hobbyPopover button[hid="'+hb[i]+'"]').html();
+	  				str = str + '、' + dt;
+	  			}
+	  			$('.chobby').html(str.substr(1));
+  			} else {
+  				$('.chobby').html('未定制');
   			}
-  			$('.chobby').html(str.substr(1));
   			
   			var expArr = ['未定制', '高中生', '初中生', '小学生'];
   			$('.cexp').html(expArr[exp]);
