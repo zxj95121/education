@@ -174,7 +174,7 @@ $signPackage = $jssdk->GetSignPackage();
                                 @endforeach
             	        	</div>
                         </div>
-                        <div class="swiper-slide swiper-no-swiping">
+                        <div class="swiper-slide swiper-no-swiping swpSlide2">
                         	<div class="row">
                                 <div class="col-sm-12">
                                     <ul class="timeline m-b-30">
@@ -752,6 +752,8 @@ $signPackage = $jssdk->GetSignPackage();
         	  		mySwiper.slideTo(2, 500, false);//切换到第二个slide，速度为0.5秒
         	  		$('.swiper-slide').eq(0).fadeOut(300);
         	  		$('.swiper-slide').eq(1).fadeIn(600);
+
+        	  		window.showMade($(this));
         	    })
 
         	    window.showMade = function(cdom){

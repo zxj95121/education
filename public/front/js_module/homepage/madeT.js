@@ -274,6 +274,10 @@ function initForm() {
 	$('#subjectPopover button').attr('active', 0);
 }
 
+$('.swpSlide2').click(function(){
+	$('.swiper-slide').eq(1).fadeOut(300);
+	$('.swiper-slide').eq(0).fadeIn(600);
+})
 
 
 
