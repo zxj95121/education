@@ -131,5 +131,45 @@ $(function(){
 	  		
 	  		window.showMade($(this));
 	    })
+	    
+	    window.showMade = function(cdom){
+  			var name = cdom.attr('stname');
+  			var sex = cdom.attr('msex');
+  			var education = cdom.attr('meducation');
+  			var hobby = cdom.attr('mhobby');
+  			var exp = cdom.attr('mexp');
+  			var price = cdom.attr('mprice');
+  			var time = cdom.attr('mtime');
+  			var type = cdom.attr('mtype');
+  			
+  			$('.csubject').html(name);
+  			$('.cprice').html(price+'元/时');
+  			
+  			var sexArr = ['未定制', '男女均可', '男', '女'];
+  			$('.csex').html(sexArr[sex]);
+  			
+  			var educationArr = ['未定制', '研究生', '本科生', '专科生'];
+  			$('.ceducation').html(educationArr[education]);
+  			if (hobby) {
+  				var hb = hobby.split('-');
+	  			var str = '';
+	  			for (var i in hb) {
+	  				var dt = $('#hobbyPopover button[hid="'+hb[i]+'"]').html();
+	  				str = str + '、' + dt;
+	  			}
+	  			$('.chobby').html(str.substr(1));
+  			} else {
+  				$('.chobby').html('未定制');
+  			}
+  			
+  			var expArr = ['未定制', '高中生', '初中生', '小学生'];
+  			$('.cexp').html(expArr[exp]);
+  			
+  			var timeArr = ['周一至周五晚上', '周末', '节假日', '暑假', '寒假'];
+  			$('.ctime').html(timeArr[time]);
+  			
+  			var typeArr = ['未定制', '温和型', '严厉型', '幽默型'];
+  			$('.ctype').html(typeArr[type]);
+  		}
 	}
 })
