@@ -178,47 +178,6 @@ $signPackage = $jssdk->GetSignPackage();
                         	<div class="row">
                                 <div class="col-sm-12">
                                     <ul class="timeline m-b-30">
-                                        <li>
-                                            <div class="timeline-badge"><i class="fa fa-check"></i>
-                                            </div>
-                                            <div class="timeline-panel">
-                                                <div class="timeline-heading">
-                                                    <h4 class="timeline-title">Timeline Event</h4>
-                                                    <p>
-                                                        <small class="text-muted"><i class="fa fa-time"></i> 11 hours ago via Twitter</small>
-                                                    </p>
-                                                </div>
-                                                <div class="timeline-body">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="timeline-inverted">
-                                            <div class="timeline-badge warning"><i class="fa fa-image"></i>
-                                            </div>
-                                            <div class="timeline-panel">
-                                                <div class="timeline-heading">
-                                                    <h4 class="timeline-title">Timeline Event</h4>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
-                                                </div>
-                                                <div class="timeline-body">
-                                                    <div class="m-t-20">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="timeline-badge danger"><i class="fa fa-credit-card"></i>
-                                            </div>
-                                            <div class="timeline-panel">
-                                                <div class="timeline-heading">
-                                                    <h4 class="timeline-title">Timeline Event</h4>
-                                                </div>
-                                                <div class="timeline-body">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
-                                                </div>
-                                            </div>
-                                        </li>
             
                                         <li class="timeline-inverted">
                                             <div class="timeline-badge info"><i class="fa fa-save"></i>
@@ -259,7 +218,13 @@ $signPackage = $jssdk->GetSignPackage();
                                                     <h4 class="timeline-title">Timeline Event</h4>
                                                 </div>
                                                 <div class="timeline-body">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+                                                    <p>to e</p>
+                                                </div>
+                                                <div class="timeline-heading">
+                                                    <h4 class="timeline-title">Timeline Event</h4>
+                                                </div>
+                                                <div class="timeline-body">
+                                                    <p>to e</p>
                                                 </div>
                                             </div>
                                         </li>
