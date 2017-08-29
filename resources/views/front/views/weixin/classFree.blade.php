@@ -125,10 +125,10 @@ $signPackage = $jssdk->GetSignPackage();
 					                                    </p>
             					                                        </p>
             					                                    </section>
-					                                                <p style="text-align:center;position:relative;top:-50px;">
+					                                                <p style="text-align:center;position:relative;top:-43px;">
 					                                                    <img style="vertical-align:bottom; width:20px;" src="http://rdn.135editor.com/cache/remote/aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpel9wbmcvZmdua3hmR25ua1RpY3NyWDFNZmljamNkd0JsekRwOUpxN0c4MkpKY3dyRnBqRUFlclJJaWJLcFYyaWFjSkNmbkZWVHpaZmd5NjVVQktTaWJnMGh6blpIS1lFQS8wP3d4X2ZtdD1wbmc="/>
 					                                                </p>
-					                                                <p style="width:240px;margin:0 auto;position:relative;top:-50px;">
+					                                                <p style="width:240px;margin:0 auto;position:relative;top:-43px;">
 					                                                    <img class="assistant" style="width:100%;" src="http://rdn.135editor.com/cache/remote/aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpel9wbmcvZmdua3hmR25ua1RpY3NyWDFNZmljamNkd0JsekRwOUpxN1Nja29CNUdXbWRQRWYyTURuWEhpYWFTSlphVzVMdkdnUHAwMnBPZ3ROaWJEb1FMYjFxcHhXdUhnLzA/d3hfZm10PXBuZw==" data-width="100%"/>
 					                                                </p>
 					                                            </section>
