@@ -910,7 +910,9 @@ function cartInit(){
       	mySwiper.lockSwipes();
 
       	$(document).on('touchstart', '.madeShowDiv', function(){
+      		mySwiper.unlockSwipes();
       		mySwiper.slideTo(1, 500, false);//切换到第二个slide，速度为0.5秒
+      		setTimeout(function(){mySwiper.lockSwipes();});
         })
     </script>
 </body>
