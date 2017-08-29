@@ -74,3 +74,11 @@
 .swiper-scrollbar {
     background: rgb(56, 95, 208);
 }
+
+.timeline-body{
+	margin-bottom: 6px;
+}
+.timeline-title h4{
+	font-weight: bold;
+	color: #3c3c3c;
+}
