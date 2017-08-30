@@ -28,7 +28,6 @@ use App\Models\HalfBuyInfo;
 use App\Models\HalfBuyRecord;
 use App\Models\ParentChild;
 use App\Models\ClassFree;
-use App\Models\ContactChat;
 use App\Models\ModifyPriceRecord;
 
 use Session;

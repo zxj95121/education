@@ -103,7 +103,7 @@ class HomeController extends Controller
                 }
 	    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus,'parentDetail'=>$parentDetail,'newUserId'=>$newUserId]);
 	    	} elseif ($res['type'] == '3') {
-	    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'newUserId'=>$newUserId]);
+	    		return view('front.views.home.homepageT',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'newUserId'=>$newUserId]);
 	    	} else {
 	    		exit;
 	    	}
