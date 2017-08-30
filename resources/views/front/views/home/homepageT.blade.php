@@ -37,7 +37,7 @@ $signPackage = $jssdk->GetSignPackage();
 </head>
 <body>
 
-	<div class="container-fluid mui-control-content" id="studytime">
+	<div class="container-fluid mui-control-content" id="teacher">
     	<div class="weui-loadmore weui-loadmore_line">
         	<span class="weui-loadmore__tips">功能正在开发中</span>
     	</div>
