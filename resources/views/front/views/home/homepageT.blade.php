@@ -29,6 +29,10 @@ $signPackage = $jssdk->GetSignPackage();
          a:active{
             text-decoration: none;
         }
+        .weui-tabbar__icon {
+		    width: 18px;
+		    height: 18px;
+		}
     </style>
 </head>
 <body>
