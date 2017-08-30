@@ -89,35 +89,37 @@ $signPackage = $jssdk->GetSignPackage();
 	    <div id="my_functions">
 	        <div class="row" class="my_function function_child">
 
-       		<div id="my_functions">
-	            <div class="row" class="my_function function_child">
-	            	<div class="col-xs-3 my_function_type" id="addChild">
-	                    <div class="my_function_top">
-	                        <img src="/images/home/function_add.png" />
-	                    </div>
-	                    <div class="my_function_bottom" style="padding-top:11px">
-	                     	 添加孩子
-	                    </div>
-	                </div>
-	                
-	            </div>
-	            <!-- <div class="row" class="my_function">
-	            </div> -->
-	        </div>
-	        <!-- <div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div> -->
-        
+	       		<div id="my_functions">
+		            <div class="row" class="my_function function_child">
+		            	<div class="col-xs-3 my_function_type" id="addChild">
+		                    <div class="my_function_top">
+		                        <img src="/images/home/function_add.png" />
+		                    </div>
+		                    <div class="my_function_bottom" style="padding-top:11px">
+		                     	 添加孩子
+		                    </div>
+		                </div>
+		                
+		            </div>
+		            <!-- <div class="row" class="my_function">
+		            </div> -->
+		        </div>
+		        <!-- <div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div> -->
+	        
 
-        	<div class="weui-cells" id="my_option">
-	            <a class="weui-cell weui-cell_access" href="#">
-	                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
-	                <div class="weui-cell__bd">
-	                    <p>暂无功能使用</p>
-	                </div>
-	                <div class="weui-cell__ft"></div>
-	            </a>
-	        </div>
+	        	<div class="weui-cells" id="my_option">
+		            <a class="weui-cell weui-cell_access" href="#">
+		                <div class="weui-cell__hd"><img src="/images/home/option_notice.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+		                <div class="weui-cell__bd">
+		                    <p>暂无功能使用</p>
+		                </div>
+		                <div class="weui-cell__ft"></div>
+		            </a>
+		        </div>
 
-    </div>
+	    	</div>
+	    </div>
+	</div>
 
 		<nav class="mui-bar mui-bar-tab" id="all_bottom" style="position: fixed;z-index: 9999;">
 			<a class="mui-tab-item" for="teacher" href="#teacher" id="teacher1" style="cursor: pointer;">
