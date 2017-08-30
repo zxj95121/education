@@ -84,10 +84,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 	    <div id="my_functions">
 	        <div class="row" class="my_function function_child">
-        @endif
-        @if($userType->type == 1)
-        @elseif($userType->type == 2)
-        	@if($parentDetail->type == 1)
+
        		<div id="my_functions">
 	            <div class="row" class="my_function function_child">
 	            	<div class="col-xs-3 my_function_type" id="addChild">
