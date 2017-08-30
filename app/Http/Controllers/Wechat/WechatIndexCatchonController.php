@@ -127,19 +127,20 @@ class wechatIndexCatchonController extends Controller
                 // 4.【家长亲子学英语】您愿意陪伴孩子一起学习英语吗？加辰教育鼓励家长亲子学英语，支持家长与孩子一起学习，共同进步。回复“家长亲子”，即可开启您的亲子学习之旅啦～
                 
                 // 合适的才是最好的，适应需求才是更有效的。更多课程与教学服务，请您展开页面下方菜单栏～您的需求，就是我们努力的方向。加油/:@@');
-                $result = $this->transmitText($object, '记住四个单词：try，class，enter ，study，发出您的号令，加辰教育携手51Talk专业英语外教，乖乖陪您溜英语～
+                $result = $this->transmitText($object, '记住四个单词：try，class，start ，learn，发出您的号令，加辰教育携手51Talk专业英语外教，乖乖陪您溜英语～
 
 ———————————
 【免费51Talk】回复“try”，免费领取51Talk专业英语外教试听课；
 
 【双师课堂】回复“class”，51Talk双师课程任您学；
 
-【注册】回复“enter”，注册即送188元；
+【注册】回复“start”，注册即送188元；
 
-【亲子共学】回复“study”，陪孩子一起学习。
+【亲子共学】回复“learn”，陪孩子一起学习。
 ———————————
 
-Try class, enter study. Come on, let\'s study with CATCHON & 51Talk.');
+Try the class & start to learn.
+Come on, let\'s study with CATCHON & 51Talk.');
                 break;
             case "unsubscribe":
                 break;
@@ -175,7 +176,7 @@ Try class, enter study. Come on, let\'s study with CATCHON & 51Talk.');
                 'Url' => 'http://wechat.catchon-edu.cn/front/classFree/oauth'
             );
             $result = $this->transmitNews($object, $contentArr);
-        } else if ($keyword == 'enter') {
+        } else if ($keyword == 'start') {
             $contentArr[] = array(
                 'Title' => '给自己一次学习英语的机会，世界就在你的眼前',
                 'Description' => '你还为学习英语而苦恼吗？你还在为没有良好的学习环境而着急吗？~不用担心，这些我们都能帮你，即日起，注册加辰教育即送188元！外教一对一双师Class,定制由你！',
@@ -191,7 +192,7 @@ Try class, enter study. Come on, let\'s study with CATCHON & 51Talk.');
                 'Url' => 'http://wechat.catchon-edu.cn/front/classPackage?id=3'
             );
             $result = $this->transmitNews($object, $contentArr);
-        } else if ($keyword == 'study') {
+        } else if ($keyword == 'learn') {
             $contentArr[] = array(
                 'Title' => '给你一个亲子乐园，快乐学习吧!',
                 'Description' => '家长不仅能成为孩子的良好学习榜样，还能通过学习英语陪伴孩子一起成长，增进与孩子之间的感情。',
