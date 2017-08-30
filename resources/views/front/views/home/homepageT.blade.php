@@ -42,7 +42,7 @@ $signPackage = $jssdk->GetSignPackage();
         	<span class="weui-loadmore__tips">功能正在开发中</span>
     	</div>
 	</div>
-	<div class="container-fluid mui-control-content" id="studyplace">
+<!-- 	<div class="container-fluid mui-control-content" id="studyplace">
     	 <div class="weui-loadmore weui-loadmore_line">
         	<span class="weui-loadmore__tips">功能正在开发中</span>
     	</div>
@@ -51,7 +51,7 @@ $signPackage = $jssdk->GetSignPackage();
     	 <div class="weui-loadmore weui-loadmore_line">
         	<span class="weui-loadmore__tips">功能正在开发中</span>
     	</div>
-	</div>
+	</div> -->
 
     <div class="container-fluid mui-control-content" id="my">
         <!-- header start -->
