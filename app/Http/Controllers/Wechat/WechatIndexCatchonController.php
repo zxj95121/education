@@ -172,7 +172,7 @@ Come on, let\'s study with CATCHON & 51Talk.');
             $contentArr[] = array(
                 'Title' => '外教适不适合，孩子体验了才知道！',
                 'Description' => '加辰教育中小学外教一对一双师Class免费试听课，诚邀您的孩子和外教一起快乐学习、体验英语交流的乐趣！',
-                'PicUrl' => 'http://wechat.catchon-edu.cn/admin/images/wechat/free_replys.png',
+                'PicUrl' => 'http://wechat.catchon-edu.cn/admin/images/wechat/free_replyss.png',
                 'Url' => 'http://wechat.catchon-edu.cn/front/classFree/oauth'
             );
             $result = $this->transmitNews($object, $contentArr);
