@@ -70,6 +70,21 @@ $signPackage = $jssdk->GetSignPackage();
                                     <option value="5">寒假</option>
                                 </select>
                             </div>
+                            <div class="weui-cells">
+                                <a class="weui-cell weui-cell_access" href="javascript:;">
+                                    <div class="weui-cell__bd">
+                                        <p>cell standard</p>
+                                    </div>
+                                    <div class="weui-cell__ft">说明文字</div>
+                                </a>
+                                <a class="weui-cell weui-cell_access" href="javascript:;">
+                                    <div class="weui-cell__bd">
+                                        <p>cell standard</p>
+                                    </div>
+                                    <div class="weui-cell__ft">说明文字</div>
+                                </a>
+
+                            </div>
 
                             <div class="mui-input-row">
                                 <label>风格定制</label>
