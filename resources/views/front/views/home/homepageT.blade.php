@@ -160,6 +160,7 @@ $signPackage = $jssdk->GetSignPackage();
     <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script>
     <script type="text/javascript" src="/js/mui/plugin/picker/dist/js/mui.picker.min.js"></script>
     <script type="text/javascript" src="/front/js_module/homepage/homepageT.js"></script>
+    <script type="text/javascript" src="/front/js_module/homepage/madeTT.js"></script>
     <script type="text/javascript">
   //   	mui.init({
 		// 	// swipeBack:true //启用右滑关闭功能
