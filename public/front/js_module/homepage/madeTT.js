@@ -14,3 +14,7 @@ $(document).on('change', '#expM', function(){
 	var val = $(this).val();
 	alert(val);
 })
+
+$(document).on('blur', '#expM', function(){
+	$(this).css({'opacity': '0'});
+})
