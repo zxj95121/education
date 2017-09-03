@@ -15,7 +15,7 @@ $signPackage = $jssdk->GetSignPackage();
     <link rel="stylesheet" type="text/css" href="/css/weui.css"/>
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/my.css">
     <link rel="stylesheet" type="text/css" href="/js/mui/plugin/picker/dist/css/mui.picker.min.css"">
-    <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/madeT.css?v={{rand(1,1000)}}">
+    <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/madeTT.css?v={{rand(1,1000)}}">
 
     <style type="text/css">
         a:link{
