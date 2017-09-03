@@ -53,48 +53,58 @@ $signPackage = $jssdk->GetSignPackage();
                 <div class="mui-col-xs-12 mui-col-sm-12 madeSteps" id="directionMade">
                     <div style="padding: 10px 10px;">
                         <form class="mui-input-group">
+
                             <div class="mui-input-row">
-                                <label>日期定制 <span style="color:red;">*</span></label>
-                                <input type="text" placeholder="请选择辅导日期" id="dateMade" readonly="readonly">
+                                <label>时间定制 <span style="color:red;">*</span></label>
+
+                                <input type="text" placeholder="点我设置辅导时间" id="timeM" readonly="readonly">
                             </div>
 
                             <div class="mui-input-row">
-                                <label>时间定制</label>
-
-                                <input type="text" placeholder="请选择辅导时间" readonly="readonly">
-                                <select class="selectMade" id="timeM" name="timeM" style="">
-                                    <option value="1">周一到周五晚上</option>
-                                    <option value="2">周末</option>
-                                    <option value="3">节假日</option>
-                                    <option value="4">暑假</option>
-                                    <option value="5">寒假</option>
-                                </select>
-                            </div>
-                            <div class="weui-cells">
-                                <a class="weui-cell weui-cell_access" href="javascript:;">
-                                    <div class="weui-cell__bd">
-                                        <p>cell standard</p>
-                                    </div>
-                                    <div class="weui-cell__ft">说明文字</div>
-                                </a>
-                                <a class="weui-cell weui-cell_access" href="javascript:;">
-                                    <div class="weui-cell__bd">
-                                        <p>cell standard</p>
-                                    </div>
-                                    <div class="weui-cell__ft">说明文字</div>
-                                </a>
-
-                            </div>
-
-                            <div class="mui-input-row">
-                                <label>风格定制</label>
+                                <label>风格定制 <span style="color:red;">*</span></label>
 
                                 <input type="text" placeholder="请选择辅导风格" readonly="readonly">
-                                <select class="selectMade" id="typeM" name="typeM" style="">
+                                <select class="selectMade" id="typeM" name="typeM" style="opacity: 0;">
                                     <option value="1">温和型</option>
                                     <option value="2">严厉型</option>
                                     <option value="3">幽默型</option>
                                 </select>
+                            </div>
+
+                            <div class="mui-input-row">
+                                <label>学科定制 <span style="color:red;">*</span></label>
+
+                                <input type="text" placeholder="请选择自己擅长学科" id="subjectM" readonly="readonly">
+                            </div>
+
+                            <div class="mui-input-row">
+                                <label>特长定制</label>
+
+                                <input type="text" placeholder="请选择自己的特长" id="hobbyM" readonly="readonly">
+                            </div>
+
+                            <div class="mui-input-row">
+                                <label>经验定制 <span style="color:red;">*</span></label>
+
+                                <input type="text" placeholder="请选择辅导经验" readonly="readonly">
+                                <select class="selectMade" id="expM" name="expM" style="opacity: 0;" multiple="multiple">
+                                    <option value="1">高中生</option>
+                                    <option value="2">初中生</option>
+                                    <option value="3">小学生</option>
+                                    <option value="4">无</option>
+                                </select>
+                            </div>
+
+                            <div class="mui-input-row">
+                                <label>薪资定制</label>
+
+                                <input type="text" placeholder="请选择辅导期望薪资" id="moneyM" readonly="readonly">
+                            </div>
+
+                            <div class="mui-input-row">
+                                <label>地点定制</label>
+
+                                <input type="text" placeholder="请选择期望辅导地点" id="placeM" readonly="readonly">
                             </div>
                         </form>
                     </div>

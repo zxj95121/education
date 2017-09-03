@@ -45,6 +45,11 @@
 	font-weight: bold;
 }
 
+.selectMade{
+	position: absolute;
+    top: 1px;
+}
+
 
 /***************** 8.Widget  ****************/
 .widget-panel {
