@@ -70,18 +70,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 		        
 			<div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_apply" style="margin-bottom: 50px;">
-<!-- 	        	<div class="mui-content">
-					<div style="padding: 10px 10px;">
-						<div id="segmentedControl" class="mui-segmented-control">
-							<a class="mui-control-item mui-active" for="#directionMade" href="#">
-								专业定制
-							</a>
-									<a class="mui-control-item" for="#otherMade" href="#">
-								其他定制
-							</a>
-						</div>
-					</div>
-				</div> -->
+            
 				<div class="mui-content" style="position: relative;">
 					<span onclick="initForm();" style="display: block;width:100%;text-align:right;font-size:1rem;padding-right: 10px;padding-top: 7px;cursor: pointer;">初始化定制<i class="glyphicon glyphicon-erase"></i></span>
 					<div class="mui-col-xs-12 mui-col-sm-12 madeSteps" id="directionMade">

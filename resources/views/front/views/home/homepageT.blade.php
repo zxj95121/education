@@ -38,9 +38,23 @@ $signPackage = $jssdk->GetSignPackage();
 <body>
 
 	<div class="container-fluid mui-control-content" id="teacher">
-    	<div class="weui-loadmore weui-loadmore_line">
-        	<span class="weui-loadmore__tips">功能正在开发中</span>
-    	</div>
+    	<ul class="mui-table-view mui-grid-view mui-grid-9" id="madeT_ul">
+            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" hr="#madeT_apply"><a href="#">
+                    <span class="mui-icon mui-icon-compose"></span>
+                    <div class="mui-media-body">教师定制</div></a></li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" hr="#madeT_history"><a href="#">
+                    <span class="mui-icon mui-icon-paperclip"><span class="mui-badge">{{count($madeObj)}}</span></span>
+                    <div class="mui-media-body">定制历史</div></a></li>
+        </ul>
+
+        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_apply" style="margin-bottom: 50px;">
+        1
+        </div>
+
+
+        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history" style="margin-bottom: 50px;">
+        2
+        </div>
 	</div>
 <!-- 	<div class="container-fluid mui-control-content" id="studyplace">
     	 <div class="weui-loadmore weui-loadmore_line">
