@@ -18,3 +18,8 @@ $(document).on('change', '#expM', function(){
 $(document).on('blur', '#expM', function(){
 	$(this).css({'opacity': '0'});
 })
+
+/*经验定制*/
+$(document).on('click', '#expMade', function(){
+	$('#expPopover').show().animate({'top': '0px'},250);
+})

@@ -81,13 +81,7 @@ $signPackage = $jssdk->GetSignPackage();
                             <div class="mui-input-row">
                                 <label>经验定制 <span style="color:red;">*</span></label>
 
-                                <input type="text" placeholder="请选择辅导经验" readonly="readonly">
-                                <select class="selectMade" id="expM" name="expM" style="opacity: 0;line-height: 40px;height: 40px;" multiple="multiple">
-                                    <option value="1">高中生</option>
-                                    <option value="2">初中生</option>
-                                    <option value="3">小学生</option>
-                                    <option value="4">无</option>
-                                </select>
+                                <input type="text" placeholder="请选择辅导经验" readonly="readonly" id="expMade">
                             </div>
 
                             <div class="mui-input-row">
