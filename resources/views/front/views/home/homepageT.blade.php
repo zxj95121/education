@@ -42,18 +42,53 @@ $signPackage = $jssdk->GetSignPackage();
     	<ul class="mui-table-view mui-grid-view mui-grid-9" id="madeT_ul">
             <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" hr="#madeT_apply"><a href="#">
                     <span class="mui-icon mui-icon-compose"></span>
-                    <div class="mui-media-body">教师定制</div></a></li>
+                    <div class="mui-media-body">家教定制</div></a></li>
             <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" hr="#madeT_history"><a href="#">
                     <span class="mui-icon mui-icon-paperclip"><span class="mui-badge">1</span></span>
                     <div class="mui-media-body">定制历史</div></a></li>
         </ul>
 
         <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_apply" style="margin-bottom: 50px;">
-        1
+            <div class="mui-content" style="position: relative;">
+                <div class="mui-col-xs-12 mui-col-sm-12 madeSteps" id="directionMade">
+                    <div style="padding: 10px 10px;">
+                        <form class="mui-input-group">
+                            <div class="mui-input-row">
+                                <label>日期定制 <span style="color:red;">*</span></label>
+                                <input type="text" placeholder="请选择辅导日期" id="dateMade" readonly="readonly">
+                            </div>
+
+                            <div class="mui-input-row">
+                                <label>时间定制</label>
+
+                                <input type="text" placeholder="请选择辅导时间" readonly="readonly">
+                                <select class="selectMade" id="timeM" name="timeM" style="">
+                                    <option value="1">周一到周五晚上</option>
+                                    <option value="2">周末</option>
+                                    <option value="3">节假日</option>
+                                    <option value="4">暑假</option>
+                                    <option value="5">寒假</option>
+                                </select>
+                            </div>
+
+                            <div class="mui-input-row">
+                                <label>风格定制</label>
+
+                                <input type="text" placeholder="请选择辅导风格" readonly="readonly">
+                                <select class="selectMade" id="typeM" name="typeM" style="">
+                                    <option value="1">温和型</option>
+                                    <option value="2">严厉型</option>
+                                    <option value="3">幽默型</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
-        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history" style="margin-bottom: 50px;">
+        <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_history" style="margin-bottom: 50px;display: none;">
         2
         </div>
 	</div>
