@@ -87,7 +87,7 @@ $signPackage = $jssdk->GetSignPackage();
 	    <div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div>
 
 	    <div id="my_functions">
-	        <div class="row" class="my_function function_child">
+	        <div class="row" class="my_function function_child" style="margin: 0px;">
 
 	       		<div id="my_functions">
 		            <div class="row" class="my_function function_child">
@@ -128,18 +128,6 @@ $signPackage = $jssdk->GetSignPackage();
 	            </span><br>
 				<span class="mui-tab-label">家教定制</span>
 			</a>
-<!-- 			<a class="mui-tab-item" for="classroom" href="#classroom" id="classroom1" style="cursor: pointer;">
-				<span style="display: inline-block;position: relative;">
-	                <img src="/images/home/menu_classroom.png" alt="" class="weui-tabbar__icon">
-	            </span><br>
-				<span class="mui-tab-label">教室定制</span>
-			</a>
-			<a class="mui-tab-item" for="eclass" href="#eclass" id="eclass1" style="cursor: pointer;">
-				<span style="display: inline-block;position: relative;">
-	                <img src="/images/home/menu_class.png" alt="" class="weui-tabbar__icon">
-	            </span><br>
-				<span class="mui-tab-label">双师class</span>
-			</a> -->
 			<a class="mui-tab-item" for="my" href="#my" id="my1" style="cursor: pointer;">
 				<span style="display: inline-block;position: relative;">
 	                <img src="/images/home/menu_my.png" alt="" class="weui-tabbar__icon">
