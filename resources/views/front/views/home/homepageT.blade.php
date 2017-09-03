@@ -40,7 +40,7 @@ $signPackage = $jssdk->GetSignPackage();
 
 	<div class="container-fluid mui-control-content" id="teacher">
     	<div class="mui-col-xs-12 mui-col-sm-12">
-            <button type="button" class="mui-btn mui-btn-primary" style="width: 100%;border-radius: 0px;height: 45px;line-height: 45px;font-size: 1.6rem;">设置定制详情</button>   
+            <button type="button" class="mui-btn mui-btn-primary" style="width: 100%;border-radius: 0px;line-height: 32px;font-size: 1.8rem;">设置定制详情</button>   
         </div>
 
         <div class="mui-col-xs-12 mui-col-sm-12 madeT_Div" id="madeT_apply" style="margin-bottom: 50px;">
