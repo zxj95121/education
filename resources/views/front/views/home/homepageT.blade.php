@@ -15,7 +15,7 @@ $signPackage = $jssdk->GetSignPackage();
     <link rel="stylesheet" type="text/css" href="/css/weui.css"/>
     <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/my.css">
     <link rel="stylesheet" type="text/css" href="/js/mui/plugin/picker/dist/css/mui.picker.min.css"">
-    <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/madeT.css">
+    <link rel="stylesheet" type="text/css" href="/front/css_module/homepage/madeT.css?v={{rand(1,1000)}}">
 
     <style type="text/css">
         a:link{
@@ -87,7 +87,7 @@ $signPackage = $jssdk->GetSignPackage();
                                 <label>经验定制 <span style="color:red;">*</span></label>
 
                                 <input type="text" placeholder="请选择辅导经验" readonly="readonly">
-                                <select class="selectMade" id="expM" name="expM" style="opacity: 0;" multiple="multiple">
+                                <select class="selectMade" id="expM" name="expM" style="opacity: 0;line-height: 40px;" multiple="multiple">
                                     <option value="1">高中生</option>
                                     <option value="2">初中生</option>
                                     <option value="3">小学生</option>
@@ -219,8 +219,8 @@ $signPackage = $jssdk->GetSignPackage();
     <script type="text/javascript" src="/js/json2.js"></script>
     <script type="text/javascript" src="/js/mui/dist/js/mui.min.js"></script>
     <script type="text/javascript" src="/js/mui/plugin/picker/dist/js/mui.picker.min.js"></script>
-    <script type="text/javascript" src="/front/js_module/homepage/homepageT.js"></script>
-    <script type="text/javascript" src="/front/js_module/homepage/madeTT.js"></script>
+    <script type="text/javascript" src="/front/js_module/homepage/homepageT.js?v={{rand(1,1000)}}"></script>
+    <script type="text/javascript" src="/front/js_module/homepage/madeTT.js?v={{rand(1,1000)}}"></script>
     <script type="text/javascript">
   //   	mui.init({
 		// 	// swipeBack:true //启用右滑关闭功能
