@@ -106,6 +106,59 @@ $signPackage = $jssdk->GetSignPackage();
                 </div>
             </div>
         </div>
+
+        <div class="page__bd page_set" id="expPopover">
+            <div class="weui-cells" style="margin-top:0px" >
+                <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
+                    <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
+                    <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">经验定制</div></div>
+                    <div><div class="placeholder glyphicon glyphicon-ok" id="done_ok_exp"></div></div>
+                </div>
+            </div>
+
+            <div style="width: 100%;margin: 0 auto;" class="div_detail">
+                <div class="mui-content" style="padding: 6px;">
+                    <div class="col-md-9">
+
+                        <div class="checkbox-inline">
+                            <label class="cr-styled">
+                                <input type="checkbox">
+                                <i class="fa"></i> 
+                                高中生
+                            </label>
+                        </div>
+
+                        <div class="checkbox-inline">
+                            <label class="cr-styled">
+                                <input type="checkbox">
+                                <i class="fa"></i> 
+                                初中生
+                            </label>
+                        </div>
+
+                        <div class="checkbox-inline">
+                            <label class="cr-styled">
+                                <input type="checkbox">
+                                <i class="fa"></i> 
+                                小学生
+                            </label>
+                        </div>
+
+                        <div class="checkbox-inline">
+                            <label class="cr-styled">
+                                <input type="checkbox">
+                                <i class="fa"></i> 
+                                无经验
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
 	</div>
 <!-- 	<div class="container-fluid mui-control-content" id="studyplace">
     	 <div class="weui-loadmore weui-loadmore_line">
