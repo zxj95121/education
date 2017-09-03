@@ -63,4 +63,6 @@
     -moz-osx-font-smoothing: grayscale;
     transform: translate(0, 0);
 }
+.checkbox-inline{
+	margin: 10px 0px 10px;
 }

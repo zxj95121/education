@@ -19,6 +19,15 @@ $(document).on('blur', '#expM', function(){
 	$(this).css({'opacity': '0'});
 })
 
+
+/*定制部分*/
+var height = document.documentElement.clientHeight;
+$('.page_set').css({'height': height+'px','top': height+'px'});
+
+$('.done_romove').click(function(){
+	$(this).parents('.page_set').hide().animate({'top': height+'px'}, 250);
+})
+
 /*经验定制*/
 $(document).on('click', '#expMade', function(){
 	$('#expPopover').show().animate({'top': '0px'},250);
