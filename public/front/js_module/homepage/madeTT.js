@@ -32,3 +32,7 @@ $('.done_romove').click(function(){
 $(document).on('click', '#expMade', function(){
 	$('#expPopover').show().animate({'top': '0px'},250);
 })
+
+$('#noexpCheckbox').click(function(){
+	console.log($('input[name="expCheckbox"]:checkbox').val());
+})

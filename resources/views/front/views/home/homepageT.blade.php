@@ -119,7 +119,7 @@ $signPackage = $jssdk->GetSignPackage();
 
                         <div class="checkbox-inline">
                             <label class="cr-styled">
-                                <input type="checkbox">
+                                <input type="checkbox" name="expChexkbox">
                                 <i class="fa"></i> 
                                 高中生
                             </label>
@@ -127,7 +127,7 @@ $signPackage = $jssdk->GetSignPackage();
 
                         <div class="checkbox-inline">
                             <label class="cr-styled">
-                                <input type="checkbox">
+                                <input type="checkbox" name="expChexkbox">
                                 <i class="fa"></i> 
                                 初中生
                             </label>
@@ -135,7 +135,7 @@ $signPackage = $jssdk->GetSignPackage();
 
                         <div class="checkbox-inline">
                             <label class="cr-styled">
-                                <input type="checkbox">
+                                <input type="checkbox" name="expChexkbox">
                                 <i class="fa"></i> 
                                 小学生
                             </label>
@@ -143,7 +143,7 @@ $signPackage = $jssdk->GetSignPackage();
 
                         <div class="checkbox-inline">
                             <label class="cr-styled">
-                                <input type="checkbox">
+                                <input type="checkbox" name="expChexkbox" id="noexpCheckbox">
                                 <i class="fa"></i> 
                                 无经验
                             </label>
@@ -204,7 +204,7 @@ $signPackage = $jssdk->GetSignPackage();
 	    <div id="my_functions">
 	        <div class="row" class="my_function function_child" style="margin: 0px;">
 
-	       		<div id="my_functions">
+	       		<!-- <div id="my_functions">
 		            <div class="row" class="my_function function_child">
 		            	<div class="col-xs-3 my_function_type" id="addChild">
 		                    <div class="my_function_top">
@@ -216,9 +216,7 @@ $signPackage = $jssdk->GetSignPackage();
 		                </div>
 		                
 		            </div>
-		            <!-- <div class="row" class="my_function">
-		            </div> -->
-		        </div>
+		        </div> -->
 		        <!-- <div class="jiange" style="width:100%;height:12px;background:#F2F5EA;"></div> -->
 	        
 
