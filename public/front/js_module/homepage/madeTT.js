@@ -209,7 +209,7 @@ $(document).on('click', '#priceMade', function(){
 
 	if (price) {
 		var v = price.split("-");
-		console.log(v[1]);
+		v[1] = parseInt(v[1])-1;
 		pricePicker.pickers[0].setSelectedValue(v[0]);
 		pricePicker.pickers[1].setSelectedValue(v[1]);
 		if (v[0] == 1)
