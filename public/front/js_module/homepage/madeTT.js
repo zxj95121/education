@@ -199,18 +199,18 @@ $(document).on('click', '#priceMade', function(){
 
 
 	pricePicker.show(function(SelectedItem) {
-		console.log(SelectedItem);
-		$('#priceMade').val(SelectedItem[0].text);
-		$('#priceMade').attr('price', SelectedItem[0].value);
+		$('#priceMade').val(SelectedItem[1].text);
+		$('#priceMade').attr('price', SelectedItem[0].value + '-' + SelectedItem[1].value);
 		// ajaxSession();
 	})
 
-	// var price = $('#priceMade').attr('price');
+	var price = $('#priceMade').attr('price');
+	var pa = price.split('-');
 
-	// if (price) {
-	// 	var v = price;
-	// 	pricePicker.pickers[0].setSelectedValue(v);
-	// } else {
-	// 	pricePicker.pickers[0].setSelectedValue('100');
-	// }
+	if (price) {
+		var v = pa;
+		pricePicker.pickers[0].setSelectedValue(v[0], v[1]);
+	} else {
+		pricePicker.pickers[0].setSelectedValue(1, 50);
+	}
 })
