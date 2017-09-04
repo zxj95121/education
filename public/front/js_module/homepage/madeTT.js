@@ -169,7 +169,6 @@ $('#done_ok1').click(function(){
 pricePicker = 0;
 $(document).on('click', '#priceMade', function(){
 	pricePicker = new mui.PopPicker();
-
 	var children = 'children';
 
 	var priceArr = new Array();
@@ -194,8 +193,9 @@ $(document).on('click', '#priceMade', function(){
 		j += 100;
 	}
 
-
-	pricePicker.setData(priceArr);
+	pricePicker.pickers[0].setSelectedIndex(1);
+	pricePicker.pickers[1].setSelectedIndex(1);
+	// pricePicker.setData(priceArr);
 	pricePicker.show(function(SelectedItem) {
 		console.log(SelectedItem);
 		$('#priceMade').val(SelectedItem[0].text);
