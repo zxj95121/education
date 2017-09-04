@@ -208,8 +208,10 @@ $(document).on('click', '#priceMade', function(){
 
 	if (price) {
 		var v = price.split("-");
-		pricePicker.pickers[0].setSelectedValue(v[0], v[1]);
+		pricePicker.pickers[0].setSelectedValue(v[0]);
+		pricePicker.pickers[1].setSelectedValue(v[1]);
 	} else {
-		pricePicker.pickers[0].setSelectedValue(1, 50);
+		pricePicker.pickers[0].setSelectedValue(1);
+		pricePicker.pickers[1].setSelectedValue(50);
 	}
 })
