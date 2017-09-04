@@ -123,6 +123,9 @@ $signPackage = $jssdk->GetSignPackage();
                     </div>
                     @endforeach
                 </div>
+
+                <br>
+                <p style="text-decoration: underline;" id="noHobby">没有找到特长，点我联系管理员。</p>
             </div>
         </div>
 
@@ -488,5 +491,40 @@ $signPackage = $jssdk->GetSignPackage();
 
 		});
 	</script>
+
+    <script type="text/javascript">
+
+            /*特长添加新内容*/
+            $('#noHobby').click(function(){
+                window.openIndex = layer.open({
+                    type: 1
+                    ,content: '<div class="weui-cells__title">特长申请</div><div class="weui-cells weui-cells_form"> <div class="weui-cell"> <div class="weui-cell__hd"><label class="weui-label">特长名称</label></div> <div class="weui-cell__bd"> <input class="weui-input" id="input_newHobby" type="text" placeholder="请输入您的特长"> </div> </div> <div class="weui-btn-area"> <a class="weui-btn weui-btn_primary" href="javascript:" id="addHobby" onclick="addHobbyFunc();">提交</a> </div>'
+                    ,anim: 'up'
+                    ,style: 'position:fixed; top:26%; left:0; width: 100%; height: 200px; padding:10px 0; border:none;'
+                });
+            })
+
+
+        function addHobbyFunc(){
+            var name = $('#input_newHobby').val();
+            $.ajax({
+                url: '/front/addNewHobby',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    name: name
+                },
+                success: function(data){
+                    layer.close(window.openIndex);
+                    layer.open({
+                        content: '提交申请成功，请耐心等待管理员审核。'
+                        ,skin: 'msg'
+                        ,time: 2 //2秒后自动关闭
+                    });
+                }
+            })
+        }
+
+    </script>
 </body>
 </html>
