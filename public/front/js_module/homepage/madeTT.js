@@ -210,11 +210,14 @@ $(document).on('click', '#priceMade', function(){
 	if (price) {
 		var v = price.split("-");
 		console.log(v[1]);
-		pricePicker.pickers[0].setSelectedValue(''+v[0]);
-		pricePicker.pickers[1].setSelectedValue(''+v[1]);
-		pricePicker.pickers[1].setSelectedIndex(4);
+		pricePicker.pickers[0].setSelectedValue(v[0]);
+		pricePicker.pickers[1].setSelectedValue(v[1]);
+		if (v[0] == 1)
+			pricePicker.pickers[1].setSelectedIndex((v[1]-30)%5);
+		else
+			pricePicker.pickers[1].setSelectedIndex((v[1]-1000)%100);
 	} else {
 		pricePicker.pickers[0].setSelectedValue('1');
-		pricePicker.pickers[1].setSelectedValue('50');
+		pricePicker.pickers[1].setSelectedIndex(4);
 	}
 })
