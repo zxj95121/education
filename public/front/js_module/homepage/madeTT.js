@@ -211,6 +211,7 @@ $(document).on('click', '#priceMade', function(){
 		var v = price.split("-");
 		v[1] = parseInt(v[1]);
 		pricePicker.pickers[0].setSelectedIndex(parseInt(v[0])-1);
+		console.log(v[0]);
 		if (v[0] == 1)
 			pricePicker.pickers[1].setSelectedIndex((v[1]-30)%5);
 		else
