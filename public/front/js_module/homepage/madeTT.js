@@ -175,7 +175,7 @@ $(document).on('click', '#priceMade', function(){
 	priceArr[0]['value'] = '1';
 	priceArr[0]['text'] = '按时结算';
 	priceArr[0]['children'] = new Array();
-	for(var i = 0,j=30;j <= 120; i++){
+	for(var i = 0,j=30;j <= 40; i++){
 		priceArr[0]['children'][i] = new Object();
 		priceArr[0]['children'][i]['value'] = j;
 		priceArr[0]['children'][i]['text'] = j+'元/时';
@@ -185,7 +185,7 @@ $(document).on('click', '#priceMade', function(){
 	priceArr[1]['value'] = '2';
 	priceArr[1]['text'] = '按月结算';
 	priceArr[1]['children'] = new Array();
-	for(var i = 0,j=1000;j <= 5000; i++){
+	for(var i = 0,j=1000;j <= 1200; i++){
 		priceArr[1]['children'][i] = new Object();
 		priceArr[1]['children'][i]['value'] = j;
 		priceArr[1]['children'][i]['text'] = j+'元/月';
