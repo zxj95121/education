@@ -37,9 +37,6 @@ $signPackage = $jssdk->GetSignPackage();
 		    width: 18px;
 		    height: 18px;
 		}
-        .checkbox-inline{
-            margin: 10px 0px 10px;
-        }
     </style>
 </head>
 <body>
@@ -164,7 +161,7 @@ $signPackage = $jssdk->GetSignPackage();
                 <div class="mui-content" style="padding: 6px;">
                     <div class="col-md-9">
 
-                        <div class="checkbox-inline">
+                        <div class="checkbox-inline" style="margin: 10px 0px 10px;">
                             <label class="cr-styled">
                                 <input type="checkbox" name="expCheckbox" class="expCheckbox" value="1">
                                 <i class="fa"></i> 
@@ -172,7 +169,7 @@ $signPackage = $jssdk->GetSignPackage();
                             </label>
                         </div>
 
-                        <div class="checkbox-inline">
+                        <div class="checkbox-inline" style="margin: 10px 0px 10px;">
                             <label class="cr-styled">
                                 <input type="checkbox" name="expCheckbox" class="expCheckbox" value="2">
                                 <i class="fa"></i> 
@@ -180,7 +177,7 @@ $signPackage = $jssdk->GetSignPackage();
                             </label>
                         </div>
 
-                        <div class="checkbox-inline">
+                        <div class="checkbox-inline" style="margin: 10px 0px 10px;">
                             <label class="cr-styled">
                                 <input type="checkbox" name="expCheckbox" class="expCheckbox" value="3">
                                 <i class="fa"></i> 
@@ -188,7 +185,7 @@ $signPackage = $jssdk->GetSignPackage();
                             </label>
                         </div>
 
-                        <div class="checkbox-inline">
+                        <div class="checkbox-inline" style="margin: 10px 0px 10px;">
                             <label class="cr-styled">
                                 <input type="checkbox" name="expCheckbox" value="4" id="noexpCheckbox">
                                 <i class="fa"></i> 
