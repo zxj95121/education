@@ -46,7 +46,7 @@ $('.expCheckbox').click(function(){
 $(document).on('touchstart', '#done_ok_exp', function(){
 	var expArr = new Array();
 	var str = '';
-	$('input[class="expCheckbox"]:checked').each(function(){
+	$('input[name="expCheckbox"]:checked').each(function(){
 		expArr[expArr.length] = $(this).val();
 		str += '、' +$(this).parents('.cr-styled').find('font').html();
 	})
