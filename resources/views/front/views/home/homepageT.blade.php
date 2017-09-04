@@ -55,7 +55,7 @@ $signPackage = $jssdk->GetSignPackage();
                             <div class="mui-input-row">
                                 <label>时间定制 <span style="color:red;">*</span></label>
 
-                                <input type="text" placeholder="点我设置辅导时间" id="timeM" readonly="readonly">
+                                <input type="text" placeholder="点我设置辅导时间" id="timeMade" readonly="readonly">
                             </div>
 
                             <div class="mui-input-row">
@@ -72,13 +72,13 @@ $signPackage = $jssdk->GetSignPackage();
                             <div class="mui-input-row">
                                 <label>学科定制 <span style="color:red;">*</span></label>
 
-                                <input type="text" placeholder="请选择自己擅长学科" id="subjectM" readonly="readonly">
+                                <input type="text" placeholder="请选择自己擅长学科" id="subjectMade" readonly="readonly">
                             </div>
 
                             <div class="mui-input-row">
                                 <label>特长定制</label>
 
-                                <input type="text" placeholder="请选择自己的特长" id="hobbyM" readonly="readonly">
+                                <input type="text" placeholder="请选择自己的特长" id="hobbyMade" readonly="readonly">
                             </div>
 
                             <div class="mui-input-row">
@@ -90,13 +90,13 @@ $signPackage = $jssdk->GetSignPackage();
                             <div class="mui-input-row">
                                 <label>薪资定制</label>
 
-                                <input type="text" placeholder="请选择辅导期望薪资" id="moneyM" readonly="readonly">
+                                <input type="text" placeholder="请选择辅导期望薪资" id="moneyMade" readonly="readonly">
                             </div>
 
                             <div class="mui-input-row">
                                 <label>地点定制</label>
 
-                                <input type="text" placeholder="请选择期望辅导地点" id="placeM" readonly="readonly">
+                                <input type="text" placeholder="请选择期望辅导地点" id="placeMade" readonly="readonly">
                             </div>
                         </form>
                     </div>
