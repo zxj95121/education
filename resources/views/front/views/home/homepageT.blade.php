@@ -119,7 +119,7 @@ $signPackage = $jssdk->GetSignPackage();
 
                         <div class="checkbox-inline">
                             <label class="cr-styled">
-                                <input type="checkbox" name="expChexkbox">
+                                <input type="checkbox" name="expChexkbox" value="1">
                                 <i class="fa"></i> 
                                 高中生
                             </label>
@@ -127,7 +127,7 @@ $signPackage = $jssdk->GetSignPackage();
 
                         <div class="checkbox-inline">
                             <label class="cr-styled">
-                                <input type="checkbox" name="expChexkbox">
+                                <input type="checkbox" name="expChexkbox" value="2">
                                 <i class="fa"></i> 
                                 初中生
                             </label>
@@ -135,7 +135,7 @@ $signPackage = $jssdk->GetSignPackage();
 
                         <div class="checkbox-inline">
                             <label class="cr-styled">
-                                <input type="checkbox" name="expChexkbox">
+                                <input type="checkbox" name="expChexkbox" value="3">
                                 <i class="fa"></i> 
                                 小学生
                             </label>
@@ -143,7 +143,7 @@ $signPackage = $jssdk->GetSignPackage();
 
                         <div class="checkbox-inline">
                             <label class="cr-styled">
-                                <input type="checkbox" name="expChexkbox" id="noexpCheckbox">
+                                <input type="checkbox" name="expChexkbox" value="4" id="noexpCheckbox">
                                 <i class="fa"></i> 
                                 无经验
                             </label>
