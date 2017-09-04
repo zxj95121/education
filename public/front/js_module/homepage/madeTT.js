@@ -170,17 +170,7 @@ pricePicker = 0;
 $(document).on('click', '#priceMade', function(){
 	pricePicker = new mui.PopPicker();
 
-		children: [{
-	        value: "120101",
-            text: "和平区"
-        }, {
-            value: "120102",
-            text: "河东区"
-        }, {
-            value: "120104",
-            text: "南开区"
-        }
-        ]
+	var children = 'children';
 
 	var priceArr = new Array();
 	priceArr[0] = new Object();
