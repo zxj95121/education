@@ -205,10 +205,9 @@ $(document).on('click', '#priceMade', function(){
 	})
 
 	var price = $('#priceMade').attr('price');
-	var pa = price.split('-');
 
 	if (price) {
-		var v = pa;
+		var v = price.split("-");
 		pricePicker.pickers[0].setSelectedValue(v[0], v[1]);
 	} else {
 		pricePicker.pickers[0].setSelectedValue(1, 50);
