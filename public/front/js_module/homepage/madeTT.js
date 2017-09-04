@@ -209,7 +209,7 @@ $(document).on('click', '#priceMade', function(){
 	if (price) {
 		var v = price.split("-");
 		pricePicker.pickers[0].setSelectedValue(v[0]);
-		pricePicker.pickers[1].setSelectedValue(v[1]);
+		pricePicker.pickers[1].setSelectedValue(parseInt(v[1]));
 	} else {
 		pricePicker.pickers[0].setSelectedValue(1);
 		pricePicker.pickers[1].setSelectedValue(50);
