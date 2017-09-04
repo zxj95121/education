@@ -103,7 +103,35 @@ class HomeController extends Controller
                 }
 	    		return view('front.views.home.homepage',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'child'=>$child,'orderstatus'=>$orderstatus,'parentDetail'=>$parentDetail,'newUserId'=>$newUserId]);
 	    	} elseif ($res['type'] == '3') {
-	    		return view('front.views.home.homepageT',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'newUserId'=>$newUserId]);
+
+                                /*学科信息查询*/
+                $subject = SubjectOne::where('status', 1)
+                    ->select('id', 'name')
+                    ->get()
+                    ->toArray();
+                foreach ($subject as $key => $value) {
+                    $subject[$key]['two'] = SubjectTwo::where('pid', $value['id'])
+                        ->select('id', 'name', 'pid')
+                        ->get()
+                        ->toArray();
+                }
+                
+                /*爱好特长查询*/
+                $hobby = Hobby::where('status', '1')
+                    ->orderBy('type')
+                    ->groupBy('type')
+                    ->select('type')
+                    ->get()
+                    ->toArray();
+                foreach ($hobby as $key => $value) {
+                    $hobby[$key]['two'] = Hobby::where('type', $value['type'])
+                        ->where('status', 1)
+                        ->select('id', 'name')
+                        ->get()
+                        ->toArray();
+                }
+
+	    		return view('front.views.home.homepageT',['userType'=>$res['userType'][0],'res'=>$res['data'][0],'newUserId'=>$newUserId, 'hobby'=>$hobby, 'subject'=>$subject]);
 	    	} else {
 	    		exit;
 	    	}

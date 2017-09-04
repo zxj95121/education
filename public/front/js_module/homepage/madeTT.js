@@ -59,3 +59,8 @@ $(document).on('touchstart', '#done_ok_exp', function(){
 		$('#expPopover').hide();
 	}, 250);
 })
+
+/*特长*/
+$(document).on('click', '#hobbyMade', function(){
+	$('#hobbyPopover').show().animate({'top': '0px'},250);
+})
