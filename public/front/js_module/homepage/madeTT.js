@@ -42,3 +42,20 @@ $('#noexpCheckbox').click(function(){
 $('.expCheckbox').click(function(){
 	$('#noexpCheckbox').attr('checked', false);
 })
+
+$(document).on('touchstart', '#done_ok_exp', function(){
+	var expArr = new Array();
+	var str = '';
+	$('input[class="expCheckbox"]:checked').each(function(){
+		expArr[expArr.length] = $(this).val();
+		str += $(this).parents('.cr-styled').text() + '、';
+	})
+
+	$('#expMade').val(str.substr(0, -1));
+	$('#expMade').attr('val', expArr.join('-'));
+
+	$(this).parents('.page_set').animate({'top': height+'px'}, 250);
+	setTimeout(function(){
+		$('#subjectPopover').hide();
+	}, 250);
+})
