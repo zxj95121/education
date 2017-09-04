@@ -37,5 +37,5 @@ $('#noexpCheckbox').click(function(){
 	$('input[name="expChexkbox"]:checked').each(function(){
 		$(this).attr('checked', false);
 	})
-	$(this).attr('checked', true);
+	$(this).attr('checked', "checked");
 })
