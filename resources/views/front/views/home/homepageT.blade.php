@@ -37,6 +37,9 @@ $signPackage = $jssdk->GetSignPackage();
 		    width: 18px;
 		    height: 18px;
 		}
+        .checkbox-inline{
+            margin: 10px 0px 10px;
+        }
     </style>
 </head>
 <body>
