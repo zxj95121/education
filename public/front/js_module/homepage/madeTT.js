@@ -209,10 +209,9 @@ $(document).on('click', '#priceMade', function(){
 
 	if (price) {
 		var v = price.split("-");
-		v[0] = parseInt(v[0])-1;
 		v[1] = parseInt(v[1]);
-		pricePicker.pickers[0].setSelectedIndex(v[0]);
-		if (v[0] == 0)
+		pricePicker.pickers[0].setSelectedIndex(parseInt(v[0])-1);
+		if (v[0] == 1)
 			pricePicker.pickers[1].setSelectedIndex((v[1]-30)%5);
 		else
 			pricePicker.pickers[1].setSelectedIndex((v[1]-1000)%100);
