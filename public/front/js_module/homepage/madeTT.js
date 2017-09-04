@@ -64,3 +64,45 @@ $(document).on('touchstart', '#done_ok_exp', function(){
 $(document).on('click', '#hobbyMade', function(){
 	$('#hobbyPopover').show().animate({'top': '0px'},250);
 })
+
+/*特长方面的js*/
+$('#hobbyPopover button').click(function(){
+	if ($(this).hasClass('mui-btn-primary')) {
+		$(this).removeClass('mui-btn-primary');
+		$(this).attr('active', '0');
+	} else {
+		$(this).addClass('mui-btn-primary');
+		$(this).attr('active', '1');
+	}
+})
+
+$('#done_ok2').click(function(){
+	var cdom = $('#hobbyPopover button[active="1"]');
+	var html = '';
+	var ids = new Array();
+	cdom.each(function(){
+		if (ids.length == 0)
+			html += $(this).html();
+		else if (ids.length == 1)
+			html = html + '、' + $(this).html();
+		else
+			html += '等';
+		ids[ids.length] = $(this).attr('hid');
+	})
+	if (ids.length > 3) {
+		mui.alert('最多填写三个特长项','提示', '确认');
+		return false;
+	}
+	if (html) {
+		$('#hobbyMade').val(html);
+		$('#hobbyMade').attr('hid', ids.join('-'));
+	} else {
+		$('#hobbyMade').val('');
+		$('#hobbyMade').attr('hid', '');
+	}
+	$(this).parents('.page_set').animate({'top': height+'px'}, 250);
+	setTimeout(function(){
+		$('#hobbyPopover').hide();
+	}, 250);
+	ajaxSession();
+})
