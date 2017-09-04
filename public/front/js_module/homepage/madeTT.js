@@ -48,7 +48,7 @@ $(document).on('touchstart', '#done_ok_exp', function(){
 	var str = '';
 	$('input[class="expCheckbox"]:checked').each(function(){
 		expArr[expArr.length] = $(this).val();
-		str += $(this).parents('.cr-styled').text() + '、';
+		str += $(this).parents('.cr-styled').find('font').html() + '、';
 	})
 console.log(str);
 	$('#expMade').val(str.substr(0, -1));

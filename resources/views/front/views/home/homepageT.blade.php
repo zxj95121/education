@@ -121,7 +121,7 @@ $signPackage = $jssdk->GetSignPackage();
                             <label class="cr-styled">
                                 <input type="checkbox" name="expCheckbox" class="expCheckbox" value="1">
                                 <i class="fa"></i> 
-                                高中生
+                                <font>高中生</font>
                             </label>
                         </div>
 
@@ -129,7 +129,7 @@ $signPackage = $jssdk->GetSignPackage();
                             <label class="cr-styled">
                                 <input type="checkbox" name="expCheckbox" class="expCheckbox" value="2">
                                 <i class="fa"></i> 
-                                初中生
+                                <font>初中生</font>
                             </label>
                         </div>
 
@@ -137,7 +137,7 @@ $signPackage = $jssdk->GetSignPackage();
                             <label class="cr-styled">
                                 <input type="checkbox" name="expCheckbox" class="expCheckbox" value="3">
                                 <i class="fa"></i> 
-                                小学生
+                                <font>小学生</font>
                             </label>
                         </div>
 
@@ -145,7 +145,7 @@ $signPackage = $jssdk->GetSignPackage();
                             <label class="cr-styled">
                                 <input type="checkbox" name="expCheckbox" value="4" id="noexpCheckbox">
                                 <i class="fa"></i> 
-                                无经验
+                                <font>无经验</font>
                             </label>
                         </div>
 
