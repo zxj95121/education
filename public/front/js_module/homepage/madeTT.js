@@ -39,6 +39,6 @@ $('#noexpCheckbox').click(function(){
 	})
 })
 
-$('.expChexkbox').click(function(){
+$('.expCheckbox').click(function(){
 	$('#noexpCheckbox').attr('checked', false);
 })
