@@ -90,7 +90,7 @@ $signPackage = $jssdk->GetSignPackage();
                             <div class="mui-input-row">
                                 <label>薪资定制</label>
 
-                                <input type="text" placeholder="请选择辅导期望薪资" id="moneyMade" readonly="readonly">
+                                <input type="text" placeholder="请选择辅导期望薪资" id="priceMade" readonly="readonly">
                             </div>
 
                             <div class="mui-input-row">

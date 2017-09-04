@@ -141,6 +141,8 @@ $('#done_ok1').click(function(){
 			html += $(this).html();
 		else if (ids.length == 1)
 			html = html + '、' + $(this).html();
+		else if (ids.length == 2)
+			html = html + '、' + $(this).html();
 		else
 			html += '等';
 		ids[ids.length] = $(this).attr('stid');
@@ -161,4 +163,39 @@ $('#done_ok1').click(function(){
 		$('#subjectPopover').hide();
 	}, 250);
 	// ajaxSession();
+})
+
+/*薪水定制*/
+pricePicker = 0;
+$(document).on('click', '#priceMade', function(){
+var picker = new mui.PopPicker({
+    layer: 2
+});
+    picker.setData([{
+        value: '110000',
+        text: '北京市',
+        children: [{
+                value: "110101",
+                text: "东城区"
+        }]
+    }, {
+        value: '120000',
+        text: '天津市',
+        children: [{
+	        value: "120101",
+            text: "和平区"
+        }, {
+            value: "120102",
+            text: "河东区"
+        }, {
+            value: "120104",
+            text: "南开区"
+        }
+        ]
+    }])
+picker.pickers[0].setSelectedIndex(1);
+picker.pickers[1].setSelectedIndex(1);
+picker.show(function(SelectedItem) {
+	console.log(SelectedItem);
+})
 })
