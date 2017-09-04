@@ -70,15 +70,14 @@ $(document).on('click', '#subjectMade', function(){
 
 /*特长方面的js*/
 $('#hobbyPopover button').click(function(){
-	if($('#hobbyPopover button[active="1"]').length == 3) {
-		mui.alert('最多填写三个特长项','提示', '确认');
-		return;
-	}
-
 	if ($(this).hasClass('mui-btn-primary')) {
 		$(this).removeClass('mui-btn-primary');
 		$(this).attr('active', '0');
 	} else {
+		if($('#hobbyPopover button[active="1"]').length == 3) {
+			mui.alert('最多填写三个特长项','提示', '确认');
+			return;
+		}
 		$(this).addClass('mui-btn-primary');
 		$(this).attr('active', '1');
 	}
@@ -118,15 +117,16 @@ $('#done_ok2').click(function(){
 /*学科选课方面的js*/
 
 $('#subjectPopover button').click(function(){
-	if($('#subjectPopover button[active="1"]').length == 10) {
-		mui.alert('最多填写十个擅长学科','提示', '确认');
-		return;
-	}
-
+	
 	if ($(this).hasClass('mui-btn-primary')) {
 		$(this).removeClass('mui-btn-primary');
 		$(this).attr('active', '0');
 	} else {
+		if($('#subjectPopover button[active="1"]').length == 10) {
+			mui.alert('最多填写十个擅长学科','提示', '确认');
+			return;
+		}
+		
 		$(this).addClass('mui-btn-primary');
 		$(this).attr('active', '1');
 	}
