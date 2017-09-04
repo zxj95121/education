@@ -50,8 +50,8 @@ $(document).on('touchstart', '#done_ok_exp', function(){
 		expArr[expArr.length] = $(this).val();
 		str += $(this).parents('.cr-styled').find('font').html() + '、';
 	})
-console.log(str);
-	$('#expMade').val(str.substr(0, -1));
+	$('#expMade').val(str.substring(0, -1));
+	console.log(str.substring(0, -1));
 	$('#expMade').attr('val', expArr.join('-'));
 
 	$(this).parents('.page_set').animate({'top': height+'px'}, 250);
