@@ -201,6 +201,7 @@ $(document).on('click', '#priceMade', function(){
 	pricePicker.show(function(SelectedItem) {
 		$('#priceMade').val(SelectedItem[1].text);
 		$('#priceMade').attr('price', SelectedItem[0].value + '-' + SelectedItem[1].value);
+		pricePicker.dispose();
 		// ajaxSession();
 	})
 
@@ -211,6 +212,7 @@ $(document).on('click', '#priceMade', function(){
 		console.log(v[1]);
 		pricePicker.pickers[0].setSelectedValue(''+v[0]);
 		pricePicker.pickers[1].setSelectedValue(''+v[1]);
+		picker.pickers[1].setSelectedIndex(4);
 	} else {
 		pricePicker.pickers[0].setSelectedValue('1');
 		pricePicker.pickers[1].setSelectedValue('50');
