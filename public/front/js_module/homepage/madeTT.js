@@ -40,5 +40,5 @@ $('#noexpCheckbox').click(function(){
 })
 
 $('.expChexkbox').click(function(){
-	$('#expChexkbox').attr('checked', false);
+	$('#noexpChexkbox').attr('checked', false);
 })
