@@ -34,7 +34,7 @@ $(document).on('click', '#expMade', function(){
 })
 
 $('#noexpCheckbox').click(function(){
-	$('input[name="expCheckbox"]:checked').each(function(){
+	$('input[name="expChexkbox"]:checked').each(function(){
 		console.log($(this).val());
 	})
 	// console.log(val());
