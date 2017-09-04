@@ -169,35 +169,33 @@ $('#done_ok1').click(function(){
 pricePicker = 0;
 $(document).on('click', '#priceMade', function(){
 	pricePicker = new mui.PopPicker();
-	var children = 'children';
 
 	var priceArr = new Array();
 	priceArr[0] = new Object();
 	priceArr[0]['value'] = '1';
 	priceArr[0]['text'] = '按时结算';
-	priceArr[0][children] = new Array();
+	priceArr[0]['children'] = new Array();
 	for(var i = 0,j=30;j <= 120; i++){
-		priceArr[0][children][i] = new Object();
-		priceArr[0][children][i]['value'] = j;
-		priceArr[0][children][i]['text'] = j+'元/时';
+		priceArr[0]['children'][i] = new Object();
+		priceArr[0]['children'][i]['value'] = j;
+		priceArr[0]['children'][i]['text'] = j+'元/时';
 		j += 5;
 	}
 	priceArr[1] = new Object();
 	priceArr[1]['value'] = '2';
 	priceArr[1]['text'] = '按月结算';
-	priceArr[1][children] = new Array();
+	priceArr[1]['children'] = new Array();
 	for(var i = 0,j=1000;j <= 5000; i++){
-		priceArr[1][children][i] = new Object();
-		priceArr[1][children][i]['value'] = j;
-		priceArr[1][children][i]['text'] = j+'元/月';
+		priceArr[1]['children'][i] = new Object();
+		priceArr[1]['children'][i]['value'] = j;
+		priceArr[1]['children'][i]['text'] = j+'元/月';
 		j += 100;
 	}
 
 	
 	pricePicker.setData(priceArr);
-	pricePicker.pickers[0].setSelectedIndex(1);
-	pricePicker.pickers[1].setSelectedIndex(1);
-	
+
+
 	pricePicker.show(function(SelectedItem) {
 		console.log(SelectedItem);
 		$('#priceMade').val(SelectedItem[0].text);
