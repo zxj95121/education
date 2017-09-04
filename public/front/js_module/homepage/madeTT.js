@@ -208,6 +208,7 @@ $(document).on('click', '#priceMade', function(){
 
 	if (price) {
 		var v = price.split("-");
+		console.log(v[1]);
 		pricePicker.pickers[0].setSelectedValue(v[0]);
 		pricePicker.pickers[1].setSelectedValue(parseInt(v[1]));
 	} else {
