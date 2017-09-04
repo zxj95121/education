@@ -70,7 +70,7 @@ $(document).on('click', '#subjectMade', function(){
 
 /*特长方面的js*/
 $('#hobbyPopover button').click(function(){
-	if($('#shobbyPopover button[active="1"]').length == 3) {
+	if($('#hobbyPopover button[active="1"]').length == 3) {
 		mui.alert('最多填写三个特长项','提示', '确认');
 		return;
 	}
