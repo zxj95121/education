@@ -38,3 +38,7 @@ $('#noexpCheckbox').click(function(){
 		$(this).attr('checked', false);
 	})
 })
+
+$('.expChexkbox').click(function(){
+	$('#expChexkbox').attr('checked', false);
+})
