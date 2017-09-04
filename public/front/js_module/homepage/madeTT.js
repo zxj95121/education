@@ -126,7 +126,7 @@ $('#subjectPopover button').click(function(){
 			mui.alert('最多填写十个擅长学科','提示', '确认');
 			return;
 		}
-		
+
 		$(this).addClass('mui-btn-primary');
 		$(this).attr('active', '1');
 	}
@@ -143,7 +143,7 @@ $('#done_ok1').click(function(){
 			html = html + '、' + $(this).html();
 		else
 			html += '等';
-		ids[ids.length] = $(this).attr('hid');
+		ids[ids.length] = $(this).attr('stid');
 	})
 	if (ids.length > 10) {
 		mui.alert('最多填写十个擅长学科','提示', '确认');
@@ -151,10 +151,10 @@ $('#done_ok1').click(function(){
 	}
 	if (html) {
 		$('#subjectMade').val(html);
-		$('#subjectMade').attr('hid', ids.join('-'));
+		$('#subjectMade').attr('stid', ids.join('-'));
 	} else {
 		$('#subjectMade').val('');
-		$('#subjectMade').attr('hid', '');
+		$('#subjectMade').attr('stid', '');
 	}
 	$(this).parents('.page_set').animate({'top': height+'px'}, 250);
 	setTimeout(function(){
