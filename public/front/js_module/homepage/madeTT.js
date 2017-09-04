@@ -117,7 +117,6 @@ $('#subjectPopover button').click(function(){
 		$(this).removeClass('mui-btn-primary');
 		$(this).attr('active', '0');
 	} else {
-		$('#subjectPopover button[active="1"]').removeClass('mui-btn-primary');
 		$(this).addClass('mui-btn-primary');
 		$(this).attr('active', '1');
 	}
@@ -125,9 +124,27 @@ $('#subjectPopover button').click(function(){
 
 $('#done_ok1').click(function(){
 	var cdom = $('#subjectPopover button[active="1"]');
-	if (cdom) {
-		$('#subjectMade').val(cdom.html());
-		$('#subjectMade').attr('stid', cdom.attr('stid'));
+	var html = '';
+	var ids = new Array();
+	cdom.each(function(){
+		if (ids.length == 0)
+			html += $(this).html();
+		else if (ids.length == 1)
+			html = html + '、' + $(this).html();
+		else
+			html += '等';
+		ids[ids.length] = $(this).attr('hid');
+	})
+	if (ids.length > 3) {
+		mui.alert('最多填写三个特长项','提示', '确认');
+		return false;
+	}
+	if (html) {
+		$('#subjectMade').val(html);
+		$('#subjectMade').attr('hid', ids.join('-'));
+	} else {
+		$('#subjectMade').val('');
+		$('#subjectMade').attr('hid', '');
 	}
 	$(this).parents('.page_set').animate({'top': height+'px'}, 250);
 	setTimeout(function(){
