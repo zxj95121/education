@@ -168,20 +168,9 @@ $('#done_ok1').click(function(){
 /*薪水定制*/
 pricePicker = 0;
 $(document).on('click', '#priceMade', function(){
-var picker = new mui.PopPicker({
-    layer: 2
-});
-    picker.setData([{
-        value: '110000',
-        text: '北京市',
-        children: [{
-                value: "110101",
-                text: "东城区"
-        }]
-    }, {
-        value: '120000',
-        text: '天津市',
-        children: [{
+	pricePicker = new mui.PopPicker();
+
+		children: [{
 	        value: "120101",
             text: "和平区"
         }, {
@@ -192,10 +181,44 @@ var picker = new mui.PopPicker({
             text: "南开区"
         }
         ]
-    }])
-picker.pickers[0].setSelectedIndex(1);
-picker.pickers[1].setSelectedIndex(1);
-picker.show(function(SelectedItem) {
-	console.log(SelectedItem);
-})
+
+	var priceArr = new Array();
+	priceArr[0] = new Object();
+	priceArr[0]['value'] = '1';
+	priceArr[0]['text'] = '按时结算';
+	priceArr[0][children] = new Array();
+	for(var i = 0,j=30;j <= 120; i++){
+		priceArr[0][children][i] = new Object();
+		priceArr[0][children][i]['value'] = j;
+		priceArr[0][children][i]['text'] = j+'元/时';
+		j += 5;
+	}
+	priceArr[1] = new Object();
+	priceArr[1]['value'] = '2';
+	priceArr[1]['text'] = '按月结算';
+	priceArr[1][children] = new Array();
+	for(var i = 0,j=1000;j <= 5000; i++){
+		priceArr[1][children][i] = new Object();
+		priceArr[1][children][i]['value'] = j;
+		priceArr[1][children][i]['text'] = j+'元/月';
+		j += 100;
+	}
+
+
+	pricePicker.setData(priceArr);
+	pricePicker.show(function(SelectedItem) {
+		console.log(SelectedItem);
+		$('#priceMade').val(SelectedItem[0].text);
+		$('#priceMade').attr('price', SelectedItem[0].value);
+		// ajaxSession();
+	})
+
+	// var price = $('#priceMade').attr('price');
+
+	// if (price) {
+	// 	var v = price;
+	// 	pricePicker.pickers[0].setSelectedValue(v);
+	// } else {
+	// 	pricePicker.pickers[0].setSelectedValue('100');
+	// }
 })
