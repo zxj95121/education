@@ -126,6 +126,28 @@ $signPackage = $jssdk->GetSignPackage();
             </div>
         </div>
 
+        <div class="page__bd page_set" id="subjectPopover">
+                <div class="weui-cells" style="margin-top:0px" >
+                    <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">
+                        <div><div class="placeholder glyphicon glyphicon-remove done_romove"></div></div>
+                        <div class="weui-flex__item"><div class="placeholder" style="text-align:center;">学科定制</div></div>
+                        <div><div class="placeholder glyphicon glyphicon-ok" id="done_ok1"></div></div>
+                    </div>
+                </div>
+                <div style="width: 100%;margin: 0 auto;" class="div_detail">
+                    <div class="mui-content" style="padding: 6px;">
+                        @foreach($subject as $value)
+                        <div class="mui-col-xs-12 mui-col-sm-12 subject_type" sid="{{$value['id']}}">
+                            <h5>{{$value['name']}}</h5>
+                            @foreach($value['two'] as $v)
+                            <button type="button" class="mui-btn" stid="{{$v['id']}}" active="0">{{$v['name']}}</button>
+                            @endforeach
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
         <div class="page__bd page_set" id="expPopover">
             <div class="weui-cells" style="margin-top:0px" >
                 <div class="weui-cell weui-cell_access" style="height:40px;background:#22AAE8;color:#fff;">

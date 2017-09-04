@@ -64,6 +64,9 @@ $(document).on('touchstart', '#done_ok_exp', function(){
 $(document).on('click', '#hobbyMade', function(){
 	$('#hobbyPopover').show().animate({'top': '0px'},250);
 })
+$(document).on('click', '#subjectMade', function(){
+	$('#subjectPopover').show().animate({'top': '0px'},250);
+})
 
 /*特长方面的js*/
 $('#hobbyPopover button').click(function(){
@@ -104,5 +107,31 @@ $('#done_ok2').click(function(){
 	setTimeout(function(){
 		$('#hobbyPopover').hide();
 	}, 250);
-	ajaxSession();
+	// ajaxSession();
+})
+
+/*学科选课方面的js*/
+
+$('#subjectPopover button').click(function(){
+	if ($(this).hasClass('mui-btn-primary')) {
+		$(this).removeClass('mui-btn-primary');
+		$(this).attr('active', '0');
+	} else {
+		$('#subjectPopover button[active="1"]').removeClass('mui-btn-primary');
+		$(this).addClass('mui-btn-primary');
+		$(this).attr('active', '1');
+	}
+})
+
+$('#done_ok1').click(function(){
+	var cdom = $('#subjectPopover button[active="1"]');
+	if (cdom) {
+		$('#subjectMade').val(cdom.html());
+		$('#subjectMade').attr('stid', cdom.attr('stid'));
+	}
+	$(this).parents('.page_set').animate({'top': height+'px'}, 250);
+	setTimeout(function(){
+		$('#subjectPopover').hide();
+	}, 250);
+	// ajaxSession();
 })
